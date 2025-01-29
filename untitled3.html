@@ -76,7 +76,7 @@
 
     <script>
         // Inicialización de EmailJS
-        emailjs.init("Game"); // Sustituye 'tu_user_id' con tu User ID de EmailJS
+        emailjs.init("Kp5GMcHPz_W9T1EWF"); // Sustituye 'tu_user_id' con tu User ID de EmailJS
 
         const preguntas = [
             { pregunta: "¿Cuál es el lenguaje principal para la web?", opciones: ["Python", "JavaScript", "C++"], correcta: 1, puntos: 10 },
@@ -131,23 +131,29 @@
             document.getElementById("saveScoreForm").classList.remove("hidden");
         }
 
-        function guardarPuntuacion() {
-            let nombre = document.getElementById("playerName").value.trim();
-            if (nombre === "") return;
+function guardarPuntuacion() {
+    let nombre = document.getElementById("playerName").value.trim();
+    if (nombre === "") return;
 
-            // Enviar correo con la puntuación
-            let puntuacionData = {
-                nombre: nombre,
-                puntuacion: puntuacionTotal
-            };
+    // Crear el objeto con los datos correctos
+    let puntuacionData = {
+        nombre: nombre,
+        puntuacion: puntuacionTotal
+    };
 
-            emailjs.send("service_k3hdxdl", "template_3iaqcfo", puntuacionData)
-                .then(function(response) {
-                    alert("¡Puntuación enviada correctamente!");
-                }, function(error) {
-                    alert("Error al enviar la puntuación: " + error);
-                });
-        }
+    // Asegúrate de que los datos sean los correctos
+    console.log(puntuacionData); // Esto es para depurar, si ves que la estructura es correcta, puedes eliminar esta línea.
+
+    // Enviar correo con la puntuación
+    emailjs.send("service_k3hdxdl", "template_3iaqcfo", puntuacionData)
+        .then(function(response) {
+            alert("¡Puntuación enviada correctamente!");
+            console.log(response); // Puedes revisar la respuesta de la API aquí
+        }, function(error) {
+            console.log(error); // Aquí veremos el error real
+            alert("Error al enviar la puntuación: " + error.text);
+        });
+}
 
         cargarPregunta();
     </script>
