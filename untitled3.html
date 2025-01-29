@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Minijuego Tecno-Quiz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000;
+            color: #0ff;
+            font-family: 'Press Start 2P', cursive;
+            text-align: center;
+        }
+        .game-container {
+            background: #111;
+            border: 3px solid #ffcc00;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px #ffcc00;
+            display: inline-block;
+            margin-top: 30px;
+        }
+        .question {
+            font-size: 18px;
+            color: #ffcc00;
+            margin-bottom: 20px;
+        }
+        .option {
+            display: block;
+            background: #ff7700;
+            border: none;
+            color: white;
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+            box-shadow: 0px 5px 0px #770000;
+        }
+        .option:hover {
+            background: #ff0000;
+            box-shadow: 0px 2px 0px #770000;
+            transform: translateY(3px);
+        }
+        .score {
+            font-size: 20px;
+            color: #00ff00;
+            margin-top: 15px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🎮 Minijuego Tecno-Quiz</h1>
+    <div class="game-container" id="gameBox">
+        <p id="question" class="question"></p>
+        <div id="options"></div>
+        <p id="score" class="score"></p>
+        <div id="saveScoreForm" class="hidden">
+            <h2>🏆 ¡Fin del juego!</h2>
+            <p>Ingresa tu nombre para enviar tu puntuación:</p>
+            <input type="text" id="playerName" placeholder="Tu nombre">
+            <button onclick="guardarPuntuacion()">Enviar Puntuación</button>
+        </div>
+    </div>
+
+    <audio id="correctSound" src="the-correct-answer-33-183620.mp3" preload="auto"></audio>
+<audio id="wrongSound" src="wrong-buzzer-6268.mp3" preload="auto"></audio>
+
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+    <script>
+        // Inicialización de EmailJS
+        emailjs.init("Game"); // Sustituye 'tu_user_id' con tu User ID de EmailJS
+
+        const preguntas = [
+            { pregunta: "¿Cuál es el lenguaje principal para la web?", opciones: ["Python", "JavaScript", "C++"], correcta: 1, puntos: 10 },
+            { pregunta: "¿Qué significa CSS?", opciones: ["Cascading Style Sheets", "Computer Style System", "Creative Style Syntax"], correcta: 0, puntos: 10 },
+            { pregunta: "¿Cuál es el sistema operativo de Apple?", opciones: ["Windows", "Linux", "macOS"], correcta: 2, puntos: 10 },
+            { pregunta: "¿En qué año se lanzó la primera versión de HTML?", opciones: ["1993", "2001", "1989"], correcta: 0, puntos: 15 },
+            { pregunta: "¿Qué significa API?", opciones: ["Advanced Programming Interface", "Application Programming Interface", "Automated Program Integration"], correcta: 1, puntos: 10 },
+            { pregunta: "¿Qué lenguaje se usa para el diseño de páginas web?", opciones: ["HTML", "Python", "C"], correcta: 0, puntos: 10 },
+            { pregunta: "¿Qué significa WWW?", opciones: ["World Web Window", "Wide World Web", "World Wide Web"], correcta: 2, puntos: 10 },
+            { pregunta: "¿Qué empresa desarrolló el sistema operativo Windows?", opciones: ["Apple", "Microsoft", "IBM"], correcta: 1, puntos: 10 },
+            { pregunta: "¿Qué lenguaje es popular para desarrollo móvil?", opciones: ["Swift", "Java", "Ambos"], correcta: 2, puntos: 10 },
+            { pregunta: "¿Qué es un servidor?", opciones: ["Un programa", "Una computadora que proporciona servicios", "Un virus"], correcta: 1, puntos: 15 }
+        ];
+
+        let indicePregunta = 0;
+        let puntuacionTotal = 0;
+
+        function cargarPregunta() {
+            if (indicePregunta < preguntas.length) {
+                mostrarPreguntaOpcionMultiple(preguntas[indicePregunta]);
+            } else {
+                mostrarFormulario();
+            }
+        }
+
+        function mostrarPreguntaOpcionMultiple(pregunta) {
+            document.getElementById("question").textContent = pregunta.pregunta;
+            let opcionesHtml = "";
+            pregunta.opciones.forEach((opcion, i) => {
+                opcionesHtml += `<button class="option" onclick="verificarRespuesta(${i})">${opcion}</button>`;
+            });
+            document.getElementById("options").innerHTML = opcionesHtml;
+            document.getElementById("score").textContent = `Puntuación: ${puntuacionTotal}`;
+        }
+
+        function verificarRespuesta(indiceSeleccionado) {
+            let preguntaActual = preguntas[indicePregunta];
+            if (indiceSeleccionado === preguntaActual.correcta) {
+                puntuacionTotal += preguntaActual.puntos;
+                document.getElementById("correctSound").play();
+            } else {
+                document.getElementById("wrongSound").play();
+            }
+            indicePregunta++;
+            cargarPregunta();
+        }
+
+        function mostrarFormulario() {
+            document.getElementById("question").textContent = "¡Juego terminado!";
+            document.getElementById("options").innerHTML = "";
+            document.getElementById("score").textContent = `Puntuación final: ${puntuacionTotal}`;
+            document.getElementById("saveScoreForm").classList.remove("hidden");
+        }
+
+        function guardarPuntuacion() {
+            let nombre = document.getElementById("playerName").value.trim();
+            if (nombre === "") return;
+
+            // Enviar correo con la puntuación
+            let puntuacionData = {
+                nombre: nombre,
+                puntuacion: puntuacionTotal
+            };
+
+            emailjs.send("service_k3hdxdl", "template_3iaqcfo", puntuacionData)
+                .then(function(response) {
+                    alert("¡Puntuación enviada correctamente!");
+                }, function(error) {
+                    alert("Error al enviar la puntuación: " + error);
+                });
+        }
+
+        cargarPregunta();
+    </script>
+
+</body>
+</html>
