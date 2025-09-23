@@ -9,64 +9,150 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
     <style>
-        /* Fuentes personalizadas para un aspecto más moderno */
         body {
             font-family: 'Inter', sans-serif;
-                       background-color: #f1f5f9; /* bg-slate-100 */
-            background-image: url('https://www.transparenttextures.com/patterns/gplay.png'); /* Textura sutil para el fondo */
-            background-attachment: fixed; /* Mantiene la imagen fija durante el scroll */
+            background-color: #f1f5f9;
+            background-image: url('https://www.transparenttextures.com/patterns/gplay.png');
+            background-attachment: fixed;
         }
         h1, h2, h3 {
             font-family: 'Poppins', sans-serif;
         }
-        /* Scroll suave para la navegación interna */
         html {
             scroll-behavior: smooth;
         }
-        /* Estilo para las imágenes flotantes para que no se peguen al texto */
-        .float-image {
-            shape-outside: margin-box;
-            margin: 1rem;
+        section[id] {
+            scroll-margin-top: 2rem;
+        }
+        .section-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+        .section-card:hover {
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        .expandable-image {
+            cursor: zoom-in;
+            transition: transform 0.2s ease-in-out;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: 3px solid #e2e8f0;
+        }
+        .expandable-image:hover {
+            transform: scale(1.03);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.85);
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s;
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 85%;
+            max-height: 85%;
+            animation: zoomIn 0.3s;
+        }
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .close-modal:hover,
+        .close-modal:focus {
+            color: #bbb;
+            text-decoration: none;
+        }
+        .image-caption {
+            margin-top: 0.5rem;
+            text-align: center;
+            font-size: 0.875rem;
+            color: #64748b;
+            font-style: italic;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        @keyframes fadeIn {
+            from {opacity: 0}
+            to {opacity: 1}
+        }
+        @keyframes zoomIn {
+            from {transform: scale(0.8)}
+            to {transform: scale(1)}
         }
     </style>
 </head>
-<body class="bg-slate-100 text-slate-700">
+<body class="text-slate-700">
 
-    <div class="max-w-5xl mx-auto p-6 sm:p-10 bg-white rounded-2xl shadow-2xl my-8">
+     <!-- Contenedor Principal -->
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8">
 
-        <!-- Encabezado con degradado y título principal -->
-        <header class="rounded-xl p-8 mb-10 text-white bg-gradient-to-r from-blue-500 to-indigo-600 shadow-lg">
-            <h1 class="text-4xl sm:text-5xl font-bold">UD1. El Proceso Tecnológico</h1>
-            <p class="mt-2 text-lg text-blue-100">Descubre cómo transformamos las ideas en realidad, paso a paso.</p>
-        </header>
+        <div class="grid lg:grid-cols-4 gap-8">
 
-        <!-- Barra de Navegación (Breadcrumbs) -->
-        <nav class="mb-8" aria-label="breadcrumb">
-            <ol class="flex items-center space-x-2 text-lg text-slate-600 bg-white p-4 rounded-lg shadow-md">
-                <li>
-                    <a href="index.html" class="flex items-center gap-2 hover:underline hover:text-blue-600">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" /></svg>
-                        Inicio
-                    </a>
-                </li>
-                <li>
-                    <span class="text-slate-400">/</span>
-                </li>
-                <li>
-                    <a href="tyd2.html" class="hover:underline hover:text-blue-600">2º ESO</a>
-                </li>
-            </ol>
-        </nav>
+            <!-- Columna de Contenido Principal -->
+            <main class="lg:col-span-3">
+               <!-- Cabecera -->
+               <header class="rounded-xl p-8 mb-10 text-white bg-gradient-to-r from-blue-500 to-indigo-600 shadow-lg">
+                <h1 class="text-4xl sm:text-5xl font-bold">UD1. El Proceso Tecnológico</h1>
+                <p class="mt-2 text-lg text-green-100">Descubre cómo transformamos las ideas en realidad, paso a paso.</p>
+            </header>
+            <nav class="mb-10" aria-label="breadcrumb">
+                <ol class="flex items-center space-x-2 text-lg text-slate-600 bg-slate-100 p-4 rounded-lg shadow-sm">
+                    <li>
+                        <a href="index.html" class="flex items-center gap-2 hover:underline hover:text-blue-600 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" /></svg>
+                            Inicio
+                        </a>
+                    </li>
+                    <li>
+                        <span class="text-slate-400">/</span>
+                    </li>
+                    <li>
+                        <a href="tyd2.html" class="hover:underline hover:text-blue-600 transition-colors">2º ESO</a>
+                    </li>
+                </ol>
+            </nav>
 
-        <main class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            
-            <!-- Columna principal de contenido -->
-            <div class="lg:col-span-8 space-y-12">
-                <section id="tecnologia">
-                    <h2 class="text-3xl font-bold text-slate-900 mb-4">1. La tecnología y el proceso tecnológico</h2>
+                <!-- Contenido de las Secciones -->
+                <section id="tecnologia" class="section-card">
+                    <h2 class="text-3xl font-bold text-blue-600 mb-6">1. La tecnología y el proceso tecnológico</h2>
                     
                     <!-- Imagen flotante a la derecha -->
-                    <img src="https://tecnologiaeingenieria.com/wp-content/uploads/2024/06/Las-7-fases-del-proceso-tecnologico.png" alt="Esquema de las fases del proceso tecnológico" class="float-right rounded-lg shadow-md ml-6 mb-4 float-image w-full sm:w-1/3 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_k7NhcSIzULTpC9Cdq6Y1n8ewm7e9V0xC7itqE6rMshEVpOBdh-2C5NCbfhxUZGcxrFzhbcxs6rp53TiAWMWApZ5pLmpjGJnA9otO_4za5FkV6N0Owj0Ui6yE6FOkR4Ko2XqcxPYaTA8/s1600/FasesProcesoTecnol%25C3%25B3gico.jpg" alt="Esquema de las fases del proceso tecnológico" class="float-right rounded-lg shadow-md ml-6 mb-4 float-image w-full sm:w-1/3 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105">
 
                     <p class="mb-4 text-lg leading-relaxed">Desde los tiempos más antiguos, los seres humanos han utilizado distintos recursos para satisfacer sus necesidades. Antiguamente, algunas necesidades básicas como la <strong class="font-semibold text-indigo-700">alimentación</strong>, el <strong class="font-semibold text-indigo-700">vestido</strong> o la <strong class="font-semibold text-indigo-700">vivienda</strong> se cubrían aprovechando los medios que la naturaleza brindaba, de modo que los humanos cazaban y pescaban utilizando palos, piedras, cuerdas, etc., y habitaban en cuevas.</p>
                     <p class="mb-4 text-lg leading-relaxed">Sin embargo, a lo largo del tiempo, las personas fueron aprendiendo a fabricar nuevas herramientas y máquinas para trabajar la tierra, elaborar nuevos tejidos o construir viviendas. Actualmente, también atendemos otras necesidades como viajar, disponer de medios de información y comunicación, disfrutar del tiempo libre, etc., cuya satisfacción nos hace la vida más cómoda y agradable.</p>
@@ -83,8 +169,8 @@
                     </div>
                 </section>
 
-                <section id="fases">
-                    <h2 class="text-3xl font-bold text-slate-900 mb-6">2. Fases del proceso tecnológico</h2>
+                <section id="fases" class="section-card">
+                    <h2 class="text-3xl font-bold text-blue-600 mb-6">2. Fases del proceso tecnológico</h2>
                     <p class="mb-8 text-lg leading-relaxed">Los pasos o fases para resolver un problema son prácticamente siempre los mismos. ¡Vamos a verlos!</p>
                     
                     <!-- Fases presentadas como tarjetas interactivas -->
@@ -142,11 +228,11 @@
                     </div>
                 </section>
                 
-                <section id="ejemplo">
-                    <h2 class="text-3xl font-bold text-slate-900 mb-4">3. Ejemplo: Construir un Portalápices</h2>
+                <section id="ejemplo" class="section-card">
+                    <h2 class="text-3xl font-bold text-blue-600 mb-6">3. Ejemplo: Construir un Portalápices</h2>
                     <p class="mb-6 text-lg leading-relaxed">Para entenderlo mejor, sigamos todas las fases para construir un portalápices y mantener nuestros bolis y lápices ordenados.</p>
                     
-                    <img src="https://i.blogs.es/06cfc8/portalapices-caseros-con-latas/1366_2000.jpg" alt="Varios diseños de portalápices hechos con materiales reciclados" class="w-full rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYA0AIhKgNtShqf6rQsOfhqbq8wOg7Lpdmxw&s" alt="Varios diseños de portalápices hechos con materiales reciclados" class="w-full rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105">
 
                     <p class="mb-4 text-lg leading-relaxed"><strong class="font-semibold text-indigo-700">3.1. Problema:</strong> Lápices, rotuladores y bolígrafos están siempre desordenados. ¡Necesitamos un sitio para guardarlos!</p>
                     <p class="mb-4 text-lg leading-relaxed"><strong class="font-semibold text-indigo-700">3.2. Información:</strong> Miramos en tiendas, catálogos e internet para ver qué tipos de portalápices existen y coger ideas.</p>
@@ -160,9 +246,9 @@
                     <p class="text-lg leading-relaxed"><strong class="font-semibold text-indigo-700">3.5. Evaluación:</strong> ¿El portalápices es estable? ¿Caben bien los lápices? Si todo está OK, ¡proyecto terminado con éxito!</p>
                 </section>
                 
-                <section id="aula">
-                    <h2 class="text-3xl font-bold text-slate-900 mb-4">4. El Aula de Tecnología</h2>
-                    <img src="https://www.legaltoday.com/wp-content/uploads/2019/04/aula-de-tecnologia-750x400.jpg" alt="Un aula de tecnología con mesas de trabajo y herramientas" class="float-left rounded-lg shadow-md mr-6 mb-4 float-image w-full sm:w-1/3 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105">
+                <section id="aula" class="section-card">
+                    <h2 class="text-3xl font-bold text-text-blue-600 mb-6">4. El Aula de Tecnología</h2>
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgvrDJ49eyyx0XF2rTrMZ4JJ06jEy6yQ3OU27ac-fnsNFJnCGrCE4ETchoT0M4lsaeDdgVdNJnlL8rIDhMaIRAndo2zCSOghouk-H5nJDO8M_DpJ1OXwf37gOPJKNcX61BpLx0QPf7GpN8N/s500/libreria.jpeg" alt="Un aula de tecnología con mesas de trabajo y herramientas" class="float-left rounded-lg shadow-md mr-6 mb-4 float-image w-full sm:w-1/3 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105">
                     <p class="mb-4 text-lg leading-relaxed">El <strong class="font-semibold text-indigo-700">aula de Tecnología</strong> es nuestro laboratorio de ideas. Es un espacio especial, diferente al resto de clases, que suele estar dividido en tres zonas:</p>
                     <ul class="list-none space-y-4 text-lg">
                         <li class="flex items-center gap-3"><span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">1</span> <strong class="font-semibold">Zona de diseño:</strong> Donde pensamos, dibujamos y planificamos.</li>
@@ -171,9 +257,10 @@
                     </ul>
                 </section>
 
-                <section id="normas">
-                    <h2 class="text-3xl font-bold text-slate-900 mb-4">5. Trabajar con Seguridad</h2>
+                <section id="normas" class="section-card">
+                    <h2 class="text-3xl font-bold text-blue-600 mb-6">5. Trabajar con Seguridad</h2>
                     <p class="mb-6 text-lg leading-relaxed">En el taller usamos herramientas y máquinas, por eso es súper importante respetar siempre las normas para evitar accidentes.</p>
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhk03b7A9Tq8PtsGRu2qApVtNKcbcFqqwrcbH7DImwwrijGnB9G2moSrR1e1UGD6A9_XpOFcHW1LZnhvJ9ytSDh8Gfkr0TbTP5KZn1MGUTL0NETClqSUN5NEszram6y_Ql_jZJzT1X-CHZc/s1600/UD1+Normas+seguridad.jpg" alt="Normas de seguridad en el taller de tecnología" class="w-full rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="p-5 bg-slate-50 rounded-lg border">
                             <h3 class="font-bold text-xl text-slate-800">Normas de uso y conservación</h3>
@@ -187,16 +274,16 @@
                 </section>
                 
                  <!-- Vídeo de YouTube Embebido -->
-                <section id="video">
-                    <h2 class="text-3xl font-bold text-slate-900 mb-4">Vídeo-Resumen</h2>
+                <section id="video" class="section-card">
+                    <h2 class="text-3xl font-bold text-blue-600 mb-6">Vídeo-Resumen</h2>
                     <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
                         <iframe src="https://www.youtube.com/embed/g-bZ0a25-MM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </section>
-            </div>
+            </main>
             
             <!-- Columna lateral (Índice y Material extra) -->
-            <aside class="lg:col-span-4 space-y-8">
+            <aside class="lg:col-span-1">
                 <div class="sticky top-8">
                     <!-- Índice -->
                     <div id="indice" class="p-6 bg-slate-50 rounded-lg border">
@@ -237,49 +324,44 @@
                     </div>
                 </div>
             </aside>
-            
-        </main>
+        </div>
     </div>
 
-    <!-- Modal para ampliar imagen -->
-    <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-80 hidden items-center justify-center p-4 z-50 transition-opacity duration-300 ease-in-out">
-        <span id="closeModal" class="absolute top-5 right-8 text-white text-5xl font-bold cursor-pointer hover:text-gray-300">&times;</span>
-        <img id="modalImage" src="" alt="Imagen ampliada" class="max-w-[90vw] max-h-[90vh] rounded-lg shadow-2xl">
-    </div>
+<!-- Modal para ampliar imagen -->
+<div id="imageModal" class="modal">
+  <span class="close-modal">&times;</span>
+  <img class="modal-content" id="modalImage">
+</div>
 
-    <script>
-        // --- Lógica para el modal de imágenes ---
-        const imageModal = document.getElementById('imageModal');
-        const modalImage = document.getElementById('modalImage');
-        const closeModal = document.getElementById('closeModal');
-        // Seleccionamos todas las imágenes que tengan la clase 'expandable-image'
-        const expandableImages = document.querySelectorAll('.expandable-image');
+<script>
+    // Obtener elementos del modal
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+    const images = document.querySelectorAll('.expandable-image');
+    const closeBtn = document.querySelector(".close-modal");
 
-        // Añadimos un evento de clic a cada imagen
-        expandableImages.forEach(img => {
-            img.addEventListener('click', () => {
-                // Mostramos el modal y le asignamos la URL de la imagen clicada
-                imageModal.classList.remove('hidden');
-                imageModal.classList.add('flex');
-                modalImage.src = img.src;
-            });
-        });
+    // Asignar evento de clic a cada imagen ampliable
+    images.forEach(img => {
+        img.onclick = function(){
+            modal.style.display = "flex";
+            modalImg.src = this.src;
+        }
+    });
 
-        // Función para cerrar el modal
-        const close = () => {
-            imageModal.classList.add('hidden');
-            imageModal.classList.remove('flex');
-        };
+    // Función para cerrar el modal
+    function closeModal() {
+        modal.style.display = "none";
+    }
 
-        // Eventos para cerrar el modal
-        closeModal.addEventListener('click', close);
-        imageModal.addEventListener('click', (e) => {
-            // Cierra el modal solo si se hace clic en el fondo (el div principal del modal)
-            if (e.target === imageModal) {
-                close();
-            }
-        });
-    </script>
+    // Cerrar al hacer clic en la 'x'
+    closeBtn.onclick = closeModal;
+
+    // Cerrar al hacer clic fuera de la imagen
+    modal.onclick = function(event) {
+        if (event.target === modal || event.target === modalImg) {
+            closeModal();
+        }
+    }
+</script>
 </body>
 </html>
-
