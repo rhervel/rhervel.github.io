@@ -91,6 +91,21 @@
             color: #64748b;
             font-style: italic;
         }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
         @keyframes fadeIn {
             from {opacity: 0}
             to {opacity: 1}
@@ -107,7 +122,7 @@
     <div class="container mx-auto p-4 sm:p-6 lg:p-8">
 
         <div class="grid lg:grid-cols-4 gap-8">
-            
+
             <!-- Columna de Contenido Principal -->
             <main class="lg:col-span-3">
                <!-- Cabecera -->
@@ -182,10 +197,7 @@
                     <div>
                         <h3 class="text-xl font-semibold text-slate-700 mb-2">2.2 Tipos de ordenadores</h3>
                         <p>Los ordenadores se clasifican por su tamaño, utilidad y movilidad en: ordenadores de escritorio, portátiles, tabletas y teléfonos inteligentes. También existen ordenadores para fines específicos como los superordenadores y los sistemas empotrados.</p>
-                         <div class="mt-6">
-                            <img src="https://media.istockphoto.com/id/483292989/es/foto/conjunto-de-dispositivos-de-la-computadora.jpg?s=612x612&w=0&k=20&c=ORPDSxt3jA_foJTR1T-ao4WNqZBOj4iEtWZGwoBCBoY=" alt="Tipos de ordenadores" class="zoomable-image max-w-full">
-                            <p class="image-caption">Diferentes tipos de equipos informáticos.</p>
-                        </div>
+
                     </div>
                     <div>
                         <h3 class="text-xl font-semibold text-slate-700 mb-2">2.3 Arquitectura de un ordenador</h3>
@@ -223,369 +235,590 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
-            
-            <section id="punto3" class="section-card">
-                <h2 class="text-3xl font-bold text-teal-600 mb-6">3. Sistemas operativos</h2>
-                <div class="space-y-6 text-slate-600 leading-relaxed">
-                    <div>
-                        <h3 class="text-xl font-semibold text-slate-700 mb-2">3.1 ¿Qué es un sistema operativo?</h3>
-                        <p>Es el software que permite la comunicación entre las personas y el ordenador, y el uso eficiente de sus recursos. Se activa al encender el ordenador y es imprescindible para su funcionamiento.</p>
+                    <div class="my-8">
+                     <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/0zkX6nlpiSk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
-                    <div>
-                        <h3 class="text-xl font-semibold text-slate-700 mb-2">3.2 Tipos</h3>
-                        <p>Existen diversos sistemas operativos, los más populares son: Microsoft Windows, macOS, distribuciones Linux y sistemas operativos móviles como Android e iOS.</p>
-                        <div class="mt-6">
-                            <img src="https://thumbs.dreamstime.com/b/linux-android-apple-y-windows-logo-vectorial-ilustraci%C3%B3n-editorial-de-la-manzana-androide-en-formato-248358952.jpg" alt="Logos de Sistemas Operativos" class="zoomable-image max-w-md">
-                            <p class="image-caption">Logotipos de los principales sistemas operativos.</p>
-                        </div>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-semibold text-slate-700 mb-2">3.3 Funciones principales</h3>
-                        <p>El sistema operativo permite la interacción con el ordenador y su funcionamiento a través de un entorno de trabajo. Sus funciones principales son:</p>
-                        <ul class="list-disc list-inside mt-2 pl-4 space-y-1">
-                            <li>Organizar la información en archivos, carpetas y discos.</li>
-                            <li>Gestionar los programas (instalación, uso y desinstalación).</li>
-                            <li>Controlar el uso de los periféricos y detectar errores.</li>
-                            <li>Permitir la conexión e intercambio de información en red.</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-semibold text-slate-700 mb-2">3.4 Interfaz gráfica de usuario e intérprete de comandos</h3>
-                        <p>Los sistemas operativos han evolucionado de intérpretes de comandos a interfaces gráficas más intuitivas. La interfaz gráfica es un entorno visual, mientras que el intérprete de comandos se basa en la introducción de instrucciones.</p>
-                         <div class="mt-6">
-                            <img src="https://geekland.eu/wp-content/uploads/2022/08/ventajas-de-la-terminal-respecto-la-interfaz-grafica-1280x720.jpeg" alt="Interfaz gráfica vs Terminal de comandos" class="zoomable-image max-w-full">
-                            <p class="image-caption">Comparativa entre una interfaz gráfica (GUI) y una de comandos (CLI).</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <section id="punto4" class="section-card">
-                <h2 class="text-3xl font-bold text-teal-600 mb-6">4. Estructuras de almacenamiento</h2>
-                <div class="space-y-6 text-slate-600 leading-relaxed">
-                    <div>
-                        <h3 class="text-xl font-semibold text-slate-700 mb-2">4.1 Almacenamiento de la información</h3>
-                        <p>Los sistemas operativos almacenan y organizan la información en dos tipos de estructuras:</p>
-                        <ul class="list-disc list-inside mt-2 pl-4 space-y-1">
-                         <li><b>Física:</b> Cómo se guardan los datos en los soportes de almacenamiento (magnéticos, ópticos, memorias flash, SSD).</li>
-                         <li><b>Lógica:</b> Cómo se almacenan los datos en ficheros y carpetas.</li>
-                     </ul>
-                     <div class="mt-6">
-                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEje8LZQ1whGhT1HYKMCY3IdkJdg_CFw9ekNB6-CeS82GvCr0CkaTw9QLKAf7Te2K0y8zq8n82IwiG-aeGQc4aiCL8zBYPcvWkq7kZI5CLy2wlC7RCb-_seMy53-KsDAQtLmlLvam3siqqk2/s1600/almacenamiento+masivo.jpg" alt="Dispositivos de almacenamiento" class="zoomable-image max-w-full">
-                        <p class="image-caption">Diversos medios de almacenamiento masivo.</p>
-                    </div>
-                 </div>
-                 <div>
-                    <h3 class="text-xl font-semibold text-slate-700 mb-2">4.2 Particiones</h3>
-                    <p>Una partición es cada uno de los espacios de almacenamiento en los que se divide un disco, SSD o memoria flash. Es aconsejable crear varias particiones para separar los sistemas operativos de los datos.</p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-slate-700 mb-2">4.3 Sistema de archivos</h3>
-                    <p>Es el modo en que se organizan, almacenan y gestionan los archivos. Cada sistema operativo utiliza su propio sistema de archivos (ej. NTFS en Windows, ext4 en Linux, APFS en macOS).</p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-slate-700 mb-2">4.4 Organización de archivos</h3>
-                    <p>Los sistemas operativos organizan los archivos y permiten operaciones con ellos a través del explorador de archivos. Los archivos relacionados se agrupan en carpetas, formando una estructura de árbol.</p>
-                    <div class="mt-6">
-                        <img src="https://www.e-soluciones-tic.com/wp-content/uploads/archive0001.png" alt="Estructura de archivos en árbol" class="zoomable-image max-w-sm">
-                        <p class="image-caption">Ejemplo de una estructura de archivos jerárquica.</p>
-                    </div>
+                    <p class="image-caption mt-2">Vídeo explicativo sobre los componentes de un ordenador.</p>
                 </div>
             </div>
         </section>
-        
-        <section id="punto5" class="section-card">
-            <h2 class="text-3xl font-bold text-teal-600 mb-6">5. Instalación de Windows</h2>
-            <div class="space-y-6 text-slate-600 leading-relaxed">
-                <div>
-                    <h3 class="text-xl font-semibold text-slate-700 mb-2">5.1 Consideraciones previas</h3>
-                    <p>Antes de instalar Windows es importante:</p>
-                    <ul class="list-disc list-inside mt-2 pl-4 space-y-1">
-                        <li>Revisar los requerimientos del sistema.</li>
-                        <li>Realizar una copia de seguridad de los datos.</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-slate-700 mb-2">5.2 Arrancar desde el soporte de instalación</h3>
-                    <p>Para arrancar desde un disco o memoria USB de instalación, es necesario configurar el ordenador para que inicie desde ese soporte a través del menú de arranque (Boot Menu).</p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-slate-700 mb-2">5.3 Pasos de la instalación</h3>
-                    <p>La instalación se realiza mediante un asistente que guía a través de los siguientes pasos:</p>
-                    <ol class="list-decimal list-inside mt-2 pl-4 space-y-1">
-                        <li>Iniciar el ordenador desde el soporte de instalación.</li>
-                        <li>Especificar el idioma y preferencias.</li>
-                        <li>Aceptar los términos de licencia.</li>
-                        <li>Elegir el tipo de instalación (actualización o personalizada).</li>
-                    </ol>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-slate-700 mb-2">5.4 Preparar particiones</h3>
-                    <p>Se puede utilizar todo el disco o crear particiones para diferentes sistemas operativos y datos. Se deben formatear las particiones antes de comenzar la instalación.</p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-slate-700 mb-2">5.5 Seguir el asistente de instalación</h3>
-                    <p>El asistente de instalación de Windows solicitará acciones como:</p>
-                    <ul class="list-disc list-inside mt-2 pl-4 space-y-1">
-                        <li>Elegir la configuración (rápida o personalizada).</li>
-                        <li>Confirmar si el ordenador es de uso personal o de una organización.</li>
-                        <li>Iniciar sesión con una cuenta de Microsoft o crear una cuenta local.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        
-        <section id="punto6" class="section-card">
-            <h2 class="text-3xl font-bold text-teal-600 mb-6">6. Instalación de Ubuntu</h2>
-            <div class="space-y-6 text-slate-600 leading-relaxed">
-                <div>
-                    <h3 class="text-xl font-semibold text-slate-700 mb-2">6.1 Características</h3>
-                    <p>Ubuntu es una distribución Linux de software libre. Se puede descargar una imagen de disco (archivo .iso) para crear un DVD o una memoria USB de instalación.</p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-slate-700 mb-2">6.2 Probar e instalar</h3>
-                    <p>Al arrancar desde el soporte de instalación, se puede elegir entre:</p>
-                    <ul class="list-disc list-inside mt-2 pl-4 space-y-1">
-                        <li><b>Probar Ubuntu:</b> Utilizar el sistema operativo sin instalarlo.</li>
-                        <li><b>Instalar Ubuntu:</b> Iniciar el asistente de instalación.</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-slate-700 mb-2">6.3 Preparar el espacio del disco</h3>
-                    <p>Ubuntu puede usar todo el disco o compartirlo con otros sistemas operativos. Las opciones incluyen:</p>
-                    <ul class="list-disc list-inside mt-2 pl-4 space-y-1">
-                        <li>Instalar Ubuntu junto a otro sistema operativo.</li>
-                        <li>Borrar disco e instalar Ubuntu.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        
-        <section id="punto7" class="section-card">
-            <h2 class="text-3xl font-bold text-teal-600 mb-6">7. Mantenimiento del sistema</h2>
-            <div class="space-y-6 text-slate-600 leading-relaxed">
-                <div>
-                    <h3 class="text-xl font-semibold text-slate-700 mb-2">7.1 Actualizaciones</h3>
-                    <p>El software de un ordenador, especialmente el sistema operativo, debe actualizarse periódicamente para mejorar la seguridad y la estabilidad, así como para añadir nuevas funcionalidades. En Windows, las actualizaciones se gestionan a través de <b>Windows Update</b>. En Ubuntu, se utiliza el <b>Actualizador de software</b>.</p>
-                    <div class="mt-6">
-                        <img src="https://www.softzone.es/app/uploads-softzone.es/2020/06/Instalar-nueva-versi%C3%B3n-de-Ubuntu.jpg" alt="Actualizador de software de Ubuntu" class="zoomable-image max-w-full">
-                        <p class="image-caption">Asistente de actualización de Ubuntu.</p>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-slate-700 mb-2">7.2 Copias de seguridad</h3>
-                    <p>Una copia de seguridad es un duplicado de la información que se realiza para poder recuperarla en caso de pérdida. Se pueden utilizar herramientas como la utilidad de <b>Copias de seguridad y restauración</b> de Windows o la herramienta de <b>Copias de seguridad</b> de Ubuntu. También se pueden usar aplicaciones de terceros.</p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-slate-700 mb-2">7.3 Puntos de restauración</h3>
-                    <p>Un punto de restauración es una copia de seguridad de la configuración del sistema en un momento dado. Permite revertir el sistema a un estado anterior en caso de problemas. En Windows, se pueden crear y restaurar desde el panel de <b>Propiedades del sistema</b>.</p>
-                    <div class="mt-6">
-                        <img src="https://wiki.eurek.org/wp-content/uploads/2020/04/image-17-1024x537.png" alt="Puntos de restauración en Windows" class="zoomable-image max-w-full">
-                        <p class="image-caption">Utilidad para crear puntos de restauración en Windows.</p>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-slate-700 mb-2">7.4 Partición de recuperación</h3>
-                    <p>Es una partición oculta en el disco duro que contiene una imagen del sistema operativo tal y como venía de fábrica. Permite restaurar el equipo a su estado original.</p>
-                </div>
-            </div>
-        </section>
-        
-        <section id="punto8" class="section-card">
-            <h2 class="text-3xl font-bold text-teal-600 mb-6">8. Seguridad informática</h2>
-            <div class="space-y-6 text-slate-600 leading-relaxed">
-                <div>
-                    <h3 class="text-xl font-semibold text-slate-700 mb-2">8.1 Riesgos y amenazas</h3>
-                    <p>La seguridad informática protege la información y los equipos de posibles daños. Las amenazas pueden ser causadas por:</p>
-                    <ul class="list-disc list-inside mt-2 pl-4 space-y-1">
-                        <li><b>Usuarios:</b> A menudo por desconocimiento.</li>
-                        <li><b>Programas maliciosos (malware):</b> Virus, gusanos, troyanos, spyware, ransomware.</li>
-                        <li><b>Fallos de hardware o software.</b></li>
-                        <li><b>Catástrofes naturales.</b></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-slate-700 mb-2">8.2 Malware</h3>
-                    <p>Es un software que tiene como objetivo dañar un sistema informático. Algunos tipos son:</p>
-                    <ul class="list-disc list-inside mt-2 pl-4 space-y-1">
-                        <li><b>Virus:</b> Se adjunta a un programa y se propaga al ejecutarlo.</li>
-                        <li><b>Gusano:</b> Se propaga a través de redes sin necesidad de un programa anfitrión.</li>
-                        <li><b>Troyano:</b> Se disfraza de software legítimo para robar información o tomar el control del equipo.</li>
-                        <li><b>Spyware:</b> Recopila información de un ordenador sin el consentimiento del propietario.</li>
-                        <li><b>Ransomware:</b> Cifra los archivos del usuario y exige un rescate para descifrarlos.</li>
-                    </ul>
-                    <div class="mt-6">
-                        <img src="https://i.ytimg.com/vi/WjBrRvqpw1Y/maxresdefault.jpg" alt="Tipos de Malware" class="zoomable-image max-w-full">
-                        <p class="image-caption">Representación de distintos tipos de malware.</p>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-slate-700 mb-2">8.3 Proteger el sistema</h3>
-                    <p>Para proteger un sistema informático se recomienda:</p>
-                    <ul class="list-disc list-inside mt-2 pl-4 space-y-1">
-                        <li>Utilizar <b>contraseñas seguras</b>.</li>
-                        <li>Instalar y mantener actualizado un <b>software antivirus</b>.</li>
-                        <li>Utilizar un <b>cortafuegos (firewall)</b>.</li>
-                        <li>Mantener el <b>sistema operativo y el software actualizados</b>.</li>
-                        <li>Realizar <b>copias de seguridad</b> periódicas.</li>
-                        <li>Tener <b>precaución al navegar por internet</b> y al descargar archivos.</li>
-                    </ul>
-                    <div class="mt-6">
-                        <img src="https://img.freepik.com/vector-premium/icono-proteccion-bloqueo-o-firewall-computadora-portatil_101884-665.jpg" alt="Protección del sistema" class="zoomable-image max-w-xs">
-                        <p class="image-caption">Icono de seguridad y protección (firewall).</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="punto9" class="section-card">
-            <h2 class="text-3xl font-bold text-teal-600 mb-6">9. Instalación de aplicaciones</h2>
-            <div class="space-y-6 text-slate-600 leading-relaxed">
-                <div>
-                    <h3 class="text-xl font-semibold text-slate-700 mb-2">9.1 ¿Qué es una aplicación?</h3>
-                    <p>Una aplicación o programa es un tipo de software que permite al usuario realizar uno o varios tipos de trabajo.</p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-slate-700 mb-2">9.2 Tipos de software</h3>
-                    <p>El software se puede clasificar según su coste y la forma en que se distribuye:</p>
-                    <ul class="list-disc list-inside mt-2 pl-4 space-y-1">
-                        <li><b>Software propietario:</b> No se puede modificar ni distribuir libremente.</li>
-                        <li><b>Software libre:</b> Se puede usar, copiar, estudiar, modificar y distribuir libremente.</li>
-                        <li><b>Freeware:</b> Se distribuye gratuitamente, pero no se puede modificar.</li>
-                        <li><b>Shareware:</b> Se puede probar durante un tiempo limitado antes de comprarlo.</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-slate-700 mb-2">9.3 Instalar y desinstalar programas en Windows</h3>
-                    <p>Los programas para Windows suelen tener la extensión <b>.exe</b> o <b>.msi</b>. La instalación se realiza mediante un asistente. Se recomienda descargar programas solo de sitios web de confianza. Para modificar, actualizar o desinstalar programas, se utiliza la sección <b>Aplicaciones</b> en la <b>Configuración</b> del sistema.</p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-slate-700 mb-2">9.4 Instalar apps en Android</h3>
-                    <p>Las aplicaciones para Android tienen la extensión <b>.apk</b>. Se pueden instalar desde la <b>Google Play Store</b> o ejecutando directamente el archivo APK en el dispositivo.</p>
-                </div>
-            </div>
-        </section>
-        
-        <section id="punto10" class="section-card">
-            <h2 class="text-3xl font-bold text-teal-600 mb-6">10. Montaje y mantenimiento de equipos</h2>
-            <div class="space-y-6 text-slate-600 leading-relaxed">
-                <div>
-                    <h3 class="text-xl font-semibold text-slate-700 mb-2">10.1 Componentes de un ordenador</h3>
-                    <p>Los componentes básicos de un ordenador de sobremesa son la caja o torre, la fuente de alimentación, la placa base, el microprocesador (CPU), la memoria RAM, el disco duro, la tarjeta gráfica, la tarjeta de sonido, la tarjeta de red y los periféricos.</p>
-                    <div class="mt-6">
-                        <img src="https://dogemicrosystems.ca/pub/Sun/System_Handbook/Sun_syshbk_V3.4/Systems/SunBlade1500S/images/SunBlade1500S_expl.jpg" alt="Componentes de un ordenador (vista explosionada)" class="zoomable-image max-w-full">
-                        <p class="image-caption">Vista explosionada de los componentes de un servidor.</p>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-slate-700 mb-2">10.2 Ensamblaje de los componentes</h3>
-                    <p>El montaje de un ordenador implica la instalación de los componentes en la caja y su conexión a la placa base y a la fuente de alimentación, siguiendo un orden lógico para facilitar el proceso.</p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-slate-700 mb-2">10.3 Puesta en marcha</h3>
-                    <p>Una vez montado el equipo, se conectan los periféricos y se realiza la primera puesta en marcha, accediendo a la BIOS/UEFI para comprobar que todos los componentes son reconocidos correctamente antes de instalar el sistema operativo.</p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-slate-700 mb-2">10.4 Mantenimiento preventivo</h3>
-                    <p>Consiste en realizar una serie de tareas periódicas para evitar posibles fallos en el equipo, como la limpieza de los componentes internos y externos, la comprobación del estado de los cables y la monitorización de las temperaturas.</p>
-                    <div class="mt-6">
-                        <img src="https://www.shutterstock.com/image-photo/maintenance-cleaning-insides-computer-mans-600nw-2091770890.jpg" alt="Limpieza interna de un PC" class="zoomable-image max-w-full">
-                        <p class="image-caption">Mantenimiento preventivo: limpieza del hardware.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="punto11" class="section-card">
-            <h2 class="text-3xl font-bold text-teal-600 mb-6">11. Redes de ordenadores</h2>
-            <div class="space-y-6 text-slate-600 leading-relaxed">
-                <div>
-                    <h3 class="text-xl font-semibold text-slate-700 mb-2">11.1 ¿Qué es una red?</h3>
-                    <p>Una red de ordenadores es un conjunto de equipos conectados entre sí que pueden compartir información, recursos y servicios.</p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-slate-700 mb-2">11.2 Tipos de redes</h3>
-                    <p>Las redes se pueden clasificar según su tamaño:</p>
-                    <ul class="list-disc list-inside mt-2 pl-4 space-y-1">
-                        <li><b>LAN (Local Area Network):</b> Red de área local, como la de una casa u oficina.</li>
-                        <li><b>MAN (Metropolitan Area Network):</b> Red de área metropolitana, que abarca una ciudad.</li>
-                        <li><b>WAN (Wide Area Network):</b> Red de área amplia, que conecta equipos a nivel mundial, como Internet.</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-slate-700 mb-2">11.3 Topologías de red</h3>
-                    <p>La topología de red es la forma en que están dispuestos los equipos en una red. Las más comunes son en bus, en anillo, en estrella, en árbol y en malla.</p>
-                    <div class="mt-6">
-                        <img src="https://fernandoarciniega.com/wp-content/uploads/Topologias-de-Red-Fernando-Arciniega-Blog.jpg" alt="Topologías de red" class="zoomable-image max-w-full">
-                        <p class="image-caption">Diagrama de las principales topologías de red.</p>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-slate-700 mb-2">11.4 Dispositivos de red</h3>
-                    <p>Para conectar los equipos en red se utilizan dispositivos como:</p>
-                    <ul class="list-disc list-inside mt-2 pl-4 space-y-1">
-                        <li><b>Tarjeta de red:</b> Permite conectar un equipo a una red.</li>
-                        <li><b>Router:</b> Conecta redes diferentes y dirige el tráfico entre ellas.</li>
-                        <li><b>Switch:</b> Conecta varios equipos dentro de la misma red local.</li>
-                        <li><b>Punto de acceso inalámbrico:</b> Permite la conexión de dispositivos inalámbricos a una red.</li>
-                    </ul>
-                    <div class="mt-6">
-                        <img src="https://claudiooq2.wordpress.com/wp-content/uploads/2010/01/dibujo43.jpg" alt="Dispositivos de red" class="zoomable-image max-w-full">
-                        <p class="image-caption">Componentes y dispositivos comunes en una red.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-    </main>
-    
-    <!-- Columna de Navegación Lateral -->
-    <aside class="lg:col-span-1">
-        <div class="sticky top-8">
-            <div id="indice" class="p-6 bg-slate-100 rounded-lg border border-slate-200">
-                <h2 class="text-2xl font-bold text-slate-900 mb-4">Índice del Tema</h2>
-                <ol class="list-decimal list-inside space-y-3 text-lg">
-                    <li><a href="#punto1" class="text-blue-600 hover:text-blue-800 hover:underline">Representación digital</a></li>
-                    <li><a href="#punto2" class="text-blue-600 hover:text-blue-800 hover:underline">Equipos informáticos</a></li>
-                    <li><a href="#punto3" class="text-blue-600 hover:text-blue-800 hover:underline">Sistemas operativos</a></li>
-                    <li><a href="#punto4" class="text-blue-600 hover:text-blue-800 hover:underline">Almacenamiento</a></li>
-                    <li><a href="#punto5" class="text-blue-600 hover:text-blue-800 hover:underline">Instalación de Windows</a></li>
-                    <li><a href="#punto6" class="text-blue-600 hover:text-blue-800 hover:underline">Instalación de Ubuntu</a></li>
-                    <li><a href="#punto7" class="text-blue-600 hover:text-blue-800 hover:underline">Mantenimiento</a></li>
-                    <li><a href="#punto8" class="text-blue-600 hover:text-blue-800 hover:underline">Seguridad informática</a></li>
-                    <li><a href="#punto9" class="text-blue-600 hover:text-blue-800 hover:underline">Instalación de aplicaciones</a></li>
-                    <li><a href="#punto10" class="text-blue-600 hover:text-blue-800 hover:underline">Montaje y mantenimiento</a></li>
-                    <li><a href="#punto11" class="text-blue-600 hover:text-blue-800 hover:underline">Redes de ordenadores</a></li>
+
+        <section id="actividades2" class="section-card bg-green-50 border-green-200">
+            <h2 class="text-3xl font-bold text-green-800 mb-6">Actividades: El ordenador y sus componentes</h2>
+            <div class="space-y-4 text-slate-600 leading-relaxed text-lg">
+                <ol class="list-decimal list-inside space-y-3">
+                    <li>¿En qué se distinguen el hardware y el software de un ordenador?</li>
+                    <li>¿Cuál es la función de la fuente de alimentación en un ordenador?</li>
+                    <li>¿Los portátiles incluyen fuente de alimentación? ¿Cómo funciona en su caso?</li>
+                    <li>¿Qué papel cumple la placa base en un ordenador?</li>
+                    <li>¿Qué es la BIOS y de qué manera se mantiene su configuración?</li>
+                    <li>¿Qué dispositivos o componentes se pueden conectar a los puertos IDE?</li>
+                    <li>Investiga los diferentes tipos de zócalos para microprocesadores que se han desarrollado a lo largo de la historia.</li>
+                    <li>¿Cómo se define un microprocesador?</li>
+                    <li>¿Cuáles son las partes principales de un microprocesador?</li>
+                    <li>¿Qué significa la frecuencia de reloj en un microprocesador?</li>
+                    <li>Averigua cuál es la velocidad de tu ordenador actual.</li>
+                    <li>¿Qué es la memoria caché y para qué se utiliza?</li>
+                    <li>¿Qué es la memoria RAM y cuál es su función en el sistema?</li>
+                    <li>Investiga cuáles han sido los distintos modelos de memoria RAM que han aparecido con el paso del tiempo.</li>
                 </ol>
             </div>
-            
-            <div id="material" class="mt-8 p-6 bg-teal-50 rounded-lg border border-teal-200">
-                <h2 class="text-2xl font-bold text-slate-900 mb-4">¡Para Saber Más!</h2>
-                <div class="space-y-4">
-                    <a href="quiz.html" class="group flex items-center gap-4 p-4 bg-white rounded-lg shadow-sm hover:shadow-lg hover:bg-teal-100 transition-all">
-                        <div class="flex-shrink-0 bg-teal-100 text-teal-600 rounded-full p-3 group-hover:bg-white transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                        </div>
-                        <span class="font-semibold text-lg text-slate-800">Actividades Interactivas</span>
-                    </a>
-                    <a href="#" class="group flex items-center gap-4 p-4 bg-white rounded-lg shadow-sm hover:shadow-lg hover:bg-teal-100 transition-all">
-                        <div class="flex-shrink-0 bg-teal-100 text-teal-600 rounded-full p-3 group-hover:bg-white transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" /></svg>
-                        </div>
-                        <span class="font-semibold text-lg text-slate-800">Ejercicios Prácticos</span>
-                    </a>
-                    <a href="#" class="group flex items-center gap-4 p-4 bg-white rounded-lg shadow-sm hover:shadow-lg hover:bg-teal-100 transition-all">
-                        <div class="flex-shrink-0 bg-teal-100 text-teal-600 rounded-full p-3 group-hover:bg-white transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2-2H5a2 2 0 01-2-2V9z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                        </div>
-                        <span class="font-semibold text-lg text-slate-800">Galería de Imágenes</span>
-                    </a>
-                </div>
+        </section>
+
+
+
+
+<section id="punto3" class="section-card">
+    <h2 class="text-3xl font-bold text-teal-600 mb-6">3. Sistemas operativos</h2>
+    <div class="space-y-6 text-slate-600 leading-relaxed">
+        <div>
+            <h3 class="text-xl font-semibold text-slate-700 mb-2">3.1 ¿Qué es un sistema operativo?</h3>
+            <p>Es el software que permite la comunicación entre las personas y el ordenador, y el uso eficiente de sus recursos. Se activa al encender el ordenador y es imprescindible para su funcionamiento.</p>
+        </div>
+        <div>
+            <h3 class="text-xl font-semibold text-slate-700 mb-2">3.2 Tipos</h3>
+            <p>Existen diversos sistemas operativos, los más populares son: Microsoft Windows, macOS, distribuciones Linux y sistemas operativos móviles como Android e iOS.</p>
+            <div class="mt-6">
+                <img src="https://thumbs.dreamstime.com/b/linux-android-apple-y-windows-logo-vectorial-ilustraci%C3%B3n-editorial-de-la-manzana-androide-en-formato-248358952.jpg" alt="Logos de Sistemas Operativos" class="zoomable-image max-w-md">
+                <p class="image-caption">Logotipos de los principales sistemas operativos.</p>
             </div>
         </div>
-    </aside>
+        <div>
+            <h3 class="text-xl font-semibold text-slate-700 mb-2">3.3 Funciones principales</h3>
+            <p>El sistema operativo permite la interacción con el ordenador y su funcionamiento a través de un entorno de trabajo. Sus funciones principales son:</p>
+            <ul class="list-disc list-inside mt-2 pl-4 space-y-1">
+                <li>Organizar la información en archivos, carpetas y discos.</li>
+                <li>Gestionar los programas (instalación, uso y desinstalación).</li>
+                <li>Controlar el uso de los periféricos y detectar errores.</li>
+                <li>Permitir la conexión e intercambio de información en red.</li>
+            </ul>
+        </div>
+        <div>
+            <h3 class="text-xl font-semibold text-slate-700 mb-2">3.4 Interfaz gráfica de usuario e intérprete de comandos</h3>
+            <p>Los sistemas operativos han evolucionado de intérpretes de comandos a interfaces gráficas más intuitivas. La interfaz gráfica es un entorno visual, mientras que el intérprete de comandos se basa en la introducción de instrucciones.</p>
+            <div class="mt-6">
+                <img src="https://geekland.eu/wp-content/uploads/2022/08/ventajas-de-la-terminal-respecto-la-interfaz-grafica-1280x720.jpeg" alt="Interfaz gráfica vs Terminal de comandos" class="zoomable-image max-w-full">
+                <p class="image-caption">Comparativa entre una interfaz gráfica (GUI) y una de comandos (CLI).</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="actividades3" class="section-card bg-green-50 border-green-200">
+            <h2 class="text-3xl font-bold text-green-800 mb-6">Actividades: Sistemas Operativos</h2>
+                <div class="space-y-4 text-slate-600 leading-relaxed text-lg">
+                    <ol class="list-decimal list-inside space-y-3">
+                        <li>¿Qué es un sistema operativo y para qué sirve?</li>
+                        <li>Nombra tres sistemas operativos para ordenadores de sobremesa y dos para dispositivos móviles.</li>
+                        <li>¿Cuál es la principal diferencia entre una interfaz gráfica de usuario (GUI) y una línea de comandos (CLI)?</li>
+                        <li>Describe tres funciones básicas de un sistema operativo.</li>
+                        <li>¿Qué significa que un software sea "libre"? Pon un ejemplo.</li>
+                    </ol>
+                </div>
+</section>
+
+<section id="punto4" class="section-card">
+    <h2 class="text-3xl font-bold text-teal-600 mb-6">4. Estructuras de almacenamiento</h2>
+    <div class="space-y-6 text-slate-600 leading-relaxed">
+        <div>
+            <h3 class="text-xl font-semibold text-slate-700 mb-2">4.1 Almacenamiento de la información</h3>
+            <p>Los sistemas operativos almacenan y organizan la información en dos tipos de estructuras:</p>
+            <ul class="list-disc list-inside mt-2 pl-4 space-y-1">
+             <li><b>Física:</b> Cómo se guardan los datos en los soportes de almacenamiento (magnéticos, ópticos, memorias flash, SSD).</li>
+             <li><b>Lógica:</b> Cómo se almacenan los datos en ficheros y carpetas.</li>
+         </ul>
+         <div class="mt-6">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEje8LZQ1whGhT1HYKMCY3IdkJdg_CFw9ekNB6-CeS82GvCr0CkaTw9QLKAf7Te2K0y8zq8n82IwiG-aeGQc4aiCL8zBYPcvWkq7kZI5CLy2wlC7RCb-_seMy53-KsDAQtLmlLvam3siqqk2/s1600/almacenamiento+masivo.jpg" alt="Dispositivos de almacenamiento" class="zoomable-image max-w-full">
+            <p class="image-caption">Diversos medios de almacenamiento masivo.</p>
+        </div>
+    </div>
+    <div>
+        <h3 class="text-xl font-semibold text-slate-700 mb-2">4.2 Particiones</h3>
+        <p>Una partición es cada uno de los espacios de almacenamiento en los que se divide un disco, SSD o memoria flash. Es aconsejable crear varias particiones para separar los sistemas operativos de los datos.</p>
+    </div>
+    <div>
+        <h3 class="text-xl font-semibold text-slate-700 mb-2">4.3 Sistema de archivos</h3>
+        <p>Es el modo en que se organizan, almacenan y gestionan los archivos. Cada sistema operativo utiliza su propio sistema de archivos (ej. NTFS en Windows, ext4 en Linux, APFS en macOS).</p>
+    </div>
+    <div>
+        <h3 class="text-xl font-semibold text-slate-700 mb-2">4.4 Organización de archivos</h3>
+        <p>Los sistemas operativos organizan los archivos y permiten operaciones con ellos a través del explorador de archivos. Los archivos relacionados se agrupan en carpetas, formando una estructura de árbol.</p>
+        <div class="mt-6">
+            <img src="https://www.e-soluciones-tic.com/wp-content/uploads/archive0001.png" alt="Estructura de archivos en árbol" class="zoomable-image max-w-sm">
+            <p class="image-caption">Ejemplo de una estructura de archivos jerárquica.</p>
+        </div>
+    </div>
+</div>
+</section>
+        <section id="actividades4" class="section-card bg-green-50 border-green-200">
+            <h2 class="text-3xl font-bold text-green-800 mb-6">Actividades: Almacenamiento</h2>
+            <div class="space-y-4 text-slate-600 leading-relaxed text-lg">
+                <ol class="list-decimal list-inside space-y-3">
+                    <li>¿Qué diferencia hay entre el almacenamiento físico y el almacenamiento lógico?</li>
+                    <li>¿Para qué sirve crear particiones en un disco duro?</li>
+                    <li>¿Qué es un sistema de archivos? Nombra dos ejemplos.</li>
+                    <li>Explica qué es una estructura de archivos en forma de árbol.</li>
+                    <li>Si tienes un archivo de 2.5 GB, ¿cabe en un CD-ROM estándar de 700 MB? ¿Y en un DVD de 4.7 GB? Justifica tu respuesta.</li>
+                </ol>
+            </div>
+        </section>
+
+<section id="punto5" class="section-card">
+    <h2 class="text-3xl font-bold text-teal-600 mb-6">5. Instalación de Windows</h2>
+    <div class="space-y-6 text-slate-600 leading-relaxed">
+        <div>
+            <h3 class="text-xl font-semibold text-slate-700 mb-2">5.1 Consideraciones previas</h3>
+            <p>Antes de instalar Windows es importante:</p>
+            <ul class="list-disc list-inside mt-2 pl-4 space-y-1">
+                <li>Revisar los requerimientos del sistema.</li>
+                <li>Realizar una copia de seguridad de los datos.</li>
+            </ul>
+        </div>
+        <div>
+            <h3 class="text-xl font-semibold text-slate-700 mb-2">5.2 Arrancar desde el soporte de instalación</h3>
+            <p>Para arrancar desde un disco o memoria USB de instalación, es necesario configurar el ordenador para que inicie desde ese soporte a través del menú de arranque (Boot Menu).</p>
+        </div>
+        <div>
+            <h3 class="text-xl font-semibold text-slate-700 mb-2">5.3 Pasos de la instalación</h3>
+            <p>La instalación se realiza mediante un asistente que guía a través de los siguientes pasos:</p>
+            <ol class="list-decimal list-inside mt-2 pl-4 space-y-1">
+                <li>Iniciar el ordenador desde el soporte de instalación.</li>
+                <li>Especificar el idioma y preferencias.</li>
+                <li>Aceptar los términos de licencia.</li>
+                <li>Elegir el tipo de instalación (actualización o personalizada).</li>
+            </ol>
+        </div>
+        <div>
+            <h3 class="text-xl font-semibold text-slate-700 mb-2">5.4 Preparar particiones</h3>
+            <p>Se puede utilizar todo el disco o crear particiones para diferentes sistemas operativos y datos. Se deben formatear las particiones antes de comenzar la instalación.</p>
+        </div>
+        <div>
+            <h3 class="text-xl font-semibold text-slate-700 mb-2">5.5 Seguir el asistente de instalación</h3>
+            <p>El asistente de instalación de Windows solicitará acciones como:</p>
+            <ul class="list-disc list-inside mt-2 pl-4 space-y-1">
+                <li>Elegir la configuración (rápida o personalizada).</li>
+                <li>Confirmar si el ordenador es de uso personal o de una organización.</li>
+                <li>Iniciar sesión con una cuenta de Microsoft o crear una cuenta local.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="punto6" class="section-card">
+    <h2 class="text-3xl font-bold text-teal-600 mb-6">6. Instalación de Ubuntu</h2>
+    <div class="space-y-6 text-slate-600 leading-relaxed">
+        <div>
+            <h3 class="text-xl font-semibold text-slate-700 mb-2">6.1 Características</h3>
+            <p>Ubuntu es una distribución Linux de software libre. Se puede descargar una imagen de disco (archivo .iso) para crear un DVD o una memoria USB de instalación.</p>
+        </div>
+        <div>
+            <h3 class="text-xl font-semibold text-slate-700 mb-2">6.2 Probar e instalar</h3>
+            <p>Al arrancar desde el soporte de instalación, se puede elegir entre:</p>
+            <ul class="list-disc list-inside mt-2 pl-4 space-y-1">
+                <li><b>Probar Ubuntu:</b> Utilizar el sistema operativo sin instalarlo.</li>
+                <li><b>Instalar Ubuntu:</b> Iniciar el asistente de instalación.</li>
+            </ul>
+        </div>
+        <div>
+            <h3 class="text-xl font-semibold text-slate-700 mb-2">6.3 Preparar el espacio del disco</h3>
+            <p>Ubuntu puede usar todo el disco o compartirlo con otros sistemas operativos. Las opciones incluyen:</p>
+            <ul class="list-disc list-inside mt-2 pl-4 space-y-1">
+                <li>Instalar Ubuntu junto a otro sistema operativo.</li>
+                <li>Borrar disco e instalar Ubuntu.</li>
+            </ul>
+        </div>
+        <div class="my-8">
+            <div class="video-container">
+               <iframe src="https://www.youtube.com/embed/cQDOJb9FXnU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+           </div>
+           <p class="image-caption mt-2">Vídeo explicativo sobre la instalación de Ubuntu.</p>
+       </div>
+    </div>
+</section>
+
+<section id="actividades6" class="section-card bg-green-50 border-green-200">
+    <h2 class="text-3xl font-bold text-green-800 mb-6">Actividades: Instalación de Ubuntu</h2>
+    <div class="space-y-4 text-slate-600 leading-relaxed text-lg">
+        <ol class="list-decimal list-inside space-y-3">
+            <li>¿Qué versión de Ubuntu se está instalando en este tutorial?</li>
+            <li>¿Qué herramienta se utiliza en el video para "volcar" la imagen ISO de Ubuntu en una memoria USB?</li>
+            <li>¿Qué precauciones se deben tomar al formatear el disco durante la instalación?</li>
+            <li>¿Qué otras opciones de instalación se mencionan que no se cubren en este video?</li>
+            <li>¿Qué es LVM y dónde se puede encontrar más información al respecto?</li>
+            <li>¿Cuánto tiempo se estima que tarda el proceso de instalación?</li>
+            <li>¿Cómo se puede verificar la versión de Ubuntu instalada una vez finalizado el proceso?</li>
+        </ol>
+    </div>
+</section>
+
+
+<section id="punto7" class="section-card">
+    <h2 class="text-3xl font-bold text-teal-600 mb-6">7. Mantenimiento del sistema</h2>
+    <div class="space-y-6 text-slate-600 leading-relaxed">
+        <div>
+            <h3 class="text-xl font-semibold text-slate-700 mb-2">7.1 Actualizaciones</h3>
+            <p>El software de un ordenador, especialmente el sistema operativo, debe actualizarse periódicamente para mejorar la seguridad y la estabilidad, así como para añadir nuevas funcionalidades. En Windows, las actualizaciones se gestionan a través de <b>Windows Update</b>. En Ubuntu, se utiliza el <b>Actualizador de software</b>.</p>
+            <div class="mt-6">
+                <img src="https://www.softzone.es/app/uploads-softzone.es/2020/06/Instalar-nueva-versi%C3%B3n-de-Ubuntu.jpg" alt="Actualizador de software de Ubuntu" class="zoomable-image max-w-full">
+                <p class="image-caption">Asistente de actualización de Ubuntu.</p>
+            </div>
+        </div>
+        <div>
+            <h3 class="text-xl font-semibold text-slate-700 mb-2">7.2 Copias de seguridad</h3>
+            <p>Una copia de seguridad es un duplicado de la información que se realiza para poder recuperarla en caso de pérdida. Se pueden utilizar herramientas como la utilidad de <b>Copias de seguridad y restauración</b> de Windows o la herramienta de <b>Copias de seguridad</b> de Ubuntu. También se pueden usar aplicaciones de terceros.</p>
+        </div>
+        <div>
+            <h3 class="text-xl font-semibold text-slate-700 mb-2">7.3 Puntos de restauración</h3>
+            <p>Un punto de restauración es una copia de seguridad de la configuración del sistema en un momento dado. Permite revertir el sistema a un estado anterior en caso de problemas. En Windows, se pueden crear y restaurar desde el panel de <b>Propiedades del sistema</b>.</p>
+            <div class="mt-6">
+                <img src="https://wiki.eurek.org/wp-content/uploads/2020/04/image-17-1024x537.png" alt="Puntos de restauración en Windows" class="zoomable-image max-w-full">
+                <p class="image-caption">Utilidad para crear puntos de restauración en Windows.</p>
+            </div>
+        </div>
+        <div>
+            <h3 class="text-xl font-semibold text-slate-700 mb-2">7.4 Partición de recuperación</h3>
+            <p>Es una partición oculta en el disco duro que contiene una imagen del sistema operativo tal y como venía de fábrica. Permite restaurar el equipo a su estado original.</p>
+        </div>
+    </div>
+</section>
+
+<section id="punto8" class="section-card">
+    <h2 class="text-3xl font-bold text-teal-600 mb-6">8. Seguridad informática</h2>
+    <div class="space-y-6 text-slate-600 leading-relaxed">
+        <div>
+            <h3 class="text-xl font-semibold text-slate-700 mb-2">8.1 Riesgos y amenazas</h3>
+            <p>La seguridad informática protege la información y los equipos de posibles daños. Las amenazas pueden ser causadas por:</p>
+            <ul class="list-disc list-inside mt-2 pl-4 space-y-1">
+                <li><b>Usuarios:</b> A menudo por desconocimiento.</li>
+                <li><b>Programas maliciosos (malware):</b> Virus, gusanos, troyanos, spyware, ransomware.</li>
+                <li><b>Fallos de hardware o software.</b></li>
+                <li><b>Catástrofes naturales.</b></li>
+            </ul>
+        </div>
+        <div>
+            <h3 class="text-xl font-semibold text-slate-700 mb-2">8.2 Malware</h3>
+            <p>Es un software que tiene como objetivo dañar un sistema informático. Algunos tipos son:</p>
+            <ul class="list-disc list-inside mt-2 pl-4 space-y-1">
+                <li><b>Virus:</b> Se adjunta a un programa y se propaga al ejecutarlo.</li>
+                <li><b>Gusano:</b> Se propaga a través de redes sin necesidad de un programa anfitrión.</li>
+                <li><b>Troyano:</b> Se disfraza de software legítimo para robar información o tomar el control del equipo.</li>
+                <li><b>Spyware:</b> Recopila información de un ordenador sin el consentimiento del propietario.</li>
+                <li><b>Ransomware:</b> Cifra los archivos del usuario y exige un rescate para descifrarlos.</li>
+            </ul>
+        </div>
+        <div class="my-8">
+            <div class="video-container">
+               <iframe src="https://www.youtube.com/embed/WjBrRvqpw1Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+           </div>
+           <p class="image-caption mt-2">Todos los virus informáticos en 8 minutos.</p>
+       </div>
+        <div>
+            <h3 class="text-xl font-semibold text-slate-700 mb-2">8.3 Proteger el sistema</h3>
+            <p>Para proteger un sistema informático se recomienda:</p>
+            <ul class="list-disc list-inside mt-2 pl-4 space-y-1">
+                <li>Utilizar <b>contraseñas seguras</b>.</li>
+                <li>Instalar y mantener actualizado un <b>software antivirus</b>.</li>
+                <li>Utilizar un <b>cortafuegos (firewall)</b>.</li>
+                <li>Mantener el <b>sistema operativo y el software actualizados</b>.</li>
+                <li>Realizar <b>copias de seguridad</b> periódicas.</li>
+                <li>Tener <b>precaución al navegar por internet</b> y al descargar archivos.</li>
+            </ul>
+            <div class="mt-6">
+                <img src="https://img.freepik.com/vector-premium/icono-proteccion-bloqueo-o-firewall-computadora-portatil_101884-665.jpg" alt="Protección del sistema" class="zoomable-image max-w-xs">
+                <p class="image-caption">Icono de seguridad y protección (firewall).</p>
+            </div>
+        </div>
+        <div class="my-8">
+            <div class="video-container">
+               <iframe src="https://www.youtube.com/embed/mTpDmhF4BSw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+           </div>
+           <p class="image-caption mt-2">El Hackeo que casi INFECTA al MUNDO ENTERO.</p>
+       </div>
+    </div>
+</section>
+
+<section id="actividades8" class="section-card bg-green-50 border-green-200">
+    <h2 class="text-3xl font-bold text-green-800 mb-6">Actividades: Seguridad Informática</h2>
+    <div class="space-y-4 text-slate-600 leading-relaxed text-lg">
+        <ol class="list-decimal list-inside space-y-3">
+            <li>¿Cuál es la principal diferencia entre un virus y un gusano informático?</li>
+            <li>Explica qué es un troyano y cómo engaña a los usuarios.</li>
+            <li>¿Cómo funciona el phishing y qué precauciones se deben tomar para evitarlo?</li>
+            <li>Describe la función de un keylogger y por qué representa una amenaza para la privacidad.</li>
+            <li>¿Qué recomendaciones generales ofrece el video para protegerse del ransomware?</li>
+            <li>Además de los antivirus, ¿qué otras prácticas de seguridad se sugieren para evitar el adware?</li>
+            <li>Considerando todos los tipos de malware, ¿cuáles crees que son las tres medidas de seguridad más importantes para un usuario promedio?</li>
+            <li>Explica con tus propias palabras qué es un ataque a la cadena de suministro basándote en el ejemplo de xz utils.</li>
+            <li>¿Quién fue Andrés Freund y cuál fue su papel crucial en el descubrimiento de la puerta trasera?</li>
+            <li>¿Qué es xz utils y por qué su compromiso fue tan grave para el ecosistema Linux?</li>
+            <li>Describe cómo el atacante, "Jia Tan", se ganó la confianza del mantenedor original del proyecto.</li>
+            <li>¿Cómo se insertó el código malicioso en el paquete xz utils para que fuera difícil de detectar al revisar el código fuente directamente?</li>
+            <li>¿Cuál era la función específica de la puerta trasera una vez activada en los sistemas infectados?</li>
+            <li>El video menciona que no todas las distribuciones de Linux hubieran sido afectadas de la misma manera. ¿Por qué algunas distribuciones eran más vulnerables que otras?</li>
+            <li>¿Qué lecciones se pueden aprender de este incidente sobre la seguridad del software de código abierto y la dependencia de proyectos comunitarios?</li>
+            <li>Si el ataque hubiera tenido éxito, ¿cuáles podrían haber sido las consecuencias a nivel global?</li>
+        </ol>
+    </div>
+</section>
+
+
+<section id="punto9" class="section-card">
+    <h2 class="text-3xl font-bold text-teal-600 mb-6">9. Instalación de aplicaciones</h2>
+    <div class="space-y-6 text-slate-600 leading-relaxed">
+        <div>
+            <h3 class="text-xl font-semibold text-slate-700 mb-2">9.1 ¿Qué es una aplicación?</h3>
+            <p>Una aplicación o programa es un tipo de software que permite al usuario realizar uno o varios tipos de trabajo.</p>
+        </div>
+        <div>
+            <h3 class="text-xl font-semibold text-slate-700 mb-2">9.2 Tipos de software</h3>
+            <p>El software se puede clasificar según su coste y la forma en que se distribuye:</p>
+            <ul class="list-disc list-inside mt-2 pl-4 space-y-1">
+                <li><b>Software propietario:</b> No se puede modificar ni distribuir libremente.</li>
+                <li><b>Software libre:</b> Se puede usar, copiar, estudiar, modificar y distribuir libremente.</li>
+                <li><b>Freeware:</b> Se distribuye gratuitamente, pero no se puede modificar.</li>
+                <li><b>Shareware:</b> Se puede probar durante un tiempo limitado antes de comprarlo.</li>
+            </ul>
+        </div>
+        <div>
+            <h3 class="text-xl font-semibold text-slate-700 mb-2">9.3 Instalar y desinstalar programas en Windows</h3>
+            <p>Los programas para Windows suelen tener la extensión <b>.exe</b> o <b>.msi</b>. La instalación se realiza mediante un asistente. Se recomienda descargar programas solo de sitios web de confianza. Para modificar, actualizar o desinstalar programas, se utiliza la sección <b>Aplicaciones</b> en la <b>Configuración</b> del sistema.</p>
+        </div>
+        <div>
+            <h3 class="text-xl font-semibold text-slate-700 mb-2">9.4 Instalar apps en Android</h3>
+            <p>Las aplicaciones para Android tienen la extensión <b>.apk</b>. Se pueden instalar desde la <b>Google Play Store</b> o ejecutando directamente el archivo APK en el dispositivo.</p>
+        </div>
+    </div>
+</section>
+
+<section id="punto10" class="section-card">
+    <h2 class="text-3xl font-bold text-teal-600 mb-6">10. Montaje y mantenimiento de equipos</h2>
+    <div class="space-y-6 text-slate-600 leading-relaxed">
+        <div>
+            <h3 class="text-xl font-semibold text-slate-700 mb-2">10.1 Componentes de un ordenador</h3>
+            <p>Los componentes básicos de un ordenador de sobremesa son la caja o torre, la fuente de alimentación, la placa base, el microprocesador (CPU), la memoria RAM, el disco duro, la tarjeta gráfica, la tarjeta de sonido, la tarjeta de red y los periféricos.</p>
+            <div class="mt-6">
+                <img src="https://dogemicrosystems.ca/pub/Sun/System_Handbook/Sun_syshbk_V3.4/Systems/SunBlade1500S/images/SunBlade1500S_expl.jpg" alt="Componentes de un ordenador (vista explosionada)" class="zoomable-image max-w-full">
+                <p class="image-caption">Vista explosionada de los componentes de un servidor.</p>
+            </div>
+        </div>
+        <div>
+            <h3 class="text-xl font-semibold text-slate-700 mb-2">10.2 Ensamblaje de los componentes</h3>
+            <p>El montaje de un ordenador implica la instalación de los componentes en la caja y su conexión a la placa base y a la fuente de alimentación, siguiendo un orden lógico para facilitar el proceso.</p>
+        </div>
+        <div class="my-8">
+            <div class="video-container">
+               <iframe src="https://www.youtube.com/embed/B4AEOIU4x2U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+           </div>
+           <p class="image-caption mt-2">El Hackeo que casi INFECTA al MUNDO ENTERO.</p>
+       </div>
+        <div>
+            <h3 class="text-xl font-semibold text-slate-700 mb-2">10.3 Puesta en marcha</h3>
+            <p>Una vez montado el equipo, se conectan los periféricos y se realiza la primera puesta en marcha, accediendo a la BIOS/UEFI para comprobar que todos los componentes son reconocidos correctamente antes de instalar el sistema operativo.</p>
+        </div>
+        <div>
+            <h3 class="text-xl font-semibold text-slate-700 mb-2">10.4 Mantenimiento preventivo</h3>
+            <p>Consiste en realizar una serie de tareas periódicas para evitar posibles fallos en el equipo, como la limpieza de los componentes internos y externos, la comprobación del estado de los cables y la monitorización de las temperaturas.</p>
+            <div class="mt-6">
+                <img src="https://www.shutterstock.com/image-photo/maintenance-cleaning-insides-computer-mans-600nw-2091770890.jpg" alt="Limpieza interna de un PC" class="zoomable-image max-w-full">
+                <p class="image-caption">Mantenimiento preventivo: limpieza del hardware.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="punto11" class="section-card">
+    <h2 class="text-3xl font-bold text-teal-600 mb-6">11. Redes de ordenadores</h2>
+    <div class="space-y-6 text-slate-600 leading-relaxed">
+        <div>
+            <h3 class="text-xl font-semibold text-slate-700 mb-2">11.1 ¿Qué es una red?</h3>
+            <p>Una red de ordenadores es un conjunto de equipos conectados entre sí que pueden compartir información, recursos y servicios.</p>
+        </div>
+        <div>
+            <h3 class="text-xl font-semibold text-slate-700 mb-2">11.2 Tipos de redes</h3>
+            <p>Las redes se pueden clasificar según su tamaño:</p>
+            <ul class="list-disc list-inside mt-2 pl-4 space-y-1">
+                <li><b>LAN (Local Area Network):</b> Red de área local, como la de una casa u oficina.</li>
+                <li><b>MAN (Metropolitan Area Network):</b> Red de área metropolitana, que abarca una ciudad.</li>
+                <li><b>WAN (Wide Area Network):</b> Red de área amplia, que conecta equipos a nivel mundial, como Internet.</li>
+            </ul>
+        </div>
+        <div>
+            <h3 class="text-xl font-semibold text-slate-700 mb-2">11.3 Topologías de red</h3>
+            <p>La topología de red es la forma en que están dispuestos los equipos en una red. Las más comunes son en bus, en anillo, en estrella, en árbol y en malla.</p>
+            <div class="mt-6">
+                <img src="https://fernandoarciniega.com/wp-content/uploads/Topologias-de-Red-Fernando-Arciniega-Blog.jpg" alt="Topologías de red" class="zoomable-image max-w-full">
+                <p class="image-caption">Diagrama de las principales topologías de red.</p>
+            </div>
+        </div>
+        <div>
+            <h3 class="text-xl font-semibold text-slate-700 mb-2">11.4 Dispositivos de red</h3>
+            <p>Para conectar los equipos en red se utilizan dispositivos como:</p>
+            <ul class="list-disc list-inside mt-2 pl-4 space-y-1">
+                <li><b>Tarjeta de red:</b> Permite conectar un equipo a una red.</li>
+                <li><b>Router:</b> Conecta redes diferentes y dirige el tráfico entre ellas.</li>
+                <li><b>Switch:</b> Conecta varios equipos dentro de la misma red local.</li>
+                <li><b>Punto de acceso inalámbrico:</b> Permite la conexión de dispositivos inalámbricos a una red.</li>
+            </ul>
+            <div class="mt-6">
+                <img src="https://claudiooq2.wordpress.com/wp-content/uploads/2010/01/dibujo43.jpg" alt="Dispositivos de red" class="zoomable-image max-w-full">
+                <p class="image-caption">Componentes y dispositivos comunes en una red.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="actividades11" class="section-card bg-green-50 border-green-200">
+    <h2 class="text-3xl font-bold text-green-800 mb-6">Actividades: Redes e internet</h2>
+    <div class="space-y-4 text-slate-600 leading-relaxed text-lg">
+        <ol class="list-decimal list-inside space-y-3">
+            <li>¿Qué es una dirección IP y cuál es la diferencia entre una IPv4 y una IPv6?</li>
+            <li>¿Cuál es la función del DNS (Sistema de Nombres de Dominio) en la navegación por internet?</li>
+            <li>Explica la diferencia entre un router, un switch y un hub.</li>
+            <li>¿Qué es el ancho de banda y cómo se diferencia de la latencia?</li>
+            <li>Describe el propósito de los protocolos TCP y UDP. ¿Cuándo usarías uno en lugar del otro?</li>
+            <li>¿Cuál es la diferencia entre HTTP y HTTPS? ¿Por qué es importante usar HTTPS?</li>
+            <li>Explica qué es una VPN (Red Privada Virtual) y para qué se utiliza comúnmente.</li>
+            <li>¿Qué significan los estándares Wi-Fi como 802.11ac o Wi-Fi 6 (802.11ax)?</li>
+            <li>¿Cuál es la diferencia entre las bandas de frecuencia de 2.4 GHz y 5 GHz en una red Wi-Fi?</li>
+            <li>¿Qué es el SSID de una red Wi-Fi?</li>
+            <li>Explica la diferencia entre los protocolos de seguridad inalámbrica WEP, WPA y WPA3. ¿Cuál es el más seguro?</li>
+            <li>¿Qué factores pueden causar una mala señal de Wi-Fi en tu casa u oficina?</li>
+            <li>¿Cuál es la diferencia entre Internet y la World Wide Web (WWW)?</li>
+            <li>¿Qué son las cookies de un navegador y para qué se utilizan?</li>
+            <li>¿Cómo funciona un motor de búsqueda como Google?</li>
+        </ol>
+    </div>
+</section>
+
+<section id="situacion-aprendizaje" class="section-card bg-orange-50 border border-orange-200 p-8 rounded-2xl shadow-sm">
+          <h2 class="text-3xl font-bold text-orange-800 mb-6">
+            Situación de Aprendizaje: Presupuesto y montaje de ordenadores
+        </h2>
+
+        <div class="space-y-4 text-slate-600 leading-relaxed text-lg">
+            <p>
+              Vas a necesitar un ordenador nuevo para el próximo curso, ya que el tuyo actual presenta un estado deficiente.
+              Aún no has decidido si estudiarás el
+              <span class="font-semibold text-orange-700">Ciclo Formativo de Sistemas Microinformáticos y Redes</span>
+              o el <span class="font-semibold text-orange-700">Bachillerato</span>.
+          </p>
+
+          <p>
+              👉 Tus padres te han pedido que prepares un <strong>presupuesto comparativo</strong> con las características y el
+              coste de un ordenador en cada caso. Para abaratar el precio final, deberás adquirir las piezas individualmente en
+              <span class="italic">PC Componentes</span> y montarlas tú mismo/a.
+          </p>
+
+          <!-- Requisitos -->
+          <h3 class="text-xl font-semibold text-slate-700 mt-6 mb-2">Requisitos de los equipos</h3>
+
+          <div class="grid md:grid-cols-2 gap-6">
+              <!-- Ciclo Formativo -->
+              <div class="bg-white border border-orange-100 p-4 rounded-xl shadow-sm">
+                <h4 class="text-lg font-semibold text-orange-700 mb-2">💻 Ordenador para Ciclo Formativo</h4>
+                <ul class="list-disc list-inside space-y-1">
+                  <li>Procesador: Intel Core i5 o AMD Ryzen 7 (alta gama)</li>
+                  <li>16 GB de memoria RAM</li>
+                  <li>Tarjeta gráfica: 12 GB RAM</li>
+                  <li>Tarjeta de sonido avanzada</li>
+                  <li>Disco duro NVMe de 1 TB</li>
+                  <li>Monitor de 27 pulgadas</li>
+                  <li>Tarjeta WiFi</li>
+                  <li>Windows 11 Pro</li>
+                  <li>Caja, ratón, teclado y refrigeración tipo gaming</li>
+              </ul>
+          </div>
+
+          <!-- Bachillerato -->
+          <div class="bg-white border border-orange-100 p-4 rounded-xl shadow-sm">
+            <h4 class="text-lg font-semibold text-orange-700 mb-2">💻 Ordenador para Bachillerato</h4>
+            <ul class="list-disc list-inside space-y-1">
+              <li>Procesador: Intel Core i5 o AMD Ryzen 7 (básico)</li>
+              <li>8 GB de memoria RAM</li>
+              <li>Tarjeta gráfica básica</li>
+              <li>Tarjeta de sonido básica</li>
+              <li>Disco duro SSD de 1 TB</li>
+              <li>Monitor de 23 pulgadas</li>
+              <li>Tarjeta WiFi</li>
+              <li>Windows 11 Home</li>
+              <li>Caja, ratón, teclado y refrigeración estándar</li>
+          </ul>
+      </div>
+  </div>
+
+  <!-- Instrucciones -->
+  <h3 class="text-xl font-semibold text-slate-700 mt-6 mb-2">Instrucciones</h3>
+  <ul class="list-disc list-inside space-y-3">
+      <li>Selecciona los componentes en la web de <span class="italic">PC Componentes</span> para cada configuración.</li>
+      <li>Verifica la compatibilidad de las piezas y realiza cambios si es necesario.</li>
+      <li>Crea el enlace a cada presupuesto generado en la web.</li>
+      <li>Elabora un documento donde detalles:
+        <ul class="list-disc list-inside ml-6 mt-2 space-y-1">
+          <li>Listado de componentes elegidos.</li>
+          <li>Precio total de cada ordenador.</li>
+          <li>Enlace directo a cada configuración.</li>
+      </ul>
+  </li>
+  <li>En el aula de informática:
+    <ul class="list-disc list-inside ml-6 mt-2 space-y-1">
+      <li>Desmonta las piezas de los ordenadores antiguos.</li>
+      <li>Vuelve a montarlas en su lugar correspondiente.</li>
+      <li>Comprueba el correcto funcionamiento del equipo.</li>
+  </ul>
+</li>
+<li>Redacta un informe final con la lista de piezas desmontadas y reinstaladas durante la práctica.</li>
+</ul>
+</div>
+</section>
+
+</main>
+
+<!-- Columna de Navegación Lateral -->
+<aside class="lg:col-span-1">
+    <div class="sticky top-8">
+        <div id="indice" class="p-6 bg-slate-100 rounded-lg border border-slate-200">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4">Índice del Tema</h2>
+            <ol class="list-decimal list-inside space-y-3 text-lg">
+                <li><a href="#punto1" class="text-blue-600 hover:text-blue-800 hover:underline">Representación digital</a></li>
+                <li><a href="#punto2" class="text-blue-600 hover:text-blue-800 hover:underline">Equipos informáticos</a></li>
+                <li><a href="#punto3" class="text-blue-600 hover:text-blue-800 hover:underline">Sistemas operativos</a></li>
+                <li><a href="#punto4" class="text-blue-600 hover:text-blue-800 hover:underline">Almacenamiento</a></li>
+                <li><a href="#punto5" class="text-blue-600 hover:text-blue-800 hover:underline">Instalación de Windows</a></li>
+                <li><a href="#punto6" class="text-blue-600 hover:text-blue-800 hover:underline">Instalación de Ubuntu</a></li>
+                <li><a href="#punto7" class="text-blue-600 hover:text-blue-800 hover:underline">Mantenimiento</a></li>
+                <li><a href="#punto8" class="text-blue-600 hover:text-blue-800 hover:underline">Seguridad informática</a></li>
+                <li><a href="#punto9" class="text-blue-600 hover:text-blue-800 hover:underline">Instalación de aplicaciones</a></li>
+                <li><a href="#punto10" class="text-blue-600 hover:text-blue-800 hover:underline">Montaje y mantenimiento</a></li>
+                <li><a href="#punto11" class="text-blue-600 hover:text-blue-800 hover:underline">Redes de ordenadores</a></li>
+                <li><a href="#situacion-aprendizaje" class="text-blue-600 hover:text-blue-800 hover:underline">Situación de Aprendizaje</a></li>
+            </ol>
+        </div>
+
+        <div id="material" class="mt-8 p-6 bg-teal-50 rounded-lg border border-teal-200">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4">¡Para Saber Más!</h2>
+            <div class="space-y-4">
+                <a href="quiz.html" class="group flex items-center gap-4 p-4 bg-white rounded-lg shadow-sm hover:shadow-lg hover:bg-teal-100 transition-all">
+                    <div class="flex-shrink-0 bg-teal-100 text-teal-600 rounded-full p-3 group-hover:bg-white transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    </div>
+                    <span class="font-semibold text-lg text-slate-800">Actividades Interactivas</span>
+                </a>
+                <a href="#" class="group flex items-center gap-4 p-4 bg-white rounded-lg shadow-sm hover:shadow-lg hover:bg-teal-100 transition-all">
+                    <div class="flex-shrink-0 bg-teal-100 text-teal-600 rounded-full p-3 group-hover:bg-white transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" /></svg>
+                    </div>
+                    <span class="font-semibold text-lg text-slate-800">Ejercicios Prácticos</span>
+                </a>
+                <a href="#" class="group flex items-center gap-4 p-4 bg-white rounded-lg shadow-sm hover:shadow-lg hover:bg-teal-100 transition-all">
+                    <div class="flex-shrink-0 bg-teal-100 text-teal-600 rounded-full p-3 group-hover:bg-white transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2-2H5a2 2 0 01-2-2V9z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    </div>
+                    <span class="font-semibold text-lg text-slate-800">Galería de Imágenes</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</aside>
 </div>
 </div>
 
