@@ -35,6 +35,70 @@
         .section-card:hover {
             box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
         }
+        .zoomable-image {
+            cursor: zoom-in;
+            transition: transform 0.2s ease-in-out;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: 3px solid #e2e8f0;
+        }
+        .zoomable-image:hover {
+            transform: scale(1.03);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.85);
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s;
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 85%;
+            max-height: 85%;
+            animation: zoomIn 0.3s;
+        }
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .close-modal:hover,
+        .close-modal:focus {
+            color: #bbb;
+            text-decoration: none;
+        }
+        .image-caption {
+            margin-top: 0.5rem;
+            text-align: center;
+            font-size: 0.875rem;
+            color: #64748b;
+            font-style: italic;
+        }
+        @keyframes fadeIn {
+            from {opacity: 0}
+            to {opacity: 1}
+        }
+        @keyframes zoomIn {
+            from {transform: scale(0.8)}
+            to {transform: scale(1)}
+        }
     </style>
 </head>
 <body class="text-slate-700">
@@ -80,6 +144,10 @@
                             <li><b>Digitales:</b> Sus variables son discretas, solo pueden tomar ciertos valores dentro de un rango. Los ordenadores son un ejemplo, utilizando solo cero y uno.</li>
                         </ul>
                         <p class="mt-2">Las señales analógicas son muy precisas pero difíciles de manipular, por lo que se digitalizan para su tratamiento y luego se reconvierten a su naturaleza analógica original.</p>
+                        <div class="mt-6">
+                            <img src="https://www.feriadetecnologia.com/arduino/Analog-Digital_frequency_examples.png" alt="Comparativa señal analógica y digital" class="zoomable-image max-w-lg">
+                            <p class="image-caption">Comparativa entre una señal analógica (continua) y una digital (discreta).</p>
+                        </div>
                     </div>
                     <div>
                         <h3 class="text-xl font-semibold text-slate-700 mb-2">1.2 Representación de la información</h3>
@@ -92,6 +160,10 @@
                     <div>
                         <h3 class="text-xl font-semibold text-slate-700 mb-2">1.4 Sistema binario</h3>
                         <p>Los ordenadores utilizan el sistema binario (ceros y unos) para manipular y almacenar la información. Para convertir un número binario a decimal, se desarrolla el polinomio de potencias de base dos. Para convertir de decimal a binario, se divide el número decimal sucesivamente entre 2, y el resultado se forma con el último cociente y los restos en orden inverso.</p>
+                        <div class="mt-6">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Conversion.JPG" alt="Conversión de decimal a binario" class="zoomable-image max-w-xs">
+                            <p class="image-caption">Proceso de conversión de decimal a binario mediante divisiones.</p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -110,6 +182,10 @@
                     <div>
                         <h3 class="text-xl font-semibold text-slate-700 mb-2">2.2 Tipos de ordenadores</h3>
                         <p>Los ordenadores se clasifican por su tamaño, utilidad y movilidad en: ordenadores de escritorio, portátiles, tabletas y teléfonos inteligentes. También existen ordenadores para fines específicos como los superordenadores y los sistemas empotrados.</p>
+                         <div class="mt-6">
+                            <img src="https://media.istockphoto.com/id/483292989/es/foto/conjunto-de-dispositivos-de-la-computadora.jpg?s=612x612&w=0&k=20&c=ORPDSxt3jA_foJTR1T-ao4WNqZBOj4iEtWZGwoBCBoY=" alt="Tipos de ordenadores" class="zoomable-image max-w-full">
+                            <p class="image-caption">Diferentes tipos de equipos informáticos.</p>
+                        </div>
                     </div>
                     <div>
                         <h3 class="text-xl font-semibold text-slate-700 mb-2">2.3 Arquitectura de un ordenador</h3>
@@ -122,6 +198,30 @@
                             <li><b>Tarjeta gráfica o GPU:</b> Procesa los gráficos y envía la señal de vídeo al monitor.</li>
                             <li><b>Sistemas de entrada/salida:</b> Periféricos que permiten la comunicación con el exterior.</li>
                         </ul>
+                        <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                            <div class="text-center">
+                                <img src="https://img.pccomponentes.com/pcblog/3560/partes-cpu.jpg" alt="Partes de una CPU" class="zoomable-image">
+                                <p class="image-caption">CPU (Unidad Central de Procesamiento).</p>
+                            </div>
+                            <div class="text-center">
+                                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5Xrws8eTRNCs7-yqC_SnCmvcUCYPQ0MeBHTJB60GmlyD32QSpJgZ5jVZ2x2XhD9TFCs1XL6tTg8-DVyKcNvViBCwgs1p6Lhj2J0cCadU3-TJXx6TlC0vRhNmFeD4VnIHA6zRWhkrX4LIs/s1600/animation.gif" alt="Periféricos de un ordenador" class="zoomable-image">
+                                <p class="image-caption">Periféricos de Entrada y Salida.</p>
+                            </div>
+                        </div>
+                        <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div>
+                                <img src="https://profejaime.com/images/2023/09/03/placa-madre-partes-min.jpg" alt="Placa base y sus partes" class="zoomable-image">
+                                <p class="image-caption">Placa base con sus componentes.</p>
+                            </div>
+                            <div>
+                                <img src="https://informaticalumar.com/wp-content/uploads/2018/08/memoria-ram-010815.jpg" alt="Módulo de memoria RAM" class="zoomable-image">
+                                <p class="image-caption">Módulo de memoria RAM.</p>
+                            </div>
+                            <div>
+                                <img src="https://mx-media.hptiendaenlinea.com/magefan_blog/Gu_a_de_compra_de_GPU_c_mo_elegir_la_tarjeta_gr_fica_ideal.png" alt="Tarjeta gráfica (GPU)" class="zoomable-image">
+                                <p class="image-caption">Tarjeta gráfica (GPU).</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -136,6 +236,10 @@
                     <div>
                         <h3 class="text-xl font-semibold text-slate-700 mb-2">3.2 Tipos</h3>
                         <p>Existen diversos sistemas operativos, los más populares son: Microsoft Windows, macOS, distribuciones Linux y sistemas operativos móviles como Android e iOS.</p>
+                        <div class="mt-6">
+                            <img src="https://thumbs.dreamstime.com/b/linux-android-apple-y-windows-logo-vectorial-ilustraci%C3%B3n-editorial-de-la-manzana-androide-en-formato-248358952.jpg" alt="Logos de Sistemas Operativos" class="zoomable-image max-w-md">
+                            <p class="image-caption">Logotipos de los principales sistemas operativos.</p>
+                        </div>
                     </div>
                     <div>
                         <h3 class="text-xl font-semibold text-slate-700 mb-2">3.3 Funciones principales</h3>
@@ -150,6 +254,10 @@
                     <div>
                         <h3 class="text-xl font-semibold text-slate-700 mb-2">3.4 Interfaz gráfica de usuario e intérprete de comandos</h3>
                         <p>Los sistemas operativos han evolucionado de intérpretes de comandos a interfaces gráficas más intuitivas. La interfaz gráfica es un entorno visual, mientras que el intérprete de comandos se basa en la introducción de instrucciones.</p>
+                         <div class="mt-6">
+                            <img src="https://geekland.eu/wp-content/uploads/2022/08/ventajas-de-la-terminal-respecto-la-interfaz-grafica-1280x720.jpeg" alt="Interfaz gráfica vs Terminal de comandos" class="zoomable-image max-w-full">
+                            <p class="image-caption">Comparativa entre una interfaz gráfica (GUI) y una de comandos (CLI).</p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -164,6 +272,10 @@
                          <li><b>Física:</b> Cómo se guardan los datos en los soportes de almacenamiento (magnéticos, ópticos, memorias flash, SSD).</li>
                          <li><b>Lógica:</b> Cómo se almacenan los datos en ficheros y carpetas.</li>
                      </ul>
+                     <div class="mt-6">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEje8LZQ1whGhT1HYKMCY3IdkJdg_CFw9ekNB6-CeS82GvCr0CkaTw9QLKAf7Te2K0y8zq8n82IwiG-aeGQc4aiCL8zBYPcvWkq7kZI5CLy2wlC7RCb-_seMy53-KsDAQtLmlLvam3siqqk2/s1600/almacenamiento+masivo.jpg" alt="Dispositivos de almacenamiento" class="zoomable-image max-w-full">
+                        <p class="image-caption">Diversos medios de almacenamiento masivo.</p>
+                    </div>
                  </div>
                  <div>
                     <h3 class="text-xl font-semibold text-slate-700 mb-2">4.2 Particiones</h3>
@@ -176,6 +288,10 @@
                 <div>
                     <h3 class="text-xl font-semibold text-slate-700 mb-2">4.4 Organización de archivos</h3>
                     <p>Los sistemas operativos organizan los archivos y permiten operaciones con ellos a través del explorador de archivos. Los archivos relacionados se agrupan en carpetas, formando una estructura de árbol.</p>
+                    <div class="mt-6">
+                        <img src="https://www.e-soluciones-tic.com/wp-content/uploads/archive0001.png" alt="Estructura de archivos en árbol" class="zoomable-image max-w-sm">
+                        <p class="image-caption">Ejemplo de una estructura de archivos jerárquica.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -253,6 +369,10 @@
                 <div>
                     <h3 class="text-xl font-semibold text-slate-700 mb-2">7.1 Actualizaciones</h3>
                     <p>El software de un ordenador, especialmente el sistema operativo, debe actualizarse periódicamente para mejorar la seguridad y la estabilidad, así como para añadir nuevas funcionalidades. En Windows, las actualizaciones se gestionan a través de <b>Windows Update</b>. En Ubuntu, se utiliza el <b>Actualizador de software</b>.</p>
+                    <div class="mt-6">
+                        <img src="https://www.softzone.es/app/uploads-softzone.es/2020/06/Instalar-nueva-versi%C3%B3n-de-Ubuntu.jpg" alt="Actualizador de software de Ubuntu" class="zoomable-image max-w-full">
+                        <p class="image-caption">Asistente de actualización de Ubuntu.</p>
+                    </div>
                 </div>
                 <div>
                     <h3 class="text-xl font-semibold text-slate-700 mb-2">7.2 Copias de seguridad</h3>
@@ -261,6 +381,10 @@
                 <div>
                     <h3 class="text-xl font-semibold text-slate-700 mb-2">7.3 Puntos de restauración</h3>
                     <p>Un punto de restauración es una copia de seguridad de la configuración del sistema en un momento dado. Permite revertir el sistema a un estado anterior en caso de problemas. En Windows, se pueden crear y restaurar desde el panel de <b>Propiedades del sistema</b>.</p>
+                    <div class="mt-6">
+                        <img src="https://wiki.eurek.org/wp-content/uploads/2020/04/image-17-1024x537.png" alt="Puntos de restauración en Windows" class="zoomable-image max-w-full">
+                        <p class="image-caption">Utilidad para crear puntos de restauración en Windows.</p>
+                    </div>
                 </div>
                 <div>
                     <h3 class="text-xl font-semibold text-slate-700 mb-2">7.4 Partición de recuperación</h3>
@@ -292,6 +416,10 @@
                         <li><b>Spyware:</b> Recopila información de un ordenador sin el consentimiento del propietario.</li>
                         <li><b>Ransomware:</b> Cifra los archivos del usuario y exige un rescate para descifrarlos.</li>
                     </ul>
+                    <div class="mt-6">
+                        <img src="https://i.ytimg.com/vi/WjBrRvqpw1Y/maxresdefault.jpg" alt="Tipos de Malware" class="zoomable-image max-w-full">
+                        <p class="image-caption">Representación de distintos tipos de malware.</p>
+                    </div>
                 </div>
                 <div>
                     <h3 class="text-xl font-semibold text-slate-700 mb-2">8.3 Proteger el sistema</h3>
@@ -304,6 +432,10 @@
                         <li>Realizar <b>copias de seguridad</b> periódicas.</li>
                         <li>Tener <b>precaución al navegar por internet</b> y al descargar archivos.</li>
                     </ul>
+                    <div class="mt-6">
+                        <img src="https://img.freepik.com/vector-premium/icono-proteccion-bloqueo-o-firewall-computadora-portatil_101884-665.jpg" alt="Protección del sistema" class="zoomable-image max-w-xs">
+                        <p class="image-caption">Icono de seguridad y protección (firewall).</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -342,6 +474,10 @@
                 <div>
                     <h3 class="text-xl font-semibold text-slate-700 mb-2">10.1 Componentes de un ordenador</h3>
                     <p>Los componentes básicos de un ordenador de sobremesa son la caja o torre, la fuente de alimentación, la placa base, el microprocesador (CPU), la memoria RAM, el disco duro, la tarjeta gráfica, la tarjeta de sonido, la tarjeta de red y los periféricos.</p>
+                    <div class="mt-6">
+                        <img src="https://dogemicrosystems.ca/pub/Sun/System_Handbook/Sun_syshbk_V3.4/Systems/SunBlade1500S/images/SunBlade1500S_expl.jpg" alt="Componentes de un ordenador (vista explosionada)" class="zoomable-image max-w-full">
+                        <p class="image-caption">Vista explosionada de los componentes de un servidor.</p>
+                    </div>
                 </div>
                 <div>
                     <h3 class="text-xl font-semibold text-slate-700 mb-2">10.2 Ensamblaje de los componentes</h3>
@@ -354,6 +490,10 @@
                 <div>
                     <h3 class="text-xl font-semibold text-slate-700 mb-2">10.4 Mantenimiento preventivo</h3>
                     <p>Consiste en realizar una serie de tareas periódicas para evitar posibles fallos en el equipo, como la limpieza de los componentes internos y externos, la comprobación del estado de los cables y la monitorización de las temperaturas.</p>
+                    <div class="mt-6">
+                        <img src="https://www.shutterstock.com/image-photo/maintenance-cleaning-insides-computer-mans-600nw-2091770890.jpg" alt="Limpieza interna de un PC" class="zoomable-image max-w-full">
+                        <p class="image-caption">Mantenimiento preventivo: limpieza del hardware.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -377,6 +517,10 @@
                 <div>
                     <h3 class="text-xl font-semibold text-slate-700 mb-2">11.3 Topologías de red</h3>
                     <p>La topología de red es la forma en que están dispuestos los equipos en una red. Las más comunes son en bus, en anillo, en estrella, en árbol y en malla.</p>
+                    <div class="mt-6">
+                        <img src="https://fernandoarciniega.com/wp-content/uploads/Topologias-de-Red-Fernando-Arciniega-Blog.jpg" alt="Topologías de red" class="zoomable-image max-w-full">
+                        <p class="image-caption">Diagrama de las principales topologías de red.</p>
+                    </div>
                 </div>
                 <div>
                     <h3 class="text-xl font-semibold text-slate-700 mb-2">11.4 Dispositivos de red</h3>
@@ -387,6 +531,10 @@
                         <li><b>Switch:</b> Conecta varios equipos dentro de la misma red local.</li>
                         <li><b>Punto de acceso inalámbrico:</b> Permite la conexión de dispositivos inalámbricos a una red.</li>
                     </ul>
+                    <div class="mt-6">
+                        <img src="https://claudiooq2.wordpress.com/wp-content/uploads/2010/01/dibujo43.jpg" alt="Dispositivos de red" class="zoomable-image max-w-full">
+                        <p class="image-caption">Componentes y dispositivos comunes en una red.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -416,7 +564,7 @@
             <div id="material" class="mt-8 p-6 bg-teal-50 rounded-lg border border-teal-200">
                 <h2 class="text-2xl font-bold text-slate-900 mb-4">¡Para Saber Más!</h2>
                 <div class="space-y-4">
-                    <a href="#" class="group flex items-center gap-4 p-4 bg-white rounded-lg shadow-sm hover:shadow-lg hover:bg-teal-100 transition-all">
+                    <a href="quiz.html" class="group flex items-center gap-4 p-4 bg-white rounded-lg shadow-sm hover:shadow-lg hover:bg-teal-100 transition-all">
                         <div class="flex-shrink-0 bg-teal-100 text-teal-600 rounded-full p-3 group-hover:bg-white transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                         </div>
@@ -430,7 +578,7 @@
                     </a>
                     <a href="#" class="group flex items-center gap-4 p-4 bg-white rounded-lg shadow-sm hover:shadow-lg hover:bg-teal-100 transition-all">
                         <div class="flex-shrink-0 bg-teal-100 text-teal-600 rounded-full p-3 group-hover:bg-white transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2-2H5a2 2 0 01-2-2V9z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                         </div>
                         <span class="font-semibold text-lg text-slate-800">Galería de Imágenes</span>
                     </a>
@@ -440,6 +588,43 @@
     </aside>
 </div>
 </div>
+
+<!-- Modal para ampliar imagen -->
+<div id="imageModal" class="modal">
+  <span class="close-modal">&times;</span>
+  <img class="modal-content" id="modalImage">
+</div>
+
+<script>
+    // Obtener elementos del modal
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+    const images = document.querySelectorAll('.zoomable-image');
+    const closeBtn = document.querySelector(".close-modal");
+
+    // Asignar evento de clic a cada imagen ampliable
+    images.forEach(img => {
+        img.onclick = function(){
+            modal.style.display = "flex";
+            modalImg.src = this.src;
+        }
+    });
+
+    // Función para cerrar el modal
+    function closeModal() {
+        modal.style.display = "none";
+    }
+
+    // Cerrar al hacer clic en la 'x'
+    closeBtn.onclick = closeModal;
+
+    // Cerrar al hacer clic fuera de la imagen
+    modal.onclick = function(event) {
+        if (event.target === modal) {
+            closeModal();
+        }
+    }
+</script>
 
 </body>
 </html>
