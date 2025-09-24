@@ -114,6 +114,14 @@
             from {transform: scale(0.8)}
             to {transform: scale(1)}
         }
+        .limited-height {
+            max-height: 300px; /* Establece la altura máxima que desees */
+            width: auto;       /* Hace que el ancho se ajuste para mantener la proporción */
+            object-fit: contain; /* Asegura que la imagen cubra el área sin deformarse */
+            display: block;    /* Ayuda a centrar la imagen si usas márgenes automáticos */
+            margin-left: auto;
+            margin-right: auto;
+        }
     </style>
 </head>
 <body class="text-slate-700">
@@ -167,12 +175,27 @@
                      <div class="my-6 p-5 bg-indigo-50 border-l-4 border-indigo-500 rounded-r-lg">
                         <p class="text-lg leading-relaxed">El <strong class="font-semibold text-slate-800">proceso tecnológico</strong> es el método de trabajo utilizado por la tecnología y consiste en la secuencia ordenada de pasos que se deben seguir para satisfacer una necesidad o resolver un problema.</p>
                     </div>
+                    <h3 class="text-xl font-semibold text-slate-700 mb-2">Los Objetivos de Desarrollo Sostenible</h3>
                     <div class="my-8">
                      <div class="video-container">
                         <iframe src="https://www.youtube.com/embed/qtXuRvKNm3s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <p class="image-caption mt-2">ODS 12: Producción y consumos responsables.</p>
                 </div>
+                </section>
+                <section id="actividades1" class="section-card bg-green-50 border-green-200">
+                    <h2 class="text-3xl font-bold text-green-800 mb-6">Actividades: Tecnología y Proceso tecnológico</h2>
+                    <div class="space-y-4 text-slate-600 leading-relaxed text-lg">
+                        <ol class="list-decimal list-inside space-y-3">
+                            <li>Anota en tu cuaderno las definiciones de Tecnología y Proceso tecnológico.</li>
+                            <li>¿Cuál es el principal problema que aborda el video con respecto a la producción y el consumo actuales?</li>
+                              <li>¿Qué cantidad de comida desecha una persona promedio al año y qué problemas ambientales causa este desperdicio?</li>
+                              <li>¿Qué tipo de productos se recomiendan comprar para ayudar a mejorar los hábitos de consumo?</li>
+                              <li>¿Cómo se compara la huella material de los países desarrollados con la de los países más empobrecidos?</li>
+                              <li>¿Qué papel juegan las grandes empresas en la producción sostenible y qué directiva ha adoptado la Unión Europea al respecto?</li>
+                              <li>¿Qué acciones individuales se sugieren en el video para contribuir a una producción y consumo responsables?</li>
+                        </ol>
+                    </div>
                 </section>
 
                 <section id="fases" class="section-card">
@@ -234,12 +257,68 @@
                         </div>
                     </div>
                 </section>
+
+                <section id="actividades2" class="section-card bg-green-50 border-green-200">
+                    <h2 class="text-3xl font-bold text-green-800 mb-6">Actividades: Fases del Proceso tecnológico</h2>
+                    <div class="space-y-4 text-slate-600 leading-relaxed text-lg">
+                        <ol class="list-decimal list-inside space-y-3">
+                            <li>
+                                Describe al menos una necesidad que satisface cada uno de los siguientes productos:
+                                <ul>
+                                    <li>a) Aparato de radio</li>
+                                    <li>b) Plano de una ciudad</li>
+                                    <li>c) Carretilla</li>
+                                    <li>d) Aguja de coser</li>
+                                    <li>e) Pendientes</li>
+                                    <li>f) Zapatos</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Relaciona cada una de las siguientes actividades con la fuente de información correspondiente: 
+                                <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                                    <div class="">
+                                        <h3>ACTIVIDADES</h3>
+                                            <ul>
+                                                <li>Reparar una estufa eléctrica</li>
+                                                <li>Cocinar una dorada a la sal</li>
+                                                <li>Planificar un itinerario turístico</li>
+                                                <li>Construir una maqueta de la torre Eiffel</li>
+                                                <li>Efectuar el montaje de una silla en kit</li>
+                                            </ul>
+                                        
+                                    </div>
+                                    <div class="">
+                                        <h3>FUENTE DE INFORMACIÓN</h3>
+                                            <ul>
+                                                <li>Seguir el manual de instrucciones</li>
+                                                <li>Preguntar a un electricista</li>
+                                                <li>Consultar un recetario de cocina</li>
+                                                <li>Visitar una agencia de viajes</li>
+                                                <li>Entrar en <a href="http://www.tour-eiffel.fr" target="_blank">http://www.tour-eiffel.fr</a></li>
+                                            </ul>
+                                    </div>
+                                </div>
+                            </li>
+                           
+                            <li>
+                                Describe ordenadamente las operaciones que se han de realizar para construir, en un tablero contrachapado, el juego de tangram de la figura:
+                                <img src="https://ayudatecnia.com/wp-content/uploads/2019/12/tangram-mejor-juego-estimulacion-cognitiva.jpg" alt="Tangram" class="rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105 limited-height">
+                            </li>
+                            <li>
+                                Enumera y describe con tus palabras las fases del proceso tecnológico.
+                                
+                            </li>
+
+                        </ol>
+                    </div>
+                </section>
                 
                 <section id="ejemplo" class="section-card">
                     <h2 class="text-3xl font-bold text-blue-600 mb-6">3. Ejemplo: Construir un Portalápices</h2>
                     <p class="mb-6 text-lg leading-relaxed">Para entenderlo mejor, sigamos todas las fases para construir un portalápices y mantener nuestros bolis y lápices ordenados.</p>
                     
-                    <img src="https://i.ytimg.com/vi/h4j_Tj9YVQg/maxresdefault.jpg" alt="Varios diseños de portalápices hechos con materiales reciclados" class="w-full rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105">
+                    <img src="https://i.ytimg.com/vi/h4j_Tj9YVQg/maxresdefault.jpg" alt="Varios diseños de portalápices hechos con materiales reciclados" class="rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105 limited-height">
+                    <p class="image-caption">Varios diseños de portalápices hechos con materiales reciclados</p>
 
                     <p class="mb-4 text-lg leading-relaxed"><strong class="font-semibold text-indigo-700">3.1. Problema:</strong> Lápices, rotuladores y bolígrafos están siempre desordenados. ¡Necesitamos un sitio para guardarlos!</p>
                     <p class="mb-4 text-lg leading-relaxed"><strong class="font-semibold text-indigo-700">3.2. Información:</strong> Miramos en tiendas, catálogos e internet para ver qué tipos de portalápices existen y coger ideas.</p>
@@ -278,7 +357,7 @@
                 <section id="normas" class="section-card">
                     <h2 class="text-3xl font-bold text-blue-600 mb-6">5. Trabajar con Seguridad</h2>
                     <p class="mb-6 text-lg leading-relaxed">En el taller usamos herramientas y máquinas, por eso es súper importante respetar siempre las normas para evitar accidentes.</p>
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhk03b7A9Tq8PtsGRu2qApVtNKcbcFqqwrcbH7DImwwrijGnB9G2moSrR1e1UGD6A9_XpOFcHW1LZnhvJ9ytSDh8Gfkr0TbTP5KZn1MGUTL0NETClqSUN5NEszram6y_Ql_jZJzT1X-CHZc/s1600/UD1+Normas+seguridad.jpg" alt="Normas de seguridad en el taller de tecnología" class="w-full rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhk03b7A9Tq8PtsGRu2qApVtNKcbcFqqwrcbH7DImwwrijGnB9G2moSrR1e1UGD6A9_XpOFcHW1LZnhvJ9ytSDh8Gfkr0TbTP5KZn1MGUTL0NETClqSUN5NEszram6y_Ql_jZJzT1X-CHZc/s1600/UD1+Normas+seguridad.jpg" alt="Normas de seguridad en el taller de tecnología" class="limited-height rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="p-5 bg-slate-50 rounded-lg border">
                             <h3 class="font-bold text-xl text-slate-800">Normas de uso y conservación</h3>
@@ -321,11 +400,17 @@
                     <div id="material" class="mt-8 p-6 bg-indigo-50 rounded-lg border border-indigo-200">
                         <h2 class="text-2xl font-bold text-slate-900 mb-4">¡Para Saber Más!</h2>
                         <div class="space-y-4">
-                            <a href="#" class="flex items-center gap-4 p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                            <a href="pdf/Fichas de refuerzo UD1.pdf" class="flex items-center gap-4 p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
                                 <div class="flex-shrink-0 bg-indigo-100 text-indigo-600 rounded-full p-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                                 </div>
-                                <span class="font-semibold text-lg text-slate-800">Actividades Interactivas</span>
+                                <span class="font-semibold text-lg text-slate-800">Actividades 1</span>
+                            </a>
+                            <a href="pdf/Fichas de ampliación UD1.pdf" class="flex items-center gap-4 p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                                <div class="flex-shrink-0 bg-indigo-100 text-indigo-600 rounded-full p-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                </div>
+                                <span class="font-semibold text-lg text-slate-800">Actividades 2</span>
                             </a>
                              <a href="#" class="flex items-center gap-4 p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
                                 <div class="flex-shrink-0 bg-indigo-100 text-indigo-600 rounded-full p-2">
