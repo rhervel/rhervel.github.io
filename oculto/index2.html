@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tecnología y Digitalización</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
+
+    <style>
+        /* Fuentes personalizadas para un aspecto más moderno */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f1f5f9; /* bg-slate-100 */
+            background-image: url('https://www.transparenttextures.com/patterns/gplay.png'); /* Textura sutil para el fondo */
+            background-attachment: fixed; /* Mantiene la imagen fija durante el scroll */
+        }
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="text-slate-700">
+
+    <div class="max-w-6xl mx-auto p-6 sm:p-10">
+        <!-- Encabezado con degradado y título principal -->
+        <header class="rounded-xl p-16 mb-10 text-white bg-gradient-to-r from-indigo-500 to-teal-400 shadow-lg text-center">
+            <h1 class="text-4xl sm:text-5xl font-bold">Tecnología y Digitalización</h1>
+            <p class="mt-2 text-lg text-blue-100">Apuntes, actividades y recursos para Secundaria</p>
+        </header>
+
+        <main>
+            <!-- Contenedor principal blanco -->
+            <div class="p-6 sm:p-10 bg-white rounded-2xl shadow-2xl">
+                
+                <!-- Sección de Cursos -->
+                <section id="cursos">
+                    <!-- 
+                    <h2 class="text-3xl font-bold text-slate-900 mb-8 text-center">Niveles Educativos</h2>
+                    -->
+                    
+                    <!-- Grid de tarjetas de cursos -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        
+                        <!-- Tarjeta 2º ESO TYD -->
+                        <a href="tyd2.html" class="block group">
+                            <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+                                <img src="img/cc-1.jpg" alt="Imagen representativa de 2º ESO" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                                <div class="p-5">
+                                    <h3 class="font-bold text-center text-xl text-slate-800">2º ESO TYD</h3>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Tarjeta 3º ESO TYD-->
+                        <a href="tyd3.html" class="block group">
+                            <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+                                <img src="img/cc-2.jpg" alt="Imagen representativa de 3º ESO" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                                <div class="p-5">
+                                    <h3 class="font-bold text-center text-xl text-slate-800">3º ESO TYD</h3>
+                                </div>
+                            </div>
+                        </a>
+                        <!-- Tarjeta 3º ESO CYR-->
+                        <a href="cyr3.html" class="block group">
+                            <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+                                <img src="img/cc-cyr.png" alt="Imagen representativa de 3º ESO" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                                <div class="p-5">
+                                    <h3 class="font-bold text-center text-xl text-slate-800">3º ESO CYR</h3>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Tarjeta 4º ESO DIG-->
+                        <a href="dig4.html" class="block group">
+                            <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+                                <img src="img/cc-4.jpg" alt="Imagen representativa de 4º ESO" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                                <div class="p-5">
+                                    <h3 class="font-bold text-center text-xl text-slate-800">4º ESO DIG</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Sección Metodología 
+                <section id="metodologia" class="mt-16">
+                    <h2 class="text-3xl font-bold text-slate-900 mb-8 text-center">Nuestra Metodología</h2>
+                    <div class="max-w-4xl mx-auto bg-slate-50 p-8 rounded-lg border border-slate-200">
+                        <p class="text-lg leading-relaxed mb-6">En nuestras clases, aprenderás de forma <strong class="text-indigo-700">práctica y participativa</strong>. Aquí te explicamos cómo lo hacemos:</p>
+                        
+                        <ul class="space-y-4 text-lg list-disc list-inside">
+                            <li><strong class="font-semibold">Proyectos prácticos:</strong> Aplicamos lo aprendido creando soluciones tecnológicas y desarrollando tus propias ideas.</li>
+                            <li><strong class="font-semibold">Trabajo en equipo:</strong> Fomentamos la colaboración para resolver problemas y compartir ideas.</li>
+                            <li><strong class="font-semibold">Uso de herramientas digitales:</strong> Aprendemos con software y aplicaciones actuales para desarrollar habilidades tecnológicas.</li>
+                            <li><strong class="font-semibold">Proyectos creativos:</strong> Diseñamos maquetas, simulaciones y otras actividades para potenciar tu creatividad.</li>
+                            <li><strong class="font-semibold">Exploración tecnológica:</strong> Analizamos cómo la tecnología influye en el mundo, desde la inteligencia artificial hasta energías renovables.</li>
+                            <li><strong class="font-semibold">Evaluación continua:</strong> Valoramos tu esfuerzo, participación y progreso.</li>
+                        </ul>
+
+                        <p class="text-lg leading-relaxed mt-6">Nuestro objetivo es que aprendas habilidades prácticas y te prepares para los retos del futuro mientras <strong class="text-indigo-700">disfrutas</strong> del proceso.</p>
+                    </div>
+                </section>
+                -->
+
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="py-6 mt-10 text-center text-slate-500">
+            <p>Tecnología y Digitalización by RHV © 2025.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
