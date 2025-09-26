@@ -1,27 +1,27 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>UD1. Inteligencia Artificial</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 fill=%22currentColor%22 class=%22bi bi-robot%22 viewBox=%220 0 16 16%22><path d=%22M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5ZM3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.58 26.58 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.933.933 0 0 1-.765.935c-.845.147-2.34.346-4.235.346-1.895 0-3.39-.2-4.235-.346A.933.933 0 0 1 3 9.219V8.062Zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a24.767 24.767 0 0 1-1.871-.183.25.25 0 0 0-.217.068l-.92.9a.25.25 0 0 0 .169.434l.92-.9a25.25 25.25 0 0 0 1.942.183.25.25 0 0 0 .217-.068l.92-.9a.25.25 0 0 0-.17-.434l-.92.9a24.767 24.767 0 0 1-1.871-.183Z%22/><path d=%22M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1.5a2.5 2.5 0 0 0 2.5 2.5h9A2.5 2.5 0 0 0 15 13.5V12a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2V1.866ZM14 7.5V12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5Z%22/></svg>" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad 1: Inteligencia Artificial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
+            background-color: #f1f5f9;
         }
-        h1, h2, h3, .font-poppins {
+        h1, h2, h3 {
             font-family: 'Poppins', sans-serif;
         }
         html {
             scroll-behavior: smooth;
         }
         section[id] {
-            scroll-margin-top: 6rem;
+            scroll-margin-top: 2rem;
         }
         .section-card {
             background-color: white;
@@ -29,141 +29,37 @@
             padding: 2rem;
             margin-bottom: 2rem;
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            transition: box-shadow 0.3s ease-in-out;
-        }
-        .section-card:hover {
-            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-        }
-        .expandable-image {
-            cursor: zoom-in;
-            transition: transform 0.2s ease-in-out;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            border: 3px solid #e2e8f0;
-        }
-        .expandable-image:hover {
-            transform: scale(1.03);
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.85);
-            align-items: center;
-            justify-content: center;
-            animation: fadeIn 0.3s;
-        }
-        .modal-content {
-            margin: auto;
-            display: block;
-            max-width: 85%;
-            max-height: 85%;
-            animation: zoomIn 0.3s;
-        }
-        .close-modal {
-            position: absolute;
-            top: 20px;
-            right: 35px;
-            color: #f1f1f1;
-            font-size: 40px;
-            font-weight: bold;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-        .close-modal:hover,
-        .close-modal:focus {
-            color: #bbb;
-            text-decoration: none;
-        }
-        .image-caption {
-            margin-top: 0.5rem;
-            text-align: center;
-            font-size: 0.875rem;
-            color: #64748b;
-            font-style: italic;
-        }
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 */
-            height: 0;
-            overflow: hidden;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        @keyframes fadeIn {
-            from {opacity: 0}
-            to {opacity: 1}
-        }
-        @keyframes zoomIn {
-            from {transform: scale(0.8)}
-            to {transform: scale(1)}
-        }
-        .limited-height {
-            max-height: 300px; /* Establece la altura máxima que desees */
-            width: auto;       /* Hace que el ancho se ajuste para mantener la proporción */
-            object-fit: contain; /* Asegura que la imagen cubra el área sin deformarse */
-            display: block;    /* Ayuda a centrar la imagen si usas márgenes automáticos */
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .limited-height-200 {
-            max-height: 150px; /* Establece la altura máxima que desees */
-            width: auto;       /* Hace que el ancho se ajuste para mantener la proporción */
-            object-fit: contain; /* Asegura que la imagen cubra el área sin deformarse */
-            display: block;    /* Ayuda a centrar la imagen si usas márgenes automáticos */
-            margin-left: auto;
-            margin-right: auto;
         }
     </style>
 </head>
-<body class="flex flex-col min-h-full bg-slate-50">
-    <header class="bg-white shadow-md sticky top-0 z-40">
-      <div class="container mx-auto px-4">
-        <div class="flex justify-between items-center py-4">
-          <div class="flex items-center gap-3">
-        <a href="index.html" class="text-grey-700 flex items-center">
-          <i class="bi bi-robot text-2xl mr-3"></i>
-          <span class="font-bold text-xl">Computación y Robótica</span>
-        </a>
-        </div>
-        <div class="text-sm text-gray-500">
-            <ol class="list-none p-0 inline-flex items-center">
-              <li class="flex items-center">
-                <a href="tyd2.html" class="hover:text-blue-600">3º ESO</a>
-                <i class="bi bi-chevron-right mx-2 text-xs"></i>
-            </li>
-            <li class="flex items-center text-gray-700 font-semibold">
-                <span>UD1. Inteligencia Artificial</span>
-            </li>
-            </ol>
-        </div>
-        </div>
-    </div>
-</header>
-
-<main class="lg:col-span-3">
-    <div class="container mx-auto p-4 md:p-8">
-        <div class="flex flex-col lg:flex-row gap-8">
-            <!-- Columna principal de contenido -->
-            <div class="w-full lg:w-3/4">
-
-            <section id="s1" class="section-card">
-                <h2 class="text-2xl font-bold text-slate-600 mb-4">1. Introducción</h2>
+<body class="text-slate-700">
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8">
+        <div class="grid lg:grid-cols-4 gap-8">
+        
+        <!-- ================== CONTENIDO PRINCIPAL ================== -->
+        <main class="lg:col-span-3">
+            <header class="rounded-xl p-8 mb-10 text-white bg-gradient-to-r from-green-500 to-teal-600 shadow-lg">
+                <h1 class="text-4xl sm:text-5xl font-bold">Unidad 1: Inteligencia Artificial</h1>
+                <p class="mt-2 text-lg text-green-100">Entendiendo cómo funcionan los ordenadores y sus redes.</p>
+            </header>
+            <nav class="mb-10" aria-label="breadcrumb">
+                <ol class="flex items-center space-x-2 text-lg text-slate-600 bg-slate-100 p-4 rounded-lg shadow-sm">
+                    <li>
+                        <a href="index.html" class="flex items-center gap-2 hover:underline hover:text-blue-600 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" /></svg>
+                            Inicio
+                        </a>
+                    </li>
+                    <li>
+                        <span class="text-slate-400">/</span>
+                    </li>
+                    <li>
+                        <a href="cyr3.html" class="hover:underline hover:text-blue-600 transition-colors">3º ESO</a>
+                    </li>
+                </ol>
+            </nav>
+            <section id="s1-1" class="section-card">
+                <h2 class="text-2xl font-bold text-teal-800 mb-4">1.1. INTRODUCCIÓN</h2>
                 <div class="space-y-4 text-lg leading-relaxed">
                     <p>La inteligencia artificial (IA) es un área de la computación que trata de crear sistemas capaces de imitar los procesos cognitivos realizados por las personas y poder llevar a cabo tareas que, sin estas técnicas, las máquinas no podrían hacer, como por ejemplo, razonar y tomar decisiones «inteligentes». Estos sistemas también pueden denominarse agentes inteligentes.</p>
                     <p>En los últimos años, la IA ha experimentado un rápido desarrollo, con aplicaciones en diversas áreas, como la medicina, la industria, el transporte y los servicios. En la actualidad, se encuentra en una fase de madurez, con sistemas que son capaces de realizar tareas complejas con un alto grado de precisión. Por ejemplo, los sistemas de IA se utilizan para diagnosticar enfermedades, dirigir vehículos autónomos y crear imágenes.</p>
@@ -172,16 +68,16 @@
                 </div>
             </section>
 
-            <section id="s2" class="section-card">
-                <h2 class="text-2xl font-bold text-slate-600 mb-4">2. Aprendizaje Automático</h2>
+            <section id="s1-2" class="section-card">
+                <h2 class="text-2xl font-bold text-teal-800 mb-4">1.2. APRENDIZAJE AUTOMÁTICO</h2>
                 <div class="space-y-4 text-lg leading-relaxed">
                     <p>Las inteligencias artificiales basadas en el aprendizaje automático, también conocido como machine learning, están diseñadas para adquirir conocimiento a través de una fase de entrenamiento en la que se presentan ejemplos de la tarea que deben realizar. Estos sistemas se pueden categorizar en tres tipos según su método de aprendizaje: aprendizaje supervisado, no supervisado y aprendizaje reforzado.</p>
                     <p>En concreto, el aprendizaje por refuerzo es un sistema en el que un agente aprende a tomar decisiones en un entorno a través de la experiencia. A medida que el agente interactúa con el entorno, aprende a tomar decisiones. Los dos principales retos de este sistema radican en la dificultad de diseñar agentes que aprendan a tomar decisiones en entornos complejos y en la lentitud del proceso, ya que el agente necesita interactuar con el entorno muchas veces para aprender a tomar decisiones óptimas. Se utiliza en una amplia gama de aplicaciones, como juegos, robótica, finanzas y logística.</p>
                 </div>
             </section>
 
-            <section id="s3" class="section-card">
-                <h2 class="text-2xl font-bold text-slate-600 mb-4">3. Ética y Responsabilidad en el uso de la IA</h2>
+            <section id="s1-3" class="section-card">
+                <h2 class="text-2xl font-bold text-teal-800 mb-4">1.3. ÉTICA Y RESPONSABILIDAD EN EL USO DE IA</h2>
                 <div class="space-y-4 text-lg leading-relaxed">
                      <p>Un gran poder conlleva una gran responsabilidad. Esta frase tiene más sentido que nunca, refiriéndose a una herramienta con un potencial tan alto para cambiar el mundo en el que vivimos actualmente. Aunque están creadas y diseñadas para ayudar a las personas con sus tareas, un uso incorrecto o poco ético de esta tecnología podría tener consecuencias, como por ejemplo:</p>
                     <ul class="list-disc list-inside space-y-2 pl-4">
@@ -201,8 +97,8 @@
                 </div>
             </section>
             
-            <section id="s4" class="section-card">
-                <h2 class="text-2xl font-bold text-slate-600 mb-4">4. Ejemplos de Aplicaciones</h2>
+            <section id="s1-4" class="section-card">
+                <h2 class="text-2xl font-bold text-teal-800 mb-4">1.4. EJEMPLOS DE APLICACIONES</h2>
                 <div class="space-y-6 text-lg leading-relaxed">
                     <div>
                         <h3 class="text-xl font-semibold text-teal-700 mb-2">CHATBOTS</h3>
@@ -223,8 +119,8 @@
                 </div>
             </section>
 
-            <section id="s5" class="section-card">
-                <h2 class="text-2xl font-bold text-slate-600 mb-4">5. Teachable Machine</h2>
+            <section id="s1-5" class="section-card">
+                <h2 class="text-2xl font-bold text-teal-800 mb-4">1.5. TEACHABLE MACHINE</h2>
                 <div class="space-y-4 text-lg leading-relaxed">
                     <p>Teachable Machine es una herramienta web creada por Google, que permite entrenar modelos de inteligencia artificial de una forma sencilla: recopilando ejemplos de lo que queremos que aprenda, realizando un entrenamiento y probando su funcionamiento. Es posible crear proyectos de imágenes, audio o posturas.</p>
                     <p>Independientemente del tipo de proyecto, el proceso se divide en tres partes: definir las <strong>clases</strong> (categorías) y añadir muestras, <strong>preparar</strong> el modelo (entrenamiento) y probarlo en la <strong>vista previa</strong>.</p>
@@ -232,95 +128,63 @@
                 </div>
             </section>
 
-            <section id="s6" class="section-card">
-                <h2 class="text-2xl font-bold text-slate-600 mb-4">6. Machine Learning for Kids</h2>
+            <section id="s1-6" class="section-card">
+                <h2 class="text-2xl font-bold text-teal-800 mb-4">1.6. MACHINE LEARNING FOR KIDS</h2>
                 <div class="space-y-4 text-lg leading-relaxed">
                     <p>Machine Learning for Kids es una herramienta para introducirse en la IA a través de experiencias prácticas para entrenar sistemas de aprendizaje automático capaces de identificar texto, imágenes, números o sonidos. Además, cuenta con un entorno de programación similar a Scratch para crear aplicaciones y juegos que usen los modelos entrenados.</p>
                     <p>Permite crear proyectos para clasificar palabras, imágenes o predecir resultados a partir de números, requiriendo un mínimo de ejemplos en cada categoría para que la IA pueda aprender y realizar clasificaciones correctas.</p>
                 </div>
             </section>
-        </div>
-
-
-        <!-- Barra lateral de navegación -->
-            <aside class="w-full lg:w-1/4 lg:sticky top-24 self-start">
-                <div class="bg-white p-6 rounded-xl shadow-lg">
-                    <h3 class="font-bold text-lg text-slate-800 mb-4 border-b pb-2">Contenidos</h3>
-                    <nav>
-                        <ul class="space-y-2">
-                            <li><a href="#s1" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-1-circle-fill mr-3 text-slate-400"></i>Introducción</a></li>
-                            <li><a href="#s2" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-2-circle-fill mr-3 text-slate-400"></i>Aprendizaje Automático</a></li>
-
-                            <li><a href="#s3" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-3-circle-fill mr-3 text-slate-400"></i>Ética y responsabilidad</a></li>
-                            <li><a href="#s4" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-4-circle-fill mr-3 text-slate-400"></i>Ejemplos</a></li>
-                            <li><a href="#s5" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-5-circle-fill mr-3 text-slate-400"></i>Teachable Machine</a></li>
-                            <li><a href="#s6" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-6-circle-fill mr-3 text-slate-400"></i>ML for kids</a></li>
-                        </ul>
-                    </nav>
-                 <!--   
-                  <br> 
-                    <h3 class="font-bold text-lg text-slate-800 mb-4 border-b pb-2">¡Para saber más!</h3>
-                    <nav>
-                        <ul class="space-y-2">
-                            <li><a href="pdf/Fichas de refuerzo UD1.pdf" target="_blank" class="flex items-center text-slate-600 hover:text-red-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-file-play-fill mr-3 text-slate-400"></i>Actividades 1</a></li>
-                            <li><a href="pdf/Fichas de ampliación UD1.pdf"  target="_blank" class="flex items-center text-slate-600 hover:text-red-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-file-play-fill mr-3 text-slate-400"></i>Actividades 2</a></li>
-                            <li><a href="tyd2ud1glosario.html" class="flex items-center text-slate-600 hover:text-red-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-file-code-fill mr-3 text-slate-400"></i>Glossary</a></li>
-                            <li><a href="tyd2ud1map.html" target="_blank" class="flex items-center text-slate-600 hover:text-red-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-diagram-3-fill mr-3 text-slate-400"></i>Mapa Mental</a></li>
-                        </ul>
-                    </nav>
-                    -->
+        </main>
+        
+        <!-- ================== BARRA LATERAL ================== -->
+<aside class="lg:col-span-1">
+                <div class="sticky top-8">
+                    <div id="indice" class="p-6 bg-slate-100 rounded-lg border border-slate-200">
+                        <h2 class="text-2xl font-bold text-slate-900 mb-4">Índice del Tema</h2>
+                        <ol class="list-decimal list-inside space-y-3 text-lg">
+                            <li><a href="#s1-1" class="text-blue-600 hover:text-blue-800 hover:underline">Introducción</a></li>
+                            <li><a href="#s1-2" class="text-blue-600 hover:text-blue-800 hover:underline">Aprendizaje Automático</a></li>
+                            <li><a href="#s1-3" class="text-blue-600 hover:text-blue-800 hover:underline">Ética y responsabilidad</a></li>
+                            <li><a href="#s1-4" class="text-blue-600 hover:text-blue-800 hover:underline">Ejemplos</a></li>
+                            <li><a href="#s1-5" class="text-blue-600 hover:text-blue-800 hover:underline">Teacheable Machine</a></li>
+                            <li><a href="#s1-6" class="text-blue-600 hover:text-blue-800 hover:underline">ML for kids</a></li>
+                        </ol>
+                    </div>
+                    
+                    <div id="material" class="mt-8 p-6 bg-teal-50 rounded-lg border border-teal-200">
+                        <h2 class="text-2xl font-bold text-slate-900 mb-4">¡Para Saber Más!</h2>
+                        <div class="space-y-4">
+                            <a href="#" class="group flex items-center gap-4 p-4 bg-white rounded-lg shadow-sm hover:shadow-lg hover:bg-teal-100 transition-all">
+                                <div class="flex-shrink-0 bg-teal-100 text-teal-600 rounded-full p-3 group-hover:bg-white transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                </div>
+                                <span class="font-semibold text-lg text-slate-800">Actividades Interactivas</span>
+                            </a>
+                            <a href="#" class="group flex items-center gap-4 p-4 bg-white rounded-lg shadow-sm hover:shadow-lg hover:bg-teal-100 transition-all">
+                                <div class="flex-shrink-0 bg-teal-100 text-teal-600 rounded-full p-3 group-hover:bg-white transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" /></svg>
+                                </div>
+                                <span class="font-semibold text-lg text-slate-800">Ejercicios Prácticos</span>
+                            </a>
+                            <a href="#" class="group flex items-center gap-4 p-4 bg-white rounded-lg shadow-sm hover:shadow-lg hover:bg-teal-100 transition-all">
+                                <div class="flex-shrink-0 bg-teal-100 text-teal-600 rounded-full p-3 group-hover:bg-white transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                                </div>
+                                <span class="font-semibold text-lg text-slate-800">Galería de Imágenes</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </aside> 
+            </aside>
         </div>
     </div>
-</main>
 
-<footer class="mt-auto py-4 bg-gray-800 text-white">
-  <div class="container mx-auto text-center">
-    <span>Dpto. de Tecnología   //   IES Huerta del Rosario   //   2025-2026</span>
-    <!--
-    <a href="https://blogsaverroes.juntadeandalucia.es/iesisladeleon/" class="text-white hover:underline ml-2">blogsaverroes.juntadeandalucia.es/iesisladeleon/</a>
-    -->
-  </div>
-</footer>
-
-
-<!-- Modal para ampliar imagen -->
-<div id="imageModal" class="modal">
-  <span class="close-modal">&times;</span>
-  <img class="modal-content" id="modalImage">
-</div>
-
-<script>
-    // Obtener elementos del modal
-    const modal = document.getElementById("imageModal");
-    const modalImg = document.getElementById("modalImage");
-    const images = document.querySelectorAll('.expandable-image');
-    const closeBtn = document.querySelector(".close-modal");
-
-    // Asignar evento de clic a cada imagen ampliable
-    images.forEach(img => {
-        img.onclick = function(){
-            modal.style.display = "flex";
-            modalImg.src = this.src;
-        }
-    });
-
-    // Función para cerrar el modal
-    function closeModal() {
-        modal.style.display = "none";
-    }
-
-    // Cerrar al hacer clic en la 'x'
-    closeBtn.onclick = closeModal;
-
-    // Cerrar al hacer clic fuera de la imagen
-    modal.onclick = function(event) {
-        if (event.target === modal || event.target === modalImg) {
-            closeModal();
-        }
-    }
-</script>
+    <footer class="bg-slate-800 text-white mt-8">
+        <div class="container mx-auto px-4 py-6 text-center">
+            <p>&copy; 2024 - Contenido adaptado de la Unidad 1 de Inteligencia Artificial.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
