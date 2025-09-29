@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es" class="h-full">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contacto - Tecnología y Digitalización</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 fill=%22currentColor%22 class=%22bi bi-robot%22 viewBox=%220 0 16 16%22><path d=%22M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5ZM3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.58 26.58 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.933.933 0 0 1-.765.935c-.845.147-2.34.346-4.235.346-1.895 0-3.39-.2-4.235-.346A.933.933 0 0 1 3 9.219V8.062Zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a24.767 24.767 0 0 1-1.871-.183.25.25 0 0 0-.217.068l-.92.9a.25.25 0 0 0 .169.434l.92-.9a25.25 25.25 0 0 0 1.942.183.25.25 0 0 0 .217-.068l.92-.9a.25.25 0 0 0-.17-.434l-.92.9a24.767 24.767 0 0 1-1.871-.183Z%22/><path d=%22M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1.5a2.5 2.5 0 0 0 2.5 2.5h9A2.5 2.5 0 0 0 15 13.5V12a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2V1.866ZM14 7.5V12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5Z%22/></svg>" type="image/svg+xml">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+    body {
+        font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen bg-gray-50">
+
+<header>
+  <!-- Barra de navegación -->
+  <div class="bg-gray-800 shadow-md">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="text-white flex items-center">
+          <i class="bi bi-robot text-2xl mr-3"></i>
+          <span class="font-bold text-xl">Tecnología y Digitalización</span>
+        </a>
+        <nav>
+            <ul class="flex items-center space-x-6">
+                <li><a href="index.html" class="text-gray-300 hover:text-white transition-colors">Inicio</a></li>
+                <li><a href="contacto.html" class="text-gray-300 hover:text-white transition-colors">Contacto</a></li>
+            </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="flex-grow">
+  <div class="py-12 md:py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+        <div class="text-center mb-8">
+          <h1 class="text-4xl font-bold text-gray-800">Contacto</h1>
+          <p class="text-gray-600 mt-2">¿Tienes alguna pregunta? Rellena el formulario y me pondré en contacto contigo.</p>
+        </div>
+        <!-- El atributo 'action' debería apuntar a tu script de backend para procesar el formulario -->
+        <form action="#" method="POST">
+          <div class="grid grid-cols-1 gap-6">
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700">Nombre</label>
+              <div class="mt-1">
+                <input type="text" name="name" id="name" autocomplete="name" class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm" placeholder="Tu Nombre Completo">
+              </div>
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+              <div class="mt-1">
+                <input id="email" name="email" type="email" autocomplete="email" required class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm" placeholder="rhervel393@g.educaand.es">
+              </div>
+            </div>
+             <div>
+              <label for="subject" class="block text-sm font-medium text-gray-700">Asunto</label>
+              <div class="mt-1">
+                <input type="text" name="subject" id="subject" class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm" placeholder="Asunto del mensaje">
+              </div>
+            </div>
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-700">Mensaje</label>
+              <div class="mt-1">
+                <textarea id="message" name="message" rows="4" class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm" placeholder="Escribe tu mensaje aquí..."></textarea>
+              </div>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-gray-700 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors">
+                Enviar Mensaje
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="mt-auto py-4 bg-gray-800 text-white">
+  <div class="container mx-auto text-center">
+    <span>Dpto. de Tecnología   //   IES Huerta del Rosario   //   2025-2026</span>
+  </div>
+</footer>
+
+</body>
+</html>
