@@ -44,19 +44,27 @@
           <h1 class="text-4xl font-bold text-gray-800">Contacto</h1>
           <p class="text-gray-600 mt-2">¿Tienes alguna pregunta? Rellena el formulario y me pondré en contacto contigo.</p>
         </div>
-        <!-- El atributo 'action' debería apuntar a tu script de backend para procesar el formulario -->
-        <form action="#" method="POST">
+        
+        <!-- Mensajes de estado -->
+        <div id="successMessage" class="hidden text-center p-4 mb-4 text-sm text-green-800 bg-green-100 rounded-lg" role="alert">
+          <span class="font-medium">¡Mensaje enviado con éxito!</span> Gracias por contactar.
+        </div>
+        <div id="errorMessage" class="hidden text-center p-4 mb-4 text-sm text-red-800 bg-red-100 rounded-lg" role="alert">
+          <span class="font-medium">¡Error!</span> No se pudo enviar el mensaje. Inténtalo más tarde.
+        </div>
+
+        <form id="contactForm" method="POST">
           <div class="grid grid-cols-1 gap-6">
             <div>
               <label for="name" class="block text-sm font-medium text-gray-700">Nombre</label>
               <div class="mt-1">
-                <input type="text" name="name" id="name" autocomplete="name" class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm" placeholder="Tu Nombre Completo">
+                <input type="text" name="name" id="name" autocomplete="name" class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm" placeholder="Tu Nombre Completo" required>
               </div>
             </div>
             <div>
               <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
               <div class="mt-1">
-                <input id="email" name="email" type="email" autocomplete="email" required class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm" placeholder="rhervel393@g.educaand.es">
+                <input id="email" name="email" type="email" autocomplete="email" required class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm" placeholder="tu@email.com" required>
               </div>
             </div>
              <div>
@@ -68,7 +76,7 @@
             <div>
               <label for="message" class="block text-sm font-medium text-gray-700">Mensaje</label>
               <div class="mt-1">
-                <textarea id="message" name="message" rows="4" class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm" placeholder="Escribe tu mensaje aquí..."></textarea>
+                <textarea id="message" name="message" rows="4" class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm" placeholder="Escribe tu mensaje aquí..." required></textarea>
               </div>
             </div>
             <div class="text-center">
@@ -89,5 +97,50 @@
   </div>
 </footer>
 
+<!-- SDK de EmailJS -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+  (function() {
+    // 1. INICIA EMAILJS CON TU PUBLIC KEY
+    emailjs.init({
+      publicKey: "Kp5GMcHPz_W9T1EWF", // Pega aquí tu Public Key de EmailJS
+    });
+  })();
+
+  const contactForm = document.getElementById('contactForm');
+  const successMessage = document.getElementById('successMessage');
+  const errorMessage = document.getElementById('errorMessage');
+
+  contactForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // 2. DEFINE LOS IDs DE TU SERVICIO Y PLANTILLA
+    const serviceID = 'service_uk4f5dc'; // Pega aquí tu Service ID
+    const templateID = 'template_l2t5wxg'; // Pega aquí tu Template ID
+
+    // 3. ENVÍA EL FORMULARIO
+    emailjs.sendForm(serviceID, templateID, this)
+      .then(() => {
+        // Éxito
+        successMessage.classList.remove('hidden');
+        errorMessage.classList.add('hidden');
+        contactForm.reset();
+        setTimeout(() => {
+          successMessage.classList.add('hidden');
+        }, 5000);
+      }, (err) => {
+        // Error
+        errorMessage.classList.remove('hidden');
+        successMessage.classList.add('hidden');
+        console.error('Error al enviar el email:', JSON.stringify(err));
+         setTimeout(() => {
+          errorMessage.classList.add('hidden');
+        }, 5000);
+      });
+  });
+</script>
+
 </body>
 </html>
+
