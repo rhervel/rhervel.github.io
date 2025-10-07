@@ -10,169 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        h1, h2, h3, h4 .font-poppins {
-            font-family: 'Poppins', sans-serif;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-        section[id] {
-            scroll-margin-top: 6rem;
-        }
-        .section-card {
-            background-color: white;
-            border-radius: 0.75rem;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            transition: box-shadow 0.3s ease-in-out;
-        }
-        .section-card:hover {
-            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-        }
-        .expandable-image {
-            cursor: zoom-in;
-            transition: transform 0.2s ease-in-out;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            border: 3px solid #e2e8f0;
-        }
-        .expandable-image:hover {
-            transform: scale(1.03);
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.85);
-            align-items: center;
-            justify-content: center;
-            animation: fadeIn 0.3s;
-        }
-        .modal-content {
-            margin: auto;
-            display: block;
-            max-width: 85%;
-            max-height: 85%;
-            animation: zoomIn 0.3s;
-        }
-        .close-modal {
-            position: absolute;
-            top: 20px;
-            right: 35px;
-            color: #f1f1f1;
-            font-size: 40px;
-            font-weight: bold;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-        .close-modal:hover,
-        .close-modal:focus {
-            color: #bbb;
-            text-decoration: none;
-        }
-        .image-caption {
-            margin-top: 0.5rem;
-            text-align: center;
-            font-size: 0.875rem;
-            color: #64748b;
-            font-style: italic;
-        }
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 */
-            height: 0;
-            overflow: hidden;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        @keyframes fadeIn {
-            from {opacity: 0}
-            to {opacity: 1}
-        }
-        @keyframes zoomIn {
-            from {transform: scale(0.8)}
-            to {transform: scale(1)}
-        }
-        .limited-height {
-            max-height: 300px; /* Establece la altura máxima que desees */
-            width: auto;       /* Hace que el ancho se ajuste para mantener la proporción */
-            object-fit: contain; /* Asegura que la imagen cubra el área sin deformarse */
-            display: block;    /* Ayuda a centrar la imagen si usas márgenes automáticos */
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .limited-height-200 {
-            max-height: 150px; /* Establece la altura máxima que desees */
-            width: auto;       /* Hace que el ancho se ajuste para mantener la proporción */
-            object-fit: contain; /* Asegura que la imagen cubra el área sin deformarse */
-            display: block;    /* Ayuda a centrar la imagen si usas márgenes automáticos */
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .summary {
-            background-color: #f4f6f7;
-            border-left: 5px solid #3498db;
-            padding: 15px;
-            margin-top: 20px;
-            padding-left: 50px;
-            padding-right: 50px;
-            font-style: italic;
-            text-align: justify;
-        }
-        .definicion{
-            background-color: #FDFCE7;
-            border-right: 5px solid #F5AA6C;
-            padding: 15px;
-            margin-top: 20px;
-            padding-left: 50px;
-            padding-right: 50px;
-            font-style: italic;
-            text-align: justify;
-        }
-          .fila-grid {
-            display: grid;
-            /* Define 3 columnas, cada una de 1 fracción del espacio */
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 20px; /* Espacio entre columnas */
-            /*border: 1px solid #ccc;*/
-            border-radius: 1em;
-            padding: 10px;
-          }
-          .columna-grid {
-            border: 1px solid #979797;
-            border-radius: 0.5em;
-            padding: 20px;
-            text-align: left;
-            background-color: #f5f5f5;
-          }
-          p {
-            text-align: justify;
-          }
-          li{
-            padding-left: 20px;
-          }
-
-    </style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body class="flex flex-col min-h-full bg-slate-50">
     <header class="bg-white shadow-md sticky top-0 z-40">
@@ -218,16 +56,19 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <div>
                                <img src="https://www.aiete.net/wp-content/uploads/2017/06/milagro-de-la-cruz-gentile-bellini-1024x762.jpg" alt="Dibujo artístico" class="w-full h-full object-cover rounded-lg shadow-md my-6 zoomable-image">
+                            <p class="image-caption">Trazado de líneas paralelas.</p>
+
                            </div>
                            <div>
                             <img src="https://www.3ds.com/assets/invest/2023-02/technical-drawing-for-cnc-machining-2.jpg" alt="Dibujo técnico" class="w-full h-full object-cover rounded-lg shadow-md my-6 zoomable-image">
+                            <p class="image-caption">Trazado de líneas paralelas.</p>
+
                         </div>
 
                     </div>
-
-                    <div class="my-6 p-5 bg-slate-50 border-l-4 border-slate-400 rounded-r-lg">
-                        <p class="text-lg leading-relaxed">En Tecnología, los dibujos técnicos son cruciales para la creación de bocetos y planos. Estos deben ser claros y concisos, sin ornamentos, para asegurar que no haya ambigüedad sobre la forma y las dimensiones del objeto representado.</p>
-                    </div>
+                        <div>
+                        <p class="summary text-lg leading-relaxed">En Tecnología, los dibujos técnicos son cruciales para la creación de bocetos y planos. Estos deben ser claros y concisos, sin ornamentos, para asegurar que no haya ambigüedad sobre la forma y las dimensiones del objeto representado.</p>
+                        </div>
                 </section>
 
                 <hr class="my-8 border-slate-200">
