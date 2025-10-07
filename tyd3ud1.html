@@ -134,8 +134,44 @@
             border-left: 5px solid #3498db;
             padding: 15px;
             margin-top: 20px;
+            padding-left: 50px;
+            padding-right: 50px;
             font-style: italic;
+            text-align: justify;
         }
+        .definicion{
+            background-color: #FDFCE7;
+            border-right: 5px solid #F5AA6C;
+            padding: 15px;
+            margin-top: 20px;
+            padding-left: 50px;
+            padding-right: 50px;
+            font-style: italic;
+            text-align: justify;
+        }
+          .fila-grid {
+            display: grid;
+            /* Define 3 columnas, cada una de 1 fracción del espacio */
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px; /* Espacio entre columnas */
+            /*border: 1px solid #ccc;*/
+            border-radius: 1em;
+            padding: 10px;
+          }
+          .columna-grid {
+            border: 1px solid #979797;
+            border-radius: 0.5em;
+            padding: 20px;
+            text-align: left;
+            background-color: #f5f5f5;
+          }
+          p {
+            text-align: justify;
+          }
+          li{
+            padding-left: 20px;
+          }
+
     </style>
 </head>
 <body class="flex flex-col min-h-full bg-slate-50">
@@ -218,7 +254,7 @@
 
                 <section id="trazado" class="section-card">
                     <h2 class="text-3xl font-bold text-slate-600 mb-6">3. Técnicas de trazado de líneas, curvas y ángulos</h2>
-                    <p class="mb-4 text-lg leading-relaxed">Para trazar <strong class="font-semibold text-emerald-700">líneas rectas</strong> se debe emplear una regla milimetrada, una escuadra o un cartabón. Deberás mantener un pulso firme, sujetando la regla con la mano izquierda y haciendo coincidir el borde de la regla con el lugar en el que deseas trazar la línea. Con la otra mano dibujarás el trazado recto del tamaño deseado, ayudándote de las marcas en la propia regla para definir la longitud deseada.</p>
+                    <p class="definicion mb-4 text-lg leading-relaxed">Para trazar <strong class="font-semibold text-emerald-700">líneas rectas</strong> se debe emplear una regla milimetrada, una escuadra o un cartabón. Deberás mantener un pulso firme, sujetando la regla con la mano izquierda y haciendo coincidir el borde de la regla con el lugar en el que deseas trazar la línea. Con la otra mano dibujarás el trazado recto del tamaño deseado, ayudándote de las marcas en la propia regla para definir la longitud deseada.</p>
                     <p class="mb-4 text-lg leading-relaxed">Las <strong class="font-semibold text-emerald-700">líneas paralelas y perpendiculares</strong> se trazan con la ayuda de la escuadra y el cartabón. Observa la posición de la escuadra y el cartabón en la figura superior; es la adecuada para dibujar líneas paralelas. El cartabón queda fijo y la escuadra se desliza presentando varias posiciones horizontales. Así, se irán trazando las paralelas. Para trazar líneas perpendiculares, tan solo hay que cambiar la posición de la escuadra, tal y como se ve en la figura, mientras que el cartabón sigue fijo en la posición original. Al deslizar la escuadra, podrás ir trazando líneas paralelas entre sí y perpendiculares a las originales.</p>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-6">
                         <div>
@@ -385,67 +421,64 @@
 
                 <section id="vistas" class="section-card">
                     <h2 class="text-3xl font-bold text-slate-600 mb-6">7. Vistas</h2>
-
-                            <p class="mb-4 text-lg leading-relaxed">Las vistas de un objeto son sus representaciones bidimensionales (2D) obtenidas desde diferentes puntos de vista para mostrar sus formas tridimensionales (3D). Las vistas principales, utilizadas en dibujo técnico, son el <strong class="font-semibold text-emerald-700">Alzado</strong> (vista frontal), la <strong class="font-semibold text-emerald-700">Planta</strong> (vista superior) y el <strong class="font-semibold text-emerald-700">Perfil</strong> (vista lateral), que, juntas, permiten diseñar y fabricar el objeto con precisión.</p>
-
-                            <h3  class="text-2xl font-semibold text-slate-600 mt-8 mb-4">Tipos de Vistas Principales</h3>
-
-                            <h4 class="text-2xl font-semibold text-slate-600 mt-8 mb-4"><strong class="font-semibold text-emerald-700">Alzado</strong></h4>
-                            <p class="mb-4 text-lg leading-relaxed">La vista frontal del objeto. Es la que define la forma principal de la pieza y se considera la más importante.</p>
-
-                            <h4 class="text-2xl font-semibold text-slate-600 mt-8 mb-4"><strong class="font-semibold text-emerald-700">Planta</strong></h4>
-                            <p class="mb-4 text-lg leading-relaxed">La vista superior del objeto, que se dibuja debajo del alzado y comparte su ancho.</p>
-
-                            <h4 class="text-2xl font-semibold text-slate-600 mt-8 mb-4"><strong class="font-semibold text-emerald-700">Perfil</strong></h4>
-                            <p class="mb-4 text-lg leading-relaxed">La vista lateral del objeto. Puede ser el perfil izquierdo o el perfil derecho y proporciona información adicional sobre la pieza.</p>
-
-                            <h2>Principios Importantes</h2>
-
-                            <ul class="list-disc list-inside space-y-3 text-lg leading-relaxed">
-                                <li><strong class="font-semibold text-emerald-700">Proyecciones Ortogonales:</strong> Las vistas son proyecciones ortogonales (perpendiculares) del objeto sobre un plano.</li>
-                                <li>
-                                    <strong class="font-semibold text-emerald-700">Dimensiones:</strong>
-                                    <ul>
-                                        <li>El <strong class="font-semibold text-emerald-700">alzado</strong> muestra el alto y el ancho del objeto.</li>
-                                        <li>La <strong class="font-semibold text-emerald-700">planta</strong> muestra el ancho y la profundidad.</li>
-                                        <li>El <strong class="font-semibold text-emerald-700">perfil</strong> muestra la profundidad y el alto.</li>
-                                    </ul>
-                                </li>
-                                <li><strong class="font-semibold text-emerald-700">Disposición de las Vistas:</strong> En el dibujo técnico, la disposición de las vistas es importante para que el objeto quede bien definido.</li>
-                                <li><strong class="font-semibold text-emerald-700">Información Completa:</strong> Aunque un objeto tiene seis vistas posibles (correspondientes a sus seis caras), a menudo basta con dibujar solo tres vistas para obtener información completa y necesaria para su diseño y fabricación.</li>
-                            </ul>
-
-
-
-                        <br>
-
-                    <p class="mb-4 text-lg leading-relaxed">Para poder comprender los objetos representados en los dibujos técnicos, es necesario que queden correctamente definidos y dibujados. Para lograrlo, se utiliza la representación de objetos vistos desde diferentes puntos de vista que permiten, tanto a quien lo diseña como a quien lo observa, poder interpretar el objeto tridimensional que está dibujado. Hay dos sistemas habituales de representación, el <strong class="font-semibold text-emerald-700">americano y el europeo</strong>, que será el que manejaremos en esta unidad. La diferencia principal entre ambos sistemas es la distribución de las vistas en el papel.</p>
-                    <img src="https://centros.edu.xunta.gal/cafi/aulavirtual/pluginfile.php/38537/mod_page/content/1/Tema_9/Imagenes/VISTAS_EN_SISTEMA_DIEDRICO.PNG" alt="Sistema de vistas diédrico europeo" class="w-full max-w-xl mx-auto rounded-lg shadow-md my-6 zoomable-image">
-                    <p class="mb-4 text-lg leading-relaxed">En ambos sistemas se distinguen las siguientes vistas:</p>
-                    <ul class="list-disc list-inside space-y-3 text-lg leading-relaxed">
-                        <li><strong class="font-semibold text-emerald-700">Alzado:</strong> se refiere a la vista frontal del objeto.</li>
-                        <li><strong class="font-semibold text-emerald-700">Alzado posterior:</strong> o vista posterior del objeto.</li>
-                        <li><strong class="font-semibold text-emerald-700">Planta:</strong> se refiere a la vista superior del objeto.</li>
-                        <li><strong class="font-semibold text-emerald-700">Planta inferior:</strong> o vista inferior del objeto.</li>
-                        <li><strong class="font-semibold text-emerald-700">Perfil derecho del objeto:</strong> se refiere a la vista derecha del objeto que se sitúa en la parte izquierda del dibujo de vistas.</li>
-                        <li><strong class="font-semibold text-emerald-700">Perfil izquierdo del objeto:</strong> se refiere a la vista izquierda del objeto que se sitúa en la parte derecha del dibujo de vistas.</li>
-                    </ul>
+                        <p class="mb-4 text-lg leading-relaxed">Para poder comprender los objetos representados en los dibujos técnicos, es necesario que queden correctamente definidos y dibujados. Para ello se emplean las <strong class="font-semibold text-emerald-700">vistas</strong> del objeto, que son proyecciones ortogonales (perpendiculares) del objeto sobre un plano, es decir, sus representaciones bidimensionales (2D) obtenidas desde diferentes puntos de vista para mostrar sus formas tridimensionales (3D). </p>
+                        
+                        <h3  class="text-2xl font-semibold text-slate-600 mt-8 mb-4">Tipos de Vistas Principales</h3>
+                        <p class="mb-4 text-lg leading-relaxed">Aunque un objeto tiene seis vistas posibles (correspondientes a sus seis caras), a menudo basta con dibujar solo tres vistas para obtener información completa y necesaria para su diseño y fabricación.</p>
+                        
+                          <div class="fila-grid">
+                            <div class="columna-grid">
+                              <h3 class="text-xl font-semibold text-slate-600 mt-8 mb-4"><strong class="font-semibold text-slate-600">Alzado</strong></h3>
+                                <p class="mb-4 text-lg leading-relaxed">La <strong class="font-semibold text-emerald-700">vista frontal</strong> del objeto. Es la que define la forma principal de la pieza y se considera la más importante. Muestra el <strong class="font-semibold text-emerald-700">alto</strong> y el <strong class="font-semibold text-emerald-700">ancho</strong> del objeto.</p>
+                            </div>
+                            <div class="columna-grid">
+                              <h3 class="text-xl font-semibold text-slate-600 mt-8 mb-4"><strong class="font-semibold text-slate-600">Planta</strong></h3>
+                                <p class="mb-4 text-lg leading-relaxed">La <strong class="font-semibold text-emerald-700">vista superior</strong> del objeto, que se dibuja debajo del alzado y comparte su ancho. Muestra el <strong class="font-semibold text-emerald-700">ancho</strong> y la <strong class="font-semibold text-emerald-700">profundidad</strong>.</p>
+                            </div>
+                            <div class="columna-grid">
+                              <h3 class="text-xl font-semibold text-slate-600 mt-8 mb-4"><strong class="font-semibold text-slate-600">Perfil</strong></h3>
+                                <p class="mb-4 text-lg leading-relaxed">La <strong class="font-semibold text-emerald-700">vista lateral</strong> del objeto. Puede ser el perfil izquierdo o el perfil derecho y proporciona información adicional sobre la pieza. Muestra la <strong class="font-semibold text-emerald-700">profundidad</strong> y el <strong class="font-semibold text-emerald-700">alto</strong>.</p>
+                            </div>
+                          </div>
+                        <img src="https://centros.edu.xunta.gal/cafi/aulavirtual/pluginfile.php/38537/mod_page/content/1/Tema_9/Imagenes/VISTAS_EN_SISTEMA_DIEDRICO.PNG" alt="Sistema de vistas diédrico europeo" class="w-full max-w-xl mx-auto rounded-lg shadow-md my-6 zoomable-image">
+                        <p class="image-caption">Vistas de un objeto.</p>
                     <p class="mt-6 mb-4 text-lg leading-relaxed">Para representar piezas mediante un sistema, las vistas siempre se dibujan en el mismo orden y posición. Un detalle importante a tener en cuenta es la <strong class="font-semibold text-emerald-700">coincidencia de dimensiones:</strong></p>
                     <ul class="list-disc list-inside space-y-3 text-lg leading-relaxed">
                         <li>La anchura de la planta y del alzado es la misma.</li>
                         <li>La altura del alzado y de ambos perfiles debe coincidir.</li>
                         <li>La profundidad de la planta y del perfil es igual.</li>
                     </ul>
-                    <p class="mt-6 mb-4 text-lg leading-relaxed">También es imprescindible orientar correctamente la planta con respecto al alzado y al perfil para que el resultado tenga sentido. Prolongar horizontal y verticalmente las aristas nos ayudará a hacerlo. Un error muy frecuente en los principiantes es no orientar bien la planta con respecto al alzado y dibujarla girada.</p>
+                    <p class="mb-4 text-lg leading-relaxed">Hay dos sistemas habituales de representación, el <strong class="font-semibold text-emerald-700">americano y el europeo</strong>, que será el que manejaremos en esta unidad. La diferencia principal entre ambos sistemas es la distribución de las vistas en el papel.</p>
 
-                    <h3 class="text-2xl font-semibold text-slate-800 mt-8 mb-4">Práctica guiada. Dibujar las vistas de un objeto.</h3>
-                    <ol class="list-decimal list-inside space-y-4 text-lg leading-relaxed">
-                        <li>Se dibujan, primero, los ejes que delimitarán los espacios de cada una de las vistas, utilizando una línea continua fina. La primera vista que hay que dibujar es el <strong class="font-semibold text-emerald-700">alzado</strong>, que será aquella que ofrezca más información y detalles. En este ejemplo, será el área naranja, ya que indica la forma del objeto.</li>
-                        <li>A continuación, se trazan líneas auxiliares verticales desde los contornos del alzado hacia la planta.</li>
-                        <li>Utilizando la información suministrada por el alzado, se dibuja la <strong class="font-semibold text-emerald-700">planta</strong> del objeto. Las líneas auxiliares proporcionarán la anchura y la ubicación de elementos relevantes del objeto. El área es la zona amarilla del objeto.</li>
-                        <li>Traza líneas auxiliares horizontales desde el alzado hacia el perfil y, mediante el uso del compás, desde la planta al perfil.</li>
-                        <li>Dibuja ahora el <strong class="font-semibold text-emerald-700">perfil</strong> (recuerda que el perfil izquierdo va situado a la derecha del alzado, y el derecho, a su izquierda) apoyándote en las líneas auxiliares. El área azul es la identificada como la vista de perfil.</li>
-                    </ol>
+                    <img src="https://i.ytimg.com/vi/syJy3RAluwY/maxresdefault.jpg" alt="Sistemas de vistas diédrico europeo y americano" class="w-full max-w-xl mx-auto rounded-lg shadow-md my-6 zoomable-image">
+                    <p class="image-caption">Sistema americano y europeo.</p>
+
+                    <p class=" summary mt-6 mb-4 text-lg leading-relaxed">También es imprescindible orientar correctamente la planta con respecto al alzado y al perfil para que el resultado tenga sentido. Prolongar horizontal y verticalmente las aristas nos ayudará a hacerlo. Un error muy frecuente en los principiantes es no orientar bien la planta con respecto al alzado y dibujarla girada.</p>
+                </section>
+                <section id="actividades3" class="section-card bg-green-50 border-green-200">
+                    <h2 class="text-3xl font-bold text-green-800 mb-6">Actividades: Vistas</h2>
+                    <div class="space-y-4 text-slate-600 leading-relaxed text-lg">
+                        <ol class="list-decimal list-inside space-y-3">
+                            <li><strong class="font-semibold text-emerald-700">Preparar el Área de Trabajo y Medir el Objeto:</strong> En tu hoja de papel, dibuja un marco rectangular dejando un margen de <strong>1 cm</strong> por cada lado respecto al filo de la hoja. Con la regla, mide el <strong>largo, ancho y alto</strong> del borrador de pizarra y anota sus medidas reales.
+                            </li>
+                            <li><strong class="font-semibold text-emerald-700">Calcular las Dimensiones a Escala:</strong> La escala para este ejercicio es <strong>1:2 (escala de reducción)</strong>. Esto significa que cada 2 cm del objeto real se dibujarán como 1 cm en el papel. Para encontrar las dimensiones de tu dibujo, divide cada medida real entre 2. <br>
+                                <code>Medida en el dibujo = Medida real / 2</code> <br>
+                            <em>Ejemplo: Si el largo real es 14 cm, el ancho 5 cm y el alto 2 cm, las medidas para el dibujo serán 7 cm, 2,5 cm y 1 cm respectivamente.</em>
+                            </li>
+                            <li><strong class="font-semibold text-emerald-700">Trazar los Ejes de Referencia:</strong>
+                               Dibuja los ejes que delimitarán los espacios de cada una de las vistas. Para ello, traza con una línea continua y fina una línea vertical y otra horizontal, perpendiculares entre sí, que se crucen en el centro de tu área de trabajo
+                            </li>
+                            <li><strong class="font-semibold text-emerald-700">Dibujar el Alzado:</strong>
+                               La primera vista que hay que dibujar es el <strong>alzado</strong>, que será aquella que ofrezca más información y detalles. La dibujaremos en el cuadrante superior izquierdo. En este caso, será la vista frontal del borrador, que muestra su largo y su alto. Dibuja este rectángulo con las medidas a escala que calculaste
+                            </li>
+                            <li><strong class="font-semibold text-emerald-700">Proyectar y Dibujar la Planta:</strong>
+                               A continuación, traza líneas auxiliares verticales, finas y discontinuas, desde los contornos del alzado hacia el cuadrante inferior (hacia la <strong>planta</strong>). Utilizando la información suministrada por el alzado, dibuja la <strong>planta</strong> del objeto en el cuadrante inferior izquierdo. Las líneas auxiliares te proporcionarán la anchura (el largo del borrador) y la ubicación de los elementos. La otra medida que necesitas es la profundidad (el ancho del borrador), que deberás tomar de tus cálculos a escala.
+                            </li>
+                            <li><strong class="font-semibold text-emerald-700">Proyectar y Dibujar el Perfil:</strong>
+                               Ahora, traza líneas auxiliares horizontales y finas desde el alzado hacia el cuadrante inferior derecho, donde irá el <strong>perfil</strong>. Para trasladar la profundidad desde la planta, utiliza el compás: pincha en el cruce de los ejes, abre el compás hasta las líneas de contorno de la planta y traza arcos de 90º hacia el eje horizontal. Desde esos puntos, baja las líneas auxiliares verticales. Dibuja ahora el <strong>perfil</strong> derecho (que se sitúa a la derecha del alzado) apoyándote en las líneas auxiliares. La altura vendrá del alzado y la anchura de las proyecciones que giraste con el compás desde la planta.
+                            </li>
+                        </ol>    
+                    </div>
                 </section>
                 
                 <hr class="my-8 border-slate-200">
@@ -547,12 +580,12 @@
                     <nav>
                         <ul class="space-y-2">
                             <li><a href="#introduccion" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-1-circle-fill mr-3 text-slate-400"></i>Introducción al diseño técnico</a></li>
-                            <li><a href="#instrumentos" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-2-circle-fill mr-3 text-slate-400"></i>Instrumentos de dibujo técnico</a></li>
+                            <li><a href="#instrumentos" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-2-circle-fill mr-3 text-slate-400"></i>Instrumentos de dibujo</a></li>
                             <li><a href="#trazado" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-3-circle-fill mr-3 text-slate-400"></i>Técnicas de trazado</a></li>
                             <li><a href="#bocetos" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-4-circle-fill mr-3 text-slate-400"></i>Bocetos, croquis y planos</a></li>
                             <li><a href="#acotacion" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-5-circle-fill mr-3 text-slate-400"></i>Acotación</a></li>
                             <li><a href="#escalas" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-6-circle-fill mr-3 text-slate-400"></i>Escalas</a></li>
-                            <li><a href="#vistas" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-7-circle-fill mr-3 text-slate-400"></i>Las vistas de un objeto</a></li>
+                            <li><a href="#vistas" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-7-circle-fill mr-3 text-slate-400"></i>Vistas</a></li>
                             <li><a href="#perspectivas" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-8-circle-fill mr-3 text-slate-400"></i>Perspectivas</a></li>
                             <li><a href="#software" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-9-circle-fill mr-3 text-slate-400"></i>Software en diseño técnico</a></li>
                             <!--
