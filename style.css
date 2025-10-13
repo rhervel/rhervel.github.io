@@ -109,7 +109,7 @@ body {
             margin-right: auto;
         }
         .limited-height-200 {
-            max-height: 150px; /* Establece la altura máxima que desees */
+            max-height: 200px; /* Establece la altura máxima que desees */
             width: auto;       /* Hace que el ancho se ajuste para mantener la proporción */
             object-fit: contain; /* Asegura que la imagen cubra el área sin deformarse */
             display: block;    /* Ayuda a centrar la imagen si usas márgenes automáticos */

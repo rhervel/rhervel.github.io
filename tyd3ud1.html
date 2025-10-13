@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
+    <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>UD1. Sistemas de Representación</title>
   <script src="https://cdn.tailwindcss.com"></script>
@@ -10,457 +10,1024 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <style>
+       
+    /* Estilo para la pestaña activa */
+    .tab-link.active {
+        background-color: #3b82f6; /* bg-blue-500 */
+        color: white;
+    }
+    /* Ocultar scrollbar en el contenedor principal pero permitir scroll */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .no-scrollbar {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+</style>
 <link rel="stylesheet" href="style.css">
+
 </head>
-<body class="flex flex-col min-h-full bg-slate-50">
-    <header class="bg-white shadow-md sticky top-0 z-40">
-      <div class="container mx-auto px-4">
-        <div class="flex justify-between items-center py-4">
-          <div class="flex items-center gap-3">
+
+<body class=" font-sans text-gray-800">
+
+<!-- Barra de navegación superior -->
+<header class="bg-white shadow-md sticky top-0 z-40">
+  <div class="container mx-auto px-4">
+    <div class="flex justify-between items-center py-4">
+      <div class="flex items-center gap-3">
+
         <a href="index.html" class="text-grey-700 flex items-center">
           <i class="bi bi-robot text-2xl mr-3"></i>
           <span class="font-bold text-xl">Tecnología y Digitalización</span>
-        </a>
-        </div>
-        <div class="text-sm text-gray-500">
-            <ol class="list-none p-0 inline-flex items-center">
-              <li class="flex items-center">
-                <a href="tyd3.html" class="hover:text-blue-600">3º ESO</a>
-                <i class="bi bi-chevron-right mx-2 text-xs"></i>
-            </li>
-            <li class="flex items-center text-gray-700 font-semibold">
-                <span>UD1. Sistemas de Representación</span>
-            </li>
-            </ol>
-        </div>
-        </div>
-    </div>
+      </a>
+
+  </div>
+  <div class="text-sm text-gray-500">
+      <ol class="list-none p-0 inline-flex items-center">
+        <li class="flex items-center">
+          <a href="tyd3.html" class="hover:text-blue-600">3º ESO</a>
+          <i class="bi bi-chevron-right mx-2 text-xs"></i>
+      </li>
+      <li class="flex items-center text-gray-700 font-semibold">
+          <span>UD1. Sistemas de Representación</span>
+      </li>
+  </ol>
+</div>
+</div>
+</div>
 </header>
 
-<main class="flex-grow">
-    <div class="container mx-auto p-4 md:p-8">
-        <div class="flex flex-col lg:flex-row gap-8">
-            <!-- Columna principal de contenido -->
-            <div class="w-full lg:w-3/4">
+<div class="flex flex-col md:flex-row min-h-screen"> <!-- Contenedor principal Flex -->
+    <!-- Barra lateral de navegación -->
+    <aside id="sidebar" class="w-full md:w-64 bg-white shadow-lg p-4 md:h-screen md:sticky top-16">
+        <div class="flex items-center pb-4 border-b">
 
-                <section id="introduccion" class="section-card">
-                        <h2 class="text-3xl font-bold text-slate-600 mb-6">1. Introducción</h2>
-                        <p class="mb-4 text-lg leading-relaxed">La comunicación es una necesidad humana fundamental. Mucho antes del desarrollo del lenguaje escrito, la humanidad ya utilizaba los dibujos para comunicarse. Podemos clasificar el dibujo en dos tipos principales:</p>
-                        <ul class="list-none space-y-4 text-lg mt-4">
-                            <li><strong class="font-semibold text-teal-700">Dibujo Artístico:</strong> Esta forma se caracteriza por su libertad y la ausencia de restricciones, empleando texturas, colores y una amplia gama de técnicas artísticas.</li>
-                            <li><strong class="font-semibold text-teal-700">Dibujo Técnico:</strong> Este tipo evolucionó para crear un lenguaje universal destinado a la comunicación de ideas, permitiendo a técnicos y científicos transmitir conocimientos para la construcción de objetos.</li>
-                        </ul>
-                        
-                        
+            <h1 class="text-xl font-bold text-gray-700">UD1. Sistemas de Representación</h1>
+        </div>
+        <nav class="mt-4">
+            <ul class="">
+                <li><a href="#" class="tab-link" data-target="tab1">1. Introducción</a></li>
+                <li><a href="#" class="tab-link" data-target="tab2">2. Tipos de Dibujo</a></li>
+                <li><a href="#" class="tab-link" data-target="tab3">3. Instrumentos de Dibujo</a></li>
+                <li><a href="#" class="tab-link" data-target="tab4">4. Técnicas de trazado</a></li>
+                <li><a href="#" class="tab-link" data-target="tab5">5. Acotación</a></li>
+                <li><a href="#" class="tab-link" data-target="tab6">6. Escalas</a></li>
+                <li><a href="#" class="tab-link" data-target="tab7">7. Vistas</a></li>
+                <li><a href="#" class="tab-link" data-target="tab8">8. Perspectivas</a></li>
+                <li><a href="#" class="tab-link" data-target="tab9">9. Software de Diseño Técnico</a></li>
+                <li class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 rounded-md"><a href="#" class="tab-link" data-target="tab10">ACTIVIDADES</a></li>
+                <li class="bg-sky-100 border-l-4 border-sky-500 text-sky-800 rounded-md"><a href="#" class="tab-link" data-target="tab11">PROYECTO</a></li>
+                <li class="bg-lime-100 border-l-4 border-lime-500 text-lime-800 rounded-md"><a href="#" class="tab-link" data-target="tab12">EVALUACIÓN</a></li>
+            </ul>
+        </nav>
+    </aside>
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            <div>
-                               <img src="https://www.aiete.net/wp-content/uploads/2017/06/milagro-de-la-cruz-gentile-bellini-1024x762.jpg" alt="Dibujo artístico" class="w-full h-full object-cover rounded-lg shadow-md my-6 zoomable-image">
-                            <p class="image-caption">Trazado de líneas paralelas.</p>
-
-                           </div>
-                           <div>
-                            <img src="https://www.3ds.com/assets/invest/2023-02/technical-drawing-for-cnc-machining-2.jpg" alt="Dibujo técnico" class="w-full h-full object-cover rounded-lg shadow-md my-6 zoomable-image">
-                            <p class="image-caption">Trazado de líneas paralelas.</p>
-
+    <!-- Contenido principal -->
+    <main class="flex-1 p-6 md:p-10">
+        <div id="main-content p-6">
+            <!-- Contenido de las Pestañas -->
+            <div id="tab1" class="tab-content">
+                <section id="introduccion" class="">
+                    <h2 class="text-3xl font-bold text-slate-600 mb-6">1. Introducción</h2>
+                    <p class="mb-4 text-lg leading-relaxed">
+                        <strong>El Dibujo: Nuestro Primer Idioma ✏️</strong>
+                    </p>
+                    <p class="mb-4 text-lg leading-relaxed">
+                        Desde siempre, los seres humanos hemos usado dibujos para comunicarnos. Mucho antes que las letras, las imágenes servían para contar historias y compartir ideas. Este gran lenguaje universal se divide en dos tipos principales:
+                    </p>
+                    <div class="space-y-6 text-lg">
+                        <div class="p-4 border-l-4 border-sky-500 bg-sky-50">
+                            <h3 class="font-bold text-xl text-sky-700 mb-2">1. Dibujo Artístico 🎨</h3>
+                            <p class="mb-2">Es la forma más libre y personal de dibujar, donde el artista busca conectar con nuestras emociones. Piensa en un cómic, un retrato o el diseño de un personaje de videojuego.</p>
+                            <ul class="list-disc list-inside space-y-1 text-slate-700">
+                                <li><strong>Objetivo:</strong> Expresar sentimientos, contar una historia o simplemente crear algo bello.</li>
+                                <li><strong>Reglas:</strong> No existen reglas fijas. La imaginación y la creatividad son lo más importante.</li>
+                                <li><strong>Resultado:</strong> Es subjetivo; cada persona puede interpretarlo de una manera diferente.</li>
+                            </ul>
                         </div>
-
-                    </div>
-                        <div>
-                        <p class="summary text-lg leading-relaxed">En Tecnología, los dibujos técnicos son cruciales para la creación de bocetos y planos. Estos deben ser claros y concisos, sin ornamentos, para asegurar que no haya ambigüedad sobre la forma y las dimensiones del objeto representado.</p>
+                        <div class="p-4 border-l-4 border-emerald-500 bg-emerald-50">
+                            <h3 class="font-bold text-xl text-emerald-700 mb-2">2. Dibujo Técnico 📐</h3>
+                            <p class="mb-2">Es un lenguaje universal y de alta precisión, diseñado para que una idea pueda ser construida en el mundo real sin errores. Es como el manual de instrucciones para fabricar cualquier cosa.</p>
+                            <ul class="list-disc list-inside space-y-1 text-slate-700">
+                                <li><strong>Objetivo:</strong> Describir un objeto de forma exacta (medidas, materiales, forma) para su fabricación.</li>
+                                <li><strong>Reglas:</strong> Sigue normas muy estrictas y estandarizadas que todo el mundo de la tecnología y la industria entiende.</li>
+                                <li><strong>Resultado:</strong> Es objetivo; solo tiene una interpretación posible para evitar cualquier error.</li>
+                            </ul>
                         </div>
-                </section>
-
-                <hr class="my-8 border-slate-200">
-
-                <section id="instrumentos" class="section-card">
-                    <h2 class="text-3xl font-bold text-slate-600 mb-6">2. Instrumentos de dibujo técnico</h2>
-                    <p class="mb-6 text-lg leading-relaxed">El empleo de herramientas propias del dibujo técnico, tales como la regla, la escuadra, el cartabón, el compás, etc., resulta fundamental en el proceso de representación gráfica. Estas herramientas de trabajo permiten la creación de dibujos precisos, minuciosos y proporcionados. A continuación, veremos cómo se emplean estos instrumentos:</p>
-                     <img src="https://m.media-amazon.com/images/I/718WnILRwVL._UF894,1000_QL80_.jpg" alt="Instrumentos de dibujo técnico" class="w-full max-w-lg mx-auto rounded-lg shadow-md my-6 zoomable-image">
-                    <ul class="list-disc list-inside space-y-5 text-lg leading-relaxed mt-6">
-                        <li><strong class="font-semibold text-emerald-700">Regla:</strong> se utiliza para trazar líneas rectas precisas y medir distancias.</li>
-                        <li><strong class="font-semibold text-emerald-700">Escuadra:</strong> es un instrumento con forma de triángulo rectángulo con dos ángulos de 45º. La escuadra con ayuda del cartabón, se utiliza para dibujar líneas perpendiculares o paralelas de manera precisa.</li>
-                        <li><strong class="font-semibold text-emerald-700">Cartabón:</strong> es similar a la escuadra, pero con la diferencia de que este triángulo tiene un ángulo de 30º, otro de 60º y otro de 90º.</li>
-                        <li><strong class="font-semibold text-emerald-700">Compás:</strong> permite trazar círculos y arcos de circunferencia de un tamaño específico con precisión.</li>
-                        <li><strong class="font-semibold text-emerald-700">Transportador de ángulos:</strong> es una herramienta curva normally con forma de semicircunferencia en la que aparecen señalados los grados del arco, normalmente de 0º a 180º.</li>
-                        <li><strong class="font-semibold text-emerald-700">Escalímetro:</strong> es un tipo de regla que normalmente tiene sección triangular o forma de abanico en la que se incorporan reglas a varias escalas.</li>
-                        <li><strong class="font-semibold text-emerald-700">Lápices técnicos:</strong> existen diversas opciones de lápices técnicos dependiendo de la dureza de su mina.</li>
-                        <li><strong class="font-semibold text-emerald-700">Portaminas y minas de grafito:</strong> se utilizan para trazar líneas finas y precisas con un grosor constante.</li>
-                        <li><strong class="font-semibold text-emerald-700">Borradores:</strong> son útiles para borrar trazados a lápiz y corregir errores o eliminar líneas no deseadas sin dañar el papel.</li>
-                        <li><strong class="font-semibold text-emerald-700">Rotuladores calibrados:</strong> son rotuladores que tienen una punta muy fina y permiten el dibujo de piezas con precisión.</li>
-                    </ul>
-                </section>
-                
-                <hr class="my-8 border-slate-200">
-
-                <section id="trazado" class="section-card">
-                    <h2 class="text-3xl font-bold text-slate-600 mb-6">3. Técnicas de trazado de líneas, curvas y ángulos</h2>
-                    <p class="definicion mb-4 text-lg leading-relaxed">Para trazar <strong class="font-semibold text-emerald-700">líneas rectas</strong> se debe emplear una regla milimetrada, una escuadra o un cartabón. Deberás mantener un pulso firme, sujetando la regla con la mano izquierda y haciendo coincidir el borde de la regla con el lugar en el que deseas trazar la línea. Con la otra mano dibujarás el trazado recto del tamaño deseado, ayudándote de las marcas en la propia regla para definir la longitud deseada.</p>
-                    <p class="mb-4 text-lg leading-relaxed">Las <strong class="font-semibold text-emerald-700">líneas paralelas y perpendiculares</strong> se trazan con la ayuda de la escuadra y el cartabón. Observa la posición de la escuadra y el cartabón en la figura superior; es la adecuada para dibujar líneas paralelas. El cartabón queda fijo y la escuadra se desliza presentando varias posiciones horizontales. Así, se irán trazando las paralelas. Para trazar líneas perpendiculares, tan solo hay que cambiar la posición de la escuadra, tal y como se ve en la figura, mientras que el cartabón sigue fijo en la posición original. Al deslizar la escuadra, podrás ir trazando líneas paralelas entre sí y perpendiculares a las originales.</p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-6">
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pb-6">
                         <div>
-                           <img src="https://educacionplasticayvisualeso.wordpress.com/wp-content/uploads/2013/10/parallel.jpg?w=450" alt="Trazado de líneas paralelas" class="w-full rounded-lg shadow-md zoomable-image">
-                           <p class="image-caption">Trazado de líneas paralelas.</p>
-                       </div>
-                       <div>
-                        <img src="https://educacionplasticayvisualeso.wordpress.com/wp-content/uploads/2013/10/perpendicular.jpg?w=584&h=603" alt="Trazado de líneas perpendiculares" class="w-full rounded-lg shadow-md zoomable-image">
-                        <p class="image-caption">Trazado de líneas perpendiculares.</p>
+                         <img src="https://www.aiete.net/wp-content/uploads/2017/06/milagro-de-la-cruz-gentile-bellini-1024x762.jpg" alt="Dibujo artístico" class="w-full h-full object-cover rounded-lg shadow-md my-6 zoomable-image limited-height-200">
+                         <p class="image-caption">Dibujo artístico.</p>
+
+                     </div>
+                     <div>
+                        <img src="https://www.3ds.com/assets/invest/2023-02/technical-drawing-for-cnc-machining-2.jpg" alt="Dibujo técnico" class="w-full h-full object-cover rounded-lg shadow-md my-6 zoomable-image limited-height-200">
+                        <p class="image-caption">Dibujo técnico.</p>
+
                     </div>
-                    </div>
-                    <p class="mb-4 text-lg leading-relaxed">Cuando queremos realizar una <strong class="font-semibold text-emerald-700">circunferencia o un arco de circunferencia</strong>, es necesario utilizar el compás. Para su correcto manejo, situaremos la aguja del compás en el centro de la circunferencia que queremos realizar y abriremos los brazos hasta ajustarlo al radio de la circunferencia deseado. Para realizar la circunferencia, el compás se sujetará con una única mano por su parte superior y se hará rotar sobre la aguja hasta dibujar el arco o la circunferencia. En caso de que desees dibujar una circunferencia con un radio determinado, lo que debes hacer es sujetar la aguja del compás junto con una regla milimetrada y abrir los brazos tanto como desees que mida el radio de tu circunferencia. Una vez tomada la medida, sin variar la apertura de los brazos del compás, sitúa la aguja en el lugar en que desees que esté el centro de la curva y, a continuación, sujeta el compás por la parte superior para hacerlo rotar entre los dedos y dibujar así la circunferencia.</p>
-                     <img src="https://cldv3cicloprimaria.wordpress.com/wp-content/uploads/2015/06/circulos5.jpg" alt="Uso del compás para trazar círculos" class="w-full max-w-md mx-auto rounded-lg shadow-md my-6 zoomable-image">
-                    <p class="mb-4 text-lg leading-relaxed">El <strong class="font-semibold text-emerald-700">transportador</strong> es un instrumento especialmente indicado para marcar ángulos que no se pueden obtener con la escuadra y el cartabón. Para medir un ángulo, sitúa el transportador de manera que su centro quede en el vértice del ángulo y el lado del ángulo coincida con la línea de base del transportador.</p>
-                     <img src="https://www.smartick.es/blog/wp-content/uploads/2024/05/Partes-transportador-ES.png" alt="Uso del transportador de ángulos" class="w-full max-w-lg mx-auto rounded-lg shadow-md my-6 zoomable-image">
-                </section>
-                <section id="actividades1" class="section-card bg-green-50 border-green-200">
-                    <h2 class="text-3xl font-bold text-green-800 mb-6">Actividades: Técnicas de trazado de líneas</h2>
-                    <div class="space-y-4 text-slate-600 leading-relaxed text-lg">
-                        <ol class="list-decimal list-inside space-y-3">
-                            <li>Trazado de Patrón Geométrico con Escuadra y Cartabón
-                                <ol class="list-disc list-inside">
-                                    <li><strong>Preparar el Área de Trabajo:</strong> En la hoja de papel, dibuja un marco rectangular dejando un margen de 1,5 cm por cada lado respecto a los bordes de la hoja.
-                                    </li>
-                                    <li><strong>Trazar los Ejes:</strong> Dibuja los dos ejes de simetría del rectángulo: uno vertical y otro horizontal. El punto donde se cruzan será el centro.
-                                    </li>
-                                    <li><strong>Graduar los Ejes:</strong> Tomando el centro como punto de origen (0), haz una pequeña marca cada 1 cm a lo largo de ambos ejes en las cuatro direcciones.
-                                    </li>
-                                    <li><strong>Línea de Referencia:</strong> Elige una de las marcas que has dibujado en cualquiera de los ejes y, pasando por ella, traza una línea inicial con una inclinación de 45º.
-                                    </li>
-                                    <li><strong>Construir el Patrón:</strong> Utilizando la escuadra y el cartabón como apoyo, dibuja líneas paralelas y perpendiculares a la línea de 45º que acabas de trazar. Continúa este proceso hasta reproducir el patrón completo que se muestra en la imagen de referencia.
-                                    </li>
-                                </ol>
-                                <img src="img/patron.png" alt="patron" class="h-full object-cover rounded-lg shadow-md zoomable-image limited-height">
-                            </li>
-                            <li>Trazado de Tramas con Inclinaciones Progresivas
-                                <ol class="list-disc list-inside">
-                                    <li><strong>Preparar el Área de Trabajo:</strong> En la hoja de papel, dibuja un marco rectangular dejando un margen de 1 cm por cada lado respecto a los bordes.
-                                    </li>
-                                    <li><strong>Dividir en Cuadrados:</strong> Divide el espacio interior del marco en 6 cuadrados iguales. Para ello, mide el lado más largo y divídelo en 3 partes iguales, y el lado más corto en 2 partes iguales. Traza las líneas para formar una cuadrícula de 3x2.
-                                    </li>
-                                    <li><strong>Trama a 15º (Primer Cuadrado):</strong> En el cuadrado superior izquierdo, utiliza el transportador para trazar una línea inicial con una inclinación de 15º. A continuación, usando la escuadra y el cartabón, dibuja líneas paralelas a esta cada 5 mm hasta rellenar todo el cuadrado.
-                                    </li>
-                                    <li><strong>Trama a 30º (Segundo Cuadrado):</strong> En el siguiente cuadrado (superior central), repite el proceso trazando una línea inicial a 30º y luego sus paralelas cada 5 mm.
-                                    </li>
-                                    <li><strong>Trama a 45º (Tercer Cuadrado):</strong> En el cuadrado superior derecho, la línea inicial será de 45º. Rellena el espacio con paralelas cada 5 mm.
-                                    </li>
-                                    <li><strong>Trazados Restantes (Fila Inferior):</strong> Continúa el mismo procedimiento en los tres cuadrados inferiores, utilizando los ángulos correspondientes:
-                                        <ul>
-                                            <li><strong>Cuarto cuadrado (inferior izquierdo):</strong> Trama a 60º.</li>
-                                            <li><strong>Quinto cuadrado (inferior central):</strong> Trama a 75º.</li>
-                                            <li><strong>Sexto cuadrado (inferior derecho):</strong> Trama a 90º (líneas verticales).</li>
-                                        </ul>
-                                    </li>
-                                </ol>
-                            </li>
-                        </ol>
-                    </div>
-                </section>
-                
-                <hr class="my-8 border-slate-200">    
-
-                <section id="bocetos" class="section-card">
-                    <h2 class="text-3xl font-bold text-slate-600 mb-6">4. Bocetos, croquis y planos</h2>
-                    <p class="mb-4 text-lg leading-relaxed">Dentro del proceso de diseño técnico, una vez que se han identificado las necesidades y los problemas a resolver, llega la hora de elaborar las propuestas. Los planteamientos iniciales se plasmarán en bocetos que serán ideas o propuestas poco definidas, pero que van acercando al diseñador al producto final.</p>
-
-                    <h3 class="text-2xl font-semibold text-slate-600 mt-8 mb-4">Boceto</h3>
-                    <p class="mb-4 text-lg leading-relaxed">El <strong class="font-semibold text-emerald-700">boceto</strong> es un dibujo a mano alzada, poco detallado, que transmite una idea inicial de cómo será el objeto final. Seguramente has hecho alguna vez un boceto para explicar una idea o para ayudar a localizar una calle haciendo un pequeño mapa. A menudo se emplean los sinónimos de <strong class="font-semibold text-emerald-700">"borrador"</strong> o <strong class="font-semibold text-emerald-700">"esbozo"</strong> para referirse a un boceto.</p>
-
-                    <h3 class="text-2xl font-semibold text-slate-600 mt-8 mb-4">Croquis</h3>
-                    <p class="mb-4 text-lg leading-relaxed">El <strong class="font-semibold text-emerald-700">croquis</strong> es un dibujo también hecho a mano alzada, pero mucho más detallado que el boceto, ya que cuenta con <strong class="font-semibold text-emerald-700">medidas y otras anotaciones</strong> que permitan construir el objeto que describe. Es un dibujo bien proporcionado, <strong class="font-semibold text-emerald-700">acotado </strong>y completamente descrito para su construcción</p>
-
-                    <h3 class="text-2xl font-semibold text-slate-600 mt-8 mb-4">Planos</h3>
-                    <p class="mb-4 text-lg leading-relaxed">El <strong class="font-semibold text-emerald-700">plano</strong> es la representación gráfica definitiva de un objeto o proyecto, elaborada con la máxima precisión y detalle. A diferencia del boceto y el croquis, el plano no se realiza a mano alzada, sino que se dibuja utilizando herramientas de precisión, como reglas y escuadras, o más comúnmente, software de diseño asistido por ordenador (<em>CAD</em>).</p>
-                    <p class="mb-4 text-lg leading-relaxed">El plano se distingue del croquis por las siguientes características clave:</p>
-                    <ul class="list-disc list-inside space-y-5 text-lg leading-relaxed mt-6">
-                        <li><strong class="font-semibold text-emerald-700">Normalización:</strong> Sigue un conjunto de normas y convenciones estandarizadas (como el tipo de línea, la simbología y la rotulación) para asegurar que su interpretación sea universal y no dé lugar a ambigüedades.</li>
-                        <li><strong class="font-semibold text-emerald-700">Representación a escala:</strong> Todas las dimensiones del objeto se dibujan de forma proporcional a su tamaño real, aplicando una <strong>escala</strong> específica y claramente indicada (por ejemplo, E 1:50, E 1:100). Esto permite medir directamente sobre el papel para obtener las dimensiones reales.</li>
-                        <li><strong class="font-semibold text-emerald-700">Uso de vistas normalizadas:</strong> En lugar de una perspectiva única, el plano utiliza un sistema de vistas múltiples (como el alzado, la planta y el perfil) para describir la forma del objeto de manera completa y exacta desde diferentes puntos de vista.</li>
-                        <li><strong class="font-semibold text-emerald-700">Carácter de documento técnico:</strong> Es el documento formal y final que contiene toda la información necesaria para la fabricación, construcción o montaje de un objeto o edificación. Sirve como una instrucción precisa para el taller o la obra.</li>
-                    </ul>
-                    <p class="summary mb-4 text-lg leading-relaxed">En resumen, si el boceto es la idea inicial y el croquis es la guía dimensionada, <strong class="font-semibold text-emerald-700">el plano es el lenguaje técnico y formal que traduce esa idea en instrucciones exactas para su ejecución.</strong></p>
-
-                     <img src="https://www3.gobiernodecanarias.org/medusa/ecoblog/ygilgon/files/2018/11/cadira.png" alt="Ejemplo de croquis de una silla" class="w-full max-w-md mx-auto rounded-lg shadow-md my-6 zoomable-image">
-                     <p class="image-caption">Boceto, croquis y plano de una silla.</p>
-
-                </section>
-
-                <hr class="my-8 border-slate-200">
-
-                <section id="acotacion" class="section-card">
-                    <h2 class="text-3xl font-bold text-slate-600 mb-6">5. Acotación</h2>
-                    <p class="mb-4 text-lg leading-relaxed">La acotación es el proceso por medio del cual quedan reflejadas en un plano las medidas reales de un objeto. Se llama cota a cada una de las medidas del objeto que han sido anotadas en el plano.</p>
-
-                    <p class="mb-4 text-lg leading-relaxed">El fin de la acotación es conseguir una interpretación fiel y sin dudas del objeto representado, de modo que pueda ser fabricado sin necesidad de ninguna otra información. En los planos de fabricación de piezas las medidas lineales están en centímetros y los ángulos en grados. Si se fuera a usar una unidad de medida diferente, hay que especificarlo anotándolo en el cuadro de rotulación de la lámina. </p>
-
-                    <p class="mb-4 text-lg leading-relaxed">Como se observa en la imagen adjunta, las cotas se componen de:</p>
-                    <ul class="list-disc list-inside space-y-3 text-lg leading-relaxed">
-                        <li><strong class="font-semibold text-emerald-700">Líneas auxiliares de cota:</strong> Establecen los límites de la línea de cota. Son perpendiculares al objeto acotado. Sobresalen de la línea de cota 2 mm. Se trazan en línea continua de 0,2 mm.</li>
-                        <li><strong class="font-semibold text-emerald-700">Alzado posterior:</strong> o vista posterior del objeto.</li>
-                        <li><strong class="font-semibold text-emerald-700">Línea de cota:</strong> Paralela al elemento que se está acotando. Es una delgada línea continua que se delinea con rotulador calibrado de 0,2 mm. Está separada al menos 7 mm de la arista que acota.</li>
-                        <li><strong class="font-semibold text-emerald-700">Flechas de cota:</strong> Son ayudas visuales para indicar los extremos de la línea de cota. Sus lados forman un ángulo de 15° aproximadamente. Cuando se acotan varios elementos sucesivos, es posible sustituir las flechas por líneas cortas inclinadas 45°.</li>
-                        <li><strong class="font-semibold text-emerald-700">Cifra de cota:</strong> normalmente en cm. Se sitúa centrada sobre la línea de cota. Se tienen que leer en la posición natural del plano o girándolo 90° a la derecha.</li>
-                    </ul>
-                    <img src="img/cotas.png" alt="Elementos de la acotación" class="h-full object-cover rounded-lg shadow-md zoomable-image limited-height">
-                           <p class="image-caption">Elementos de la acotación.</p>
-
-                    <p class="mb-4 text-lg leading-relaxed">Puedes consultar las prinpales normas de la acotación pinchando en el siguiente <a href="pdf/acotacion.pdf" target="_blank"> <strong class="font-semibold text-emerald-700">enlace </strong> </a> </p>
-
-                </section>
-                
-                <hr class="my-8 border-slate-200">
-
-                <section id="escalas" class="section-card">
-                    <h2 class="text-3xl font-bold text-slate-600 mb-6">6. Escalas</h2>
-                        <p class="mb-4 text-lg leading-relaxed">La escala es la relación entre las dimensiones del objeto representado y las del objeto real. La utilidad de la escala es la de poder representar cualquier objeto en un formato de medidas estándar como son los dibujos sobre papel.</p>
-                        <p class="mb-4 text-lg leading-relaxed">La escala no solo se emplea en dibujo y en el trazado de planos, sino que también se aplica en la construcción de maquetas y modelos. Para que la persona que lee el plano entienda las dimensiones reales del objeto se han de seguir unas normas de denominación de cuántas veces se han ampliado o reducido las dimensiones del objeto en su representación.</p>
-                        
-                        <p class="mb-4 text-lg leading-relaxed">Así, hay tres tipos de escalas:</p>
-                        
-                        <ul class="list-disc list-inside space-y-5 text-lg leading-relaxed mt-6">
-                            <li><strong class="font-semibold text-emerald-700">Escala natural.</strong> El tamaño del objeto representado coincide con el del modelo real. Se emplea sobre todo en fabricación de piezas. Se escribe <em>1:1</em>.
-                            </li>
-                            <li><strong class="font-semibold text-emerald-700">Escala de reducción.</strong> La representación del objeto es menor que el modelo real. En la fabricación de piezas es frecuente emplear escalas <em>1:2</em> (el dibujo o maqueta es de la mitad de tamaño que el real) o <em>1:5</em>. En los planos de viviendas se usan con frecuencia escalas entre <em>1:50</em> y <em>1:100</em>. Para los mapas de terrenos se pueden encontrar planos a partir de <em>1:25000</em>.
-                            </li>
-                            <li><strong class="font-semibold text-emerald-700">Escala de ampliación.</strong> La representación del objeto es mayor que el modelo real. Se utiliza para representar piezas muy pequeñas. Ejemplos de este tipo de escalas serían <em>2:1</em> (el dibujo es del doble de tamaño que el objeto real), <em>5:1</em> o <em>10:1</em>.
-                            </li>
-                        </ul>
-                        <img src="img/escalas.png" alt="Tipos de escalas" class="w-full max-w-md mx-auto rounded-lg shadow-md my-6 zoomable-image">
-                     <p class="image-caption">Tipos de escalas.</p>
-                    
-                </section>
-                <section id="actividades2" class="section-card bg-green-50 border-green-200">
-                    <h2 class="text-3xl font-bold text-green-800 mb-6">Actividades: Acotación y Escalas</h2>
-                    <div class="space-y-4 text-slate-600 leading-relaxed text-lg">
-                        <ol class="list-decimal list-inside space-y-3">
-                            <li>Croquis a Escala de un Borrador de Pizarra
-                                <ol class="list-disc list-inside">
-                                    <li class="mb-4"><strong>Preparar el Área de Trabajo: </strong>En tu hoja de papel, dibuja un marco rectangular dejando un margen exacto de <strong>1 cm</strong> por cada lado con respecto al filo de la hoja. Este será el espacio delimitado para tu dibujo.
-                                    </li>
-                                    <li class="mb-4"><strong>Medición del Objeto Real: </strong>Coge el borrador de pizarra y, con la ayuda de la regla, mide con precisión su <strong>largo</strong> y su <strong>ancho</strong> así como todas las medidas neesarias para dibujarlo con precisión. Anota estas medidas en una esquina de la hoja o en un papel aparte. Estas son tus "medidas reales".</p>
-                                    </li>
-                                    <li class="mb-4"><strong>Cálculo de Dimensiones a Escala: </strong>La escala a la que debes dibujar es <strong>3:2</strong>. Esto significa que cada 2 cm del objeto real se representarán como 3 cm en tu dibujo. Para calcular las nuevas medidas, aplica la siguiente fórmula:
-                                        <p><code>Medida en el dibujo = Medida real × (3 / 2)</code></p>
-                                        <p>Por ejemplo, si el largo real del borrador es 12 cm, el cálculo sería: 12 cm × 1,5 = 18 cm. Realiza esta operación para el largo y el ancho.</p>
-                                    </li>
-                                    <li class="mb-4"><strong>Trazado del Croquis: </strong>Utilizando las medidas calculadas en el paso anterior, dibuja la vista superior (planta) del borrador. Asegúrate de que el croquis quede centrado dentro del marco que dibujaste al principio. Representa la forma principal del borrador, incluyendo los detalles que consideres importantes, como las esquinas redondeadas.
-                                    </li>
-                                    <li class="mb-4"><strong>Acotación del Dibujo: </strong>Una vez finalizado el contorno, acota el dibujo para indicar sus dimensiones. Para ello:
-                                        <ul class="sub-list list-disc list-inside">
-                                            <li>Traza líneas auxiliares finas y perpendiculares desde los bordes del dibujo que quieres medir.</li>
-                                            <li>Dibuja la línea de cota paralela al lado que estás midiendo y termínala con dos pequeñas flechas en los extremos.</li>
-                                            <li>Sobre el centro de la línea de cota, escribe el número que corresponde a la <strong>medida real</strong> del objeto (la que mediste en el paso 2), no la del dibujo a escala.</li>
-                                        </ul>
-                                    </li>
-                                </ol>
-                                <img src="https://prod.isg.bruneau.media/asset/aHR0cHM6Ly9icnVuZWF1LnNpbXBsZXdvcmtzcGFjZS5uZXQvZmlsZS9wdWJBc3NldEJhc2UvS2doNV9jaFVxZkV3QWxyNHkxZjF3VmVtX3NaUV84OGZQdmpNU094akNZUXgxRWoxbVVNLzAvcy83NTAyOS5qcGc=/?dpi=2.00&format=avif&height=477&quality=60&width=477" alt="borrador" class="h-full object-cover rounded-lg shadow-md zoomable-image limited-height">
-                            </li>
-                        </ol>
-                    </div>
-                </section>
-
-                <hr class="my-8 border-slate-200">
-
-                <section id="vistas" class="section-card">
-                    <h2 class="text-3xl font-bold text-slate-600 mb-6">7. Vistas</h2>
-                        <p class="mb-4 text-lg leading-relaxed">Para poder comprender los objetos representados en los dibujos técnicos, es necesario que queden correctamente definidos y dibujados. Para ello se emplean las <strong class="font-semibold text-emerald-700">vistas</strong> del objeto, que son proyecciones ortogonales (perpendiculares) del objeto sobre un plano, es decir, sus representaciones bidimensionales (2D) obtenidas desde diferentes puntos de vista para mostrar sus formas tridimensionales (3D). </p>
-                        
-                        <h3  class="text-2xl font-semibold text-slate-600 mt-8 mb-4">Tipos de Vistas Principales</h3>
-                        <p class="mb-4 text-lg leading-relaxed">Aunque un objeto tiene seis vistas posibles (correspondientes a sus seis caras), a menudo basta con dibujar solo tres vistas para obtener información completa y necesaria para su diseño y fabricación.</p>
-                        
-                          <div class="fila-grid">
-                            <div class="columna-grid">
-                              <h3 class="text-xl font-semibold text-slate-600 mt-8 mb-4"><strong class="font-semibold text-slate-600">Alzado</strong></h3>
-                                <p class="mb-4 text-lg leading-relaxed">La <strong class="font-semibold text-emerald-700">vista frontal</strong> del objeto. Es la que define la forma principal de la pieza y se considera la más importante. Muestra el <strong class="font-semibold text-emerald-700">alto</strong> y el <strong class="font-semibold text-emerald-700">ancho</strong> del objeto.</p>
-                            </div>
-                            <div class="columna-grid">
-                              <h3 class="text-xl font-semibold text-slate-600 mt-8 mb-4"><strong class="font-semibold text-slate-600">Planta</strong></h3>
-                                <p class="mb-4 text-lg leading-relaxed">La <strong class="font-semibold text-emerald-700">vista superior</strong> del objeto, que se dibuja debajo del alzado y comparte su ancho. Muestra el <strong class="font-semibold text-emerald-700">ancho</strong> y la <strong class="font-semibold text-emerald-700">profundidad</strong>.</p>
-                            </div>
-                            <div class="columna-grid">
-                              <h3 class="text-xl font-semibold text-slate-600 mt-8 mb-4"><strong class="font-semibold text-slate-600">Perfil</strong></h3>
-                                <p class="mb-4 text-lg leading-relaxed">La <strong class="font-semibold text-emerald-700">vista lateral</strong> del objeto. Puede ser el perfil izquierdo o el perfil derecho y proporciona información adicional sobre la pieza. Muestra la <strong class="font-semibold text-emerald-700">profundidad</strong> y el <strong class="font-semibold text-emerald-700">alto</strong>.</p>
-                            </div>
-                          </div>
-                        <img src="https://centros.edu.xunta.gal/cafi/aulavirtual/pluginfile.php/38537/mod_page/content/1/Tema_9/Imagenes/VISTAS_EN_SISTEMA_DIEDRICO.PNG" alt="Sistema de vistas diédrico europeo" class="w-full max-w-xl mx-auto rounded-lg shadow-md my-6 zoomable-image">
-                        <p class="image-caption">Vistas de un objeto.</p>
-                    <p class="mt-6 mb-4 text-lg leading-relaxed">Para representar piezas mediante un sistema, las vistas siempre se dibujan en el mismo orden y posición. Un detalle importante a tener en cuenta es la <strong class="font-semibold text-emerald-700">coincidencia de dimensiones:</strong></p>
-                    <ul class="list-disc list-inside space-y-3 text-lg leading-relaxed">
-                        <li>La anchura de la planta y del alzado es la misma.</li>
-                        <li>La altura del alzado y de ambos perfiles debe coincidir.</li>
-                        <li>La profundidad de la planta y del perfil es igual.</li>
-                    </ul>
-                    <p class="mb-4 text-lg leading-relaxed">Hay dos sistemas habituales de representación, el <strong class="font-semibold text-emerald-700">americano y el europeo</strong>, que será el que manejaremos en esta unidad. La diferencia principal entre ambos sistemas es la distribución de las vistas en el papel.</p>
-
-                    <img src="https://i.ytimg.com/vi/syJy3RAluwY/maxresdefault.jpg" alt="Sistemas de vistas diédrico europeo y americano" class="w-full max-w-xl mx-auto rounded-lg shadow-md my-6 zoomable-image">
-                    <p class="image-caption">Sistema americano y europeo.</p>
-
-                    <p class=" summary mt-6 mb-4 text-lg leading-relaxed">También es imprescindible orientar correctamente la planta con respecto al alzado y al perfil para que el resultado tenga sentido. Prolongar horizontal y verticalmente las aristas nos ayudará a hacerlo. Un error muy frecuente en los principiantes es no orientar bien la planta con respecto al alzado y dibujarla girada.</p>
-                </section>
-                <section id="actividades3" class="section-card bg-green-50 border-green-200">
-                    <h2 class="text-3xl font-bold text-green-800 mb-6">Actividades: Vistas</h2>
-                    <div class="space-y-4 text-slate-600 leading-relaxed text-lg">
-                        <ol class="list-decimal list-inside space-y-3">
-                            <li><strong class="font-semibold text-emerald-700">Preparar el Área de Trabajo y Medir el Objeto:</strong> En tu hoja de papel, dibuja un marco rectangular dejando un margen de <strong>1 cm</strong> por cada lado respecto al filo de la hoja. Con la regla, mide el <strong>largo, ancho y alto</strong> del borrador de pizarra y anota sus medidas reales.
-                            </li>
-                            <li><strong class="font-semibold text-emerald-700">Calcular las Dimensiones a Escala:</strong> La escala para este ejercicio es <strong>1:2 (escala de reducción)</strong>. Esto significa que cada 2 cm del objeto real se dibujarán como 1 cm en el papel. Para encontrar las dimensiones de tu dibujo, divide cada medida real entre 2. <br>
-                                <code>Medida en el dibujo = Medida real / 2</code> <br>
-                            <em>Ejemplo: Si el largo real es 14 cm, el ancho 5 cm y el alto 2 cm, las medidas para el dibujo serán 7 cm, 2,5 cm y 1 cm respectivamente.</em>
-                            </li>
-                            <li><strong class="font-semibold text-emerald-700">Trazar los Ejes de Referencia:</strong>
-                               Dibuja los ejes que delimitarán los espacios de cada una de las vistas. Para ello, traza con una línea continua y fina una línea vertical y otra horizontal, perpendiculares entre sí, que se crucen en el centro de tu área de trabajo
-                            </li>
-                            <li><strong class="font-semibold text-emerald-700">Dibujar el Alzado:</strong>
-                               La primera vista que hay que dibujar es el <strong>alzado</strong>, que será aquella que ofrezca más información y detalles. La dibujaremos en el cuadrante superior izquierdo. En este caso, será la vista frontal del borrador, que muestra su largo y su alto. Dibuja este rectángulo con las medidas a escala que calculaste
-                            </li>
-                            <li><strong class="font-semibold text-emerald-700">Proyectar y Dibujar la Planta:</strong>
-                               A continuación, traza líneas auxiliares verticales, finas y discontinuas, desde los contornos del alzado hacia el cuadrante inferior (hacia la <strong>planta</strong>). Utilizando la información suministrada por el alzado, dibuja la <strong>planta</strong> del objeto en el cuadrante inferior izquierdo. Las líneas auxiliares te proporcionarán la anchura (el largo del borrador) y la ubicación de los elementos. La otra medida que necesitas es la profundidad (el ancho del borrador), que deberás tomar de tus cálculos a escala.
-                            </li>
-                            <li><strong class="font-semibold text-emerald-700">Proyectar y Dibujar el Perfil:</strong>
-                               Ahora, traza líneas auxiliares horizontales y finas desde el alzado hacia el cuadrante inferior derecho, donde irá el <strong>perfil</strong>. Para trasladar la profundidad desde la planta, utiliza el compás: pincha en el cruce de los ejes, abre el compás hasta las líneas de contorno de la planta y traza arcos de 90º hacia el eje horizontal. Desde esos puntos, baja las líneas auxiliares verticales. Dibuja ahora el <strong>perfil</strong> derecho (que se sitúa a la derecha del alzado) apoyándote en las líneas auxiliares. La altura vendrá del alzado y la anchura de las proyecciones que giraste con el compás desde la planta.
-                            </li>
-                        </ol>    
-                    </div>
-                </section>
-                
-                <hr class="my-8 border-slate-200">
-
-                <section id="perspectivas" class="section-card">
-                    <h2 class="text-3xl font-bold text-slate-600 mb-6">8. Perspectivas</h2>
-                    <p class="mb-4 text-lg leading-relaxed">La <strong class="font-semibold text-emerald-700">perspectiva</strong> es la técnica que permite crear la sensación de profundidad cuando se dibuja sobre una superficie plana. Para ayudarnos a dibujar en perspectiva, es habitual trazar unos ejes de referencia. Estos ejes son distintos dependiendo del tipo de perspectiva.</p>
-                    
-                    <h3 class="text-2xl font-semibold text-slate-600 mt-8 mb-4">Perspectiva Caballera</h3>
-                    <p class="mb-4 text-lg leading-relaxed">Para la <strong class="font-semibold text-emerald-700">perspectiva caballera</strong> se dibujarán un eje horizontal, otro vertical y un tercero para la profundidad. El eje de profundidad forma un ángulo de 45º con el eje horizontal. La imagen queda un poco deformada si no se aplica algún <strong class="font-semibold text-emerald-700">coeficiente de reducción</strong> al eje de profundidad. Para evitar ese efecto, es habitual reducir dividiendo por 2 (que equivale al coeficiente ½) las dimensiones de las líneas correspondientes al eje de profundidad. Observa el siguiente ejemplo en el que aparecen cuatro cubos dibujados con diferentes coeficientes de reducción y comprueba las longitudes diferentes de la línea de profundidad según se asigne un coeficiente u otro.</p>
-                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-6">
-                        <div>
-                           <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhzJTmr0OfxlaoJyZPb4mnLQrig-AuYxYqZAP8g1zgYIhIL8Hgs2rleteoD6BV-XUbEFnrgr7egPsdZEaWGU7EMtALIpgPwfMrsYqOFvYkHrYIdo97LQzYbCVGFIeq9QagwNZAQg1FDbk4/s1600/2+caballera+casa.jpg" alt="Ejemplo de perspectiva caballera" class="w-full h-full object-cover rounded-lg shadow-md zoomable-image">
-                           <p class="image-caption">Ejemplo de perspectiva caballera.</p>
-                       </div>
-                       <div>
-                        <img src="https://www.10endibujo.com/wp-content/uploads/2014/07/02-Perspectiva-Caballera-coeficientes-de-reduccion-1024x819.jpg" alt="Coeficientes de reducción en perspectiva caballera" class="w-full h-full object-cover rounded-lg shadow-md zoomable-image">
-                        <p class="image-caption">Coeficientes de reducción.</p>
-                    </div>
-                    </div>
-                    <h3 class="text-2xl font-semibold text-slate-500 mt-8 mb-4">Pasos para dibujar la perspectiva</h3>
-                    <ol class="list-decimal list-inside space-y-3 text-lg leading-relaxed">
-                        <li>Dibuja los ejes.</li>
-                        <li>Identifica dónde representar cada una de las vistas en función del perfil de la pieza que conozcas.</li>
-                        <li>Sitúa en cada plano la vista que corresponda.</li>
-                        <li>Traza líneas auxiliares paralelas a los ejes por los vértices de las vistas del objeto.</li>
-                        <li>Para finalizar, marca las aristas de tu objeto y elimina.</li>
-                    </ol>
-                    
-                    <h3 class="text-2xl font-semibold text-slate-600 mt-8 mb-4">Perspectiva Isométrica</h3>
-                    <p class="mb-4 text-lg leading-relaxed">En esta perspectiva, los tres ejes de referencia forman entre sí <strong class="font-semibold text-emerald-700">ángulos de 120º</strong>. Se emplea una plantilla formada por triángulos equiláteros para facilitar la representación de piezas. Aunque al dibujar en perspectiva isométrica es habitual no usar ningún coeficiente de reducción y mantener las proporciones en los tres ejes, la norma indica que se aplique un <strong class="font-semibold text-emerald-700">coeficiente de reducción de 0,82</strong> a todos ellos. De esa manera, se conserva la apariencia respecto al objeto real, aunque se conservan las proporciones entre los ejes.</p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-6">
-                        <div>
-                           <img src="https://www.blinklearning.com/useruploads/ctx/a/119488396/r/s/31089596/Capturadepantalla2019-05-14alas16.06.22.jpg?idcurso=2026886" alt="Ejemplo de perspectiva isométrica" class="w-full h-full object-cover rounded-lg shadow-md zoomable-image">
-                           <p class="image-caption">Ejemplo de perspectiva isométrica.</p>
-                       </div>
-                       <div>
-                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi8tNphYM90jRrGREstP16DlsTJd9VwbEB_zcU1WzBFSa7GLUqOANAq3keeMp9LZMub3OfF1T0cOSl3HGhxCJSsdMuoBM8pka1VOOSP_eWuibaslXdXkk03pdy3ddjbBOtMaVwBeMaf2S4/s1600/Perspectiva+1.png" alt="Ejes de perspectiva isométrica" class="w-full h-full object-cover rounded-lg shadow-md zoomable-image">
-                        <p class="image-caption">Ejes de la perspectiva isométrica.</p>
-                    </div>
-                    </div>
-                </section>
-                <!--
-                <hr class="my-8 border-slate-200">
-
-                <section id="papel" class="section-card">
-                    <h2 class="text-3xl font-bold text-teal-600 mb-6">8. El papel en el diseño técnico</h2>
-                    <p class="mb-4 text-lg leading-relaxed">Para garantizar que los dibujos técnicos se ajusten a los rigurosos estándares de calidad, precisión y legibilidad, es importante hacer una elección minuciosa del tipo de papel, gramaje y tamaño.</p>
-                    
-                    <h3 class="text-2xl font-semibold text-slate-800 mt-8 mb-4">6.1 Tipos de papel utilizados en diseño técnico</h3>
-                    <p class="mb-4 text-lg leading-relaxed">En diseño técnico se utilizan principalmente dos tipos de papel:</p>
-                    <ul class="list-disc list-inside space-y-3 text-lg leading-relaxed">
-                        <li><strong class="font-semibold text-emerald-700">Papel de dibujo técnico:</strong> este tipo de papel ha sido diseñado específicamente para su uso en dibujo técnico. Es opaco y tiene una superficie lisa y uniforme, lo que facilita el trazado de líneas nítidas y precisas.</li>
-                        <li><strong class="font-semibold text-emerald-700">Papel vegetal, de calco o de croquis:</strong> se utiliza para calcar o superponer trazados sobre un plano base. Su superficie es translúcida, lo que permite ver el diseño situado en la hoja inferior.</li>
-                    </ul>
-                     <img src="https://images-eu.ssl-images-amazon.com/images/I/6189QGONVcL._AC_UL495_SR435,495_.jpg" alt="Bloc de papel vegetal para calco" class="w-full max-w-sm mx-auto rounded-lg shadow-md my-6 zoomable-image">
-                    <h3 class="text-2xl font-semibold text-slate-800 mt-8 mb-4">6.2 Gramaje del papel</h3>
-                    <p class="mb-4 text-lg leading-relaxed">El término <strong class="font-semibold text-emerald-700">"gramaje"</strong> del papel hace referencia a su peso y se relaciona con su espesor. El gramaje se expresa en gramos por metro cuadrado (g/m²).</p>
-                    
-                    <h3 class="text-2xl font-semibold text-slate-800 mt-8 mb-4">6.3 Tamaños de papel</h3>
-                    <p class="mb-4 text-lg leading-relaxed">El tamaño de papel que se usa en diseño técnico sigue unas normativas específicas, como las <strong class="font-semibold text-emerald-700">normas ISO o ANSI</strong>, con el fin de garantizar una uniformidad en la presentación de los trabajos. Los tamaños de papel más comunes son: <strong class="font-semibold text-emerald-700">DIN A0, A1, A2, A3 y A4</strong>.</p>
-                     <img src="https://cdn.shopify.com/s/files/1/0576/9795/9993/files/Comparacion-de-tamanos-de-papel-DIN-A_480x480.webp?v=1725391610" alt="Comparativa de tamaños de papel DIN A" class="w-full max-w-lg mx-auto rounded-lg shadow-md my-6 zoomable-image">
-                </section>
-                -->
-                <hr class="my-8 border-slate-200">
-
-
-                <section id="software" class="section-card">
-                    <h2 class="text-3xl font-bold text-slate-600 mb-6">9. Software en diseño técnico</h2>
-                    <p class="mb-4 text-lg leading-relaxed">En la actualidad es más frecuente el uso de software de diseño técnico empleando programas específicos para este tipo de trabajos. Los más utilizados son: <strong class="font-semibold text-emerald-700">AutoCAD, QCad, SolidWorks y SketchUp</strong> entre otros.</p>
-
-                    <h3 class="text-2xl font-semibold text-slate-800 mt-8 mb-4">8.1 Aplicaciones CAD en dos y tres dimensiones</h3>
-                    <p class="mb-4 text-lg leading-relaxed">Las herramientas de <strong class="font-semibold text-emerald-700">CAD (diseño asistido por computadora)</strong> se han convertido en herramientas de diseño imprescindibles en cualquier disciplina que requiera la representación gráfica de esquemas, circuitos, planos y objetos tridimensionales como pueden ser ingenierías, arquitectura o diseño industrial.</p>
-                     <img src="https://i.ytimg.com/vi/e-38yl71n8I/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBB7kslLkCjeLfZam16VWs4stN7YA" alt="Interfaz de software CAD" class="w-full max-w-xl mx-auto rounded-lg shadow-md my-6 zoomable-image">
-                    
-                    <h3 class="text-2xl font-semibold text-slate-800 mt-8 mb-4">8.2 Herramientas digitales</h3>
-                    <p class="mb-4 text-lg leading-relaxed">Las herramientas digitales para la elaboración, publicación y difusión de documentación técnica y multimedia en proyectos sencillos son fundamentales en el mundo actual.</p>
-                </section>
-
-                <!--
-                <hr class="my-8 border-slate-200">
-
-                <section id="inkscape" class="section-card">
-                    <h2 class="text-3xl font-bold text-slate-600 mb-6">9. Gráficos digitales con Inkscape</h2>
-                    <p class="mb-4 text-lg leading-relaxed">Los gráficos digitales pueden estar formados por puntos de imagen llamados <strong class="font-semibold text-emerald-700">píxels</strong>. Estos gráficos reciben el nombre de <strong class="font-semibold text-emerald-700">mapa de bits</strong>. También existe otro tipo de gráficos digitales definidos por líneas y elementos geométricos. Este último tipo se llama <strong class="font-semibold text-emerald-700">gráfico vectorial</strong>.</p>
-                     <img src="https://impresoscesar.com/wp-content/uploads/2021/01/imagenes-vectoriales-y-mapa-de-bits.png" alt="Diferencia entre imagen vectorial y mapa de bits" class="w-full max-w-lg mx-auto rounded-lg shadow-md my-6 zoomable-image">
-                    
-                    <h3 class="text-2xl font-semibold text-slate-800 mt-8 mb-4">Introducción a Inkscape</h3>
-                    <p class="mb-4 text-lg leading-relaxed"><strong class="font-semibold text-emerald-700">Inkscape</strong> es una poderosa herramienta de diseño gráfico que te sumerge en el fascinante mundo del arte vectorial. A diferencia de las imágenes de mapa de bits, donde la calidad se reduce al ampliarlas, en Inkscape, trabajamos con objetos vectoriales que conservan su nitidez y calidad sin importar cuánto los agrandemos.</p>
-                     <img src="https://logrules.fr/wp-content/uploads/sites/63/interface-influence-xara.jpg" alt="Interfaz de Inkscape" class="w-full max-w-xl mx-auto rounded-lg shadow-md my-6 zoomable-image">
-                </section>
-                -->
-           </div>
-
-            <!-- Barra lateral de navegación -->
-            <aside class="w-full lg:w-1/4 lg:sticky top-24 self-start">
-                <div class="bg-white p-6 rounded-xl shadow-lg">
-                    <h3 class="font-bold text-lg text-slate-800 mb-4 border-b pb-2">Contenidos</h3>
-                    <nav>
-                        <ul class="space-y-2">
-                            <li><a href="#introduccion" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-1-circle-fill mr-3 text-slate-400"></i>Introducción al diseño técnico</a></li>
-                            <li><a href="#instrumentos" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-2-circle-fill mr-3 text-slate-400"></i>Instrumentos de dibujo</a></li>
-                            <li><a href="#trazado" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-3-circle-fill mr-3 text-slate-400"></i>Técnicas de trazado</a></li>
-                            <li><a href="#bocetos" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-4-circle-fill mr-3 text-slate-400"></i>Bocetos, croquis y planos</a></li>
-                            <li><a href="#acotacion" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-5-circle-fill mr-3 text-slate-400"></i>Acotación</a></li>
-                            <li><a href="#escalas" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-6-circle-fill mr-3 text-slate-400"></i>Escalas</a></li>
-                            <li><a href="#vistas" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-7-circle-fill mr-3 text-slate-400"></i>Vistas</a></li>
-                            <li><a href="#perspectivas" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-8-circle-fill mr-3 text-slate-400"></i>Perspectivas</a></li>
-                            <li><a href="#software" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-9-circle-fill mr-3 text-slate-400"></i>Software en diseño técnico</a></li>
-                            <!--
-                            <li><a href="#inkscape" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-9-circle-fill mr-3 text-slate-400"></i>Gráficos digitales con Inkscape</a></li>
-                            -->
-                        </ul>
-                    </nav>
-                    <!--
-                  <br> 
-                    <h3 class="font-bold text-lg text-slate-800 mb-4 border-b pb-2">¡Para saber más!</h3>
-                    <nav>
-                        <ul class="space-y-2">
-                            <li><a href="pdf/Fichas de refuerzo UD1.pdf" target="_blank" class="flex items-center text-slate-600 hover:text-red-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-file-play-fill mr-3 text-slate-400"></i>Actividades 1</a></li>
-                            <li><a href="pdf/Fichas de ampliación UD1.pdf"  target="_blank" class="flex items-center text-slate-600 hover:text-red-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-file-play-fill mr-3 text-slate-400"></i>Actividades 2</a></li>
-                            <li><a href="tyd2ud1glosario.html" class="flex items-center text-slate-600 hover:text-red-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-file-code-fill mr-3 text-slate-400"></i>Glossary</a></li>
-                            <li><a href="tyd2ud1map.html" target="_blank" class="flex items-center text-slate-600 hover:text-red-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-diagram-3-fill mr-3 text-slate-400"></i>Mapa Mental</a></li>
-                        </ul>
-                    </nav>
-                    -->
                 </div>
-            </aside> 
+                <p class="mt-6 mb-4 text-lg leading-relaxed italic text-center text-slate-600">
+                    En resumen: mientras el dibujo artístico habla el idioma de las emociones, el dibujo técnico habla el idioma de la precisión.
+                </p>
+                <p class="summary text-lg leading-relaxed mt-4">
+                    En Tecnología, los dibujos técnicos son cruciales para la creación de bocetos y planos. Estos deben ser claros y concisos, sin ornamentos, para asegurar que no haya ambigüedad sobre la forma y las dimensiones del objeto representado.
+                </p>
+            </section>
+        </div>
 
+        <div id="tab2" class="tab-content">
+           <section id="tipos-dibujos" class="">
+            <h2 class="text-3xl font-bold text-slate-600 mb-6">2. Tipos de dibujos técnicos</h2>
+            <p class="mb-4 text-lg leading-relaxed">
+                <strong>Del Problema a la Solución: Los Pasos del Diseño Técnico</strong>
+            </p>
+            <p class="mb-4 text-lg leading-relaxed">
+                En tecnología, cuando queremos crear o solucionar algo, no pasamos de la idea al producto final de golpe. El proceso de diseño es un camino que va de lo general a lo concreto.
+            </p>
+            <p class="mb-6 text-lg leading-relaxed">
+                Una vez que sabemos qué problema queremos resolver, empezamos a dibujar nuestras primeras ideas. Estas propuestas iniciales no son perfectas, son solo el punto de partida. A medida que avanzamos, nuestros dibujos se vuelven cada vez más precisos y detallados.
+            </p>
+            <p class="summary text-lg leading-relaxed mt-4 mb-8">
+                Este viaje desde la primera idea hasta el plano final se divide en tres fases clave: el <strong>boceto</strong>, el <strong>croquis</strong> y el <strong>dibujo técnico</strong>. Veamos en qué consiste cada uno.
+            </p>
+
+            <div class="space-y-8 text-lg">
+                <div class="p-4 border-l-4 border-blue-500 bg-blue-50">
+                    <h3 class="font-bold text-xl text-blue-700 mb-2">Boceto</h3>
+                    <p class="text-slate-700">
+                        El boceto es un dibujo a mano alzada, poco detallado, que transmite una idea inicial de cómo será el objeto final. Seguramente has hecho alguna vez un boceto para explicar una idea o para ayudar a localizar una calle haciendo un pequeño mapa. A menudo se emplean los sinónimos de "borrador" o "esbozo" para referirse a un boceto.
+                    </p>
+                </div>
+                <div class="p-4 border-l-4 border-indigo-500 bg-indigo-50">
+                    <h3 class="font-bold text-xl text-indigo-700 mb-2">Croquis</h3>
+                    <p class="text-slate-700">
+                        El croquis es un dibujo también hecho a mano alzada, pero mucho más detallado que el boceto, ya que cuenta con medidas y otras anotaciones que permitan construir el objeto que describe. Es un dibujo bien proporcionado, acotado y completamente descrito para su construcción.
+                    </p>
+                </div>
+                <div class="p-4 border-l-4 border-purple-500 bg-purple-50">
+                    <h3 class="font-bold text-xl text-purple-700 mb-2">Planos</h3>
+                    <p class="mb-4 text-slate-700">
+                        El plano es la representación gráfica definitiva de un objeto o proyecto, elaborada con la máxima precisión y detalle. A diferencia del boceto y el croquis, el plano no se realiza a mano alzada, sino que se dibuja utilizando herramientas de precisión, como reglas y escuadras, o más comúnmente, software de diseño asistido por ordenador (CAD).
+                    </p>
+                    <p class="mb-3 text-slate-700">El plano se distingue del croquis por las siguientes características clave:</p>
+                    <ul class="list-disc list-inside space-y-2 text-slate-700">
+                        <li><strong>Normalización:</strong> Sigue un conjunto de normas y convenciones estandarizadas para asegurar que su interpretación sea universal.</li>
+                        <li><strong>Representación a escala:</strong> Todas las dimensiones se dibujan de forma proporcional a su tamaño real, aplicando una escala específica.</li>
+                        <li><strong>Uso de vistas normalizadas:</strong> Utiliza un sistema de vistas múltiples (alzado, planta, perfil) para describir la forma del objeto de manera completa.</li>
+                        <li><strong>Carácter de documento técnico:</strong> Es el documento formal y final con toda la información necesaria para la fabricación o construcción.</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="mt-8 mb-4 text-lg leading-relaxed italic text-center text-slate-600">
+                En resumen, si el boceto es la idea inicial y el croquis es la guía dimensionada, el plano es el lenguaje técnico y formal que traduce esa idea en instrucciones exactas para su ejecución.
+            </p>
+        </section>
+    </div>
+
+    <div id="tab3" class="tab-content">
+        <section id="instrumentos-dibujo" class="section-card">
+    <h2 class="text-3xl font-bold text-slate-600 mb-6">3. Instrumentos de dibujo técnico</h2>
+    <p class="mb-4 text-lg leading-relaxed">
+        Para que nuestros diseños pasen de una simple idea a un plano bien hecho, necesitamos las herramientas adecuadas. En el dibujo técnico, la regla, la escuadra, el cartabón y el compás no son opcionales: son fundamentales para lograr la precisión y la proporción que todo proyecto necesita.
+    </p>
+    <p class="summary text-lg leading-relaxed mt-4 mb-8">
+        A continuación, vamos a aprender para qué se emplean las herramientas más comunes usadas en dibujo técnico:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-lg">
+        <div class="p-4 border-l-4 border-blue-500 bg-blue-50">
+            <h3 class="font-bold text-xl text-blue-700 mb-2">📏 Regla</h3>
+            <p class="text-slate-700">Se utiliza para trazar líneas rectas precisas y medir distancias.</p>
+        </div>
+        <div class="p-4 border-l-4 border-green-500 bg-green-50">
+            <h3 class="font-bold text-xl text-green-700 mb-2">📐 Escuadra</h3>
+            <p class="text-slate-700">Es un instrumento con forma de triángulo rectángulo con dos ángulos de 45º. Se utiliza con ayuda del cartabón para dibujar líneas perpendiculares o paralelas.</p>
+        </div>
+        <div class="p-4 border-l-4 border-yellow-500 bg-yellow-50">
+            <h3 class="font-bold text-xl text-yellow-700 mb-2">📐 Cartabón</h3>
+            <p class="text-slate-700">Similar a la escuadra, pero con ángulos de 30º, 60º y 90º.</p>
+        </div>
+        <div class="p-4 border-l-4 border-red-500 bg-red-50">
+            <h3 class="font-bold text-xl text-red-700 mb-2">⭕ Compás</h3>
+            <p class="text-slate-700">Permite trazar círculos y arcos de circunferencia de un tamaño específico con precisión.</p>
+        </div>
+        <div class="p-4 border-l-4 border-purple-500 bg-purple-50">
+            <h3 class="font-bold text-xl text-purple-700 mb-2">⭕ Transportador de ángulos</h3>
+            <p class="text-slate-700">Herramienta semicircular para medir y dibujar ángulos, graduada normalmente de 0º a 180º.</p>
+        </div>
+        <div class="p-4 border-l-4 border-teal-500 bg-teal-50">
+            <h3 class="font-bold text-xl text-teal-700 mb-2">📏 Escalímetro</h3>
+            <p class="text-slate-700">Un tipo de regla con sección triangular o en abanico que incorpora varias escalas de medida.</p>
+        </div>
+        <div class="p-4 border-l-4 border-slate-500 bg-slate-50">
+            <h3 class="font-bold text-xl text-slate-700 mb-2">✏️ Lápices técnicos</h3>
+            <p class="text-slate-700">Existen diversas opciones de lápices técnicos dependiendo de la dureza de su mina.</p>
+        </div>
+        <div class="p-4 border-l-4 border-cyan-500 bg-cyan-50">
+            <h3 class="font-bold text-xl text-cyan-700 mb-2">🖋️ Portaminas y minas</h3>
+            <p class="text-slate-700">Se utilizan para trazar líneas finas y precisas con un grosor constante.</p>
+        </div>
+        <div class="p-4 border-l-4 border-pink-500 bg-pink-50">
+            <h3 class="font-bold text-xl text-pink-700 mb-2">🧼 Borradores</h3>
+            <p class="text-slate-700">Útiles para borrar trazados a lápiz y corregir errores sin dañar el papel.</p>
+        </div>
+        <div class="p-4 border-l-4 border-indigo-500 bg-indigo-50">
+            <h3 class="font-bold text-xl text-indigo-700 mb-2">✒️ Rotuladores calibrados</h3>
+            <p class="text-slate-700">Tienen una punta muy fina y permiten el dibujo de piezas con gran precisión.</p>
         </div>
     </div>
-</main>
-        
-<footer class="mt-auto py-4 bg-gray-800 text-white">
-  <div class="container mx-auto text-center">
+</section>
+    </div>
+
+    <div id="tab4" class="tab-content">
+        <section id="tecnicas-trazado" class="">
+            <h2 class="text-3xl font-bold text-slate-600 mb-6">4. Técnicas de trazado de líneas, curvas y ángulos</h2>
+
+            <div class="mb-8 p-4 border-l-4 border-yellow-500 bg-yellow-50">
+                <h3 class="font-bold text-2xl text-slate-700 mb-3">Trazado de líneas Rectas</h3>
+                <p class="text-lg leading-relaxed">
+                    Para trazar una línea recta se usa siempre una regla. La regla se sujeta con firmeza con una mano y, con la otra, se dibuja la línea a lo largo de su borde. Se pueden usar las marcas milimetradas de la regla para controlar la longitud exacta del trazo.
+                </p>
+            </div>
+
+            <div class="mb-8 p-4 border-l-4 border-cyan-500 bg-cyan-50">
+                <h3 class="font-bold text-2xl text-cyan-700 mb-3">Trazado de Rectas Paralelas</h3>
+                <p class="text-lg leading-relaxed mb-4">
+                    Recordemos: Dos rectas son paralelas si, por mucho que se prolonguen, nunca se cortan. El truco aquí es usar el cartabón como guía fija y la escuadra como herramienta de deslizamiento.
+                </p>
+                <p class="text-lg leading-relaxed mb-4">
+                    Para trazar rectas paralelas empleando la escuadra y el cartabón se sigue el siguiente procedimiento:
+                </p>
+                <ol class="list-decimal list-inside space-y-3 text-lg text-slate-700">
+                    <li><strong>Alineación inicial:</strong> Coloca el lado más largo de la escuadra (la hipotenusa) sobre la recta de referencia.</li>
+                    <li><strong>Fijación de la guía:</strong> Coloca el cartabón firmemente junto a uno de los lados cortos de la escuadra (un cateto).</li>
+                    <li><strong>El punto clave:</strong> Con una mano, sujeta el cartabón con fuerza para que no se mueva y actúe como un riel.</li>
+                    <li><strong>Deslizamiento y trazado:</strong> Desliza la escuadra sobre el borde del cartabón hasta el punto donde necesites la nueva línea paralela.</li>
+                    <li><strong>Trazar:</strong> Sin mover nada, traza la nueva recta. Esta será completamente paralela a la original.</li>
+                </ol>
+                <p class="mt-4 text-lg italic bg-yellow-100 p-3 rounded-lg">
+                    💡 <strong>Consejo:</strong> Usa el dedo índice sobre el cartabón para asegurarte de que no se mueva. La precisión depende de que la guía permanezca completamente inmóvil.
+                </p>
+            </div>
+
+            <div class="mb-8 p-4 border-l-4 border-lime-500 bg-lime-50">
+                <h3 class="font-bold text-2xl text-lime-700 mb-3">📐 Trazado de Rectas Perpendiculares</h3>
+                <p class="text-lg leading-relaxed mb-4">
+                    Recordemos: Dos rectas son perpendiculares si se cortan formando un ángulo de 90° (un ángulo recto).
+                </p>
+                <p class="text-lg leading-relaxed mb-4">
+                    Para trazar rectas perpendiculares se sigue el siguiente procedimiento, conocido como “método de giro”:
+                </p>
+                <ol class="list-decimal list-inside space-y-3 text-lg text-slate-700">
+                    <li><strong>Alineación inicial:</strong> Se realizan los mismos pasos 1 y 2 que para las paralelas: alinea la hipotenusa de la escuadra sobre la recta y coloca el cartabón como guía en un cateto.</li>
+                    <li><strong>Fijación de la guía:</strong> Sujeta el cartabón firmemente.</li>
+                    <li><strong>El giro de 90°:</strong> Sin mover el cartabón, gira la escuadra 90°, apoyando el otro cateto sobre el cartabón.</li>
+                    <li><strong>Deslizamiento y trazado:</strong> Desliza la escuadra sobre el cartabón hasta el punto deseado.</li>
+                    <li><strong>Trazar:</strong> Traza la recta. Esta será perpendicular a la original.</li>
+                </ol>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+                <div>
+                   <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuLqY9QnCDAfOqKnwa4MxgziFMcNBBNQ1smZG8FCeK9AXgud37Yin2rxzug8nKq6xOvIzSYicPXrZ-rciPrgLZvLpN1j1Z4BMSqRZKGDhjMAbMMTwRU2y_6N37h9iDGVQ0FG93hXNXXqA/s1600/Vert+Horiz+Plantillas.jpg" alt="Trazado de líneas paralelas" class="w-full rounded-lg shadow-md zoomable-image">
+                   <p class="image-caption">Trazado de líneas paralelas y perpendiculares.</p>
+               </div>
+                <div>
+                     <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/bOYgYUfm_8s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <p class="image-caption mt-2">Trazado de paralelas y perpendiculares con escuadra y cartabón.</p>
+                </div>
+            </div>
+
+            <div class="mb-8 p-4 border-l-4 border-emerald-500 bg-emerald-50">
+                <h3 class="font-bold text-2xl text-slate-700 mb-3">📐 Trazado de una Circunferencia o un Arco</h3>
+                <p class="text-lg leading-relaxed mb-4">
+                    La técnica correcta para dibujar círculos o arcos con el compás es la siguiente:
+                </p>
+                <ul class="list-none space-y-3 text-lg text-slate-700">
+                    <li><strong>📌 CENTRO:</strong> Pincha la aguja en el punto central.</li>
+                    <li><strong>↔️ RADIO:</strong> Abre los brazos hasta lograr el tamaño que quieres.</li>
+                    <li><strong>✍️ GIRO:</strong> Sujeta el compás siempre por el mango de arriba y rótalo con suavidad para dibujar.</li>
+                </ul>
+                <p class="mt-4 text-lg italic">
+                    Para un radio exacto: Mide primero la apertura con una regla (de 0 a la medida que necesites) y luego dibuja el círculo.
+                </p>
+            </div>
+
+            <div class="mb-8 p-4 border-l-4 border-red-500 bg-red-50">
+                <h3 class="font-bold text-2xl text-slate-700 mb-3">📐 Trazado de Ángulos</h3>
+                <p class="text-lg leading-relaxed">
+                    El transportador es un instrumento especialmente indicado para marcar ángulos que no se pueden obtener con la escuadra y el cartabón. Para medir un ángulo, sitúa el transportador de manera que su centro quede en el vértice del ángulo y el lado del ángulo coincida con la línea de base del transportador.
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <div id="tab5" class="tab-content">
+        <section id="acotacion" class="">
+            <h2 class="text-3xl font-bold text-slate-600 mb-6">5. Acotación</h2>
+            <p class="mb-4 text-lg leading-relaxed">
+                La acotación es el proceso por medio del cual quedan reflejadas en un plano las medidas reales de un objeto. Se llama <strong>cota</strong> a cada una de las medidas del objeto que han sido anotadas en el plano.
+            </p>
+            <p class="mb-6 text-lg leading-relaxed">
+                El fin de la acotación es conseguir una interpretación fiel y sin dudas del objeto representado, de modo que pueda ser fabricado sin necesidad de ninguna otra información. En los planos de fabricación de piezas las medidas lineales están en centímetros y los ángulos en grados. Si se fuera a usar una unidad de medida diferente, hay que especificarlo anotándolo en el cuadro de rotulación de la lámina.
+            </p>
+
+            <div class="flex flex-col md:flex-row gap-8 items-center">
+                <div class="md:w-2/3">
+                    <p class="text-lg leading-relaxed mb-4">Como se observa en la imagen adjunta, las cotas se componen de:</p>
+                    <ul class="list-disc list-inside space-y-3 text-lg text-slate-700">
+                        <li><strong>Líneas auxiliares de cota:</strong> Establecen los límites de la línea de cota. Son perpendiculares al objeto y sobresalen 2 mm de la línea de cota. Se trazan con línea continua fina (0,2 mm).</li>
+                        <li><strong>Línea de cota:</strong> Paralela al elemento que se acota. Es una línea fina y continua (0,2 mm) separada al menos 7 mm de la arista.</li>
+                        <li><strong>Flechas de cota:</strong> Indican los extremos de la línea de cota. Sus lados forman un ángulo de 15° aproximadamente. Pueden sustituirse por trazos a 45°.</li>
+                        <li><strong>Cifra de cota:</strong> Indica la medida real (normalmente en cm). Se sitúa centrada sobre la línea de cota y debe leerse en la posición natural del plano o girándolo 90° a la derecha.</li>
+                    </ul>
+                </div>
+                <div class="md:w-1/3">
+                    <img src="img/cotas.png" alt="Elementos de la acotación" class="zoomable-image rounded-lg shadow-lg">
+                    <p class="text-center italic text-slate-600 mt-2">Elementos de la acotación.</p>
+                </div>
+            </div>
+
+            <p class="summary text-lg leading-relaxed mt-8">
+                Puedes consultar las principales normas de la acotación pinchando en el siguiente <a href="pdf/acotacion.pdf" target="_blank" class="text-blue-600 hover:underline">enlace</a>.
+            </p>
+        </section>
+    </div>
+
+    <div id="tab6" class="tab-content">
+        <section id="escalas" class="">
+            <h2 class="text-3xl font-bold text-slate-600 mb-6">6. Escalas</h2>
+            <p class="mb-4 text-lg leading-relaxed">
+                La escala es la relación entre las dimensiones del objeto representado y las del objeto real. La utilidad de la escala es la de poder representar cualquier objeto en un formato de medidas estándar como son los dibujos sobre papel.
+            </p>
+            <p class="mb-8 text-lg leading-relaxed">
+                La escala no solo se emplea en dibujo y en el trazado de planos, sino que también se aplica en la construcción de maquetas y modelos. Para que la persona que lee el plano entienda las dimensiones reales del objeto se han de seguir unas normas de denominación de cuántas veces se han ampliado o reducido las dimensiones del objeto en su representación.
+            </p>
+
+            <p class="summary text-lg leading-relaxed mt-4 mb-8">
+                Así, hay tres tipos de escalas:
+            </p>
+
+            <div class="space-y-6 text-lg">
+                <div class="p-4 border-l-4 border-green-500 bg-green-50">
+                    <h3 class="font-bold text-xl text-green-700 mb-2">Escala natural</h3>
+                    <p class="text-slate-700">
+                        El tamaño del objeto representado coincide con el del modelo real. Se emplea sobre todo en fabricación de piezas. Se escribe <strong>1:1</strong>.
+                    </p>
+                </div>
+                <div class="p-4 border-l-4 border-yellow-500 bg-yellow-50">
+                    <h3 class="font-bold text-xl text-yellow-700 mb-2">Escala de reducción</h3>
+                    <p class="text-slate-700">
+                        La representación del objeto es menor que el modelo real. En la fabricación de piezas es frecuente emplear escalas <strong>1:2</strong> (el dibujo es la mitad del tamaño real) o <strong>1:5</strong>. En los planos de viviendas se usan escalas entre <strong>1:50</strong> y <strong>1:100</strong>. Para mapas de terrenos se pueden encontrar planos a partir de <strong>1:25000</strong>.
+                    </p>
+                </div>
+                <div class="p-4 border-l-4 border-red-500 bg-red-50">
+                    <h3 class="font-bold text-xl text-red-700 mb-2">Escala de ampliación</h3>
+                    <p class="text-slate-700">
+                        La representación del objeto es mayor que el modelo real. Se utiliza para representar piezas muy pequeñas. Ejemplos de este tipo de escalas serían <strong>2:1</strong> (el dibujo es el doble del tamaño real), <strong>5:1</strong> o <strong>10:1</strong>.
+                    </p>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row gap-4 items-center">
+                <div class="md:w-1/2">
+                    <img src="img/escalas.png" alt="Tipos de escalas" class="w-full max-w-md mx-auto rounded-lg shadow-md my-6 zoomable-image">
+                     <p class="image-caption">Tipos de escalas.</p>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/FNjtjoXlnMM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <p class="image-caption mt-2">Escalas.</p>
+                </div>
+            </div>
+            
+        </section>
+    </div>
+
+    <div id="tab7" class="tab-content">
+        <section id="vistas" class="">
+            <h2 class="text-3xl font-bold text-slate-600 mb-6">7. Vistas</h2>
+            <p class="mb-4 text-lg leading-relaxed">
+                Para poder comprender los objetos representados en los dibujos técnicos, es necesario que queden correctamente definidos y dibujados. Para ello se emplean las <strong>vistas</strong> del objeto, que son proyecciones ortogonales (perpendiculares) del objeto sobre un plano, es decir, sus representaciones bidimensionales (2D) obtenidas desde diferentes puntos de vista para mostrar sus formas tridimensionales (3D).
+            </p>
+
+            <div class="mb-8">
+                <h3 class="font-bold text-2xl text-slate-700 mb-4">Tipos de Vistas Principales</h3>
+                <p class="text-lg leading-relaxed mb-6">
+                    Aunque un objeto tiene seis vistas posibles (correspondientes a sus seis caras), a menudo basta con dibujar solo tres vistas para obtener información completa y necesaria para su diseño y fabricación.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-lg">
+                    <div class="p-4 border-l-4 border-red-500 bg-red-50">
+                        <h4 class="font-bold text-xl text-red-700 mb-2">Alzado</h4>
+                        <p class="text-slate-700">La vista frontal del objeto. Es la que define la forma principal y se considera la más importante. Muestra el <strong>alto</strong> y el <strong>ancho</strong> del objeto.</p>
+                    </div>
+                    <div class="p-4 border-l-4 border-blue-500 bg-blue-50">
+                        <h4 class="font-bold text-xl text-blue-700 mb-2">Planta</h4>
+                        <p class="text-slate-700">La vista superior del objeto, que se dibuja debajo del alzado. Muestra el <strong>ancho</strong> y la <strong>profundidad</strong>.</p>
+                    </div>
+                    <div class="p-4 border-l-4 border-green-500 bg-green-50">
+                        <h4 class="font-bold text-xl text-green-700 mb-2">Perfil</h4>
+                        <p class="text-slate-700">La vista lateral del objeto (izquierdo o derecho). Proporciona información adicional. Muestra la <strong>profundidad</strong> y el <strong>alto</strong>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-8 items-center my-8">
+                <div class="md:w-1/2">
+                 <img src="https://centros.edu.xunta.gal/cafi/aulavirtual/pluginfile.php/38537/mod_page/content/1/Tema_9/Imagenes/VISTAS_EN_SISTEMA_DIEDRICO.PNG" alt="Vistas de un objeto" class="zoomable-image rounded-lg shadow-lg">
+                 <p class="text-center italic text-slate-600 mt-2">Vistas de un objeto.</p>
+             </div>
+             <div class="md:w-1/2 text-lg">
+                <p class="leading-relaxed mb-4">Para representar piezas mediante un sistema, las vistas siempre se dibujan en el mismo orden y posición. Un detalle importante a tener en cuenta es la <strong>coincidencia de dimensiones</strong>:</p>
+                <ul class="list-disc list-inside space-y-2 text-slate-700">
+                    <li>La <strong>anchura</strong> de la planta y del alzado es la misma.</li>
+                    <li>La <strong>altura</strong> del alzado y de ambos perfiles debe coincidir.</li>
+                    <li>La <strong>profundidad</strong> de la planta y del perfil es igual.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row gap-8 items-center my-8">
+            <div class="md:w-1/2 text-lg">
+                <p class="leading-relaxed mb-4">Hay dos sistemas habituales de representación, el <strong>americano</strong> y el <strong>europeo</strong>, que será el que manejaremos en esta unidad. La diferencia principal entre ambos sistemas es la distribución de las vistas en el papel.</p>
+                <p class="leading-relaxed">También es imprescindible orientar correctamente la planta con respecto al alzado y al perfil. Prolongar horizontal y verticalmente las aristas nos ayudará a hacerlo. Un error frecuente es no orientar bien la planta con respecto al alzado y dibujarla girada.</p>
+            </div>
+            <div class="md:w-1/2">
+             <img src="https://i.ytimg.com/vi/syJy3RAluwY/maxresdefault.jpg" alt="Sistema americano y europeo" class="zoomable-image rounded-lg shadow-lg">
+             <p class="text-center italic text-slate-600 mt-2">Sistema americano y europeo.</p>
+         </div>
+     </div>
+     <div class="flex flex-col md:flex-row gap-4 items-center">
+                <div class="md:w-1/2">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/P9kUHdYKRdI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <p class="image-caption mt-2">Vistas de una figura.</p>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/7r7_j_ooOiM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <p class="image-caption mt-2">Vistas de una figura II.</p>
+                </div>
+            </div>
+        <h3 class="font-bold text-2xl text-slate-700 mb-4">Ponte a prueba</h3>
+        <p class="text-lg leading-relaxed mb-6">
+                    ¿Quieres practicar cómo obtener las vistas de una pieza en Dibujo Técnico? Puedes hacerlo con una fantástica herramienta online con la que poner a prueba tus conocimientos de una manera muy visual e interactiva.</p>
+                <p class="text-lg leading-relaxed mb-6">
+                    La web te presenta una figura en 3D que puedes girar con el ratón para observarla desde todos los ángulos. Tu misión es dibujar el alzado, la planta y el perfil en los recuadros correspondientes. ¡Es la forma perfecta de entender cómo se representan los objetos en el sistema diédrico y de prepararte para los ejercicios de clase!</p>
+                <p class="summary text-lg leading-relaxed mt-8">Anímate a probarla haciendo clic en el siguiente <a href="https://www.educacionplastica.net/3dcube_model/vistas_3d_2x2.html" class="text-blue-600 hover:underline" target="_blank"> enlace</a>.</p>
+ </section>
+</div>
+<div id="tab8" class="tab-content">
+    <section id="perspectivas" class="">
+        <h2 class="text-3xl font-bold text-slate-600 mb-6">8. Perspectivas</h2>
+        <p class="mb-4 text-lg leading-relaxed">
+            Imagina que quieres dibujar un cubo. Si lo dibujas como un simple cuadrado, parece plano, ¿verdad? Pero si quieres que parezca un objeto real, que puedas "casi" tocar, necesitas darle profundidad. ¡Y ahí es donde entra la magia de las perspectivas!
+        </p>
+        <p class="mb-4 text-lg leading-relaxed">
+            En pocas palabras, una perspectiva en dibujo técnico es una técnica que usamos para representar objetos de tres dimensiones (ancho, alto y profundo) en una superficie de dos dimensiones (como una hoja de papel), de manera que parezcan reales y con volumen.
+        </p>
+        <p class="mb-8 text-lg leading-relaxed italic text-center text-slate-600">
+            Piénsalo de esta manera: es como hacer una foto de un objeto. La foto es plana, pero tú sigues viendo el objeto como si tuviera fondo. La perspectiva es la "gramática" que nos enseña a hacer eso mismo, pero con lápiz y papel.
+        </p>
+
+        <div class="mb-8">
+            <h3 class="font-bold text-2xl text-slate-700 mb-4">¿Por qué un objeto se ve diferente según cómo lo mires?</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                La idea principal es muy sencilla y la experimentas cada día.
+            </p>
+            <p class="p-4 bg-gray-100 rounded-lg text-lg leading-relaxed">
+                <strong>El truco de la distancia:</strong> Los objetos que están más lejos parecen más pequeños. Si miras una carretera recta y larga, parece que los dos lados se van a juntar en un punto a lo lejos. Ese punto se llama <strong>punto de fuga</strong>. Las perspectivas utilizan esta idea para engañar a nuestro ojo y crear esa sensación de profundidad.
+            </p>
+        </div>
+
+        <div class="mb-10">
+            <h3 class="font-bold text-2xl text-slate-700 mb-6">Los 3 Tipos de Perspectivas Más Comunes</h3>
+            <p class="text-lg leading-relaxed mb-6">
+                No hay una sola forma de dibujar en perspectiva. Dependiendo de lo que queramos mostrar, usamos diferentes tipos. Los más importantes son:
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 items-center">
+                <div class="md:w-2/3 space-y-6 text-lg">
+                <div class="p-4 border-l-4 border-teal-500 bg-teal-50">
+                    <h4 class="font-bold text-xl text-teal-700 mb-2">1. Perspectiva Isométrica: La "Todoterreno"</h4>
+                    <p class="mb-2">Es una de las más usadas en dibujo técnico. Su nombre "iso" significa "igual" y "métrica" significa "medida".</p>
+                    <ul class="list-disc list-inside space-y-1 text-slate-700">
+                        <li><strong>¿Cómo funciona?:</strong> El objeto se apoya en tres ejes con la misma inclinación. Las líneas paralelas en la realidad se mantienen paralelas en el dibujo. ¡No hay puntos de fuga!</li>
+                        <li><strong>Ventaja principal:</strong> No deforma el objeto. Las medidas son reales o a escala, perfecta para que los técnicos entiendan bien una pieza.</li>
+                        <li><strong>En resumen:</strong> Es una vista 3D equilibrada y sin distorsiones.</li>
+                    </ul>
+                </div>
+                <div class="p-4 border-l-4 border-amber-500 bg-amber-50">
+                    <h4 class="font-bold text-xl text-amber-700 mb-2">2. Perspectiva Caballera: La Rápida y Sencilla</h4>
+                    <p class="mb-2">Esta perspectiva es genial porque es muy fácil y rápida de dibujar.</p>
+                    <ul class="list-disc list-inside space-y-1 text-slate-700">
+                        <li><strong>¿Cómo funciona?:</strong> Una de las caras se dibuja de frente, tal y como es. Las líneas de profundidad se dibujan hacia atrás con un ángulo (normalmente 45º) y sus medidas se suelen reducir a la mitad.</li>
+                        <li><strong>Ventaja principal:</strong> Perfecta para piezas con una cara principal muy importante o detallada, ya que esa cara se ve sin distorsión.</li>
+                        <li><strong>En resumen:</strong> Mantiene una cara real y añade profundidad de forma sencilla.</li>
+                    </ul>
+                </div>
+                <div class="p-4 border-l-4 border-indigo-500 bg-indigo-50">
+                    <h4 class="font-bold text-xl text-indigo-700 mb-2">3. Perspectiva Cónica: La Artística y Realista</h4>
+                    <p class="mb-2">Esta es la que más se parece a cómo ven nuestros ojos el mundo.</p>
+                    <ul class="list-disc list-inside space-y-1 text-slate-700">
+                        <li><strong>¿Cómo funciona?:</strong> Utiliza uno, dos o hasta tres puntos de fuga hacia donde convergen las líneas paralelas.</li>
+                        <li><strong>Desventaja en técnico:</strong> Aunque es muy realista, deforma las formas y ángulos, por lo que no es la mejor para dar medidas exactas.</li>
+                        <li><strong>En resumen:</strong> Es la más realista, perfecta para ver cómo se vería un objeto en el mundo real.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="md:w-1/3">
+                <img src="https://www.blinklearning.com/useruploads/ctx/a/118908006/r/s/30782916/Capturadepantalla2019-04-25alas17.00.42.jpg?idcurso=2017766" alt="Sistema americano y europeo" class="zoomable-image rounded-lg shadow-lg">
+             <p class="text-center italic text-slate-600 mt-2">Perspectivas Caballera, Isométrica y Cónica.</p>
+         </div>
+            </div>
+        </div>
+
+        <div class="mb-10">
+            <h3 class="font-bold text-2xl text-slate-700 mb-4 text-center">Tabla Resumen para que no te líes</h3>
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white border border-gray-300 text-lg">
+                    <thead class="bg-gray-200">
+                        <tr>
+                            <th class="py-2 px-4 border-b">Tipo de Perspectiva</th>
+                            <th class="py-2 px-4 border-b">Característica Principal</th>
+                            <th class="py-2 px-4 border-b">¿Cuándo se usa?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-center">
+                            <td class="py-2 px-4 border-b font-semibold">Isométrica</td>
+                            <td class="py-2 px-4 border-b">No deforma el objeto, sin puntos de fuga.</td>
+                            <td class="py-2 px-4 border-b">Para planos técnicos, montajes, videojuegos.</td>
+                        </tr>
+                        <tr class="text-center bg-gray-50">
+                            <td class="py-2 px-4 border-b font-semibold">Caballera</td>
+                            <td class="py-2 px-4 border-b">Una cara se ve de frente, sin distorsión.</td>
+                            <td class="py-2 px-4 border-b">Para piezas con una cara compleja o principal.</td>
+                        </tr>
+                        <tr class="text-center">
+                            <td class="py-2 px-4 border-b font-semibold">Cónica</td>
+                            <td class="py-2 px-4 border-b">La más realista, usa puntos de fuga.</td>
+                            <td class="py-2 px-4 border-b">En arquitectura, arte, para ver el resultado final.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div>
+            <h3 class="font-bold text-2xl text-slate-700 mb-4 border-t pt-6">Guía para Trazar una Perspectiva Isométrica</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                Dibujar en isométrico es, sobre todo, ser ordenado. No se trata de "que se parezca", sino de seguir unas reglas muy concretas para que cualquiera entienda nuestra pieza a la perfección.
+            </p>
+            <h4 class="font-semibold text-xl text-slate-600 mb-2">Herramientas que vamos a necesitar:</h4>
+            <ul class="list-disc list-inside text-lg mb-6">
+                <li>Lápiz (¡y goma de borrar!)</li>
+                <li>Una hoja de papel (si es cuadriculada, mejor para empezar)</li>
+                <li>Regla, escuadra y cartabón.</li>
+            </ul>
+
+            <div class="space-y-6 text-lg">
+                <p><strong>Paso 1: Los Cimientos - Los Ejes Isométricos</strong><br>Todo dibujo isométrico empieza construyendo su esqueleto: el eje Z (vertical) y los ejes X e Y (a 30º de la horizontal), formando ángulos de 120º entre sí.</p>
+                <p><strong>Paso 2: La "Caja" que Contiene la Pieza</strong><br>Antes de dibujar la pieza, se dibuja un prisma o cubo que la contenga por completo ("encajado"), usando las medidas máximas de alto, ancho y profundo de las vistas.</p>
+                <p class="p-3 bg-sky-100 border-l-4 border-sky-500"><strong>Regla de Oro Nº1:</strong> En isométrico, TODAS las líneas que dibujemos serán paralelas a uno de los tres ejes principales.</p>
+                <p><strong>Paso 3: "Esculpiendo" la Pieza Dentro de la Caja</strong><br>Con la caja guía, se quitan los "trozos" sobrantes para revelar la pieza. Se trasladan las medidas de los detalles desde las vistas, siempre sobre líneas paralelas a los ejes, y se unen los puntos.</p>
+                <p><strong>Paso 4: El Caso de las "Líneas No Isométricas"</strong><br>Las rampas o caras inclinadas tienen aristas que no son paralelas a los ejes principales. Estas líneas no se miden directamente; se dibujan uniendo sus puntos de inicio y fin, que sí están en coordenadas isométricas medibles.</p>
+                <p><strong>Paso 5: Limpieza y Acabado Final</strong><br>Una vez definida la forma, se repasan las aristas vistas, se dibujan las aristas ocultas con línea de trazos si es necesario, y se borran todas las líneas guía.</p>
+            </div>
+            <div class="flex flex-col md:flex-row gap-4 items-center">
+                <div class="md:w-1/2">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/jelOvbiqlko" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <p class="image-caption mt-2">Trazar los ejes de la Perspectiva Isométrica con escuadra y cartabón.</p>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/g--3EP5wf9c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <p class="image-caption mt-2">Perspectiva Isométrica a partir de las vistas.</p>
+                </div>
+            </div>
+
+
+
+            <div class="mt-8 p-4 bg-yellow-100 rounded-lg">
+                <h4 class="font-bold text-xl text-yellow-800 mb-3">Resumen de las Reglas de Oro para no Perderse:</h4>
+                <ol class="list-decimal list-inside space-y-2 text-lg text-slate-800">
+                    <li>Empieza siempre por los 3 ejes isométricos (uno vertical, dos a 30º).</li>
+                    <li>Todas las medidas se toman únicamente sobre los ejes o sobre líneas paralelas a ellos.</li>
+                    <li>Todas las líneas que dibujes deben ser paralelas a uno de los tres ejes, a menos que sea una línea inclinada (no isométrica).</li>
+                    <li>Las líneas no isométricas no se miden, se dibujan uniendo sus puntos extremos.</li>
+                    <li>Los círculos en las vistas se convierten en óvalos (elipses) en isométrico.</li>
+                </ol>
+            </div>
+        </div>
+        <h3 class="font-bold text-2xl text-slate-700 mb-4 mt-4">Entiende las Vistas y el 3D</h3>
+<p class="text-lg leading-relaxed mb-6">
+    ¿Te cuesta imaginar la forma de un objeto viendo "solo" sus vistas? Con esta herramienta interactiva podrás comprender la relación directa entre una figura tridimensional y su representación en planos.
+</p>
+<p class="text-lg leading-relaxed mb-6">
+    La web te presenta una herramiento para construir modelos 3D hechos de "cubos" viendo sus tres vistas ya dibujadas: el alzado, la planta y el perfil. La magia está en que puedes girar la figura 3D con el ratón para observarla desde todos los ángulos. Así, podrás comprobar por ti mismo cómo cada cara del objeto se corresponde perfectamente con cada una de las vistas.
+</p>
+<p class="summary text-lg leading-relaxed mt-8">
+    Es un ejercicio ideal para entrenar tu visión espacial. Anímate a practicar la construcción de distintas figuras haciendo clic en el siguiente <a href="https://www.educacionplastica.net/3dcube_model/3dvoxels_0.htm?no=00" class="text-blue-600 hover:underline" target="_blank">enlace</a>.
+</p>
+    </section>
+</div>
+<div id="tab9" class="tab-content">
+    <section id="software-diseno" class="">
+        <h2 class="text-3xl font-bold text-slate-600 mb-6">9. Software en diseño técnico</h2>
+        <p class="mb-8 text-lg leading-relaxed">
+            En la actualidad es más frecuente el uso de software de diseño técnico empleando programas específicos para este tipo de trabajos. Los más utilizados son: <strong>AutoCAD, QCad, SolidWorks y SketchUp</strong> entre otros.
+        </p>
+
+        <div class="p-6 border-l-4 border-orange-500 bg-orange-50 mb-10">
+            <h3 class="font-bold text-2xl text-orange-700 mb-3">📐 SketchUp</h3>
+            <p class="text-lg leading-relaxed mb-4">
+                <strong>SketchUp Free</strong> es una potente herramienta de modelado 3D a la que puedes acceder directamente desde tu navegador web, sin necesidad de instalar nada. Es ideal para estudiantes de Tecnología porque es famoso por ser el software 3D más fácil e intuitivo de usar.
+            </p>
+            <h4 class="font-semibold text-xl text-slate-600 mb-2">¿Para qué te sirve?</h4>
+            <p class="text-lg leading-relaxed mb-4">
+                Mientras que con la escuadra y el cartabón aprendemos la precisión 2D, SketchUp te permite:
+            </p>
+            <ul class="list-disc list-inside space-y-2 text-lg text-slate-700 mb-4">
+                <li><strong>Visualizar en 3D:</strong> Construir rápidamente un objeto en perspectiva isométrica, ayudándote a entender cómo se relacionan la Anchura, Altura y Profundidad.</li>
+                <li><strong>Ver las Vistas:</strong> Comprobar si tus vistas de Alzado, Planta y Perfil son correctas, simplemente cambiando el ángulo de la cámara.</li>
+                <li><strong>Modelar con Facilidad:</strong> Su herramienta estrella, <strong>Empujar/Tirar (Push/Pull)</strong>, te permite convertir cualquier forma 2D en un volumen 3D con un solo clic.</li>
+            </ul>
+            <p class="summary text-lg leading-relaxed mt-4">
+                En resumen: SketchUp Free es la mejor forma de dar vida a tus planos 2D y dominar la lógica espacial del dibujo técnico.
+            </p>
+        </div>
+
+        <div>
+            <h3 class="font-bold text-2xl text-slate-700 mb-4 border-t pt-6">💻 Guía de Introducción Rápida a SketchUp Free</h3>
+            <p class="text-lg leading-relaxed mb-6">
+                SketchUp Free funciona directamente en su navegador web (Chrome, Edge, Firefox), así que no necesitan instalar nada. ¡Solo necesitan conexión a internet y un ratón!
+            </p>
+
+            <div class="space-y-8 text-lg">
+                <div>
+                    <h4 class="font-semibold text-xl text-slate-600 mb-2">1. Acceso y Entorno</h4>
+                    <ul class="list-disc list-inside space-y-2 text-slate-700">
+                        <li><strong>Abrir el programa:</strong> Vayan a la página oficial de <a href="https://www.sketchup.com/es/plans-and-pricing/sketchup-free" target="_blank" class="text-blue-600 hover:underline">SketchUp Free</a> e inicien la aplicación web.</li>
+                        <li><strong>Iniciar un Nuevo Modelo:</strong> Seleccionen una Plantilla (Template) adecuada, por ejemplo, "Simple - Milímetros".</li>
+                        <li><strong>Los Ejes y el Personaje:</strong> Verán los ejes de colores: <strong>Azul (Z)</strong> para la Altura, <strong>Verde (Y)</strong> para la Profundidad, y <strong>Rojo (X)</strong> para la Anchura.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-xl text-slate-600 mb-2">2. Herramientas de Navegación (¡Lo más Importante!)</h4>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full bg-white border border-gray-300">
+                            <thead class="bg-gray-200">
+                                <tr>
+                                    <th class="py-2 px-4 border-b">Herramienta</th>
+                                    <th class="py-2 px-4 border-b">Uso con el Ratón</th>
+                                    <th class="py-2 px-4 border-b">Función en 3D</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="text-center">
+                                    <td class="py-2 px-4 border-b">Orbitar</td>
+                                    <td class="py-2 px-4 border-b">Rueda central presionada</td>
+                                    <td class="py-2 px-4 border-b">Gira la vista alrededor del modelo.</td>
+                                </tr>
+                                <tr class="text-center bg-gray-50">
+                                    <td class="py-2 px-4 border-b">Panorámica</td>
+                                    <td class="py-2 px-4 border-b">Rueda central + Shift (Mayús)</td>
+                                    <td class="py-2 px-4 border-b">Desplaza la vista horizontal o verticalmente.</td>
+                                </tr>
+                                <tr class="text-center">
+                                    <td class="py-2 px-4 border-b">Zoom</td>
+                                    <td class="py-2 px-4 border-b">Rueda central al girar</td>
+                                    <td class="py-2 px-4 border-b">Acerca o aleja la vista.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="mt-4 text-lg italic bg-yellow-100 p-3 rounded-lg">
+                        <strong>Consejo:</strong> Usen el <strong>Orbitar</strong> constantemente para asegurarse de que las líneas que dibujan están en el plano correcto.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-xl text-slate-600 mb-2">3. Herramientas Clave de Modelado</h4>
+                    <p><strong>A. Dibujo de la Base (2D):</strong> Usen <strong>Línea (L)</strong> o <strong>Rectángulo (R)</strong> para crear una superficie plana. Para ser precisos, escriban las dimensiones separadas por coma (ej. 300,200) y pulsen Enter.</p>
+                    <p class="mt-2"><strong>B. Dando Volumen (3D):</strong> Con <strong>Empujar/Tirar (P)</strong>, hagan clic en una superficie, arrastren y escriban la altura deseada.</p>
+                    <p class="mt-2"><strong>C. Cortes y Acabados:</strong> Usen <strong>Cinta Métrica (T)</strong> para crear guías y <strong>Borrar (E)</strong> para eliminar líneas sobrantes.</p>
+                </div>
+
+                <div class="p-4 bg-green-100 border-l-4 border-green-600">
+                    <h4 class="font-bold text-xl text-green-800 mb-2">Próximo Reto</h4>
+                    <p class="text-slate-800">
+                        Intenta modelar el bloque escalón que discutimos antes, usando el <strong>Rectángulo</strong> para la base, <strong>Empujar/Tirar</strong> para la altura, y luego dibujando el corte del escalón en la cara superior y usando <strong>Empujar/Tirar</strong> otra vez para vaciarlo.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div id="tab10" class="tab-content">
+    <section id="actividades1" class="border-green-200">
+        <div class="bg-yellow-100 p-4 rounded-lg border-l-4 border-yellow-500">
+            <h2 class="text-3xl font-bold text-slate-700 mb-6 italic">Lámina 1</h2>
+            <p class="mt-4 text-lg italic">Trazado de Patrón Geométrico con Escuadra y Cartabón</p>
+        </div>      
+        <div class="space-y-4 text-slate-600 leading-relaxed text-lg p-5">
+            <p  class="text-lg leading-relaxed mb-6">En este ejercicio vamos a realizar el trazado de un patrón geométrico utilizando las herramientas básicas de dibujo. El objetivo principal de esta tarea es que aprendas y practiques el manejo correcto de la escuadra y el cartabón, familiarizándote con la técnica para dibujar líneas paralelas y perpendiculares con precisión y soltura a partir de una línea de referencia. Esta es una habilidad fundamental que te servirá de base para cualquier proyecto de dibujo técnico más complejo en el futuro.</p>
+            <ol class="list-decimal list-inside">
+                <li class="mb-4"><strong>Preparar el Área de Trabajo:</strong> En la hoja de papel, dibuja un marco rectangular dejando un margen de 1,5 cm por cada lado respecto a los bordes de la hoja.
+                </li>
+                <li class="mb-4"><strong>Trazar los Ejes:</strong> Dibuja los dos ejes de simetría del rectángulo: uno vertical y otro horizontal. El punto donde se cruzan será el centro.
+                </li>
+                <li class="mb-4"><strong>Graduar los Ejes:</strong> Tomando el centro como punto de origen (0), haz una pequeña marca cada 1 cm a lo largo de ambos ejes en las cuatro direcciones.
+                </li>
+                <li class="mb-4"><strong>Línea de Referencia:</strong> Elige una de las marcas que has dibujado en cualquiera de los ejes y, pasando por ella, traza una línea inicial con una inclinación de 45º.
+                </li>
+                <li class="mb-4"><strong>Construir el Patrón:</strong> Utilizando la escuadra y el cartabón como apoyo, dibuja líneas paralelas y perpendiculares a la línea de 45º que acabas de trazar. Continúa este proceso hasta reproducir el patrón completo que se muestra en la imagen de referencia.
+                </li>
+            </ol>
+            <img src="img/patron.png" alt="patron" class="h-full object-cover rounded-lg shadow-md zoomable-image limited-height">
+        </div>
+    </section>
+
+    <section id="actividades2" class="border-green-200">
+        <div class="bg-lime-100 p-4 rounded-lg border-l-4 border-lime-500">
+            <h2 class="text-3xl font-bold text-slate-700 mb-6 italic">Lámina 2</h2>
+            <p class="mt-4 text-lg italic">Trazado de Tramas con Inclinaciones Progresivas</p>
+        </div>   
+
+
+        <div class="space-y-4 text-slate-600 leading-relaxed text-lg p-5">
+            <p  class="text-lg leading-relaxed mb-6">En esta lámina vamos a dar un paso más en el manejo de las herramientas de dibujo, combinando la precisión del transportador de ángulos con la técnica de trazado de paralelas que ya conoces. El ejercicio consiste en crear diferentes tramas de líneas en una cuadrícula, donde cada sección tendrá una inclinación específica que deberás medir y trazar con exactitud. El objetivo es doble: por un lado, afianzar el uso de la escuadra y el cartabón para generar paralelismo y, por otro, aprender a utilizar el transportador para establecer cualquier ángulo que se te pida, una habilidad esencial para la representación de piezas y figuras geométricas complejas.</p>
+
+            <ol class="list-decimal list-inside">
+                <li class="mb-4"><strong>Preparar el Área de Trabajo:</strong> En la hoja de papel, dibuja un marco rectangular dejando un margen de 1 cm por cada lado respecto a los bordes.
+                </li>
+                <li class="mb-4"><strong>Dividir en Cuadrados:</strong> Divide el espacio interior del marco en 6 cuadrados iguales. Para ello, mide el lado más largo y divídelo en 3 partes iguales, y el lado más corto en 2 partes iguales. Traza las líneas para formar una cuadrícula de 3x2.
+                </li>
+                <li class="mb-4"><strong>Trama a 15º (Primer Cuadrado):</strong> En el cuadrado superior izquierdo, utiliza el transportador para trazar una línea inicial con una inclinación de 15º. A continuación, usando la escuadra y el cartabón, dibuja líneas paralelas a esta cada 5 mm hasta rellenar todo el cuadrado.
+                </li>
+                <li class="mb-4"><strong>Trama a 30º (Segundo Cuadrado):</strong> En el siguiente cuadrado (superior central), repite el proceso trazando una línea inicial a 30º y luego sus paralelas cada 5 mm.
+                </li>
+                <li class="mb-4"><strong>Trama a 45º (Tercer Cuadrado):</strong> En el cuadrado superior derecho, la línea inicial será de 45º. Rellena el espacio con paralelas cada 5 mm.
+                </li>
+                <li class="mb-4"><strong>Trazados Restantes (Fila Inferior):</strong> Continúa el mismo procedimiento en los tres cuadrados inferiores, utilizando los ángulos correspondientes:
+                    <ul class="sub-list list-disc list-inside">
+                        <li><strong>Cuarto cuadrado (inferior izquierdo):</strong> Trama a 60º.</li>
+                        <li><strong>Quinto cuadrado (inferior central):</strong> Trama a 75º.</li>
+                        <li><strong>Sexto cuadrado (inferior derecho):</strong> Trama a 90º (líneas verticales).</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <section id="actividades3" class="border-green-200">
+        <div class="bg-green-100 p-4 rounded-lg border-l-4 border-green-500">
+            <h2 class="text-3xl font-bold text-slate-700 mb-6 italic">Lámina 3</h2>
+            <p class="mt-4 text-lg italic">Croquis a Escala de un Borrador de Pizarra</p>
+        </div>   
+        <div class="space-y-4 text-slate-600 leading-relaxed text-lg p-5">
+            <p  class="text-lg leading-relaxed mb-6">En esta actividad vamos a aplicar por primera vez dos de los conceptos más importantes del dibujo técnico: la escala y la acotación. Partiendo de un objeto real y cotidiano, como un borrador de pizarra, aprenderás a representarlo en el papel con un tamaño diferente al real, en este caso más grande, utilizando para ello una escala de ampliación de 3:2. El objetivo principal es que comprendas cómo se transforma una medida real en una medida para el dibujo y, fundamentalmente, que domines la norma de acotación, que nos exige indicar siempre las dimensiones reales del objeto, sin importar el tamaño al que lo hayamos dibujado.</p>
+            <ol class="list-decimal list-inside">
+                <li class="mb-4" class="mb-4"><strong>Preparar el Área de Trabajo: </strong>En tu hoja de papel, dibuja un marco rectangular dejando un margen exacto de <strong>1 cm</strong> por cada lado con respecto al filo de la hoja. Este será el espacio delimitado para tu dibujo.
+                </li>
+                <li class="mb-4"><strong>Medición del Objeto Real: </strong>Coge el borrador de pizarra y, con la ayuda de la regla, mide con precisión su <strong>largo</strong> y su <strong>ancho</strong> así como todas las medidas neesarias para dibujarlo con precisión. Anota estas medidas en una esquina de la hoja o en un papel aparte. Estas son tus "medidas reales".</p>
+                </li>
+                <li class="mb-4"><strong>Cálculo de Dimensiones a Escala: </strong>La escala a la que debes dibujar es <strong>3:2</strong>. Esto significa que cada 2 cm del objeto real se representarán como 3 cm en tu dibujo. Para calcular las nuevas medidas, aplica la siguiente fórmula:
+                    <p><code>Medida en el dibujo = Medida real × (3 / 2)</code></p>
+                    <p>Por ejemplo, si el largo real del borrador es 12 cm, el cálculo sería: 12 cm × 1,5 = 18 cm. Realiza esta operación para el largo y el ancho.</p>
+                </li>
+                <li class="mb-4"><strong>Trazado del Croquis: </strong>Utilizando las medidas calculadas en el paso anterior, dibuja la vista superior (planta) del borrador. Asegúrate de que el croquis quede centrado dentro del marco que dibujaste al principio. Representa la forma principal del borrador, incluyendo los detalles que consideres importantes, como las esquinas redondeadas.
+                </li>
+                <li class="mb-4"><strong>Acotación del Dibujo: </strong>Una vez finalizado el contorno, acota el dibujo para indicar sus dimensiones. Para ello:
+                    <ul class="sub-list list-disc list-inside">
+                        <li>Traza líneas auxiliares finas y perpendiculares desde los bordes del dibujo que quieres medir.</li>
+                        <li>Dibuja la línea de cota paralela al lado que estás midiendo y termínala con dos pequeñas flechas en los extremos.</li>
+                        <li>Sobre el centro de la línea de cota, escribe el número que corresponde a la <strong>medida real</strong> del objeto (la que mediste en el paso 2), no la del dibujo a escala.</li>
+                    </ul>
+                </li>
+            </ol>
+            <img src="https://prod.isg.bruneau.media/asset/aHR0cHM6Ly9icnVuZWF1LnNpbXBsZXdvcmtzcGFjZS5uZXQvZmlsZS9wdWJBc3NldEJhc2UvS2doNV9jaFVxZkV3QWxyNHkxZjF3VmVtX3NaUV84OGZQdmpNU094akNZUXgxRWoxbVVNLzAvcy83NTAyOS5qcGc=/?dpi=2.00&format=avif&height=477&quality=60&width=477" alt="borrador" class="h-full object-cover rounded-lg shadow-md zoomable-image limited-height">
+
+        </div>
+    </section>
+    <section id="actividades4" class="border-blue-200">
+    <div class="bg-blue-100 p-4 rounded-lg border-l-4 border-blue-500">
+        <h2 class="text-3xl font-bold text-slate-700 mb-6 italic">Lámina 4</h2>
+        <p class="mt-4 text-lg italic">Dibujo de Vistas de un Borrador a Escala Natural (1:1)</p>
+    </div>
+    <div class="space-y-4 text-slate-600 leading-relaxed text-lg p-5">
+        <p class="text-lg leading-relaxed mb-6">En este ejercicio vamos a dar un paso fundamental en el dibujo técnico: la representación de un objeto tridimensional en un plano bidimensional mediante sus vistas principales (alzado, planta y perfil). Utilizaremos un borrador de pizarra como modelo para aplicar las técnicas de medición y representación a <strong>escala natural (E 1:1)</strong>. El objetivo es que aprendas a analizar la forma de un objeto desde diferentes puntos de vista y a plasmar esas vistas de forma normalizada y acotada, comunicando sus dimensiones y forma exacta.</p>
+        <ol class="list-decimal list-inside">
+            <li class="mb-4"><strong>Preparar el Área de Trabajo:</strong> En tu hoja de papel, dibuja un marco rectangular dejando un margen exacto de <strong>1 cm</strong> por cada lado. Este será el espacio delimitado para tu dibujo.</li>
+            <li class="mb-4"><strong>Medición del Objeto Real:</strong> Coge el borrador de pizarra y, con la regla, mide con precisión sus tres dimensiones principales: <strong>largo, ancho y alto</strong>. Anota estas medidas en una esquina de la hoja, ya que serán las que utilices directamente para dibujar y acotar.</li>
+            <li class="mb-4"><strong>Planificación y Trazado de las Vistas a Escala 1:1:</strong> La <strong>escala natural (E 1:1)</strong> significa que las medidas de tu dibujo serán exactamente las mismas que las del objeto real.
+                <ul class="sub-list list-disc list-inside mt-2">
+                    <li><strong>Dibuja el Alzado (vista frontal):</strong> Representa el borrador como si lo estuvieras mirando de frente. Utiliza las medidas de <strong>largo</strong> y <strong>alto</strong>. Procura centrar esta vista en la parte izquierda del área de trabajo.</li>
+                    <li><strong>Dibuja la Planta (vista superior):</strong> Justo debajo del alzado y perfectamente alineada verticalmente, dibuja la vista del borrador como si lo miraras desde arriba. Sus medidas serán el <strong>largo</strong> y el <strong>ancho</strong>.</li>
+                    <li><strong>Dibuja el Perfil Izquierdo (vista lateral):</strong> A la derecha del alzado y perfectamente alineada horizontalmente, dibuja la vista del borrador como si lo miraras desde su lado izquierdo. Sus medidas serán el <strong>ancho</strong> y el <strong>alto</strong>.</li>
+                    <li>Deja espacio suficiente entre las vistas para poder acotar cómodamente.</li>
+                </ul>
+            </li>
+            <li class="mb-4"><strong>Acotación de las Vistas:</strong> Una vez tengas las tres vistas dibujadas, acótalas para indicar sus dimensiones reales. Recuerda las normas:
+                <ul class="sub-list list-disc list-inside mt-2">
+                    <li>Distribuye las cotas entre las diferentes vistas para no sobrecargar ninguna. Por ejemplo, puedes acotar el largo y el alto en el alzado, y el ancho en la planta o en el perfil.</li>
+                    <li>Utiliza líneas auxiliares finas y perpendiculares a los bordes que quieres medir.</li>
+                    <li>Traza la línea de cota paralela, con sus flechas en los extremos.</li>
+                    <li>Escribe la cifra de cota (la medida real) sobre la línea, de forma clara.</li>
+                </ul>
+            </li>
+            <li class="mb-4"><strong>Revisión Final:</strong> Limpia las líneas de construcción innecesarias y repasa el contorno de las vistas y las líneas de cota para que el dibujo final sea claro y preciso. Asegúrate de que las vistas estén perfectamente alineadas entre sí.</li>
+        </ol>
+    </div>
+</section>
+<section id="actividades5" class="border-purple-200">
+    <div class="bg-purple-100 p-4 rounded-lg border-l-4 border-purple-500">
+        <h2 class="text-3xl font-bold text-slate-700 mb-6 italic">Lámina 5</h2>
+        <p class="mt-4 text-lg italic">Perspectiva Isométrica de un Borrador</p>
+    </div>
+    <div class="space-y-4 text-slate-600 leading-relaxed text-lg p-5">
+        <p class="text-lg leading-relaxed mb-6">Después de representar un objeto mediante sus vistas, ahora aprenderemos a mostrarlo en 3D en un solo dibujo utilizando la <strong>perspectiva isométrica</strong>. Esta técnica nos permite crear una ilusión de volumen de forma sencilla y proporcionada. El objetivo de esta actividad es que domines el trazado de los ejes isométricos y aprendas a construir un objeto a partir de sus dimensiones reales (largo, ancho y alto), encajándolo dentro de un prisma o "caja" inicial que servirá como guía.</p>
+        <ol class="list-decimal list-inside">
+            <li class="mb-4"><strong>Preparar y Medir:</strong> Dibuja el marco de <strong>1 cm</strong> en tu hoja. A continuación, vuelve a medir con precisión el <strong>largo, ancho y alto</strong> del borrador real y anota las medidas. Para esta perspectiva, trabajaremos a <strong>escala 1:1</strong>.</li>
+            <li class="mb-4"><strong>Trazar los Ejes Isométricos:</strong> Elige un punto de origen en la parte inferior de tu hoja. Desde ese punto, y con la ayuda de la escuadra y el cartabón, dibuja los tres ejes isométricos:
+                <ul class="sub-list list-disc list-inside mt-2">
+                    <li>Un eje vertical (que representará la <strong>altura</strong>).</li>
+                    <li>Dos ejes inclinados a <strong>30º</strong> respecto a una línea horizontal, uno hacia la izquierda (para el <strong>ancho</strong>) y otro hacia la derecha (para el <strong>largo</strong>).</li>
+                </ul>
+            </li>
+            <li class="mb-4"><strong>Construir el Prisma Principal (La "Caja"):</strong> A partir del punto de origen, mide y marca sobre cada eje la dimensión real correspondiente (el alto sobre el eje vertical, el largo sobre el eje a 30º a la derecha, etc.). Desde estas marcas, traza líneas paralelas a los otros ejes hasta formar un prisma rectangular completo. Esta caja representa el volumen total que ocupa el borrador.</li>
+            <li class="mb-4"><strong>Definir la Forma y los Detalles:</strong> "Tallando" dentro del prisma que acabas de dibujar, define la forma exacta del borrador. Si tiene esquinas redondeadas o alguna forma específica, este es el momento de dibujarla basándote en las líneas de la caja como referencia.</li>
+            <li class="mb-4"><strong>Limpieza y Repasado Final:</strong> Con mucho cuidado, borra todas las líneas de construcción que te han sobrado (los ejes y las partes de la caja que no forman parte del borrador). Finalmente, repasa con una línea más gruesa y nítida el contorno definitivo del objeto para que destaque.</li>
+        </ol>
+    </div>
+</section>
+</div>
+<div id="tab11" class="tab-content">
+    <section id="actividades6" class="border-teal-200">
+    <div class="bg-sky-100 p-4 rounded-lg border-l-4 border-sky-500">
+        <h2 class="text-3xl font-bold text-slate-700 mb-6 italic">Proyecto Final</h2>
+        <p class="mt-4 text-lg italic">El Reto LEGO: Del Boceto al Prototipo Digital</p>
+    </div>
+    <div class="space-y-4 text-slate-600 leading-relaxed text-lg p-5">
+
+        <p>El universo LEGO ha inspirado a generaciones a construir, crear e innovar. Cada uno de sus bloques es el resultado de un minucioso proceso de diseño donde la precisión es fundamental. Ahora, la oportunidad de expandir este universo está en vuestras manos. Como jóvenes diseñadores, os enfrentaréis al reto de crear una nueva pieza para el sistema LEGO, aplicando todo lo aprendido: desde la chispa creativa del boceto hasta el prototipo digital.</p>
+
+        <h4 class="font-bold text-xl text-slate-700 mt-6 mb-2">Reto y Producto Final</h4>
+        <p>En <strong>parejas</strong>, deberéis diseñar una <strong>pieza original, funcional y creativa</strong> que sea compatible con el sistema de bloques LEGO. Para ello, generaréis la <strong>documentación técnica completa</strong> del proceso. El producto final consistirá en una <strong>presentación oral</strong> donde expondréis vuestro diseño, justificando su función y mostrando todo el trabajo técnico realizado.</p>
+
+        <h4 class="font-bold text-xl text-slate-700 mt-6 mb-2">Fases del Proyecto</h4>
+        <ol class="list-decimal list-inside space-y-4">
+            <li><strong>Investigación e Ideación (Bocetos):</strong> Investigad y medid piezas reales de LEGO. Haced una lluvia de ideas y realizad al menos tres bocetos a mano alzada de conceptos diferentes.</li>
+            <li><strong>Desarrollo de la Idea (Croquis Acotado):</strong> Seleccionad vuestra mejor idea y dibujad un croquis detallado y proporcionado, anotando las medidas principales que aseguren su compatibilidad.</li>
+            <li><strong>Planos Técnicos (Vistas Acotadas):</strong> Realizad la lámina de las vistas principales de la pieza: <strong>Alzado, Planta y Perfil</strong>. Aplicad de forma rigurosa las normas de <strong>acotación</strong>.</li>
+            <li><strong>Visualización 3D (Perspectiva Isométrica):</strong> A partir de las vistas, construid la <strong>perspectiva isométrica</strong> de vuestra pieza para mostrar claramente su volumen.</li>
+            <li><strong>Prototipado Digital (Modelado 3D con SketchUp):</strong> Cread un modelo 3D de vuestra pieza en SketchUp, basándoos en las medidas de vuestros planos. Los diseños más originales podrán ser impresos en 3D con las impresoras del contro.</li>
+            <li><strong>Preparación de la Presentación:</strong> Organizad vuestras láminas y el archivo 3D y preparad una breve exposición oral (3-5 minutos).</li>
+        </ol>
+
+        <h4 class="font-bold text-xl text-slate-700 mt-6 mb-2">Criterios de Evaluación</h4>
+        <ul class="space-y-4">
+            <li class="bg-amber-100 border-l-4 border-amber-500 text-amber-800 p-4 rounded-md">
+                <strong class="font-bold block">Nivel Básico (Hasta 6 puntos):</strong>
+                <span class="text-slate-600">Entrega de bocetos/croquis y una lámina de <strong>Vistas Acotadas</strong> correcta y limpia.</span>
+            </li>
+            <li class="bg-sky-100 border-l-4 border-sky-500 text-sky-800 p-4 rounded-md">
+                <strong class="font-bold block">Nivel Avanzado (Hasta 8 puntos):</strong>
+                <span class="text-slate-600">Cumple lo anterior y entrega una <strong>Perspectiva Isométrica</strong> bien construida.</span>
+            </li>
+            <li class="bg-emerald-100 border-l-4 border-emerald-500 text-emerald-800 p-4 rounded-md">
+                <strong class="font-bold block">Nivel Experto (Hasta 10 puntos):</strong>
+                <span class="text-slate-600">Cumple todo lo anterior y entrega un <strong>modelo 3D en SketchUp</strong> preciso, además de realizar una presentación oral de calidad.</span>
+            </li>
+        </ul>
+        <img src="https://latericius.com/cdn/shop/articles/Simple_brick_featured_32e8091e-09be-422a-82a4-90d3b5e6c3b2.jpg?v=1742476399&width=1920" alt="Diseño tipo LEGO" class="h-full object-cover rounded-lg shadow-md zoomable-image limited-height mt-8">
+    </div>
+</section>
+    
+</div>
+<div id="tab12" class="tab-content">
+    <section id="evaluacion" class="border-slate-300">
+    <div class="bg-lime-100 p-4 rounded-lg border-l-4 border-lime-500">
+        <h2 class="text-3xl font-bold text-slate-700 mb-6 italic">Evaluación del Proceso de Aprendizaje</h2>
+        <p class="mt-4 text-lg italic">Criterios y Rúbricas de Evaluación</p>
+    </div>
+
+    <div class="text-slate-600 leading-relaxed text-lg p-5">
+
+        <div class="mb-12">
+            <h3 class="text-2xl font-bold text-indigo-800 mb-2">Criterio 2.1</h3>
+            <p class="text-lg italic text-slate-500 mb-6">Idear y diseñar soluciones eficaces, innovadoras y sostenibles a problemas definidos, aplicando conceptos, técnicas y procedimientos interdisciplinares, así como criterios de sostenibilidad con actitud emprendedora, perseverante y creativa.</p>
+
+            <div class="mb-6 bg-white p-4 border rounded-lg">
+                <h4 class="font-semibold text-slate-700 mb-2">Instrumentos de Observación:</h4>
+                <ul class="list-disc list-inside text-base text-slate-500">
+                    <li>Búsqueda y tratamiento de la información.</li>
+                    <li>Trabajos escritos y de investigación.</li>
+                    <li>Intervenciones en clase: exposición oral.</li>
+                    <li>Uso de las TIC y las TAC.</li>
+                    <li>Hábitos personales, actitud y autonomía personal.</li>
+                    <li>Cuaderno del alumnado y Observación en Taller.</li>
+                </ul>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 text-base">
+                <div class="border rounded-lg overflow-hidden shadow-sm">
+                    <div class="p-2 bg-red-200 font-bold text-red-800">Insuficiente (1-4)</div>
+                    <p class="p-3">Apenas logra idear ni diseñar soluciones. No aplica conceptos o técnicas. La actitud emprendedora, perseverante y creativa es ausente o superficial.</p>
+                </div>
+                <div class="border rounded-lg overflow-hidden shadow-sm">
+                    <div class="p-2 bg-amber-200 font-bold text-amber-800">Suficiente (5-6)</div>
+                    <p class="p-3">Idea y diseña soluciones de manera limitada. La eficacia e innovación son básicas. Aplica conceptos de manera básica. La actitud es limitada.</p>
+                </div>
+                <div class="border rounded-lg overflow-hidden shadow-sm">
+                    <div class="p-2 bg-yellow-200 font-bold text-yellow-800">Bien (6-7)</div>
+                    <p class="p-3">Idea y diseña soluciones de manera eficaz e innovadora. Aplica conceptos de manera satisfactoria. La actitud emprendedora es clara y fundamentada.</p>
+                </div>
+                <div class="border rounded-lg overflow-hidden shadow-sm">
+                    <div class="p-2 bg-sky-200 font-bold text-sky-800">Notable (7-8)</div>
+                    <p class="p-3">Destaca al idear y diseñar soluciones con solidez y eficacia. Aplica conceptos de manera destacada. La actitud es innovadora y efectiva.</p>
+                </div>
+                <div class="border rounded-lg overflow-hidden shadow-sm">
+                    <div class="p-2 bg-emerald-200 font-bold text-emerald-800">Sobresaliente (9-10)</div>
+                    <p class="p-3">Dominio excepcional al idear y diseñar soluciones. Aplica conceptos de manera profunda y crítica con una actitud excepcional.</p>
+                </div>
+            </div>
+        </div>
+
+        <hr class="my-12 border-slate-300">
+
+        <div class="mb-12">
+            <h3 class="text-2xl font-bold text-indigo-800 mb-2">Criterio 4.1</h3>
+            <p class="text-lg italic text-slate-500 mb-6">Representar y comunicar el proceso de creación de un producto, desde su diseño hasta su difusión, elaborando documentación técnica y gráfica básica con la ayuda de herramientas digitales, empleando los formatos y el vocabulario técnico adecuados, de manera colaborativa.</p>
+
+            <div class="mb-6 bg-white p-4 border rounded-lg">
+                <h4 class="font-semibold text-slate-700 mb-2">Instrumentos de Observación:</h4>
+                <ul class="list-disc list-inside text-base text-slate-500">
+                    <li>Trabajos escritos y de investigación.</li>
+                    <li>Intervenciones en clase: exposición oral y con herramientas digitales.</li>
+                    <li>Participación en trabajos cooperativos.</li>
+                    <li>Hábitos personales, actitud y autonomía personal.</li>
+                    <li>Cuaderno del alumnado.</li>
+                </ul>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 text-base">
+                <div class="border rounded-lg overflow-hidden shadow-sm">
+                    <div class="p-2 bg-red-200 font-bold text-red-800">Insuficiente (1-4)</div>
+                    <p class="p-3">Apenas logra representar o comunicar el proceso. La documentación técnica es ausente o superficial. La colaboración es limitada o inexistente.</p>
+                </div>
+                <div class="border rounded-lg overflow-hidden shadow-sm">
+                    <div class="p-2 bg-amber-200 font-bold text-amber-800">Suficiente (5-6)</div>
+                    <p class="p-3">Representa y comunica de manera limitada. La documentación es básica. El uso del vocabulario y la colaboración son básicos.</p>
+                </div>
+                <div class="border rounded-lg overflow-hidden shadow-sm">
+                    <div class="p-2 bg-yellow-200 font-bold text-yellow-800">Bien (6-7)</div>
+                    <p class="p-3">Representa y comunica de manera eficaz. La documentación es satisfactoria. El vocabulario es claro y la colaboración es satisfactoria.</p>
+                </div>
+                <div class="border rounded-lg overflow-hidden shadow-sm">
+                    <div class="p-2 bg-sky-200 font-bold text-sky-800">Notable (7-8)</div>
+                    <p class="p-3">Destaca al representar y comunicar con solidez. La documentación y el uso del vocabulario son destacados. La colaboración es destacada.</p>
+                </div>
+                <div class="border rounded-lg overflow-hidden shadow-sm">
+                    <div class="p-2 bg-emerald-200 font-bold text-emerald-800">Sobresaliente (9-10)</div>
+                    <p class="p-3">Dominio excepcional al representar y comunicar. La documentación es excepcional y crítica, con una colaboración correcta.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+</div>
+
+<!-- Botones de navegación Anterior/Siguiente -->
+<div class="flex justify-between mt-8">
+    <button id="prev-btn" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg inline-flex items-center transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
+        <i class="bi bi-arrow-left mr-2"></i>
+        <span>Anterior</span>
+    </button>
+    <button id="next-btn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg inline-flex items-center transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
+        <span>Siguiente</span>
+        <i class="bi bi-arrow-right ml-2"></i>
+    </button>
+</div>
+
+<footer class="mt-10 pt-4 border-t text-sm text-gray-500">
     <span>Dpto. de Tecnología   //   IES Huerta del Rosario   //   2025-2026</span>
-    <!--
-    <a href="https://blogsaverroes.juntadeandalucia.es/iesisladeleon/" class="text-white hover:underline ml-2">blogsaverroes.juntadeandalucia.es/iesisladeleon/</a>
-    -->
-  </div>
 </footer>
+</div>
+</main>
+</div>
 
 
 <!-- Modal para ampliar imagen -->
@@ -470,34 +1037,128 @@
 </div>
 
 <script>
-    // Obtener elementos del modal
-    const modal = document.getElementById("imageModal");
-    const modalImg = document.getElementById("modalImage");
-    const images = document.querySelectorAll('.zoomable-image');
-    const closeBtn = document.querySelector(".close-modal");
+    document.addEventListener('DOMContentLoaded', function() {
+        // --- Lógica para ocultar/mostrar la barra lateral ---
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const sidebarToggleIcon = document.getElementById('sidebar-toggle-icon');
+        const sidebar = document.getElementById('sidebar');
 
-    // Asignar evento de clic a cada imagen ampliable
-    images.forEach(img => {
-        img.onclick = function(){
-            modal.style.display = "flex";
-            modalImg.src = this.src;
+        if (sidebarToggle && sidebar && sidebarToggleIcon) {
+            sidebarToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('hidden');
+                
+                if (sidebar.classList.contains('hidden')) {
+                    sidebarToggleIcon.classList.remove('bi-layout-sidebar-inset');
+                    sidebarToggleIcon.classList.add('bi-layout-sidebar-inset-reverse');
+                } else {
+                    sidebarToggleIcon.classList.remove('bi-layout-sidebar-inset-reverse');
+                    sidebarToggleIcon.classList.add('bi-layout-sidebar-inset');
+                }
+            });
+        }
+
+        // --- Lógica para la navegación por pestañas ---
+        const tabLinks = document.querySelectorAll('.tab-link');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        let currentTabIndex = 0;
+
+        function showTab(index) {
+            // Ocultar todos los contenidos
+            tabContents.forEach(content => {
+                content.classList.add('hidden');
+            });
+            // Quitar clase activa de todos los enlaces
+            tabLinks.forEach(navLink => {
+                navLink.classList.remove('active');
+            });
+
+            // Mostrar el contenido y activar el enlace en el índice deseado
+            if (tabContents[index]) {
+                tabContents[index].classList.remove('hidden');
+            }
+            if (tabLinks[index]) {
+                tabLinks[index].classList.add('active');
+            }
+            
+            // Actualizar el índice actual
+            currentTabIndex = index;
+
+            // Actualizar el estado de los botones
+            prevBtn.disabled = currentTabIndex === 0;
+            nextBtn.disabled = currentTabIndex === tabLinks.length - 1;
+        }
+
+        tabLinks.forEach((link, index) => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                showTab(index);
+            });
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentTabIndex < tabLinks.length - 1) {
+                showTab(currentTabIndex + 1);
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentTabIndex > 0) {
+                showTab(currentTabIndex - 1);
+            }
+        });
+        
+        // Inicializar la primera pestaña
+        showTab(0);
+
+
+        // --- Lógica para el modal de la imagen ---
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
+        const images = document.querySelectorAll('.zoomable-image');
+        const closeBtn = document.querySelector(".close-modal");
+
+        images.forEach(img => {
+            img.onclick = function(){
+                modal.style.display = "flex";
+                modalImg.src = this.src;
+            }
+        });
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        closeBtn.onclick = closeModal;
+
+        modal.onclick = function(event) {
+            if (event.target === modal) {
+                closeModal();
+            }
         }
     });
 
-    // Función para cerrar el modal
-    function closeModal() {
-        modal.style.display = "none";
-    }
-
-    // Cerrar al hacer clic en la 'x'
-    closeBtn.onclick = closeModal;
-
-    // Cerrar al hacer clic fuera de la imagen
-    modal.onclick = function(event) {
-        if (event.target === modal) {
-            closeModal();
+    // Añade estilo para los enlaces de las pestañas en el head
+    const style = document.createElement('style');
+    style.innerHTML = `
+        .tab-link {
+            display: block;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem; /* rounded-md */
+            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+            font-weight: 500;
+            color: #4b5563; /* text-gray-600 */
         }
-    }
+        .tab-link:hover:not(.active) {
+            background-color: #f3f4f6; /* hover:bg-gray-100 */
+            color: #1f2937; /* hover:text-gray-800 */
+        }
+    `;
+    document.head.appendChild(style);
+
 </script>
+
 </body>
 </html>
+
