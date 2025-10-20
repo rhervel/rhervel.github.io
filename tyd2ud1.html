@@ -1,641 +1,1031 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>UD1. El Proceso Tecnológico</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 fill=%22currentColor%22 class=%22bi bi-robot%22 viewBox=%220 0 16 16%22><path d=%22M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5ZM3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.58 26.58 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.933.933 0 0 1-.765.935c-.845.147-2.34.346-4.235.346-1.895 0-3.39-.2-4.235-.346A.933.933 0 0 1 3 9.219V8.062Zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a24.767 24.767 0 0 1-1.871-.183.25.25 0 0 0-.217.068l-.92.9a.25.25 0 0 0 .169.434l.92-.9a25.25 25.25 0 0 0 1.942.183.25.25 0 0 0 .217-.068l.92-.9a.25.25 0 0 0-.17-.434l-.92.9a24.767 24.767 0 0 1-1.871-.183Z%22/><path d=%22M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1.5a2.5 2.5 0 0 0 2.5 2.5h9A2.5 2.5 0 0 0 15 13.5V12a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2V1.866ZM14 7.5V12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5Z%22/></svg>" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        h1, h2, h3, .font-poppins {
-            font-family: 'Poppins', sans-serif;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-        section[id] {
-            scroll-margin-top: 6rem;
-        }
-        .section-card {
-            background-color: white;
-            border-radius: 0.75rem;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            transition: box-shadow 0.3s ease-in-out;
-        }
-        .section-card:hover {
-            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-        }
-        .expandable-image {
-            cursor: zoom-in;
-            transition: transform 0.2s ease-in-out;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            border: 3px solid #e2e8f0;
-        }
-        .expandable-image:hover {
-            transform: scale(1.03);
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.85);
-            align-items: center;
-            justify-content: center;
-            animation: fadeIn 0.3s;
-        }
-        .modal-content {
-            margin: auto;
-            display: block;
-            max-width: 85%;
-            max-height: 85%;
-            animation: zoomIn 0.3s;
-        }
-        .close-modal {
-            position: absolute;
-            top: 20px;
-            right: 35px;
-            color: #f1f1f1;
-            font-size: 40px;
-            font-weight: bold;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-        .close-modal:hover,
-        .close-modal:focus {
-            color: #bbb;
-            text-decoration: none;
-        }
-        .image-caption {
-            margin-top: 0.5rem;
-            text-align: center;
-            font-size: 0.875rem;
-            color: #64748b;
-            font-style: italic;
-        }
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 */
-            height: 0;
-            overflow: hidden;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        @keyframes fadeIn {
-            from {opacity: 0}
-            to {opacity: 1}
-        }
-        @keyframes zoomIn {
-            from {transform: scale(0.8)}
-            to {transform: scale(1)}
-        }
-        .limited-height {
-            max-height: 300px; /* Establece la altura máxima que desees */
-            width: auto;       /* Hace que el ancho se ajuste para mantener la proporción */
-            object-fit: contain; /* Asegura que la imagen cubra el área sin deformarse */
-            display: block;    /* Ayuda a centrar la imagen si usas márgenes automáticos */
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .limited-height-200 {
-            max-height: 150px; /* Establece la altura máxima que desees */
-            width: auto;       /* Hace que el ancho se ajuste para mantener la proporción */
-            object-fit: contain; /* Asegura que la imagen cubra el área sin deformarse */
-            display: block;    /* Ayuda a centrar la imagen si usas márgenes automáticos */
-            margin-left: auto;
-            margin-right: auto;
-        }
-    </style>
-</head>
-<body class="flex flex-col min-h-full bg-slate-50">
-    <header class="bg-white shadow-md sticky top-0 z-40">
-      <div class="container mx-auto px-4">
-        <div class="flex justify-between items-center py-4">
-          <div class="flex items-center gap-3">
-        <a href="index.html" class="text-grey-700 flex items-center">
-          <i class="bi bi-robot text-2xl mr-3"></i>
-          <span class="font-bold text-xl">Tecnología y Digitalización</span>
-        </a>
+        <!DOCTYPE html>
+        <html lang="es">
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>UD1. Sistemas de Representación</title>
+            <script src="https://cdn.tailwindcss.com"></script>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+            <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 fill=%22currentColor%22 class=%22bi bi-robot%22 viewBox=%220 0 16 16%22><path d=%22M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5ZM3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.58 26.58 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.933.933 0 0 1-.765.935c-.845.147-2.34.346-4.235.346-1.895 0-3.39-.2-4.235-.346A.933.933 0 0 1 3 9.219V8.062Zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a24.767 24.767 0 0 1-1.871-.183.25.25 0 0 0-.217.068l-.92.9a.25.25 0 0 0 .169.434l.92-.9a25.25 25.25 0 0 0 1.942.183.25.25 0 0 0 .217-.068l.92-.9a.25.25 0 0 0-.17-.434l-.92.9a24.767 24.767 0 0 1-1.871-.183Z%22/><path d=%22M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1.5a2.5 2.5 0 0 0 2.5 2.5h9A2.5 2.5 0 0 0 15 13.5V12a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2V1.866ZM14 7.5V12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5Z%22/></svg>" type="image/svg+xml">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+            <style>
+
+                /* Estilo para la pestaña activa */
+                .tab-link.active {
+                    background-color: #3b82f6; /* bg-blue-500 */
+                    color: white;
+                }
+                /* Ocultar scrollbar en el contenedor principal pero permitir scroll */
+                .no-scrollbar::-webkit-scrollbar {
+                    display: none;
+                }
+                .no-scrollbar {
+                    -ms-overflow-style: none;  /* IE and Edge */
+                    scrollbar-width: none;  /* Firefox */
+                    /* Custom styles for smooth transition */
+
+                    }
+                .accordion-content {
+                    max-height: 0;
+                    overflow: hidden;
+                    transition: max-height 0.3s ease-out;
+
+                }
+            </style>
+            <link rel="stylesheet" href="style.css">
+
+            </head>
+
+            <body class=" font-sans text-gray-800">
+
+                <!-- Barra de navegación superior -->
+                <header class="bg-white shadow-md sticky top-0 z-40">
+                  <div class="container mx-auto px-4">
+                    <div class="flex justify-between items-center py-4">
+                      <div class="flex items-center gap-3">
+
+                        <a href="index.html" class="text-grey-700 flex items-center">
+                          <i class="bi bi-robot text-2xl mr-3"></i>
+                          <span class="font-bold text-xl">Tecnología y Digitalización</span>
+                      </a>
+
+                  </div>
+                  <div class="text-sm text-gray-500">
+                      <ol class="list-none p-0 inline-flex items-center">
+                        <li class="flex items-center">
+                          <a href="tyd2.html" class="hover:text-blue-600">2º ESO</a>
+                          <i class="bi bi-chevron-right mx-2 text-xs"></i>
+                      </li>
+                      <li class="flex items-center text-gray-700 font-semibold">
+                          <span>UD1. El Proceso Tecnológico</span>
+                      </li>
+                  </ol>
+              </div>
+          </div>
+      </div>
+  </header>
+
+  <div class="flex flex-col md:flex-row min-h-screen"> <!-- Contenedor principal Flex -->
+    <!-- Barra lateral de navegación -->
+    <aside id="sidebar" class="w-full md:w-64 bg-white shadow-lg p-4 md:h-screen md:sticky top-16">
+        <div class="flex items-center pb-4 border-b">
+
+            <h1 class="text-xl font-bold text-gray-700">UD1. El Proceso Tecnológico</h1>
         </div>
-        <div class="text-sm text-gray-500">
-            <ol class="list-none p-0 inline-flex items-center">
-              <li class="flex items-center">
-                <a href="tyd2.html" class="hover:text-blue-600">2º ESO</a>
-                <i class="bi bi-chevron-right mx-2 text-xs"></i>
-            </li>
-            <li class="flex items-center text-gray-700 font-semibold">
-                <span>UD1. El Proceso Tecnológico</span>
-            </li>
-            </ol>
-        </div>
-        </div>
-    </div>
-</header>
+        <nav class="mt-4">
+            <ul class="">
+                <li><a href="#" class="tab-link" data-target="tab1">1. Qué es la Tecnología</a></li>
+                <li><a href="#" class="tab-link" data-target="tab2">2. Fases del Proceso Tecnológico</a></li>
+                <li><a href="#" class="tab-link" data-target="tab3">3. El Aula de Tecnología</a></li>
+                <li><a href="#" class="tab-link" data-target="tab4">4. Trabajar con Seguridad</a></li>
+                <li><a href="#" class="tab-link" data-target="tab5">5. La Señalización de Seguridad</a></li>
+                <li><a href="#" class="tab-link" data-target="tab6">6. Workshop Rules</a></li>
+                <li class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 rounded-md"><a href="#" class="tab-link" data-target="tab7">ACTIVIDADES</a></li>
+                <li class="bg-sky-100 border-l-4 border-sky-500 text-sky-800 rounded-md"><a href="#" class="tab-link" data-target="tab8">PROYECTO</a></li>
+                <li class="bg-lime-100 border-l-4 border-lime-500 text-lime-800 rounded-md"><a href="#" class="tab-link" data-target="tab9">EVALUACIÓN</a></li>
+            </ul>
+        </nav>
+    </aside>
 
-<main class="flex-grow">
-    <div class="container mx-auto p-4 md:p-8">
-        <div class="flex flex-col lg:flex-row gap-8">
-            <!-- Columna principal de contenido -->
-            <div class="w-full lg:w-3/4">
+    <!-- Contenido principal -->
+    <main class="flex-1 p-6 md:p-10">
+        <div id="main-content p-6">
+            <!-- Contenido de las Pestañas -->
+            <div id="tab1" class="tab-content">
+                <section id="introduccion" class="">
+                   <h2 class="text-3xl font-bold text-slate-600 mb-6">1. La tecnología y el proceso tecnológico</h2>
 
-                <section id="tecnologia" class="section-card">
-                    <h2 class="text-3xl font-bold text-slate-600 mb-6">1. La tecnología y el proceso tecnológico</h2>
+                   <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_k7NhcSIzULTpC9Cdq6Y1n8ewm7e9V0xC7itqE6rMshEVpOBdh-2C5NCbfhxUZGcxrFzhbcxs6rp53TiAWMWApZ5pLmpjGJnA9otO_4za5FkV6N0Owj0Ui6yE6FOkR4Ko2XqcxPYaTA8/s1600/FasesProcesoTecnol%25C3%25B3gico.jpg" alt="Esquema de las fases del proceso tecnológico" class="float-right rounded-lg shadow-md ml-6 mb-4 float-image w-full sm:w-1/3 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105">
 
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_k7NhcSIzULTpC9Cdq6Y1n8ewm7e9V0xC7itqE6rMshEVpOBdh-2C5NCbfhxUZGcxrFzhbcxs6rp53TiAWMWApZ5pLmpjGJnA9otO_4za5FkV6N0Owj0Ui6yE6FOkR4Ko2XqcxPYaTA8/s1600/FasesProcesoTecnol%25C3%25B3gico.jpg" alt="Esquema de las fases del proceso tecnológico" class="float-right rounded-lg shadow-md ml-6 mb-4 float-image w-full sm:w-1/3 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105">
+                   <p class="mb-4 text-lg leading-relaxed">Desde los tiempos más antiguos, los seres humanos han utilizado distintos recursos para satisfacer sus necesidades. Antiguamente, algunas necesidades básicas como la <strong class="font-semibold text-indigo-700">alimentación</strong>, el <strong class="font-semibold text-indigo-700">vestido</strong> o la <strong class="font-semibold text-indigo-700">vivienda</strong> se cubrían aprovechando los medios que la naturaleza brindaba, de modo que los humanos cazaban y pescaban utilizando palos, piedras, cuerdas, etc., y habitaban en cuevas.</p>
+                   <p class="mb-4 text-lg leading-relaxed">Sin embargo, a lo largo del tiempo, las personas fueron aprendiendo a fabricar nuevas herramientas y máquinas para trabajar la tierra, elaborar nuevos tejidos o construir viviendas. Actualmente, también atendemos otras necesidades como viajar, disponer de medios de información y comunicación, disfrutar del tiempo libre, etc., cuya satisfacción nos hace la vida más cómoda y agradable.</p>
 
-                    <p class="mb-4 text-lg leading-relaxed">Desde los tiempos más antiguos, los seres humanos han utilizado distintos recursos para satisfacer sus necesidades. Antiguamente, algunas necesidades básicas como la <strong class="font-semibold text-indigo-700">alimentación</strong>, el <strong class="font-semibold text-indigo-700">vestido</strong> o la <strong class="font-semibold text-indigo-700">vivienda</strong> se cubrían aprovechando los medios que la naturaleza brindaba, de modo que los humanos cazaban y pescaban utilizando palos, piedras, cuerdas, etc., y habitaban en cuevas.</p>
-                    <p class="mb-4 text-lg leading-relaxed">Sin embargo, a lo largo del tiempo, las personas fueron aprendiendo a fabricar nuevas herramientas y máquinas para trabajar la tierra, elaborar nuevos tejidos o construir viviendas. Actualmente, también atendemos otras necesidades como viajar, disponer de medios de información y comunicación, disfrutar del tiempo libre, etc., cuya satisfacción nos hace la vida más cómoda y agradable.</p>
-
-                    <div class="my-6 p-5 bg-slate-50 border-l-4 border-indigo-500 rounded-r-lg">
-                        <p class="text-lg leading-relaxed"><strong class="font-semibold text-indigo-800">La tecnología</strong> es el conjunto de conocimientos teóricos y prácticos sobre el diseño, fabricación y uso de objetos que, debidamente ordenados y sistematizados, permiten a las personas satisfacer sus necesidades y, por tanto, mejorar sus condiciones de vida.</p>
-                    </div>
-
-                    <p class="mb-4 text-lg leading-relaxed">Así pues, la tecnología permite satisfacer las necesidades humanas. Sin embargo, al aplicar la tecnología, no se actúa de forma improvisada, sino que se procede de manera meditada y ordenada, es decir, siguiendo un determinado método de trabajo. Este método de trabajo se llama <strong class="font-semibold text-indigo-700">proceso tecnológico</strong>.</p>
-
-                    <div class="my-6 p-5 bg-slate-50 border-l-4 border-indigo-500 rounded-r-lg">
-                        <p class="text-lg leading-relaxed">El <strong class="font-semibold text-indigo-800">proceso tecnológico</strong> es el método de trabajo utilizado por la tecnología y consiste en la secuencia ordenada de pasos que se deben seguir para satisfacer una necesidad o resolver un problema.</p>
-                    </div>
-                    <h3 class="text-2xl font-semibold text-slate-700 mb-6">Los Objetivos de Desarrollo Sostenible</h3>
-                    <div class="my-8">
-                     <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/qtXuRvKNm3s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <p class="image-caption mt-2">ODS 12: Producción y consumos responsables.</p>
+                   <div class="my-6 p-5 bg-green-50 border-l-4 border-green-500 rounded-l-lg">
+                    <p class="text-lg leading-relaxed"><strong class="font-semibold text-indigo-800">La tecnología</strong> es el conjunto de conocimientos teóricos y prácticos sobre el diseño, fabricación y uso de objetos que, debidamente ordenados y sistematizados, permiten a las personas satisfacer sus necesidades y, por tanto, mejorar sus condiciones de vida.</p>
                 </div>
-                </section>
-                <section id="actividades1" class="section-card bg-green-50 border-green-200">
-                    <h2 class="text-3xl font-bold text-green-800 mb-6">Actividades: Tecnología y Proceso tecnológico</h2>
-                    <div class="space-y-4 text-slate-600 leading-relaxed text-lg">
-                        <ol class="list-decimal list-inside space-y-3">
-                            <li>Anota en tu cuaderno las definiciones de Tecnología y Proceso tecnológico.</li>
-                            <li>¿Cuál es el principal problema que aborda el video con respecto a la producción y el consumo actuales?</li>
-                            <li>¿Qué cantidad de comida desecha una persona promedio al año y qué problemas ambientales causa este desperdicio?</li>
-                            <li>¿Qué tipo de productos se recomiendan comprar para ayudar a mejorar los hábitos de consumo?</li>
-                            <li>¿Cómo se compara la huella material de los países desarrollados con la de los países más empobrecidos?</li>
-                            <li>¿Qué papel juegan las grandes empresas en la producción sostenible y qué directiva ha adoptado la Unión Europea al respecto?</li>
-                            <li>¿Qué acciones individuales se sugieren en el video para contribuir a una producción y consumo responsables?</li>
-                        </ol>
-                    </div>
-                </section>
 
-                <section id="fases" class="section-card">
-                    <h2 class="text-3xl font-bold text-slate-600 mb-6">2. Fases del proceso tecnológico</h2>
-                    <p class="mb-8 text-lg leading-relaxed">Los pasos o fases para resolver un problema son prácticamente siempre los mismos. ¡Vamos a verlos!</p>
+                <p class="mb-4 text-lg leading-relaxed">Así pues, la tecnología permite satisfacer las necesidades humanas. Sin embargo, al aplicar la tecnología, no se actúa de forma improvisada, sino que se procede de manera meditada y ordenada, es decir, siguiendo un determinado método de trabajo. Este método de trabajo se llama <strong class="font-semibold text-indigo-700">proceso tecnológico</strong>.</p>
 
-                    <div class="space-y-6">
-                        <div class="flex items-start gap-4 p-4 bg-slate-50 rounded-lg border">
-                            <div class="flex-shrink-0 bg-blue-100 text-blue-600 rounded-full p-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+                <div class="my-6 p-5 bg-green-50 border-l-4 border-green-500 rounded-l-lg">
+                    <p class="text-lg leading-relaxed">El <strong class="font-semibold text-indigo-800">proceso tecnológico</strong> es el método de trabajo utilizado por la tecnología y consiste en la secuencia ordenada de pasos que se deben seguir para satisfacer una necesidad o resolver un problema.</p>
+                </div>
+                <h3 class="text-2xl font-semibold text-slate-700 mb-6">Los Objetivos de Desarrollo Sostenible</h3>
+                <div class="my-8">
+                 <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/qtXuRvKNm3s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <p class="image-caption mt-2">ODS 12: Producción y consumos responsables.</p>
+            </div> 
+        </section>
+    </div>
+
+    <div id="tab2" class="tab-content">
+        <section id="fases" class="">
+            <h2 class="text-3xl font-bold text-slate-600 mb-6">2. Fases del proceso tecnológico</h2>
+            <p class="mb-8 text-lg leading-relaxed">Los pasos o fases para resolver un problema son prácticamente siempre los mismos. ¡Vamos a verlos!</p>
+
+            <div class="max-w-7xl mx-auto">
+                <div class="space-y-4">
+
+                    <!-- 1. Identificación de la Necesidad -->
+                    <div class="bg-white border border-slate-200 rounded-lg overflow-hidden">
+                        <button class="accordion-header w-full flex items-start gap-4 p-4 text-left">
+                            <div class="flex-shrink-0 bg-red-100 text-red-600 rounded-full p-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 S0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
                             </div>
-                            <div>
-                                <h3 class="font-bold text-xl text-slate-800">2.1. Detectar el Problema o Necesidad</h3>
-                                <p class="text-lg leading-relaxed mt-1">Antes de nada, hay que identificar perfectamente la necesidad que queremos satisfacer y definir qué condiciones debe cumplir nuestra solución.</p>
+                            <div class="flex-grow">
+                                <h3 class="font-bold text-xl text-slate-800">1. Identificación de la Necesidad</h3>
+                            </div>
+                            <div class="flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transition-transform duration-300 transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                            </div>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-4 pt-0 pl-16">
+                                <p class="text-lg leading-relaxed text-slate-600">Es el <strong>punto de partida</strong>. Consiste en <strong>observar nuestro entorno</strong> y detectar un problema cuya solución podría <strong>mejorar nuestra calidad de vida</strong>. No se trata solo de encontrar un fallo, sino de <strong>definirlo con claridad</strong>. Por ejemplo, la "necesidad de transportar libros sin que se estropeen y sin ocupar las manos" es un problema bien definido que llevó a la creación de la mochila. Aquí también se establecen los <strong>requisitos</strong>: debe ser económica, resistente, ligera, etc.</p>
                             </div>
                         </div>
-                        <div class="flex items-start gap-4 p-4 bg-slate-50 rounded-lg border">
-                            <div class="flex-shrink-0 bg-blue-100 text-blue-600 rounded-full p-3">
+                    </div>
+
+                    <!-- 2. Búsqueda de Información y Análisis -->
+                    <div class="bg-white border border-slate-200 rounded-lg overflow-hidden">
+                        <button class="accordion-header w-full flex items-start gap-4 p-4 text-left">
+                            <div class="flex-shrink-0 bg-orange-100 text-orange-600 rounded-full p-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                             </div>
-                            <div>
-                                <h3 class="font-bold text-xl text-slate-800">2.2. Búsqueda de Información</h3>
-                                <p class="text-lg leading-relaxed mt-1">¡A investigar! Buscamos información en libros, internet, o preguntando a expertos, para ver cómo se han resuelto problemas parecidos antes.</p>
+                            <div class="flex-grow">
+                                <h3 class="font-bold text-xl text-slate-800">2. Búsqueda de Información y Análisis</h3>
+                            </div>
+                            <div class="flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transition-transform duration-300 transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                            </div>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-4 pt-0 pl-16">
+                                 <p class="text-lg leading-relaxed text-slate-600">No reinventamos la rueda. <strong>Investigamos</strong> cómo se han resuelto problemas similares en el pasado, qué tecnologías existen y qué materiales podríamos usar. Las <strong>fuentes son variadas</strong>: internet, libros, catálogos, vídeos, o incluso desmontar un objeto parecido (<strong>ingeniería inversa</strong>) para entender cómo funciona. Esta fase nos da el <strong>conocimiento necesario</strong> para no empezar desde cero.</p>
                             </div>
                         </div>
-                        <div class="flex items-start gap-4 p-4 bg-slate-50 rounded-lg border">
-                            <div class="flex-shrink-0 bg-blue-100 text-blue-600 rounded-full p-3">
-                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
-                         </div>
-                         <div>
-                            <h3 class="font-bold text-xl text-slate-800">2.3. Diseño y Selección de Ideas</h3>
-                            <p class="text-lg leading-relaxed mt-1">¡La fase más creativa! Hacemos bocetos y dibujos de nuestras ideas. Después, elegimos la mejor y creamos los planos detallados: medidas, materiales, etc.</p>
+                    </div>
+                    
+                    <!-- 3. Diseño de las Ideas -->
+                    <div class="bg-white border border-slate-200 rounded-lg overflow-hidden">
+                        <button class="accordion-header w-full flex items-start gap-4 p-4 text-left">
+                             <div class="flex-shrink-0 bg-yellow-100 text-yellow-600 rounded-full p-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
+                            </div>
+                            <div class="flex-grow">
+                                <h3 class="font-bold text-xl text-slate-800">3. Diseño de las Ideas</h3>
+                            </div>
+                             <div class="flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transition-transform duration-300 transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                            </div>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-4 pt-0 pl-16">
+                                <p class="text-lg leading-relaxed text-slate-600 mb-4">¡La <strong>fase más creativa</strong>! Aquí se generan varias <strong>soluciones posibles</strong>. Primero, a través de <strong>bocetos</strong> (dibujos rápidos a mano alzada) para explorar diferentes formas y mecanismos. Luego, se elige la idea más prometedora y se desarrolla en <strong>planos técnicos</strong> más precisos (<strong>croquis acotados, vistas</strong>) que servirán como guía para la construcción.</p>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+                                    <img src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs3/159998549/original/4c734a24084707c460c74f86064ccfee362862c3/create-concept-ideation-product-design-sketches.jpg" alt="Bocetos de diseño" class="rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105 limited-height">
+                                    <img src="https://javigarciatec.files.wordpress.com/2009/11/croquis.jpg?w=460&h=479" alt="Plano técnico acotado" class="rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105 limited-height">
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="flex items-start gap-4 p-4 bg-slate-50 rounded-lg border">
-                        <div class="flex-shrink-0 bg-blue-100 text-blue-600 rounded-full p-3">
-                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                     </div>
-                     <div>
-                        <h3 class="font-bold text-xl text-slate-800">2.4. Ejecución y Construcción</h3>
-                        <p class="text-lg leading-relaxed mt-1">¡Manos a la obra! Siguiendo nuestro plan, construimos el objeto. Preparamos las herramientas y materiales y seguimos los pasos de forma ordenada.</p>
+
+                    <!-- 4. Planificación y Organización -->
+                    <div class="bg-white border border-slate-200 rounded-lg overflow-hidden">
+                        <button class="accordion-header w-full flex items-start gap-4 p-4 text-left">
+                            <div class="flex-shrink-0 bg-lime-100 text-lime-600 rounded-full p-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" /></svg>
+                            </div>
+                            <div class="flex-grow">
+                                <h3 class="font-bold text-xl text-slate-800">4. Planificación y Organización</h3>
+                            </div>
+                             <div class="flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transition-transform duration-300 transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                            </div>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-4 pt-0 pl-16">
+                                <p class="text-lg leading-relaxed text-slate-600">Antes de empezar a cortar o pegar, se elabora un <strong>plan de acción</strong>. Esto incluye crear una "<strong>hoja de procesos</strong>" con las tareas ordenadas, hacer una <strong>lista de las herramientas y materiales</strong> exactos que necesitaremos y <strong>repartir el trabajo</strong> si es un proyecto en equipo. Una buena planificación es clave para ser <strong>eficientes</strong> y evitar imprevistos.</p>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+                                   <img src="img/plan.png" alt="Diagrama de Gantt" class="rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105 limited-height">
+                                   <img src="https://www.cadena88.com/sites/default/files/content/nodes/kit-de-herramientas/image/77369/herramientas-de-carpinteria.jpg" alt="Herramientas organizadas" class="rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105 limited-height">
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <img src="img/plan.png" alt="Un aula de tecnología con mesas de trabajo y herramientas" class="float-left rounded-lg shadow-md mr-6 mb-4 float-image w-full sm:w-1/3 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105 limited-height-200">
-                </div>
-                <div class="flex items-start gap-4 p-4 bg-slate-50 rounded-lg border">
-                    <div class="flex-shrink-0 bg-blue-100 text-blue-600 rounded-full p-3">
-                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                 </div>
-                 <div>
-                    <h3 class="font-bold text-xl text-slate-800">2.5. Evaluación</h3>
-                    <p class="text-lg leading-relaxed mt-1">Comprobamos si nuestro invento funciona y resuelve el problema inicial. Si no es así, ¡no pasa nada! Volvemos atrás para ver qué podemos mejorar.</p>
-                </div>
-                </div>
-                </div>
-
-                <br>
-
-                <div class="space-y-6">
-                    <h3 class="text-2xl font-bold text-blue-700 mt-8 mb-4">Ejemplo: Construir un Portalápices</h3>
-                    <p class="mb-6 text-lg leading-relaxed">Para entenderlo mejor, sigamos todas las fases para construir un portalápices y mantener nuestros bolis y lápices ordenados.</p>
                     
-                    <img src="https://i.ytimg.com/vi/h4j_Tj9YVQg/maxresdefault.jpg" alt="Varios diseños de portalápices hechos con materiales reciclados" class="rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105 limited-height">
-                    <p class="image-caption">Varios diseños de portalápices hechos con materiales reciclados</p>
+                    <!-- 5. Construcción -->
+                    <div class="bg-white border border-slate-200 rounded-lg overflow-hidden">
+                        <button class="accordion-header w-full flex items-start gap-4 p-4 text-left">
+                            <div class="flex-shrink-0 bg-blue-100 text-blue-600 rounded-full p-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            </div>
+                            <div class="flex-grow">
+                                <h3 class="font-bold text-xl text-slate-800">5. Construcción</h3>
+                            </div>
+                             <div class="flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transition-transform duration-300 transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                            </div>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-4 pt-0 pl-16">
+                                <p class="text-lg leading-relaxed text-slate-600">¡Manos a la obra! Siguiendo los planos y la planificación, se fabrica el <strong>prototipo</strong>. Esta es la fase de <strong>ejecución material</strong>, donde medimos, cortamos, unimos, y ensamblamos las diferentes piezas para dar vida a nuestro diseño. Es crucial trabajar con <strong>precisión</strong> y, sobre todo, respetando las <strong>normas de seguridad</strong> del taller.</p>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+                                    <img src="https://sopenabarcelona.org/wp-content/uploads/elementor/thumbs/noticia_Tec1-qkca25acozavyyke1zlhstsq5grma699qdg1pk5ldc.jpg" alt="Persona construyendo un objeto" class="rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105 limited-height">
+                                    <img src="https://lh5.googleusercontent.com/proxy/l08qB2BoZ0RAgelKJPa53mJFmz_APixrl1IxIgv3oXKnGK95MRi6oaG89Qu-dbWQSjg_W-KmsmCBWwbZ9VDlwnumnkye3Fihfem3k0GBk9-1BLLvEDUe1YMX9raLlw" alt="Impresora 3D en funcionamiento" class="rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105 limited-height">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                    <p class="mb-4 text-lg leading-relaxed"><strong class="font-semibold text-indigo-700">3.1. Problema:</strong> Lápices, rotuladores y bolígrafos están siempre desordenados. ¡Necesitamos un sitio para guardarlos!</p>
-                    <p class="mb-4 text-lg leading-relaxed"><strong class="font-semibold text-indigo-700">3.2. Información:</strong> Miramos en tiendas, catálogos e internet para ver qué tipos de portalápices existen y coger ideas.</p>
-                    <p class="mb-4 text-lg leading-relaxed"><strong class="font-semibold text-indigo-700">3.3. Diseño:</strong> Dibujamos varios bocetos. Elegimos el más chulo y fácil de construir y hacemos los planos con las medidas exactas.</p>
-                    <p class="mb-4 text-lg leading-relaxed"><strong class="font-semibold text-indigo-700">3.4. Ejecución:</strong> Hacemos un plan de trabajo, preparamos la madera o el material que vayamos a usar, y ¡a construir!</p>
+                    <!-- 6. Verificación y Evaluación -->
+                    <div class="bg-white border border-slate-200 rounded-lg overflow-hidden">
+                        <button class="accordion-header w-full flex items-start gap-4 p-4 text-left">
+                            <div class="flex-shrink-0 bg-green-100 text-green-600 rounded-full p-3">
+                               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                           </div>
+                            <div class="flex-grow">
+                                <h3 class="font-bold text-xl text-slate-800">6. Verificación y Evaluación</h3>
+                            </div>
+                             <div class="flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transition-transform duration-300 transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                            </div>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-4 pt-0 pl-16">
+                                <p class="text-lg leading-relaxed text-slate-600">Una vez construido el objeto, hay que <strong>comprobar si funciona</strong>. Se somete a <strong>pruebas</strong> para ver si <strong>cumple los requisitos</strong> iniciales. ¿Es resistente? ¿Cumple su función? ¿Es seguro? Esta <strong>evaluación crítica</strong> nos permite <strong>detectar fallos</strong> y pensar en posibles <strong>mejoras</strong> para futuras versiones (<strong>iteración</strong>).</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 7. Divulgación y Memoria Técnica -->
+                    <div class="bg-white border border-slate-200 rounded-lg overflow-hidden">
+                        <button class="accordion-header w-full flex items-start gap-4 p-4 text-left">
+                            <div class="flex-shrink-0 bg-teal-100 text-teal-600 rounded-full p-3">
+                               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                           </div>
+                            <div class="flex-grow">
+                                <h3 class="font-bold text-xl text-slate-800">7. Divulgación y Memoria Técnica</h3>
+                            </div>
+                             <div class="flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transition-transform duration-300 transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                            </div>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-4 pt-0 pl-16">
+                                <p class="text-lg leading-relaxed text-slate-600">Un proyecto no está completo hasta que se <strong>comunica</strong>. Se redacta una "<strong>memoria técnica</strong>", un <strong>documento que recoge todo el proceso</strong> (planos, planificación, fotos, evaluación...). Además, se suele realizar una <strong>presentación</strong> para explicar el proyecto y compartir los conocimientos adquiridos con los demás.</p>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+                                    <img src="https://www.francescribalta.cat/images/stories/departaments/tecno/proj2.jpg" alt="Persona presentando un proyecto" class="rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105 limited-height">
+                                    <div class="video-container">
+                                        <iframe src="https://www.youtube.com/embed/yAE5KqRV890" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                    <blockquote class="my-6 border-l-4 border-slate-300 pl-4 italic text-slate-600 text-lg">
+                </div>
+            </div>
+        <!--
+        <br>
+
+        <div class="bg-yellow-50 border-yellow-500 border-l-4 rounded-lg p-6 md:p-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+
+                <div class="space-y-4">
+                    <h3 class="text-2xl font-bold text-slate-700">Ejemplo: Construir un Portalápices</h3>
+                    <p class="text-lg leading-relaxed">Para entenderlo mejor, sigamos todas las fases para construir un portalápápices y mantener nuestros bolis y lápices ordenados.</p>
+
+                    <div class="space-y-3 text-lg leading-relaxed pt-4">
+                        <p><strong class="font-semibold text-indigo-700">3.1. Problema:</strong> Lápices, rotuladores y bolígrafos están siempre desordenados. ¡Necesitamos un sitio para guardarlos!</p>
+                        <p><strong class="font-semibold text-indigo-700">3.2. Información:</strong> Miramos en tiendas, catálogos e internet para ver qué tipos de portalápices existen y coger ideas.</p>
+                        <p><strong class="font-semibold text-indigo-700">3.3. Diseño:</strong> Dibujamos varios bocetos. Elegimos el más chulo y fácil de construir y hacemos los planos con las medidas exactas.</p>
+                        <p><strong class="font-semibold text-indigo-700">3.4. Ejecución:</strong> Hacemos un plan de trabajo, preparamos la madera o el material que vayamos a usar, y ¡a construir!</p>
+                    </div>
+
+                    <blockquote class="my-4 border-l-4 border-slate-300 pl-4 italic text-slate-600 text-lg">
                         "Una vez terminado, se escribe la <strong class="font-semibold text-slate-800">memoria</strong>, un documento que explica todo el proceso: desde la idea inicial hasta la solución final. ¡Es como el diario de nuestro proyecto!"
                     </blockquote>
 
                     <p class="text-lg leading-relaxed"><strong class="font-semibold text-indigo-700">3.5. Evaluación:</strong> ¿El portalápices es estable? ¿Caben bien los lápices? Si todo está OK, ¡proyecto terminado con éxito!</p>
                 </div>
-                </section>
 
-                <section id="actividades2" class="section-card bg-green-50 border-green-200">
-                    <h2 class="text-3xl font-bold text-green-800 mb-6">Actividades: Fases del Proceso tecnológico</h2>
-                    <div class="space-y-4 text-slate-600 leading-relaxed text-lg">
-                        <ol class="list-decimal list-inside space-y-3">
-                            <li>
-                                Describe al menos una necesidad que satisface cada uno de los siguientes productos:
-                                <ul class="list-disc list-inside ml-6 mt-2">
-                                    <li>a) Aparato de radio</li>
-                                    <li>b) Plano de una ciudad</li>
-                                    <li>c) Carretilla</li>
-                                    <li>d) Aguja de coser</li>
-                                    <li>e) Pendientes</li>
-                                    <li>f) Zapatos</li>
-                                </ul>
-                            </li>
-                            <li>
-                                Relaciona cada una de las siguientes actividades con la fuente de información correspondiente: 
-                                <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-                                    <div class="">
-                                        <h3 class="font-semibold text-slate-700">ACTIVIDADES</h3>
-                                        <ul class="list-disc list-inside mt-2">
-                                            <li>Reparar una estufa eléctrica</li>
-                                            <li>Cocinar una dorada a la sal</li>
-                                            <li>Planificar un itinerario turístico</li>
-                                            <li>Construir una maqueta de la torre Eiffel</li>
-                                            <li>Efectuar el montaje de una silla en kit</li>
-                                        </ul>
-                                        
-                                    </div>
-                                    <div class="">
-                                        <h3 class="font-semibold text-slate-700">FUENTE DE INFORMACIÓN</h3>
-                                        <ul class="list-disc list-inside mt-2">
-                                            <li>Seguir el manual de instrucciones</li>
-                                            <li>Preguntar a un electricista</li>
-                                            <li>Consultar un recetario de cocina</li>
-                                            <li>Visitar una agencia de viajes</li>
-                                            <li>Entrar en <a href="http://www.tour-eiffel.fr" class="text-blue-600 hover:underline" target="_blank">http://www.tour-eiffel.fr</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            
-                            <li>
-                                Describe ordenadamente las operaciones que se han de realizar para construir, en un tablero contrachapado, el juego de tangram de la figura:
-                                <img src="https://ayudatecnia.com/wp-content/uploads/2019/12/tangram-mejor-juego-estimulacion-cognitiva.jpg" alt="Tangram" class="rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105 limited-height">
-                            </li>
-                            <li>
-                                Enumera y describe con tus palabras las fases del proceso tecnológico.
-                                
-                            </li>
+                <div>
+                    <img src="https://i.ytimg.com/vi/h4j_Tj9YVQg/maxresdefault.jpg" alt="Varios diseños de portalápices hechos con materiales reciclados" class="rounded-lg shadow-md expandable-image cursor-pointer transition-transform duration-300 hover:scale-105">
+                    <p class="text-center text-sm text-slate-500 mt-2">Varios diseños de portalápices hechos con materiales reciclados.</p>
+                </div>
 
-                        </ol>
-                    </div>
-                </section>
+            </div>
+        </div>
+        -->
+    </section>
+</div>
 
+<div id="tab3" class="tab-content">
+    <section id="aula" class="">
+        <h2 class="text-3xl font-bold text-slate-600 mb-6">3. El Aula de Tecnología</h2>
+        <div class="space-y-6 text-slate-600 leading-relaxed text-lg">
+            <p class="mb-4">El <strong class="font-semibold text-indigo-700">aula de Tecnología</strong> es nuestro laboratorio de ideas. Es un espacio especial, diferente al resto de clases, que suele estar dividido en tres zonas:</p>
+            <ul class="list-none space-y-4">
+                <li class="flex items-center gap-3"><span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">1</span> <strong class="font-semibold">Zona de diseño:</strong> Donde pensamos, dibujamos y planificamos.</li>
+                <li class="flex items-center gap-3"><span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">2</span> <strong class="font-semibold">Zona de ejecución:</strong> El taller, donde construimos nuestros proyectos.</li>
+                <li class="flex items-center gap-3"><span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">3</span> <strong class="font-semibold">Zona de almacén:</strong> Donde guardamos materiales y herramientas.</li>
 
-                <section id="aula" class="section-card">
-                    <h2 class="text-3xl font-bold text-slate-600 mb-6">3. El Aula de Tecnología</h2>
-                    <div class="space-y-6 text-slate-600 leading-relaxed text-lg">
-                        <p class="mb-4">El <strong class="font-semibold text-indigo-700">aula de Tecnología</strong> es nuestro laboratorio de ideas. Es un espacio especial, diferente al resto de clases, que suele estar dividido en tres zonas:</p>
-                        <ul class="list-none space-y-4">
-                            <li class="flex items-center gap-3"><span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">1</span> <strong class="font-semibold">Zona de diseño:</strong> Donde pensamos, dibujamos y planificamos.</li>
-                            <li class="flex items-center gap-3"><span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">2</span> <strong class="font-semibold">Zona de ejecución:</strong> El taller, donde construimos nuestros proyectos.</li>
-                             <li class="flex items-center gap-3"><span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">3</span> <strong class="font-semibold">Zona de almacén:</strong> Donde guardamos materiales y herramientas.</li>
-                            
-                        </ul>
-                        <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-                            <div class="text-center">
-                                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgvrDJ49eyyx0XF2rTrMZ4JJ06jEy6yQ3OU27ac-fnsNFJnCGrCE4ETchoT0M4lsaeDdgVdNJnlL8rIDhMaIRAndo2zCSOghouk-H5nJDO8M_DpJ1OXwf37gOPJKNcX61BpLx0QPf7GpN8N/s500/libreria.jpeg" alt="Un aula de tecnología con mesas de trabajo y herramientas" class="mx-auto rounded-lg shadow-md mb-4 w-full max-w-xs expandable-image cursor-pointer transition-transform duration-300 hover:scale-105">
-                                <p class="image-caption">Taller de tecnología</p>
-                            </div>
-                            <div class="text-center">
-                                <img src="img/taller.png" alt="Un plano de la distribución de un taller de tecnología" class="mx-auto rounded-lg shadow-md mb-4 w-full max-w-xs expandable-image cursor-pointer transition-transform duration-300 hover:scale-105">
-                                <p class="image-caption">Distribución del taller</p>
-                            </div>
-                        </div>
-                        <h3 class="text-2xl font-bold text-blue-700 mt-8 mb-4">Workshop Tools</h3>
-                                     <p class="mb-6">
-                                         Tools allow us to transform materials. It is essential to know them well, use them for the appropriate task, and keep them in good condition. They are classified according to the operation they perform.
-                                     </p>
-                                     <div class="space-y-4">
-                                         <p><strong>- Measuring and marking:</strong> Tape measure, ruler, square, compass.</p>
-                                         <p><strong>- Cutting and sawing:</strong> Scissors, utility knife, fretsaw, hacksaw.</p>
-                                         <p><strong>- Drilling and boring:</strong> Drill press, brace, auger.</p>
-                                         <p><strong>- Filing and finishing:</strong> Files, rasps, sandpaper.</p>
-                                         <p><strong>- Clamping:</strong> Vise, clamps, pliers.</p>
-                                         <p><strong>- Striking:</strong> Ball-peen hammer, cross-peen hammer, mallet.</p>
-                                         <p><strong>- Joining:</strong> Screwdrivers, wrenches, hot glue gun.</p>
-                                     </div>
-                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhX6v85LtX6YSNd0bD9vIjrw4G2Gwnu00f9GRR3Mgrgg8gGV3ZnVgdKuG_knZV07SEMi6ly91Pg3_EVppHq6rso1lojgIlSGRl37Y5ZpukZFdg3tNyCFqyTadKqWVGeygs2weE1_SEPuE4/s1600/Taller.jpg" alt="Collage de herramientas de un taller de tecnología" class="rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105 limited-height">
-                        <p class="image-caption">Collage de herramientas de un taller de tecnología</p>
-                    </div>
-                </section>
+            </ul>
+            <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                <div class="text-center">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgvrDJ49eyyx0XF2rTrMZ4JJ06jEy6yQ3OU27ac-fnsNFJnCGrCE4ETchoT0M4lsaeDdgVdNJnlL8rIDhMaIRAndo2zCSOghouk-H5nJDO8M_DpJ1OXwf37gOPJKNcX61BpLx0QPf7GpN8N/s500/libreria.jpeg" alt="Un aula de tecnología con mesas de trabajo y herramientas" class="mx-auto rounded-lg shadow-md mb-4 w-full max-w-xs expandable-image cursor-pointer transition-transform duration-300 hover:scale-105">
+                    <p class="image-caption">Taller de tecnología</p>
+                </div>
+                <div class="text-center">
+                    <img src="img/taller.png" alt="Un plano de la distribución de un taller de tecnología" class="mx-auto rounded-lg shadow-md mb-4 w-full max-w-xs expandable-image cursor-pointer transition-transform duration-300 hover:scale-105">
+                    <p class="image-caption">Distribución del taller</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-sky-50 border-l-4 border-sky-500 rounded-lg p-6">
+                <div class="space-y-4">
 
-                <section id="actividades2" class="section-card bg-green-50 border-green-200">
-                    <h2 class="text-3xl font-bold text-green-800 mb-6">Activity: Workshop Tools</h2>
-                    <div class="space-y-4 text-slate-600 leading-relaxed text-lg">
-                        <ol class="list-decimal list-inside space-y-3">
-                            <li>
-                                Draw and label each of the tools from the list in your notebook, grouping them by their corresponding category.
-                                <img src="img/tools.png" alt="Collage de herramientas de un taller de tecnología" class="rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105 limited-height">
-                            </li>
+                    <h3 class="text-2xl font-bold text-slate-700 mt-8 mb-4">Workshop Tools</h3>
+                    <p class="mb-6">
+                     Tools allow us to transform materials. It is essential to know them well, use them for the appropriate task, and keep them in good condition. They are classified according to the operation they perform.
+                 </p>
+                 <div class="space-y-4">
+                     <p><strong>- Measuring and marking:</strong> Tape measure, ruler, square, compass.</p>
+                     <p><strong>- Cutting and sawing:</strong> Scissors, utility knife, fretsaw, hacksaw.</p>
+                     <p><strong>- Drilling and boring:</strong> Drill press, brace, auger.</p>
+                     <p><strong>- Filing and finishing:</strong> Files, rasps, sandpaper.</p>
+                     <p><strong>- Clamping:</strong> Vise, clamps, pliers.</p>
+                     <p><strong>- Striking:</strong> Ball-peen hammer, cross-peen hammer, mallet.</p>
+                     <p><strong>- Joining:</strong> Screwdrivers, wrenches, hot glue gun.</p>
+                 </div>
+             </div>
+             <div class="space-y-4">
+                 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhX6v85LtX6YSNd0bD9vIjrw4G2Gwnu00f9GRR3Mgrgg8gGV3ZnVgdKuG_knZV07SEMi6ly91Pg3_EVppHq6rso1lojgIlSGRl37Y5ZpukZFdg3tNyCFqyTadKqWVGeygs2weE1_SEPuE4/s1600/Taller.jpg" alt="Collage de herramientas de un taller de tecnología" class="rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105 limited-height">
+                 <p class="image-caption">Collage de herramientas de un taller de tecnología</p>
+             </div>
+         </div>
+     </div>
+ </div>
+</section>
+</div>
 
-                        </ol>
-                    </div>
-                </section>
+<div id="tab4" class="tab-content">
+    <section id="normas" class="">
+        <h2 class="text-3xl font-bold text-slate-600 mb-6">4. Trabajar con Seguridad</h2>
+        <p class="mb-6 text-lg leading-relaxed">En el taller usamos herramientas y máquinas, por eso es súper importante respetar siempre las normas para evitar accidentes.</p>
 
-                <section id="normas" class="section-card">
-                    <h2 class="text-3xl font-bold text-slate-600 mb-6">4. Trabajar con Seguridad</h2>
-                    <p class="mb-6 text-lg leading-relaxed">En el taller usamos herramientas y máquinas, por eso es súper importante respetar siempre las normas para evitar accidentes.</p>
-                    
-                    <h3 class="text-2xl font-bold text-blue-700 mt-8 mb-4">Conoce los riesgos del trabajo en el taller</h3>
-                    <div class="text-lg leading-relaxed space-y-4 text-slate-700">
-                        <p>
-                            En el aula taller de tecnología, como en cualquier centro de trabajo productivo, se acometen una serie de tareas que conllevan riesgos. Para prevenir dichos riesgos, es fundamental:
-                        </p>
-                        <ul class="list-disc list-inside space-y-2 mb-4">
-                            <li>Conocer los <strong>peligros</strong> del manejo incorrecto de cada herramienta.</li>
-                            <li>Aplicar sus <strong>normas de uso</strong> y de cada área del taller.</li>
-                            <li>Conservar la calma y conocer el <strong>procedimiento correcto de actuación</strong> ante un accidente.</li>
-                        </ul>
-                        <p>
-                            Los principales riesgos que existen en el taller de tecnología son:
-                        </p>
-                        <ul class="space-y-4">
-                            <li>
-                                <p><strong>Riesgos de origen mecánico,</strong> asociados con aquellas actividades que pueden producir heridas, como <strong>cortes, pinchazos o golpes</strong> producidos por una manipulación descuidada de las herramientas. En muy raras ocasiones pueden producirse <strong>explosiones</strong> cuando se emplea maquinaria a presión.</p>
-                                <p class="mt-2 pl-4 border-l-4 border-sky-200">Has de prestar mucha atención y seguir al pie de la letra las instrucciones del profesorado cuando manipules herramientas de corte, como las sierras o el cúter, y las taladradoras; también al utilizar herramientas de golpeo, como martillos o mazas.</p>
-                            </li>
-                            <li>
-                                <strong>Riesgos de origen eléctrico,</strong> producidos al tocar instalaciones eléctricas o cables en funcionamiento. Una batería de poco voltaje no conlleva ningún tipo de riesgo, pero una fuente de alimentación puede provocar choques eléctricos con daños que van desde quemaduras leves hasta la muerte por electrocución.
-                            </li>
-                            <li>
-                                <p>Otros riesgos, que pueden dar lugar a lesiones menores, como:</p>
-                                <ul class="list-disc list-inside space-y-2 mt-2 ml-6">
-                                    <li><strong>Daños posturales</strong> mientras se realiza una tarea o derivados de la manipulación de cargas pesadas.</li>
-                                    <li>Accidentes provocados por <strong>resbalones o tropiezos</strong> con material descolocado.</li>
-                                    <li><strong>Leve sordera</strong> al manejar una herramienta ruidosa.</li>
-                                    <li><strong>Inhalación o contacto</strong> con sustancias tóxicas o corrosivas.</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <h3 class="text-2xl font-bold text-blue-700 mt-8 mb-4">Reduce los riesgos en el taller</h3>
-                    <div class="text-lg leading-relaxed space-y-4 text-slate-700">
-                        <p>
-                            Para disminuir los riesgos, se pueden aplicar diferentes medidas:
-                        </p>
-                        <ul class="list-disc list-inside space-y-3">
-                            <li><strong>Organización.</strong> Para evitar desplazamientos innecesarios en el taller es obligatorio conocer las mesas de trabajo y su entorno.</li>
-                            <li><strong>Conocimiento de herramientas.</strong> Nunca se ha de manejar una herramienta cuyos riesgos se ignoren.</li>
-                            <li><strong>Actitudes.</strong> En el taller se debe mantener una actitud tranquila y llevar una vestimenta adecuada: recoger el pelo largo en una coleta, no vestir abrigos o chaquetas, no jugar ni correr y no distraer a otras personas que estén manejando una herramienta.</li>
-                            <li><strong>Prevención.</strong> El empleo de gafas y guantes de trabajo es obligatorio. Las herramientas han de usarse siempre para el propósito para el que se han diseñado y siempre bajo la supervisión del profesorado.</li>
-                            <li><strong>Mantenimiento</strong> y limpieza del taller y de las herramientas.</li>
-                        </ul>
-                    </div>
-                    
-                </section>
-
-                <section id="actividades3" class="section-card bg-green-50 border-green-200">
-                    <h2 class="text-3xl font-bold text-green-800 mb-6">Actividades: Trabajar con Seguridad</h2>
-                    <div class="space-y-4 text-slate-600 leading-relaxed text-lg">
-                        <ol class="list-decimal list-inside space-y-3">
-                            <li>
-                                Observa con atención la imagen del taller que se proyecta en la pizarra. Parece que hoy nadie se ha preocupado por la seguridad. En grupos de 4, identificad todos los peligros y situaciones de riesgo que podáis encontrar. ¿Qué podría salir mal? ¡Vamos a descubrirlo juntos!
-                                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBHXEa3yQnl6OsPD_-vmJEOWnq7wcPa5MSPbHvDl1HSzAow1pWN8uePZgSy0yuXJuE4xUGDB4rCSDn93V-gQbMgNG3ozRsqbbq5bhXJSaM82XIbeCntEn_09257TOUPILOGsi1oHbvanY/s1600/SAM_1088.jpg" alt="Taller desordenado" class="rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105 limited-height">
-                            </li>
-
-                        </ol>
-                    </div>
-                </section>
-
-                <section id="señales" class="section-card">
-                    <h2 class="text-3xl font-bold text-slate-600 mb-6">5. La Señalización de Seguridad</h2>
-                    
-                    <div class="text-lg leading-relaxed space-y-4 text-slate-700">
-                        <p>
-                            Disponer de elementos de señalización en un taller es una de las mejores formas de prevención. Las señales recuerdan los riesgos derivados del trabajo y evitan accidentes. Existe una terminología estándar sobre los símbolos empleados que todo estudiante debe conocer. Los tipos de señales son:
-                        </p>
-                        <ul class="list-disc list-inside space-y-3 mb-6">
-                            <li><strong>De advertencia.</strong> Son triangulares, de fondo amarillo y pictograma negro. Indican situaciones de peligro potencial que pueden producir daños irreversibles en las personas.</li>
-                            <li><strong>De prohibición.</strong> Son redondas, formadas por un anillo exterior rojo y un círculo interior blanco. El color más habitual para el pictograma de prohibición es el negro, aunque en ocasiones se usa además el rojo. Indican qué tipo de acciones nunca deben llevarse a cabo.</li>
-                            <li><strong>De obligación.</strong> Son redondas de color azul y pictograma blanco. Fuerzan al cumplimiento de una determinada acción o norma.</li>
-                            <li><strong>De información.</strong> Son cuadradas o rectangulares, de color azul y pictograma blanco. En ocasiones, el pictograma está sobre fondo blanco, en cuyo caso su color sería negro.</li>
-                            <li><strong>De lucha contra incendios.</strong> Son cuadradas, de color rojo y con el pictograma en blanco. Indican la situación de mangueras, extintores, etc.</li>
-                            <li><strong>De información de emergencia.</strong> Son cuadradas o rectangulares, de fondo verde y pictograma blanco. Indican salidas de emergencia, puestos de socorro, etc.</li>
-                            <li><strong>De peligro.</strong> Negras y rojas destacando la palabra «Danger» o «Peligro» y con un espacio en blanco para describir el riesgo en su interior.</li>
-                        </ul>
-                        <p>
-                            Los colores son muy importantes para identificar el grado de peligro. Los más empleados son:
-                        </p>
-                        <ul class="list-disc list-inside space-y-3">
-                            <li><strong>Color rojo.</strong> Para prohibición o para resaltar una situación de peligro.</li>
-                            <li><strong>Color amarillo.</strong> Para indicar un riesgo.</li>
-                            <li><strong>Color azul.</strong> Para indicar una obligación o una recomendación.</li>
-                            <li><strong>Color verde.</strong> Para indicar una información.</li>
-                        </ul>
-                    </div>
-                    <img src="https://technologynatura.wordpress.com/wp-content/uploads/2014/11/0e8f2-sec3b1ales.jpg" alt="Señalización de seguridad y salud en el trabajo" class="rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105 limited-height">
-                    <p class="image-caption">Señalización de seguridad y salud en el trabajo</p>
-                </section>
-
-                <section id="actividades3" class="section-card bg-green-50 border-green-200">
-                    <h2 class="text-3xl font-bold text-green-800 mb-6">Actividades: La Señalización de Seguridad</h2>
-                    <div class="space-y-4 text-slate-600 leading-relaxed text-lg">
-                        <ol class="list-decimal list-inside space-y-3">
-                            <li> Ahora os convertiréis en expertos en seguridad. Cada equipo recibirá un riesgo específico que podemos encontrar en el taller (cortes, riesgo eléctrico, caídas, etc.). Vuestra misión será crear un póster informativo y visual en una cartulina para concienciar sobre ese peligro. El póster debe incluir:
-                                </p>
-                                <ol class="list-disc list-inside space-y-3">
-                                   <li>El nombre del riesgo escrito de forma clara y grande.</li>
-                                    <li>La señal de advertencia que le corresponde (podéis dibujarla o pegar la que os daremos).</li>
-                                    <li>Tres normas básicas y claras para prevenir ese riesgo.</li>
-                                    <li>La señal de obligación más importante para evitarlo (por ejemplo, si el riesgo es de cortes, la señal de 'usar guantes').</li>
-                                </ol>
-                            </li>
-
-                        </ol>
-                    </div>
-                </section>
-
-                <section id="normastaller" class="section-card">
-                    <h2 class="text-3xl font-bold text-slate-600 mb-6">6. Workshop Rules 📜</h2>
-
-            <ul class="space-y-6">
-                <!-- Regla 1: Safety First -->
-                <li class="flex items-start space-x-4 p-4 bg-blue-50 rounded-xl border border-blue-200">
-                    <span class="text-3xl">👓</span>
-                    <div>
-                        <h3 class="font-bold text-lg text-blue-900">Safety First</h3>
-                        <p class="text-gray-700 mt-1">Always wear safety goggles when using tools or machinery. No exceptions.</p>
-                    </div>
+        <h3 class="text-2xl font-bold text-slate-700 mt-8 mb-4">Conoce los riesgos del trabajo en el taller</h3>
+        <div class="text-lg leading-relaxed space-y-4 text-slate-700">
+            <p>
+                En el aula taller de tecnología, como en cualquier centro de trabajo productivo, se acometen una serie de tareas que conllevan riesgos. Para prevenir dichos riesgos, es fundamental:
+            </p>
+            <ul class="list-disc list-inside space-y-2 mb-4">
+                <li>Conocer los <strong>peligros</strong> del manejo incorrecto de cada herramienta.</li>
+                <li>Aplicar sus <strong>normas de uso</strong> y de cada área del taller.</li>
+                <li>Conservar la calma y conocer el <strong>procedimiento correcto de actuación</strong> ante un accidente.</li>
+            </ul>
+            <p>
+                Los principales riesgos que existen en el taller de tecnología son:
+            </p>
+            <ul class="space-y-4 bg-red-50 border-l-4 border-red-400 p-6 rounded-lg">
+                <li>
+                    <p><strong>Riesgos de origen mecánico,</strong> asociados con aquellas actividades que pueden producir heridas, como <strong>cortes, pinchazos o golpes</strong> producidos por una manipulación descuidada de las herramientas. En muy raras ocasiones pueden producirse <strong>explosiones</strong> cuando se emplea maquinaria a presión.</p>
+                    <p class="mt-2 pl-4 bg-yellow-100 italic rounded-lg p-6 text-slate-600">Has de prestar mucha atención y seguir al pie de la letra las instrucciones del profesorado cuando manipules herramientas de corte, como las sierras o el cúter, y las taladradoras; también al utilizar herramientas de golpeo, como martillos o mazas.</p>
                 </li>
-
-                <!-- Regla 2: Listen and Learn -->
-                <li class="flex items-start space-x-4 p-4 bg-green-50 rounded-xl border border-green-200">
-                    <span class="text-3xl">🧑‍🏫</span>
-                    <div>
-                        <h3 class="font-bold text-lg text-green-900">Listen and Learn</h3>
-                        <p class="text-gray-700 mt-1">Pay close attention to the teacher's instructions and demonstrations before starting any task. If you're unsure, ask!</p>
-                    </div>
+                <li>
+                    <strong>Riesgos de origen eléctrico,</strong> producidos al tocar instalaciones eléctricas o cables en funcionamiento. Una batería de poco voltaje no conlleva ningún tipo de riesgo, pero una fuente de alimentación puede provocar choques eléctricos con daños que van desde quemaduras leves hasta la muerte por electrocución.
                 </li>
-
-                <!-- Regla 3: Respect the Tools -->
-                <li class="flex items-start space-x-4 p-4 bg-yellow-50 rounded-xl border border-yellow-200">
-                    <span class="text-3xl">🛠️</span>
-                    <div>
-                        <h3 class="font-bold text-lg text-yellow-900">Respect the Tools</h3>
-                        <p class="text-gray-700 mt-1">Handle all tools and equipment with care. Put them back in their correct place after you're done.</p>
-                    </div>
-                </li>
-
-                <!-- Regla 4: Clean as You Go -->
-                <li class="flex items-start space-x-4 p-4 bg-indigo-50 rounded-xl border border-indigo-200">
-                    <span class="text-3xl">🧹</span>
-                    <div>
-                        <h3 class="font-bold text-lg text-indigo-900">Clean as You Go</h3>
-                        <p class="text-gray-700 mt-1">Keep your workspace tidy. Clean up any scraps, dust, or materials when you finish a project or at the end of the class.</p>
-                    </div>
-                </li>
-                
-                <!-- Regla 5: No Horseplay -->
-                <li class="flex items-start space-x-4 p-4 bg-red-50 rounded-xl border border-red-200">
-                    <span class="text-3xl">🚫</span>
-                    <div>
-                        <h3 class="font-bold text-lg text-red-900">No Horseplay</h3>
-                        <p class="text-gray-700 mt-1">The workshop is not a playground. Running, pushing, or any kind of rough behavior is strictly forbidden to prevent accidents.</p>
-                    </div>
-                </li>
-
-                <!-- Regla 6: Focus on Your Work -->
-                <li class="flex items-start space-x-4 p-4 bg-purple-50 rounded-xl border border-purple-200">
-                    <span class="text-3xl">🎯</span>
-                    <div>
-                        <h3 class="font-bold text-lg text-purple-900">Focus on Your Work</h3>
-                        <p class="text-gray-700 mt-1">Stay on task and concentrate on your own project. Don't distract your classmates.</p>
-                    </div>
-                </li>
-
-                <!-- Regla 7: Ask for Help -->
-                <li class="flex items-start space-x-4 p-4 bg-orange-50 rounded-xl border border-orange-200">
-                    <span class="text-3xl">🙋</span>
-                    <div>
-                        <h3 class="font-bold text-lg text-orange-900">Ask for Help</h3>
-                        <p class="text-gray-700 mt-1">If a tool isn't working or you need assistance with a task, raise your hand and wait for the teacher. Don't try to fix things yourself.</p>
-                    </div>
-                </li>
-
-                <!-- Regla 8: Know the Emergency Plan -->
-                <li class="flex items-start space-x-4 p-4 bg-pink-50 rounded-xl border border-pink-200">
-                    <span class="text-3xl">🔥</span>
-                    <div>
-                        <h3 class="font-bold text-lg text-pink-900">Know the Emergency Plan</h3>
-                        <p class="text-gray-700 mt-1">Be aware of the location of the fire extinguisher, first-aid kit, and emergency exits.</p>
-                    </div>
-                </li>
-
-                <!-- Regla 9: Work Together -->
-                <li class="flex items-start space-x-4 p-4 bg-teal-50 rounded-xl border border-teal-200">
-                    <span class="text-3xl">🤝</span>
-                    <div>
-                        <h3 class="font-bold text-lg text-teal-900">Work Together</h3>
-                        <p class="text-gray-700 mt-1">When a project requires teamwork, communicate respectfully and share responsibilities fairly.</p>
-                    </div>
-                </li>
-
-                <!-- Regla 10: Be Creative and Have Fun! -->
-                <li class="flex items-start space-x-4 p-4 bg-lime-50 rounded-xl border border-lime-200">
-                    <span class="text-3xl">✨</span>
-                    <div>
-                        <h3 class="font-bold text-lg text-lime-900">Be Creative and Have Fun!</h3>
-                        <p class="text-gray-700 mt-1">Follow the rules, and you'll have the freedom to explore, innovate, and enjoy the process of creating.</p>
-                    </div>
+                <li>
+                    <p>Otros riesgos, que pueden dar lugar a lesiones menores, como:</p>
+                    <ul class="list-disc list-inside space-y-2 mt-2 ml-6">
+                        <li><strong>Daños posturales</strong> mientras se realiza una tarea o derivados de la manipulación de cargas pesadas.</li>
+                        <li>Accidentes provocados por <strong>resbalones o tropiezos</strong> con material descolocado.</li>
+                        <li><strong>Leve sordera</strong> al manejar una herramienta ruidosa.</li>
+                        <li><strong>Inhalación o contacto</strong> con sustancias tóxicas o corrosivas.</li>
+                    </ul>
                 </li>
             </ul>
+        </div>
 
-                </section>
+
+        <h3 class="text-2xl font-bold text-slate-700 mt-8 mb-4">Reduce los riesgos en el taller</h3>
+        <div class="text-lg leading-relaxed space-y-4 text-slate-700">
+            <p>
+                Para disminuir los riesgos, se pueden aplicar diferentes medidas:
+            </p>
+            <ul class="list-disc list-inside space-y-3 bg-lime-50 border-l-4 border-lime-400 rounded-lg p-6">
+                <li><strong>Organización.</strong> Para evitar desplazamientos innecesarios en el taller es obligatorio conocer las mesas de trabajo y su entorno.</li>
+                <li><strong>Conocimiento de herramientas.</strong> Nunca se ha de manejar una herramienta cuyos riesgos se ignoren.</li>
+                <li><strong>Actitudes.</strong> En el taller se debe mantener una actitud tranquila y llevar una vestimenta adecuada: recoger el pelo largo en una coleta, no vestir abrigos o chaquetas, no jugar ni correr y no distraer a otras personas que estén manejando una herramienta.</li>
+                <li><strong>Prevención.</strong> El empleo de gafas y guantes de trabajo es obligatorio. Las herramientas han de usarse siempre para el propósito para el que se han diseñado y siempre bajo la supervisión del profesorado.</li>
+                <li><strong>Mantenimiento</strong> y limpieza del taller y de las herramientas.</li>
+            </ul>
+        </div>
+    </section>
+</div>
+
+<div id="tab5" class="tab-content">
+    <section id="señales" class="">
+        <h2 class="text-3xl font-bold text-slate-600 mb-6">5. La Señalización de Seguridad</h2>
+
+        <div class="text-lg leading-relaxed space-y-4 text-slate-700">
+            <p>
+                Disponer de elementos de señalización en un taller es una de las mejores formas de prevención. Las señales recuerdan los riesgos derivados del trabajo y evitan accidentes. Existe una terminología estándar sobre los símbolos empleados que todo estudiante debe conocer. Los tipos de señales son:
+            </p>
+
+            <div class="space-y-4 my-6">
+
+                <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0 mt-1 flex justify-center items-center h-12 w-12 bg-yellow-400" style="clip-path: polygon(50% 0%, 100% 100%, 0% 100%);">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                    </div>
+                    <div>
+                        <strong class="font-bold text-yellow-800">De advertencia.</strong> Son triangulares, de fondo amarillo y pictograma negro. Indican situaciones de peligro potencial.
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0 mt-1 flex justify-center items-center h-12 w-12">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" /></svg>
+                    </div>
+                    <div>
+                        <strong class="font-bold text-red-700">De prohibición.</strong> Son redondas con un borde rojo. Indican qué tipo de acciones nunca deben llevarse a cabo.
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0 mt-1 flex justify-center items-center h-12 w-12 bg-blue-500 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    </div>
+                    <div>
+                        <strong class="font-bold text-blue-700">De obligación.</strong> Son redondas de color azul y pictograma blanco. Fuerzan al cumplimiento de una determinada acción o norma.
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0 mt-1 flex justify-center items-center h-12 w-12 bg-red-600 rounded-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 15.014 7 15.014 9c2-.5 4-1 4-1s-.5 4-2.357 9.657z" /><path stroke-linecap="round" stroke-linejoin="round" d="M7 12a5 5 0 015-5" /></svg>
+                    </div>
+                    <div>
+                        <strong class="font-bold text-red-700">De lucha contra incendios.</strong> Son cuadradas, de color rojo y con el pictograma en blanco. Indican la situación de mangueras, extintores, etc.
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0 mt-1 flex justify-center items-center h-12 w-12 bg-green-600 rounded-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" /></svg>
+                    </div>
+                    <div>
+                        <strong class="font-bold text-green-700">De información de emergencia.</strong> Son cuadradas o rectangulares, de fondo verde y pictograma blanco. Indican salidas de emergencia, puestos de socorro, etc.
+                    </div>
+                </div>
             </div>
 
-            <!-- Barra lateral de navegación -->
-            <aside class="w-full lg:w-1/4 lg:sticky top-24 self-start">
-                <div class="bg-white p-6 rounded-xl shadow-lg">
-                    <h3 class="font-bold text-lg text-slate-800 mb-4 border-b pb-2">Contenidos</h3>
-                    <nav>
-                        <ul class="space-y-2">
-                            <li><a href="#tecnologia" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-1-circle-fill mr-3 text-slate-400"></i>La tecnología</a></li>
-                            <li><a href="#fases" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-2-circle-fill mr-3 text-slate-400"></i>Fases del Proceso</a></li>
+            <p>
+                Los colores son muy importantes para identificar el grado de peligro. Los más empleados son:
+            </p>
 
-                            <li><a href="#aula" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-3-circle-fill mr-3 text-slate-400"></i>El Aula de Tecnología</a></li>
-                            <li><a href="#normas" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-4-circle-fill mr-3 text-slate-400"></i>Trabajar con Seguridad</a></li>
-                            <li><a href="#señales" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-5-circle-fill mr-3 text-slate-400"></i>La Señalización de Seguridad</a></li>
-                            <li><a href="#normastaller" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-6-circle-fill mr-3 text-slate-400"></i>Workshop Rules</a></li>
-                        </ul>
-                    </nav>
-                    
-                  <br> 
-                    <h3 class="font-bold text-lg text-slate-800 mb-4 border-b pb-2">¡Para saber más!</h3>
-                    <nav>
-                        <ul class="space-y-2">
-                            <li><a href="pdf/Fichas de refuerzo UD1.pdf" target="_blank" class="flex items-center text-slate-600 hover:text-red-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-file-play-fill mr-3 text-slate-400"></i>Actividades 1</a></li>
-                            <li><a href="pdf/Fichas de ampliacion UD1.pdf"  target="_blank" class="flex items-center text-slate-600 hover:text-red-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-file-play-fill mr-3 text-slate-400"></i>Actividades 2</a></li>
-                            <li><a href="tyd2ud1glosario.html" class="flex items-center text-slate-600 hover:text-red-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-file-code-fill mr-3 text-slate-400"></i>Glossary</a></li>
-                            <li><a href="tyd2ud1map.html" target="_blank" class="flex items-center text-slate-600 hover:text-red-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-diagram-3-fill mr-3 text-slate-400"></i>Mapa Mental</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </aside> 
+            <ul class="space-y-3">
+                <li class="flex items-center"><div class="flex-shrink-0 h-4 w-4 rounded-full bg-red-600 mr-3"></div><strong>Color rojo.</strong> Para prohibición o para resaltar una situación de peligro.</li>
+                <li class="flex items-center"><div class="flex-shrink-0 h-4 w-4 rounded-full bg-yellow-400 mr-3"></div><strong>Color amarillo.</strong> Para indicar un riesgo.</li>
+                <li class="flex items-center"><div class="flex-shrink-0 h-4 w-4 rounded-full bg-blue-500 mr-3"></div><strong>Color azul.</strong> Para indicar una obligación o una recomendación.</li>
+                <li class="flex items-center"><div class="flex-shrink-0 h-4 w-4 rounded-full bg-green-600 mr-3"></div><strong>Color verde.</strong> Para indicar una información de emergencia o seguridad.</li>
+            </ul>
         </div>
-    </div>
-</main>
+        <img src="https://technologynatura.wordpress.com/wp-content/uploads/2014/11/0e8f2-sec3b1ales.jpg" alt="Señalización de seguridad y salud en el trabajo" class="rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105 limited-height">
+        <p class="image-caption">Señalización de seguridad y salud en el trabajo</p>
+    </section>
+</div>
 
-<footer class="mt-auto py-4 bg-gray-800 text-white">
-  <div class="container mx-auto text-center">
+<div id="tab6" class="tab-content">
+    <section id="rules" class="">
+        <h2 class="text-3xl font-bold text-slate-600 mb-6">6. Workshop Rules 📜</h2>
+
+        <ul class="space-y-6">
+            <!-- Regla 1: Safety First -->
+            <li class="flex items-start space-x-4 p-4 bg-blue-50 rounded-xl border border-blue-200">
+                <span class="text-3xl">👓</span>
+                <div>
+                    <h3 class="font-bold text-lg text-blue-900">Safety First</h3>
+                    <p class="text-gray-700 mt-1">Always wear safety goggles when using tools or machinery. No exceptions.</p>
+                </div>
+            </li>
+
+            <!-- Regla 2: Listen and Learn -->
+            <li class="flex items-start space-x-4 p-4 bg-green-50 rounded-xl border border-green-200">
+                <span class="text-3xl">🧑‍🏫</span>
+                <div>
+                    <h3 class="font-bold text-lg text-green-900">Listen and Learn</h3>
+                    <p class="text-gray-700 mt-1">Pay close attention to the teacher's instructions and demonstrations before starting any task. If you're unsure, ask!</p>
+                </div>
+            </li>
+
+            <!-- Regla 3: Respect the Tools -->
+            <li class="flex items-start space-x-4 p-4 bg-yellow-50 rounded-xl border border-yellow-200">
+                <span class="text-3xl">🛠️</span>
+                <div>
+                    <h3 class="font-bold text-lg text-yellow-900">Respect the Tools</h3>
+                    <p class="text-gray-700 mt-1">Handle all tools and equipment with care. Put them back in their correct place after you're done.</p>
+                </div>
+            </li>
+
+            <!-- Regla 4: Clean as You Go -->
+            <li class="flex items-start space-x-4 p-4 bg-indigo-50 rounded-xl border border-indigo-200">
+                <span class="text-3xl">🧹</span>
+                <div>
+                    <h3 class="font-bold text-lg text-indigo-900">Clean as You Go</h3>
+                    <p class="text-gray-700 mt-1">Keep your workspace tidy. Clean up any scraps, dust, or materials when you finish a project or at the end of the class.</p>
+                </div>
+            </li>
+
+            <!-- Regla 5: No Horseplay -->
+            <li class="flex items-start space-x-4 p-4 bg-red-50 rounded-xl border border-red-200">
+                <span class="text-3xl">🚫</span>
+                <div>
+                    <h3 class="font-bold text-lg text-red-900">No Horseplay</h3>
+                    <p class="text-gray-700 mt-1">The workshop is not a playground. Running, pushing, or any kind of rough behavior is strictly forbidden to prevent accidents.</p>
+                </div>
+            </li>
+
+            <!-- Regla 6: Focus on Your Work -->
+            <li class="flex items-start space-x-4 p-4 bg-purple-50 rounded-xl border border-purple-200">
+                <span class="text-3xl">🎯</span>
+                <div>
+                    <h3 class="font-bold text-lg text-purple-900">Focus on Your Work</h3>
+                    <p class="text-gray-700 mt-1">Stay on task and concentrate on your own project. Don't distract your classmates.</p>
+                </div>
+            </li>
+
+            <!-- Regla 7: Ask for Help -->
+            <li class="flex items-start space-x-4 p-4 bg-orange-50 rounded-xl border border-orange-200">
+                <span class="text-3xl">🙋</span>
+                <div>
+                    <h3 class="font-bold text-lg text-orange-900">Ask for Help</h3>
+                    <p class="text-gray-700 mt-1">If a tool isn't working or you need assistance with a task, raise your hand and wait for the teacher. Don't try to fix things yourself.</p>
+                </div>
+            </li>
+
+            <!-- Regla 8: Know the Emergency Plan -->
+            <li class="flex items-start space-x-4 p-4 bg-pink-50 rounded-xl border border-pink-200">
+                <span class="text-3xl">🔥</span>
+                <div>
+                    <h3 class="font-bold text-lg text-pink-900">Know the Emergency Plan</h3>
+                    <p class="text-gray-700 mt-1">Be aware of the location of the fire extinguisher, first-aid kit, and emergency exits.</p>
+                </div>
+            </li>
+
+            <!-- Regla 9: Work Together -->
+            <li class="flex items-start space-x-4 p-4 bg-teal-50 rounded-xl border border-teal-200">
+                <span class="text-3xl">🤝</span>
+                <div>
+                    <h3 class="font-bold text-lg text-teal-900">Work Together</h3>
+                    <p class="text-gray-700 mt-1">When a project requires teamwork, communicate respectfully and share responsibilities fairly.</p>
+                </div>
+            </li>
+
+            <!-- Regla 10: Be Creative and Have Fun! -->
+            <li class="flex items-start space-x-4 p-4 bg-lime-50 rounded-xl border border-lime-200">
+                <span class="text-3xl">✨</span>
+                <div>
+                    <h3 class="font-bold text-lg text-lime-900">Be Creative and Have Fun!</h3>
+                    <p class="text-gray-700 mt-1">Follow the rules, and you'll have the freedom to explore, innovate, and enjoy the process of creating.</p>
+                </div>
+            </li>
+        </ul>
+    </section>
+</div>
+
+<div id="tab7" class="tab-content">
+    <section id="actividades1" class="border-green-200">
+        <div class="bg-yellow-100 p-4 rounded-lg border-l-4 border-yellow-500">
+            <h2 class="text-3xl font-bold text-slate-700 mb-2 italic">Actividad 1</h2>
+            <p class="mt-1 text-lg italic text-slate-600">Tecnología y Proceso Tecnológico</p>
+        </div>
+        <div class="space-y-4 text-slate-600 leading-relaxed text-lg p-5">
+            <ol class="list-decimal list-inside space-y-3">
+                <li>Anota en tu cuaderno las definiciones de Tecnología y Proceso tecnológico.</li>
+                <li>¿Cuál es el principal problema que aborda el video con respecto a la producción y el consumo actuales?</li>
+                <li>¿Qué cantidad de comida desecha una persona promedio al año y qué problemas ambientales causa este desperdicio?</li>
+                <li>¿Qué tipo de productos se recomiendan comprar para ayudar a mejorar los hábitos de consumo?</li>
+                <li>¿Cómo se compara la huella material de los países desarrollados con la de los países más empobrecidos?</li>
+                <li>¿Qué papel juegan las grandes empresas en la producción sostenible y qué directiva ha adoptado la Unión Europea al respecto?</li>
+                <li>¿Qué acciones individuales se sugieren en el video para contribuir a una producción y consumo responsables?</li>
+            </ol>
+        </div>
+    </section>
+
+    <section id="actividades2" class="border-green-200">
+        <div class="bg-green-100 p-4 rounded-lg border-l-4 border-green-500">
+            <h2 class="text-3xl font-bold text-slate-700 mb-2 italic">Actividad 2</h2>
+            <p class="mt-1 text-lg italic text-slate-600">Fases del Proceso Tecnológico</p>
+        </div>
+        <div class="space-y-4 text-slate-600 leading-relaxed text-lg p-5">
+            <ol class="list-decimal list-inside space-y-4">
+                <li>
+                    Describe al menos una necesidad que satisface cada uno de los siguientes productos:
+                    <ul class="list-disc list-inside ml-6 mt-2 space-y-1">
+                        <li>a) Aparato de radio</li>
+                        <li>b) Plano de una ciudad</li>
+                        <li>c) Carretilla</li>
+                        <li>d) Aguja de coser</li>
+                        <li>e) Pendientes</li>
+                        <li>f) Zapatos</li>
+                    </ul>
+                </li>
+                <li>
+                    Relaciona cada una de las siguientes actividades con la fuente de información correspondiente:
+                    <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                        <div>
+                            <h3 class="font-semibold text-slate-700">ACTIVIDADES</h3>
+                            <ul class="list-disc list-inside mt-2">
+                                <li>Reparar una estufa eléctrica</li>
+                                <li>Cocinar una dorada a la sal</li>
+                                <li>Planificar un itinerario turístico</li>
+                                <li>Construir una maqueta de la torre Eiffel</li>
+                                <li>Efectuar el montaje de una silla en kit</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-slate-700">FUENTE DE INFORMACIÓN</h3>
+                            <ul class="list-disc list-inside mt-2">
+                                <li>Seguir el manual de instrucciones</li>
+                                <li>Preguntar a un electricista</li>
+                                <li>Consultar un recetario de cocina</li>
+                                <li>Visitar una agencia de viajes</li>
+                                <li>Entrar en <a href="http://www.tour-eiffel.fr" class="text-blue-600 hover:underline" target="_blank">http://www.tour-eiffel.fr</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    Describe ordenadamente las operaciones que se han de realizar para construir, en un tablero contrachapado, el juego de tangram de la figura:
+                    <img src="https://ayudatecnia.com/wp-content/uploads/2019/12/tangram-mejor-juego-estimulacion-cognitiva.jpg" alt="Tangram" class="rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105 limited-height">
+                </li>
+                <li>
+                    Enumera y describe con tus palabras las fases del proceso tecnológico.
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <section id="actividades3" class="border-orange-200">
+        <div class="bg-orange-100 p-4 rounded-lg border-l-4 border-orange-500">
+            <h2 class="text-3xl font-bold text-slate-700 mb-2 italic">Activity 3</h2>
+            <p class="mt-1 text-lg italic text-slate-600">Workshop Tools</p>
+        </div>
+        <div class="space-y-4 text-slate-600 leading-relaxed text-lg p-5">
+            <ol class="list-decimal list-inside space-y-3">
+                <li>
+                    Draw and label each of the tools from the list in your notebook, grouping them by their corresponding category.
+                    <img src="img/tools.png" alt="Collage de herramientas de un taller de tecnología" class="rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105 limited-height">
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <section id="actividades4" class="border-red-200">
+        <div class="bg-sky-100 p-4 rounded-lg border-l-4 border-sky-500">
+            <h2 class="text-3xl font-bold text-slate-700 mb-2 italic">Actividad 4</h2>
+            <p class="mt-1 text-lg italic text-slate-600">Trabajar con Seguridad</p>
+        </div>
+        <div class="space-y-4 text-slate-600 leading-relaxed text-lg p-5">
+            <ol class="list-decimal list-inside space-y-3">
+                <li>
+                    Observa con atención la imagen del taller que se proyecta en la pizarra. Parece que hoy nadie se ha preocupado por la seguridad. En grupos de 4, identificad todos los peligros y situaciones de riesgo que podáis encontrar. ¿Qué podría salir mal? ¡Vamos a descubrirlo juntos!
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBHXEa3yQnl6OsPD_-vmJEOWnq7wcPa5MSPbHvDl1HSzAow1pWN8uePZgSy0yuXJuE4xUGDB4rCSDn93V-gQbMgNG3ozRsqbbq5bhXJSaM82XIbeCntEn_09257TOUPILOGsi1oHbvanY/s1600/SAM_1088.jpg" alt="Taller desordenado" class="rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105 limited-height">
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <section id="actividades5" class="border-red-200">
+        <div class="bg-red-100 p-4 rounded-lg border-l-4 border-red-500">
+            <h2 class="text-3xl font-bold text-slate-700 mb-2 italic">Actividad 5</h2>
+            <p class="mt-1 text-lg italic text-slate-600">La Señalización de Seguridad</p>
+        </div>
+        <div class="space-y-4 text-slate-600 leading-relaxed text-lg p-5">
+            <ol class="list-decimal list-inside space-y-3">
+                <li>
+                    Ahora os convertiréis en expertos en seguridad. Cada equipo recibirá un riesgo específico que podemos encontrar en el taller (cortes, riesgo eléctrico, caídas, etc.). Vuestra misión será crear un póster informativo y visual en una cartulina para concienciar sobre ese peligro. El póster debe incluir:
+                    <ul class="list-disc list-inside space-y-2 mt-4 ml-6">
+                        <li>El nombre del riesgo escrito de forma clara y grande.</li>
+                        <li>La señal de advertencia que le corresponde (podéis dibujarla o pegar la que os daremos).</li>
+                        <li>Tres normas básicas y claras para prevenir ese riesgo.</li>
+                        <li>La señal de obligación más importante para evitarlo (por ejemplo, si el riesgo es de cortes, la señal de 'usar guantes').</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+    </section>
+    <section id="actividades5" class="border-red-200">
+        <div class="bg-red-100 p-4 rounded-lg border-l-4 border-red-500">
+            <h2 class="text-3xl font-bold text-slate-700 mb-2 italic">Actividad 6</h2>
+            <p class="mt-1 text-lg italic text-slate-600">Proyecto</p>
+        </div>
+        <div class="space-y-4 text-slate-600 leading-relaxed text-lg p-5">
+            <a href="pdf/Fichas de ampliacion UD1.pdf" target="_blank">
+            <img src="img/proy.png" alt="Actividades" class="rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105 limited-height"></a>
+        </div>
+    </section>
+</div>
+
+<div id="tab8" class="tab-content">
+    <section id="proyectoEcoAmplificador" class="border-green-200">
+        <div class="bg-sky-100 p-4 rounded-lg border-l-4 border-sky-500">
+            <h2 class="text-3xl font-bold text-slate-700 mb-2 italic">Proyecto: Eco-Amplificador de Sonido</h2>
+            <p class="mt-1 text-lg italic text-slate-600">Diseño y Construcción con Materiales Reciclados</p>
+        </div>
+
+        <div class="space-y-4 text-slate-600 leading-relaxed text-lg p-5">
+
+            <h4 class="font-bold text-xl text-slate-700 mt-2 mb-2">Objetivo Principal</h4>
+            <p>Diseñar y construir un amplificador de sonido pasivo (sin electricidad) para un teléfono móvil, utilizando materiales reciclados. El proyecto servirá para aplicar de forma práctica todas las fases del proceso tecnológico en la creación de un objeto útil que funciona basándose en principios físicos de la acústica.</p>
+
+            <h4 class="font-bold text-xl text-slate-700 mt-6 mb-2">Descripción del Proyecto</h4>
+            <p>Crearás un soporte para tu teléfono móvil que, gracias a su forma, es capaz de canalizar y amplificar el sonido de forma natural. El diseño se inspirará en la forma de una corneta o un gramófono, demostrando que se puede mejorar una funcionalidad tecnológica sin recurrir a la electricidad.</p>
+
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjf8-YsJeyZF06DGYYvC4T2w5ztsXWteYhLOZxqarffwVtIRjMPk7aVG_32klCaZtQFfbW49cmag9nsKYlLkkZnomVNDm1_aUOfwDvhgeyJ70aGJnAY30dhDJlvJZOwO0huqQdP6gkB4ls/s1600/Phone-Amplifier.jpg" alt="Amplificador de sonido casero para móvil" class="rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105 limited-height">
+
+            <h3 class="text-2xl font-bold text-slate-700 mt-8 mb-4 border-b-2 pb-2">Aplicación de las Fases del Proceso Tecnológico</h3>
+
+            <div class="space-y-6">
+                <div class="p-4 rounded-lg bg-red-50 border-l-4 border-red-400">
+                    <h4 class="text-xl font-bold text-slate-800">1. Fase: Identificación de la Necesidad</h4>
+                    <p class="mt-2"><strong>Problema:</strong> "El altavoz de mi teléfono móvil no tiene suficiente volumen. Necesito una solución barata, portátil y ecológica para aumentar el sonido sin usar baterías ni enchufes".</p>
+                </div>
+
+                <div class="p-4 rounded-lg bg-orange-50 border-l-4 border-orange-400">
+                    <h4 class="text-xl font-bold text-slate-800">2. Fase: Búsqueda de Información y Análisis</h4>
+                    <ul class="list-disc list-inside space-y-2 mt-2">
+                        <li><strong>Principios físicos:</strong> Investigar cómo funciona la amplificación pasiva del sonido.</li>
+                        <li><strong>Soluciones existentes:</strong> Buscar en internet ejemplos de "amplificador pasivo para móvil".</li>
+                        <li><strong>Análisis de materiales reciclados:</strong> Estudiar qué materiales son los más adecuados (tubos de cartón, vasos, botellas...).</li>
+                    </ul>
+                </div>
+
+                <div class="p-4 rounded-lg bg-amber-50 border-l-4 border-amber-400">
+                    <h4 class="text-xl font-bold text-slate-800">3. Fase: Diseño de las Ideas</h4>
+                    <ul class="list-disc list-inside space-y-2 mt-2">
+                        <li><strong>Lluvia de ideas:</strong> Dibuja al menos tres bocetos con diferentes enfoques.</li>
+                        <li><strong>Selección de la idea:</strong> Elige el diseño más eficiente, estable y factible.</li>
+                        <li><strong>Croquis y planos:</strong> Realiza un dibujo técnico final acotado, midiendo con precisión tu móvil.</li>
+                    </ul>
+                </div>
+
+                <div class="p-4 rounded-lg bg-yellow-50 border-l-4 border-yellow-400">
+                    <h4 class="text-xl font-bold text-slate-800">4. Fase: Planificación y Organización</h4>
+                    <ul class="list-disc list-inside space-y-2 mt-2">
+                        <li><strong>Hoja de procesos:</strong> Redacta una lista numerada con todos los pasos de la construcción.</li>
+                        <li><strong>Lista de materiales:</strong> Concreta los materiales reciclados que usarás.</li>
+                        <li><strong>Lista de herramientas:</strong> Especifica las herramientas necesarias (regla, cúter, pistola de silicona...).</li>
+                    </ul>
+                </div>
+
+                <div class="p-4 rounded-lg bg-lime-50 border-l-4 border-lime-400">
+                    <h4 class="text-xl font-bold text-slate-800">5. Fase: Construcción</h4>
+                    <p class="mt-2">Siguiendo tus planos y la hoja de procesos, construye tu amplificador. ¡Recuerda seguir las normas de seguridad al usar herramientas de corte!</p>
+                </div>
+
+                <div class="p-4 rounded-lg bg-green-50 border-l-4 border-green-400">
+                    <h4 class="text-xl font-bold text-slate-800">6. Fase: Verificación y Evaluación</h4>
+                    <p class="mt-2">Llega la prueba funcional. Coloca el teléfono, pon una canción y compara el volumen. ¿Funciona? ¿Se sujeta bien el móvil? ¿Qué podrías mejorar?</p>
+                </div>
+
+                <div class="p-4 rounded-lg bg-teal-50 border-l-4 border-teal-400">
+                    <h4 class="text-xl font-bold text-slate-800">7. Fase: Divulgación y Memoria Técnica</h4>
+                    <ul class="list-disc list-inside space-y-2 mt-2">
+                        <li><strong>Elaboración de una memoria técnica:</strong> Redacta un documento que recoja todo el proceso.</li>
+                        <li><strong>Presentación en clase:</strong> Expón tu proyecto y realiza una demostración en directo.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-700 mt-12 mb-4 border-b-2 pb-2">Niveles de Logro y Evaluación</h3>
+            <ul class="space-y-4">
+                <li class="bg-amber-100 border-l-4 border-amber-500 text-amber-800 p-4 rounded-md">
+                    <strong class="font-bold block">Nivel Básico (Hasta 6 puntos):</strong>
+                    <span class="text-slate-600">Entrega de un amplificador funcional que cumple su objetivo y el plano técnico final (croquis acotado) con las medidas correctas.</span>
+                </li>
+                <li class="bg-sky-100 border-l-4 border-sky-500 text-sky-800 p-4 rounded-md">
+                    <strong class="font-bold block">Nivel Avanzado (Hasta 8 puntos):</strong>
+                    <span class="text-slate-600">Cumple lo anterior y, además, presenta la investigación y los bocetos iniciales. El acabado estético y la estabilidad del amplificador son notables.</span>
+                </li>
+                <li class="bg-emerald-100 border-l-4 border-emerald-500 text-emerald-800 p-4 rounded-md">
+                    <strong class="font-bold block">Nivel Experto (Hasta 10 puntos):</strong>
+                    <span class="text-slate-600">Cumple todo lo anterior y entrega una memoria técnica completa y bien documentada, realizando una excelente presentación oral del proyecto con demostración.</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>
+
+<div id="tab9" class="tab-content">
+    <section id="evaluacionCompleta" class="border-slate-300">
+        <div class="bg-lime-100 p-4 rounded-lg border-l-4 border-lime-500">
+            <h2 class="text-3xl font-bold text-slate-700 mb-6 italic">Evaluación del Proceso de Aprendizaje</h2>
+            <p class="mt-4 text-lg italic">Criterios de Evaluación y Rúbricas</p>
+        </div>
+
+        <div class="text-slate-600 leading-relaxed text-lg p-5">
+
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-indigo-800 mb-2">Criterio 1.1</h3>
+                <p class="text-lg italic text-slate-500 mb-6">Definir problemas sencillos o necesidades básicas planteadas, buscando y contrastando información procedente de diferentes fuentes fácilmente accesibles de manera crítica y segura, evaluando su fiabilidad y pertinencia.</p>
+                <div class="mb-6 bg-white p-4 border rounded-lg">
+                    <h4 class="font-semibold text-slate-700 mb-2">Instrumentos de Observación:</h4>
+                    <ul class="list-disc list-inside text-base text-slate-500">
+                        <li>Búsqueda y tratamiento de la información.</li>
+                        <li>Trabajos escritos y de investigación.</li>
+                        <li>Intervenciones en clase y exposiciones orales.</li>
+                        <li>Pruebas orales y escritas.</li>
+                        <li>Hábitos, actitud y autonomía personal.</li>
+                        <li>Cuaderno del alumnado.</li>
+                    </ul>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 text-base">
+                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-red-200 font-bold text-red-800">Insuficiente (1-4)</div><p class="p-3">Apenas logra definir problemas. No busca ni contrasta información de manera crítica y no evalúa la fiabilidad de las fuentes.</p></div>
+                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-amber-200 font-bold text-amber-800">Suficiente (5-6)</div><p class="p-3">Define problemas de manera limitada. Busca y contrasta información de forma básica, con un enfoque crítico limitado.</p></div>
+                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-yellow-200 font-bold text-yellow-800">Bien (6-7)</div><p class="p-3">Define problemas de manera eficaz. Busca y contrasta información de manera satisfactoria, demostrando un enfoque crítico y seguro.</p></div>
+                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-sky-200 font-bold text-sky-800">Notable (7-8)</div><p class="p-3">Destaca al definir problemas con solidez. Busca y contrasta información de manera destacada, mostrando un enfoque crítico innovador.</p></div>
+                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-emerald-200 font-bold text-emerald-800">Sobresaliente (9-10)</div><p class="p-3">Dominio excepcional al definir problemas. Busca y contrasta información de manera excepcionalmente profunda, crítica y segura.</p></div>
+                </div>
+            </div>
+
+            <hr class="my-12 border-slate-300">
+
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-indigo-800 mb-2">Criterio 1.2</h3>
+                <p class="text-lg italic text-slate-500 mb-6">Comprender y examinar productos tecnológicos de uso habitual a través del análisis de objetos básicos y sistema sencillos, empleando el método científico y utilizando herramientas elementales de simulación en la construcción de conocimiento.</p>
+                <div class="mb-6 bg-white p-4 border rounded-lg">
+                    <h4 class="font-semibold text-slate-700 mb-2">Instrumentos de Observación:</h4>
+                    <ul class="list-disc list-inside text-base text-slate-500">
+                        <li>Trabajos escritos y de investigación.</li>
+                        <li>Pruebas orales y escritas.</li>
+                        <li>Intervenciones en clase: exposición oral.</li>
+                        <li>Uso de las TIC y las TAC.</li>
+                        <li>Cuaderno del alumnado y Observación en Taller.</li>
+                    </ul>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 text-base">
+                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-red-200 font-bold text-red-800">Insuficiente (1-4)</div><p class="p-3">Apenas logra comprender o examinar productos tecnológicos. No utiliza el método científico ni herramientas de simulación.</p></div>
+                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-amber-200 font-bold text-amber-800">Suficiente (5-6)</div><p class="p-3">Comprende y examina productos de manera limitada. Utiliza de manera básica el método científico y herramientas de simulación.</p></div>
+                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-yellow-200 font-bold text-yellow-800">Bien (6-7)</div><p class="p-3">Comprende y examina productos de manera eficaz. Utiliza de manera satisfactoria el método científico y herramientas de simulación.</p></div>
+                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-sky-200 font-bold text-sky-800">Notable (7-8)</div><p class="p-3">Destaca al comprender y examinar productos con solidez. Utiliza de manera destacada el método científico y herramientas de simulación.</p></div>
+                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-emerald-200 font-bold text-emerald-800">Sobresaliente (9-10)</div><p class="p-3">Dominio excepcional al comprender y examinar productos. Utiliza de manera excepcional el método científico y las herramientas.</p></div>
+                </div>
+            </div>
+
+            <hr class="my-12 border-slate-300">
+
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-indigo-800 mb-2">Criterio 1.3</h3>
+                <p class="text-lg italic text-slate-500 mb-6">Adoptar medidas preventivas para la protección de los dispositivos, los datos y la salud personal, identificando problemas y riesgos relacionados con el uso de la tecnología y analizándolos de manera ética y crítica.</p>
+                <div class="mb-6 bg-white p-4 border rounded-lg">
+                    <h4 class="font-semibold text-slate-700 mb-2">Instrumentos de Observación:</h4>
+                    <ul class="list-disc list-inside text-base text-slate-500">
+                        <li>Trabajos escritos y de investigación.</li>
+                        <li>Intervenciones en clase: exposición oral.</li>
+                        <li>Hábitos personales, actitud y autonomía personal.</li>
+                        <li>Cuaderno del alumnado y Observación en Taller.</li>
+                    </ul>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 text-base">
+                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-red-200 font-bold text-red-800">Insuficiente (1-4)</div><p class="p-3">Apenas adopta medidas preventivas. No identifica problemas ni riesgos. El análisis ético y crítico es ausente o superficial.</p></div>
+                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-amber-200 font-bold text-amber-800">Suficiente (5-6)</div><p class="p-3">Adopta medidas preventivas de manera limitada. Identifica problemas y riesgos de forma básica. El análisis ético y crítico es básico.</p></div>
+                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-yellow-200 font-bold text-yellow-800">Bien (6-7)</div><p class="p-3">Adopta medidas preventivas de manera eficaz. Identifica problemas y riesgos de forma satisfactoria. El análisis ético y crítico es claro.</p></div>
+                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-sky-200 font-bold text-sky-800">Notable (7-8)</div><p class="p-3">Destaca al adoptar medidas preventivas con solidez. Identifica problemas y riesgos de forma destacada. El análisis ético es innovador.</p></div>
+                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-emerald-200 font-bold text-emerald-800">Sobresaliente (9-10)</div><p class="p-3">Dominio excepcional al adoptar medidas preventivas. Identifica problemas de manera profunda y su análisis ético es riguroso.</p></div>
+                </div>
+            </div>
+
+            <hr class="my-12 border-slate-300">
+
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-indigo-800 mb-2">Criterio 2.1</h3>
+                <p class="text-lg italic text-slate-500 mb-6">Idear y diseñar soluciones eficaces, innovadoras y sostenibles a problemas sencillos definidos, introduciendo la aplicación de conceptos, técnicas y procedimientos interdisciplinares, así como criterios de sostenibilidad con actitud emprendedora, perseverante y creativa.</p>
+                <div class="mb-6 bg-white p-4 border rounded-lg">
+                    <h4 class="font-semibold text-slate-700 mb-2">Instrumentos de Observación:</h4>
+                    <ul class="list-disc list-inside text-base text-slate-500">
+                        <li>Búsqueda y tratamiento de la información.</li>
+                        <li>Trabajos escritos y de investigación.</li>
+                        <li>Intervenciones en clase: exposición oral.</li>
+                        <li>Uso de las TIC y las TAC.</li>
+                        <li>Hábitos, actitud y autonomía personal.</li>
+                        <li>Cuaderno del alumnado y Observación en Taller.</li>
+                    </ul>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 text-base">
+                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-red-200 font-bold text-red-800">Insuficiente (1-4)</div><p class="p-3">Apenas logra idear ni diseñar soluciones. No aplica conceptos. La actitud emprendedora es ausente o superficial.</p></div>
+                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-amber-200 font-bold text-amber-800">Suficiente (5-6)</div><p class="p-3">Idea y diseña soluciones de manera limitada. La eficacia e innovación son básicas. La actitud emprendedora es limitada.</p></div>
+                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-yellow-200 font-bold text-yellow-800">Bien (6-7)</div><p class="p-3">Idea y diseña soluciones de manera eficaz. Aplica conceptos de forma satisfactoria. La actitud emprendedora es clara.</p></div>
+                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-sky-200 font-bold text-sky-800">Notable (7-8)</div><p class="p-3">Destaca al idear y diseñar soluciones con solidez. Aplica conceptos de forma destacada. La actitud es innovadora y efectiva.</p></div>
+                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-emerald-200 font-bold text-emerald-800">Sobresaliente (9-10)</div><p class="p-3">Dominio excepcional al idear y diseñar soluciones. Aplica conceptos de manera profunda y crítica con actitud excepcional.</p></div>
+                </div>
+            </div>
+
+            <hr class="my-12 border-slate-300">
+
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-indigo-800 mb-2">Criterio 2.2</h3>
+                <p class="text-lg italic text-slate-500 mb-6">Seleccionar, planificar y organizar los materiales y herramientas, así como las tareas elementales necesarias para la construcción de una solución a un problema básico planteado, trabajando individualmente o en grupo de manera cooperativa y colaborativa.</p>
+                <div class="mb-6 bg-white p-4 border rounded-lg">
+                    <h4 class="font-semibold text-slate-700 mb-2">Instrumentos de Observación:</h4>
+                    <ul class="list-disc list-inside text-base text-slate-500">
+                        <li>Trabajos escritos y de investigación.</li>
+                        <li>Intervenciones en clase: exposición oral.</li>
+                        <li>Participación en trabajos cooperativos.</li>
+                        <li>Hábitos, actitud y autonomía personal.</li>
+                        <li>Cuaderno del alumnado y Observación en Taller.</li>
+                    </ul>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 text-base">
+                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-red-200 font-bold text-red-800">Insuficiente (1-4)</div><p class="p-3">Apenas logra seleccionar, planificar u organizar materiales y tareas. La colaboración es ausente o superficial.</p></div>
+                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-amber-200 font-bold text-amber-800">Suficiente (5-6)</div><p class="p-3">Selecciona, planifica y organiza de manera limitada. La colaboración y cooperación son básicas o poco efectivas.</p></div>
+                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-yellow-200 font-bold text-yellow-800">Bien (6-7)</div><p class="p-3">Selecciona, planifica y organiza de manera eficaz materiales y tareas. La colaboración y cooperación son satisfactorias.</p></div>
+                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-sky-200 font-bold text-sky-800">Notable (7-8)</div><p class="p-3">Destaca al seleccionar, planificar y organizar con solidez. La colaboración y cooperación son destacadas.</p></div>
+                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-emerald-200 font-bold text-emerald-800">Sobresaliente (9-10)</div><p class="p-3">Dominio excepcional al seleccionar, planificar y organizar. La colaboración y cooperación son excepcionales.</p></div>
+                </div>
+            </div>
+
+            <hr class="my-12 border-slate-300">
+
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-indigo-800 mb-2">Criterio 7.1</h3>
+                <p class="text-lg italic text-slate-500 mb-6">Reconocer la influencia de la actividad tecnológica en la sociedad y en la sostenibilidad ambiental del entorno más cercano a lo largo de su historia, identificando sus aportaciones y repercusiones y valorando su importancia para el desarrollo sostenible, contextualizando sus aplicaciones en nuestra comunidad.</p>
+                <div class="mb-6 bg-white p-4 border rounded-lg">
+                    <h4 class="font-semibold text-slate-700 mb-2">Instrumentos de Observación:</h4>
+                    <ul class="list-disc list-inside text-base text-slate-500">
+                        <li>Búsqueda y tratamiento de la información.</li>
+                        <li>Trabajos escritos y de investigación.</li>
+                        <li>Pruebas orales y escritas.</li>
+                        <li>Intervenciones en clase: exposición oral.</li>
+                        <li>Hábitos, actitud y autonomía personal.</li>
+                        <li>Cuaderno del alumnado y Observación en Taller.</li>
+                    </ul>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 text-base">
+                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-red-200 font-bold text-red-800">Insuficiente (1-4)</div><p class="p-3">Apenas logra reconocer la influencia de la tecnología. No identifica aportaciones ni valora su importancia.</p></div>
+                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-amber-200 font-bold text-amber-800">Suficiente (5-6)</div><p class="p-3">Reconoce de manera limitada la influencia de la tecnología. Identifica algunas aportaciones. La contextualización es básica.</p></div>
+                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-yellow-200 font-bold text-yellow-800">Bien (6-7)</div><p class="p-3">Reconoce de manera eficaz la influencia de la tecnología. Identifica claramente sus aportaciones y valora su importancia.</p></div>
+                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-sky-200 font-bold text-sky-800">Notable (7-8)</div><p class="p-3">Destaca al reconocer con solidez la influencia de la tecnología. Contextualiza de manera innovadora las aplicaciones.</p></div>
+                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-emerald-200 font-bold text-emerald-800">Sobresaliente (9-10)</div><p class="p-3">Dominio excepcional al reconocer la influencia de la tecnología. Contextualiza de manera profunda, crítica y perspicaz.</p></div>
+                </div>
+            </div>
+
+            <hr class="my-12 border-slate-300">
+
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-indigo-800 mb-2">Criterio 7.2</h3>
+                <p class="text-lg italic text-slate-500 mb-6">Identificar las aportaciones de las tecnologías emergentes al bienestar, a la igualdad social y a la disminución del impacto ambiental, haciendo un uso responsable y ético de las mismas, en el entorno más cercano.</p>
+                <div class="mb-6 bg-white p-4 border rounded-lg">
+                    <h4 class="font-semibold text-slate-700 mb-2">Instrumentos de Observación:</h4>
+                    <ul class="list-disc list-inside text-base text-slate-500">
+                        <li>Búsqueda y tratamiento de la información.</li>
+                        <li>Trabajos escritos y de investigación.</li>
+                        <li>Pruebas orales y escritas.</li>
+                        <li>Intervenciones en clase: exposición oral.</li>
+                        <li>Hábitos, actitud y autonomía personal.</li>
+                        <li>Cuaderno del alumnado y Observación en Taller.</li>
+                    </ul>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 text-base">
+                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-red-200 font-bold text-red-800">Insuficiente (1-4)</div><p class="p-3">Apenas logra identificar las aportaciones de las tecnologías emergentes. No muestra comprensión de un uso responsable y ético.</p></div>
+                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-amber-200 font-bold text-amber-800">Suficiente (5-6)</div><p class="p-3">Identifica de manera limitada las aportaciones de las tecnologías emergentes. Muestra cierta comprensión del uso responsable y ético.</p></div>
+                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-yellow-200 font-bold text-yellow-800">Bien (6-7)</div><p class="p-3">Identifica de manera eficaz las aportaciones de las tecnologías emergentes. Comprende el uso responsable y ético de manera clara.</p></div>
+                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-sky-200 font-bold text-sky-800">Notable (7-8)</div><p class="p-3">Destaca al identificar con solidez las aportaciones de las tecnologías emergentes. Su comprensión del uso ético es destacada.</p></div>
+                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-emerald-200 font-bold text-emerald-800">Sobresaliente (9-10)</div><p class="p-3">Dominio excepcional al identificar las aportaciones de las tecnologías. Comprende el uso ético de manera profunda y crítica.</p></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</div>
+
+
+
+
+
+<!-- Botones de navegación Anterior/Siguiente -->
+<div class="flex justify-between mt-8">
+    <button id="prev-btn" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg inline-flex items-center transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
+        <i class="bi bi-arrow-left mr-2"></i>
+        <span>Anterior</span>
+    </button>
+    <button id="next-btn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg inline-flex items-center transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
+        <span>Siguiente</span>
+        <i class="bi bi-arrow-right ml-2"></i>
+    </button>
+</div>
+
+<footer class="mt-10 pt-4 border-t text-sm text-gray-500">
     <span>Dpto. de Tecnología   //   IES Huerta del Rosario   //   2025-2026</span>
-    <!--
-    <a href="https://blogsaverroes.juntadeandalucia.es/iesisladeleon/" class="text-white hover:underline ml-2">blogsaverroes.juntadeandalucia.es/iesisladeleon/</a>
-    -->
-  </div>
 </footer>
+</div>
+</main>
+</div>
 
 
 <!-- Modal para ampliar imagen -->
@@ -645,34 +1035,167 @@
 </div>
 
 <script>
-    // Obtener elementos del modal
-    const modal = document.getElementById("imageModal");
-    const modalImg = document.getElementById("modalImage");
-    const images = document.querySelectorAll('.expandable-image');
-    const closeBtn = document.querySelector(".close-modal");
+    document.addEventListener('DOMContentLoaded', function() {
+                // --- Lógica para ocultar/mostrar la barra lateral ---
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const sidebarToggleIcon = document.getElementById('sidebar-toggle-icon');
+        const sidebar = document.getElementById('sidebar');
 
-    // Asignar evento de clic a cada imagen ampliable
-    images.forEach(img => {
-        img.onclick = function(){
-            modal.style.display = "flex";
-            modalImg.src = this.src;
+        if (sidebarToggle && sidebar && sidebarToggleIcon) {
+            sidebarToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('hidden');
+
+                if (sidebar.classList.contains('hidden')) {
+                    sidebarToggleIcon.classList.remove('bi-layout-sidebar-inset');
+                    sidebarToggleIcon.classList.add('bi-layout-sidebar-inset-reverse');
+                } else {
+                    sidebarToggleIcon.classList.remove('bi-layout-sidebar-inset-reverse');
+                    sidebarToggleIcon.classList.add('bi-layout-sidebar-inset');
+                }
+            });
+        }
+
+                // --- Lógica para la navegación por pestañas ---
+        const tabLinks = document.querySelectorAll('.tab-link');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        let currentTabIndex = 0;
+
+        function showTab(index) {
+                    // Ocultar todos los contenidos
+            tabContents.forEach(content => {
+                content.classList.add('hidden');
+            });
+                    // Quitar clase activa de todos los enlaces
+            tabLinks.forEach(navLink => {
+                navLink.classList.remove('active');
+            });
+
+                    // Mostrar el contenido y activar el enlace en el índice deseado
+            if (tabContents[index]) {
+                tabContents[index].classList.remove('hidden');
+            }
+            if (tabLinks[index]) {
+                tabLinks[index].classList.add('active');
+            }
+
+                    // Actualizar el índice actual
+            currentTabIndex = index;
+
+                    // Actualizar el estado de los botones
+            prevBtn.disabled = currentTabIndex === 0;
+            nextBtn.disabled = currentTabIndex === tabLinks.length - 1;
+        }
+
+        tabLinks.forEach((link, index) => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                showTab(index);
+            });
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentTabIndex < tabLinks.length - 1) {
+                showTab(currentTabIndex + 1);
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentTabIndex > 0) {
+                showTab(currentTabIndex - 1);
+            }
+        });
+
+                // Inicializar la primera pestaña
+        showTab(0);
+
+
+                // --- Lógica para el modal de la imagen ---
+                // Obtener elementos del modal
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
+        const images = document.querySelectorAll('.expandable-image');
+        const closeBtn = document.querySelector(".close-modal");
+
+            // Asignar evento de clic a cada imagen ampliable
+        images.forEach(img => {
+            img.onclick = function(){
+                modal.style.display = "flex";
+                modalImg.src = this.src;
+            }
+        });
+
+            // Función para cerrar el modal
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+            // Cerrar al hacer clic en la 'x'
+        closeBtn.onclick = closeModal;
+
+            // Cerrar al hacer clic fuera de la imagen
+        modal.onclick = function(event) {
+            if (event.target === modal || event.target === modalImg) {
+                closeModal();
+            }
         }
     });
 
-    // Función para cerrar el modal
-    function closeModal() {
-        modal.style.display = "none";
-    }
+            // Añade estilo para los enlaces de las pestañas en el head
+    const style = document.createElement('style');
+    style.innerHTML = `
+                .tab-link {
+                    display: block;
+                    padding: 0.5rem 1rem;
+                    border-radius: 0.375rem; /* rounded-md */
+                    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+                    font-weight: 500;
+                    color: #4b5563; /* text-gray-600 */
+                }
+                .tab-link:hover:not(.active) {
+                    background-color: #f3f4f6; /* hover:bg-gray-100 */
+                    color: #1f2937; /* hover:text-gray-800 */
+                }
+    `;
+    document.head.appendChild(style);
 
-    // Cerrar al hacer clic en la 'x'
-    closeBtn.onclick = closeModal;
-
-    // Cerrar al hacer clic fuera de la imagen
-    modal.onclick = function(event) {
-        if (event.target === modal || event.target === modalImg) {
-            closeModal();
-        }
-    }
 </script>
+
+        <script> // Acoredeón
+        const accordionHeaders = document.querySelectorAll(".accordion-header");
+
+        accordionHeaders.forEach(header => {
+            header.addEventListener("click", () => {
+                const content = header.nextElementSibling;
+                const arrow = header.querySelector("svg:last-child");
+
+                    // Toggle active class for styling if needed
+                header.classList.toggle("active");
+
+                if (content.style.maxHeight) {
+                        // Accordion is open, close it
+                    content.style.maxHeight = null;
+                    arrow.classList.remove("rotate-180");
+                } else {
+                        // Accordion is closed, open it
+                        // Close other accordions
+                    accordionHeaders.forEach(otherHeader => {
+                        if (otherHeader !== header) {
+                            const otherContent = otherHeader.nextElementSibling;
+                            const otherArrow = otherHeader.querySelector("svg:last-child");
+                            otherContent.style.maxHeight = null;
+                            otherArrow.classList.remove("rotate-180");
+                        }
+                    });
+
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    arrow.classList.add("rotate-180");
+                } 
+            });
+        });
+    </script>
+
 </body>
 </html>
+

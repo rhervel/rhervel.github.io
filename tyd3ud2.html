@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>UD1. Sistemas de Representación</title>
+  <title>UD2. Materiales técnicos: Plásticos</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 fill=%22currentColor%22 class=%22bi bi-robot%22 viewBox=%220 0 16 16%22><path d=%22M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5ZM3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.58 26.58 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.933.933 0 0 1-.765.935c-.845.147-2.34.346-4.235.346-1.895 0-3.39-.2-4.235-.346A.933.933 0 0 1 3 9.219V8.062Zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a24.767 24.767 0 0 1-1.871-.183.25.25 0 0 0-.217.068l-.92.9a.25.25 0 0 0 .169.434l.92-.9a25.25 25.25 0 0 0 1.942.183.25.25 0 0 0 .217-.068l.92-.9a.25.25 0 0 0-.17-.434l-.92.9a24.767 24.767 0 0 1-1.871-.183Z%22/><path d=%22M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1.5a2.5 2.5 0 0 0 2.5 2.5h9A2.5 2.5 0 0 0 15 13.5V12a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2V1.866ZM14 7.5V12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5Z%22/></svg>" type="image/svg+xml">
@@ -51,7 +51,7 @@
           <i class="bi bi-chevron-right mx-2 text-xs"></i>
       </li>
       <li class="flex items-center text-gray-700 font-semibold">
-          <span>UD1. Sistemas de Representación</span>
+          <span>UD2. Materiales técnicos: Plásticos</span>
       </li>
   </ol>
 </div>
@@ -61,304 +61,413 @@
 
 <div class="flex flex-col md:flex-row min-h-screen"> <!-- Contenedor principal Flex -->
     <!-- Barra lateral de navegación -->
-    <aside id="sidebar" class="w-full md:w-64 bg-white shadow-lg p-4 md:h-screen md:sticky top-16">
-        <div class="flex items-center pb-4 border-b">
+    <aside id="sidebar" class="w-full md:w-72 bg-white shadow-lg p-4 md:sticky top-0 md:h-screen">
+            <div class="flex items-center pb-4 border-b">
+                <!-- Icono del Sol -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-500 mr-3" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 100 2h1z" clip-rule="evenodd" />
+                </svg>
+                <h1 class="text-xl font-bold text-gray-700">SDA: Horno Solar</h1>
+            </div>
+            <nav class="mt-4">
+                <ul class="space-y-1">
+                    <!-- Sección de Materiales Técnicos -->
+                    <li class="px-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">Materiales Técnicos</li>
+                    <li><a href="#" class="tab-link active" data-target="tab1">1. Un Poco de Historia</a></li>
+                    <li><a href="#" class="tab-link" data-target="tab2">2. Propiedades de los Materiales</a></li>
+                    <li><a href="#" class="tab-link" data-target="tab3">3. Tipos de Plásticos</a></li>
+                    <li><a href="#" class="tab-link" data-target="tab4">4. Técnicas de Fabricación</a></li>
+                    <li><a href="#" class="tab-link" data-target="tab5">5. El Reciclado de los Plásticos</a></li>
+                    
+                    <!-- Sección de Proyecto Técnico -->
+                    <li class="px-2 pt-4 text-xs font-semibold text-gray-400 uppercase tracking-wider">Proyecto Técnico</li>
+                    <li><a href="#" class="tab-link" data-target="tab5">5. El Método de Proyectos</a></li>
+                    <li><a href="#" class="tab-link" data-target="tab6">6. Documentación Técnica</a></li>
+                    <li><a href="#" class="tab-link" data-target="tab7">7. La Memoria y los Planos</a></li>
+                    <li><a href="#" class="tab-link" data-target="tab8">8. El Presupuesto</a></li>
 
-            <h1 class="text-xl font-bold text-gray-700">UD1. Sistemas de Representación</h1>
-        </div>
-        <nav class="mt-4">
-            <ul class="">
-                <li><a href="#" class="tab-link" data-target="tab1">1. Introducción</a></li>
-                <li><a href="#" class="tab-link" data-target="tab2">2. Tipos de Dibujo</a></li>
-                <li><a href="#" class="tab-link" data-target="tab3">3. Instrumentos de Dibujo</a></li>
-                <li><a href="#" class="tab-link" data-target="tab4">4. Técnicas de trazado</a></li>
-                <li><a href="#" class="tab-link" data-target="tab5">5. Acotación</a></li>
-                <li><a href="#" class="tab-link" data-target="tab6">6. Escalas</a></li>
-                <li><a href="#" class="tab-link" data-target="tab7">7. Vistas</a></li>
-                <li><a href="#" class="tab-link" data-target="tab8">8. Perspectivas</a></li>
-                <li><a href="#" class="tab-link" data-target="tab9">9. Software de Diseño Técnico</a></li>
-                <li class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 rounded-md"><a href="#" class="tab-link" data-target="tab10">ACTIVIDADES</a></li>
-                <li class="bg-orange-100 border-l-4 border-orange-500 text-orange-800 rounded-md"><a href="#" class="tab-link" data-target="tab11">LÁMINAS</a></li>
-                <li class="bg-sky-100 border-l-4 border-sky-500 text-sky-800 rounded-md"><a href="#" class="tab-link" data-target="tab12">PROYECTO</a></li>
-                <li class="bg-lime-100 border-l-4 border-lime-500 text-lime-800 rounded-md"><a href="#" class="tab-link" data-target="tab13">EVALUACIÓN</a></li>
-            </ul>
-        </nav>
-    </aside>
+                    <!-- Secciones Especiales -->
+                    <li class="pt-4"></li>
+                    <li class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 rounded-md"><a href="#" class="tab-link font-bold" data-target="tab9">ACTIVIDADES</a></li>
+                    <li class="bg-sky-100 border-l-4 border-sky-500 text-sky-800 rounded-md"><a href="#" class="tab-link font-bold" data-target="tab10">PROYECTO: ¡A CONSTRUIR!</a></li>
+                    <li class="bg-lime-100 border-l-4 border-lime-500 text-lime-800 rounded-md"><a href="#" class="tab-link font-bold" data-target="tab11">EVALUACIÓN</a></li>
+                </ul>
+            </nav>
+        </aside>
 
     <!-- Contenido principal -->
     <main class="flex-1 p-6 md:p-10">
         <div id="main-content p-6">
             <!-- Contenido de las Pestañas -->
-            <div id="tab1" class="tab-content">
-                <section id="introduccion" class="">
-                    <h2 class="text-3xl font-bold text-slate-600 mb-6">1. Introducción</h2>
-                    <p class="mb-4 text-lg leading-relaxed">
-                        <strong>El Dibujo: Nuestro Primer Idioma ✏️</strong>
-                    </p>
-                    <p class="mb-4 text-lg leading-relaxed">
-                        Desde siempre, los seres humanos hemos usado dibujos para comunicarnos. Mucho antes que las letras, las imágenes servían para contar historias y compartir ideas. Este gran lenguaje universal se divide en dos tipos principales:
-                    </p>
-                    <div class="space-y-6 text-lg">
-                        <div class="p-4 border-l-4 border-sky-500 bg-sky-50">
-                            <h3 class="font-bold text-xl text-sky-700 mb-2">1. Dibujo Artístico 🎨</h3>
-                            <p class="mb-2">Es la forma más libre y personal de dibujar, donde el artista busca conectar con nuestras emociones. Piensa en un cómic, un retrato o el diseño de un personaje de videojuego.</p>
-                            <ul class="list-disc list-inside space-y-1 text-slate-700">
-                                <li><strong>Objetivo:</strong> Expresar sentimientos, contar una historia o simplemente crear algo bello.</li>
-                                <li><strong>Reglas:</strong> No existen reglas fijas. La imaginación y la creatividad son lo más importante.</li>
-                                <li><strong>Resultado:</strong> Es subjetivo; cada persona puede interpretarlo de una manera diferente.</li>
-                            </ul>
+
+            <!-- Contenido de la Pestaña 1 -->
+                <div id="tab1" class="tab-content active">
+                    <section id="historia_plasticos">
+                        <h2 class="text-3xl font-bold text-slate-600 mb-6">1. Un Poco de Historia del Plástico</h2>
+                        <p class="mb-4 text-lg leading-relaxed">
+                            <strong>Un Material Moldeable 🧱</strong>
+                        </p>
+                        <p class="mb-4 text-lg leading-relaxed">
+                            La palabra <strong>plástico</strong> viene del griego <i>plastikós</i>, que significa 'susceptible de ser moldeado'. Su principal característica es que, en algún momento de su fabricación, el material tiene "propiedades plásticas", lo que permite darle forma muy fácilmente.
+                        </p>
+                         <p class="mb-4 text-lg leading-relaxed">
+                           Otra propiedad fundamental es que están compuestos por moléculas gigantes llamadas <strong>polímeros</strong>, que a su vez están formadas por la unión de muchas moléculas más pequeñas y simples, conocidas como <strong>monómeros</strong>.
+                        </p>
+
+                        <p class="mb-4 text-lg leading-relaxed">
+                            Existen algunos polímeros naturales, como la celulosa, el caucho, el betún, las resinas o el látex. Sin embargo, la mayoría de polímeros usados actualmente son sintéticos y son un producto bastante moderno. Seguramente, algunas personas mayores no los conocían cuando eran niños.
+                        </p>
+                        <p class="mb-4 text-lg leading-relaxed">
+                            El plástico más antiguo conocido por el hombre es la <strong>laca</strong>, usada por los chinos en el siglo XIII a. C., que se extrae de la savia de un árbol. Los mayas y aztecas conocían el <strong>caucho</strong>, hacia el siglo XIII d. C., con el que impermeabilizaban objetos. También se extrae de la savia de un árbol. Allí fue conocido por los europeos, que llamaron goma a esta sustancia desconocida.
+                        </p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 py-6">
+                            <div>
+                               <img src="https://images.unsplash.com/photo-1541560052-70446c59666b?q=80&w=2070&auto=format&fit=crop" alt="Bolas de billar antiguas, para las que se buscaba sustituto del marfil" class="w-full h-full object-cover rounded-lg shadow-md my-6 zoomable-image limited-height-200">
+                               <p class="text-center italic text-slate-600">.</p>
+                           </div>
+                           <div>
+                               <img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Bakelite_telephone_from_the_1930s.jpg" alt="Teléfono antiguo de baquelita, uno de los primeros plásticos termoestables" class="w-full h-full object-cover rounded-lg shadow-md my-6 zoomable-image limited-height-200">
+                               <p class="text-center italic text-slate-600">.</p>
+                           </div>
+                       </div>
+
+                        <div class="space-y-6 text-lg my-8">
+                            <div class="p-6 border-l-4 border-amber-500 bg-amber-50 rounded-lg shadow-sm">
+                                <h3 class="font-bold text-xl text-amber-700 mb-2">El Primer Sintético: Celuloide 🎱</h3>
+                                <p>
+                                    A mediados del siglo XIX se descubrió casualmente el <strong>celuloide</strong>, el primer plástico sintético, cuando se buscaba un material que sustituyera al marfil en la fabricación de bolas de billar.
+                                </p>
+                            </div>
+                            <div class="p-6 border-l-4 border-gray-800 bg-gray-100 rounded-lg shadow-sm">
+                                <h3 class="font-bold text-xl text-gray-800 mb-2">El Primer Termoestable: Baquelita ☎️</h3>
+                                <p>
+                                   A principios del siglo XX se fabricó la <strong>baquelita</strong>, que una vez endurecida no era posible volver a ablandar. Fue el primer plástico termoestable. A partir de entonces los descubrimientos se sucedieron con rapidez, sobre todo en EE.UU. a partir de la Segunda Guerra Mundial.
+                                </p>
+                            </div>
                         </div>
-                        <div class="p-4 border-l-4 border-emerald-500 bg-emerald-50">
-                            <h3 class="font-bold text-xl text-emerald-700 mb-2">2. Dibujo Técnico 📐</h3>
-                            <p class="mb-2">Es un lenguaje universal y de alta precisión, diseñado para que una idea pueda ser construida en el mundo real sin errores. Es como el manual de instrucciones para fabricar cualquier cosa.</p>
-                            <ul class="list-disc list-inside space-y-1 text-slate-700">
-                                <li><strong>Objetivo:</strong> Describir un objeto de forma exacta (medidas, materiales, forma) para su fabricación.</li>
-                                <li><strong>Reglas:</strong> Sigue normas muy estrictas y estandarizadas que todo el mundo de la tecnología y la industria entiende.</li>
-                                <li><strong>Resultado:</strong> Es objetivo; solo tiene una interpretación posible para evitar cualquier error.</li>
-                            </ul>
+                    </section>
+                </div>
+                <!-- Contenido de la Pestaña 2 -->
+                <div id="tab2" class="tab-content">
+                    <section id="propiedades_plasticos">
+                        <h2 class="text-3xl font-bold text-slate-600 mb-6">2. Propiedades Generales de los Plásticos</h2>
+                        <p class="mb-8 text-lg leading-relaxed">
+                            Las propiedades comunes a casi todos los plásticos, y que los hacen tan interesantes para nuestro proyecto de horno solar (y para miles de otras aplicaciones), son:
+                        </p>
+                
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-base">
+                
+                            <!-- Aislante Eléctrico -->
+                            <div class="p-6 border-l-4 border-sky-500 bg-sky-50 rounded-lg shadow-sm">
+                                <h3 class="font-bold text-xl text-sky-700 mb-2">Aislante Eléctrico ⚡</h3>
+                                <p>Conducen muy mal la electricidad. Por eso se usan para recubrir cables, enchufes y carcasas de electrodomésticos.</p>
+                            </div>
+                
+                            <!-- Aislante Térmico -->
+                            <div class="p-6 border-l-4 border-orange-500 bg-orange-50 rounded-lg shadow-sm">
+                                <h3 class="font-bold text-xl text-orange-700 mb-2">Aislante Térmico 🔥</h3>
+                                <p>Transmiten el calor muy lentamente. Esta propiedad es <strong>clave para nuestro horno solar</strong>. Se usa en mangos de sartenes y aislantes para la construcción.</p>
+                            </div>
+                
+                            <!-- Resistencia Mecánica -->
+                            <div class="p-6 border-l-4 border-red-500 bg-red-50 rounded-lg shadow-sm">
+                                <h3 class="font-bold text-xl text-red-700 mb-2">Resistencia Mecánica 💪</h3>
+                                <p>Son sorprendentemente resistentes para lo poco que pesan (baja densidad). Por eso se usan en juguetes, piezas de coches y hasta en aviación.</p>
+                            </div>
+                
+                            <!-- Flexibilidad -->
+                            <div class="p-6 border-l-4 border-purple-500 bg-purple-50 rounded-lg shadow-sm">
+                                <h3 class="font-bold text-xl text-purple-700 mb-2">Flexibilidad 🤸</h3>
+                                <p>Muchos plásticos pueden doblarse y recuperar su forma sin romperse, lo que permite fabricar mangueras, envases flexibles o suelas de zapatillas.</p>
+                            </div>
+                            
+                            <!-- Facilidad de Moldeo -->
+                            <div class="p-6 border-l-4 border-amber-500 bg-amber-50 rounded-lg shadow-sm">
+                                <h3 class="font-bold text-xl text-amber-700 mb-2">Fácil Moldeo 🛠️</h3>
+                                <p>Se ablandan con calor y presión sin llegar a descomponerse, permitiendo fabricar piezas con formas muy complejas de manera sencilla y barata.</p>
+                            </div>
+                
+                            <!-- Resistencia Química -->
+                            <div class="p-6 border-l-4 border-indigo-500 bg-indigo-50 rounded-lg shadow-sm">
+                                <h3 class="font-bold text-xl text-indigo-700 mb-2">Resistencia Química 🧪</h3>
+                                <p>Soportan bien el ataque de productos químicos como ácidos, lejías o detergentes. Por eso, muchos productos de limpieza se envasan en plástico.</p>
+                            </div>
+                
+                            <!-- Reciclabilidad -->
+                            <div class="p-6 border-l-4 border-lime-500 bg-lime-50 rounded-lg shadow-sm">
+                                <h3 class="font-bold text-xl text-lime-700 mb-2">Fácil Reciclado ♻️</h3>
+                                <p>Muchos plásticos pueden ser reciclados, ya sea fundiéndolos para darles una nueva forma, por descomposición química o quemándolos para obtener energía.</p>
+                            </div>
+                
+                            <!-- Económicos -->
+                            <div class="p-6 border-l-4 border-gray-500 bg-gray-50 rounded-lg shadow-sm">
+                                <h3 class="font-bold text-xl text-gray-700 mb-2">Económicos 💰</h3>
+                                <p>Su producción suele ser más barata en comparación con otros materiales como los metales o el vidrio, lo que ha extendido enormemente su uso.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pb-6">
+                    </section>
+                </div>
+
+                <!-- Contenido de la Pestaña 3 (NUEVA) -->
+                <div id="tab3" class="tab-content">
+                    <section id="tipos_plasticos">
+                        <h2 class="text-3xl font-bold text-slate-600 mb-6">3. Tipos de Plásticos</h2>
+                        <p class="mb-8 text-lg leading-relaxed">
+                            Como ya hemos visto podemos clasificar los plásticos en naturales o sintéticos.
+                        </p>
+                        <div class="space-y-6 text-lg my-8">
+                            <div class="p-6 border-l-4 border-green-500 bg-green-50 rounded-lg shadow-sm">
+                                <h3 class="font-bold text-xl text-green-700 mb-2">Polímeros Naturales 🌿</h3>
+                                <p>
+                                    Algunos se obtienen de materias vegetales como el <strong>látex</strong>, el <strong>algodón</strong> o la <strong>celulosa</strong>. Otros provienen de fuentes animales, como la <strong>seda</strong> o la <strong>caseína</strong> (la proteína de la leche).
+                                </p>
+                            </div>
+                            <div class="p-6 border-l-4 border-slate-500 bg-slate-50 rounded-lg shadow-sm">
+                                <h3 class="font-bold text-xl text-slate-700 mb-2">Polímeros Sintéticos 🏭</h3>
+                                <p>
+                                   Son de origen mineral, principalmente del <strong>petróleo</strong> y del <strong>gas natural</strong>. La gran mayoría de los polímeros que usamos hoy en día pertenecen a este grupo, y son a los que comúnmente llamamos <strong>plásticos</strong>.
+                                </p>
+                            </div>
+                        </div>
+                        <p class="mb-8 text-lg leading-relaxed">
+                            También los podemos clasificar según cómo se comportan frente al calor.
+                        </p>
+                
+                        <!-- Clasificación por Composición -->
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 text-base mt-8">
+                            <!-- Termoplásticos -->
+                            <div class="p-6 border-l-4 border-blue-500 bg-blue-50 rounded-lg shadow-sm flex flex-col">
+                                <h4 class="font-bold text-xl text-blue-700 mb-2">Termoplásticos 🔥➡️❄️</h4>
+                                <p class="mb-2"><strong>Características:</strong> Se ablandan con el calor y se endurecen al enfriarse, pudiendo repetir este proceso varias veces. Son fáciles de reciclar.</p>
+                                <p class="mb-2"><strong>Estructura:</strong> Sus moléculas no están entrelazadas, lo que les permite moverse y deformarse con el calor.</p>
+                                <p class="font-semibold mt-auto pt-2">Ejemplos: Polietileno (PE), PVC, Metacrilato (PMMA), Poliestireno (PS).</p>
+                            </div>
+                            <!-- Termoestables -->
+                            <div class="p-6 border-l-4 border-red-500 bg-red-50 rounded-lg shadow-sm flex flex-col">
+                                <h4 class="font-bold text-xl text-red-700 mb-2">Termoestables 🔥➡️🧱</h4>
+                                <p class="mb-2"><strong>Características:</strong> Solo se pueden calentar y moldear una vez. Una vez que se enfrían y endurecen, su forma es definitiva y no se ablandan de nuevo.</p>
+                                <p class="mb-2"><strong>Estructura:</strong> Sus moléculas están fuertemente entrelazadas, formando una red rígida y tridimensional.</p>
+                                <p class="font-semibold mt-auto pt-2">Ejemplos: Baquelita, Melamina, Resinas de poliéster.</p>
+                            </div>
+                            <!-- Elastómeros -->
+                            <div class="p-6 border-l-4 border-yellow-500 bg-yellow-50 rounded-lg shadow-sm flex flex-col">
+                                <h4 class="font-bold text-xl text-yellow-700 mb-2">Elastómeros 🤸‍♂️</h4>
+                                <p class="mb-2"><strong>Características:</strong> Son muy elásticos, pueden estirarse mucho y volver a su forma original. Se comportan de forma similar al caucho.</p>
+                                <p class="mb-2"><strong>Estructura:</strong> Sus moléculas forman una red con pocos enlaces, lo que les permite estirarse sin romperse y luego contraerse.</p>
+                                <p class="font-semibold mt-auto pt-2">Ejemplos: Caucho artificial, Neopreno, Silicona.</p>
+                            </div>
+                        </div>
+
+                        <hr class="my-12 border-t-2 border-gray-200">
+
+                        <!-- Propiedades y aplicaciones -->
+                        <h3 class="text-2xl font-bold text-slate-500 mb-6">Propiedades y Aplicaciones Específicas</h3>
+
+                        <!-- Termoplásticos -->
+                        <div class="mb-12">
+                            <h4 class="text-xl font-bold text-blue-700 mb-4">Termoplásticos</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                                <div class="p-4 bg-white rounded-lg border border-gray-200"><strong>Polietileno de alta densidad (HDPE):</strong> Muy resistente, rígido y ligero. Se usa en envases, tuberías y juguetes.</div>
+                                <div class="p-4 bg-white rounded-lg border border-gray-200"><strong>Polietileno de baja densidad (LDPE):</strong> Poco resistente pero muy flexible. Usado en bolsas, film y botellas estrujables.</div>
+                                <div class="p-4 bg-white rounded-lg border border-gray-200"><strong>Polipropileno (PP):</strong> Duro y resistente al calor. Material "bisagra". Usado en jeringuillas, cuerdas y redes.</div>
+                                <div class="p-4 bg-white rounded-lg border border-gray-200"><strong>Policloruro de vinilo (PVC):</strong> Duro, impermeable y resistente al fuego. Usado en tuberías, ventanas y mangueras.</div>
+                                <div class="p-4 bg-white rounded-lg border border-gray-200"><strong>Poliestireno (PS):</strong> Rígido pero frágil. Usado en juguetes y envases de yogur. Expandido (porexpán) se usa como aislante.</div>
+                                <div class="p-4 bg-white rounded-lg border border-gray-200"><strong>Polietileno tereftalato (PET):</strong> Transparente e impermeable a gases. Usado en botellas de agua y refrescos.</div>
+                                <div class="p-4 bg-white rounded-lg border border-gray-200"><strong>Policarbonato (PC):</strong> Muy transparente y 200 veces más resistente que el vidrio. Usado en CDs y visores de cascos.</div>
+                                <div class="p-4 bg-white rounded-lg border border-gray-200"><strong>Metacrilato (PMMA):</strong> Duro y transparente, sustituto del vidrio en faros de coche o letreros.</div>
+                                <div class="p-4 bg-white rounded-lg border border-gray-200"><strong>Politetrafluoretileno (PTFE - Teflón):</strong> Antiadherente, impermeable y aislante. Usado en sartenes y fontanería.</div>
+                                <div class="p-4 bg-white rounded-lg border border-gray-200"><strong>Poliamidas (PA - Nailon):</strong> Muy resistente al desgaste. Usado como fibra textil, engranajes y tornillería.</div>
+                            </div>
+                        </div>
+
+                        <!-- Termoestables -->
+                        <div class="mb-12">
+                            <h4 class="text-xl font-bold text-red-700 mb-4">Termoestables</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                                <div class="p-4 bg-white rounded-lg border border-gray-200"><strong>Fenoles (PF - Baquelita):</strong> Aislante eléctrico y térmico, duro pero frágil. Usado en mangos de cocina y aparatos eléctricos.</div>
+                                <div class="p-4 bg-white rounded-lg border border-gray-200"><strong>Aminas (MF - Melamina):</strong> Adhesivo y recubrimiento de tableros. Usado en muebles, encimeras y cascos de barcos.</div>
+                                <div class="p-4 bg-white rounded-lg border border-gray-200"><strong>Resinas de poliéster (UP):</strong> Se endurece con un catalizador. Reforzado con fibra de vidrio se usa en piscinas, esquís y depósitos.</div>
+                                <div class="p-4 bg-white rounded-lg border border-gray-200"><strong>Resinas epoxi (EP):</strong> Excelente adhesivo. Se usa en construcción, pinturas de suelos y revestimiento de latas.</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Elastómeros -->
+                        <div class="mb-12">
+                            <h4 class="text-xl font-bold text-yellow-700 mb-4">Elastómeros</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                                <div class="p-4 bg-white rounded-lg border border-gray-200"><strong>Caucho (CA):</strong> Muy elástico y resistente. Usado en neumáticos, suelas de zapatos y guantes.</div>
+                                <div class="p-4 bg-white rounded-lg border border-gray-200"><strong>Neopreno (PCP):</strong> Resistente al calor y a los aceites. Usado en trajes de buceo y correas de transmisión.</div>
+                                <div class="p-4 bg-white rounded-lg border border-gray-200"><strong>Poliuretano (PUR):</strong> Usado como espuma en esponjas, colchones y aislantes. También en pinturas.</div>
+                                <div class="p-4 bg-white rounded-lg border border-gray-200"><strong>Siliconas (SI):</strong> Estable a altas temperaturas, flexible e inerte. Usada en selladores, moldes de horno y prótesis.</div>
+                            </div>
+                        </div>
+
+                        <!-- Fibras sintéticas -->
                         <div>
-                         <img src="https://www.aiete.net/wp-content/uploads/2017/06/milagro-de-la-cruz-gentile-bellini-1024x762.jpg" alt="Dibujo artístico" class="w-full h-full object-cover rounded-lg shadow-md my-6 zoomable-image limited-height-200">
-                         <p class="image-caption">Dibujo artístico.</p>
+                            <h4 class="text-xl font-bold text-purple-700 mb-4">Fibras Textiles Sintéticas y Especiales</h4>
+                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                                <div class="p-4 bg-white rounded-lg border border-gray-200"><strong>Nailon:</strong> Fuerte y flexible. Usado en medias, cuerdas y tela de paracaídas.</div>
+                                <div class="p-4 bg-white rounded-lg border border-gray-200"><strong>Poliéster:</strong> Se seca muy rápido. Usado en ropa deportiva y bolsas de viaje.</div>
+                                <div class="p-4 bg-white rounded-lg border border-gray-200"><strong>Elastano (Lycra):</strong> Muy elástico. Combinado con otras fibras en bañadores y ropa ajustada.</div>
+                                <div class="p-4 bg-white rounded-lg border border-gray-200"><strong>Kevlar:</strong> Poliamida ligera y excepcionalmente resistente. Usado en chalecos antibalas y guantes anticortes.</div>
+                            </div>
+                        </div>
 
-                     </div>
-                     <div>
-                        <img src="https://www.3ds.com/assets/invest/2023-02/technical-drawing-for-cnc-machining-2.jpg" alt="Dibujo técnico" class="w-full h-full object-cover rounded-lg shadow-md my-6 zoomable-image limited-height-200">
-                        <p class="image-caption">Dibujo técnico.</p>
-
-                    </div>
+                    </section>
                 </div>
-                <p class="mt-6 mb-4 text-lg leading-relaxed italic text-center text-slate-600">
-                    En resumen: mientras el dibujo artístico habla el idioma de las emociones, el dibujo técnico habla el idioma de la precisión.
-                </p>
-                <p class="summary text-lg leading-relaxed mt-4">
-                    En Tecnología, los dibujos técnicos son cruciales para la creación de bocetos y planos. Estos deben ser claros y concisos, sin ornamentos, para asegurar que no haya ambigüedad sobre la forma y las dimensiones del objeto representado.
-                </p>
-            </section>
-        </div>
 
-        <div id="tab2" class="tab-content">
-           <section id="tipos-dibujos" class="">
-            <h2 class="text-3xl font-bold text-slate-600 mb-6">2. Tipos de dibujos técnicos</h2>
-            <p class="mb-4 text-lg leading-relaxed">
-                <strong>Del Problema a la Solución: Los Pasos del Diseño Técnico</strong>
-            </p>
-            <p class="mb-4 text-lg leading-relaxed">
-                En tecnología, cuando queremos crear o solucionar algo, no pasamos de la idea al producto final de golpe. El proceso de diseño es un camino que va de lo general a lo concreto.
-            </p>
-            <p class="mb-6 text-lg leading-relaxed">
-                Una vez que sabemos qué problema queremos resolver, empezamos a dibujar nuestras primeras ideas. Estas propuestas iniciales no son perfectas, son solo el punto de partida. A medida que avanzamos, nuestros dibujos se vuelven cada vez más precisos y detallados.
-            </p>
-            <p class="summary text-lg leading-relaxed mt-4 mb-8">
-                Este viaje desde la primera idea hasta el plano final se divide en tres fases clave: el <strong>boceto</strong>, el <strong>croquis</strong> y el <strong>dibujo técnico</strong>. Veamos en qué consiste cada uno.
-            </p>
+                <div id="tab4" class="tab-content">
+                    <section id="fabricacion_plasticos">
+                        <h2 class="text-3xl font-bold text-slate-600 mb-6">4. Técnicas de Fabricación de Plásticos</h2>
+                        <p class="mb-4 text-lg leading-relaxed">
+                            El primer paso es obtener la materia prima, el polímero, en forma de polvo o pequeños granos (granza). Este proceso se realiza en reactores químicos complejos. Una vez tenemos la granza, a la que se le pueden añadir colorantes o aditivos para mejorar sus propiedades, se le da la forma deseada mediante diversos procesos.
+                        </p>
+                        
+                        <div class="space-y-12 mt-10">
 
-            <div class="space-y-8 text-lg">
-                <div class="p-4 border-l-4 border-blue-500 bg-blue-50">
-                    <h3 class="font-bold text-xl text-blue-700 mb-2">Boceto</h3>
-                    <p class="text-slate-700">
-                        El boceto es un dibujo a mano alzada, poco detallado, que transmite una idea inicial de cómo será el objeto final. Seguramente has hecho alguna vez un boceto para explicar una idea o para ayudar a localizar una calle haciendo un pequeño mapa. A menudo se emplean los sinónimos de "borrador" o "esbozo" para referirse a un boceto.
-                    </p>
+                            <!-- Extrusión -->
+                            <div class="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+                                <h3 class="font-bold text-xl text-slate-700 mb-2">Extrusión 🔩</h3>
+                                <p class="mb-4">Se aplica a <strong>termoplásticos</strong>. El plástico granulado se introduce en un cilindro caliente y un tornillo giratorio lo empuja, fundiéndolo y forzándolo a salir por una boquilla (troquel) con la forma deseada. Se fabrican así perfiles largos y continuos como <strong>tubos, perfiles de ventanas o el recubrimiento de cables</strong>.</p>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Extrusion_process_ES.svg/1200px-Extrusion_process_ES.svg.png" alt="Diagrama del proceso de extrusión" class="w-full rounded-lg shadow-md bg-white">
+                                    <div class="video-container">
+                                        <iframe class="rounded-lg shadow-md" src="https://www.youtube.com/embed/rp_G-Ld_3iQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Inyección -->
+                            <div class="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+                                <h3 class="font-bold text-xl text-slate-700 mb-2">Inyección 💉</h3>
+                                <p class="mb-4">Se aplica a <strong>termoplásticos</strong>. De forma similar a la extrusión, el plástico fundido es inyectado a alta presión dentro de un molde cerrado. Al enfriarse, el plástico solidifica, el molde se abre y se extrae la pieza. Permite fabricar piezas complejas como <strong>carcasas de electrodomésticos, juguetes o cubiertos</strong>.</p>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Injection_moulding_process_ES.svg/1200px-Injection_moulding_process_ES.svg.png" alt="Diagrama del proceso de inyección" class="w-full rounded-lg shadow-md bg-white">
+                                    <div class="video-container">
+                                        <iframe class="rounded-lg shadow-md" src="https://www.youtube.com/embed/e_R_g_jC_2k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Soplado -->
+                            <div class="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+                                <h3 class="font-bold text-xl text-slate-700 mb-2">Moldeo por Soplado 🌬️</h3>
+                                <p class="mb-4">Se aplica a <strong>termoplásticos</strong>. Se introduce una preforma de plástico caliente en un molde y se inyecta aire a presión, lo que "hincha" el plástico hasta que toma la forma de las paredes del molde. Es el método para fabricar objetos huecos como <strong>botellas y balones</strong>.</p>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Blow_molding_process_es.png" alt="Diagrama del moldeo por soplado" class="w-full rounded-lg shadow-md">
+                                    <div class="video-container">
+                                        <iframe class="rounded-lg shadow-md" src="https://www.youtube.com/embed/8W6P5KU5_pI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Compresión -->
+                            <div class="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+                                <h3 class="font-bold text-xl text-slate-700 mb-2">Moldeo por Compresión 🏋️</h3>
+                                <p class="mb-4">Se aplica a <strong>termoestables</strong>. Se introduce el material en polvo en un molde hembra caliente. Luego, un contramolde macho comprime el material, aplicando presión y calor. Esto provoca la reacción química que endurece el plástico permanentemente. Se usa para <strong>mangos de sartenes, enchufes o tapas de inodoro</strong>.</p>
+                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Compression_molding_ES.svg/1024px-Compression_molding_ES.svg.png" alt="Diagrama del moldeo por compresión" class="w-full rounded-lg shadow-md bg-white">
+                                    <div class="video-container">
+                                        <iframe class="rounded-lg shadow-md" src="https://www.youtube.com/embed/z4o7_e-N-Cg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Vacío -->
+                            <div class="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+                                <h3 class="font-bold text-xl text-slate-700 mb-2">Moldeo al Vacío 🌀</h3>
+                                <p class="mb-4">Se aplica a <strong>termoplásticos</strong>. Se calienta una lámina de plástico para ablandarla y se coloca sobre un molde. Luego, se succiona el aire que hay entre la lámina y el molde, forzando al plástico a adaptarse a su forma. Se fabrican así <strong>envases de huevos, bandejas de comida o salpicaderos de coches</strong>.</p>
+                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Vacuum_forming.svg/1200px-Vacuum_forming.svg.png" alt="Diagrama del moldeo al vacío" class="w-full rounded-lg shadow-md bg-white">
+                                    <div class="video-container">
+                                        <iframe class="rounded-lg shadow-md" src="https://www.youtube.com/embed/mTo9bIGc2A0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Calandrado -->
+                            <div class="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+                                <h3 class="font-bold text-xl text-slate-700 mb-2">Laminado por Calandrado 📜</h3>
+                                <p class="mb-4">Se aplica a <strong>termoplásticos</strong>. Se hace pasar el plástico en estado pastoso entre una serie de rodillos calientes que van reduciendo su grosor hasta convertirlo en una lámina fina. Se usa para fabricar <strong>hules, impermeables o láminas para encuadernar</strong>.</p>
+                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Calendering_Plastics_Process_en.svg/1200px-Calendering_Plastics_Process_en.svg.png" alt="Diagrama del laminado por calandrado" class="w-full rounded-lg shadow-md bg-white">
+                                    <div class="video-container">
+                                        <iframe class="rounded-lg shadow-md" src="https://www.youtube.com/embed/Jp8a_p_3k4Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Hilado -->
+                            <div class="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+                                <h3 class="font-bold text-xl text-slate-700 mb-2">Hilado 🧵</h3>
+                                <p class="mb-4">Se usa para obtener <strong>fibras textiles sintéticas</strong>. El polímero fundido se hace pasar por una boquilla con múltiples agujeros (como una ducha). Los filamentos que salen se enfrían, se estiran para darles el grosor deseado y se recogen en bobinas.</p>
+                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Melt_Spinning_Process_en.svg/1200px-Melt_Spinning_Process_en.svg.png" alt="Diagrama del proceso de hilado" class="w-full rounded-lg shadow-md bg-white">
+                                    <div class="video-container">
+                                        <iframe class="rounded-lg shadow-md" src="https://www.youtube.com/embed/Wk2h_625yJ8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Mecanizado -->
+                             <div class="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+                                <h3 class="font-bold text-xl text-slate-700 mb-2">Mecanizado ⚙️</h3>
+                                <p class="mb-4">Los plásticos también pueden ser trabajados con técnicas de mecanizado tradicionales como el <strong>torneado, fresado, taladrado o aserrado</strong>. Es crucial refrigerar bien la herramienta para evitar que el calor ablande y deforme el material, especialmente en los termoplásticos.</p>
+                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                                    <img src="https://www.aeromaquinados.com/wp-content/uploads/2021/08/partes-de-un-torno-1024x668.jpg" alt="Torno mecanizando una pieza" class="w-full rounded-lg shadow-md">
+                                    <div class="video-container">
+                                        <iframe class="rounded-lg shadow-md" src="https://www.youtube.com/embed/0gogPuQi_eI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
-                <div class="p-4 border-l-4 border-indigo-500 bg-indigo-50">
-                    <h3 class="font-bold text-xl text-indigo-700 mb-2">Croquis</h3>
-                    <p class="text-slate-700">
-                        El croquis es un dibujo también hecho a mano alzada, pero mucho más detallado que el boceto, ya que cuenta con medidas y otras anotaciones que permitan construir el objeto que describe. Es un dibujo bien proporcionado, acotado y completamente descrito para su construcción.
-                    </p>
+
+                <div id="tab5" class="tab-content">
+                    <section id="reciclado_plasticos">
+                        <h2 class="text-3xl font-bold text-slate-600 mb-6">5. El Reciclado de los Plásticos</h2>
+                        <p class="mb-4 text-lg leading-relaxed">
+                            En las sociedades industrializadas, el abuso de materiales plásticos desechables es elevado y está causando importantes problemas medioambientales. El plástico es un material poco biodegradable y sus residuos permanecen en el medio ambiente, terrestre o marino, durante mucho tiempo, a veces cientos de años.
+                        </p>
+                        <p class="mb-6 text-lg leading-relaxed">
+                            El reciclaje de los plásticos aminora tanto el problema del agotamiento de los recursos (ya que muchos derivan del petróleo) como el de la degradación del medio natural al reducir los residuos.
+                        </p>
+
+                        <div class="p-6 bg-blue-50 border-l-4 border-blue-500 rounded-lg shadow-sm mb-8">
+                             <p class="text-lg leading-relaxed">
+                                Una vez realizada la separación de los plásticos del resto de residuos (orgánicos, metales, vidrio, papel, etc.) se procede a su clasificación por tipos. Aunque existen muchísimos tipos de plásticos, sólo seis de ellos (<strong>PET, HDPE, PVC, LDPE, PP y PS</strong>) constituyen el 90% de los desechos, por lo que la industria del reciclado se centra en ellos.
+                            </p>
+                        </div>
+                        
+                        <img src="https://gestorderesiduosmadrid.es/wp-content/uploads/2024/01/codigos-reciclaje-plasticos-receco-600.jpg" alt="Símbolo de reciclaje para el plástico PET" class="rounded-lg shadow-md my-6 expandable-image zoomable-image cursor-pointer transition-transform duration-300 hover:scale-105 limited-height">
+                        <p class="text-center italic text-slate-600 mb-10">.</p>
+
+
+                        <h3 class="text-2xl font-bold text-slate-500 mb-6">Tipos de Reciclado</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-base">
+                            <!-- Reciclado Mecánico -->
+                            <div class="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+                                <h4 class="font-bold text-xl text-slate-700 mb-2">Reciclado Mecánico ⚙️</h4>
+                                <p>Es el más común. Consiste en limpiar, triturar y fundir el plástico para volver a fabricar granza (pequeños granos) que servirá como materia prima para nuevos objetos.</p>
+                            </div>
+
+                             <!-- Reciclado Químico -->
+                             <div class="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+                                <h4 class="font-bold text-xl text-slate-700 mb-2">Reciclado Químico 🧪</h4>
+                                <p>Consiste en descomponer los polímeros del plástico en sus monómeros originales (las moléculas básicas). Estos monómeros se pueden usar para fabricar plásticos de alta calidad, como nuevos.</p>
+                            </div>
+
+                             <!-- Reciclado Energético -->
+                             <div class="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+                                <h4 class="font-bold text-xl text-slate-700 mb-2">Reciclado Energético 🔥</h4>
+                                <p>Cuando el plástico no se puede reciclar de las formas anteriores, se utiliza como combustible en centrales térmicas para generar electricidad. Tiene un poder calorífico similar al de los combustibles fósiles.</p>
+                            </div>
+                        </div>
+
+                    </section>
                 </div>
-                <div class="p-4 border-l-4 border-purple-500 bg-purple-50">
-                    <h3 class="font-bold text-xl text-purple-700 mb-2">Planos</h3>
-                    <p class="mb-4 text-slate-700">
-                        El plano es la representación gráfica definitiva de un objeto o proyecto, elaborada con la máxima precisión y detalle. A diferencia del boceto y el croquis, el plano no se realiza a mano alzada, sino que se dibuja utilizando herramientas de precisión, como reglas y escuadras, o más comúnmente, software de diseño asistido por ordenador (CAD).
-                    </p>
-                    <p class="mb-3 text-slate-700">El plano se distingue del croquis por las siguientes características clave:</p>
-                    <ul class="list-disc list-inside space-y-2 text-slate-700">
-                        <li><strong>Normalización:</strong> Sigue un conjunto de normas y convenciones estandarizadas para asegurar que su interpretación sea universal.</li>
-                        <li><strong>Representación a escala:</strong> Todas las dimensiones se dibujan de forma proporcional a su tamaño real, aplicando una escala específica.</li>
-                        <li><strong>Uso de vistas normalizadas:</strong> Utiliza un sistema de vistas múltiples (alzado, planta, perfil) para describir la forma del objeto de manera completa.</li>
-                        <li><strong>Carácter de documento técnico:</strong> Es el documento formal y final con toda la información necesaria para la fabricación o construcción.</li>
-                    </ul>
-                </div>
-            </div>
-            <p class="mt-8 mb-4 text-lg leading-relaxed italic text-center text-slate-600">
-                En resumen, si el boceto es la idea inicial y el croquis es la guía dimensionada, el plano es el lenguaje técnico y formal que traduce esa idea en instrucciones exactas para su ejecución.
-            </p>
-        </section>
-    </div>
-
-    <div id="tab3" class="tab-content">
-        <section id="instrumentos-dibujo" class="">
-    <h2 class="text-3xl font-bold text-slate-600 mb-6">3. Instrumentos de dibujo técnico</h2>
-    <p class="mb-4 text-lg leading-relaxed">
-        Para que nuestros diseños pasen de una simple idea a un plano bien hecho, necesitamos las herramientas adecuadas. En el dibujo técnico, la regla, la escuadra, el cartabón y el compás no son opcionales: son fundamentales para lograr la precisión y la proporción que todo proyecto necesita.
-    </p>
-    <p class="summary text-lg leading-relaxed mt-4 mb-8">
-        A continuación, vamos a aprender para qué se emplean las herramientas más comunes usadas en dibujo técnico:
-    </p>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-lg">
-        <div class="p-4 border-l-4 border-blue-500 bg-blue-50">
-            <h3 class="font-bold text-xl text-blue-700 mb-2">📏 Regla</h3>
-            <p class="text-slate-700">Se utiliza para trazar líneas rectas precisas y medir distancias.</p>
-        </div>
-        <div class="p-4 border-l-4 border-green-500 bg-green-50">
-            <h3 class="font-bold text-xl text-green-700 mb-2">📐 Escuadra</h3>
-            <p class="text-slate-700">Es un instrumento con forma de triángulo rectángulo con dos ángulos de 45º. Se utiliza con ayuda del cartabón para dibujar líneas perpendiculares o paralelas.</p>
-        </div>
-        <div class="p-4 border-l-4 border-yellow-500 bg-yellow-50">
-            <h3 class="font-bold text-xl text-yellow-700 mb-2">📐 Cartabón</h3>
-            <p class="text-slate-700">Similar a la escuadra, pero con ángulos de 30º, 60º y 90º.</p>
-        </div>
-        <div class="p-4 border-l-4 border-red-500 bg-red-50">
-            <h3 class="font-bold text-xl text-red-700 mb-2">⭕ Compás</h3>
-            <p class="text-slate-700">Permite trazar círculos y arcos de circunferencia de un tamaño específico con precisión.</p>
-        </div>
-        <div class="p-4 border-l-4 border-purple-500 bg-purple-50">
-            <h3 class="font-bold text-xl text-purple-700 mb-2">⭕ Transportador de ángulos</h3>
-            <p class="text-slate-700">Herramienta semicircular para medir y dibujar ángulos, graduada normalmente de 0º a 180º.</p>
-        </div>
-        <div class="p-4 border-l-4 border-teal-500 bg-teal-50">
-            <h3 class="font-bold text-xl text-teal-700 mb-2">📏 Escalímetro</h3>
-            <p class="text-slate-700">Un tipo de regla con sección triangular o en abanico que incorpora varias escalas de medida.</p>
-        </div>
-        <div class="p-4 border-l-4 border-slate-500 bg-slate-50">
-            <h3 class="font-bold text-xl text-slate-700 mb-2">✏️ Lápices técnicos</h3>
-            <p class="text-slate-700">Existen diversas opciones de lápices técnicos dependiendo de la dureza de su mina.</p>
-        </div>
-        <div class="p-4 border-l-4 border-cyan-500 bg-cyan-50">
-            <h3 class="font-bold text-xl text-cyan-700 mb-2">🖋️ Portaminas y minas</h3>
-            <p class="text-slate-700">Se utilizan para trazar líneas finas y precisas con un grosor constante.</p>
-        </div>
-        <div class="p-4 border-l-4 border-pink-500 bg-pink-50">
-            <h3 class="font-bold text-xl text-pink-700 mb-2">🧼 Borradores</h3>
-            <p class="text-slate-700">Útiles para borrar trazados a lápiz y corregir errores sin dañar el papel.</p>
-        </div>
-        <div class="p-4 border-l-4 border-indigo-500 bg-indigo-50">
-            <h3 class="font-bold text-xl text-indigo-700 mb-2">✒️ Rotuladores calibrados</h3>
-            <p class="text-slate-700">Tienen una punta muy fina y permiten el dibujo de piezas con gran precisión.</p>
-        </div>
-    </div>
-</section>
-    </div>
-
-    <div id="tab4" class="tab-content">
-        <section id="tecnicas-trazado" class="">
-            <h2 class="text-3xl font-bold text-slate-600 mb-6">4. Técnicas de trazado de líneas, curvas y ángulos</h2>
-
-            <div class="mb-8 p-4 border-l-4 border-yellow-500 bg-yellow-50">
-                <h3 class="font-bold text-2xl text-slate-700 mb-3">Trazado de líneas Rectas</h3>
-                <p class="text-lg leading-relaxed">
-                    Para trazar una línea recta se usa siempre una regla. La regla se sujeta con firmeza con una mano y, con la otra, se dibuja la línea a lo largo de su borde. Se pueden usar las marcas milimetradas de la regla para controlar la longitud exacta del trazo.
-                </p>
-            </div>
-
-            <div class="mb-8 p-4 border-l-4 border-cyan-500 bg-cyan-50">
-                <h3 class="font-bold text-2xl text-cyan-700 mb-3">Trazado de Rectas Paralelas</h3>
-                <p class="text-lg leading-relaxed mb-4">
-                    Recordemos: Dos rectas son paralelas si, por mucho que se prolonguen, nunca se cortan. El truco aquí es usar el cartabón como guía fija y la escuadra como herramienta de deslizamiento.
-                </p>
-                <p class="text-lg leading-relaxed mb-4">
-                    Para trazar rectas paralelas empleando la escuadra y el cartabón se sigue el siguiente procedimiento:
-                </p>
-                <ol class="list-decimal list-inside space-y-3 text-lg text-slate-700">
-                    <li><strong>Alineación inicial:</strong> Coloca el lado más largo de la escuadra (la hipotenusa) sobre la recta de referencia.</li>
-                    <li><strong>Fijación de la guía:</strong> Coloca el cartabón firmemente junto a uno de los lados cortos de la escuadra (un cateto).</li>
-                    <li><strong>El punto clave:</strong> Con una mano, sujeta el cartabón con fuerza para que no se mueva y actúe como un riel.</li>
-                    <li><strong>Deslizamiento y trazado:</strong> Desliza la escuadra sobre el borde del cartabón hasta el punto donde necesites la nueva línea paralela.</li>
-                    <li><strong>Trazar:</strong> Sin mover nada, traza la nueva recta. Esta será completamente paralela a la original.</li>
-                </ol>
-                <p class="mt-4 text-lg italic bg-yellow-100 p-3 rounded-lg">
-                    💡 <strong>Consejo:</strong> Usa el dedo índice sobre el cartabón para asegurarte de que no se mueva. La precisión depende de que la guía permanezca completamente inmóvil.
-                </p>
-            </div>
-
-            <div class="mb-8 p-4 border-l-4 border-lime-500 bg-lime-50">
-                <h3 class="font-bold text-2xl text-lime-700 mb-3">📐 Trazado de Rectas Perpendiculares</h3>
-                <p class="text-lg leading-relaxed mb-4">
-                    Recordemos: Dos rectas son perpendiculares si se cortan formando un ángulo de 90° (un ángulo recto).
-                </p>
-                <p class="text-lg leading-relaxed mb-4">
-                    Para trazar rectas perpendiculares se sigue el siguiente procedimiento, conocido como “método de giro”:
-                </p>
-                <ol class="list-decimal list-inside space-y-3 text-lg text-slate-700">
-                    <li><strong>Alineación inicial:</strong> Se realizan los mismos pasos 1 y 2 que para las paralelas: alinea la hipotenusa de la escuadra sobre la recta y coloca el cartabón como guía en un cateto.</li>
-                    <li><strong>Fijación de la guía:</strong> Sujeta el cartabón firmemente.</li>
-                    <li><strong>El giro de 90°:</strong> Sin mover el cartabón, gira la escuadra 90°, apoyando el otro cateto sobre el cartabón.</li>
-                    <li><strong>Deslizamiento y trazado:</strong> Desliza la escuadra sobre el cartabón hasta el punto deseado.</li>
-                    <li><strong>Trazar:</strong> Traza la recta. Esta será perpendicular a la original.</li>
-                </ol>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
-                <div>
-                   <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuLqY9QnCDAfOqKnwa4MxgziFMcNBBNQ1smZG8FCeK9AXgud37Yin2rxzug8nKq6xOvIzSYicPXrZ-rciPrgLZvLpN1j1Z4BMSqRZKGDhjMAbMMTwRU2y_6N37h9iDGVQ0FG93hXNXXqA/s1600/Vert+Horiz+Plantillas.jpg" alt="Trazado de líneas paralelas" class="w-full rounded-lg shadow-md zoomable-image">
-                   <p class="image-caption">Trazado de líneas paralelas y perpendiculares.</p>
-               </div>
-                <div>
-                     <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/bOYgYUfm_8s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <p class="image-caption mt-2">Trazado de paralelas y perpendiculares con escuadra y cartabón.</p>
-                </div>
-            </div>
-
-            <div class="mb-8 p-4 border-l-4 border-emerald-500 bg-emerald-50">
-                <h3 class="font-bold text-2xl text-slate-700 mb-3">📐 Trazado de una Circunferencia o un Arco</h3>
-                <p class="text-lg leading-relaxed mb-4">
-                    La técnica correcta para dibujar círculos o arcos con el compás es la siguiente:
-                </p>
-                <ul class="list-none space-y-3 text-lg text-slate-700">
-                    <li><strong>📌 CENTRO:</strong> Pincha la aguja en el punto central.</li>
-                    <li><strong>↔️ RADIO:</strong> Abre los brazos hasta lograr el tamaño que quieres.</li>
-                    <li><strong>✍️ GIRO:</strong> Sujeta el compás siempre por el mango de arriba y rótalo con suavidad para dibujar.</li>
-                </ul>
-                <p class="mt-4 text-lg italic">
-                    Para un radio exacto: Mide primero la apertura con una regla (de 0 a la medida que necesites) y luego dibuja el círculo.
-                </p>
-            </div>
-
-            <div class="mb-8 p-4 border-l-4 border-red-500 bg-red-50">
-                <h3 class="font-bold text-2xl text-slate-700 mb-3">📐 Trazado de Ángulos</h3>
-                <p class="text-lg leading-relaxed">
-                    El transportador es un instrumento especialmente indicado para marcar ángulos que no se pueden obtener con la escuadra y el cartabón. Para medir un ángulo, sitúa el transportador de manera que su centro quede en el vértice del ángulo y el lado del ángulo coincida con la línea de base del transportador.
-                </p>
-            </div>
-        </section>
-    </div>
-
-    <div id="tab5" class="tab-content">
-        <section id="acotacion" class="">
-            <h2 class="text-3xl font-bold text-slate-600 mb-6">5. Acotación</h2>
-            <p class="mb-4 text-lg leading-relaxed">
-                La acotación es el proceso por medio del cual quedan reflejadas en un plano las medidas reales de un objeto. Se llama <strong>cota</strong> a cada una de las medidas del objeto que han sido anotadas en el plano.
-            </p>
-            <p class="mb-6 text-lg leading-relaxed">
-                El fin de la acotación es conseguir una interpretación fiel y sin dudas del objeto representado, de modo que pueda ser fabricado sin necesidad de ninguna otra información. En los planos de fabricación de piezas las medidas lineales están en centímetros y los ángulos en grados. Si se fuera a usar una unidad de medida diferente, hay que especificarlo anotándolo en el cuadro de rotulación de la lámina.
-            </p>
-
-            <div class="flex flex-col md:flex-row gap-8 items-center">
-                <div class="md:w-2/3">
-                    <p class="text-lg leading-relaxed mb-4">Como se observa en la imagen adjunta, las cotas se componen de:</p>
-                    <ul class="list-disc list-inside space-y-3 text-lg text-slate-700">
-                        <li><strong>Líneas auxiliares de cota:</strong> Establecen los límites de la línea de cota. Son perpendiculares al objeto y sobresalen 2 mm de la línea de cota. Se trazan con línea continua fina (0,2 mm).</li>
-                        <li><strong>Línea de cota:</strong> Paralela al elemento que se acota. Es una línea fina y continua (0,2 mm) separada al menos 7 mm de la arista.</li>
-                        <li><strong>Flechas de cota:</strong> Indican los extremos de la línea de cota. Sus lados forman un ángulo de 15° aproximadamente. Pueden sustituirse por trazos a 45°.</li>
-                        <li><strong>Cifra de cota:</strong> Indica la medida real (normalmente en cm). Se sitúa centrada sobre la línea de cota y debe leerse en la posición natural del plano o girándolo 90° a la derecha.</li>
-                    </ul>
-                </div>
-                <div class="md:w-1/3">
-                    <img src="img/cotas.png" alt="Elementos de la acotación" class="zoomable-image rounded-lg shadow-lg">
-                    <p class="text-center italic text-slate-600 mt-2">Elementos de la acotación.</p>
-                </div>
-            </div>
-
-            <p class="summary text-lg leading-relaxed mt-8">
-                Puedes consultar las principales normas de la acotación pinchando en el siguiente <a href="pdf/acotacion.pdf" target="_blank" class="text-blue-600 hover:underline">enlace</a>.
-            </p>
-        </section>
-    </div>
 
     <div id="tab6" class="tab-content">
         <section id="escalas" class="">
@@ -736,120 +845,9 @@
         </div>
     </section>
 </div>
-
 <div id="tab10" class="tab-content">
-                    <section id="actividades_refuerzo">
-                        <div class="bg-yellow-100 p-4 rounded-lg border-l-4 border-yellow-500">
-                            <h2 class="text-3xl font-bold text-slate-700 mb-6 italic">Actividades de Refuerzo</h2>
-                            <p class="mt-4 text-lg italic">UD1 - Sistemas de Representación</p>
-                        </div>
-                        <div class="p-5 space-y-8 text-slate-600 leading-relaxed text-lg">
-                            <p class="font-semibold">Instrucciones: Lee con atención los apuntes y responde a las siguientes preguntas en tu cuaderno copiando el enunciado. La respuesta a cada pregunta se encuentra de forma literal en el texto.</p>
-                
-                            <!-- Section 1 -->
-                            <div>
-                                <h3 class="text-xl font-bold text-slate-700 mb-4">1. El Dibujo: artístico y técnico 🎨</h3>
-                                <ul class="list-disc list-inside space-y-2">
-                                    <li>¿Para qué usamos los dibujos?</li>
-                                    <li>¿Qué dos tipos principales de dibujo existen?</li>
-                                    <li>¿Cuáles son los objetivos del dibujo artístico?</li>
-                                    <li>¿Cuál es el objetivo del dibujo técnico?</li>
-                                    <li>¿Por qué se dice que el dibujo técnico es objetivo?</li>
-                                </ul>
-                            </div>
-                
-                            <!-- Section 2 -->
-                            <div>
-                                <h3 class="text-xl font-bold text-slate-700 mb-4">2. Tipos de dibujos técnicos ✍️</h3>
-                                <ul class="list-disc list-inside space-y-2">
-                                    <li>¿Cuáles son las tres fases del diseño desde la primera idea hasta el plano final?</li>
-                                    <li>¿Qué es un boceto?</li>
-                                    <li>¿Qué es un croquis?</li>
-                                    <li>¿Qué es un plano?</li>
-                                    <li>¿Con qué herramientas se dibuja un plano?</li>
-                                    <li>¿Qué es la normalización?</li>
-                                </ul>
-                            </div>
-                            
-                            <!-- Section 3 -->
-                            <div>
-                                <h3 class="text-xl font-bold text-slate-700 mb-4">3. Instrumentos de dibujo técnico 📏</h3>
-                                <ul class="list-disc list-inside space-y-2">
-                                    <li>¿Para qué se utiliza la regla?</li>
-                                    <li>¿Qué forma y ángulos tiene la escuadra? ¿Y el cartabón? ¿Para qué se utilizan?</li>
-                                    <li>¿Para qué sirve el compás?</li>
-                                    <li>¿Qué es un transportador de ángulos?</li>
-                                </ul>
-                            </div>
-                
-                            <!-- Section 4 -->
-                            <div>
-                                <h3 class="text-xl font-bold text-slate-700 mb-4">4. Técnicas de trazado 📐</h3>
-                                <ul class="list-disc list-inside space-y-2">
-                                    <li>¿Cuándo se dice que dos rectas son paralelas?</li>
-                                    <li>¿Y perpendiculares?</li>
-                                    <li>¿Cuál es el procedimiento para trazar rectas paralelas?</li>
-                                    <li>¿Dónde se pincha la aguja del compás para empezar a dibujar una circunferencia?</li>
-                                    <li>¿Qué instrumento se usa para marcar ángulos que no se pueden hacer con la escuadra y el cartabón?</li>
-                                </ul>
-                            </div>
-                
-                            <!-- Section 5 -->
-                            <div>
-                                <h3 class="text-xl font-bold text-slate-700 mb-4">5. Acotación ↔️</h3>
-                                <ul class="list-disc list-inside space-y-2">
-                                    <li>¿Qué es la acotación?</li>
-                                    <li>¿Cuáles son los elementos de la acotación?</li>
-                                    <li>¿Qué indica la cifra de cota?</li>
-                                    <li>¿Qué diferencia hay entre las líneas de cota y las líneas auxiliares de cota?</li>
-                                </ul>
-                            </div>
-                
-                            <!-- Section 6 -->
-                            <div>
-                                <h3 class="text-xl font-bold text-slate-700 mb-4">6. Escalas 🔍</h3>
-                                <ul class="list-disc list-inside space-y-2">
-                                    <li>¿Qué es la escala?</li>
-                                    <li>¿Para qué se emplean las escalas?</li>
-                                    <li>¿Qué tres tipos de escalas hay?</li>
-                                    <li>¿Cómo se escribe la escala natural?</li>
-                                    <li>¿Cuándo se utiliza la escala de ampliación?</li>
-                                    <li>¿Cuándo se utiliza la escala de reducción?</li>
-                                </ul>
-                            </div>
-                
-                            <!-- Section 7 -->
-                            <div>
-                                <h3 class="text-xl font-bold text-slate-700 mb-4">7. Vistas 🖼️</h3>
-                                <ul class="list-disc list-inside space-y-2">
-                                    <li>¿Qué son las vistas de un objeto?</li>
-                                    <li>¿Cuáles son las tres vistas principales que se suelen dibujar?</li>
-                                    <li>¿Qué es el alzado?</li>
-                                    <li>¿Qué es la planta?</li>
-                                    <li>¿Qué es el perfil?</li>
-                                    <li>¿Cuáles son los sistemas más habituales de representación?</li>
-                                    <li>¿Qué dimensiones coinciden entre una vista y otra?</li>
-                                </ul>
-                            </div>
-                
-                            <!-- Section 8 -->
-                            <div>
-                                <h3 class="text-xl font-bold text-slate-700 mb-4">8. Perspectivas 🧊</h3>
-                                <ul class="list-disc list-inside space-y-2">
-                                    <li>¿Para qué se usa una perspectiva en dibujo técnico?</li>
-                                    <li>¿Qué perspectiva no deforma el objeto y no tiene puntos de fuga?</li>
-                                    <li>¿Qué perspectiva tiene la ventaja de que una de sus caras se ve de frente y sin distorsión?</li>
-                                    <li>¿Cuál es la perspectiva más realista y que se parece más a cómo ven nuestros ojos?</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-
-
-<div id="tab11" class="tab-content">
     <section id="actividades1" class="border-green-200">
-        <div class="bg-orange-100 p-4 rounded-lg border-l-4 border-orange-500">
+        <div class="bg-yellow-100 p-4 rounded-lg border-l-4 border-yellow-500">
             <h2 class="text-3xl font-bold text-slate-700 mb-6 italic">Lámina 1</h2>
             <p class="mt-4 text-lg italic">Trazado de Patrón Geométrico con Escuadra y Cartabón</p>
         </div>      
@@ -985,50 +983,49 @@
     </div>
 </section>
 </div>
+                <div id="tab11" class="tab-content">
+                    <section id="proyecto_horno" class="border-teal-200">
+                        <div class="bg-sky-100 p-4 rounded-lg border-l-4 border-sky-500">
+                            <h2 class="text-3xl font-bold text-slate-700 mb-6 italic">Proyecto Final</h2>
+                            <p class="mt-4 text-lg italic">El Reto Solar: Del Diseño a la Cocina Sostenible</p>
+                        </div>
+                        <div class="space-y-4 text-slate-600 leading-relaxed text-lg p-5">
+                    
+                            <p>La energía del sol es una fuente inagotable y limpia que podemos aprovechar de formas ingeniosas. Cada rayo de sol que llega a la Tierra trae consigo la energía suficiente para calentar, iluminar y, sí, también para cocinar. Ahora, la oportunidad de canalizar esa energía está en vuestras manos. Como jóvenes ingenieros y diseñadores, os enfrentaréis al reto de construir un dispositivo capaz de cocinar alimentos de forma saludable y sostenible, aplicando todo lo aprendido sobre materiales y proyectos técnicos.</p>
+                    
+                            <h4 class="font-bold text-xl text-slate-700 mt-6 mb-2">Reto y Producto Final</h4>
+                            <p>En <strong>grupos</strong>, deberéis diseñar y construir un <strong>horno solar funcional</strong>, capaz de alcanzar una temperatura suficiente para calentar alimentos. Para ello, generaréis la <strong>documentación técnica completa</strong> del proceso. El producto final consistirá en el <strong>prototipo del horno solar</strong> y una <strong>presentación oral</strong> donde expondréis vuestro diseño, justificando la elección de materiales y mostrando los resultados de las pruebas.</p>
+                    
+                            <h4 class="font-bold text-xl text-slate-700 mt-6 mb-2">Fases del Proyecto</h4>
+                            <ol class="list-decimal list-inside space-y-4">
+                                <li><strong>Investigación y Análisis:</strong> Investigad diferentes tipos de hornos solares. Analizad y comparad los materiales necesarios (aislantes, reflectores, cubiertas transparentes) en una tabla, considerando sus propiedades, coste y reciclabilidad.</li>
+                                <li><strong>Diseño (Bocetos y Planos):</strong> Realizad bocetos de varias ideas. Seleccionad la mejor y dibujad los planos técnicos necesarios (vistas acotadas) para su construcción.</li>
+                                <li><strong>Planificación (Memoria y Presupuesto):</strong> Redactad la memoria técnica del proyecto, explicando el funcionamiento, los materiales elegidos y el proceso de fabricación. Elaborad un presupuesto detallado.</li>
+                                <li><strong>Construcción (Taller):</strong> Siguiendo vuestros planos y la hoja de procesos, construid el prototipo del horno solar en el taller, aplicando las técnicas de fabricación necesarias y respetando las normas de seguridad.</li>
+                                <li><strong>Prueba y Evaluación:</strong> En un día soleado, poned a prueba vuestro horno. Medid la temperatura máxima que alcanza con un termómetro y registrad los resultados. ¡Intentad cocinar algo sencillo!</li>
+                                <li><strong>Presentación Final:</strong> Preparad una breve exposición oral (5-7 minutos) para presentar vuestro proyecto, el prototipo y los resultados obtenidos ante la clase.</li>
+                            </ol>
+                    
+                            <h4 class="font-bold text-xl text-slate-700 mt-6 mb-2">Criterios de Evaluación</h4>
+                            <ul class="space-y-4">
+                                <li class="bg-amber-100 border-l-4 border-amber-500 text-amber-800 p-4 rounded-md">
+                                    <strong class="font-bold block">Nivel Básico (Hasta 6 puntos):</strong>
+                                    <span class="text-slate-600">Entrega de la <strong>documentación técnica completa</strong> (memoria, planos, presupuesto) de forma correcta y limpia.</span>
+                                </li>
+                                <li class="bg-sky-100 border-l-4 border-sky-500 text-sky-800 p-4 rounded-md">
+                                    <strong class="font-bold block">Nivel Avanzado (Hasta 8 puntos):</strong>
+                                    <span class="text-slate-600">Cumple lo anterior y entrega un <strong>prototipo funcional</strong>, bien construido y que demuestre un incremento de temperatura medible.</span>
+                                </li>
+                                <li class="bg-emerald-100 border-l-4 border-emerald-500 text-emerald-800 p-4 rounded-md">
+                                    <strong class="font-bold block">Nivel Experto (Hasta 10 puntos):</strong>
+                                    <span class="text-slate-600">Cumple todo lo anterior y el prototipo es <strong>capaz de cocinar alimentos sencillos</strong> (ej. derretir queso, calentar agua). Realiza una presentación oral de gran calidad.</span>
+                                </li>
+                            </ul>
+                            <img src="https://i.ytimg.com/vi/a-8-IOQ43-c/maxresdefault.jpg" alt="Horno solar casero" class="h-full object-cover rounded-lg shadow-md zoomable-image limited-height mt-8">
+                        </div>
+                    </section>
+                </div>
 <div id="tab12" class="tab-content">
-    <section id="actividades6" class="border-teal-200">
-    <div class="bg-sky-100 p-4 rounded-lg border-l-4 border-sky-500">
-        <h2 class="text-3xl font-bold text-slate-700 mb-6 italic">Proyecto Final</h2>
-        <p class="mt-4 text-lg italic">El Reto LEGO: Del Boceto al Prototipo Digital</p>
-    </div>
-    <div class="space-y-4 text-slate-600 leading-relaxed text-lg p-5">
-
-        <p>El universo LEGO ha inspirado a generaciones a construir, crear e innovar. Cada uno de sus bloques es el resultado de un minucioso proceso de diseño donde la precisión es fundamental. Ahora, la oportunidad de expandir este universo está en vuestras manos. Como jóvenes diseñadores, os enfrentaréis al reto de crear una nueva pieza para el sistema LEGO, aplicando todo lo aprendido: desde la chispa creativa del boceto hasta el prototipo digital.</p>
-
-        <h4 class="font-bold text-xl text-slate-700 mt-6 mb-2">Reto y Producto Final</h4>
-        <p>En <strong>parejas</strong>, deberéis diseñar una <strong>pieza original, funcional y creativa</strong> que sea compatible con el sistema de bloques LEGO. Para ello, generaréis la <strong>documentación técnica completa</strong> del proceso. El producto final consistirá en una <strong>presentación oral</strong> donde expondréis vuestro diseño, justificando su función y mostrando todo el trabajo técnico realizado.</p>
-
-        <h4 class="font-bold text-xl text-slate-700 mt-6 mb-2">Fases del Proyecto</h4>
-        <ol class="list-decimal list-inside space-y-4">
-            <li><strong>Investigación e Ideación (Bocetos):</strong> Investigad y medid piezas reales de LEGO. Haced una lluvia de ideas y realizad al menos tres bocetos a mano alzada de conceptos diferentes.</li>
-            <li><strong>Desarrollo de la Idea (Croquis Acotado):</strong> Seleccionad vuestra mejor idea y dibujad un croquis detallado y proporcionado, anotando las medidas principales que aseguren su compatibilidad.</li>
-            <li><strong>Planos Técnicos (Vistas Acotadas):</strong> Realizad la lámina de las vistas principales de la pieza: <strong>Alzado, Planta y Perfil</strong>. Aplicad de forma rigurosa las normas de <strong>acotación</strong>.</li>
-            <li><strong>Visualización 3D (Perspectiva Isométrica):</strong> A partir de las vistas, construid la <strong>perspectiva isométrica</strong> de vuestra pieza para mostrar claramente su volumen.</li>
-            <li><strong>Prototipado Digital (Modelado 3D con SketchUp):</strong> Cread un modelo 3D de vuestra pieza en SketchUp, basándoos en las medidas de vuestros planos. Los diseños más originales podrán ser impresos en 3D con las impresoras del contro.</li>
-            <li><strong>Preparación de la Presentación:</strong> Organizad vuestras láminas y el archivo 3D y preparad una breve exposición oral (3-5 minutos).</li>
-        </ol>
-
-        <h4 class="font-bold text-xl text-slate-700 mt-6 mb-2">Criterios de Evaluación</h4>
-        <ul class="space-y-4">
-            <li class="bg-amber-100 border-l-4 border-amber-500 text-amber-800 p-4 rounded-md">
-                <strong class="font-bold block">Nivel Básico (Hasta 6 puntos):</strong>
-                <span class="text-slate-600">Entrega de bocetos/croquis y una lámina de <strong>Vistas Acotadas</strong> correcta y limpia.</span>
-            </li>
-            <li class="bg-sky-100 border-l-4 border-sky-500 text-sky-800 p-4 rounded-md">
-                <strong class="font-bold block">Nivel Avanzado (Hasta 8 puntos):</strong>
-                <span class="text-slate-600">Cumple lo anterior y entrega una <strong>Perspectiva Isométrica</strong> bien construida.</span>
-            </li>
-            <li class="bg-emerald-100 border-l-4 border-emerald-500 text-emerald-800 p-4 rounded-md">
-                <strong class="font-bold block">Nivel Experto (Hasta 10 puntos):</strong>
-                <span class="text-slate-600">Cumple todo lo anterior y entrega un <strong>modelo 3D en SketchUp</strong> preciso, además de realizar una presentación oral de calidad.</span>
-            </li>
-        </ul>
-        <img src="https://latericius.com/cdn/shop/articles/Simple_brick_featured_32e8091e-09be-422a-82a4-90d3b5e6c3b2.jpg?v=1742476399&width=1920" alt="Diseño tipo LEGO" class="h-full object-cover rounded-lg shadow-md zoomable-image limited-height mt-8">
-    </div>
-</section>
-    
-</div>
-<div id="tab13" class="tab-content">
     <section id="evaluacion" class="border-slate-300">
     <div class="bg-lime-100 p-4 rounded-lg border-l-4 border-lime-500">
         <h2 class="text-3xl font-bold text-slate-700 mb-6 italic">Evaluación del Proceso de Aprendizaje</h2>
