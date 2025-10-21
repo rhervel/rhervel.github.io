@@ -33,6 +33,21 @@
                     transition: max-height 0.3s ease-out;
 
                 }
+                        /* Estilo para el scrollbar del modal */
+                .modal-content::-webkit-scrollbar {
+                    width: 8px;
+                }
+                .modal-content::-webkit-scrollbar-track {
+                    background: #f1f1f1;
+                    border-radius: 10px;
+                }
+                .modal-content::-webkit-scrollbar-thumb {
+                    background: #888;
+                    border-radius: 10px;
+                }
+                .modal-content::-webkit-scrollbar-thumb:hover {
+                    background: #555;
+                }
             </style>
             <link rel="stylesheet" href="style.css">
 
@@ -772,7 +787,7 @@
                     <ul class="list-disc list-inside space-y-2 mt-2">
                         <li><strong>Lluvia de ideas:</strong> Dibuja al menos tres bocetos con diferentes enfoques.</li>
                         <li><strong>Selección de la idea:</strong> Elige el diseño más eficiente, estable y factible.</li>
-                        <li><strong>Croquis y planos:</strong> Realiza un dibujo técnico final acotado, midiendo con precisión tu móvil.</li>
+                        <li><strong>Croquis y planos:</strong> Realiza un dibujo técnico final acotado, midiendo con precisión tu móvil. Sigue esta sencilla <span id="openModalTrigger" class="text-blue-600 font-semibold underline cursor-pointer hover:text-blue-800 transition-colors">guía</span> para hacer tu croquis acotado.</li>
                     </ul>
                 </div>
 
@@ -1035,6 +1050,71 @@
   <img class="modal-content" id="modalImage">
 </div>
 
+<!-- El fondo oscuro del modal (Overlay) -->
+    <div id="modalOverlay" class="fixed inset-0 bg-black bg-opacity-60 hidden z-40"></div>
+
+    <!-- La ventana modal -->
+    <div id="guideModal" class="fixed inset-0 flex items-center justify-center hidden z-50 p-4">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-4xl transform transition-all duration-300 ease-out scale-95 opacity-0">
+            <!-- Cabecera del Modal -->
+            <div class="flex justify-between items-center p-5 border-b border-gray-200 rounded-t-xl bg-gray-50">
+                <h2 class="text-2xl font-bold text-gray-800">📐 Guía Rápida para el Croquis Acotado</h2>
+                <button id="closeModalButton" class="text-gray-400 hover:text-gray-700 transition-colors focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+
+            <!-- Contenido del Modal con scroll -->
+            <div class="p-6 modal-content max-h-[70vh] overflow-y-auto">
+                <p class="mb-4">
+                    Un <strong>croquis acotado</strong> es un dibujo a mano alzada que incluye las medidas exactas del objeto. Al no usar una escala, son estas medidas las que garantizan que cualquiera pueda construir vuestro amplificador perfectamente.
+                </p>
+
+                <h3 class="text-lg font-semibold text-gray-700 mt-6 mb-3">Herramientas Necesarias:</h3>
+                <ul class="list-disc list-inside space-y-2 mb-6 bg-gray-50 p-4 rounded-lg">
+                    <li>Tu croquis final del amplificador.</li>
+                    <li>Lápiz y goma.</li>
+                    <li>Una <strong>regla</strong>.</li>
+                </ul>
+
+                <h3 class="text-lg font-semibold text-gray-700 mt-6 mb-3">Paso 1: Medir los Elementos Clave</h3>
+                <p class="mb-4">
+                    Antes de escribir un solo número en tu croquis, necesitas tomar las medidas del mundo real. La precisión aquí es fundamental.
+                </p>
+                <ol class="list-decimal list-inside space-y-3">
+                    <li><strong>Mide tu teléfono móvil:</strong> Es la medida más importante. Usa la regla para obtener con exactitud el ancho, el grosor y la posición de los altavoces.</li>
+                    <li><strong>Define las medidas del amplificador:</strong> Mide las piezas que vas a usar (largo y diámetro del rollo de cartón, diámetro de los vasos, etc.).</li>
+                </ol>
+
+                <h3 class="text-lg font-semibold text-gray-700 mt-6 mb-3">Paso 2: Dibujar las Líneas de Cota</h3>
+                <p class="mb-4">
+                    En tu croquis, usa líneas finas con pequeñas flechas en los extremos para marcar qué parte estás midiendo. Estas son las <strong>líneas de cota</strong>.
+                </p>
+                 <!-- Imagen de ejemplo -->
+                <div class="my-4 p-4 border border-dashed rounded-md bg-gray-50 text-center text-gray-500">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjz5LYnHH9LA2uNU7SLk1F18-h2elCmj6LlObhWbqQobencVuxzqkmCKhQAAxwLaIi4hMR4Euo8Adjj_wPsl2FKww_oTv1SBCG88iKhtA3UwKXsQlSqm1GFu41CGSF-DVhqtGSkEFUnRWw/s1600/Dibujo3.jpg" alt="Croquis acotado" class="rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105 limited-height">
+                </div>
+
+
+                <h3 class="text-lg font-semibold text-gray-700 mt-6 mb-3">Paso 3: Acotar el Dibujo (Añadir las Medidas)</h3>
+                <p class="mb-4">
+                    Escribe cada medida de forma clara encima de su línea de cota. Asegúrate de incluir:
+                </p>
+                <ul class="list-disc list-inside space-y-2 mb-4">
+                    <li><strong>Medidas de la ranura del móvil:</strong> Ancho y largo (con 1-2 mm de holgura).</li>
+                    <li><strong>Posición de la ranura:</strong> Distancia a un extremo para que quede centrada.</li>
+                    <li><strong>Medidas generales:</strong> Longitud total, diámetro, etc.</li>
+                    <li><strong>Medidas de los altavoces:</strong> Diámetro de los conos y distancia al centro.</li>
+                </ul>
+
+                <div class="mt-6 p-4 bg-blue-50 border-l-4 border-blue-400 text-blue-800 rounded-r-lg">
+                    <p class="font-bold">¡Atención!</p>
+                    <p>Un croquis bien acotado debe ser tan claro que no necesites dar explicaciones. El propio dibujo y sus medidas deben contener toda la información.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
                 // --- Lógica para ocultar/mostrar la barra lateral ---
@@ -1194,6 +1274,47 @@
                     arrow.classList.add("rotate-180");
                 } 
             });
+        });
+
+        // Obtener los elementos del DOM
+        const openTrigger = document.getElementById('openModalTrigger');
+        const modal = document.getElementById('guideModal');
+        const modalContent = modal.querySelector('.transform');
+        const overlay = document.getElementById('modalOverlay');
+        const closeButton = document.getElementById('closeModalButton');
+
+        // Función para abrir el modal
+        function openModal() {
+            overlay.classList.remove('hidden');
+            modal.classList.remove('hidden');
+            // Pequeño retardo para que la transición de entrada sea visible
+            setTimeout(() => {
+                modalContent.classList.remove('scale-95', 'opacity-0');
+                modalContent.classList.add('scale-100', 'opacity-100');
+            }, 50);
+        }
+
+        // Función para cerrar el modal
+        function closeModal() {
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            modalContent.classList.add('scale-95', 'opacity-0');
+             // Esperar a que termine la transición de salida para ocultar los elementos
+            setTimeout(() => {
+                overlay.classList.add('hidden');
+                modal.classList.add('hidden');
+            }, 200);
+        }
+
+        // Asignar eventos
+        openTrigger.addEventListener('click', openModal);
+        closeButton.addEventListener('click', closeModal);
+        overlay.addEventListener('click', closeModal);
+
+        // Permitir cerrar el modal con la tecla 'Escape'
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
         });
     </script>
 
