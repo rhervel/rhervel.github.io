@@ -130,6 +130,32 @@
             margin-right: auto;
         }
     </style>
+    <style>
+        /* Aquí definimos los estilos base para las tarjetas de contenido.
+          Esto hace que el HTML sea más limpio.
+        */
+        .section-card {
+            background-color: white;
+            padding: 1.5rem 2rem; /* p-6 md:p-8 */
+            border-radius: 0.75rem; /* rounded-xl */
+            /* Sombra suave para dar profundidad */
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.07), 0 4px 6px -4px rgb(0 0 0 / 0.07);
+            margin-bottom: 2rem; /* mb-8 */
+        }
+
+        /* Estilos para las tarjetas de actividades */
+        .activity-card {
+            background-color: #f0fdf4; /* bg-green-50 */
+            border: 1px solid #bbf7d0; /* border-green-200 */
+        }
+
+        /* Mejora la legibilidad del texto */
+        .readable-text {
+            color: #334155; /* text-slate-700 */
+            font-size: 1.125rem; /* text-lg */
+            line-height: 1.75; /* leading-relaxed */
+        }
+    </style>
 </head>
 <body class="flex flex-col min-h-full bg-slate-50">
     <header class="bg-white shadow-md sticky top-0 z-40">
@@ -159,53 +185,58 @@
 <main class="lg:col-span-3">
     <div class="container mx-auto p-4 md:p-8">
         <div class="flex flex-col lg:flex-row gap-8">
+            
             <!-- Columna principal de contenido -->
             <div class="w-full lg:w-3/4">
 
-            <section id="s1" class="section-card">
-                <h2 class="text-2xl font-bold text-slate-600 mb-4">1. Un poco de historia</h2>
-                <div class="space-y-4 text-lg leading-relaxed">
-                    <p>La <strong>inteligencia artificial</strong> es una de las <strong>tecnologías más revolucionarias</strong> de nuestro tiempo. Se trata de un conjunto de <strong>técnicas</strong> y <strong>algoritmos</strong> que permiten a las <strong>máquinas aprender</strong> de manera autónoma a partir de la información que les proporcionamos. En otras palabras, la <strong>inteligencia artificial</strong> busca que las máquinas puedan realizar tareas que normalmente requieren <strong>inteligencia humana</strong>.</p>
+                <!-- Sección 1: Historia -->
+                <section id="s1" class="section-card">
+                    <h2 class="text-3xl font-extrabold text-blue-800 mb-6 border-b border-slate-200 pb-3">1. Un poco de historia 📜</h2>
+                    <div class="space-y-4 readable-text">
+                        <p>La <strong class="font-semibold">inteligencia artificial</strong> es una de las <strong class="font-semibold">tecnologías más revolucionarias</strong> de nuestro tiempo. Se trata de un conjunto de <strong class="font-semibold">técnicas</strong> y <strong class="font-semibold">algoritmos</strong> que permiten a las <strong class="font-semibold">máquinas aprender</strong> de manera autónoma a partir de la información que les proporcionamos. En otras palabras, la <strong class="font-semibold">inteligencia artificial</strong> busca que las máquinas puedan realizar tareas que normalmente requieren <strong class="font-semibold">inteligencia humana</strong>.</p>
 
-                    <p>Pero, ¿por qué es importante la <strong>inteligencia artificial</strong>? La respuesta es sencilla: porque está <strong>cambiando el mundo</strong> tal y como lo conocemos. La <strong>inteligencia artificial</strong> está presente en una gran cantidad de campos, desde la <strong>medicina</strong> hasta la <strong>industria automotriz</strong>, y está transformando la manera en que <strong>trabajamos</strong>, nos <strong>relacionamos</strong> y hacemos <strong>negocios</strong>.</p>
+                        <p>Pero, ¿por qué es importante la <strong class="font-semibold">inteligencia artificial</strong>? La respuesta es sencilla: porque está <strong class="font-semibold">cambiando el mundo</strong> tal y como lo conocemos. La <strong class="font-semibold">inteligencia artificial</strong> está presente en una gran cantidad de campos, desde la <strong class="font-semibold">medicina</strong> hasta la <strong class="font-semibold">industria automotriz</strong>, y está transformando la manera en que <strong class="font-semibold">trabajamos</strong>, nos <strong class="font-semibold">relacionamos</strong> y hacemos <strong class="font-semibold">negocios</strong>.</p>
 
-                    <p>En esta clase, exploraremos los <strong>fundamentos de la inteligencia artificial</strong> y descubriremos cómo funciona. También hablaremos sobre algunos de los <strong>usos más comunes</strong> de la <strong>inteligencia artificial</strong> y discutiremos su <strong>impacto en la sociedad</strong>. ¡Así que prepárense para adentrarse en el fascinante mundo de la <strong>inteligencia artificial</strong>!</p>
+                        <p>En esta clase, exploraremos los <strong class="font-semibold">fundamentos de la inteligencia artificial</strong> y descubriremos cómo funciona. También hablaremos sobre algunos de los <strong class="font-semibold">usos más comunes</strong> de la <strong class="font-semibold">inteligencia artificial</strong> y discutiremos su <strong class="font-semibold">impacto en la sociedad</strong>. ¡Así que prepárense para adentrarse en el fascinante mundo de la <strong class="font-semibold">inteligencia artificial</strong>!</p>
 
-                    <div class="my-8">
-                     <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/f7gjl3VKHr8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <p class="image-caption mt-2">Historia de la inteligencia artificial.</p>
-                    </div>
+                        <div class="my-8">
+                           <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/f7gjl3VKHr8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                           </div>
+                           <p class="image-caption mt-2">Historia de la inteligencia artificial.</p>
+                        </div>
 
-                    <p>La <strong>historia de la inteligencia artificial</strong> se remonta a la década de <strong>1950</strong>, cuando los científicos comenzaron a investigar cómo se podría crear una máquina capaz de <strong>aprender</strong> y <strong>resolver problemas</strong> como lo hace un ser humano. El término "<strong>inteligencia artificial</strong>" fue acuñado por <strong>John McCarthy</strong> en <strong>1956</strong>, durante una conferencia en <strong>Dartmouth College</strong>.</p>
+                        <p>La <strong class="font-semibold">historia de la inteligencia artificial</strong> se remonta a la década de <strong class="font-semibold">1950</strong>, cuando los científicos comenzaron a investigar cómo se podría crear una máquina capaz de <strong class="font-semibold">aprender</strong> y <strong class="font-semibold">resolver problemas</strong> como lo hace un ser humano. El término "<strong class="font-semibold">inteligencia artificial</strong>" fue acuñado por <strong class="font-semibold">John McCarthy</strong> en <strong class="font-semibold">1956</strong>, durante una conferencia en <strong class="font-semibold">Dartmouth College</strong>.</p>
 
-                    <p>En los años siguientes, los investigadores desarrollaron diversas técnicas para programar computadoras para que pudieran aprender y tomar decisiones de manera autónoma, como las <strong>redes neuronales artificiales</strong> y la <strong>lógica difusa</strong>.</p>
+                        <p>En los años siguientes, los investigadores desarrollaron diversas técnicas para programar computadoras para que pudieran aprender y tomar decisiones de manera autónoma, como las <strong class="font-semibold">redes neuronales artificiales</strong> y la <strong class="font-semibold">lógica difusa</strong>.</p>
 
-                    <p>En la década de <strong>1970</strong>, la <strong>inteligencia artificial</strong> comenzó a utilizarse en <strong>aplicaciones prácticas</strong>, como el <strong>reconocimiento de voz</strong> y la <strong>visión por computadora</strong>. En los años siguientes, se produjo un auge de la <strong>inteligencia artificial</strong> gracias al desarrollo de nuevas técnicas de <strong>aprendizaje automático</strong> y el aumento del poder de procesamiento de las computadoras.</p>
+                        <p>En la década de <strong class="font-semibold">1970</strong>, la <strong class="font-semibold">inteligencia artificial</strong> comenzó a utilizarse en <strong class="font-semibold">aplicaciones prácticas</strong>, como el <strong class="font-semibold">reconocimiento de voz</strong> y la <strong class="font-semibold">visión por computadora</strong>. En los años siguientes, se produjo un auge de la <strong class="font-semibold">inteligencia artificial</strong> gracias al desarrollo de nuevas técnicas de <strong class="font-semibold">aprendizaje automático</strong> y el aumento del poder de procesamiento de las computadoras.</p>
 
-                    <p>En la década de <strong>2010</strong>, el <strong>aprendizaje profundo</strong>, una técnica de <strong>aprendizaje automático</strong> basada en <strong>redes neuronales profundas</strong>, se convirtió en el enfoque dominante en la investigación de la <strong>inteligencia artificial</strong>. Hoy en día, la <strong>inteligencia artificial</strong> se utiliza en una amplia variedad de aplicaciones, desde el <strong>procesamiento de lenguaje natural</strong> hasta la <strong>robótica</strong> y la <strong>conducción autónoma</strong>, y se considera una de las tecnologías más importantes de nuestro tiempo.</p>
-                    <div class="mb-12  p-6 ">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div>
-                            <img src="https://c.files.bbci.co.uk/5B0B/production/_104770332_turco-secreto.jpg" alt="El Turco (Hungría, 1769 – 1854)" class="rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105 limited-height">
-                            <p class="image-caption">El Turco (Hungría, 1769 – 1854) fue un famoso autómata que jugaba al ajedrez construido y revelado por Wolfgang von Kempelen (1734 – 1803)</p>
-                            </div>
-                            <div>
-                            <img src="https://www.muycomputerpro.com/wp-content/uploads/2024/04/boston-dynamics-atlas-nueva-generacion.jpg" alt="Atlas de Boston Dynamics" class="rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105 limited-height">
-                            <p class="image-caption">Atlas está diseñado para ayudar a los servicios de emergencia en operaciones de búsqueda y rescate , realizando tareas como cerrar válvulas, abrir puertas y operar equipos eléctricos en entornos donde los humanos no podrían sobrevivir</p>
+                        <p>En la década de <strong class="font-semibold">2010</strong>, el <strong class="font-semibold">aprendizaje profundo</strong>, una técnica de <strong class="font-semibold">aprendizaje automático</strong> basada en <strong class="font-semibold">redes neuronales profundas</strong>, se convirtió en el enfoque dominante en la investigación de la <strong class="font-semibold">inteligencia artificial</strong>. Hoy en día, la <strong class="font-semibold">inteligencia artificial</strong> se utiliza en una amplia variedad de aplicaciones, desde el <strong class="font-semibold">procesamiento de lenguaje natural</strong> hasta la <strong class="font-semibold">robótica</strong> y la <strong class="font-semibold">conducción autónoma</strong>, y se considera una de las tecnologías más importantes de nuestro tiempo.</p>
+                        
+                        <div class="mb-12 p-6">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <img src="https://c.files.bbci.co.uk/5B0B/production/_104770332_turco-secreto.jpg" alt="El Turco (Hungría, 1769 – 1854)" class="rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105 limited-height">
+                                    <p class="image-caption">El Turco (Hungría, 1769 – 1854) fue un famoso autómata que jugaba al ajedrez construido y revelado por Wolfgang von Kempelen (1734 – 1803)</p>
+                                </div>
+                                <div>
+                                    <img src="https://www.muycomputerpro.com/wp-content/uploads/2024/04/boston-dynamics-atlas-nueva-generacion.jpg" alt="Atlas de Boston Dynamics" class="rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105 limited-height">
+                                    <p class="image-caption">Atlas está diseñado para ayudar a los servicios de emergencia en operaciones de búsqueda y rescate , realizando tareas como cerrar válvulas, abrir puertas y operar equipos eléctricos en entornos donde los humanos no podrían sobrevivir</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                </div>
-            </section>
-            <section id="actividades1" class="section-card bg-green-50 border-green-200">
-                    <h2 class="text-3xl font-bold text-green-800 mb-6">Actividades: Historia de la IA</h2>
-                    <div class="space-y-4 text-slate-600 leading-relaxed text-lg">
+                    </div>
+                </section>
+                
+                <!-- Actividades 1 -->
+                <section id="actividades1" class="section-card activity-card">
+                    <h2 class="text-3xl font-extrabold text-green-800 mb-6">Actividades: Historia de la IA</h2>
+                    <div class="space-y-4 readable-text text-slate-700">
                         <ol class="list-decimal list-inside space-y-3">
                             <li> Busca la respuesta a estas preguntas y anótalas en un documento de texto:
-                                <ul class="list-disc list-inside mt-2">
+                                <ul class="list-disc list-inside mt-2 space-y-1 pl-4">
                                     <li>¿Quién es considerado el "padre de la IA" y por qué prueba es famoso?</li>
                                     <li>¿En qué año se usó por primera vez el término "Inteligencia Artificial"?</li>
                                     <li>Nombra la máquina que consiguió ganar al campeón mundial de ajedrez.</li>
@@ -213,125 +244,256 @@
                                     <li>¿Qué podría hacer una IA fuerte que no pueda hacer una débil?</li>
                                     <li>¿Qué es la superinteligencia y por qué algunos expertos le tienen respeto?</li>
                                 </ul>
-                                
                             </li>
-                            <hr style="margin: 2rem 0;">
+                            
+                            <hr class="my-6 border-green-200">
 
                             <li>Timeline de la IA
                                 <p>Entra en Canva (o la herramienta que prefieras). Tu objetivo es crear un eje cronológico (timeline) o infografía visual con los 5 hitos que consideres más importantes de la historia de la IA que has leído en la web. Para cada hito, debes incluir:</p>
-                                <ul class="list-disc list-inside mt-2">
+                                <ul class="list-disc list-inside mt-2 space-y-1 pl-4">
                                     <li>El año.</li>
                                     <li>Un título corto (ej. "Nace la IA").</li>
                                     <li>Una imagen o icono que lo represente.</li>
                                     <li>Una frase muy breve que lo explique.</li>
                                 </ul>
-                                <p>Cuando termines, comparte el enlace de tu diseño con el profesor.</p>
-                                
+                                <p class="mt-2">Cuando termines, manda tu trabajo a rhervel393@g.educaand.es.</p>
                             </li>
-
                         </ol>
                     </div>
                 </section>
 
-            <section id="s2" class="section-card">
-                <h2 class="text-2xl font-bold text-slate-600 mb-4">2. Aprendizaje Automático</h2>
-                <div class="space-y-4 text-lg leading-relaxed">
-                    <p>Las inteligencias artificiales basadas en el aprendizaje automático, también conocido como machine learning, están diseñadas para adquirir conocimiento a través de una fase de entrenamiento en la que se presentan ejemplos de la tarea que deben realizar. Estos sistemas se pueden categorizar en tres tipos según su método de aprendizaje: aprendizaje supervisado, no supervisado y aprendizaje reforzado.</p>
-                    <p>En concreto, el aprendizaje por refuerzo es un sistema en el que un agente aprende a tomar decisiones en un entorno a través de la experiencia. A medida que el agente interactúa con el entorno, aprende a tomar decisiones. Los dos principales retos de este sistema radican en la dificultad de diseñar agentes que aprendan a tomar decisiones en entornos complejos y en la lentitud del proceso, ya que el agente necesita interactuar con el entorno muchas veces para aprender a tomar decisiones óptimas. Se utiliza en una amplia gama de aplicaciones, como juegos, robótica, finanzas y logística.</p>
-                </div>
-            </section>
+                <!-- Sección 2: Aprendizaje Automático -->
+                <section id="s2" class="section-card">
+                    <h2 class="text-3xl font-extrabold text-blue-800 mb-6 border-b border-slate-200 pb-3">2. Aprendizaje Automático 📈</h2>
+                    <div class="space-y-4 readable-text">
+                        <p>Las inteligencias artificiales basadas en el aprendizaje automático, también conocido como <strong class="font-semibold">machine learning</strong>, están diseñadas para adquirir conocimiento a través de una fase de entrenamiento en la que se presentan ejemplos de la tarea que deben realizar. Estos sistemas se pueden categorizar en tres tipos según su método de aprendizaje: <strong class="font-semibold">aprendizaje supervisado</strong>, <strong class="font-semibold">no supervisado</strong> y <strong class="font-semibold">aprendizaje reforzado</strong>.</p>
+                        <p>En concreto, el <strong class="font-semibold">aprendizaje por refuerzo</strong> es un sistema en el que un agente aprende a tomar decisiones en un entorno a través de la experiencia. A medida que el agente interactúa con el entorno, aprende a tomar decisiones. Los dos principales retos de este sistema radican en la dificultad de diseñar agentes que aprendan a tomar decisiones en entornos complejos y en la lentitud del proceso, ya que el agente necesita interactuar con el entorno muchas veces para aprender a tomar decisiones óptimas. Se utiliza en una amplia gama de aplicaciones, como juegos, robótica, finanzas y logística.</p>
+                    </div>
+                </section>
 
-            <section id="s3" class="section-card">
-                <h2 class="text-2xl font-bold text-slate-600 mb-4">3. Ética y Responsabilidad en el uso de la IA</h2>
-                <div class="space-y-4 text-lg leading-relaxed">
-                     <p>Un gran poder conlleva una gran responsabilidad. Esta frase tiene más sentido que nunca, refiriéndose a una herramienta con un potencial tan alto para cambiar el mundo en el que vivimos actualmente. Aunque están creadas y diseñadas para ayudar a las personas con sus tareas, un uso incorrecto o poco ético de esta tecnología podría tener consecuencias, como por ejemplo:</p>
-                    <ul class="list-disc list-inside space-y-2 pl-4">
-                        <li><strong>Robo de identidad:</strong> los sistemas de IA pueden utilizarse para robar información personal, para realizar compras fraudulentas, acceder a cuentas bancarias y suplantar la identidad de las víctimas.</li>
-                        <li><strong>Fraude:</strong> estos sistemas pueden utilizarse para cometer fraudes, como el envío de correos electrónicos de phishing o la creación de sitios web falsos.</li>
-                        <li><strong>Discriminación:</strong> los sistemas de IA sesgados pueden discriminar a los usuarios en función de su raza, género, religión u otros factores. Por ejemplo, un sistema utilizado para aprobar préstamos podría discriminar a solicitantes de ciertas minorías.</li>
-                        <li><strong>Manipulación:</strong> estos sistemas pueden utilizarse para manipular a las personas, como a través de la propaganda o la creación de noticias falsas. Esta manipulación puede utilizarse para influir en las opiniones políticas o las decisiones de compra.</li>
-                        <li><strong>Pérdida de privacidad:</strong> los sistemas de IA pueden recopilar y utilizar grandes cantidades de datos personales. Estos datos pueden utilizarse para rastrear a los usuarios y usuarias, crear perfiles detallados sobre ellos o incluso predecir su comportamiento.</li>
+                <!-- Sección 3: Ética -->
+                <section id="s3" class="section-card">
+                    <h2 class="text-3xl font-extrabold text-blue-800 mb-6 border-b border-slate-200 pb-3">3. Ética y Responsabilidad en el uso de la IA ⚖️</h2>
+                    <div class="space-y-4 readable-text">
+                         <p>Un gran poder conlleva una gran responsabilidad. Esta frase tiene más sentido que nunca, refiriéndose a una herramienta con un potencial tan alto para cambiar el mundo en el que vivimos actualmente. Aunque están creadas y diseñadas para ayudar a las personas con sus tareas, un uso incorrecto o poco ético de esta tecnología podría tener consecuencias, como por ejemplo:</p>
+                         
+                         <!-- Caja de Riesgos (Naranja) -->
+                         <div class="p-4 border-l-4 border-orange-500 bg-orange-50 rounded-r-lg space-y-2 my-6">
+                            <h3 class="font-bold text-xl text-orange-700 mb-2">Riesgos y Consecuencias 🚨</h3>
+                            <ul class="list-disc list-inside space-y-2 pl-4">
+                                <li><strong class="font-semibold">Robo de identidad:</strong> los sistemas de IA pueden utilizarse para robar información personal, para realizar compras fraudulentas, acceder a cuentas bancarias y suplantar la identidad de las víctimas.</li>
+                                <li><strong class="font-semibold">Fraude:</strong> estos sistemas pueden utilizarse para cometer fraudes, como el envío de correos electrónicos de phishing o la creación de sitios web falsos.</li>
+                                <li><strong class="font-semibold">Discriminación:</strong> los sistemas de IA sesgados pueden discriminar a los usuarios en función de su raza, género, religión u otros factores. Por ejemplo, un sistema utilizado para aprobar préstamos podría discriminar a solicitantes de ciertas minorías.</li>
+                                <li><strong class="font-semibold">Manipulación:</strong> estos sistemas pueden utilizarse para manipular a las personas, como a través de la propaganda o la creación de noticias falsas. Esta manipulación puede utilizarse para influir en las opiniones políticas o las decisiones de compra.</li>
+                                <li><strong class="font-semibold">Pérdida de privacidad:</strong> los sistemas de IA pueden recopilar y utilizar grandes cantidades de datos personales. Estos datos pueden utilizarse para rastrear a los usuarios y usuarias, crear perfiles detallados sobre ellos o incluso predecir su comportamiento.</li>
+                            </ul>
+                         </div>
+
+                         <p>Por ello, la Comisión Europea publicó en 2019 el documento <em>Directrices éticas para una IA fiable</em>, basado en la Carta de los Derechos Fundamentales de la Unión Europea, que recoge los derechos de los que disponemos los ciudadanos y las ciudadanas de la Unión Europea y que deben ser respetados por todas las personas y entidades. Algunos de los puntos clave que establece este documento respecto al comportamiento de las inteligencias artificiales y los derechos humanos son:</p>
+                         
+                         <!-- Caja de Directrices (Esmeralda/Verde) -->
+                         <div class="p-4 border-l-4 border-emerald-500 bg-emerald-50 rounded-r-lg space-y-2 my-6">
+                            <h3 class="font-bold text-xl text-emerald-700 mb-2">Directrices Éticas Clave 🛡️</h3>
+                            <ul class="list-disc list-inside space-y-2 pl-4">
+                                <li>Que deben respetar la <strong class="font-semibold">dignidad humana</strong> sin menospreciar a las personas y evitar que estas sean objeto de represión.</li>
+                                <li>Que no deben entrometerse en las decisiones de las personas ni intentar alterarlas. Las personas deben ser <strong class="font-semibold">libres en su toma de decisiones</strong>.</li>
+                                <li>Los procesos que llevan a cabo deben ser lo más <strong class="font-semibold">transparentes</strong> posibles para que las personas que los usan puedan entenderlos y confiar en ellos.</li>
+                                <li>Deben asegurar la <strong class="font-semibold">igualdad y la no discriminación</strong> entre personas.</li>
+                            </ul>
+                         </div>
+                    </div>
+                </section>
+
+                <!-- Actividades 2 -->
+                <section id="comprende-piensa-investiga" class="section-card activity-card">
+                    <h2 class="text-3xl font-extrabold text-green-800 mb-6">COMPRENDE, PIENSA, INVESTIGA...</h2>
+                    <div class="space-y-4 readable-text text-slate-700">
+                        <ol class="list-decimal list-inside space-y-3">
+                            <li>¿Cuáles son los beneficios y desafíos de la IA en la sociedad actual?</li>
+                            <li>¿Qué papel desempeña la transparencia en el desarrollo de sistemas de IA éticos?</li>
+                            <li>¿Cómo pueden los gobiernos y las entidades regular el uso de la IA de manera ética? Investiga si ha habido algún caso.</li>
+                            <li>¿Cómo crees que la IA podría transformar la investigación médica en el futuro y cuáles son los desafíos éticos asociados?</li>
+                            <li>Busca un ejemplo de una aplicación real del aprendizaje por refuerzo en la vida cotidiana.</li>
+                            <li>¿Cómo actuarías si fueras un coche autónomo? Visita <a href="https://www.moralmachine.net/hl/es" target="_blank" class="font-semibold text-blue-700 hover:underline"><strong>Moral Machine</strong></a> y responde a las preguntas que plantea sobre ciertas situaciones en las que una inteligencia artificial tendría que decidir cómo producir el menor daño.</li>
+                        </ol>
+                    </div>
+                </section>
+                
+                <!-- Sección 4: Ejemplos -->
+                <section id="s4" class="section-card">
+                    <h2 class="text-3xl font-extrabold text-blue-800 mb-6 border-b border-slate-200 pb-3">4. Ejemplos de Aplicaciones 📱</h2>
+                    <div class="space-y-6 readable-text">
+                        
+                        <!-- Caja 1: Chatbots (Azul) -->
+                        <div class="p-4 border-l-4 border-sky-500 bg-sky-50 rounded-r-lg">
+                            <h3 class="font-bold text-xl text-sky-700 mb-2">CHATBOTS 🤖</h3>
+                            <p>Los chatbots son programas informáticos diseñados para interactuar con humanos mediante texto o voz. Son programados o entrenados para contestar preguntas específicas con determinadas respuestas o para realizar pequeñas tareas en función de las instrucciones que les demos. Los chatbots se pueden clasificar en dos tipos: los basados en reglas, que siguen un conjunto de instrucciones predefinidas, y los basados en aprendizaje automático, capaces de aprender y mejorar con el tiempo. Es posible encontrar chatbots integrados en numerosas páginas web y aplicaciones, por ejemplo, para hacer ciertas consultas o reservar una mesa en un restaurante.</p>
+                        </div>
+
+                        <!-- Caja 2: ChatGPT (Violeta) -->
+                        <div class="p-4 border-l-4 border-violet-500 bg-violet-50 rounded-r-lg">
+                            <h3 class="font-bold text-xl text-violet-700 mb-2">CHATGPT 🧠</h3>
+                            <p>ChatGPT es un sistema de chatbot con inteligencia artificial muy desarrollado, capaz de responder a casi cualquier pregunta. Está basado en una inteligencia artificial modelada para el lenguaje, entrenada con una gran cantidad de datos y orientada a poder mantener una conversación de forma natural. ChatGPT emplea para su aprendizaje técnicas tanto supervisadas como de refuerzo y la compañía que la ha desarrollado se llama OpenAI. Hay que tener en cuenta que detrás del chatbot hay una inteligencia artificial en constante aprendizaje, lo que significa que muchas veces cometerá errores y, por tanto, se debe contrastar toda la información que ofrece.</p>
+                        </div>
+
+                        <!-- Caja 3: Reconocimiento de Imágenes (Ámbar) -->
+                        <div class="p-4 border-l-4 border-amber-500 bg-amber-50 rounded-r-lg">
+                            <h3 class="font-bold text-xl text-amber-700 mb-2">RECONOCIMIENTO DE IMÁGENES 🖼️</h3>
+                            <p>El reconocimiento de imágenes es una aplicación común de la inteligencia artificial que permite a las computadoras analizar imágenes y extraer información útil a partir de ellas. Su funcionamiento en este campo se basa en algoritmos de aprendizaje automático, en particular en las técnicas de aprendizaje profundo, que utilizan redes neuronales para aprender a reconocer patrones en las imágenes. Esta tecnología tiene numerosos usos en la vida cotidiana, como la identificación de rostros en fotos, el reconocimiento de matrículas o el análisis de imágenes médicas.</p>
+                        </div>
+
+                         <!-- Caja 4: IA en Videojuegos (Lima) -->
+                         <div class="p-4 border-l-4 border-lime-500 bg-lime-50 rounded-r-lg">
+                            <h3 class="font-bold text-xl text-lime-700 mb-2">INTELIGENCIA ARTIFICIAL EN VIDEOJUEGOS 🎮</h3>
+                            <p>En el mundo de los videojuegos hay multitud de ejemplos de programaciones, generalmente de lo que se denominan personajes no jugadores, cuya ejecución depende de cómo se comporte la persona que esté jugando. Para que haya verdadera inteligencia artificial detrás, estos personajes deben ser capaces de tomar decisiones por su cuenta, interpretar lo que está pasando o incluso improvisar. La inteligencia artificial es un aspecto muy importante en el mundo de los videojuegos, llegando incluso a ser el motivo principal por el que unos pueden resultar aburridos o divertidos, pero a día de hoy, son pocos los que implementan verdadero aprendizaje automático que les haga capaces de aprender en cada partida de la forma de actuar de su contrincante.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Actividades 3 -->
+                <section id="actividades2" class="section-card activity-card">
+                    <h2 class="text-3xl font-extrabold text-green-800 mb-6">COMPRENDE, PIENSA, INVESTIGA...</h2>
+                    <div class="space-y-4 readable-text text-slate-700">
+                        <ol class="list-decimal list-inside space-y-3">
+                            <li>Los dispositivos móviles suelen tener incorporado un asistente virtual que actúa como un chatbot con numerosas capas de inteligencia artificial. Investiga sobre cada uno de ellos y rellena la tabla:
+                                <table class="w-full text-left border-collapse border border-slate-300 my-4 bg-white">
+                                    <thead class="bg-slate-100">
+                                        <tr>
+                                            <th class="border border-slate-300 p-3">Empresa</th>
+                                            <th class="border border-slate-300 p-3">Nombre del asistente</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="border border-slate-300 p-3"></td>
+                                            <td class="border border-slate-300 p-3">Siri</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-slate-300 p-3">Amazon</td>
+                                            <td class="border border-slate-300 p-3"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-slate-300 p-3"></td>
+                                            <td class="border border-slate-300 p-3">Bixby</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-slate-300 p-3">Microsoft</td>
+                                            <td class="border border-slate-300 p-3"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </li>
+                            <li>Busca en Internet alguna página web que disponga de un chatbot de ayuda y pruébalo.</li>
+                            <li>Diseña, junto a ChatGPT, el guion de una película cuanto más extravagante mejor. Puedes pedirle que añada personajes conocidos dentro de la trama, escenarios, objetos, etc.</li>
+                            <li>Pide a ChatGPT que te redacte algunas preguntas y respuestas de tipo «Trivial», comprueba si las respuestas son correctas y organiza un juego de preguntas con tus compañeros y compañeras.</li>
+                            <li>Entra en <a href="https://quickdraw.withgoogle.com/" target="_blank"><strong class="font-semibold text-teal-700">Quick, Draw!</strong></a> y pruébalo. Se trata de un minijuego en el que una inteligencia artificial de reconocimiento de imagen tratará de adivinar tu dibujo.</li>
+                            <li>Entra en <a href="https://archive.google/emojiscavengerhunt/" target="_blank"><strong class="font-semibold text-teal-700">Emoji Scavenger Hunt</strong></a> y pruébalo. En este juego, tendrás que buscar un objeto que se parezca al emoji que te aparece en pantalla y enseñarlo a la cámara. Se trata de un divertido uso del reconocimiento de imágenes.</li>
+                        </ol>
+                    </div>
+                </section>
+
+                <!-- Sección 5: Teachable Machine -->
+                <section id="s5" class="section-card">
+                    <h2 class="text-3xl font-extrabold text-blue-800 mb-6 border-b border-slate-200 pb-3">5. Teachable Machine 🛠️</h2>
+                    <div class="space-y-4 readable-text">
+                        <!-- Caja 5: Teachable Machine (Índigo) -->
+                        <div class="p-4 border-l-4 border-indigo-500 bg-indigo-50 rounded-r-lg space-y-4">
+                            <p>Teachable Machine es una herramienta web creada por Google, que permite entrenar modelos de inteligencia artificial de una forma sencilla: recopilando ejemplos de lo que queremos que aprenda, realizando un entrenamiento y probando su funcionamiento. Es posible crear proyectos de imágenes, audio o posturas.</p>
+                            <p>Independientemente del tipo de proyecto, el proceso se divide en tres partes: definir las <strong class="font-semibold">clases</strong> (categorías) y añadir muestras, <strong class="font-semibold">preparar</strong> el modelo (entrenamiento) y probarlo en la <strong class="font-semibold">vista previa</strong>.</p>
+                            <p>Para los <strong class="font-semibold">proyectos de imagen</strong>, se aportan imágenes representativas para cada categoría, ya sea desde la webcam o subiendo archivos. Cuantas más imágenes se usen, mejores resultados se obtendrán. Una vez entrenado, el modelo puede clasificar nuevas imágenes y mostrar un porcentaje de confianza para cada categoría.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Sección 6: ML for Kids -->
+                <section id="s6" class="section-card">
+                    <h2 class="text-3xl font-extrabold text-blue-800 mb-6 border-b border-slate-200 pb-3">6. Machine Learning for Kids 🧒</h2>
+                    <div class="space-y-4 readable-text">
+                        <!-- Caja 6: ML for Kids (Rosa) -->
+                        <div class="p-4 border-l-4 border-rose-500 bg-rose-50 rounded-r-lg space-y-4">
+                            <p>Machine Learning for Kids es una herramienta para introducirse en la IA a través de experiencias prácticas para entrenar sistemas de aprendizaje automático capaces de identificar texto, imágenes, números o sonidos. Además, cuenta con un entorno de programación similar a Scratch para crear aplicaciones y juegos que usen los modelos entrenados.</p>
+                            <p>Permite crear proyectos para clasificar palabras, imágenes o predecir resultados a partir de números, requiriendo un mínimo de ejemplos en cada categoría para que la IA pueda aprender y realizar clasificaciones correctas.</p>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section id="situacion-aprendizaje" class="section-card bg-orange-50 border border-orange-200 p-8 rounded-2xl shadow-sm">
+                    <h2 class="text-3xl font-bold text-orange-800 mb-6">
+                        🚀 Misión: IA en mi Móvil
+                    </h2>
+
+                    <div class="space-y-4 text-slate-600 leading-relaxed text-lg">
+                        <p>
+                            Seguro que usas filtros en Instagram, ves vídeos que te recomienda YouTube o juegas contra "la máquina" en un videojuego. Todo eso es
+                            <span class="font-semibold text-orange-700">Inteligencia Artificial (IA)</span>, ¡y está por todas partes!
+                        </p>
+
+                        <p>
+                            Pero... ¿cómo funciona realmente? ¿Cómo "aprende" una máquina a reconocer tu cara o un gesto? ¿Son siempre justas estas IAs o pueden ser peligrosas?
+                        </p>
+
+                        <h3 class="text-xl font-semibold text-slate-700 mt-6 mb-2">🎯 Vuestra Misión (Por Grupos)</h3>
+                        
+                        <p>
+                            Vais a convertiros en <strong>"Entrenadores de IA"</strong>. Vuestro objetivo es crear vuestro propio detector usando una herramienta web muy sencilla. El trabajo tiene dos partes:
+                        </p>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-white border border-orange-100 p-4 rounded-xl shadow-sm">
+                                <h4 class="text-lg font-semibold text-orange-700 mb-2">💻 Parte 1: ¡A Entrenar! (Con el ordenador)</h4>
+                                <ul class="list-disc list-inside space-y-1">
+                                    <li><strong>Decidir:</strong> Elegir 2-3 "clases" (ej. Puño vs. Mano abierta, Lápiz vs. Botella).</li>
+                                    <li><strong>Entrenar:</strong> Usar <a href="https://teachablemachine.withgoogle.com/" target="_blank"><span class="font-semibold text-teal-700">Teachable Machine</span></a> y darle muchos ejemplos (fotos).</li>
+                                    <li><strong>Probar:</strong> Comprobar si funciona e intentar "engañarlo" para ver cuándo falla.</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-white border border-orange-100 p-4 rounded-xl shadow-sm">
+                                <h4 class="text-lg font-semibold text-orange-700 mb-2">🎨 Parte 2: ¡A Reflexionar! (Con una cartulina)</h4>
+                                <ul class="list-disc list-inside space-y-1">
+                                    <li><strong>Analizar:</strong> Ver por qué falla y conectar con los riesgos leídos (discriminación, robo de identidad, privacidad).</li>
+                                    <li><strong>Crear:</strong> Diseñar un póster o cartulina que explique <strong>un peligro</strong> de la IA.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-semibold text-slate-700 mt-6 mb-2">🏆 Producto Final (¿Qué tenéis que presentar?)</h3>
+                    <ul class="list-disc list-inside space-y-3 text-slate-600 leading-relaxed text-lg">
+                        <li>Hacer una <strong>demostración en directo</strong> de vuestro "detector", enseñando cómo funciona y cómo habéis conseguido que falle.</li>
+                        <li>Presentar vuestro <strong>póster</strong> explicando el riesgo o peligro de la IA que habéis descubierto.</li>
+                        <li class="mt-4 list-none">
+                            <p>
+                                <strong>¿El objetivo?</strong> Que entendáis cómo "piensa" una máquina, por qué se equivoca y por qué es tan importante que las usemos con responsabilidad.
+                            </p>
+                        </li>
                     </ul>
-                    <p>Por ello, la Comisión Europea publicó en 2019 el documento <em>Directrices éticas para una IA fiable</em>, basado en la Carta de los Derechos Fundamentales de la Unión Europea, que recoge los derechos de los que disponemos los ciudadanos y las ciudadanas de la Unión Europea y que deben ser respetados por todas las personas y entidades. Algunos de los puntos clave que establece este documento respecto al comportamiento de las inteligencias artificiales y los derechos humanos son:</p>
-                     <ul class="list-disc list-inside space-y-2 pl-4">
-                        <li>Que deben respetar la dignidad humana sin menospreciar a las personas y evitar que estas sean objeto de represión.</li>
-                        <li>Que no deben entrometerse en las decisiones de las personas ni intentar alterarlas. Las personas deben ser libres en su toma de decisiones.</li>
-                        <li>Los procesos que llevan a cabo deben ser lo más transparentes posibles para que las personas que los usan puedan entenderlos y confiar en ellos.</li>
-                        <li>Deben asegurar la igualdad y la no discriminación entre personas.</li>
-                    </ul>
-                </div>
-            </section>
-            
-            <section id="s4" class="section-card">
-                <h2 class="text-2xl font-bold text-slate-600 mb-4">4. Ejemplos de Aplicaciones</h2>
-                <div class="space-y-6 text-lg leading-relaxed">
-                    <div>
-                        <h3 class="text-xl font-semibold text-teal-700 mb-2">CHATBOTS</h3>
-                        <p>Los chatbots son programas informáticos diseñados para interactuar con humanos mediante texto o voz. Son programados o entrenados para contestar preguntas específicas con determinadas respuestas o para realizar pequeñas tareas en función de las instrucciones que les demos. Los chatbots se pueden clasificar en dos tipos: los basados en reglas, que siguen un conjunto de instrucciones predefinidas, y los basados en aprendizaje automático, capaces de aprender y mejorar con el tiempo. Es posible encontrar chatbots integrados en numerosas páginas web y aplicaciones, por ejemplo, para hacer ciertas consultas o reservar una mesa en un restaurante.</p>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-semibold text-teal-700 mb-2">CHATGPT</h3>
-                        <p>ChatGPT es un sistema de chatbot con inteligencia artificial muy desarrollado, capaz de responder a casi cualquier pregunta. Está basado en una inteligencia artificial modelada para el lenguaje, entrenada con una gran cantidad de datos y orientada a poder mantener una conversación de forma natural. ChatGPT emplea para su aprendizaje técnicas tanto supervisadas como de refuerzo y la compañía que la ha desarrollado se llama OpenAI. Hay que tener en cuenta que detrás del chatbot hay una inteligencia artificial en constante aprendizaje, lo que significa que muchas veces cometerá errores y, por tanto, se debe contrastar toda la información que ofrece.</p>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-semibold text-teal-700 mb-2">RECONOCIMIENTO DE IMÁGENES</h3>
-                        <p>El reconocimiento de imágenes es una aplicación común de la inteligencia artificial que permite a las computadoras analizar imágenes y extraer información útil a partir de ellas. Su funcionamiento en este campo se basa en algoritmos de aprendizaje automático, en particular en las técnicas de aprendizaje profundo, que utilizan redes neuronales para aprender a reconocer patrones en las imágenes. Esta tecnología tiene numerosos usos en la vida cotidiana, como la identificación de rostros en fotos, el reconocimiento de matrículas o el análisis de imágenes médicas.</p>
-                    </div>
-                     <div>
-                        <h3 class="text-xl font-semibold text-teal-700 mb-2">INTELIGENCIA ARTIFICIAL EN VIDEOJUEGOS</h3>
-                        <p>En el mundo de los videojuegos hay multitud de ejemplos de programaciones, generalmente de lo que se denominan personajes no jugadores, cuya ejecución depende de cómo se comporte la persona que esté jugando. Para que haya verdadera inteligencia artificial detrás, estos personajes deben ser capaces de tomar decisiones por su cuenta, interpretar lo que está pasando o incluso improvisar. La inteligencia artificial es un aspecto muy importante en el mundo de los videojuegos, llegando incluso a ser el motivo principal por el que unos pueden resultar aburridos o divertidos, pero a día de hoy, son pocos los que implementan verdadero aprendizaje automático que les haga capaces de aprender en cada partida de la forma de actuar de su contrincante.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="s5" class="section-card">
-                <h2 class="text-2xl font-bold text-slate-600 mb-4">5. Teachable Machine</h2>
-                <div class="space-y-4 text-lg leading-relaxed">
-                    <p>Teachable Machine es una herramienta web creada por Google, que permite entrenar modelos de inteligencia artificial de una forma sencilla: recopilando ejemplos de lo que queremos que aprenda, realizando un entrenamiento y probando su funcionamiento. Es posible crear proyectos de imágenes, audio o posturas.</p>
-                    <p>Independientemente del tipo de proyecto, el proceso se divide en tres partes: definir las <strong>clases</strong> (categorías) y añadir muestras, <strong>preparar</strong> el modelo (entrenamiento) y probarlo en la <strong>vista previa</strong>.</p>
-                    <p>Para los <strong>proyectos de imagen</strong>, se aportan imágenes representativas para cada categoría, ya sea desde la webcam o subiendo archivos. Cuantas más imágenes se usen, mejores resultados se obtendrán. Una vez entrenado, el modelo puede clasificar nuevas imágenes y mostrar un porcentaje de confianza para cada categoría.</p>
-                </div>
-            </section>
-
-            <section id="s6" class="section-card">
-                <h2 class="text-2xl font-bold text-slate-600 mb-4">6. Machine Learning for Kids</h2>
-                <div class="space-y-4 text-lg leading-relaxed">
-                    <p>Machine Learning for Kids es una herramienta para introducirse en la IA a través de experiencias prácticas para entrenar sistemas de aprendizaje automático capaces de identificar texto, imágenes, números o sonidos. Además, cuenta con un entorno de programación similar a Scratch para crear aplicaciones y juegos que usen los modelos entrenados.</p>
-                    <p>Permite crear proyectos para clasificar palabras, imágenes o predecir resultados a partir de números, requiriendo un mínimo de ejemplos en cada categoría para que la IA pueda aprender y realizar clasificaciones correctas.</p>
-                </div>
-            </section>
-        </div>
+                </section>
+            </div>
 
 
-        <!-- Barra lateral de navegación -->
-            <aside class="w-full lg:w-1/4 lg:sticky top-24 self-start">
+            <!-- Barra lateral de navegación -->
+            <aside class="w-full lg:w-1/4 lg:sticky top-8 self-start">
+                <!-- La clase 'top-8' y 'self-start' hacen que se quede "pegado" al hacer scroll -->
                 <div class="bg-white p-6 rounded-xl shadow-lg">
-                    <h3 class="font-bold text-lg text-slate-800 mb-4 border-b pb-2">Contenidos</h3>
+                    <h3 class="font-bold text-xl text-slate-800 mb-4 border-b border-slate-200 pb-2">Contenidos</h3>
                     <nav>
                         <ul class="space-y-2">
-                            <li><a href="#s1" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-1-circle-fill mr-3 text-slate-400"></i>Un poco de historia</a></li>
-                            <li><a href="#s2" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-2-circle-fill mr-3 text-slate-400"></i>Aprendizaje Automático</a></li>
-
-                            <li><a href="#s3" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-3-circle-fill mr-3 text-slate-400"></i>Ética y responsabilidad</a></li>
-                            <li><a href="#s4" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-4-circle-fill mr-3 text-slate-400"></i>Ejemplos</a></li>
-                            <li><a href="#s5" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-5-circle-fill mr-3 text-slate-400"></i>Teachable Machine</a></li>
-                            <li><a href="#s6" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-6-circle-fill mr-3 text-slate-400"></i>ML for kids</a></li>
+                            <!-- 
+                              Añadimos 'group' a la etiqueta <a> para poder colorear
+                              el icono <i> cuando se hace hover sobre el enlace.
+                            -->
+                            <li><a href="#s1" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200 group"><i class="bi bi-1-circle-fill mr-3 text-slate-400 group-hover:text-blue-600 transition-colors duration-200"></i>Un poco de historia</a></li>
+                            <li><a href="#s2" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200 group"><i class="bi bi-2-circle-fill mr-3 text-slate-400 group-hover:text-blue-600 transition-colors duration-200"></i>Aprendizaje Automático</a></li>
+                            <li><a href="#s3" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200 group"><i class="bi bi-3-circle-fill mr-3 text-slate-400 group-hover:text-blue-600 transition-colors duration-200"></i>Ética y responsabilidad</a></li>
+                            <li><a href="#s4" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200 group"><i class="bi bi-4-circle-fill mr-3 text-slate-400 group-hover:text-blue-600 transition-colors duration-200"></i>Ejemplos</a></li>
+                            <li><a href="#s5" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200 group"><i class="bi bi-5-circle-fill mr-3 text-slate-400 group-hover:text-blue-600 transition-colors duration-200"></i>Teachable Machine</a></li>
+                            <li><a href="#s6" class="flex items-center text-slate-600 hover:text-blue-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200 group"><i class="bi bi-6-circle-fill mr-3 text-slate-400 group-hover:text-blue-600 transition-colors duration-200"></i>ML for kids</a></li>
                         </ul>
                     </nav>
-                 <!--   
-                  <br> 
-                    <h3 class="font-bold text-lg text-slate-800 mb-4 border-b pb-2">¡Para saber más!</h3>
-                    <nav>
-                        <ul class="space-y-2">
-                            <li><a href="pdf/Fichas de refuerzo UD1.pdf" target="_blank" class="flex items-center text-slate-600 hover:text-red-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-file-play-fill mr-3 text-slate-400"></i>Actividades 1</a></li>
-                            <li><a href="pdf/Fichas de ampliación UD1.pdf"  target="_blank" class="flex items-center text-slate-600 hover:text-red-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-file-play-fill mr-3 text-slate-400"></i>Actividades 2</a></li>
-                            <li><a href="tyd2ud1glosario.html" class="flex items-center text-slate-600 hover:text-red-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-file-code-fill mr-3 text-slate-400"></i>Glossary</a></li>
-                            <li><a href="tyd2ud1map.html" target="_blank" class="flex items-center text-slate-600 hover:text-red-600 hover:bg-slate-100 p-2 rounded-md transition-colors duration-200"><i class="bi bi-diagram-3-fill mr-3 text-slate-400"></i>Mapa Mental</a></li>
-                        </ul>
-                    </nav>
-                    -->
                 </div>
-            </aside> 
+            </aside>  
         </div>
     </div>
 </main>
