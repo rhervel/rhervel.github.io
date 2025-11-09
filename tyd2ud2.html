@@ -48,6 +48,9 @@
                 .modal-content::-webkit-scrollbar-thumb:hover {
                     background: #555;
                 }
+                .indentado {
+                  margin-left: 20px; /* O 'padding-left: 20px;' si prefieres */
+                }
             </style>
             <link rel="stylesheet" href="style.css">
 
@@ -93,14 +96,20 @@
             <ul class="">
                 <li><a href="#" class="tab-link" data-target="tab1">1. Clasificación de los materiales</a></li>
                 <li><a href="#" class="tab-link" data-target="tab2">2. Propiedades de los materiales</a></li>
-                <li><a href="#" class="tab-link" data-target="tab3">3. Propiedades físicas y químicas</a></li>
-                <li><a href="#" class="tab-link" data-target="tab4">4. Propiedades mecánicas</a></li>
-                <li><a href="#" class="tab-link" data-target="tab5">5. Propiedades tecnológicas</a></li>
-                <li><a href="#" class="tab-link" data-target="tab6">6. Resistencia mecánica: esfuerzos</a></li>
-                <li><a href="#" class="tab-link" data-target="tab7">7. Propiedades sensoriales y ecológicas</a></li>
+                <li class="indentado"><a href="#" class="tab-link" data-target="tab3">2.1 Propiedades físicas y químicas</a></li>
+                <li class="indentado"><a href="#" class="tab-link" data-target="tab4">2.2 Propiedades mecánicas</a></li>
+                <li class="indentado"><a href="#" class="tab-link" data-target="tab5">2.3 Propiedades tecnológicas</a></li>
+                <li class="indentado"><a href="#" class="tab-link" data-target="tab6">2.4 Resistencia mecánica: esfuerzos</a></li>
+                <li class="indentado"><a href="#" class="tab-link" data-target="tab7">2.5 Propiedades sensoriales y ecológicas</a></li>
+                <li><a href="#" class="tab-link" data-target="tab8">3. El Ciclo de la Vida</a></li>
+                <li><a href="#" class="tab-link" data-target="tab9">4. Huella de Carbono y Huella Hídrica</a></li>
+                <li><a href="#" class="tab-link" data-target="tab10">5. Las 5R de la Sostenibilidad</a></li>
+                
+                <!--
                 <li class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 rounded-md"><a href="#" class="tab-link" data-target="tab8">ACTIVIDADES</a></li>
                 <li class="bg-sky-100 border-l-4 border-sky-500 text-sky-800 rounded-md"><a href="#" class="tab-link" data-target="tab9">PROYECTO</a></li>
                 <li class="bg-lime-100 border-l-4 border-lime-500 text-lime-800 rounded-md"><a href="#" class="tab-link" data-target="tab10">EVALUACIÓN</a></li>
+                -->
             </ul>
         </nav>
     </aside>
@@ -282,7 +291,7 @@
 
 <div id="tab3" class="tab-content">
     <section id="detalle-fis-quim" class="">
-        <h2 class="text-3xl font-bold text-slate-600 mb-6">3. Propiedades físicas y químicas</h2>
+        <h2 class="text-3xl font-bold text-slate-600 mb-6">2.1 Propiedades físicas y químicas</h2>
        
         
         <div class="bg-yellow-50 border-yellow-500 border-l-4 rounded-lg p-6 md:p-8">
@@ -301,7 +310,7 @@
 
 <div id="tab4" class="tab-content">
     <section id="detalle-propiedades-mec" class="">
-        <h2 class="text-3xl font-bold text-slate-600 mb-6 mt-10">4. Propiedades mecánicas</h2>
+        <h2 class="text-3xl font-bold text-slate-600 mb-6 mt-10">2.2 Propiedades mecánicas</h2>
        
          <div class="space-y-6 text-slate-600 leading-relaxed text-lg bg-sky-50 border-l-4 border-sky-500 rounded-lg p-6">
             <p><strong class="font-semibold text-slate-700">1. Dureza:</strong> Resistencia que ofrecen a ser rayados o penetrados. Los materiales duros rayan a los blandos.</p>
@@ -316,7 +325,7 @@
 <div id="tab5" class="tab-content">
     <section id="detalle-propiedades-tec" class="">
         
-        <h2 class="text-3xl font-bold text-slate-600 mb-6">5. Propiedades tecnológicas</h2>
+        <h2 class="text-3xl font-bold text-slate-600 mb-6">2.3 Propiedades tecnológicas</h2>
        
         <div class="space-y-6 text-slate-600 leading-relaxed text-lg bg-sky-50 border-l-4 border-sky-500 rounded-lg p-6">
             <p><strong class="font-semibold text-slate-700">1. Maleabilidad:</strong> Capacidad de extenderse fácilmente en láminas al aplicar presión. Ejemplo: el papel de aluminio, metales y plásticos.</p>
@@ -330,7 +339,7 @@
 <div id="tab6" class="tab-content">
     <section id="esfuerzos-ecologia" class="">
         
-        <h2 class="text-3xl font-bold text-slate-600 mb-6">6. Resistencia mecánica: esfuerzos</h2>
+        <h2 class="text-3xl font-bold text-slate-600 mb-6">2.4 Resistencia mecánica: esfuerzos</h2>
        
         <p class="mb-8 text-lg leading-relaxed">Los elementos de las estructuras están sometidos a la acción de fuerzas externas que tienden a deformarlos o desplazarlos. Estos elementos están sometidos a unos esfuerzos. Los esfuerzos elementales son:</p>
 
@@ -424,7 +433,7 @@
 
 <div id="tab7" class="tab-content">
     <section id="detalle-propiedades-sens" class="">
-        <h2 class="text-3xl font-bold text-slate-600 mb-6 mt-10">7. Propiedades sensoriales y ecológicas</h2>
+        <h2 class="text-3xl font-bold text-slate-600 mb-6 mt-10">2.5 Propiedades sensoriales y ecológicas</h2>
        
         <p class="mb-4 text-lg leading-relaxed">Aunque parezca que las propiedades sensoriales son las menos importantes, la mayoría de las veces elegimos un producto por su aspecto o por la impresión que nos produce. El color, el brillo, la textura o el olor son algunas de estas propiedades.</p>
         <p class="mb-4 text-lg leading-relaxed">Las <strong class="font-semibold text-indigo-700">propiedades ecológicas</strong> indican hasta qué punto un material es perjudicial para la naturaleza (en su obtención, transformación o uso). Hay que tenerlas en cuenta cada vez más, pues la explotación excesiva de los recursos y los residuos desbocados ocasionan daños irreparables.</p>
@@ -504,11 +513,190 @@
     </section>
 </div>
 
+<!-- SECCIÓN 1: Ciclo de Vida -->
+<div id="tab8" class="tab-content">
+    <section id="ciclo-vida" class="">
+        <h2 class="text-3xl font-bold text-slate-600 mb-6">3. Ciclo de Vida: De la Cuna a la Tumba</h2>
+        
+        <p class="mb-4 text-lg leading-relaxed">El concepto "De la Cuna a la Tumba" (Cradle-to-Grave) es una metodología de evaluación clave en el estudio del impacto ambiental, conocida comúnmente como Análisis del Ciclo de Vida (ACV).</p>
+        
+        <!-- Definición principal (caja verde) -->
+        <div class="my-6 p-5 bg-green-50 border-l-4 border-green-500 rounded-lg">
+             <p class="text-lg leading-relaxed">Un <strong class="font-semibold text-indigo-800">Análisis del Ciclo de Vida (ACV)</strong> es un análisis exhaustivo y sistemático de todos los <strong class="font-semibold text-indigo-800">impactos ambientales</strong> que genera un producto o servicio a lo largo de todas sus etapas, desde la obtención de las materias primas hasta su disposición final.</p>
+        </div>
+
+        <p class="mb-4 text-lg leading-relaxed">Este análisis desglosa la vida del producto en fases clave para identificar los puntos críticos de consumo de energía, agua y generación de residuos.</p>
+
+        <!-- Tabla de Etapas (basada en el ejemplo de tabla) -->
+        <h3 class="text-2xl font-bold text-slate-700 mt-10 mb-4">Etapas del Ciclo de Vida</h3>
+        <div class="w-full overflow-x-auto my-8">
+            <table class="min-w-full border-collapse border-slate-300 rounded-lg overflow-hidden shadow-md">
+                <thead class="bg-slate-100">
+                    <tr>
+                        <th class="p-4 border border-slate-300 text-left text-xl font-bold text-slate-700 bg-slate-200">Etapa</th>
+                        <th class="p-4 border border-slate-300 text-left text-xl font-bold text-slate-700 bg-slate-200">Descripción del Proceso</th>
+                        <th class="p-4 border border-slate-300 text-left text-xl font-bold text-slate-700 bg-slate-200">Impacto Ambiental Clave</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white">
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top"><strong class="font-semibold">Cuna (Extracción)</strong></td>
+                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">Obtención de las materias primas necesarias (minería, tala, agricultura, etc.).</td>
+                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">Agotamiento de recursos, alteración de ecosistemas, consumo de energía.</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top"><strong class="font-semibold">Fabricación</strong></td>
+                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">Transformación de las materias primas en el producto final.</td>
+                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">Consumo de energía y agua, generación de residuos y emisiones contaminantes.</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top"><strong class="font-semibold">Distribución</strong></td>
+                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">Transporte del producto desde el punto de fabricación hasta el consumidor.</td>
+                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">Emisiones de GEI (huella de carbono) por combustibles fósiles.</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top"><strong class="font-semibold">Uso</strong></td>
+                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">El periodo en que el producto es utilizado por el consumidor.</td>
+                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">Consumo de energía y agua (si aplica), necesidad de mantenimiento.</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top"><strong class="font-semibold">Tumba (Fin de la vida útil)</strong></td>
+                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">Desecho del producto una vez que ya no es útil.</td>
+                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">Relleno sanitario (vertederos), incineración, contaminación por lixiviados.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Nota (caja azul) -->
+        <div class="my-6 p-5 bg-sky-50 border-l-4 border-sky-500 rounded-lg">
+             <p class="text-lg leading-relaxed"><strong class="font-semibold text-sky-800">Nota Contraste:</strong> Este enfoque "Cuna a la Tumba" contrasta con el modelo de <strong class="font-semibold text-indigo-800">"Cuna a la Cuna" (Cradle-to-Cradle)</strong>, que busca diseñar productos de manera que, al final de su vida útil, sus materiales puedan ser completamente reutilizados o reciclados, cerrando el ciclo y eliminando la fase de "Tumba".</p>
+        </div>
+    </section>
+  </div>
+
+    <!-- SECCIÓN 2: Huellas Ambientales -->
+  <div id="tab9" class="tab-content">
+    <section id="huellas" class="">
+        <h2 class="text-3xl font-bold text-slate-600 mb-6">4. Huella de Carbono y Huella Hídrica</h2>
+        
+        <p class="mb-4 text-lg leading-relaxed">Ambos son indicadores clave de sostenibilidad que miden el impacto ambiental de nuestras actividades, empresas o productos. Nos permiten cuantificar nuestra demanda sobre los recursos del planeta.</p>
+
+        <!-- Grid de 2 columnas (basado en el grid del ejemplo) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-8">
+            
+            <!-- Columna 1: Huella de Carbono -->
+            <div class="space-y-4 bg-red-50 border-l-4 border-red-500 rounded-lg p-6">
+                <h3 class="text-2xl font-bold text-slate-700 mb-4">A. Huella de Carbono</h3>
+                <p class="text-lg leading-relaxed">Es la totalidad de <strong class="font-semibold text-red-700">Gases de Efecto Invernadero (GEI)</strong> emitidos, directa o indirectamente, por una persona, organización, evento o producto.</p>
+                <ul class="list-disc list-inside space-y-4 text-lg">
+                    <li>
+                        <strong class="font-semibold text-slate-700">Unidad de Medida:</strong> Se expresa en masa de dióxido de carbono equivalente (<strong class="font-semibold">CO2</strong>).
+                    </li>
+                    <li>
+                        <strong class="font-semibold text-slate-700">Relevancia:</strong> Es el principal indicador para medir la contribución al <strong class="font-semibold">calentamiento global</strong> y el cambio climático. Reducirla implica usar energías limpias y mejorar la eficiencia energética.
+                    </li>
+                </ul>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/KJgGfY5PACM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <p class="image-caption mt-2">HUELLA DE CARBONO: Qué es y cómo REDUCIRLA.</p>
+            </div>
+            
+            <!-- Columna 2: Huella Hídrica -->
+            <div class="space-y-4 bg-blue-50 border-l-4 border-blue-500 rounded-lg p-6">
+                <h3 class="text-2xl font-bold text-slate-700 mb-4">B. Huella Hídrica</h3>
+                <p class="text-lg leading-relaxed">Es el volumen total de <strong class="font-semibold text-blue-700">agua dulce</strong> utilizada, directa e indirectamente, para producir los bienes y servicios consumidos por una persona o producidos por una empresa.</p>
+                <ul class="list-disc list-inside space-y-4 text-lg">
+                    <li>
+                        <strong class="font-semibold text-slate-700">Unidad de Medida:</strong> Se expresa en volumen de agua (litros o metros cúbicos).
+                    </li>
+                    <li>
+                        <strong class="font-semibold text-slate-700">Componentes:</strong> Se desglosa en tres tipos:
+                        <ul class="list-inside space-y-2 mt-2 ml-4">
+                            <li><strong class="font-semibold text-green-700">Verde:</strong> Agua de lluvia almacenada en el suelo (agricultura).</li>
+                            <li><strong class="font-semibold text-blue-700">Azul:</strong> Agua extraída de fuentes superficiales o subterráneas (riego, industria).</li>
+                            <li><strong class="font-semibold text-gray-600">Gris:</strong> Agua necesaria para diluir los contaminantes vertidos.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/s-0XyvC6j0g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <p class="image-caption mt-2">Huella Hídrica.</p>
+            </div>
+        </div>
+    </section>
+  </div>
+
+    <!-- SECCIÓN 3: Las 5R de la Sostenibilidad -->
+  <div id="tab10" class="tab-content">
+    <section id="5r" class="">
+        <h2 class="text-3xl font-bold text-slate-600 mb-6">5. Las 5R de la Sostenibilidad</h2>
+        
+        <p class="mb-4 text-lg leading-relaxed">Las 5R representan una jerarquía de acciones orientadas a la gestión de residuos y el consumo consciente. Este modelo expande las clásicas "3R" (Reducir, Reutilizar, Reciclar) para ofrecer un marco de acción más completo.</p>
+        
+        <!-- Definición principal (caja verde) -->
+        <div class="my-6 p-5 bg-green-50 border-l-4 border-green-500 rounded-lg">
+             <p class="text-lg leading-relaxed">El principio fundamental es la <strong class="font-semibold text-indigo-800">jerarquía</strong>: la mejor acción es siempre la que <strong class="font-semibold text-indigo-800">previene la generación de residuos</strong> en primer lugar (Rechazar y Reducir) antes que gestionar los residuos ya creados (Reciclar).</p>
+        </div>
+
+        <!-- Tabla de las 5R -->
+        <h3 class="text-2xl font-bold text-slate-700 mt-10 mb-4">Jerarquía de Acciones</h3>
+        <div class="w-full overflow-x-auto my-8">
+            <table class="min-w-full border-collapse border-slate-300 rounded-lg overflow-hidden shadow-md">
+                <thead class="bg-slate-100">
+                    <tr>
+                        <th class="p-4 border border-slate-300 text-left text-xl font-bold text-slate-700 bg-slate-200">Prioridad</th>
+                        <th class="p-4 border border-slate-300 text-left text-xl font-bold text-red-800 bg-red-100">"R" (Español)</th>
+                        <th class="p-4 border border-slate-300 text-left text-xl font-bold text-slate-700 bg-slate-100">"R" (Inglés)</th>
+                        <th class="p-4 border border-slate-300 text-left text-xl font-bold text-slate-700 bg-slate-200">Descripción y Acción</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white">
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top"><strong class="font-semibold text-2xl">1.</strong></td>
+                        <td class="p-4 border border-slate-300 text-lg text-red-700 align-top"><strong class="font-semibold">Rechazar</strong></td>
+                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">Refuse</td>
+                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">La acción más importante: Evitar productos innecesarios o con embalajes excesivos (ej. rechazar bolsas plásticas o flyers).</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top"><strong class="font-semibold text-2xl">2.</strong></td>
+                        <td class="p-4 border border-slate-300 text-lg text-orange-700 align-top"><strong class="font-semibold">Reducir</strong></td>
+                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">Reduce</td>
+                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">Disminuir la cantidad de productos que se consumen, impactando directamente en la reducción de las huellas de carbono/hídrica.</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top"><strong class="font-semibold text-2xl">3.</strong></td>
+                        <td class="p-4 border border-slate-300 text-lg text-yellow-700 align-top"><strong class="font-semibold">Reutilizar</strong></td>
+                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">Reuse</td>
+                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">Usar un producto más de una vez, ya sea para su propósito original o para uno diferente (ej. usar frascos de vidrio para almacenar).</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top"><strong class="font-semibold text-2xl">4.</strong></td>
+                        <td class="p-4 border border-slate-300 text-lg text-teal-700 align-top"><strong class="font-semibold">Reparar / Reaprovechar</strong></td>
+                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">Repair / Repurpose</td>
+                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">Arreglar un objeto dañado en lugar de tirarlo, o darle un nuevo uso creativo a un artículo (ej. convertir ropa vieja en trapos).</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top"><strong class="font-semibold text-2xl">5.</strong></td>
+                        <td class="p-4 border border-slate-300 text-lg text-blue-700 align-top"><strong class="font-semibold">Reciclar</strong></td>
+                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">Recycle</td>
+                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">Transformar el material desechado en un nuevo producto, evitando el uso de materia prima virgen (esta debe ser la <strong class="font-semibold">última opción</strong>).</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+    </section>
+  </div>
+
+
   
 
 <!-- Actividades -->
 
-<div id="tab8" class="tab-content">
+<div id="tab11" class="tab-content">
     <section id="actividades1" class="border-green-200">
         <div class="bg-yellow-100 p-4 rounded-lg border-l-4 border-yellow-500">
             <h2 class="text-3xl font-bold text-slate-700 mb-2 italic">Actividad 1</h2>
@@ -645,7 +833,7 @@
 
 <!-- Proyecto -->
 
-<div id="tab9" class="tab-content">
+<div id="tab12" class="tab-content">
     <section id="proyectoEcoAmplificador" class="border-green-200">
         <div class="bg-sky-100 p-4 rounded-lg border-l-4 border-sky-500">
             <h2 class="text-3xl font-bold text-slate-700 mb-2 italic">Proyecto: Eco-Amplificador de Sonido</h2>
@@ -738,7 +926,7 @@
 
 <!-- Evaluación -->
 
-<div id="tab9" class="tab-content">
+<div id="tab13" class="tab-content">
     <section id="evaluacionCompleta" class="border-slate-300">
         <div class="bg-lime-100 p-4 rounded-lg border-l-4 border-lime-500">
             <h2 class="text-3xl font-bold text-slate-700 mb-6 italic">Evaluación del Proceso de Aprendizaje</h2>
