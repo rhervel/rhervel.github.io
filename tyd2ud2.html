@@ -1,1294 +1,802 @@
-        <!DOCTYPE html>
-        <html lang="es">
-        <head>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-            <title>UD2. Materiales tecnológicos y su impacto ambiental</title>
-            <script src="https://cdn.tailwindcss.com"></script>
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-            <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 fill=%22currentColor%22 class=%22bi bi-robot%22 viewBox=%220 0 16 16%22><path d=%22M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5ZM3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.58 26.58 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.933.933 0 0 1-.765.935c-.845.147-2.34.346-4.235.346-1.895 0-3.39-.2-4.235-.346A.933.933 0 0 1 3 9.219V8.062Zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a24.767 24.767 0 0 1-1.871-.183.25.25 0 0 0-.217.068l-.92.9a.25.25 0 0 0 .169.434l.92-.9a25.25 25.25 0 0 0 1.942.183.25.25 0 0 0 .217-.068l.92-.9a.25.25 0 0 0-.17-.434l-.92.9a24.767 24.767 0 0 1-1.871-.183Z%22/><path d=%22M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1.5a2.5 2.5 0 0 0 2.5 2.5h9A2.5 2.5 0 0 0 15 13.5V12a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2V1.866ZM14 7.5V12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5Z%22/></svg>" type="image/svg+xml">
-            <link rel="preconnect" href="https://fonts.googleapis.com">
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
-            <style>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UD2. Materiales tecnológicos y su impacto ambiental</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Pequeños ajustes adicionales si fueran necesarios */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* Para los iconos de Bootstrap, si los estás usando */
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css");
+    </style>
 
-                /* Estilo para la pestaña activa */
-                .tab-link.active {
-                    background-color: #3b82f6; /* bg-blue-500 */
-                    color: white;
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Open Sans"', 'sans-serif'],
+                    },
                 }
-                /* Ocultar scrollbar en el contenedor principal pero permitir scroll */
-                .no-scrollbar::-webkit-scrollbar {
-                    display: none;
-                }
-                .no-scrollbar {
-                    -ms-overflow-style: none;  /* IE and Edge */
-                    scrollbar-width: none;  /* Firefox */
-                    /* Custom styles for smooth transition */
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-                    }
-                .accordion-content {
-                    max-height: 0;
-                    overflow: hidden;
-                    transition: max-height 0.3s ease-out;
-
-                }
-                        /* Estilo para el scrollbar del modal */
-                .modal-content::-webkit-scrollbar {
-                    width: 8px;
-                }
-                .modal-content::-webkit-scrollbar-track {
-                    background: #f1f1f1;
-                    border-radius: 10px;
-                }
-                .modal-content::-webkit-scrollbar-thumb {
-                    background: #888;
-                    border-radius: 10px;
-                }
-                .modal-content::-webkit-scrollbar-thumb:hover {
-                    background: #555;
-                }
-                .indentado {
-                  margin-left: 20px; /* O 'padding-left: 20px;' si prefieres */
-                }
-            </style>
-            <link rel="stylesheet" href="style.css">
-
-            </head>
-
-            <body class=" font-sans text-gray-800">
-
-                <!-- Barra de navegación superior -->
-                <header class="bg-white shadow-md sticky top-0 z-40">
-                  <div class="container mx-auto px-4">
-                    <div class="flex justify-between items-center py-4">
-                      <div class="flex items-center gap-3">
-
-                        <a href="index.html" class="text-grey-700 flex items-center">
-                          <i class="bi bi-robot text-2xl mr-3"></i>
-                          <span class="font-bold text-xl">Tecnología y Digitalización</span>
-                      </a>
-
-                  </div>
-                  <div class="text-sm text-gray-500">
-                      <ol class="list-none p-0 inline-flex items-center">
+<body class="bg-gray-100 text-gray-800 font-sans">
+        <header class="bg-gray-900 text-gray-200 shadow-lg sticky top-0 z-40">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center gap-3">
+                    <a href="index.html" class="text-gray-100 hover:text-white flex items-center">
+                        <i class="bi bi-robot text-2xl mr-3"></i> <span class="font-bold text-xl">Tecnología y Digitalización</span>
+                    </a>
+                </div>
+                <div class="text-sm text-gray-400">
+                    <ol class="list-none p-0 inline-flex items-center">
                         <li class="flex items-center">
-                          <a href="tyd2.html" class="hover:text-blue-600">2º ESO</a>
-                          <i class="bi bi-chevron-right mx-2 text-xs"></i>
-                      </li>
-                      <li class="flex items-center text-gray-700 font-semibold">
-                          <span>UD2. Materiales tecnológicos y su impacto ambiental</span>
-                      </li>
-                  </ol>
-              </div>
-          </div>
-      </div>
-  </header>
-
-  <div class="flex flex-col md:flex-row min-h-screen"> <!-- Contenedor principal Flex -->
-    <!-- Barra lateral de navegación -->
-    <aside id="sidebar" class="w-full md:w-64 bg-white shadow-lg p-4 md:h-screen md:sticky top-16">
-        <div class="flex items-center pb-4 border-b">
-
-            <h1 class="text-xl font-bold text-gray-700">UD2. Materiales tecnológicos y su impacto ambiental</h1>
+                            <a href="tyd2.html" class="text-gray-300 hover:text-blue-300">2º ESO</a>
+                            <i class="bi bi-chevron-right mx-2 text-xs text-gray-500"></i>
+                        </li>
+                        <li class="flex items-center text-gray-100 font-semibold">
+                            <span>UD2. Materiales tecnológicos</span>
+                        </li>
+                    </ol>
+                </div>
+            </div>
         </div>
-        <nav class="mt-4">
-            <ul class="">
-                <li><a href="#" class="tab-link" data-target="tab1">1. Clasificación de los materiales</a></li>
-                <li><a href="#" class="tab-link" data-target="tab2">2. Propiedades de los materiales</a></li>
-                <li class="indentado"><a href="#" class="tab-link" data-target="tab3">2.1 Propiedades físicas y químicas</a></li>
-                <li class="indentado"><a href="#" class="tab-link" data-target="tab4">2.2 Propiedades mecánicas</a></li>
-                <li class="indentado"><a href="#" class="tab-link" data-target="tab5">2.3 Propiedades tecnológicas</a></li>
-                <li class="indentado"><a href="#" class="tab-link" data-target="tab6">2.4 Resistencia mecánica: esfuerzos</a></li>
-                <li class="indentado"><a href="#" class="tab-link" data-target="tab7">2.5 Propiedades sensoriales y ecológicas</a></li>
-                <li><a href="#" class="tab-link" data-target="tab8">3. El Ciclo de la Vida</a></li>
-                <li><a href="#" class="tab-link" data-target="tab9">4. Huella de Carbono y Huella Hídrica</a></li>
-                <li><a href="#" class="tab-link" data-target="tab10">5. Las 5R de la Sostenibilidad</a></li>
-                
-                <!--
-                <li class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 rounded-md"><a href="#" class="tab-link" data-target="tab8">ACTIVIDADES</a></li>
-                <li class="bg-sky-100 border-l-4 border-sky-500 text-sky-800 rounded-md"><a href="#" class="tab-link" data-target="tab9">PROYECTO</a></li>
-                <li class="bg-lime-100 border-l-4 border-lime-500 text-lime-800 rounded-md"><a href="#" class="tab-link" data-target="tab10">EVALUACIÓN</a></li>
-                -->
-            </ul>
-        </nav>
-    </aside>
+    </header>
 
-    <!-- Contenido principal -->
-    <main class="flex-1 p-6 md:p-10">
-        <div id="main-content p-6">
-<!-- Contenido de las Pestañas -->
-<div id="tab1" class="tab-content">
-    <section id="clasificacion" class="">
-        <h2 class="text-3xl font-bold text-slate-600 mb-6">1. Clasificación de los materiales</h2>
+<main class="flex-grow">
+    <div class="relative bg-cover bg-center py-20 md:py-32 -mx-6 md:-mx-12 -mt-6 md:-mt-12 rounded-t-lg" style="background-image: url('https://img.hogar.mapfre.es/wp-content/uploads/2018/08/ideas_diy_faciles_y_vistosas_para_hacer_con_troncos.jpg');">
+        <div class="absolute inset-0 bg-black opacity-50 rounded-t-lg"></div>
+        
+        <div class="container mx-auto px-12 relative z-10 text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-white pb-6 mb-8">
+                UD2. Materiales tecnológicos y su impacto ambiental ♻️
+            </h1>
+        </div>
+    </div>
+   <div class="max-w-7xl mx-auto bg-white shadow-lg rounded-lg my-12 p-10">
+        
+        <h2 class="text-3xl font-semibold text-teal-800 mt-5 mb-4 pb-1 border-b border-gray-200">
+            1. Clasificación de los materiales
+        </h2>
+        
+        <p class="mb-4">Nuestro entorno está repleto de toda clase de materiales que utilizamos constantemente, pero ¿cómo se pueden clasificar?</p>
+        <p class="mb-4">Los objetos que utilizamos habitualmente se fabrican a partir de distintos materiales.</p>
+        <p class="mb-4">Estos materiales tienen su origen en la naturaleza, de donde obtenemos las materias primas, como la lana, la madera, el corcho, la arcilla, el mineral de hierro, etc. A partir de esas materias se obtienen materiales naturales y materiales transformados.</p>
+        <p class="mb-4">Algunos objetos se pueden construir directamente con los materiales tal y como se obtienen de la naturaleza.</p>
+        <p class="mb-4">Decimos entonces que se han utilizado materiales naturales. Sin embargo, en la fabricación de la mayoría de los objetos, los materiales no se utilizan tal y como se obtienen de la naturaleza, sino que sufren modificaciones mediante algún proceso de transformación.</p>
+        <p class="mb-4">A estos materiales los llamamos materiales transformados, que pueden ser artificiales o sintéticos.</p>
+        <p class="mb-4">Desde el punto de vista técnico, los materiales que empleamos para fabricar los objetos se pueden clasificar en cinco grandes grupos:</p>
+        
+        <ul class="list-disc pl-5 mb-4 space-y-2">
+            <li><strong class="font-semibold text-gray-900">Maderas.</strong> Son materiales naturales que provienen de los árboles. Sus principales derivados son el papel y el cartón.</li>
+            <li><strong class="font-semibold text-gray-900">Metales.</strong> Se obtienen de los minerales extraídos de las minas, que después se transforman para su posterior aplicación.</li>
+            <li><strong class="font-semibold text-gray-900">Plásticos.</strong> Son materiales sintéticos que se obtienen fundamentalmente del petróleo y del carbón.</li>
+            <li><strong class="font-semibold text-gray-900">Materiales pétreos y cerámicos.</strong> Son también de origen natural, los primeros constituidos fundamentalmente por piedra y arena, y los segundos, por arcilla.</li>
+            <li><strong class="font-semibold text-gray-900">Materiales textiles.</strong> Algunos se obtienen directamente de materias primas como el algodón, la lana, el lino, la seda, etc., pero una gran mayoría es de origen artificial y sintético como el rayón, el poliéster, la poliamida, etc.</li>
+        </ul>
+        
+        
+        <p class="mb-4">Con estos materiales se fabrican muebles, ordenadores, automóviles, instrumentos y máquinas diversas; también se utilizan para la construcción de casas, edificios, parques, puentes, etc.</p>
+        
 
-        <p class="mb-4 text-lg leading-relaxed">Los objetos que utilizamos habitualmente se fabrican a partir de distintos materiales. Estos materiales tienen su origen en la naturaleza, de donde obtenemos las materias primas (como la lana, la madera, el corcho, la arcilla, etc.). A partir de esas materias se obtienen materiales naturales y materiales transformados.</p>
-        <p class="mb-4 text-lg leading-relaxed">Algunos objetos se construyen directamente con materiales naturales. Sin embargo, la mayoría de las veces, los materiales sufren modificaciones. A estos los llamamos materiales transformados, que pueden ser artificiales o sintéticos.</p>
+        <p class="mb-4">También hay que tener en cuenta que a partir de objetos ya utilizados se pueden generar nuevos materiales, los materiales reciclados.</p>
+        <p class="mb-4">Es decir que, mediante procesos de transformación, los objetos usados se pueden aprovechar para fabricar nuevos objetos.</p>
+        
+        <h2 class="text-3xl font-semibold text-teal-800 mt-10 mb-4 pb-1 border-b border-gray-200">
+            2. Propiedades de los materiales
+        </h2>
+        
+        <p class="mb-4">En la tabla inferior se relacionan una serie de objetos que han sido diseñados y fabricados con materiales diversos. La elección de estos materiales viene determinada, en cada caso, por sus propiedades. De este modo, cada objeto podrá cumplir con la función para la que ha sido diseñado.</p>
 
-        <div class="my-6 p-5 bg-green-50 border-l-4 border-green-500 rounded-l-lg">
-            <p class="text-lg leading-relaxed">Desde el punto de vista técnico, los materiales se pueden clasificar en <strong class="font-semibold text-indigo-800">cinco grandes grupos</strong>:</p>
+        <div class="bg-teal-100 p-4 h-full text-center">
+        <i class="mb-4 text-center">Las propiedades de los materiales son el conjunto de características mediante las cuales los podemos definir y distinguir unos de otros.</i>
+        </div>
 
-            <div class="space-y-4 text-slate-600 leading-relaxed text-lg my-6">
-              <ul class="list-disc list-inside space-y-3">
-                
-                <li>
-                  <strong class="font-semibold text-indigo-700">Maderas.</strong> 
-                  Son materiales naturales que provienen de los árboles. Sus principales derivados son el papel y el cartón.
-                </li>
-                
-                <li>
-                  <strong class="font-semibold text-indigo-700">Metales.</strong> 
-                  Se obtienen de los minerales extraídos de las minas, que después se transforman para su posterior aplicación.
-                </li>
-                
-                <li>
-                  <strong class="font-semibold text-indigo-700">Plásticos.</strong> 
-                  Son materiales sintéticos que se obtienen fundamentalmente del petróleo y del carbón.
-                </li>
-                
-                <li>
-                  <strong class="font-semibold text-indigo-700">Materiales pétreos y cerámicos.</strong> 
-                  Son también de origen natural, los primeros constituidos fundamentalmente por piedra y arena, y los segundos, por arcilla.
-                </li>
-                
-                <li>
-                  <strong class="font-semibold text-indigo-700">Materiales textiles.</strong> 
-                  Algunos se obtienen directamente de materias primas como el algodón, la lana, el lino, la seda, etc., pero una gran mayoría es de origen artificial y sintético como el rayón, el poliéster, la poliamida, etc.
-                </li>
-                
+        <div class="space-y-3 my-4">
+            <p><strong class="font-semibold text-gray-900">Destornillador de electricista:</strong> El mango es de plástico y el vástago está recubierto también de material plástico, que es un material aislante de la corriente eléctrica. La cabeza del destornillador ha de ser dura y resistente.</p>
+            <p><strong class="font-semibold text-gray-900">Olla:</strong> La olla es de acero inoxidable, material que es buen conductor del calor. Las asas son de un tipo de plástico que no transmite bien el calor.</p>
+            <p><strong class="font-semibold text-gray-900">Cable eléctrico:</strong> El cable está compuesto por hilos muy finos de cobre recubiertos de un aislante plástico. El cobre es buen conductor eléctrico, mientras que el plástico no lo es.</p>
+            <p><strong class="font-semibold text-gray-900">Cuadro de una bicicleta:</strong> Los cuadros de las bicicletas suelen fabricarse con acero, aunque también los hay de fibra de carbono o titanio. Todos ellos son materiales ligeros y soportan bien los esfuerzos a los que se ven sometidos.</p>
+            <p><strong class="font-semibold text-gray-900">Martillo:</strong> La cabeza de un martillo ha de ser muy dura y resistente para que al golpear los objetos sufra el menor deterioro posible.</p>
+        </div>
+        
+        
+        <p class="mb-4">Podemos clasificar las propiedades de los materiales en cinco grupos, que se describen a continuación:</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3 my-8 bg-gray-50">
+
+          <div class="p-4  h-full">
+              <h3 class="text-xl font-semibold text-teal-700 mb-3">Fisicoquímicas</h3>
+              <p class="text-sm mb-4">Muestran el comportamiento de los materiales cuando son sometidos a <strong>agentes externos</strong> como el calor, la corriente eléctrica, la gravedad, la humedad, etc.</p>
+              <ul class="list-disc pl-5 space-y-1 text-sm">
+                  <li>Densidad</li>
+                  <li>Conductividad térmica</li>
+                  <li>Dilatación</li>
+                  <li>Temperatura de fusión</li>
+                  <li>Conductividad eléctrica</li>
+                  <li>Oxidación</li>
+                  <li>Corrosión</li>
               </ul>
+          </div>
+
+          <div class="p-4 h-full">
+              <h3 class="text-xl font-semibold text-teal-700 mb-3">Mecánicas</h3>
+              <p class="text-sm mb-4">Son un grupo específico de propiedades físicas que muestran el comportamiento de los materiales sometidos a la acción de diversas <strong>fuerzas</strong>.</p>
+              <ul class="list-disc pl-5 space-y-1 text-sm">
+                  <li>Dureza</li>
+                  <li>Tenacidad</li>
+                  <li>Elasticidad</li>
+                  <li>Resistencia mecánica</li>
+              </ul>
+          </div>
+
+          <div class=" p-4  h-full">
+              <h3 class="text-xl font-semibold text-teal-700 mb-3">Tecnológicas</h3>
+              <p class="text-sm mb-4">Definen el comportamiento de los materiales cuando se <strong>trabajan para darles forma</strong>.</p>
+              <ul class="list-disc pl-5 space-y-1 text-sm">
+                  <li>Maleabilidad</li>
+                  <li>Ductilidad</li>
+                  <li>Soldabilidad</li>
+                  <li>Fusibilidad</li>
+              </ul>
+          </div>
+
+          <div class="p-4 h-full">
+              <h3 class="text-xl font-semibold text-teal-700 mb-3">Sensoriales</h3>
+              <p class="text-sm mb-4">Se refieren a la <strong>percepción</strong> que causan los materiales en nuestros <strong>sentidos</strong>.</p>
+              <ul class="list-disc pl-5 space-y-1 text-sm">
+                  <li>Color</li>
+                  <li>Textura</li>
+                  <li>Brillo</li>
+                  <li>Olor</li>
+              </ul>
+          </div>
+
+          <div class="p-4 h-full">
+              <h3 class="text-xl font-semibold text-teal-700 mb-3">Ecológicas</h3>
+              <p class="text-sm mb-4">Se relacionan con el <strong>impacto ambiental</strong> que pueden tener los materiales durante su obtención, transformación y uso.</p>
+              <ul class="list-disc pl-5 space-y-1 text-sm">
+                  <li>Reutilizabilidad</li>
+                  <li>Reciclabilidad</li>
+                  <li>Biodegradabilidad</li>
+                  <li>Toxicidad</li>
+              </ul>
+          </div>
+
+      </div>
+        
+        <h3 class="text-2xl font-semibold text-teal-700 mt-8 mb-3">2.1. Propiedades tecnológicas</h3>
+        <ol class="list-decimal pl-5 mb-4 space-y-2">
+            <li><strong class="font-semibold">Maleabilidad.</strong> Algunos materiales tienen la capacidad de extenderse fácilmente en láminas al aplicar presión sobre ellos. Un ejemplo es el papel de aluminio, pero también son materiales maleables, en general, los metales y los plásticos.</li>
+            <li><strong class="font-semibold">Fusibilidad.</strong> Esta propiedad de algunos materiales les permite pasar del estado sólido al líquido cuando son sometidos a determinadas temperaturas y, de este modo, pueden ser vertidos en moldes. Son materiales con buena fusibilidad el bronce, el latón y el hierro.</li>
+            <li><strong class="font-semibold">Ductilidad.</strong> Es la cualidad que tienen algunos materiales de extenderse para formar hilos. Son materiales dúctiles los metales como el oro, la plata, el cobre, el plomo, el aluminio y, también, los materiales plásticos.</li>
+            <li><strong class="font-semibold">Soldabilidad.</strong> Es la capacidad que poseen algunos materiales de poder ser soldados. Los aceros y los plásticos presentan buenas características de soldabilidad.</li>
+        </ol>
+        
+        <h3 class="text-2xl font-semibold text-teal-700 mt-8 mb-3">2.2. Propiedades mecánicas</h3>
+        <ol class="list-decimal pl-5 mb-4 space-y-2">
+            <li><strong class="font-semibold">Dureza.</strong> Es la propiedad de algunos materiales que nos indica la resistencia que ofrecen a ser rayados o penetrados. Los materiales duros son capaces de rayar a los blandos.</li>
+            <li><strong class="font-semibold">Tenacidad.</strong> Es la propiedad que tienen algunos materiales de sufrir golpes o impactos sin romperse. Los materiales que no resisten bien los golpes se denominan materiales frágiles.</li>
+            <li><strong class="font-semibold">Elasticidad.</strong> Es la propiedad que permite a algunos materiales recuperar su forma original después de haber sido deformados. Los materiales en los que persiste la deformación se llaman materiales plásticos.</li>
+            <li><strong class="font-semibold">Resistencia mecánica.</strong> Es la propiedad que poseen algunos materiales para soportar esfuerzos sin deformarse excesivamente ni romperse.</li>
+        </ol>
+        
+        <h3 class="text-2xl font-semibold text-teal-700 mt-8 mb-3">2.3. Propiedades físicas y químicas</h3>
+        <ol class="list-decimal pl-5 mb-4 space-y-2">
+            <li><strong class="font-semibold">Densidad.</strong> Cuando un material de un determinado volumen tiene poca masa decimos que su densidad es baja, y lo contrario cuando tiene mucha masa. La propiedad que nos indica si un material tiene más masa que otro para un determinado volumen es la densidad. Se calcula mediante la expresión:
+              <div class="bg-teal-100 p-4 h-full text-center">
+                densidad = masa(kg) / volumen(m^3)
             </div>
-        </div>
-        <h3 class="text-2xl font-semibold text-slate-700 mt-8 mb-6">Materiales reciclados</h3>
-        <p class="mb-4 text-lg leading-relaxed">También hay que tener en cuenta que a partir de objetos ya utilizados se pueden generar nuevos materiales, los <strong class="font-semibold text-indigo-700">materiales reciclados</strong>. Es decir que, mediante procesos de transformación, los objetos usados se pueden aprovechar para fabricar nuevos objetos.</p>
-
-    </section>
-</div>
-
-<div id="tab2" class="tab-content">
-    <section id="propiedades" class="">
-        <h2 class="text-3xl font-bold text-slate-600 mb-6">2. Propiedades de los materiales</h2>
-       
+            </li>
+            <li><strong class="font-semibold">Conductividad térmica.</strong> Es la capacidad que tiene un material de transmitir el calor. Los metales son buenos conductores del calor, en cambio, otros materiales como la madera, el plástico y los materiales cerámicos prácticamente no lo dejan pasar, por lo que se consideran aislantes térmicos.</li>
+            <li><strong class="font-semibold">Dilatación térmica.</strong> Es la propiedad que poseen algunos materiales de aumentar su volumen cuando se calientan. Tiene una especial incidencia en los metales.</li>
+            <li><strong class="font-semibold">Temperatura de fusión.</strong> Es la temperatura a la cual un material pasa del estado sólido al líquido. El hielo, agua en estado sólido, cuando se extrae del congelador pasa al estado líquido. El punto de fusión del agua se produce a los 0°C.</li>
+            <li><strong class="font-semibold">Conductividad eléctrica.</strong> Es la capacidad de algunos materiales para dejar pasar la corriente eléctrica. Los metales son buenos conductores de la electricidad. Los materiales que no son buenos conductores, como la madera, reciben el nombre de aislantes.</li>
+            <li><strong class="font-semibold">Oxidación.</strong> Cuando un material se combina con oxígeno, transformándose en óxido, experimenta una reacción de oxidación. Los materiales metálicos en general, al combinarse con el oxígeno, crean una capa superficial de óxido.</li>
+            <li><strong class="font-semibold">Corrosión.</strong> Si la oxidación se realiza en presencia de agua se produce la corrosión del material. Es más peligrosa que la oxidación ya que la capa de óxido no se deposita en la superficie del material, sino que se desprende de este.</li>
+        </ol>
         
-        <p class="mb-4 text-lg leading-relaxed">En la tabla inferior se relacionan una serie de objetos que han sido diseñados y fabricados con materiales diversos. La elección de estos materiales viene determinada, en cada caso, por sus <strong class="font-semibold text-indigo-700">propiedades</strong>. De este modo, cada objeto podrá cumplir con la función para la que ha sido diseñado.</p>
+        <h3 class="text-2xl font-semibold text-teal-700 mt-8 mb-3">2.4. Resistencia mecánica: esfuerzos</h3>
+        <p class="mb-4">Los elementos de las estructuras están sometidos a la acción de fuerzas externas que tienden a deformarlos o desplazarlos. De modo que estos elementos están sometidos a unos esfuerzos. Los esfuerzos elementales son:</p>
         
-        <div class="my-6 p-5 bg-green-50 border-l-4 border-green-500 rounded-l-lg">
-             <p class="text-lg leading-relaxed">Las <strong class="font-semibold text-indigo-800">propiedades de los materiales</strong> son el conjunto de características mediante las cuales los podemos definir y distinguir unos de otros.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-sky-50 border-l-4 border-sky-500 rounded-lg p-6 my-8">
-            <div class="space-y-4">
-                <h3 class="text-2xl font-bold text-slate-700 mb-4">Ejemplos de Aplicación</h3>
-                <ul class="list-disc list-inside space-y-4 text-lg">
-                    <li><strong class="font-semibold text-slate-700">Destornillador de electricista:</strong> El mango y el vástago recubiertos de plástico (aislante eléctrico). La cabeza ha de ser dura y resistente.</li>
-                    <li><strong class="font-semibold text-slate-700">Olla:</strong> De acero inoxidable (buen conductor del calor). Las asas de plástico (mal conductor del calor).</li>
-                    <li><strong class="font-semibold text-slate-700">Cable eléctrico:</strong> Hilos finos de cobre (buen conductor eléctrico) recubiertos de un aislante plástico.</li>
-                    <li><strong class="font-semibold text-slate-700">Cuadro de una bicicleta:</strong> De acero, fibra de carbono o titanio. Son materiales ligeros y soportan bien los esfuerzos.</li>
-                    <li><strong class="font-semibold text-slate-700">Martillo:</strong> La cabeza ha de ser muy dura y resistente al golpear.</li>
-                </ul>
-            </div>
-            <div class="space-y-4">
-                <img src="https://www.bt-ingenieros.com/10840-thickbox_default/destornillador-plano-aislado-55-mm-vde-1000v-draper-ergo-plus.jpg" alt="Materiales" class="rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105 limited-height">
-            </div>
-        </div>
-
-        <p class="mb-4 text-lg leading-relaxed">Podemos clasificar las propiedades de los materiales en <strong class="font-semibold text-indigo-700">cinco grupos</strong>:</p>
-
-        <div class="w-full overflow-x-auto my-8">
-  <table class="min-w-full border-collapse border-slate-300 rounded-lg overflow-hidden shadow-md">
-    
-    <thead class="bg-slate-100">
-      <tr>
-        <th class="p-4 border border-slate-300 text-left text-xl font-bold text-red-800 bg-red-100">
-          Fisicoquímicas
-        </th>
-        <th class="p-4 border border-slate-300 text-left text-xl font-bold text-orange-800 bg-orange-100">
-          Mecánicas
-        </th>
-        <th class="p-4 border border-slate-300 text-left text-xl font-bold text-yellow-800 bg-yellow-100">
-          Tecnológicas
-        </th>
-        <th class="p-4 border border-slate-300 text-left text-xl font-bold text-teal-800 bg-teal-100">
-          Sensoriales
-        </th>
-        <th class="p-4 border border-slate-300 text-left text-xl font-bold text-blue-800 bg-blue-100">
-          Ecológicas
-        </th>
-      </tr>
-    </thead>
-    
-    <tbody>
-      
-      <tr class="bg-white">
-        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top bg-red-50">
-          Muestran el comportamiento de los materiales cuando son sometidos a <strong class="font-semibold text-red-700">agentes externos</strong> como el calor, la corriente eléctrica, la gravedad, la humedad, etc.
-        </td>
-        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top bg-orange-50">
-          Son un grupo específico de propiedades físicas que muestran el comportamiento de los materiales sometidos a la <strong class="font-semibold text-orange-700">acción de diversas fuerzas</strong>.
-        </td>
-        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top bg-yellow-50">
-          Definen el comportamiento de los materiales cuando <strong class="font-semibold text-yellow-700">se trabajan para darles forma</strong>.
-        </td>
-        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top bg-teal-50">
-          Se refieren a la <strong class="font-semibold text-teal-700">percepción</strong> que causan los materiales en <strong class="font-semibold text-teal-700">nuestros sentidos</strong>.
-        </td>
-        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top bg-blue-50">
-          Se relacionan con el <strong class="font-semibold text-blue-700">impacto ambiental</strong> que pueden tener los materiales durante su obtención, transformación y uso.
-        </td>
-      </tr>
-      
-      <tr class="bg-white">
-        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top bg-red-50">
-          <ul class="list-disc list-inside space-y-2">
-            <li><strong class="font-semibold">Densidad</strong></li>
-            <li><strong class="font-semibold">Conductividad térmica</strong></li>
-            <li><strong class="font-semibold">Dilatación</strong></li>
-            <li><strong class="font-semibold">Temperatura de fusión</strong></li>
-            <li><strong class="font-semibold">Conductividad eléctrica</strong></li>
-            <li><strong class="font-semibold">Oxidación</strong></li>
-            <li><strong class="font-semibold">Corrosión</strong></li>
-          </ul>
-        </td>
-        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top bg-orange-50">
-          <ul class="list-disc list-inside space-y-2">
-            <li><strong class="font-semibold">Dureza</strong></li>
-            <li><strong class="font-semibold">Tenacidad</strong></li>
-            <li><strong class="font-semibold">Elasticidad</strong></li>
-            <li><strong class="font-semibold">Resistencia mecánica</strong></li>
-          </ul>
-        </td>
-        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top bg-yellow-50">
-          <ul class="list-disc list-inside space-y-2">
-            <li><strong class="font-semibold">Maleabilidad</strong></li>
-            <li><strong class="font-semibold">Ductilidad</strong></li>
-            <li><strong class="font-semibold">Soldabilidad</strong></li>
-            <li><strong class="font-semibold">Fusibilidad</strong></li>
-          </ul>
-        </td>
-        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top bg-teal-50">
-          <ul class="list-disc list-inside space-y-2">
-            <li><strong class="font-semibold">Color</strong></li>
-            <li><strong class="font-semibold">Textura</strong></li>
-            <li><strong class="font-semibold">Brillo</strong></li>
-            <li><strong class="font-semibold">Olor</strong></li>
-          </ul>
-        </td>
-        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top bg-blue-50">
-          <ul class="list-disc list-inside space-y-2">
-            <li><strong class="font-semibold">Reutilizabilidad</strong></li>
-            <li><strong class="font-semibold">Reciclabilidad</strong></li>
-            <li><strong class="font-semibold">Biodegradabilidad</strong></li>
-            <li><strong class="font-semibold">Toxicidad</strong></li>
-          </ul>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-    </section>
-</div>
-
-<div id="tab3" class="tab-content">
-    <section id="detalle-fis-quim" class="">
-        <h2 class="text-3xl font-bold text-slate-600 mb-6">2.1 Propiedades físicas y químicas</h2>
-       
+        <ol class="list-decimal pl-5 mb-4 space-y-2">
+            <li><strong class="font-semibold">Tracción.</strong> Es el esfuerzo al que está sometido un elemento de la estructura cuando las fuerzas que actúan sobre él tienden a estirarlo.</li>
+            <li><strong class="font-semibold">Corte (o cizalladura).</strong> Es el esfuerzo al que está sometido un elemento de la estructura cuando las fuerzas que actúan sobre él tienden a cortarlo.</li>
+            <li><strong class="font-semibold">Compresión.</strong> Es el esfuerzo al que está sometido un elemento de la estructura cuando las fuerzas que actúan sobre él tienden a comprimirlo.</li>
+            <li><strong class="font-semibold">Flexión.</strong> Es el esfuerzo al que está sometido un elemento de la estructura cuando las fuerzas que actúan sobre él tienden a curvarlo.</li>
+            <li><strong class="font-semibold">Torsión.</strong> Es el esfuerzo al que está sometido un elemento de la estructura cuando las fuerzas que actúan sobre él tienden a retorcerlo.</li>
+        </ol>
         
-        <div class="bg-yellow-50 border-yellow-500 border-l-4 rounded-lg p-6 md:p-8">
-            <div class="space-y-4 text-lg leading-relaxed">
-                <p><strong class="font-semibold text-indigo-700">1. Densidad:</strong> Indica si un material tiene más masa que otro para un determinado volumen. Se calcula: densidad = masa(kg) / volumen(m^3)</p>
-                <p><strong class="font-semibold text-indigo-700">2. Conductividad térmica:</strong> Capacidad de transmitir el calor. Los metales son buenos conductores; la madera y el plástico son aislantes térmicos.</p>
-                <p><strong class="font-semibold text-indigo-700">3. Dilatación térmica:</strong> Propiedad de aumentar su volumen cuando se calientan. Tiene especial incidencia en los metales.</p>
-                <p><strong class="font-semibold text-indigo-700">4. Temperatura de fusión:</strong> Temperatura a la cual un material pasa del estado sólido al líquido. El punto de fusión del agua es a 0 °C.</p>
-                <p><strong class="font-semibold text-indigo-700">5. Conductividad eléctrica:</strong> Capacidad de dejar pasar la corriente eléctrica. Los metales son buenos conductores; la madera es un aislante.</p>
-                <p><strong class="font-semibold text-indigo-700">6. Oxidación:</strong> Reacción de un material al combinarse con oxígeno, transformándose en óxido. Los metales crean una capa superficial de óxido.</p>
-                <p><strong class="font-semibold text-indigo-700">7. Corrosión:</strong> Si la oxidación se realiza en presencia de agua. Es más peligrosa porque la capa de óxido se desprende del material.</p>
-            </div>
-        </div>
-    </section>
-</div>
-
-<div id="tab4" class="tab-content">
-    <section id="detalle-propiedades-mec" class="">
-        <h2 class="text-3xl font-bold text-slate-600 mb-6 mt-10">2.2 Propiedades mecánicas</h2>
-       
-         <div class="space-y-6 text-slate-600 leading-relaxed text-lg bg-sky-50 border-l-4 border-sky-500 rounded-lg p-6">
-            <p><strong class="font-semibold text-slate-700">1. Dureza:</strong> Resistencia que ofrecen a ser rayados o penetrados. Los materiales duros rayan a los blandos.</p>
-            <p><strong class="font-semibold text-slate-700">2. Tenacidad:</strong> Propiedad de sufrir golpes o impactos sin romperse. Los materiales que no la resisten se llaman frágiles.</p>
-            <p><strong class="font-semibold text-slate-700">3. Elasticidad:</strong> Propiedad de recuperar su forma original después de ser deformados. Si la deformación persiste, se llaman materiales plásticos.</p>
-            <p><strong class="font-semibold text-slate-700">4. Resistencia mecánica:</strong> Propiedad para soportar esfuerzos sin deformarse excesivamente ni romperse.</p>
-        </div>
-
-    </section>
-</div>
-
-<div id="tab5" class="tab-content">
-    <section id="detalle-propiedades-tec" class="">
+        <h3 class="text-2xl font-semibold text-teal-700 mt-8 mb-3">2.5. Propiedades sensoriales y ecológicas</h3>
+        <p class="mb-4">¿Qué preferimos: un suelo de madera o uno de baldosas cerámicas? ¿Un sofá de piel oscura o uno de un color claro? Aunque parezca que las propiedades sensoriales son las menos importantes, lo cierto es que la mayoría de las veces elegimos un producto por su aspecto o por la impresión que nos produce.</p>
+        <p class="mb-4">El color, el brillo, la textura, la acústica o el olor son algunas de estas propiedades.</p>
+        <p class="mb-4">Las propiedades ecológicas indican hasta qué punto un material es perjudicial para la naturaleza, tanto en su obtención como en su transformación o en su uso.</p>
+        <p class="mb-4">Hay que tenerlas en cuenta cada vez más, pues la explotación excesiva de los recursos naturales, así como unos residuos desbocados, ocasionan daños irreparables en la naturaleza y sus habitantes.</p>
+        <p class="mb-4">Atendiendo a su impacto sobre la naturaleza podemos distinguir los siguientes aspectos:</p>
         
-        <h2 class="text-3xl font-bold text-slate-600 mb-6">2.3 Propiedades tecnológicas</h2>
-       
-        <div class="space-y-6 text-slate-600 leading-relaxed text-lg bg-sky-50 border-l-4 border-sky-500 rounded-lg p-6">
-            <p><strong class="font-semibold text-slate-700">1. Maleabilidad:</strong> Capacidad de extenderse fácilmente en láminas al aplicar presión. Ejemplo: el papel de aluminio, metales y plásticos.</p>
-            <p><strong class="font-semibold text-slate-700">2. Fusibilidad:</strong> Propiedad de pasar de estado sólido a líquido a ciertas temperaturas, permitiendo ser vertidos en moldes. Ejemplo: bronce, latón y hierro.</p>
-            <p><strong class="font-semibold text-slate-700">3. Ductilidad:</strong> Cualidad de extenderse para formar hilos. Ejemplo: oro, plata, cobre, y también los plásticos.</p>
-            <p><strong class="font-semibold text-slate-700">4. Soldabilidad:</strong> Capacidad de poder ser soldados. Ejemplo: los aceros y los plásticos.</p>
-        </div>
-    </section>
-</div>
-
-<div id="tab6" class="tab-content">
-    <section id="esfuerzos-ecologia" class="">
+        <ol class="list-decimal pl-5 mb-4 space-y-2">
+            <li><strong class="font-semibold">Reutilizabilidad.</strong> Es la propiedad de algunos materiales de volver a ser utilizados para el mismo uso o uno diferente siempre y cuando no deban transformarse. Por ejemplo, la ropa en buen estado que ya no utilizamos la podemos depositar en contenedores para que llegue a personas que la necesiten.</li>
+            <li><strong class="font-semibold">Reciclabilidad.</strong> Es la propiedad de algunos materiales para que, después de ser usados, puedan pasar por un proceso de transformación para hacerlos útiles de nuevo. Por ejemplo, muebles de madera natural pueden transformarse en tableros artificiales para construir otros muebles.</li>
+            <li><strong class="font-semibold">Biodegradabilidad.</strong> Es la facilidad que tienen algunos materiales para descomponerse en sustancias más simples sin que sean perjudiciales para la naturaleza. Por ejemplo, si dejamos papel a la intemperie tarda entre 1 y 5 meses en descomponerse mientras que una botella de plástico puede tardar más de 400 años.</li>
+            <li><strong class="font-semibold">Toxicidad.</strong> Algunos materiales pueden resultar muy nocivos para el medio ambiente y para los seres vivos. Por ejemplo, la uralita, que actualmente está prohibida, era un material que se utilizaba para construir tuberías o tejados, pero contenía amianto, que resultó ser un material muy tóxico.</li>
+        </ol>
         
-        <h2 class="text-3xl font-bold text-slate-600 mb-6">2.4 Resistencia mecánica: esfuerzos</h2>
-       
-        <p class="mb-8 text-lg leading-relaxed">Los elementos de las estructuras están sometidos a la acción de fuerzas externas que tienden a deformarlos o desplazarlos. Estos elementos están sometidos a unos esfuerzos. Los esfuerzos elementales son:</p>
+        <h2 class="text-3xl font-semibold text-teal-800 mt-10 mb-4 pb-1 border-b border-gray-200">
+            3. Ciclo de Vida: De la Cuna a la Tumba
+        </h2>
+        <p class="mb-4">El ciclo de vida de un producto describe las etapas por las que pasa un producto desde su creación hasta su retirada del mercado, similar a la vida de un ser vivo.</p>
 
-        <div class="max-w-7xl mx-auto">
-            <div class="space-y-4">
-
-                <div class="bg-white border border-slate-200 rounded-lg overflow-hidden">
-                    <button class="accordion-header w-full flex items-start gap-4 p-4 text-left">
-                        <div class="flex-shrink-0 bg-red-100 text-red-600 rounded-full p-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11.383 13.963l-7.366 7.366m14.732-7.366l-7.366 7.366M4.017 13.963L11.383 6.6m7.366 7.363L11.383 6.6M4.017 6.6h14.732" /></svg>
-                        </div>
-                        <div class="flex-grow">
-                            <h3 class="font-bold text-xl text-slate-800">1. Tracción</h3>
-                        </div>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="p-4 pt-0 pl-16">
-                            <p class="text-lg leading-relaxed text-slate-600">Esfuerzo al que está sometido un elemento cuando las fuerzas que actúan sobre él tienden a <strong class="font-semibold text-indigo-700">estirarlo</strong>.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white border border-slate-200 rounded-lg overflow-hidden">
-                    <button class="accordion-header w-full flex items-start gap-4 p-4 text-left">
-                        <div class="flex-shrink-0 bg-orange-100 text-orange-600 rounded-full p-3">
-                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                        </div>
-                        <div class="flex-grow">
-                            <h3 class="font-bold text-xl text-slate-800">2. Corte (o cizalladura)</h3>
-                        </div>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="p-4 pt-0 pl-16">
-                            <p class="text-lg leading-relaxed text-slate-600">Esfuerzo al que está sometido un elemento cuando las fuerzas que actúan sobre él tienden a <strong class="font-semibold text-indigo-700">cortarlo</strong>.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-white border border-slate-200 rounded-lg overflow-hidden">
-                    <button class="accordion-header w-full flex items-start gap-4 p-4 text-left">
-                        <div class="flex-shrink-0 bg-yellow-100 text-yellow-600 rounded-full p-3">
-                           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6.617 10.037l7.366-7.366m-7.366 14.732l7.366-7.366m6.75 7.366l-7.366-7.366M13.983 2.671l-7.366 7.366m14.732 0H6.617" /></svg>
-                        </div>
-                        <div class="flex-grow">
-                            <h3 class="font-bold text-xl text-slate-800">3. Compresión</h3>
-                        </div>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="p-4 pt-0 pl-16">
-                            <p class="text-lg leading-relaxed text-slate-600">Esfuerzo al que está sometido un elemento cuando las fuerzas que actúan sobre él tienden a <strong class="font-semibold text-indigo-700">comprimirlo</strong>.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white border border-slate-200 rounded-lg overflow-hidden">
-                    <button class="accordion-header w-full flex items-start gap-4 p-4 text-left">
-                        <div class="flex-shrink-0 bg-lime-100 text-lime-600 rounded-full p-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
-                        </div>
-                        <div class="flex-grow">
-                            <h3 class="font-bold text-xl text-slate-800">4. Flexión</h3>
-                        </div>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="p-4 pt-0 pl-16">
-                            <p class="text-lg leading-relaxed text-slate-600">Esfuerzo al que está sometido un elemento cuando las fuerzas que actúan sobre él tienden a <strong class="font-semibold text-indigo-700">curvarlo</strong>.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white border border-slate-200 rounded-lg overflow-hidden">
-                    <button class="accordion-header w-full flex items-start gap-4 p-4 text-left">
-                        <div class="flex-shrink-0 bg-blue-100 text-blue-600 rounded-full p-3">
-                           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a8 8 0 11-14.856-2.856M19.428 15.428L15 20m4.428-4.572L20 11M4.572 8.572a8 8 0 0114.856 2.856M4.572 8.572L9 4M4.572 8.572L4 13" /></svg>
-                        </div>
-                        <div class="flex-grow">
-                            <h3 class="font-bold text-xl text-slate-800">5. Torsión</h3>
-                        </div>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="p-4 pt-0 pl-16">
-                            <p class="text-lg leading-relaxed text-slate-600">Esfuerzo al que está sometido un elemento cuando las fuerzas que actúan sobre él tienden a <strong class="font-semibold text-indigo-700">retorcerlo</strong>.</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-</div>
-
-<div id="tab7" class="tab-content">
-    <section id="detalle-propiedades-sens" class="">
-        <h2 class="text-3xl font-bold text-slate-600 mb-6 mt-10">2.5 Propiedades sensoriales y ecológicas</h2>
-       
-        <p class="mb-4 text-lg leading-relaxed">Aunque parezca que las propiedades sensoriales son las menos importantes, la mayoría de las veces elegimos un producto por su aspecto o por la impresión que nos produce. El color, el brillo, la textura o el olor son algunas de estas propiedades.</p>
-        <p class="mb-4 text-lg leading-relaxed">Las <strong class="font-semibold text-indigo-700">propiedades ecológicas</strong> indican hasta qué punto un material es perjudicial para la naturaleza (en su obtención, transformación o uso). Hay que tenerlas en cuenta cada vez más, pues la explotación excesiva de los recursos y los residuos desbocados ocasionan daños irreparables.</p>
+        <p class="mb-4">El concepto "De la Cuna a la Tumba" (Cradle-to-Grave) es una metodología de evaluación conocida como Análisis del Ciclo de Vida (ACV).</p>
+        <p class="mb-4">Se trata de un análisis exhaustivo y sistemático de todos los impactos ambientales que genera un producto o servicio a lo largo de todas sus etapas, desde la obtención de las materias primas hasta su disposición final.</p>
         
-        <p class="mb-8 text-lg leading-relaxed">Atendiendo a su impacto sobre la naturaleza podemos distinguir los siguientes aspectos:</p>
-
-        <div class="max-w-7xl mx-auto">
-            <div class="space-y-4">
-
-                <div class="bg-white border border-slate-200 rounded-lg overflow-hidden">
-                    <button class="accordion-header w-full flex items-start gap-4 p-4 text-left">
-                        <div class="flex-shrink-0 bg-red-100 text-red-600 rounded-full p-3">
-                           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9H4V4m0 5h.582m15.356 2a8.001 8.001 0 01-14.774 4H4v5h.582m15.356-2a8.001 8.001 0 00-14.774-4H19.5v5h-.582" /></svg>
-                        </div>
-                        <div class="flex-grow">
-                            <h3 class="font-bold text-xl text-slate-800">1. Reutilizabilidad</h3>
-                        </div>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="p-4 pt-0 pl-16">
-                            <p class="text-lg leading-relaxed text-slate-600">Propiedad de volver a ser utilizados para el mismo uso u uno diferente <strong class="font-semibold text-indigo-700">siempre y cuando no deban transformarse</strong>. Por ejemplo, la ropa en buen estado que donamos.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white border border-slate-200 rounded-lg overflow-hidden">
-                    <button class="accordion-header w-full flex items-start gap-4 p-4 text-left">
-                        <div class="flex-shrink-0 bg-orange-100 text-orange-600 rounded-full p-3">
-                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 13l-7 7-7-7m14-8l-7 7-7-7" /></svg>
-                        </div>
-                        <div class="flex-grow">
-                            <h3 class="font-bold text-xl text-slate-800">2. Reciclabilidad</h3>
-                        </div>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="p-4 pt-0 pl-16">
-                            <p class="text-lg leading-relaxed text-slate-600">Propiedad para que, después de ser usados, puedan pasar por un <strong class="font-semibold text-indigo-700">proceso de transformación</strong> para hacerlos útiles de nuevo. Por ejemplo, muebles de madera transformados en tableros artificiales.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-white border border-slate-200 rounded-lg overflow-hidden">
-                    <button class="accordion-header w-full flex items-start gap-4 p-4 text-left">
-                        <div class="flex-shrink-0 bg-yellow-100 text-yellow-600 rounded-full p-3">
-                           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                        </div>
-                        <div class="flex-grow">
-                            <h3 class="font-bold text-xl text-slate-800">3. Biodegradabilidad</h3>
-                        </div>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="p-4 pt-0 pl-16">
-                            <p class="text-lg leading-relaxed text-slate-600">Facilidad para descomponerse en sustancias más simples sin ser perjudiciales. Por ejemplo, el papel tarda 1-5 meses, mientras que una botella de plástico puede tardar más de 400 años.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white border border-slate-200 rounded-lg overflow-hidden">
-                    <button class="accordion-header w-full flex items-start gap-4 p-4 text-left">
-                        <div class="flex-shrink-0 bg-lime-100 text-lime-600 rounded-full p-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" /></svg>
-                        </div>
-                        <div class="flex-grow">
-                            <h3 class="font-bold text-xl text-slate-800">4. Toxicidad</h3>
-                        </div>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="p-4 pt-0 pl-16">
-                            <p class="text-lg leading-relaxed text-slate-600">Algunos materiales pueden resultar muy nocivos para el medio ambiente y los seres vivos. Por ejemplo, la uralita (que contenía amianto) se prohibió por ser un material muy tóxico.</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    </section>
-</div>
-
-<!-- SECCIÓN 1: Ciclo de Vida -->
-<div id="tab8" class="tab-content">
-    <section id="ciclo-vida" class="">
-        <h2 class="text-3xl font-bold text-slate-600 mb-6">3. Ciclo de Vida: De la Cuna a la Tumba</h2>
-            <p class="mb-4 text-lg leading-relaxed">El ciclo de vida de un producto describe las etapas por las que pasa un producto desde su creación hasta su retirada del mercado, similar a la vida de un ser vivo. </p>
-        
-        <p class="mb-4 text-lg leading-relaxed">El concepto "De la Cuna a la Tumba" (Cradle-to-Grave) es una metodología de evaluación clave en el estudio del impacto ambiental, conocida comúnmente como Análisis del Ciclo de Vida (ACV).</p>
-        
-        <!-- Definición principal (caja verde) -->
-        <div class="my-6 p-5 bg-green-50 border-l-4 border-green-500 rounded-lg">
-             <p class="text-lg leading-relaxed">Un <strong class="font-semibold text-indigo-800">Análisis del Ciclo de Vida (ACV)</strong> es un análisis exhaustivo y sistemático de todos los <strong class="font-semibold text-indigo-800">impactos ambientales</strong> que genera un producto o servicio a lo largo de todas sus etapas, desde la obtención de las materias primas hasta su disposición final.</p>
-        </div>
-
-        <p class="mb-4 text-lg leading-relaxed">Este análisis desglosa la vida del producto en fases clave para identificar los puntos críticos de consumo de energía, agua y generación de residuos.</p>
-
-        <!-- Tabla de Etapas (basada en el ejemplo de tabla) -->
-        <h3 class="text-2xl font-bold text-slate-700 mt-10 mb-4">Etapas del Ciclo de Vida</h3>
-        <div class="w-full overflow-x-auto my-8">
-            <table class="min-w-full border-collapse border-slate-300 rounded-lg overflow-hidden shadow-md">
-                <thead class="bg-slate-100">
+        <div class="overflow-x-auto my-6">
+            <table class="w-full text-left border-collapse">
+                <thead class="bg-gray-100">
                     <tr>
-                        <th class="p-4 border border-slate-300 text-left text-xl font-bold text-slate-700 bg-slate-200">Etapa</th>
-                        <th class="p-4 border border-slate-300 text-left text-xl font-bold text-slate-700 bg-slate-200">Descripción del Proceso</th>
-                        <th class="p-4 border border-slate-300 text-left text-xl font-bold text-slate-700 bg-slate-200">Impacto Ambiental Clave</th>
+                        <th class="p-3 font-semibold text-sm uppercase text-gray-700 border-b-2 border-gray-300">Etapa</th>
+                        <th class="p-3 font-semibold text-sm uppercase text-gray-700 border-b-2 border-gray-300">Descripción del Proceso</th>
+                        <th class="p-3 font-semibold text-sm uppercase text-gray-700 border-b-2 border-gray-300">Impacto Ambiental Clave</th>
                     </tr>
                 </thead>
-                <tbody class="bg-white">
-                    <tr class="hover:bg-slate-50">
-                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top"><strong class="font-semibold">Cuna (Extracción)</strong></td>
-                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">Obtención de las materias primas necesarias (minería, tala, agricultura, etc.).</td>
-                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">Agotamiento de recursos, alteración de ecosistemas, consumo de energía.</td>
-                    </tr>
-                    <tr class="hover:bg-slate-50">
-                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top"><strong class="font-semibold">Fabricación</strong></td>
-                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">Transformación de las materias primas en el producto final.</td>
-                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">Consumo de energía y agua, generación de residuos y emisiones contaminantes.</td>
-                    </tr>
-                    <tr class="hover:bg-slate-50">
-                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top"><strong class="font-semibold">Distribución</strong></td>
-                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">Transporte del producto desde el punto de fabricación hasta el consumidor.</td>
-                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">Emisiones de GEI (huella de carbono) por combustibles fósiles.</td>
-                    </tr>
-                    <tr class="hover:bg-slate-50">
-                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top"><strong class="font-semibold">Uso</strong></td>
-                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">El periodo en que el producto es utilizado por el consumidor.</td>
-                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">Consumo de energía y agua (si aplica), necesidad de mantenimiento.</td>
-                    </tr>
-                    <tr class="hover:bg-slate-50">
-                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top"><strong class="font-semibold">Tumba (Fin de la vida útil)</strong></td>
-                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">Desecho del producto una vez que ya no es útil.</td>
-                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">Relleno sanitario (vertederos), incineración, contaminación por lixiviados.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Nota (caja azul) -->
-        <div class="my-6 p-5 bg-sky-50 border-l-4 border-sky-500 rounded-lg">
-             <p class="text-lg leading-relaxed"><strong class="font-semibold text-sky-800">Nota Contraste:</strong> Este enfoque "Cuna a la Tumba" contrasta con el modelo de <strong class="font-semibold text-indigo-800">"Cuna a la Cuna" (Cradle-to-Cradle)</strong>, que busca diseñar productos de manera que, al final de su vida útil, sus materiales puedan ser completamente reutilizados o reciclados, cerrando el ciclo y eliminando la fase de "Tumba".</p>
-        </div>
-    </section>
-  </div>
-
-    <!-- SECCIÓN 2: Huellas Ambientales -->
-  <div id="tab9" class="tab-content">
-    <section id="huellas" class="">
-        <h2 class="text-3xl font-bold text-slate-600 mb-6">4. Huella de Carbono y Huella Hídrica</h2>
-        
-        <p class="mb-4 text-lg leading-relaxed">Ambos son indicadores clave de sostenibilidad que miden el impacto ambiental de nuestras actividades, empresas o productos. Nos permiten cuantificar nuestra demanda sobre los recursos del planeta.</p>
-
-        <!-- Grid de 2 columnas (basado en el grid del ejemplo) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-8">
-            
-            <!-- Columna 1: Huella de Carbono -->
-            <div class="space-y-4 bg-red-50 border-l-4 border-red-500 rounded-lg p-6">
-                <h3 class="text-2xl font-bold text-slate-700 mb-4">A. Huella de Carbono</h3>
-                <p class="text-lg leading-relaxed">Es la totalidad de <strong class="font-semibold text-red-700">Gases de Efecto Invernadero (GEI)</strong> emitidos, directa o indirectamente, por una persona, organización, evento o producto.</p>
-                <ul class="list-disc list-inside space-y-4 text-lg">
-                    <li>
-                        <strong class="font-semibold text-slate-700">Unidad de Medida:</strong> Se expresa en masa de dióxido de carbono equivalente (<strong class="font-semibold">CO2</strong>).
-                    </li>
-                    <li>
-                        <strong class="font-semibold text-slate-700">Relevancia:</strong> Es el principal indicador para medir la contribución al <strong class="font-semibold">calentamiento global</strong> y el cambio climático. Reducirla implica usar energías limpias y mejorar la eficiencia energética.
-                    </li>
-                </ul>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/KJgGfY5PACM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <p class="image-caption mt-2">HUELLA DE CARBONO: Qué es y cómo REDUCIRLA.</p>
-            </div>
-            
-            <!-- Columna 2: Huella Hídrica -->
-            <div class="space-y-4 bg-blue-50 border-l-4 border-blue-500 rounded-lg p-6">
-                <h3 class="text-2xl font-bold text-slate-700 mb-4">B. Huella Hídrica</h3>
-                <p class="text-lg leading-relaxed">Es el volumen total de <strong class="font-semibold text-blue-700">agua dulce</strong> utilizada, directa e indirectamente, para producir los bienes y servicios consumidos por una persona o producidos por una empresa.</p>
-                <ul class="list-disc list-inside space-y-4 text-lg">
-                    <li>
-                        <strong class="font-semibold text-slate-700">Unidad de Medida:</strong> Se expresa en volumen de agua (litros o metros cúbicos).
-                    </li>
-                    <li>
-                        <strong class="font-semibold text-slate-700">Componentes:</strong> Se desglosa en tres tipos:
-                        <ul class="list-inside space-y-2 mt-2 ml-4">
-                            <li><strong class="font-semibold text-green-700">Verde:</strong> Agua de lluvia almacenada en el suelo (agricultura).</li>
-                            <li><strong class="font-semibold text-blue-700">Azul:</strong> Agua extraída de fuentes superficiales o subterráneas (riego, industria).</li>
-                            <li><strong class="font-semibold text-gray-600">Gris:</strong> Agua necesaria para diluir los contaminantes vertidos.</li>
-                        </ul>
-                    </li>
-                </ul>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/s-0XyvC6j0g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <p class="image-caption mt-2">Huella Hídrica.</p>
-            </div>
-        </div>
-    </section>
-  </div>
-
-    <!-- SECCIÓN 3: Las 5R de la Sostenibilidad -->
-  <div id="tab10" class="tab-content">
-    <section id="5r" class="">
-        <h2 class="text-3xl font-bold text-slate-600 mb-6">5. Las 5R de la Sostenibilidad</h2>
-        
-        <p class="mb-4 text-lg leading-relaxed">Las 5R representan una jerarquía de acciones orientadas a la gestión de residuos y el consumo consciente. Este modelo expande las clásicas "3R" (Reducir, Reutilizar, Reciclar) para ofrecer un marco de acción más completo.</p>
-        
-        <!-- Definición principal (caja verde) -->
-        <div class="my-6 p-5 bg-green-50 border-l-4 border-green-500 rounded-lg">
-             <p class="text-lg leading-relaxed">El principio fundamental es la <strong class="font-semibold text-indigo-800">jerarquía</strong>: la mejor acción es siempre la que <strong class="font-semibold text-indigo-800">previene la generación de residuos</strong> en primer lugar (Rechazar y Reducir) antes que gestionar los residuos ya creados (Reciclar).</p>
-        </div>
-
-        <!-- Tabla de las 5R -->
-        <h3 class="text-2xl font-bold text-slate-700 mt-10 mb-4">Jerarquía de Acciones</h3>
-        <div class="w-full overflow-x-auto my-8">
-            <table class="min-w-full border-collapse border-slate-300 rounded-lg overflow-hidden shadow-md">
-                <thead class="bg-slate-100">
+                <tbody class="divide-y divide-gray-200">
                     <tr>
-                        <th class="p-4 border border-slate-300 text-left text-xl font-bold text-slate-700 bg-slate-200">Prioridad</th>
-                        <th class="p-4 border border-slate-300 text-left text-xl font-bold text-red-800 bg-red-100">"R" (Español)</th>
-                        <th class="p-4 border border-slate-300 text-left text-xl font-bold text-slate-700 bg-slate-100">"R" (Inglés)</th>
-                        <th class="p-4 border border-slate-300 text-left text-xl font-bold text-slate-700 bg-slate-200">Descripción y Acción</th>
+                        <td class="p-3 align-top border-b border-gray-200"><strong class="font-semibold">Cuna (Extracción)</strong></td>
+                        <td class="p-3 align-top border-b border-gray-200">Obtención de las materias primas necesarias (minería, tala, agricultura, etc.).</td>
+                        <td class="p-3 align-top border-b border-gray-200">Agotamiento de recursos, alteración de ecosistemas, consumo de energía.</td>
                     </tr>
-                </thead>
-                <tbody class="bg-white">
-                    <tr class="hover:bg-slate-50">
-                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top"><strong class="font-semibold text-2xl">1.</strong></td>
-                        <td class="p-4 border border-slate-300 text-lg text-red-700 align-top"><strong class="font-semibold">Rechazar</strong></td>
-                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">Refuse</td>
-                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">La acción más importante: Evitar productos innecesarios o con embalajes excesivos (ej. rechazar bolsas plásticas o flyers).</td>
+                    <tr>
+                        <td class="p-3 align-top border-b border-gray-200"><strong class="font-semibold">Fabricación</strong></td>
+                        <td class="p-3 align-top border-b border-gray-200">Transformación de las materias primas en el producto final.</td>
+                        <td class="p-3 align-top border-b border-gray-200">Consumo de energía y agua, generación de residuos y emisiones contaminantes.</td>
                     </tr>
-                    <tr class="hover:bg-slate-50">
-                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top"><strong class="font-semibold text-2xl">2.</strong></td>
-                        <td class="p-4 border border-slate-300 text-lg text-orange-700 align-top"><strong class="font-semibold">Reducir</strong></td>
-                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">Reduce</td>
-                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">Disminuir la cantidad de productos que se consumen, impactando directamente en la reducción de las huellas de carbono/hídrica.</td>
+                    <tr>
+                        <td class="p-3 align-top border-b border-gray-200"><strong class="font-semibold">Distribución</strong></td>
+                        <td class="p-3 align-top border-b border-gray-200">Transporte del producto desde el punto de fabricación hasta el consumidor.</td>
+                        <td class="p-3 align-top border-b border-gray-200">Emisiones de gases de efecto invernadero (GEI) por combustibles fósiles (huella de carbono).</td>
                     </tr>
-                    <tr class="hover:bg-slate-50">
-                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top"><strong class="font-semibold text-2xl">3.</strong></td>
-                        <td class="p-4 border border-slate-300 text-lg text-yellow-700 align-top"><strong class="font-semibold">Reutilizar</strong></td>
-                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">Reuse</td>
-                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">Usar un producto más de una vez, ya sea para su propósito original o para uno diferente (ej. usar frascos de vidrio para almacenar).</td>
+                    <tr>
+                        <td class="p-3 align-top border-b border-gray-200"><strong class="font-semibold">Uso</strong></td>
+                        <td class="p-3 align-top border-b border-gray-200">El periodo en que el producto es utilizado por el consumidor.</td>
+                        <td class="p-3 align-top border-b border-gray-200">Consumo de energía y agua (si aplica), necesidad de mantenimiento o reemplazo de partes.</td>
                     </tr>
-                    <tr class="hover:bg-slate-50">
-                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top"><strong class="font-semibold text-2xl">4.</strong></td>
-                        <td class="p-4 border border-slate-300 text-lg text-teal-700 align-top"><strong class="font-semibold">Reparar / Reaprovechar</strong></td>
-                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">Repair / Repurpose</td>
-                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">Arreglar un objeto dañado en lugar de tirarlo, o darle un nuevo uso creativo a un artículo (ej. convertir ropa vieja en trapos).</td>
-                    </tr>
-                    <tr class="hover:bg-slate-50">
-                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top"><strong class="font-semibold text-2xl">5.</strong></td>
-                        <td class="p-4 border border-slate-300 text-lg text-blue-700 align-top"><strong class="font-semibold">Reciclar</strong></td>
-                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">Recycle</td>
-                        <td class="p-4 border border-slate-300 text-lg text-slate-700 align-top">Transformar el material desechado en un nuevo producto, evitando el uso de materia prima virgen (esta debe ser la <strong class="font-semibold">última opción</strong>).</td>
+                    <tr>
+                        <td class="p-3 align-top border-b border-gray-200"><strong class="font-semibold">Tumba (Disposición Final)</strong></td>
+                        <td class="p-3 align-top border-b border-gray-200">Desecho del producto una vez que ya no es útil.</td>
+                        <td class="p-3 align-top border-b border-gray-200">Relleno sanitario (vertederos), incineración, que generan lixiviados, emisiones y contaminación.</td>
                     </tr>
                 </tbody>
             </table>
         </div>
         
-    </section>
-  </div>
+        <p class="mb-4 text-sm italic"><strong class="font-semibold">Nota:</strong> Este enfoque contrasta con el modelo de "Cuna a la Cuna" (Cradle-to-Cradle), que busca diseñar productos de manera que, al final de su vida útil, sus materiales puedan ser completamente reutilizados o reciclados, cerrando el ciclo y eliminando la fase de "Tumba".</p>
+        
+        <h2 class="text-3xl font-semibold text-teal-800 mt-10 mb-4 pb-1 border-b border-gray-200">
+            4. Huella de Carbono y Huella Hídrica
+        </h2>
+        <p class="mb-4">Ambos son indicadores clave de sostenibilidad que miden el impacto ambiental de nuestras actividades, empresas o productos.</p>
+        
+        <h3 class="text-2xl font-semibold text-gray-700 mt-8 mb-3">A. Huella de Carbono</h3>
+        <ul class="list-disc pl-5 mb-4 space-y-2">
+            <li><strong class="font-semibold">Definición:</strong> Es la totalidad de Gases de Efecto Invernadero (GEI) emitidos, directa o indirectamente, por una persona, organización, evento o producto.</li>
+            <li><strong class="font-semibold">Unidad de Medida:</strong> Se expresa en masa de dióxido de carbono equivalente (CO<sub>2</sub>e).</li>
+            <li><strong class="font-semibold">Relevancia:</strong> Es el principal indicador para medir la contribución al calentamiento global y el cambio climático.</li>
+        </ul>
+        <p class="mb-4">Reducir la huella de carbono implica usar energías limpias y mejorar la eficiencia energética en todo el ciclo de vida.</p>
+        
+        <h3 class="text-2xl font-semibold text-gray-700 mt-8 mb-3">B. Huella Hídrica</h3>
 
+        <ul class="list-disc pl-5 mb-4 space-y-2">
+            <li><strong class="font-semibold">Definición:</strong> Es el volumen total de agua dulce utilizada, directa e indirectamente, para producir los bienes y servicios consumidos por una persona o producidos por una empresa.</li>
+            <li><strong class="font-semibold">Unidad de Medida:</strong> Se expresa en volumen de agua (litros o metros cúbicos).</li>
+            <li><strong class="font-semibold">Componentes:</strong> Se desglosa en tres tipos:
+                <ul class="list-circle pl-5 mt-2 space-y-1">
+                    <li><strong class="font-semibold">Verde:</strong> Agua de lluvia almacenada en el suelo (clave en agricultura).</li>
+                    <li><strong class="font-semibold">Azul:</strong> Agua extraída de fuentes superficiales o subterráneas (riego, industria).</li>
+                    <li><strong class="font-semibold">Gris:</strong> Agua necesaria para diluir los contaminantes vertidos hasta un nivel aceptable.</li>
+                </ul>
+            </li>
+            <li><strong class="font-semibold">Relevancia:</strong> Ayuda a entender la presión sobre los recursos hídricos locales y globales, promoviendo el uso eficiente y equitativo del agua.</li>
+        </ul>
+        <div class="my-8">
+                 <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/jQjFHuTyY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <p class="image-caption mt-2">Huella de carbono.</p>
+            </div> 
+        
+        <h2 class="text-3xl font-semibold text-teal-800 mt-10 mb-4 pb-1 border-b border-gray-200">
+            5. Las 5R de la Sostenibilidad
+        </h2>
+        <p class="mb-4">Las 5R representan una jerarquía de acciones orientadas a la gestión de residuos y el consumo consciente, donde la mejor acción es siempre la que previene la generación de residuos.</p>
+        <p class="mb-4">La adición de más "R" va más allá de las clásicas "3R" (Reducir, Reutilizar, Reciclar).</p>
+        
+        <div class="overflow-x-auto my-6">
+            <table class="w-full text-left border-collapse">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th class="p-3 font-semibold text-sm uppercase text-gray-700 border-b-2 border-gray-300">Orden de Prioridad</th>
+                        <th class="p-3 font-semibold text-sm uppercase text-gray-700 border-b-2 border-gray-300">"R" (Español)</th>
+                        <th class="p-3 font-semibold text-sm uppercase text-gray-700 border-b-2 border-gray-300">"R" (Inglés)</th>
+                        <th class="p-3 font-semibold text-sm uppercase text-gray-700 border-b-2 border-gray-300">Descripción y Acción</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                    <tr>
+                        <td class="p-3 align-top border-b border-gray-200">1.</td>
+                        <td class="p-3 align-top border-b border-gray-200 font-semibold">Rechazar</td>
+                        <td class="p-3 align-top border-b border-gray-200">Refuse</td>
+                        <td class="p-3 align-top border-b border-gray-200">La acción más importante: Evitar productos innecesarios o con embalajes excesivos (ej. rechazar bolsas plásticas o flyers).</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 align-top border-b border-gray-200">2.</td>
+                        <td class="p-3 align-top border-b border-gray-200 font-semibold">Reducir</td>
+                        <td class="p-3 align-top border-b border-gray-200">Reduce</td>
+                        <td class="p-3 align-top border-b border-gray-200">Disminuir la cantidad de productos que se consumen, lo que impacta directamente en la reducción de las huellas de carbono/hídrica.</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 align-top border-b border-gray-200">3.</td>
+                        <td class="p-3 align-top border-b border-gray-200 font-semibold">Reutilizar</td>
+                        <td class="p-3 align-top border-b border-gray-200">Reuse</td>
+                        <td class="p-3 align-top border-b border-gray-200">Usar un producto más de una vez, ya sea para su propósito original o para uno diferente (ej. usar frascos de vidrio para almacenar).</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 align-top border-b border-gray-200">4.</td>
+                        <td class="p-3 align-top border-b border-gray-200 font-semibold">Reparar/Reaprovechar</td>
+                        <td class="p-3 align-top border-b border-gray-200">Repair/Repurpose</td>
+                        <td class="p-3 align-top border-b border-gray-200">Arreglar un objeto dañado en lugar de tirarlo, o darle un nuevo uso creativo a un artículo (ej. convertir ropa vieja en trapos).</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 align-top border-b border-gray-200">5.</td>
+                        <td class="p-3 align-top border-b border-gray-200 font-semibold">Reciclar</td>
+                        <td class="p-3 align-top border-b border-gray-200">Recycle</td>
+                        <td class="p-3 align-top border-b border-gray-200">Transformar el material desechado en un nuevo producto, evitando el uso de materia prima virgen (esta debe ser la última opción después de agotar las anteriores).</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
+        <h2 class="text-3xl font-semibold text-teal-800 mt-10 mb-4 pb-1 border-b border-gray-200">
+            6. La Madera
+        </h2>
+        <p class="mb-4">La madera es uno de los materiales de uso técnico más utilizados por el hombre a lo largo de la historia, debido a su fácil obtención y a sus propiedades. Es un material de origen vegetal que se obtiene de las partes leñosas de los troncos de los árboles.</p>
+        <p class="mb-4">Está formada por fibras de celulosa unidas por lignina, una sustancia que proporciona rigidez y dureza. También contiene agua, aceite, resina y sales, que se aprovechan industrialmente.</p>
+        
+        <h3 class="text-xl font-semibold text-teal-700 mt-8 mb-3">Estructura del tronco</h3>
+
+        <div class="bg-gray-50 p-6 rounded-lg my-6 border border-gray-200">
+            <p class="mb-2">Capas concéntricas formadas anualmente por el cámbium. Indican el crecimiento del árbol por año.</p>
+            
+            <p class="mb-2"><strong class="font-semibold text-gray-900">Duramen (o corazón):</strong> es la madera dura y consistente. Está formada por células fisiológicamente inactivas y se encuentra en el centro del árbol. Es más oscura que la albura, y la savia ya no fluye por ella.</p>
+            
+            <p class="mb-2"><strong class="font-semibold text-gray-900">Médula vegetal:</strong> es la zona central del tronco, que posee escasa resistencia, por lo que, generalmente, no se utiliza.</p>
+            
+            <p class="mb-2"><strong class="font-semibold text-gray-900">Corteza:</strong> protege la madera de enfermedades y ataques externos.</p>
+            
+            <p class="mb-2"><strong class="font-semibold text-gray-900">Cámbium:</strong> capa de crecimiento del árbol formada por células vivas.</p>
+            
+            <p class="mb-2"><strong class="font-semibold text-gray-900">Anillos de crecimiento:</strong> cada anillo corresponde a un año de vida del vegetal.</p>
+            
+            <p class="mb-0"><strong class="font-semibold text-gray-900">Albura:</strong> es la parte joven de la madera. Suele ser de color más claro y se utiliza para trabajos de escasa exigencia mecánica o cualidad estética. Transporta agua, sales minerales y otros nutrientes desde la raiz hasta las hojas de las ramas.</p>
+        </div>
+        <div>
+           <img src="https://i0.wp.com/madererasantafe.com/wp-content/uploads/2020/03/tronco.jpg?resize=780%2C672&ssl=1" alt="Estructura de un tronco" class="mx-auto object-cover rounded-lg shadow-md my-6 zoomable-image ">
+           <p class="image-caption">Estructura de un tronco.</p>
+
+       </div>
   
-
-<!-- Actividades -->
-
-<div id="tab11" class="tab-content">
-    <section id="actividades1" class="border-green-200">
-        <div class="bg-yellow-100 p-4 rounded-lg border-l-4 border-yellow-500">
-            <h2 class="text-3xl font-bold text-slate-700 mb-2 italic">Actividad 1</h2>
-            <p class="mt-1 text-lg italic text-slate-600">Tecnología y Proceso Tecnológico</p>
+        <h3 class="text-xl font-semibold text-teal-700 mt-8 mb-3">Fabricación de la madera</h3>
+        <p class="mb-4">Aunque la madera es un material natural, para fabricar los objetos y otros productos es necesario realizar distintos procesos y transformaciones.</p>
+        <div class="overflow-x-auto my-6">
+            <table class="w-full text-left border-collapse">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th class="p-3 font-semibold text-sm uppercase text-gray-700 border-b-2 border-gray-300">Proceso</th>
+                        <th class="p-3 font-semibold text-sm uppercase text-gray-700 border-b-2 border-gray-300">Descripción</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                    <tr>
+                        <td class="p-3 align-top border-b border-gray-200 font-semibold">Talado</td>
+                        <td class="p-3 align-top border-b border-gray-200">Se realiza con sierras mecánicas. Una vez talado el árbol, se poda para eliminar las ramas y las raíces.</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 align-top border-b border-gray-200 font-semibold">Descortezado</td>
+                        <td class="p-3 align-top border-b border-gray-200">Esta operación se puede realizar en el lugar donde se ha hecho la poda o en las serrerías.</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 align-top border-b border-gray-200 font-semibold">Aserrado</td>
+                        <td class="p-3 align-top border-b border-gray-200">Se utilizan sierras circulares o cintas. Cada tronco se corta de una manera, dependiendo de sus características y del uso que vaya a tener.</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 align-top border-b border-gray-200 font-semibold">Secado</td>
+                        <td class="p-3 align-top border-b border-gray-200">La madera contiene agua, y es necesario realizar el proceso de secado antes de trabajar con ella.</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 align-top border-b border-gray-200 font-semibold">Acabado</td>
+                        <td class="p-3 align-top border-b border-gray-200">La madera debe protegerse para evitar que se pudra o que sufra el ataque de parásitos o de insectos. Se puede pintar o barnizar.</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <div class="space-y-4 text-slate-600 leading-relaxed text-lg p-5">
-            <ol class="list-decimal list-inside space-y-3">
-                <li>Anota en tu cuaderno las definiciones de Tecnología y Proceso tecnológico.</li>
-                <li>¿Cuál es el principal problema que aborda el video con respecto a la producción y el consumo actuales?</li>
-                <li>¿Qué cantidad de comida desecha una persona promedio al año y qué problemas ambientales causa este desperdicio?</li>
-                <li>¿Qué tipo de productos se recomiendan comprar para ayudar a mejorar los hábitos de consumo?</li>
-                <li>¿Cómo se compara la huella material de los países desarrollados con la de los países más empobrecidos?</li>
-                <li>¿Qué papel juegan las grandes empresas en la producción sostenible y qué directiva ha adoptado la Unión Europea al respecto?</li>
-                <li>¿Qué acciones individuales se sugieren en el video para contribuir a una producción y consumo responsables?</li>
-            </ol>
-        </div>
-    </section>
+        
+        <h3 class="text-2xl font-semibold text-teal-700 mt-8 mb-3">6.1. Propiedades de la madera</h3>
+        <p class="mb-4">Según el tipo de madera, pueden variar algunas de sus propiedades, como el color, la textura o la densidad. En general, la madera tiene las siguientes propiedades:</p>
+        <ul class="list-disc pl-5 mb-4 space-y-2">
+            <li>Es buen aislante eléctrico y térmico, aunque arde con mucha facilidad.</li>
+            <li>Es conductor acústico, por lo que se utiliza para hacer instrumentos musicales y como aislante de paredes y techos.</li>
+            <li>Tiene una densidad menor que la del agua, por lo que flota.</li>
+            <li>Es flexible y resiste esfuerzos de compresión y de tracción.</li>
+            <li>Tiene una propiedad llamada hendibilidad, por lo que puede partirse fácilmente en el sentido de las fibras o las vetas.</li>
+            <li>La dureza es variable: las maderas fibrosas son las más duras y las porosas, las más blandas.</li>
+            <li>Es un material poroso, capaz de absorber o desprender humedad según el medio.</li>
+            <li>Esta propiedad de la madera se llama <strong class="font-semibold">higroscopicidad</strong>.</li>
+        </ul>
 
-    <section id="actividades2" class="border-green-200">
-        <div class="bg-green-100 p-4 rounded-lg border-l-4 border-green-500">
-            <h2 class="text-3xl font-bold text-slate-700 mb-2 italic">Actividad 2</h2>
-            <p class="mt-1 text-lg italic text-slate-600">Fases del Proceso Tecnológico</p>
+        <h3 class="text-2xl font-semibold text-teal-700 mt-8 mb-3">6.2. Tipos de madera</h3>
+        <p class="mb-4">La madera puede clasificarse según el proceso de fabricación y de obtención en maderas naturales y maderas prefabricadas.</p>
+        
+        <h4 class="text-xl font-semibold text-gray-700 mb-2">Maderas naturales.</h4>
+        <div class="overflow-x-auto my-6">
+            <table class="w-full text-left border-collapse">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th class="p-3 font-semibold text-sm uppercase text-gray-700 border-b-2 border-gray-300">Tipo</th>
+                        <th class="p-3 font-semibold text-sm uppercase text-gray-700 border-b-2 border-gray-300">Característica</th>
+                        <th class="p-3 font-semibold text-sm uppercase text-gray-700 border-b-2 border-gray-300">Descripción</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                    <tr>
+                        <td class="p-3 align-top border-b border-gray-200 row-span-3 font-semibold" rowspan="3">Maderas blandas</td>
+                        <td class="p-3 align-top border-b border-gray-200 font-semibold">Propiedades</td>
+                        <td class="p-3 align-top border-b border-gray-200">Son maderas resinosas, blandas y ligeras, y se trabajan fácilmente. Las coníferas son muy resistentes a la intemperie. Son de color pálido o castaño claro.</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 align-top border-b border-gray-200 font-semibold">Origen</td>
+                        <td class="p-3 align-top border-b border-gray-200">Árboles de crecimiento rápido, como los de hoja perenne y las coníferas (pino, abeto, ciprés...) y otros de hoja caduca, como el abedul, el chopo y la balsa.</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 align-top border-b border-gray-200 font-semibold">Aplicaciones</td>
+                        <td class="p-3 align-top border-b border-gray-200">Construcción, embalajes, utensilios de cocina, embarcaciones, suelos, puertas y ventanas.</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 align-top border-b border-gray-200 row-span-3 font-semibold" rowspan="3">Maderas duras</td>
+                        <td class="p-3 align-top border-b border-gray-200 font-semibold">Propiedades</td>
+                        <td class="p-3 align-top border-b border-gray-200">Son muy resistentes al desgaste y a la humedad. Tienen colores muy vistosos y veteados.</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 align-top border-b border-gray-200 font-semibold">Origen</td>
+                        <td class="p-3 align-top border-b border-gray-200">Proviene de árboles del grupo de las angiospermas, de hoja caduca y tropicales de crecimiento lento: roble, castaño, cedro, boj, haya, cerezo y caoba.</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 align-top border-b border-gray-200 font-semibold">Aplicaciones</td>
+                        <td class="p-3 align-top border-b border-gray-200">Mobiliario, objetos decorativos, instrumentos musicales, toneles y parqué.</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <div class="space-y-4 text-slate-600 leading-relaxed text-lg p-5">
-            <ol class="list-decimal list-inside space-y-4">
-                <li>
-                    Describe al menos una necesidad que satisface cada uno de los siguientes productos:
-                    <ul class="list-disc list-inside ml-6 mt-2 space-y-1">
-                        <li>a) Aparato de radio</li>
-                        <li>b) Plano de una ciudad</li>
-                        <li>c) Carretilla</li>
-                        <li>d) Aguja de coser</li>
-                        <li>e) Pendientes</li>
-                        <li>f) Zapatos</li>
-                    </ul>
-                </li>
-                <li>
-                    Relaciona cada una de las siguientes actividades con la fuente de información correspondiente:
-                    <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-                        <div>
-                            <h3 class="font-semibold text-slate-700">ACTIVIDADES</h3>
-                            <ul class="list-disc list-inside mt-2">
-                                <li>Reparar una estufa eléctrica</li>
-                                <li>Cocinar una dorada a la sal</li>
-                                <li>Planificar un itinerario turístico</li>
-                                <li>Construir una maqueta de la torre Eiffel</li>
-                                <li>Efectuar el montaje de una silla en kit</li>
+        
+        
+        <h4 class="text-xl font-semibold text-gray-700 mb-2">Maderas prefabricadas.</h4>
+        <p class="mb-4">Las maderas prefabricadas se obtienen a partir de los restos de la tala y de la poda, sometidos a diversos procesos, como triturado, encolado y secado.</p>
+        <div class="overflow-x-auto my-6">
+            <table class="w-full text-left border-collapse">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th class="p-3 font-semibold text-sm uppercase text-gray-700 border-b-2 border-gray-300">Aglomerado</th>
+                        <th class="p-3 font-semibold text-sm uppercase text-gray-700 border-b-2 border-gray-300">Contrachapado</th>
+                        <th class="p-3 font-semibold text-sm uppercase text-gray-700 border-b-2 border-gray-300">Madera de fibras de densidad media (DM)</th>
+                        <th class="p-3 font-semibold text-sm uppercase text-gray-700 border-b-2 border-gray-300">Tablero de fibra de alta densidad (HDF)</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                    <tr>
+                        <td class="p-3 align-top border-b border-gray-200">Se fabrica con virutas de madera prensadas y encoladas.</td>
+                        <td class="p-3 align-top border-b border-gray-200">Se fabrica con chapas de madera encoladas y unidas con la veta cruzada.</td>
+                        <td class="p-3 align-top border-b border-gray-200">Se fabrica a partir de fibra de madera a la que se le ha quitado la lignina.</td>
+                        <td class="p-3 align-top border-b border-gray-200">Se fabrica a partir de madera y agua aplicando alta presión y temperatura.</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 align-top border-b border-gray-200">Es resistente, pero no soporta la humedad.</td>
+                        <td class="p-3 align-top border-b border-gray-200">Es muy resistente, pero sensible a las variaciones de temperatura y a la humedad.</td>
+                        <td class="p-3 align-top border-b border-gray-200">Después, se prensa y se deja secar. Es resistente y compacta.</td>
+                        <td class="p-3 align-top border-b border-gray-200">Por una cara es un tablero liso y por otra es rugoso.</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 align-top border-b border-gray-200">Se utiliza también recubierto con una capa de madera natural o de melanina.</td>
+                        <td class="p-3 align-top border-b border-gray-200">Se usa para hacer puertas, embalajes, embarcaciones, etc.</td>
+                        <td class="p-3 align-top border-b border-gray-200">Es resistente a la humedad y no se pudre.</td>
+                        <td class="p-3 align-top border-b border-gray-200">Se usa para fondos de armarios y cajones.</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 align-top border-b border-gray-200">Se usa para hacer muebles, tabiques, etc.</td>
+                        <td class="p-3 align-top border-b border-gray-200"></td>
+                        <td class="p-3 align-top border-b border-gray-200">Se usa en revestimientos de interiores y de exteriores.</td>
+                        <td class="p-3 align-top border-b border-gray-200"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+           <img src="https://scontent.fsvq2-2.fna.fbcdn.net/v/t1.6435-9/52930326_1361318807341056_2595830636874825728_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=5475boa_6SQQ7kNvwHHN_Ol&_nc_oc=AdloukyC5buren7SWwXMLO4Nii-OeIkgFS6oBg-h6e5haqTYS7mj0VHIsjfFHhb342g&_nc_zt=23&_nc_ht=scontent.fsvq2-2.fna&_nc_gid=2P5e25fKGCKHsVorw8vV2Q&oh=00_AfhHPU8aLuy8pjOtdf83NzOf3qRmNBbwCXs_6kfO8KVv9A&oe=6942CAF0" alt="Maderas prefabricadas" class="object-cover rounded-lg shadow-md my-6 zoomable-image">
+           <p class="image-caption">Maderas prefabricadas.</p>
+
+       </div>
+
+        <h3 class="text-2xl font-semibold text-teal-700 mt-8 mb-3">6.3. Derivados de la madera</h3>
+        
+        <h4 class="text-xl font-semibold text-gray-700 mb-2">Papel</h4>
+        <p class="mb-4">El papel se obtiene de la celulosa de los árboles después de un proceso de fabricación formado por varias etapas.</p>
+        <ol class="list-decimal pl-5 mb-4 space-y-2">
+            <li>Una vez triturada la madera, se mezcla con agua y se forma una pasta de celulosa.</li>
+            <li>Se añaden reactivos químicos para blanquearla y, después, se extiende y se seca.</li>
+            <li>Por último, se pasa por unos rodillos para alisarla y formar grandes bobinas.</li>
+        </ol>
+        <p class="mb-4">También se consideran productos celulósicos el cartón y la cartulina.</p>
+        <div class="my-8">
+                 <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/0TdqB4Zqlzk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <p class="image-caption mt-2">Proceso de fabricación del papel.</p>
+            </div> 
+        
+        <h4 class="text-xl font-semibold text-gray-700 mb-2">Corcho</h4>
+        <p class="mb-4">El corcho se obtiene de la corteza de algunos árboles, como el alcornoque o la encina. Es un material poroso, muy ligero y buen aislante. Se usa para fabricar aislamientos térmicos y acústicos y para otros objetos, como tapones, calzado y complementos.</p>
+        <div class="my-8">
+                 <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/yFArrIl2lc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <p class="image-caption mt-2">Descorche en el Parque de Los Alcornocales.</p>
+            </div> 
+
+        <h3 class="text-2xl font-semibold text-gray-700 mt-8 mb-3">6.4. Técnicas de mecanizado, unión y acabado</h3>
+        <p class="mb-4">Para construir cualquier objeto de madera, es necesario realizar tareas específicas y utilizar las herramientas adecuadas, como se muestra a continuación:</p>
+        <h3 class="text-2xl font-semibold text-gray-700 mt-8 mb-3">6.5. Impacto ambiental de la madera</h3>
+
+        <p class="mb-4">Aunque la madera es un material renovable, biodegradable y reciclable, su explotación y transformación puede generar algunos problemas medioambientales.</p>
+        
+        <ul class="list-none mb-4 space-y-4">
+            <li>
+                <strong class="font-semibold text-lg text-gray-900">Deforestación:</strong> la tala incontrolada da lugar a la deforestación de grandes zonas.
+                <ul class="list-disc pl-6 mt-2 space-y-1">
+                    <li>Las consecuencias más importantes son la desertización del terreno y la pérdida de biodiversidad.</li>
+                    <li>El objetivo de desarrollo sostenible 15 pretende gestionar sosteniblemente los bosques, luchar contra la desertificación, detener e invertir la degradación de las tierras y detener la pérdida de biodiversidad.</li>
+                    <li>La industria maderera trabaja con este objetivo desde hace tiempo y se han desarrollado planes para repoblar grandes áreas deforestadas.</li>
+                </ul>
+            </li>
+            <li>
+                <strong class="font-semibold text-lg text-gray-900">Contaminación:</strong> la industria papelera emplea gran cantidad de productos químicos para la eliminación de la lignina y para el blanqueo del papel.
+                <ul class="list-disc pl-6 mt-2 space-y-1">
+                    <li>Los residuos de estos productos producen la contaminación del agua y del aire.</li>
+                    <li>Otro aspecto importante es el gran consumo de agua que necesitan estas industrias.</li>
+                    <li>El objetivo de desarrollo sostenible 6 pretende garantizar la disponibilidad de agua, su gestión sostenible y el saneamiento para todos.</li>
+                    <li>La industria papelera tomó conciencia hace tiempo de la necesidad de optimizar el consumo de agua y de eliminar los residuos y productos químicos.</li>
+                    <li>En las dos últimas décadas, en España se ha reducido más de un 30% el consumo de agua en este sector.</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <h3 class="text-2xl font-semibold text-gray-700 mt-8 mb-3">Uso sostenible de la madera</h3>
+        <p class="mb-4">A pesar de los problemas medioambientales que genera el uso y la transformación de la madera, es uno de los materiales más sostenibles que se pueden utilizar, especialmente en la construcción.</p>
+        <p class="mb-4">Además de ser renovable, el impacto de todas las emisiones de gases de efecto invernadero a lo largo de su ciclo de vida es muy bajo, ya que, en el proceso de crecimiento del árbol, este absorbe CO<sub>2</sub>.</p>
+        
+        <h2 class="text-3xl font-semibold text-teal-800 mt-10 mb-4 pb-1 border-b border-gray-200">
+            7. Metales
+        </h2>
+        <p class="mb-4">Los metales son materiales de gran importancia, debido a sus propiedades y a las cualidades técnicas que presentan, lo cual hace que sean imprescindibles en la fabricación de todo tipo de objetos.</p>
+
+        <p class="mb-4">Los metales se encuentran en la naturaleza formando minerales o en estado puro.</p>
+        <p class="mb-4">El proceso de extracción y transformación de los metales se llama metalurgia.</p>
+        <p class="mb-4">Existe una gran variedad de materiales metálicos. Aunque algunos se emplean en estado casi puro, como la plata o el oro, la mayoría se combinan entre sí o con otros elementos, formando aleaciones con las que se consigue mejorar sus propiedades.</p>
+        <p class="mb-4">Las aleaciones son materiales metálicos muy utilizados en la industria. Por ejemplo, acero inoxidable, bronce y latón.</p>
+        <p class="mb-4">Las formas comerciales más habituales en que se presentan los metales son las barras y los tubos, los alambres, las chapas, los lingotes y los perfiles.</p>
+        <ul class="list-disc pl-5 mb-4 space-y-1">
+            <li>Barras y tubos</li>
+            <li>Alambre</li>
+            <li>Perfiles</li>
+            <li>Chapa</li>
+            <li>Lingote</li>
+        </ul>
+        <p class="mb-4">Los procesos y las transformaciones que sufren los minerales hasta obtener los materiales metálicos suelen ser complejos y costosos:</p>
+        <ol class="list-decimal pl-5 mb-4 space-y-2">
+            <li>La extracción de los minerales se realiza en minas a cielo abierto o subterráneas. Casi todos los metales se encuentran en estado sólido en la naturaleza, excepto el mercurio y el galio.</li>
+            <li>A continuación, se separa la parte útil, llamada mena, del resto de materiales, llamados ganga. Para ello se tritura, se lava y se criba el mineral.</li>
+            <li>Por último, se realizan transformaciones como el calcinado en hornos o la electrólisis para obtener el metal.</li>
+        </ol>
+        <p class="mb-4">La minería es una industria global que implica importantes recursos humanos, ambientales y económicos.</p>
+        <p class="mb-4">La extracción de recursos naturales es esencial para asegurar el bienestar y el desarrollo de las comunidades y, por tanto, contribuir a alcanzar los ODS (Objetivos de Desarrollo Sostenible).</p>
+        
+        <h3 class="text-2xl font-semibold text-teal-700 mt-8 mb-3">7.1. Propiedades y clasificación</h3>
+        <p class="mb-4">Las propiedades más importantes de los metales son las siguientes:</p>
+        <ul class="list-disc pl-5 mb-4 space-y-2">
+            <li>Son materiales densos y pesados con un brillo característico.</li>
+            <li>Tienen gran resistencia mecánica a los esfuerzos.</li>
+            <li>Son buenos conductores de la electricidad, del calor y del sonido.</li>
+            <li>Son dúctiles y maleables.</li>
+        </ul>
+        <p class="mb-4">La clasificación de los metales no depende de su origen o de su fabricación, sino de su contenido en hierro.</p>
+        <p class="mb-4">Según esto, distinguimos dos grandes grupos: los metales férricos y los metales no férricos.</p>
+
+        <h3 class="text-2xl font-semibold text-teal-700 mt-8 mb-3">A. Metales férricos</h3>
+        <p class="mb-4">El hierro es un material abundante en la naturaleza (representa el 5% de la corteza terrestre), que se puede encontrar en muchos minerales.</p>
+        <p class="mb-4">El proceso de fabricación de los metales férricos se llama siderurgia y se realiza en los altos hornos.</p>
+        <p class="mb-4">Se introduce la mena, ya separada del mineral, junto con carbón de coque y piedra caliza.</p>
+        <ul class="list-disc pl-5 mb-4 space-y-1">
+            <li>Del alto horno se obtiene el arrabio, producto a partir del cual se fabrican los materiales férricos.</li>
+            <li>El resto de los materiales se denomina escoria.</li>
+        </ul>
+        <p class="mb-4">El arrabio contiene gran cantidad de carbono, que, una vez afinado, se convierte en la fundición.</p>
+        <p class="mb-4">Después de pasar por un horno convertidor, se obtiene acero.</p>
+        <p class="mb-4">Finalmente, se realiza un proceso de electrólisis para obtener hierro puro.</p>
+        
+        <div class="overflow-x-auto my-6">
+            <table class="w-full text-left border-collapse">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th class="p-3 font-semibold text-sm uppercase text-gray-700 border-b-2 border-gray-300">Metal</th>
+                        <th class="p-3 font-semibold text-sm uppercase text-gray-700 border-b-2 border-gray-300">Propiedades</th>
+                        <th class="p-3 font-semibold text-sm uppercase text-gray-700 border-b-2 border-gray-300">Aplicaciones</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                    <tr>
+                        <td class="p-3 align-top border-b border-gray-200 font-semibold">Hierro</td>
+                        <td class="p-3 align-top border-b border-gray-200">
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Buenas propiedades magnéticas.</li>
+                                <li>Es frágil y difícil de mecanizar.</li>
                             </ul>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold text-slate-700">FUENTE DE INFORMACIÓN</h3>
-                            <ul class="list-disc list-inside mt-2">
-                                <li>Seguir el manual de instrucciones</li>
-                                <li>Preguntar a un electricista</li>
-                                <li>Consultar un recetario de cocina</li>
-                                <li>Visitar una agencia de viajes</li>
-                                <li>Entrar en <a href="http://www.tour-eiffel.fr" class="text-blue-600 hover:underline" target="_blank">http://www.tour-eiffel.fr</a></li>
+                        </td>
+                        <td class="p-3 align-top border-b border-gray-200">Máquinas eléctricas y transformadores. Componentes electrónicos.</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 align-top border-b border-gray-200 font-semibold">Acero <span class="font-normal text-sm">(entre el 0,1 y el 2 % de carbono)</span></td>
+                        <td class="p-3 align-top border-b border-gray-200">
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Es la más utilizada de las aleaciones por sus buenas propiedades mecánicas.</li>
+                                <li>Es resistente, tenaz, maleable y dúctil.</li>
+                                <li>Aleado con cromo (Cr) y níquel (Ni) forma el acero inoxidable.</li>
                             </ul>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    Describe ordenadamente las operaciones que se han de realizar para construir, en un tablero contrachapado, el juego de tangram de la figura:
-                    <img src="https://ayudatecnia.com/wp-content/uploads/2019/12/tangram-mejor-juego-estimulacion-cognitiva.jpg" alt="Tangram" class="rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105 limited-height">
-                </li>
-                <li>
-                    Enumera y describe con tus palabras las fases del proceso tecnológico.
-                </li>
-            </ol>
+                        </td>
+                        <td class="p-3 align-top border-b border-gray-200">Vigas, tubos, barras. Herramientas, estanterías, vallas, rejas. Utensilios de cocina y chapas.</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 align-top border-b border-gray-200 font-semibold">Fundición <span class="font-normal text-sm">(entre el 2 y el 4 % de carbono)</span></td>
+                        <td class="p-3 align-top border-b border-gray-200">
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Color negro, muy frágil y dura.</li>
+                                <li>Resistente a las vibraciones y a la corrosión.</li>
+                            </ul>
+                        </td>
+                        <td class="p-3 align-top border-b border-gray-200">Radiadores antiguos, farolas, bolardos, tornillos de banco. Bancadas de motores.</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-    </section>
+        <hr class="my-10 border-gray-200">
 
-    <section id="actividades3" class="border-orange-200">
-        <div class="bg-orange-100 p-4 rounded-lg border-l-4 border-orange-500">
-            <h2 class="text-3xl font-bold text-slate-700 mb-2 italic">Activity 3</h2>
-            <p class="mt-1 text-lg italic text-slate-600">Workshop Tools</p>
+        <h3 class="text-2xl font-semibold text-teal-700 mt-8 mb-3">B. Metales no férricos</h3>
+        <p class="mb-4">Aunque los metales férricos son fáciles de obtener y tienen buena resistencia mecánica, los metales no férricos tienen otras propiedades que los hacen interesantes para otras aplicaciones, como la conductividad térmica y la eléctrica, la resistencia a la oxidación y la facilidad de mecanizado.</p>
+        
+        <div class="overflow-x-auto my-6">
+            <table class="w-full text-left border-collapse">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th class="p-3 font-semibold text-sm uppercase text-gray-700 border-b-2 border-gray-300">Metal</th>
+                        <th class="p-3 font-semibold text-sm uppercase text-gray-700 border-b-2 border-gray-300">Propiedades</th>
+                        <th class="p-3 font-semibold text-sm uppercase text-gray-700 border-b-2 border-gray-300">Aplicaciones</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                    <tr>
+                        <td class="p-3 align-top border-b border-gray-200 font-semibold">Cobre (Cu) <span class="block font-normal text-sm">Se obtiene de la cuprita y de la calcopirita.</span></td>
+                        <td class="p-3 align-top border-b border-gray-200">
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Blando, de color rojizo y brillo intenso.</li>
+                                <li>Alta conductividad térmica y eléctrica.</li>
+                                <li>Maleable y dúctil.</li>
+                                <li>Resistente a la corrosión.</li>
+                                <li>Aleado con cinc forma el latón (resistente a la corrosión).</li>
+                                <li>Aleado con estaño forma el bronce (resistente al desgaste y muy sonoro).</li>
+                            </ul>
+                        </td>
+                        <td class="p-3 align-top border-b border-gray-200">Cables eléctricos e hilos de telefonía. Tuberías y calderas. Decoración (arquitectura y bisutería). Latón: conexiones eléctricas y grifos. Bronce: campanas, estatuas y piezas de barcos.</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 align-top border-b border-gray-200 font-semibold">Estaño (Sn) <span class="block font-normal text-sm">Se obtiene de la casiterita.</span></td>
+                        <td class="p-3 align-top border-b border-gray-200">
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Muy blando, de color blanco brillante.</li>
+                                <li>Muy maleable y dúctil.</li>
+                                <li>No se oxida a temperatura ambiente.</li>
+                                <li>Resiste a la corrosión.</li>
+                            </ul>
+                        </td>
+                        <td class="p-3 align-top border-b border-gray-200">Hojalata (chapa de acero recubierta de estaño). Soldadura blanda (aleado con plomo).</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 align-top border-b border-gray-200 font-semibold">Cinc (Zn) <span class="block font-normal text-sm">Se obtiene de la blenda.</span></td>
+                        <td class="p-3 align-top border-b border-gray-200">
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>De color gris azulado y brillante.</li>
+                                <li>Frágil en frío y de baja dureza.</li>
+                                <li>Protege el acero contra la corrosión mediante el galvanizado.</li>
+                            </ul>
+                        </td>
+                        <td class="p-3 align-top border-b border-gray-200">Barreños y cubos. Cubiertas de edificios. Acero galvanizado: vallas, farolas y barcos.</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 align-top border-b border-gray-200 font-semibold">Plomo (Pb) <span class="block font-normal text-sm">Se obtiene de la galena.</span></td>
+                        <td class="p-3 align-top border-b border-gray-200">
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Muy blando y pesado, de color gris plateado.</li>
+                                <li>Alta conductividad térmica.</li>
+                                <li>Tiene plasticidad y es maleable.</li>
+                            </ul>
+                        </td>
+                        <td class="p-3 align-top border-b border-gray-200">Baterías y pilas. Protector contra radiaciones. Figuras decorativas. Vidrio (aditivo para dar dureza).</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 align-top border-b border-gray-200 font-semibold">Aluminio (Al) <span class="block font-normal text-sm">Se obtiene de la bauxita.</span></td>
+                        <td class="p-3 align-top border-b border-gray-200">
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Metal de poca densidad y peso que forma aleaciones resistentes y ligeras.</li>
+                                <li>Alta conductividad térmica y eléctrica.</li>
+                                <li>Alta maleabilidad y ductilidad.</li>
+                                <li>Alta resistencia a la corrosión.</li>
+                            </ul>
+                        </td>
+                        <td class="p-3 align-top border-b border-gray-200">Líneas eléctricas de alta tensión. Fabricación de aviones, automóviles y bicicletas. Útiles de cocina, botes de bebida, etcétera.</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <div class="space-y-4 text-slate-600 leading-relaxed text-lg p-5">
-            <ol class="list-decimal list-inside space-y-3">
-                <li>
-                    Draw and label each of the tools from the list in your notebook, grouping them by their corresponding category.
-                    <img src="img/tools.png" alt="Collage de herramientas de un taller de tecnología" class="rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105 limited-height">
-                </li>
-            </ol>
-        </div>
-    </section>
+        
+        <h3 class="text-2xl font-semibold text-teal-700 mt-8 mb-3">7.2. Técnicas de mecanizado y unión de los metales</h3>
+        <p class="mb-4">La fabricación industrial de los metales se realiza con máquinas, como tornos, fresadoras, extrusoras, laminadoras y equipos de soldadura eléctrica. Las técnicas manuales más utilizadas son las siguientes:</p>
+        <h3 class="text-2xl font-semibold text-teal-700 mt-8 mb-3">7.3. Impacto ambiental de los metales</h3>
+        <p class="mb-4">El mayor impacto ambiental de la minería, tanto de las minas a cielo abierto como de las subterráneas, es la degradación del paisaje, ya que produce importantes modificaciones en él como consecuencia del movimiento de grandes cantidades de materiales, la contaminación del agua y la producción de polvo.</p>
+        <p class="mb-4">Por otro lado, la industria metalúrgica se considera una de las más contaminantes, debido a la emisión de gases perjudiciales para el medioambiente, al alto consumo de energía y a la producción de residuos que pueden llegar a ser tóxicos.</p>
 
-    <section id="actividades4" class="border-red-200">
-        <div class="bg-sky-100 p-4 rounded-lg border-l-4 border-sky-500">
-            <h2 class="text-3xl font-bold text-slate-700 mb-2 italic">Actividad 4</h2>
-            <p class="mt-1 text-lg italic text-slate-600">Trabajar con Seguridad</p>
-        </div>
-        <div class="space-y-4 text-slate-600 leading-relaxed text-lg p-5">
-            <ol class="list-decimal list-inside space-y-3">
-                <li>
-                    Observa con atención la imagen del taller que se proyecta en la pizarra. Parece que hoy nadie se ha preocupado por la seguridad. En grupos de 4, identificad todos los peligros y situaciones de riesgo que podáis encontrar. ¿Qué podría salir mal? ¡Vamos a descubrirlo juntos!
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBHXEa3yQnl6OsPD_-vmJEOWnq7wcPa5MSPbHvDl1HSzAow1pWN8uePZgSy0yuXJuE4xUGDB4rCSDn93V-gQbMgNG3ozRsqbbq5bhXJSaM82XIbeCntEn_09257TOUPILOGsi1oHbvanY/s1600/SAM_1088.jpg" alt="Taller desordenado" class="rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105 limited-height">
-                </li>
-            </ol>
-        </div>
-    </section>
-
-    <section id="actividades5" class="border-red-200">
-        <div class="bg-red-100 p-4 rounded-lg border-l-4 border-red-500">
-            <h2 class="text-3xl font-bold text-slate-700 mb-2 italic">Actividad 5</h2>
-            <p class="mt-1 text-lg italic text-slate-600">La Señalización de Seguridad</p>
-        </div>
-        <div class="space-y-4 text-slate-600 leading-relaxed text-lg p-5">
-            <ol class="list-decimal list-inside space-y-3">
-                <li>
-                    Ahora os convertiréis en expertos en seguridad. Cada equipo recibirá un riesgo específico que podemos encontrar en el taller (cortes, riesgo eléctrico, caídas, etc.). Vuestra misión será crear un póster informativo y visual en una cartulina para concienciar sobre ese peligro. El póster debe incluir:
-                    <ul class="list-disc list-inside space-y-2 mt-4 ml-6">
-                        <li>El nombre del riesgo escrito de forma clara y grande.</li>
-                        <li>La señal de advertencia que le corresponde (podéis dibujarla o pegar la que os daremos).</li>
-                        <li>Tres normas básicas y claras para prevenir ese riesgo.</li>
-                        <li>La señal de obligación más importante para evitarlo (por ejemplo, si el riesgo es de cortes, la señal de 'usar guantes').</li>
-                    </ul>
-                </li>
-            </ol>
-        </div>
-    </section>
-
-    <section id="actividades5" class="border-red-200">
-        <div class="bg-red-100 p-4 rounded-lg border-l-4 border-red-500">
-            <h2 class="text-3xl font-bold text-slate-700 mb-2 italic">Actividad 6</h2>
-            <p class="mt-1 text-lg italic text-slate-600">Proyecto</p>
-        </div>
-        <div class="space-y-4 text-slate-600 leading-relaxed text-lg p-5">
-            <a href="pdf/Fichas de ampliacion UD1.pdf" target="_blank">
-            <img src="img/proy.png" alt="Actividades" class="rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105 limited-height"></a>
-        </div>
-    </section>
+        <h3 class="text-2xl font-semibold text-teal-700 mt-8 mb-3">Uso sostenible de los metales</h3>
+        <p class="mb-4">Además de su gran durabilidad, los metales son reciclables y reutilizables, lo que hace que sean materiales sostenibles.</p>
+        <ul class="list-disc pl-5 mb-4 space-y-2">
+            <li>El acero es el material más reciclado del mundo, más que el papel o el vidrio.</li>
+            <li>El alumnio también es reciclable. En este proceso, el material no pierde ninguna propiedad y se ahorra un 95% de la energía que se empleó en su fabricación.</li>
+            <li>El cobre es el tercer metal más reciclado, y no pierde su integridad en ningún proceso.</li>
+        </ul>
 </div>
 
-<!-- Proyecto -->
-
-<div id="tab12" class="tab-content">
-    <section id="proyectoEcoAmplificador" class="border-green-200">
-        <div class="bg-sky-100 p-4 rounded-lg border-l-4 border-sky-500">
-            <h2 class="text-3xl font-bold text-slate-700 mb-2 italic">Proyecto: Eco-Amplificador de Sonido</h2>
-            <p class="mt-1 text-lg italic text-slate-600">Diseño y Construcción con Materiales Reciclados</p>
-        </div>
-
-        <div class="space-y-4 text-slate-600 leading-relaxed text-lg p-5">
-
-            <h4 class="font-bold text-xl text-slate-700 mt-2 mb-2">Objetivo Principal</h4>
-            <p>Diseñar y construir un amplificador de sonido pasivo (sin electricidad) para un teléfono móvil, utilizando materiales reciclados. El proyecto servirá para aplicar de forma práctica todas las fases del proceso tecnológico en la creación de un objeto útil que funciona basándose en principios físicos de la acústica.</p>
-
-            <h4 class="font-bold text-xl text-slate-700 mt-6 mb-2">Descripción del Proyecto</h4>
-            <p>Crearás un soporte para tu teléfono móvil que, gracias a su forma, es capaz de canalizar y amplificar el sonido de forma natural. El diseño se inspirará en la forma de una corneta o un gramófono, demostrando que se puede mejorar una funcionalidad tecnológica sin recurrir a la electricidad.</p>
-
-            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjf8-YsJeyZF06DGYYvC4T2w5ztsXWteYhLOZxqarffwVtIRjMPk7aVG_32klCaZtQFfbW49cmag9nsKYlLkkZnomVNDm1_aUOfwDvhgeyJ70aGJnAY30dhDJlvJZOwO0huqQdP6gkB4ls/s1600/Phone-Amplifier.jpg" alt="Amplificador de sonido casero para móvil" class="rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105 limited-height">
-
-            <h3 class="text-2xl font-bold text-slate-700 mt-8 mb-4 border-b-2 pb-2">Aplicación de las Fases del Proceso Tecnológico</h3>
-
-            <div class="space-y-6">
-                <div class="p-4 rounded-lg bg-red-50 border-l-4 border-red-400">
-                    <h4 class="text-xl font-bold text-slate-800">1. Fase: Identificación de la Necesidad</h4>
-                    <p class="mt-2"><strong>Problema:</strong> "El altavoz de mi teléfono móvil no tiene suficiente volumen. Necesito una solución barata, portátil y ecológica para aumentar el sonido sin usar baterías ni enchufes".</p>
-                </div>
-
-                <div class="p-4 rounded-lg bg-orange-50 border-l-4 border-orange-400">
-                    <h4 class="text-xl font-bold text-slate-800">2. Fase: Búsqueda de Información y Análisis</h4>
-                    <ul class="list-disc list-inside space-y-2 mt-2">
-                        <li><strong>Principios físicos:</strong> Investigar cómo funciona la amplificación pasiva del sonido.</li>
-                        <li><strong>Soluciones existentes:</strong> Buscar en internet ejemplos de "amplificador pasivo para móvil".</li>
-                        <li><strong>Análisis de materiales reciclados:</strong> Estudiar qué materiales son los más adecuados (tubos de cartón, vasos, botellas...).</li>
-                    </ul>
-                </div>
-
-                <div class="p-4 rounded-lg bg-amber-50 border-l-4 border-amber-400">
-                    <h4 class="text-xl font-bold text-slate-800">3. Fase: Diseño de las Ideas</h4>
-                    <ul class="list-disc list-inside space-y-2 mt-2">
-                        <li><strong>Lluvia de ideas:</strong> Dibuja al menos tres bocetos con diferentes enfoques.</li>
-                        <li><strong>Selección de la idea:</strong> Elige el diseño más eficiente, estable y factible.</li>
-                        <li><strong>Croquis y planos:</strong> Realiza un dibujo técnico final acotado, midiendo con precisión tu móvil. Sigue esta sencilla <span id="openModalTrigger" class="text-blue-600 font-semibold underline cursor-pointer hover:text-blue-800 transition-colors">guía</span> para hacer tu croquis acotado.</li>
-                    </ul>
-                </div>
-
-                <div class="p-4 rounded-lg bg-yellow-50 border-l-4 border-yellow-400">
-                    <h4 class="text-xl font-bold text-slate-800">4. Fase: Planificación y Organización</h4>
-                    <ul class="list-disc list-inside space-y-2 mt-2">
-                        <li><strong>Hoja de procesos:</strong> Redacta una lista numerada con todos los pasos de la construcción.</li>
-                        <li><strong>Lista de materiales:</strong> Concreta los materiales reciclados que usarás.</li>
-                        <li><strong>Lista de herramientas:</strong> Especifica las herramientas necesarias (regla, cúter, pistola de silicona...).</li>
-                    </ul>
-                </div>
-
-                <div class="p-4 rounded-lg bg-lime-50 border-l-4 border-lime-400">
-                    <h4 class="text-xl font-bold text-slate-800">5. Fase: Construcción</h4>
-                    <p class="mt-2">Siguiendo tus planos y la hoja de procesos, construye tu amplificador. ¡Recuerda seguir las normas de seguridad al usar herramientas de corte!</p>
-                </div>
-
-                <div class="p-4 rounded-lg bg-green-50 border-l-4 border-green-400">
-                    <h4 class="text-xl font-bold text-slate-800">6. Fase: Verificación y Evaluación</h4>
-                    <p class="mt-2">Llega la prueba funcional. Coloca el teléfono, pon una canción y compara el volumen. ¿Funciona? ¿Se sujeta bien el móvil? ¿Qué podrías mejorar?</p>
-                </div>
-
-                <div class="p-4 rounded-lg bg-teal-50 border-l-4 border-teal-400">
-                    <h4 class="text-xl font-bold text-slate-800">7. Fase: Divulgación y Memoria Técnica</h4>
-                    <ul class="list-disc list-inside space-y-2 mt-2">
-                        <li><strong>Elaboración de una memoria técnica:</strong> Redacta un documento que recoja todo el proceso.</li>
-                        <li><strong>Presentación en clase:</strong> Expón tu proyecto y realiza una demostración en directo.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <h3 class="text-2xl font-bold text-slate-700 mt-12 mb-4 border-b-2 pb-2">Niveles de Logro y Evaluación</h3>
-            <ul class="space-y-4">
-                <li class="bg-amber-100 border-l-4 border-amber-500 text-amber-800 p-4 rounded-md">
-                    <strong class="font-bold block">Nivel Básico (Hasta 6 puntos):</strong>
-                    <span class="text-slate-600">Entrega de un amplificador funcional que cumple su objetivo y el plano técnico final (croquis acotado) con las medidas correctas.</span>
-                </li>
-                <li class="bg-sky-100 border-l-4 border-sky-500 text-sky-800 p-4 rounded-md">
-                    <strong class="font-bold block">Nivel Avanzado (Hasta 8 puntos):</strong>
-                    <span class="text-slate-600">Cumple lo anterior y, además, presenta la investigación y los bocetos iniciales. El acabado estético y la estabilidad del amplificador son notables.</span>
-                </li>
-                <li class="bg-emerald-100 border-l-4 border-emerald-500 text-emerald-800 p-4 rounded-md">
-                    <strong class="font-bold block">Nivel Experto (Hasta 10 puntos):</strong>
-                    <span class="text-slate-600">Cumple todo lo anterior y entrega una memoria técnica completa y bien documentada, realizando una excelente presentación oral del proyecto con demostración.</span>
-                </li>
-            </ul>
-        </div>
-    </section>
-</div>
-
-
-<!-- Evaluación -->
-
-<div id="tab13" class="tab-content">
-    <section id="evaluacionCompleta" class="border-slate-300">
-        <div class="bg-lime-100 p-4 rounded-lg border-l-4 border-lime-500">
-            <h2 class="text-3xl font-bold text-slate-700 mb-6 italic">Evaluación del Proceso de Aprendizaje</h2>
-            <p class="mt-4 text-lg italic">Criterios de Evaluación y Rúbricas</p>
-        </div>
-
-        <div class="text-slate-600 leading-relaxed text-lg p-5">
-
-            <div class="mb-12">
-                <h3 class="text-2xl font-bold text-indigo-800 mb-2">Criterio 1.1</h3>
-                <p class="text-lg italic text-slate-500 mb-6">Definir problemas sencillos o necesidades básicas planteadas, buscando y contrastando información procedente de diferentes fuentes fácilmente accesibles de manera crítica y segura, evaluando su fiabilidad y pertinencia.</p>
-                <div class="mb-6 bg-white p-4 border rounded-lg">
-                    <h4 class="font-semibold text-slate-700 mb-2">Instrumentos de Observación:</h4>
-                    <ul class="list-disc list-inside text-base text-slate-500">
-                        <li>Búsqueda y tratamiento de la información.</li>
-                        <li>Trabajos escritos y de investigación.</li>
-                        <li>Intervenciones en clase y exposiciones orales.</li>
-                        <li>Pruebas orales y escritas.</li>
-                        <li>Hábitos, actitud y autonomía personal.</li>
-                        <li>Cuaderno del alumnado.</li>
-                    </ul>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 text-base">
-                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-red-200 font-bold text-red-800">Insuficiente (1-4)</div><p class="p-3">Apenas logra definir problemas. No busca ni contrasta información de manera crítica y no evalúa la fiabilidad de las fuentes.</p></div>
-                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-amber-200 font-bold text-amber-800">Suficiente (5-6)</div><p class="p-3">Define problemas de manera limitada. Busca y contrasta información de forma básica, con un enfoque crítico limitado.</p></div>
-                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-yellow-200 font-bold text-yellow-800">Bien (6-7)</div><p class="p-3">Define problemas de manera eficaz. Busca y contrasta información de manera satisfactoria, demostrando un enfoque crítico y seguro.</p></div>
-                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-sky-200 font-bold text-sky-800">Notable (7-8)</div><p class="p-3">Destaca al definir problemas con solidez. Busca y contrasta información de manera destacada, mostrando un enfoque crítico innovador.</p></div>
-                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-emerald-200 font-bold text-emerald-800">Sobresaliente (9-10)</div><p class="p-3">Dominio excepcional al definir problemas. Busca y contrasta información de manera excepcionalmente profunda, crítica y segura.</p></div>
-                </div>
-            </div>
-
-            <hr class="my-12 border-slate-300">
-
-            <div class="mb-12">
-                <h3 class="text-2xl font-bold text-indigo-800 mb-2">Criterio 1.2</h3>
-                <p class="text-lg italic text-slate-500 mb-6">Comprender y examinar productos tecnológicos de uso habitual a través del análisis de objetos básicos y sistema sencillos, empleando el método científico y utilizando herramientas elementales de simulación en la construcción de conocimiento.</p>
-                <div class="mb-6 bg-white p-4 border rounded-lg">
-                    <h4 class="font-semibold text-slate-700 mb-2">Instrumentos de Observación:</h4>
-                    <ul class="list-disc list-inside text-base text-slate-500">
-                        <li>Trabajos escritos y de investigación.</li>
-                        <li>Pruebas orales y escritas.</li>
-                        <li>Intervenciones en clase: exposición oral.</li>
-                        <li>Uso de las TIC y las TAC.</li>
-                        <li>Cuaderno del alumnado y Observación en Taller.</li>
-                    </ul>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 text-base">
-                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-red-200 font-bold text-red-800">Insuficiente (1-4)</div><p class="p-3">Apenas logra comprender o examinar productos tecnológicos. No utiliza el método científico ni herramientas de simulación.</p></div>
-                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-amber-200 font-bold text-amber-800">Suficiente (5-6)</div><p class="p-3">Comprende y examina productos de manera limitada. Utiliza de manera básica el método científico y herramientas de simulación.</p></div>
-                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-yellow-200 font-bold text-yellow-800">Bien (6-7)</div><p class="p-3">Comprende y examina productos de manera eficaz. Utiliza de manera satisfactoria el método científico y herramientas de simulación.</p></div>
-                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-sky-200 font-bold text-sky-800">Notable (7-8)</div><p class="p-3">Destaca al comprender y examinar productos con solidez. Utiliza de manera destacada el método científico y herramientas de simulación.</p></div>
-                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-emerald-200 font-bold text-emerald-800">Sobresaliente (9-10)</div><p class="p-3">Dominio excepcional al comprender y examinar productos. Utiliza de manera excepcional el método científico y las herramientas.</p></div>
-                </div>
-            </div>
-
-            <hr class="my-12 border-slate-300">
-
-            <div class="mb-12">
-                <h3 class="text-2xl font-bold text-indigo-800 mb-2">Criterio 1.3</h3>
-                <p class="text-lg italic text-slate-500 mb-6">Adoptar medidas preventivas para la protección de los dispositivos, los datos y la salud personal, identificando problemas y riesgos relacionados con el uso de la tecnología y analizándolos de manera ética y crítica.</p>
-                <div class="mb-6 bg-white p-4 border rounded-lg">
-                    <h4 class="font-semibold text-slate-700 mb-2">Instrumentos de Observación:</h4>
-                    <ul class="list-disc list-inside text-base text-slate-500">
-                        <li>Trabajos escritos y de investigación.</li>
-                        <li>Intervenciones en clase: exposición oral.</li>
-                        <li>Hábitos personales, actitud y autonomía personal.</li>
-                        <li>Cuaderno del alumnado y Observación en Taller.</li>
-                    </ul>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 text-base">
-                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-red-200 font-bold text-red-800">Insuficiente (1-4)</div><p class="p-3">Apenas adopta medidas preventivas. No identifica problemas ni riesgos. El análisis ético y crítico es ausente o superficial.</p></div>
-                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-amber-200 font-bold text-amber-800">Suficiente (5-6)</div><p class="p-3">Adopta medidas preventivas de manera limitada. Identifica problemas y riesgos de forma básica. El análisis ético y crítico es básico.</p></div>
-                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-yellow-200 font-bold text-yellow-800">Bien (6-7)</div><p class="p-3">Adopta medidas preventivas de manera eficaz. Identifica problemas y riesgos de forma satisfactoria. El análisis ético y crítico es claro.</p></div>
-                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-sky-200 font-bold text-sky-800">Notable (7-8)</div><p class="p-3">Destaca al adoptar medidas preventivas con solidez. Identifica problemas y riesgos de forma destacada. El análisis ético es innovador.</p></div>
-                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-emerald-200 font-bold text-emerald-800">Sobresaliente (9-10)</div><p class="p-3">Dominio excepcional al adoptar medidas preventivas. Identifica problemas de manera profunda y su análisis ético es riguroso.</p></div>
-                </div>
-            </div>
-
-            <hr class="my-12 border-slate-300">
-
-            <div class="mb-12">
-                <h3 class="text-2xl font-bold text-indigo-800 mb-2">Criterio 2.1</h3>
-                <p class="text-lg italic text-slate-500 mb-6">Idear y diseñar soluciones eficaces, innovadoras y sostenibles a problemas sencillos definidos, introduciendo la aplicación de conceptos, técnicas y procedimientos interdisciplinares, así como criterios de sostenibilidad con actitud emprendedora, perseverante y creativa.</p>
-                <div class="mb-6 bg-white p-4 border rounded-lg">
-                    <h4 class="font-semibold text-slate-700 mb-2">Instrumentos de Observación:</h4>
-                    <ul class="list-disc list-inside text-base text-slate-500">
-                        <li>Búsqueda y tratamiento de la información.</li>
-                        <li>Trabajos escritos y de investigación.</li>
-                        <li>Intervenciones en clase: exposición oral.</li>
-                        <li>Uso de las TIC y las TAC.</li>
-                        <li>Hábitos, actitud y autonomía personal.</li>
-                        <li>Cuaderno del alumnado y Observación en Taller.</li>
-                    </ul>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 text-base">
-                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-red-200 font-bold text-red-800">Insuficiente (1-4)</div><p class="p-3">Apenas logra idear ni diseñar soluciones. No aplica conceptos. La actitud emprendedora es ausente o superficial.</p></div>
-                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-amber-200 font-bold text-amber-800">Suficiente (5-6)</div><p class="p-3">Idea y diseña soluciones de manera limitada. La eficacia e innovación son básicas. La actitud emprendedora es limitada.</p></div>
-                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-yellow-200 font-bold text-yellow-800">Bien (6-7)</div><p class="p-3">Idea y diseña soluciones de manera eficaz. Aplica conceptos de forma satisfactoria. La actitud emprendedora es clara.</p></div>
-                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-sky-200 font-bold text-sky-800">Notable (7-8)</div><p class="p-3">Destaca al idear y diseñar soluciones con solidez. Aplica conceptos de forma destacada. La actitud es innovadora y efectiva.</p></div>
-                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-emerald-200 font-bold text-emerald-800">Sobresaliente (9-10)</div><p class="p-3">Dominio excepcional al idear y diseñar soluciones. Aplica conceptos de manera profunda y crítica con actitud excepcional.</p></div>
-                </div>
-            </div>
-
-            <hr class="my-12 border-slate-300">
-
-            <div class="mb-12">
-                <h3 class="text-2xl font-bold text-indigo-800 mb-2">Criterio 2.2</h3>
-                <p class="text-lg italic text-slate-500 mb-6">Seleccionar, planificar y organizar los materiales y herramientas, así como las tareas elementales necesarias para la construcción de una solución a un problema básico planteado, trabajando individualmente o en grupo de manera cooperativa y colaborativa.</p>
-                <div class="mb-6 bg-white p-4 border rounded-lg">
-                    <h4 class="font-semibold text-slate-700 mb-2">Instrumentos de Observación:</h4>
-                    <ul class="list-disc list-inside text-base text-slate-500">
-                        <li>Trabajos escritos y de investigación.</li>
-                        <li>Intervenciones en clase: exposición oral.</li>
-                        <li>Participación en trabajos cooperativos.</li>
-                        <li>Hábitos, actitud y autonomía personal.</li>
-                        <li>Cuaderno del alumnado y Observación en Taller.</li>
-                    </ul>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 text-base">
-                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-red-200 font-bold text-red-800">Insuficiente (1-4)</div><p class="p-3">Apenas logra seleccionar, planificar u organizar materiales y tareas. La colaboración es ausente o superficial.</p></div>
-                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-amber-200 font-bold text-amber-800">Suficiente (5-6)</div><p class="p-3">Selecciona, planifica y organiza de manera limitada. La colaboración y cooperación son básicas o poco efectivas.</p></div>
-                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-yellow-200 font-bold text-yellow-800">Bien (6-7)</div><p class="p-3">Selecciona, planifica y organiza de manera eficaz materiales y tareas. La colaboración y cooperación son satisfactorias.</p></div>
-                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-sky-200 font-bold text-sky-800">Notable (7-8)</div><p class="p-3">Destaca al seleccionar, planificar y organizar con solidez. La colaboración y cooperación son destacadas.</p></div>
-                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-emerald-200 font-bold text-emerald-800">Sobresaliente (9-10)</div><p class="p-3">Dominio excepcional al seleccionar, planificar y organizar. La colaboración y cooperación son excepcionales.</p></div>
-                </div>
-            </div>
-
-            <hr class="my-12 border-slate-300">
-
-            <div class="mb-12">
-                <h3 class="text-2xl font-bold text-indigo-800 mb-2">Criterio 7.1</h3>
-                <p class="text-lg italic text-slate-500 mb-6">Reconocer la influencia de la actividad tecnológica en la sociedad y en la sostenibilidad ambiental del entorno más cercano a lo largo de su historia, identificando sus aportaciones y repercusiones y valorando su importancia para el desarrollo sostenible, contextualizando sus aplicaciones en nuestra comunidad.</p>
-                <div class="mb-6 bg-white p-4 border rounded-lg">
-                    <h4 class="font-semibold text-slate-700 mb-2">Instrumentos de Observación:</h4>
-                    <ul class="list-disc list-inside text-base text-slate-500">
-                        <li>Búsqueda y tratamiento de la información.</li>
-                        <li>Trabajos escritos y de investigación.</li>
-                        <li>Pruebas orales y escritas.</li>
-                        <li>Intervenciones en clase: exposición oral.</li>
-                        <li>Hábitos, actitud y autonomía personal.</li>
-                        <li>Cuaderno del alumnado y Observación en Taller.</li>
-                    </ul>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 text-base">
-                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-red-200 font-bold text-red-800">Insuficiente (1-4)</div><p class="p-3">Apenas logra reconocer la influencia de la tecnología. No identifica aportaciones ni valora su importancia.</p></div>
-                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-amber-200 font-bold text-amber-800">Suficiente (5-6)</div><p class="p-3">Reconoce de manera limitada la influencia de la tecnología. Identifica algunas aportaciones. La contextualización es básica.</p></div>
-                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-yellow-200 font-bold text-yellow-800">Bien (6-7)</div><p class="p-3">Reconoce de manera eficaz la influencia de la tecnología. Identifica claramente sus aportaciones y valora su importancia.</p></div>
-                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-sky-200 font-bold text-sky-800">Notable (7-8)</div><p class="p-3">Destaca al reconocer con solidez la influencia de la tecnología. Contextualiza de manera innovadora las aplicaciones.</p></div>
-                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-emerald-200 font-bold text-emerald-800">Sobresaliente (9-10)</div><p class="p-3">Dominio excepcional al reconocer la influencia de la tecnología. Contextualiza de manera profunda, crítica y perspicaz.</p></div>
-                </div>
-            </div>
-
-            <hr class="my-12 border-slate-300">
-
-            <div class="mb-12">
-                <h3 class="text-2xl font-bold text-indigo-800 mb-2">Criterio 7.2</h3>
-                <p class="text-lg italic text-slate-500 mb-6">Identificar las aportaciones de las tecnologías emergentes al bienestar, a la igualdad social y a la disminución del impacto ambiental, haciendo un uso responsable y ético de las mismas, en el entorno más cercano.</p>
-                <div class="mb-6 bg-white p-4 border rounded-lg">
-                    <h4 class="font-semibold text-slate-700 mb-2">Instrumentos de Observación:</h4>
-                    <ul class="list-disc list-inside text-base text-slate-500">
-                        <li>Búsqueda y tratamiento de la información.</li>
-                        <li>Trabajos escritos y de investigación.</li>
-                        <li>Pruebas orales y escritas.</li>
-                        <li>Intervenciones en clase: exposición oral.</li>
-                        <li>Hábitos, actitud y autonomía personal.</li>
-                        <li>Cuaderno del alumnado y Observación en Taller.</li>
-                    </ul>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 text-base">
-                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-red-200 font-bold text-red-800">Insuficiente (1-4)</div><p class="p-3">Apenas logra identificar las aportaciones de las tecnologías emergentes. No muestra comprensión de un uso responsable y ético.</p></div>
-                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-amber-200 font-bold text-amber-800">Suficiente (5-6)</div><p class="p-3">Identifica de manera limitada las aportaciones de las tecnologías emergentes. Muestra cierta comprensión del uso responsable y ético.</p></div>
-                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-yellow-200 font-bold text-yellow-800">Bien (6-7)</div><p class="p-3">Identifica de manera eficaz las aportaciones de las tecnologías emergentes. Comprende el uso responsable y ético de manera clara.</p></div>
-                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-sky-200 font-bold text-sky-800">Notable (7-8)</div><p class="p-3">Destaca al identificar con solidez las aportaciones de las tecnologías emergentes. Su comprensión del uso ético es destacada.</p></div>
-                    <div class="border rounded-lg overflow-hidden shadow-sm"><div class="p-2 bg-emerald-200 font-bold text-emerald-800">Sobresaliente (9-10)</div><p class="p-3">Dominio excepcional al identificar las aportaciones de las tecnologías. Comprende el uso ético de manera profunda y crítica.</p></div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-</div>
-
-
-
-
-
-<!-- Botones de navegación Anterior/Siguiente -->
-<div class="flex justify-between mt-8">
-    <button id="prev-btn" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg inline-flex items-center transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
-        <i class="bi bi-arrow-left mr-2"></i>
-        <span>Anterior</span>
-    </button>
-    <button id="next-btn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg inline-flex items-center transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
-        <span>Siguiente</span>
-        <i class="bi bi-arrow-right ml-2"></i>
-    </button>
-</div>
-
-<footer class="mt-10 pt-4 border-t text-sm text-gray-500">
-    <span>Dpto. de Tecnología   //   IES Huerta del Rosario   //   2025-2026</span>
-</footer>
-</div>
 </main>
-</div>
-
-
 <!-- Modal para ampliar imagen -->
 <div id="imageModal" class="modal">
   <span class="close-modal">&times;</span>
   <img class="modal-content" id="modalImage">
 </div>
 
-<!-- El fondo oscuro del modal (Overlay) -->
-    <div id="modalOverlay" class="fixed inset-0 bg-black bg-opacity-60 hidden z-40"></div>
-
-    <!-- La ventana modal -->
-    <div id="guideModal" class="fixed inset-0 flex items-center justify-center hidden z-50 p-4">
-        <div class="bg-white rounded-xl shadow-2xl w-full max-w-4xl transform transition-all duration-300 ease-out scale-95 opacity-0">
-            <!-- Cabecera del Modal -->
-            <div class="flex justify-between items-center p-5 border-b border-gray-200 rounded-t-xl bg-gray-50">
-                <h2 class="text-2xl font-bold text-gray-800">📐 Guía Rápida para el Croquis Acotado</h2>
-                <button id="closeModalButton" class="text-gray-400 hover:text-gray-700 transition-colors focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                </button>
-            </div>
-
-            <!-- Contenido del Modal con scroll -->
-            <div class="p-6 modal-content max-h-[70vh] overflow-y-auto">
-                <p class="mb-4">
-                    Un <strong>croquis acotado</strong> es un dibujo a mano alzada que incluye las medidas exactas del objeto. Al no usar una escala, son estas medidas las que garantizan que cualquiera pueda construir vuestro amplificador perfectamente.
-                </p>
-
-                <h3 class="text-lg font-semibold text-gray-700 mt-6 mb-3">Herramientas Necesarias:</h3>
-                <ul class="list-disc list-inside space-y-2 mb-6 bg-gray-50 p-4 rounded-lg">
-                    <li>Tu croquis final del amplificador.</li>
-                    <li>Lápiz y goma.</li>
-                    <li>Una <strong>regla</strong>.</li>
-                </ul>
-
-                <h3 class="text-lg font-semibold text-gray-700 mt-6 mb-3">Paso 1: Medir los Elementos Clave</h3>
-                <p class="mb-4">
-                    Antes de escribir un solo número en tu croquis, necesitas tomar las medidas del mundo real. La precisión aquí es fundamental.
-                </p>
-                <ol class="list-decimal list-inside space-y-3">
-                    <li><strong>Mide tu teléfono móvil:</strong> Es la medida más importante. Usa la regla para obtener con exactitud el ancho, el grosor y la posición de los altavoces.</li>
-                    <li><strong>Define las medidas del amplificador:</strong> Mide las piezas que vas a usar (largo y diámetro del rollo de cartón, diámetro de los vasos, etc.).</li>
-                </ol>
-
-                <h3 class="text-lg font-semibold text-gray-700 mt-6 mb-3">Paso 2: Dibujar las Líneas de Cota</h3>
-                <p class="mb-4">
-                    En tu croquis, usa líneas finas con pequeñas flechas en los extremos para marcar qué parte estás midiendo. Estas son las <strong>líneas de cota</strong>.
-                </p>
-                 <!-- Imagen de ejemplo -->
-                <div class="my-4 p-4 border border-dashed rounded-md bg-gray-50 text-center text-gray-500">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjz5LYnHH9LA2uNU7SLk1F18-h2elCmj6LlObhWbqQobencVuxzqkmCKhQAAxwLaIi4hMR4Euo8Adjj_wPsl2FKww_oTv1SBCG88iKhtA3UwKXsQlSqm1GFu41CGSF-DVhqtGSkEFUnRWw/s1600/Dibujo3.jpg" alt="Croquis acotado" class="rounded-lg shadow-md my-6 expandable-image cursor-pointer transition-transform duration-300 hover:scale-105 limited-height">
-                </div>
-
-
-                <h3 class="text-lg font-semibold text-gray-700 mt-6 mb-3">Paso 3: Acotar el Dibujo (Añadir las Medidas)</h3>
-                <p class="mb-4">
-                    Escribe cada medida de forma clara encima de su línea de cota. Asegúrate de incluir:
-                </p>
-                <ul class="list-disc list-inside space-y-2 mb-4">
-                    <li><strong>Medidas de la ranura del móvil:</strong> Ancho y largo (con 1-2 mm de holgura).</li>
-                    <li><strong>Posición de la ranura:</strong> Distancia a un extremo para que quede centrada.</li>
-                    <li><strong>Medidas generales:</strong> Longitud total, diámetro, etc.</li>
-                    <li><strong>Medidas de los altavoces:</strong> Diámetro de los conos y distancia al centro.</li>
-                </ul>
-
-                <div class="mt-6 p-4 bg-blue-50 border-l-4 border-blue-400 text-blue-800 rounded-r-lg">
-                    <p class="font-bold">¡Atención!</p>
-                    <p>Un croquis bien acotado debe ser tan claro que no necesites dar explicaciones. El propio dibujo y sus medidas deben contener toda la información.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-                // --- Lógica para ocultar/mostrar la barra lateral ---
-        const sidebarToggle = document.getElementById('sidebar-toggle');
-        const sidebarToggleIcon = document.getElementById('sidebar-toggle-icon');
-        const sidebar = document.getElementById('sidebar');
-
-        if (sidebarToggle && sidebar && sidebarToggleIcon) {
-            sidebarToggle.addEventListener('click', () => {
-                sidebar.classList.toggle('hidden');
-
-                if (sidebar.classList.contains('hidden')) {
-                    sidebarToggleIcon.classList.remove('bi-layout-sidebar-inset');
-                    sidebarToggleIcon.classList.add('bi-layout-sidebar-inset-reverse');
-                } else {
-                    sidebarToggleIcon.classList.remove('bi-layout-sidebar-inset-reverse');
-                    sidebarToggleIcon.classList.add('bi-layout-sidebar-inset');
-                }
-            });
-        }
-
-                // --- Lógica para la navegación por pestañas ---
-        const tabLinks = document.querySelectorAll('.tab-link');
-        const tabContents = document.querySelectorAll('.tab-content');
-        const prevBtn = document.getElementById('prev-btn');
-        const nextBtn = document.getElementById('next-btn');
-        let currentTabIndex = 0;
-
-        function showTab(index) {
-                    // Ocultar todos los contenidos
-            tabContents.forEach(content => {
-                content.classList.add('hidden');
-            });
-                    // Quitar clase activa de todos los enlaces
-            tabLinks.forEach(navLink => {
-                navLink.classList.remove('active');
-            });
-
-                    // Mostrar el contenido y activar el enlace en el índice deseado
-            if (tabContents[index]) {
-                tabContents[index].classList.remove('hidden');
-            }
-            if (tabLinks[index]) {
-                tabLinks[index].classList.add('active');
-            }
-
-                    // Actualizar el índice actual
-            currentTabIndex = index;
-
-                    // Actualizar el estado de los botones
-            prevBtn.disabled = currentTabIndex === 0;
-            nextBtn.disabled = currentTabIndex === tabLinks.length - 1;
-        }
-
-        tabLinks.forEach((link, index) => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                showTab(index);
-            });
-        });
-
-        nextBtn.addEventListener('click', () => {
-            if (currentTabIndex < tabLinks.length - 1) {
-                showTab(currentTabIndex + 1);
-            }
-        });
-
-        prevBtn.addEventListener('click', () => {
-            if (currentTabIndex > 0) {
-                showTab(currentTabIndex - 1);
-            }
-        });
-
-                // Inicializar la primera pestaña
-        showTab(0);
-
-
-                // --- Lógica para el modal de la imagen ---
-                // Obtener elementos del modal
+        // --- Lógica para el modal de la imagen ---
         const modal = document.getElementById("imageModal");
         const modalImg = document.getElementById("modalImage");
-        const images = document.querySelectorAll('.expandable-image');
+        const images = document.querySelectorAll('.zoomable-image');
         const closeBtn = document.querySelector(".close-modal");
 
-            // Asignar evento de clic a cada imagen ampliable
         images.forEach(img => {
             img.onclick = function(){
                 modal.style.display = "flex";
@@ -1296,117 +804,19 @@
             }
         });
 
-            // Función para cerrar el modal
         function closeModal() {
             modal.style.display = "none";
         }
 
-            // Cerrar al hacer clic en la 'x'
         closeBtn.onclick = closeModal;
 
-            // Cerrar al hacer clic fuera de la imagen
         modal.onclick = function(event) {
-            if (event.target === modal || event.target === modalImg) {
+            if (event.target === modal) {
                 closeModal();
             }
         }
     });
 
-            // Añade estilo para los enlaces de las pestañas en el head
-    const style = document.createElement('style');
-    style.innerHTML = `
-                .tab-link {
-                    display: block;
-                    padding: 0.5rem 1rem;
-                    border-radius: 0.375rem; /* rounded-md */
-                    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-                    font-weight: 500;
-                    color: #4b5563; /* text-gray-600 */
-                }
-                .tab-link:hover:not(.active) {
-                    background-color: #f3f4f6; /* hover:bg-gray-100 */
-                    color: #1f2937; /* hover:text-gray-800 */
-                }
-    `;
-    document.head.appendChild(style);
-
 </script>
-
-        <script> // Acoredeón
-        const accordionHeaders = document.querySelectorAll(".accordion-header");
-
-        accordionHeaders.forEach(header => {
-            header.addEventListener("click", () => {
-                const content = header.nextElementSibling;
-                const arrow = header.querySelector("svg:last-child");
-
-                    // Toggle active class for styling if needed
-                header.classList.toggle("active");
-
-                if (content.style.maxHeight) {
-                        // Accordion is open, close it
-                    content.style.maxHeight = null;
-                    arrow.classList.remove("rotate-180");
-                } else {
-                        // Accordion is closed, open it
-                        // Close other accordions
-                    accordionHeaders.forEach(otherHeader => {
-                        if (otherHeader !== header) {
-                            const otherContent = otherHeader.nextElementSibling;
-                            const otherArrow = otherHeader.querySelector("svg:last-child");
-                            otherContent.style.maxHeight = null;
-                            otherArrow.classList.remove("rotate-180");
-                        }
-                    });
-
-                    content.style.maxHeight = content.scrollHeight + "px";
-                    arrow.classList.add("rotate-180");
-                } 
-            });
-        });
-
-        // Obtener los elementos del DOM
-        const openTrigger = document.getElementById('openModalTrigger');
-        const modal = document.getElementById('guideModal');
-        const modalContent = modal.querySelector('.transform');
-        const overlay = document.getElementById('modalOverlay');
-        const closeButton = document.getElementById('closeModalButton');
-
-        // Función para abrir el modal
-        function openModal() {
-            overlay.classList.remove('hidden');
-            modal.classList.remove('hidden');
-            // Pequeño retardo para que la transición de entrada sea visible
-            setTimeout(() => {
-                modalContent.classList.remove('scale-95', 'opacity-0');
-                modalContent.classList.add('scale-100', 'opacity-100');
-            }, 50);
-        }
-
-        // Función para cerrar el modal
-        function closeModal() {
-            modalContent.classList.remove('scale-100', 'opacity-100');
-            modalContent.classList.add('scale-95', 'opacity-0');
-             // Esperar a que termine la transición de salida para ocultar los elementos
-            setTimeout(() => {
-                overlay.classList.add('hidden');
-                modal.classList.add('hidden');
-            }, 200);
-        }
-
-        // Asignar eventos
-        openTrigger.addEventListener('click', openModal);
-        closeButton.addEventListener('click', closeModal);
-        overlay.addEventListener('click', closeModal);
-
-        // Permitir cerrar el modal con la tecla 'Escape'
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
-                closeModal();
-            }
-        });
-    </script>
-
 </body>
 </html>
-
