@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UD5. Control y Robótica</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 fill=%22currentColor%22 class=%22bi bi-robot%22 viewBox=%220 0 16 16%22><path d=%22M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5ZM3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.58 26.58 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.933.933 0 0 1-.765.935c-.845.147-2.34.346-4.235.346-1.895 0-3.39-.2-4.235-.346A.933.933 0 0 1 3 9.219V8.062Zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a24.767 24.767 0 0 1-1.871-.183.25.25 0 0 0-.217.068l-.92.9a.25.25 0 0 0 .169.434l.92-.9a25.25 25.25 0 0 0 1.942.183.25.25 0 0 0 .217-.068l.92-.9a.25.25 0 0 0-.17-.434l-.92.9a24.767 24.767 0 0 1-1.871-.183Z%22/><path d=%22M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1.5a2.5 2.5 0 0 0 2.5 2.5h9A2.5 2.5 0 0 0 15 13.5V12a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2V1.866ZM14 7.5V12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5Z%22/></svg>" type="image/svg+xml">
+
+  
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Pequeños ajustes adicionales si fueran necesarios */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* Para los iconos de Bootstrap, si los estás usando */
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css");
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Open Sans"', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        makecode: {
+                            blue: '#0074D9',    /* Básico */
+                            green: '#2ECC40',   /* Bucles */
+                            pink: '#D81B60',    /* Entrada */
+                            teal: '#009688',    /* Lógica */
+                            red: '#FF4136',     /* Variables */
+                            purple: '#9C27B0'   /* Matemáticas */
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Forzar impresión de colores de fondo para PDF */
+        @media print {
+            body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-slate-100 text-slate-700 font-sans antialiased leading-relaxed">
+    <header class="bg-gray-900 text-gray-200 shadow-lg sticky top-0 z-40">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center gap-3">
+                    <a href="index.html" class="text-gray-100 hover:text-white flex items-center">
+                        <i class="bi bi-robot text-2xl mr-3"></i> <span class="font-bold text-xl">Tecnología y Digitalización</span>
+                    </a>
+                </div>
+                <div class="text-sm text-gray-400">
+                    <ol class="list-none p-0 inline-flex items-center">
+                        <li class="flex items-center">
+                            <a href="tyd3.html" class="text-gray-300 hover:text-blue-300">3º ESO</a>
+                            <i class="bi bi-chevron-right mx-2 text-xs text-gray-500"></i>
+                        </li>
+                        <li class="flex items-center text-gray-100 font-semibold">
+                            <span>UD5. Control y Robótica</span>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <main class="flex-grow">
+        <div class="relative bg-cover bg-center py-20 md:py-32 -mx-6 md:-mx-12 -mt-6 md:-mt-12 rounded-t-lg" style="background-image: url('https://www.vocaeditorial.com/blog/media/robotica-infantil-1175x783.jpeg');">
+            <div class="absolute inset-0 bg-black opacity-50 rounded-t-lg"></div>
+            
+            <div class="container mx-auto px-12 relative z-10 text-center">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-white pb-6 mb-8">
+                    UD5. Control y Robótica
+                </h1>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto bg-white shadow-lg rounded-lg my-12 p-10">
+               <section id="punto-1" class="mb-12 border-b border-gray-200 pb-8 last:border-0">
+            <h2 class="text-3xl font-bold text-orange-600 mb-6 border-l-8 border-orange-500 pl-4">1. INTRODUCCIÓN: EL INGENIO FRENTE A LA FUERZA FÍSICA</h2>
+            <p class="mb-4 text-justify">
+                El ser humano tiene una característica que lo diferencia del resto de animales: es físicamente débil pero intelectualmente ingenioso. No tenemos garras afiladas ni corremos a gran velocidad, por lo que, desde la prehistoria, hemos necesitado inventar "trucos" para sobrevivir con el mínimo esfuerzo posible.
+            </p>
+            <p class="mb-4 font-semibold text-indigo-700">A estos trucos los llamamos Tecnología.</p>
+            <p class="mb-4 text-justify">
+                Toda la historia de la tecnología se puede resumir en una batalla constante por liberar al ser humano de dos cargas:
+            </p>
+            <ol class="list-decimal list-inside space-y-2 ml-4 mb-4 text-gray-700">
+                <li><strong>El esfuerzo físico:</strong> Dejar de usar nuestros músculos para usar otras energías.</li>
+                <li><strong>El esfuerzo mental repetitivo:</strong> Dejar de estar pendientes de tareas aburridas para que las máquinas lo hagan solas.</li>
+            </ol>
+            <p class="mb-4 text-justify">
+                Para entender cómo hemos llegado a tener robots, debemos analizar quién cumple las tres funciones básicas en un trabajo: <strong>Motor</strong> (quien pone la fuerza), <strong>Operario</strong> (quien pone la habilidad) y <strong>Controlador</strong> (quien decide qué hacer).
+            </p>
+        </section>
+
+        <section id="punto-2" class="mb-12 border-b border-gray-200 pb-8 last:border-0">
+            <h2 class="text-3xl font-bold text-orange-600 mb-6 border-l-8 border-orange-500 pl-4">2. EVOLUCIÓN DE LOS SISTEMAS: DEL ARTESANO AL ROBOT</h2>
+            <p class="mb-6">La forma en que fabricamos objetos ha pasado por tres grandes etapas históricas. Cada etapa supuso una revolución en la forma de vivir de las personas.</p>
+
+            <div class="space-y-6">
+                <div class="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                    <h3 class="text-xl font-bold text-teal-600 mb-2">2.1. Primera Fase: La Era del Artesano (Trabajo Manual)</h3>
+                    <p class="text-sm text-gray-600 mb-3">
+                        Durante miles de años, desde la Edad de Piedra hasta antes de la Revolución Industrial, el ser humano era el centro de todo. Las herramientas (como un martillo, una aguja o un serrucho) eran objetos pasivos que no hacían nada por sí mismos.
+                    </p>
+                    <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                        <li><strong>¿Quién es el Motor?</strong> El ser humano. Toda la energía venía de tus músculos. Si te cansabas, el trabajo paraba.</li>
+                        <li><strong>¿Quién controla?</strong> El ser humano. Tu cerebro y tus manos guiaban la herramienta en todo momento.</li>
+                        <li><strong>Características:</strong> El resultado dependía totalmente de la habilidad del artesano. Era un proceso lento y cada objeto fabricado era único y diferente.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                    <h3 class="text-xl font-bold text-teal-600 mb-2">2.2. Segunda Fase: La Mecanización (La Revolución de la Máquina)</h3>
+                    <p class="text-sm text-gray-600 mb-3">
+                        Con la llegada de la Revolución Industrial (siglos XVIII y XIX), inventamos máquinas capaces de aprovechar energías potentes como el vapor, y más tarde, la electricidad. Nacen las "Máquinas-Herramienta" (tornos, fresadoras, taladros eléctricos).
+                    </p>
+                    <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                        <li><strong>¿Quién es el Motor?</strong> La Máquina. Ella pone la fuerza bruta. Ya no te cansas físicamente al taladrar un agujero.</li>
+                        <li><strong>¿Quién controla?</strong> El ser humano. La máquina es "tonta"; tiene fuerza pero no sabe cuándo parar ni con qué forma cortar. Necesita un operario humano pegado a ella constantemente manejando palancas y botones.</li>
+                        <li><strong>El cambio:</strong> El humano deja de ser el "motor" para convertirse en el piloto. Ganamos velocidad y potencia, pero seguimos atados a la máquina.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                    <h3 class="text-xl font-bold text-teal-600 mb-2">2.3. Tercera Fase: La Automatización y Robotización</h3>
+                    <p class="text-sm text-gray-600 mb-3">
+                        Es la etapa en la que vivimos (Siglo XX y XXI). Gracias a la electrónica y la informática, conseguimos ponerle un "cerebro" artificial a las máquinas.
+                    </p>
+                    <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                        <li><strong>¿Quién es el Motor?</strong> La Máquina.</li>
+                        <li><strong>¿Quién controla?</strong> El Ordenador/Microcontrolador. La máquina tiene sensores para "ver" lo que hace y un programa para decidir cómo hacerlo.</li>
+                        <li><strong>El papel humano:</strong> El trabajador ya no es un operario que mancha sus manos, sino un Supervisor. Su trabajo es programar la máquina, arreglarla si se rompe y vigilar que todo vaya bien.</li>
+                        <li><strong>Resultado:</strong> Producción masiva, idéntica y sin descanso.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-semibold text-blue-700 mt-10 mb-4">2.4. Diferencia clave: ¿Es un Robot o es un Autómata?</h3>
+            <p class="mb-4">Es común confundir estos términos. Una lavadora es automática, pero no es un robot. Para que los distingas correctamente:</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-500">
+                    <strong class="block text-blue-800 text-lg mb-2">1. Automatismo (Sistemas Automáticos)</strong>
+                    <p class="text-sm text-blue-900 mb-2">Es una máquina diseñada para repetir una única tarea específica (o un conjunto limitado de ellas).</p>
+                    <p class="text-xs text-blue-800 italic">Ejemplo: Una embotelladora de refrescos o un semáforo. La embotelladora hace lo mismo millones de veces. Si quieres que fabrique zapatos, tienes que tirar la máquina y comprar otra. No se adapta.</p>
+                </div>
+                <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-500">
+                    <strong class="block text-purple-800 text-lg mb-2">2. Robot (Robotización)</strong>
+                    <p class="text-sm text-purple-900 mb-2">Es una máquina programable multifuncional. Su característica principal es la flexibilidad.</p>
+                    <p class="text-xs text-purple-800 italic">Definición: Un robot dispone de un "brazo" o estructura capaz de manipular materiales y herramientas variadas, y su programa puede cambiarse fácilmente. Ejemplo: Un brazo robótico industrial. Por la mañana puede estar soldando puertas de coches, y por la tarde, si le cambias la herramienta del extremo y el programa, puede estar pintando esos mismos coches o empaquetando cajas. La misma máquina sirve para trabajos distintos.</p>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-semibold text-blue-700 mt-8 mb-4">¿Para qué sirven los robots? (Las 3 D)</h3>
+            <p class="mb-4">En la industria actual, los robots no se usan para sustituir al humano en todo (aún somos más hábiles improvisando), sino para las tareas conocidas como "Las 3 D" (del inglés):</p>
+            <ol class="list-decimal list-inside space-y-2 ml-4 text-gray-700 mb-6">
+                <li><strong>Dull (Aburridas):</strong> Tareas repetitivas que provocan fatiga y distracciones, como poner mil tornillos al día.</li>
+                <li><strong>Dirty (Sucias):</strong> Entornos con polvo, grasa, pintura o residuos que no son agradables para las personas.</li>
+                <li><strong>Dangerous (Peligrosas):</strong> Trabajos con temperaturas extremas (fundiciones), gases tóxicos, manejo de explosivos o cargas muy pesadas que dañarían la espalda de un trabajador.</li>
+            </ol>
+
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded">
+                <p class="font-bold text-yellow-800 mb-1">CURIOSIDAD HISTÓRICA: El origen de la palabra</p>
+                <p class="text-sm text-yellow-800">
+                    ¿Sabías que la palabra "Robot" no la inventó un científico, sino un escritor?. Apareció por primera vez en 1920, en una obra de teatro llamada R.U.R., escrita por el checo Karel Čapek. En la obra aparecían unos seres artificiales creados para trabajar sin descanso. Karel dudaba cómo llamarlos y su hermano le sugirió la palabra checa "Robota", que significaba "trabajo forzado" o "esclavo" (como los siervos de la época medieval). Así que, etimológicamente, un robot es un "trabajador esclavo". Antes de 1920, a estas máquinas se las llamaba simplemente Autómatas.
+                </p>
+            </div>
+        </section>
+
+        <section id="punto-3" class="mb-12 border-b border-gray-200 pb-8 last:border-0">
+            <h2 class="text-3xl font-bold text-orange-600 mb-6 border-l-8 border-orange-500 pl-4">3. SISTEMAS DE CONTROL: ¿CÓMO FUNCIONAN LAS MÁQUINAS?</h2>
+            <p class="mb-4">
+                Un sistema de control es el conjunto de dispositivos que administran, ordenan o regulan el comportamiento de otro sistema para que funcione como nosotros queremos. Básicamente, todo sistema de control sigue este esquema:
+            </p>
+            <p class="text-center font-mono bg-gray-200 p-3 rounded mb-6 text-indigo-700 font-bold">
+                ENTRADA (Orden) &rightarrow; CONTROLADOR &rightarrow; SALIDA (Resultado)
+            </p>
+            <p class="mb-6">Dependiendo de si la máquina es capaz de saber si lo ha hecho bien o mal, dividimos los sistemas en dos tipos: Lazo Abierto y Lazo Cerrado.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="bg-white border border-gray-200 p-5 rounded shadow-sm">
+                    <h3 class="text-xl font-bold text-red-600 mb-3">3.1. Sistemas de Lazo Abierto (Open Loop)</h3>
+                    <p class="text-sm text-gray-700 mb-2"><strong>Son sistemas "ciegos".</strong> La máquina ejecuta una orden sin importarle el resultado final. No tiene sensores para comprobar si ha cumplido su objetivo; simplemente actúa durante un tiempo o según una configuración fija.</p>
+                    <p class="text-sm text-gray-700 mb-4"><strong>Características:</strong> Son sencillos y baratos, pero poco precisos si las condiciones cambian.</p>
+                    <div class="bg-red-50 p-3 rounded text-sm text-red-800">
+                        <strong>El Ejemplo Perfecto: La Tostadora</strong><br>
+                        Imaginate que metes una rebanada de pan y pones la ruleta en el número "3" (que son 2 minutos).<br>
+                        1. Entrada: Tiempo (2 minutos).<br>
+                        2. Proceso: Las resistencias se calientan.<br>
+                        3. Salida: Pan tostado.<br>
+                        ¿Cuál es el problema? Si metes un pan que ya estaba tostado, la tostadora no lo sabe. Lo calentará 2 minutos más y saldrá quemado. Como no tiene "ojos" (sensores), no puede corregir el error.<br>
+                        Otros ejemplos: El semáforo (cambia de color por tiempo, haya coches o no), la lavadora (lava el tiempo programado, aunque la ropa siga sucia).
+                    </div>
+                </div>
+
+                <div class="bg-white border border-gray-200 p-5 rounded shadow-sm">
+                    <h3 class="text-xl font-bold text-green-600 mb-3">3.2. Sistemas de Lazo Cerrado (Closed Loop)</h3>
+                    <p class="text-sm text-gray-700 mb-2"><strong>Son sistemas "inteligentes".</strong> La máquina tiene sensores que miden constantemente el resultado de su acción. Si el resultado no es el deseado, la máquina se corrige a sí misma. A esto se le llama Realimentación (Feedback).</p>
+                    <p class="text-sm text-gray-700 mb-4"><strong>Características:</strong> Son más complejos y caros, pero mucho más precisos y estables.</p>
+                    <div class="bg-green-50 p-3 rounded text-sm text-green-800">
+                        <strong>El Ejemplo Perfecto: El Aire Acondicionado</strong><br>
+                        Imaginate que configuras el mando a \(22^{\circ}C\) en verano.<br>
+                        1. Entrada: Quiero \(22^{\circ}C\).<br>
+                        2. Comparador: El sensor mide la habitación. ¿Hace 30ºC? ¡Hay un error de 8 grados!.<br>
+                        3. Proceso: El motor arranca a máxima potencia.<br>
+                        4. Realimentación: El sensor sigue midiendo. Cuando la habitación llega a 22°C, el sistema "se entera" y apaga el motor. Si entra calor por la ventana, vuelve a encenderse solo.<br>
+                        La diferencia: El aire acondicionado Sí sabe lo que está pasando en la realidad y reacciona.
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-xl font-bold text-gray-800 mb-4">3.3. Tabla Resumen: ¿Cuál es mejor?</h3>
+            <div class="overflow-x-auto mb-8">
+                <table class="w-full border-collapse border border-gray-300 text-sm">
+                    <thead class="bg-gray-100">
+                        <tr>
+                            <th class="border border-gray-300 p-2 text-left">Característica</th>
+                            <th class="border border-gray-300 p-2 text-left text-red-700">Lazo Abierto (Tostadora)</th>
+                            <th class="border border-gray-300 p-2 text-left text-green-700">Lazo Cerrado (Aire Acondicionado)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="border border-gray-300 p-2 font-semibold">¿Tiene Sensor de Salida?</td>
+                            <td class="border border-gray-300 p-2">NO. Es "ciego".</td>
+                            <td class="border border-gray-300 p-2">SÍ. Se vigila a sí mismo.</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2 font-semibold">Precisión</td>
+                            <td class="border border-gray-300 p-2">Baja. Depende de calibración externa.</td>
+                            <td class="border border-gray-300 p-2">Alta. Se corrige solo.</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2 font-semibold">Reacción a perturbaciones</td>
+                            <td class="border border-gray-300 p-2">Nula. Si algo cambia, falla.</td>
+                            <td class="border border-gray-300 p-2">Buena. Se adapta al cambio.</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2 font-semibold">Coste y Complejidad</td>
+                            <td class="border border-gray-300 p-2">Barato y sencillo.</td>
+                            <td class="border border-gray-300 p-2">Caro y complejo.</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2 font-semibold">Concepto Clave</td>
+                            <td class="border border-gray-300 p-2">Calibración.</td>
+                            <td class="border border-gray-300 p-2">Realimentación (Feedback).</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="bg-indigo-50 border-l-4 border-indigo-400 p-4 rounded text-sm text-indigo-900">
+                <strong>CURIOSIDAD: Tu cuerpo es un Lazo Cerrado</strong><br>
+                Los sistemas biológicos son los mejores ejemplos de control en lazo cerrado (Homeostasis).<br>
+                • Entrada: Tu cuerpo debe estar a 36.5ºC.<br>
+                • Perturbación: Haces deporte y tu temperatura sube.<br>
+                • Sensor: Tu cerebro detecta el calor excesivo.<br>
+                • Corrección: Empiezas a sudar para enfriarte.<br>
+                Si tu cuerpo fuera de "Lazo Abierto", seguirías calentándote hasta desmayarte sin que tu cerebro hiciera nada para evitarlo. ¡Menos mal que tenemos sensores!.
+            </div>
+        </section>
+
+        <section id="punto-4" class="mb-12 border-b border-gray-200 pb-8 last:border-0">
+            <h2 class="text-3xl font-bold text-orange-600 mb-6 border-l-8 border-orange-500 pl-4">4. ANATOMÍA DE UN ROBOT: SENSORES Y ACTUADORES</h2>
+            <p class="mb-4">
+                Si en el punto anterior dijimos que la tarjeta controladora (Arduino/Micro:bit) es el cerebro, ahora vamos a ver el resto del cuerpo. Un robot necesita interactuar con el mundo físico: necesita saber qué pasa a su alrededor y necesita poder moverse o comunicarse. Para ello utiliza dos tipos de dispositivos: los Sensores (entradas) y los Actuadores (salidas).
+            </p>
+
+            <h3 class="text-2xl font-semibold text-blue-700 mt-6 mb-3">4.1. Los Sensores (Los Sentidos)</h3>
+            <p class="mb-4 text-justify">Son los dispositivos encargados de captar información del exterior (luz, temperatura, distancia) y traducirla a señales eléctricas que el "cerebro" pueda entender. Sin ellos, el robot sería ciego y sordo. Podemos clasificar los sensores comparándolos con los sentidos humanos:</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                <div class="bg-white border p-4 rounded shadow-sm">
+                    <strong class="text-teal-600 block mb-1">Vista</strong>
+                    <span class="text-xs font-bold bg-gray-200 px-2 py-1 rounded">Ultrasonidos / Infrarrojos</span>
+                    <p class="text-sm mt-2 text-gray-600">Son los "ojos". Miden la distancia a una pared para no chocar (como los murciélagos).</p>
+                </div>
+                <div class="bg-white border p-4 rounded shadow-sm">
+                    <strong class="text-teal-600 block mb-1">Tacto</strong>
+                    <span class="text-xs font-bold bg-gray-200 px-2 py-1 rounded">Final de Carrera / Pulsador</span>
+                    <p class="text-sm mt-2 text-gray-600">Es un botón que detecta contacto físico. Sirve para saber si el brazo robótico ha tocado un objeto o si ha llegado al tope.</p>
+                </div>
+                <div class="bg-white border p-4 rounded shadow-sm">
+                    <strong class="text-teal-600 block mb-1">Termocepción</strong>
+                    <span class="text-xs font-bold bg-gray-200 px-2 py-1 rounded">Termistor (NTC)</span>
+                    <p class="text-sm mt-2 text-gray-600">Mide la temperatura. Fundamental en impresoras 3D (para fundir plástico) o en climatización.</p>
+                </div>
+                <div class="bg-white border p-4 rounded shadow-sm">
+                    <strong class="text-teal-600 block mb-1">Fotorecepción</strong>
+                    <span class="text-xs font-bold bg-gray-200 px-2 py-1 rounded">LDR (Resistencia de luz)</span>
+                    <p class="text-sm mt-2 text-gray-600">Detecta la cantidad de luz ambiental. Se usa para que los robots enciendan sus "faros" al entrar en un túnel oscuro.</p>
+                </div>
+                <div class="bg-white border p-4 rounded shadow-sm">
+                    <strong class="text-teal-600 block mb-1">Equilibrio</strong>
+                    <span class="text-xs font-bold bg-gray-200 px-2 py-1 rounded">Acelerómetro</span>
+                    <p class="text-sm mt-2 text-gray-600">Detecta la inclinación y el movimiento. Es lo que usa un móvil para girar la pantalla o un dron para no caerse.</p>
+                </div>
+                <div class="bg-white border p-4 rounded shadow-sm">
+                    <strong class="text-teal-600 block mb-1">Oído</strong>
+                    <span class="text-xs font-bold bg-gray-200 px-2 py-1 rounded">Micrófono</span>
+                    <p class="text-sm mt-2 text-gray-600">Permite activar el robot mediante palmadas o comandos de voz.</p>
+                </div>
+            </div>
+
+            <p class="mb-6 bg-yellow-50 p-3 rounded text-sm">
+                <strong>Importante: ¿Digital o Analógico?</strong><br>
+                • <strong>Sensores Digitales:</strong> Solo tienen dos estados: Sí o NO (Ej: Un botón pulsado o no pulsado).<br>
+                • <strong>Sensores Analógicos:</strong> Tienen muchos valores intermedios (Ej: Un sensor de luz te dice si hay mucha, poca, bastante o ninguna luz).
+            </p>
+
+            <h3 class="text-2xl font-semibold text-blue-700 mt-6 mb-3">4.2. Los Actuadores (Los Músculos y la Voz)</h3>
+            <p class="mb-4">Una vez que el cerebro ha decidido qué hacer, envía órdenes eléctricas a los actuadores para transformar esa electricidad en una acción física (movimiento, luz o sonido).</p>
+            <ul class="list-disc list-inside space-y-2 ml-4 mb-6">
+                <li><strong>A) Para Moverse (Motores):</strong>
+                    <ul class="list-disc list-inside ml-6 mt-1 text-gray-600">
+                        <li><strong>Motor de Corriente Continua (DC):</strong> Es el motor básico de los juguetes. Gira muy rápido (como las ruedas de un coche teledirigido). No controla la posición, solo gira o para.</li>
+                        <li><strong>Servomotor (Servo):</strong> Es un motor inteligente con "puntería". No da vueltas completas, sino que le puedes decir: "Gira exactamente a 90 grados y quédate ahí". Es fundamental para mover los brazos de un robot o girar el cuello de una cámara.</li>
+                    </ul>
+                </li>
+                <li><strong>B) Para Comunicarse (Luz y Sonido):</strong>
+                    <ul class="list-disc list-inside ml-6 mt-1 text-gray-600">
+                        <li><strong>LEDs:</strong> Son pequeñas luces de bajo consumo. Sirven para avisar del estado del robot (Verde = Todo bien, Rojo = Error).</li>
+                        <li><strong>Zumbador (Buzzer):</strong> Un pequeño altavoz que emite pitidos. Sirve para alarmas o melodías sencillas.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3 class="text-2xl font-semibold text-blue-700 mt-6 mb-3">4.3. Morfología: ¿Qué forma tiene un robot?</h3>
+            <p class="mb-4">No todos los robots tienen forma humana (androides). La forma del robot (morfología) depende del trabajo que vaya a realizar. Los clasificamos en tres grandes grupos:</p>
+            <ol class="list-decimal list-inside space-y-2 ml-4 mb-6 text-gray-700">
+                <li><strong>Robots Industriales (Brazos):</strong> Están fijos al suelo. Su estructura imita a un brazo humano (hombro, codo, muñeca). Son los reyes de las fábricas. Ejemplo: El robot SCARA (muy rápido) o el Antropomórfico (muy flexible).</li>
+                <li><strong>Robots Móviles:</strong> Tienen ruedas, orugas o patas para desplazarse. Ejemplo: El robot aspirador (Roomba) o los vehículos de exploración en Marte (Rovers).</li>
+                <li><strong>Androides y Zoomorfos:</strong> Intentan imitar la forma de seres vivos para moverse por entornos humanos o naturales difíciles. Ejemplo: Los robots perro de Boston Dynamics o el robot Asimo de Honda.</li>
+            </ol>
+
+            <div class="bg-gray-100 p-4 rounded border border-gray-300">
+                <strong class="text-gray-800">RETO DE PENSAMIENTO:</strong>
+                <p class="text-sm text-gray-600 mt-1">Imagina un Robot Cortacésped.</p>
+                <ul class="list-disc list-inside mt-2 text-sm text-gray-600">
+                    <li>1. ¿Qué Actuadores tiene? (Pista: Ruedas, Cuchillas...).</li>
+                    <li>2. ¿Qué Sensores necesita para no salirse del jardín o no atropellar a tu perro? (Pista: Cable perimetral, sensor de choque...).</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="punto-5" class="mb-12 border-b border-gray-200 pb-8 last:border-0">
+            <h2 class="text-3xl font-bold text-orange-600 mb-6 border-l-8 border-orange-500 pl-4">5. EL CEREBRO DEL ROBOT: TARJETAS CONTROLADORAS</h2>
+            <p class="mb-4 text-justify">
+                Hasta ahora hemos estudiado los componentes que forman el "cuerpo" de un sistema automático: la estructura mecánica (esqueleto), los sensores (sentidos) y los actuadores (músculos). Sin embargo, para que todos estos elementos funcionen de manera coordinada e inteligente, hace falta un elemento central que tome decisiones: el sistema de control.
+            </p>
+            <p class="mb-4 text-justify">
+                Si comparamos un robot con el ser humano, el sistema de control actúa como el cerebro y el sistema nervioso central. Su función es recibir las señales eléctricas que envían los sensores, procesar esa información siguiendo unas reglas lógicas (algoritmo) y enviar órdenes a los actuadores para realizar una acción.
+            </p>
+            <p class="mb-4 text-justify">
+                En la industria pesada, esta función la realizan grandes ordenadores llamados PLC (Autómatas Programables). Sin embargo, en la robótica moderna, la domótica y el aprendizaje tecnológico, utilizamos microcontroladores. Estas son pequeñas tarjetas electrónicas que contienen un ordenador completo en un solo chip, capaces de controlar desde un simple semáforo hasta un brazo robótico complejo.
+            </p>
+            <p class="mb-6 text-justify">
+                Para que estas tarjetas funcionen, necesitamos dos componentes inseparables:
+            </p>
+             <ul class="list-disc list-inside space-y-2 ml-4 mb-6 text-gray-700">
+                <li><strong>1. Hardware:</strong> La tarjeta física y sus componentes electrónicos (lo que se puede tocar).</li>
+                <li><strong>2. Software:</strong> El programa informático o código que le dice a la tarjeta qué debe hacer (lo que se diseña en el ordenador).</li>
+            </ul>
+            <p class="mb-6 text-justify">
+                En esta unidad nos centraremos en las dos plataformas más utilizadas a nivel mundial para aprender a crear nuestros propios sistemas de control: Micro:bit y Arduino.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <div class="bg-white border border-gray-200 p-5 rounded shadow-sm">
+                    <h3 class="text-xl font-bold text-indigo-600 mb-3 border-b pb-2">5.1. Micro:bit</h3>
+                    <p class="text-sm text-gray-600 mb-3">La BBC micro:bit es una tarjeta programable de bolsillo diseñada originalmente en el Reino Unido para la educación. A diferencia de los autómatas industriales, que son costosos y complejos, la micro:bit permite aprender los conceptos básicos de la robótica y el "Internet de las Cosas" (IoT) de forma inmediata, ya que integra múltiples componentes en la misma placa.</p>
+                    <strong class="text-sm text-indigo-700 block mb-2">Hardware y Características Técnicas:</strong>
+                    <ul class="text-sm text-gray-700 space-y-2">
+                        <li><strong>Matriz de LED (5x5):</strong> La placa cuenta con 25 LEDs rojos en el frontal. Funcionan como una pantalla básica para mostrar mensajes de texto desplazables, números (por ejemplo, el valor de un sensor) o iconos sencillos (caras, flechas). También actúa como sensor de luz ambiental.</li>
+                        <li><strong>Sensores Integrados (Entradas):</strong> Su gran ventaja es que no requiere cablear electrónica externa para empezar a funcionar:
+                            <ul class="list-disc list-inside ml-4 mt-1">
+                                <li><strong>Acelerómetro:</strong> Mide la aceleración en 3 ejes. Permite detectar si el robot se mueve, si se ha caído, o gestos como "agitar" o "inclinar".</li>
+                                <li><strong>Magnetómetro (Brújula):</strong> Detecta el norte magnético, útil para orientar robots móviles.</li>
+                                <li><strong>Termómetro:</strong> El procesador mide su propia temperatura, que sirve como aproximación a la temperatura ambiente.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Botones Programables (A y B):</strong> Dos pulsadores físicos que el usuario puede presionar para iniciar secuencias o cambiar modos de funcionamiento.</li>
+                        <li><strong>Comunicación Inalámbrica:</strong>
+                             <ul class="list-disc list-inside ml-4 mt-1">
+                                <li><strong>Radio:</strong> Permite que varias micro:bits se envíen mensajes entre sí. Esto es fundamental para crear enjambres de robots o mandos a distancia personalizados.</li>
+                                <li><strong>Bluetooth:</strong> Permite programar la tarjeta desde un móvil o tablet sin cables.</li>
+                             </ul>
+                        </li>
+                        <li><strong>Conector de Borde (Edge Connector):</strong> En la parte inferior tiene pines metálicos. A través de ellos, y usando una placa de expansión, se pueden conectar motores, servos y sensores externos, convirtiendo la tarjeta en el cerebro de un coche robot o un brazo robótico.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white border border-gray-200 p-5 rounded shadow-sm">
+                    <h3 class="text-xl font-bold text-cyan-600 mb-3 border-b pb-2">5.2. Arduino</h3>
+                    <p class="text-sm text-gray-600 mb-3">Arduino no es solo una tarjeta, es una plataforma de "hardware libre" (open-source). Esto significa que sus esquemas son públicos, lo que ha generado una inmensa comunidad mundial de usuarios y fabricantes. En educación y prototipado industrial, es el estándar para el control de procesos.</p>
+                    <strong class="text-sm text-cyan-700 block mb-2">La placa Arduino UNO (Estándar):</strong>
+                    <ul class="text-sm text-gray-700 space-y-2">
+                        <li><strong>Microcontrolador (ATmega328P):</strong> Es el cerebro de la placa. Un pequeño chip capaz de procesar instrucciones a gran velocidad (16 MHz), leer sensores y dar órdenes a los actuadores.</li>
+                        <li><strong>Sistema de Pines (Entradas y Salidas):</strong>
+                            <ul class="list-disc list-inside ml-4 mt-1">
+                                <li><strong>Pines Digitales (0-13):</strong> Solo entienden dos estados: HIGH (5V/ Encendido) y LOW (0V/Apagado). Se usan para pulsadores, finales de carrera o para encender LEDs. Los pines marcados con el símbolo ~ (PWM) pueden simular salidas analógicas para controlar la velocidad de un motor.</li>
+                                <li><strong>Pines Analógicos (A0-A5):</strong> Tienen un conversor Analógico-Digital (ADC) de 10 bits. Leen voltajes variables de 0 a 5V y los transforman en un número entre 0 y 1023. Son vitales para leer potenciómetros, sensores de luz (LDR) o sensores de distancia infrarrojos.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Alimentación:</strong> Puede funcionar conectado al USB del ordenador o de forma autónoma con baterías externas (entre 7V y 12V).</li>
+                        <li><strong>Capacidad de Expansión (Shields):</strong> Dado que el Arduino por sí solo no tiene fuerza eléctrica para mover motores grandes, se le pueden acoplar placas llamadas "Shields" o controladores de motores, que gestionan la potencia necesaria para la robótica.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-semibold text-blue-700 mt-8 mb-4">5.3. Fundamentos de Programación y Algoritmia</h3>
+            <p class="mb-4">Un robot es solo una máquina inerte sin un programa que lo dirija. La programación es el proceso de diseñar y codificar una secuencia lógica de instrucciones que el microcontrolador (Arduino o Micro:bit) ejecutará para resolver un problema.</p>
+            
+            <div class="space-y-6 text-sm text-gray-700">
+                <div>
+                    <h4 class="font-bold text-gray-800 mb-2">5.3.1. El Algoritmo</h4>
+                    <p>Antes de escribir código, se debe diseñar el algoritmo: una secuencia ordenada de pasos finitos y precisos. En robótica, el algoritmo suele seguir el esquema Entrada - Proceso - Salida:</p>
+                    <ol class="list-decimal list-inside ml-4 mt-2">
+                        <li><strong>Entrada:</strong> Leer los sensores (ojos/tacto del robot).</li>
+                        <li><strong>Proceso:</strong> Decidir qué hacer según esos datos (cerebro).</li>
+                        <li><strong>Salida:</strong> Activar los motores o luces (músculos).</li>
+                    </ol>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-800 mb-2">5.3.2. Lenguajes de Programación</h4>
+                    <p>Para que el procesador entienda el algoritmo, usamos un lenguaje de programación.</p>
+                    <ul class="list-disc list-inside ml-4 mt-2">
+                        <li><strong>Programación por Bloques (MakeCode, Scratch, Tinkercad):</strong> Se utilizan piezas gráficas que encajan como un puzle. Es ideal para principiantes porque evita errores de escritura (sintaxis) y permite visualizar la lógica claramente.</li>
+                        <li><strong>Programación por Código (Arduino IDE - C++):</strong> Se escriben las instrucciones texto a texto. Es más potente, flexible y es el estándar profesional. Requiere respetar estrictamente las reglas de escritura (puntos y coma, paréntesis, etc.).</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-800 mb-2">5.3.3. Estructura de un Programa de Control</h4>
+                    <p>A diferencia de un programa informático tradicional (que empieza, hace un cálculo y termina), el software de un robot está vivo continuamente. Su estructura se divide en dos bloques:</p>
+                     <ul class="list-disc list-inside ml-4 mt-2">
+                        <li><strong>1. Configuración (Setup / Al iniciar):</strong> Se ejecuta una sola vez al encender el robot. Aquí "presentamos" al robot sus componentes: definimos qué pines serán entradas (sensores) y cuáles salidas (motores), e iniciamos las comunicaciones.</li>
+                        <li><strong>2. Bucle Principal (Loop / Por siempre):</strong> Es el núcleo del control. Las instrucciones dentro de este bloque se repiten indefinidamente a gran velocidad. Gracias a esta repetición constante, el robot puede reaccionar a cambios en su entorno en tiempo real (por ejemplo, detenerse milisegundos después de detectar una pared).</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-800 mb-2">5.3.4. Estructuras de Control y Variables</h4>
+                    <p>Son las herramientas lógicas que permiten al robot tomar decisiones "inteligentes":</p>
+                    <ul class="list-disc list-inside ml-4 mt-2">
+                        <li><strong>Variables:</strong> Son "cajas" en la memoria donde guardamos datos que cambian con el tiempo. Ejemplo: Una variable llamada Distancia Obstaculo guardará el valor que está midiendo el sensor de ultrasonidos en cada momento.</li>
+                        <li><strong>Condicionales (SI... ENTONCES / IF... ELSE):</strong> Permiten romper la secuencia lineal. El robot evalúa una condición y elige un camino. Ejemplo: "SI la Distancia Obstaculo es menor de 10 cm, ENTONCES parar motores; SI NO, avanzar".</li>
+                        <li><strong>Bucles (MIENTRAS / WHILE | DESDE / FOR):</strong> Permiten repetir una acción concreta varias veces o mientras se cumpla una condición específica.</li>
+                    </ul>
+                </div>
+                 <div>
+                    <h4 class="font-bold text-gray-800 mb-2">5.3.5. Diagramas de Flujo (Organigramas)</h4>
+                    <p>Son la representación gráfica del algoritmo. En robótica de control, sustituyen a los organigramas lineales simples por diagramas cíclicos (lazos cerrados). Se utilizan símbolos estandarizados:</p>
+                    <ul class="list-disc list-inside ml-4 mt-2">
+                        <li><strong>Óvalo:</strong> Inicio / Fin (aunque en robots el fin es raro).</li>
+                        <li><strong>Rombo:</strong> Decisión (¿Hay obstáculo?). Tiene dos salidas: Sí y No.</li>
+                        <li><strong>Rectángulo:</strong> Proceso o Acción (Mover motor, encender luz).</li>
+                        <li><strong>Paralelogramo:</strong> Entrada/Salida de datos (Leer sensor).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="punto-6" class="mb-12 border-b border-gray-200 pb-8 last:border-0">
+            <h2 class="text-3xl font-bold text-orange-600 mb-6 border-l-8 border-orange-500 pl-4">6. PRÁCTICA: SIMULACIÓN DE CIRCUITOS CON TINKERCAD</h2>
+            <p class="mb-4">Aquí tienes una propuesta para una Práctica Guiada en Tinkercad diseñada específicamente para integrarse en tu unidad didáctica. Esta práctica sirve de puente entre la teoría (puntos 5.2 Arduino y 5.3 Programación) y la realidad, permitiendo a los alumnos "tocar" los componentes sin riesgo de romperlos.</p>
+            <p class="mb-4">Autodesk Tinkercad es una herramienta online gratuita que nos permite diseñar circuitos electrónicos y programar placas Arduino de forma virtual. Es ideal para probar nuestros algoritmos antes de montar el robot real.</p>
+            
+            <div class="bg-white p-6 rounded shadow-md border border-gray-200">
+                <strong class="block font-bold text-lg text-gray-800 mb-2">Objetivo de la práctica</strong>
+                <p class="mb-4">Diseñar y programar un Semáforo Automático.</p>
+                <ul class="list-disc list-inside mb-4 text-sm text-gray-700">
+                    <li><strong>Hardware:</strong> Aprenderemos a conectar LEDs y resistencias a un Arduino.</li>
+                    <li><strong>Software:</strong> Crearemos un algoritmo secuencial (Lazo Abierto) usando programación por bloques.</li>
+                </ul>
+
+                <h4 class="font-bold text-lg text-gray-800 mb-2 mt-6">Paso 1: Entorno de trabajo</h4>
+                <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700">
+                    <li>Entra en tinkercad.com e inicia sesión.</li>
+                    <li>En el menú lateral, selecciona "Circuitos" y pulsa el botón verde "Crear nuevo circuito".</li>
+                    <li>A la derecha verás el panel de componentes.</li>
+                </ol>
+
+                <h4 class="font-bold text-lg text-gray-800 mb-2 mt-6">Paso 2: Montaje del Hardware</h4>
+                <p class="mb-2 text-sm">Arrastra los siguientes componentes al área de trabajo central:</p>
+                <ul class="list-disc list-inside space-y-1 text-sm text-gray-600 ml-4">
+                    <li>1 Placa Arduino Uno R3.</li>
+                    <li>1 Placa de pruebas pequeña (Protoboard).</li>
+                    <li>3 LEDs: Haz clic sobre ellos para cambiarles el color (1 Rojo, 1 Amarillo, 1 Verde).</li>
+                    <li>3 Resistencias: Haz clic sobre ellas y cambia su valor a 220 ohmios (\(\Omega\)). Nota: Las resistencias son necesarias para no quemar los LEDs.</li>
+                </ul>
+
+                <strong class="block text-sm text-gray-700 mt-4 mb-2">El Cableado:</strong>
+                <ol class="list-decimal list-inside space-y-1 text-sm text-gray-600">
+                    <li>Conecta un cable desde el pin GND (Tierra/Negativo) del Arduino a la línea negativa (azul) de la placa de pruebas.</li>
+                    <li>Coloca los LEDs en la placa. Recuerda: la pata corta es el Cátodo (-) y la larga el Ánodo (+).</li>
+                    <li>Conecta una resistencia desde la pata corta de cada LED hacia la línea negativa.</li>
+                    <li>Conecta los pines digitales del Arduino a la pata larga de cada LED:
+                        <ul class="list-disc list-inside ml-6 mt-1">
+                            <li>Pin 13 \(\rightarrow\) LED Rojo.</li>
+                            <li>Pin 12 \(\rightarrow\) LED Amarillo.</li>
+                            <li>Pin 11 \(\rightarrow\) LED Verde.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h4 class="font-bold text-lg text-gray-800 mb-2 mt-6">Paso 3: Programación (El Algoritmo)</h4>
+                <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700">
+                    <li>Pulsa el botón "Código" arriba a la derecha.</li>
+                    <li>Selecciona el modo "Bloques".</li>
+                    <li>Borra los bloques que vengan por defecto y construye esta secuencia lógica:</li>
+                </ol>
+                <div class="bg-gray-50 p-3 mt-2 rounded font-mono text-xs border border-gray-300 space-y-2">
+                    <div>
+                        <span class="text-red-600 font-bold">Bloque 1 (Rojo):</span><br>
+                        ● Definir pasador [13] en [ALTA]<br>
+                        ● Esperar [3] segundos<br>
+                        ● Definir pasador [13] en [BAJA]
+                    </div>
+                    <div>
+                        <span class="text-green-600 font-bold">Bloque 2 (Verde):</span><br>
+                        ● Definir pasador [11] en [ALTA]<br>
+                        ● Esperar [3] segundos<br>
+                        ● Definir pasador [11] en [BAJA]
+                    </div>
+                    <div>
+                        <span class="text-yellow-600 font-bold">Bloque 3 (Amarillo):</span><br>
+                        ● Definir pasador [12] en [ALTA]<br>
+                        ● Esperar [1] segundos<br>
+                        ● Definir pasador [12] en [BAJA]
+                    </div>
+                </div>
+
+                <h4 class="font-bold text-lg text-gray-800 mb-2 mt-6">Paso 4: Simulación</h4>
+                <p class="text-sm text-gray-700">Pulsa el botón "Iniciar simulación". Si todo está correcto, el Arduino se encenderá y los LEDs comenzarán a realizar la secuencia del semáforo repetidamente (Bucle Loop).</p>
+            </div>
+        </section>
+
+        <section id="punto-7" class="mb-8">
+            <h2 class="text-3xl font-bold text-orange-600 mb-6 border-l-8 border-orange-500 pl-4">7. ACTIVIDAD DE AMPLIACIÓN (RETO)</h2>
+            <div class="bg-purple-50 p-6 rounded-lg border-t-4 border-purple-500 shadow-sm">
+                <h3 class="text-xl font-bold text-purple-800 mb-2">Transformar el sistema en Lazo Cerrado</h3>
+                <p class="mb-3 text-purple-900">El semáforo anterior funciona por tiempo (lazo abierto). El reto consiste en añadir un <strong>Pulsador</strong> al circuito conectado al Pin 2.</p>
+                <ul class="list-disc list-inside text-sm text-purple-800 space-y-2">
+                    <li><strong>Objetivo:</strong> El semáforo debe estar siempre en Verde para los coches, y SOLO cuando un peatón pulse el botón, debe cambiar a Rojo.</li>
+                    <li><strong>Pista:</strong> Necesitarás usar el bloque de control "SI... ENTONCES" y el bloque de entrada "Leer pasador digital 2".</li>
+                </ul>
+            </div>
+        </section> 
+        </div>
+</main>
+
+
+<!-- Modal para ampliar imagen -->
+<div id="imageModal" class="modal">
+  <span class="close-modal">&times;</span>
+  <img class="modal-content" id="modalImage">
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // --- Lógica para el modal de la imagen ---
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
+        const images = document.querySelectorAll('.zoomable-image');
+        const closeBtn = document.querySelector(".close-modal");
+
+        images.forEach(img => {
+            img.onclick = function(){
+                modal.style.display = "flex";
+                modalImg.src = this.src;
+            }
+        });
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        closeBtn.onclick = closeModal;
+
+        modal.onclick = function(event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    });
+
+</script>
+</body>
+</html>

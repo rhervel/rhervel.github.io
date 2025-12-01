@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UD6. Desarrollo de aplicaciones móviles</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 fill=%22currentColor%22 class=%22bi bi-robot%22 viewBox=%220 0 16 16%22><path d=%22M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5ZM3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.58 26.58 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.933.933 0 0 1-.765.935c-.845.147-2.34.346-4.235.346-1.895 0-3.39-.2-4.235-.346A.933.933 0 0 1 3 9.219V8.062Zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a24.767 24.767 0 0 1-1.871-.183.25.25 0 0 0-.217.068l-.92.9a.25.25 0 0 0 .169.434l.92-.9a25.25 25.25 0 0 0 1.942.183.25.25 0 0 0 .217-.068l.92-.9a.25.25 0 0 0-.17-.434l-.92.9a24.767 24.767 0 0 1-1.871-.183Z%22/><path d=%22M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1.5a2.5 2.5 0 0 0 2.5 2.5h9A2.5 2.5 0 0 0 15 13.5V12a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2V1.866ZM14 7.5V12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5Z%22/></svg>" type="image/svg+xml">
+
+  
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Pequeños ajustes adicionales si fueran necesarios */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* Para los iconos de Bootstrap, si los estás usando */
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css");
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Open Sans"', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        makecode: {
+                            blue: '#0074D9',    /* Básico */
+                            green: '#2ECC40',   /* Bucles */
+                            pink: '#D81B60',    /* Entrada */
+                            teal: '#009688',    /* Lógica */
+                            red: '#FF4136',     /* Variables */
+                            purple: '#9C27B0'   /* Matemáticas */
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Forzar impresión de colores de fondo para PDF */
+        @media print {
+            body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-slate-100 text-slate-700 font-sans antialiased leading-relaxed">
+    <header class="bg-gray-900 text-gray-200 shadow-lg sticky top-0 z-40">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center gap-3">
+                    <a href="index.html" class="text-gray-100 hover:text-white flex items-center">
+                        <i class="bi bi-robot text-2xl mr-3"></i> <span class="font-bold text-xl">Tecnología y Digitalización</span>
+                    </a>
+                </div>
+                <div class="text-sm text-gray-400">
+                    <ol class="list-none p-0 inline-flex items-center">
+                        <li class="flex items-center">
+                            <a href="tyd3.html" class="text-gray-300 hover:text-blue-300">3º ESO</a>
+                            <i class="bi bi-chevron-right mx-2 text-xs text-gray-500"></i>
+                        </li>
+                        <li class="flex items-center text-gray-100 font-semibold">
+                            <span>UD6. Desarrollo de aplicaciones móviles</span>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <main class="flex-grow">
+        <div class="relative bg-cover bg-center py-20 md:py-32 -mx-6 md:-mx-12 -mt-6 md:-mt-12 rounded-t-lg" style="background-image: url('https://www.vocaeditorial.com/blog/media/robotica-infantil-1175x783.jpeg');">
+            <div class="absolute inset-0 bg-black opacity-50 rounded-t-lg"></div>
+            
+            <div class="container mx-auto px-12 relative z-10 text-center">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-white pb-6 mb-8">
+                    UD6. Desarrollo de aplicaciones móviles
+                </h1>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto bg-white shadow-lg rounded-lg my-12 p-10">
+            <section id="punto-1" class="mb-12 border-b border-gray-200 pb-8 last:border-0">
+            <h2 class="text-3xl font-bold text-orange-600 mb-6 border-l-8 border-orange-500 pl-4">1. Diseño de Aplicaciones: Más allá del código (UI y UX)</h2>
+            <p class="mb-4 text-gray-700">Antes de empezar a programar los bloques, debemos entender que una aplicación exitosa no solo "funciona", sino que es fácil y agradable de usar. En el mundo profesional, esto se divide en dos conceptos clave que a menudo se confunden: **UI** y **UX**.</p>
+
+            <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-3">1.1. ¿Qué es la UI? (User Interface - Interfaz de Usuario)</h3>
+            <p class="mb-3 text-gray-700">Es la "piel" de tu aplicación. Se refiere a todo lo que el usuario ve en la pantalla.</p>
+            <ul class="list-disc list-inside ml-4 space-y-1 text-gray-700">
+                <li>Se centra en: La estética y la apariencia visual.</li>
+                <li>Elementos: Los colores, el tipo de letra (tipografía), la forma de los botones, los iconos y las imágenes.</li>
+                <li>Objetivo: Que la app sea atractiva y visualmente coherente.</li>
+            </ul>
+
+            <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-3">1.2. ¿Qué es la UX? (User Experience - Experiencia de Usuario)</h3>
+            <p class="mb-3 text-gray-700">Es el "esqueleto" y el "cerebro" de tu aplicación. Se refiere a lo que el usuario siente al usarla y lo fácil que le resulta cumplir su objetivo.</p>
+            <ul class="list-disc list-inside ml-4 space-y-1 text-gray-700">
+                <li>Se centra en: La facilidad de uso (usabilidad) y la navegación.</li>
+                <li>Elementos: ¿Cuántos clics necesito para llegar al menú? ¿Es lógico el orden de las pantallas? ¿Se entiende para qué sirve cada botón?</li>
+                <li>Objetivo: Que el usuario no se frustre y disfrute usando la app.</li>
+            </ul>
+
+            <div class="bg-yellow-50 p-4 rounded border-l-4 border-yellow-400 mt-6 shadow-sm">
+                <h4 class="text-xl font-bold text-gray-700 mt-4 mb-2">La analogía del Ketchup:</h4>
+                <ul class="list-disc list-inside ml-4 space-y-1 text-gray-700">
+                    <li>UI es la botella de cristal clásica: Se ve muy elegante y bonita en la mesa.</li>
+                    <li>UX es la botella de plástico invertida: Quizás no es tan elegante, pero permite sacar el ketchup mucho más rápido y sin esfuerzo.</li>
+                </ul>
+            </div>
+
+            <div class="page-break mt-6"></div>
+
+            <p class="mb-4 text-gray-700">Una buena aplicación debe tener un equilibrio entre ambas.</p>
+
+            <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-3">1.3. Diferencias clave</h3>
+            <div class="overflow-x-auto mb-6">
+                <table class="min-w-full bg-white border border-gray-200">
+                    <thead class="bg-blue-100">
+                        <tr>
+                            <th class="py-2 px-4 border-b text-left text-sm font-medium text-blue-700">Característica</th>
+                            <th class="py-2 px-4 border-b text-left text-sm font-medium text-blue-700">UI (Interfaz)</th>
+                            <th class="py-2 px-4 border-b text-left text-sm font-medium text-blue-700">UX (Experiencia)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="py-2 px-4 border-b">Pregunta clave</td>
+                            <td class="py-2 px-4 border-b">¿Se ve bonito?</td>
+                            <td class="py-2 px-4 border-b">¿Es fácil de usar?</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border-b">Foco</td>
+                            <td class="py-2 px-4 border-b">Visual (Colores, estilo)</td>
+                            <td class="py-2 px-4 border-b">Funcional (Lógica, estructura)</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border-b">Herramientas</td>
+                            <td class="py-2 px-4 border-b">Diseño gráfico</td>
+                            <td class="py-2 px-4 border-b">Mapas de navegación, wireframes</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border-b">Emoción</td>
+                            <td class="py-2 px-4 border-b">"¡Qué chulo!"</td>
+                            <td class="py-2 px-4 border-b">"¡Qué útil y rápido!"</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-3">1.4. Accesibilidad: Diseño para todos</h3>
+            <p class="mb-3 text-gray-700">Como creadores de tecnología, tenemos la responsabilidad ética de que nuestra app pueda ser usada por el mayor número de personas posible, incluidas aquellas con dificultades visuales o motoras.</p>
+            <h4 class="text-xl font-bold text-gray-700 mt-4 mb-2">Reglas de oro para tu proyecto en 3º ESO:</h4>
+            <ol class="list-decimal list-inside ml-4 space-y-2 text-gray-700 text-sm bg-gray-50 p-4 rounded">
+                <li><strong>Contraste de color:</strong> Nunca pongas texto gris claro sobre fondo blanco. Usa colores que resalten bien (ej. letras negras sobre fondo amarillo) para que personas con baja visión puedan leerlo.</li>
+                <li><strong>Tamaño de los botones:</strong> Recuerda que usamos el dedo, no un ratón de precisión. Los botones deben ser lo bastante grandes para pulsarlos con el dedo pulgar sin equivocarse (zona del pulgar).</li>
+                <li><strong>Menos es más:</strong> No llenes la pantalla de cosas. Deja "aire" (espacios vacíos) para que el usuario no se agobie.</li>
+            </ol>
+
+            <div class="bg-gray-100 p-4 rounded border border-gray-300 mt-6">
+                <h4 class="text-xl font-bold text-gray-700 mb-2">Propuesta de Actividad Breve (para incluir tras la teoría):</h4>
+                <p class="font-bold italic mb-2 text-gray-600">"El Crítico de Apps"</p>
+                <p class="mb-2 text-gray-700">Abre en tu móvil una app que uses mucho (Instagram, TikTok, WhatsApp).</p>
+                <ul class="list-disc list-inside ml-4 space-y-1 text-gray-700 text-sm">
+                    <li>Identifica un elemento de UI que te guste (ej: "me gusta el icono del corazón").</li>
+                    <li>Identifica un elemento de UX que te moleste o se pueda mejorar (ej: "es difícil encontrar los vídeos guardados", "el botón de cerrar publicidad es demasiado pequeño").</li>
+                </ul>
+            </div>
+
+        </section>
+
+        <section id="punto-2" class="mb-12 border-b border-gray-200 pb-8 last:border-0">
+            <h2 class="text-3xl font-bold text-orange-600 mb-6 border-l-8 border-orange-500 pl-4">2. Conociendo nuestra herramienta: MIT App Inventor</h2>
+            <p class="mb-4 text-gray-700">Para llevar a la realidad nuestros diseños, no necesitamos escribir miles de líneas de código complejo en inglés. Vamos a utilizar **MIT App Inventor**, una plataforma desarrollada por el Instituto Tecnológico de Massachusetts (MIT) y Google.</p>
+
+            <div class="page-break"></div>
+
+            <p class="mb-4 text-gray-700">Es una herramienta de **programación por bloques (visual)**, lo que significa que construiremos nuestra app encajando piezas lógicas como si fuera un puzle o un juego de construcción.</p>
+
+            <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-3">2.1. ¿Cómo funciona? La arquitectura de la nube</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+                <div class="bg-green-50 p-5 rounded-lg border-l-4 border-green-500 shadow-sm">
+                    <h4 class="text-xl font-bold text-green-800 mb-2">A. La Vista de Diseñador (Designer)</h4>
+                    <p class="text-sm mb-2 font-semibold text-gray-700">Es el estudio de montaje. Aquí **NO** se programa.</p>
+                    <ul class="list-disc list-inside ml-4 space-y-1 text-gray-700 text-sm">
+                        <li>¿Qué hacemos aquí? Aplicamos la UI. Arrastramos Botones, Imágenes, Etiquetas, etc.</li>
+                        <li>Panel de Propiedades: Cambiamos color, tamaño y subimos imágenes.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-yellow-50 p-5 rounded-lg border-l-4 border-yellow-500 shadow-sm">
+                    <h4 class="text-xl font-bold text-yellow-800 mb-2">B. La Vista de Bloques (Blocks)</h4>
+                    <p class="text-sm mb-2 font-semibold text-gray-700">Es el cerebro de la aplicación. Aquí definimos el comportamiento (la UX).</p>
+                    <ul class="list-disc list-inside ml-4 space-y-1 text-gray-700 text-sm">
+                        <li>¿Qué hacemos aquí? Le damos órdenes a los elementos.</li>
+                        <li>Ejemplo: "Cuando Botón1 recibe Clic $\rightarrow$ Hacer abrir otra pantalla".</li>
+                        <li>Lógica: Los bloques tienen colores según su función (Control, Lógica, Texto...).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-3">2.2. El flujo de trabajo: Ordenador + Móvil</h3>
+            <p class="mb-3 text-gray-700">Una de las características más potentes de App Inventor es que podemos ver qué estamos creando en tiempo real.</p>
+            <p class="mb-3 text-gray-700">Para ello, necesitamos dos dispositivos trabajando en equipo:</p>
+            <ol class="list-decimal list-inside ml-4 space-y-1 text-gray-700 text-sm bg-gray-100 p-3 rounded">
+                <li>El Ordenador: Donde diseñamos la interfaz y montamos los bloques de lógica.</li>
+                <li>El Móvil (o Tablet): Donde probamos la app. Necesita tener instalada la aplicación gratuita **"MIT AI2 Companion"**.</li>
+            </ol>
+
+            <div class="page-break"></div>
+
+            <p class="mb-4 mt-4 text-gray-700">¿Cómo se conectan? El ordenador generará un código QR. Al escanearlo con la app del móvil, todo lo que hagas en la pantalla del PC aparecerá mágicamente en tu teléfono al instante. A esto se le llama **"Live Testing" (Prueba en vivo)**.</p>
+            <p class="mt-4 mb-4 text-justify font-bold text-red-600">¡Ojo! Para que esto funcione, tanto el ordenador como el móvil deben estar conectados a la **misma red WiFi** (la del instituto).</p>
+
+            <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-3 border-b pb-2">2.1 Tutorial Práctico: Tu primera App en 15 minutos</h3>
+            <p class="mb-2 text-gray-700">Objetivo: Crear una aplicación que hable cuando pulses un botón.</p>
+            <p class="mb-4 text-gray-700">Nivel: Iniciación Absoluta.</p>
+
+            <div class="space-y-4">
+            <div class="bg-blue-50 p-4 rounded shadow-sm">
+            <h4 class="text-xl font-bold text-blue-700 mt-4 mb-2">Paso 0: Preparativos</h4>
+            <p class="mb-2 text-gray-700">Antes de empezar, asegúrate de tener:</p>
+            <ol class="list-decimal list-inside ml-4 space-y-1 text-gray-700">
+                <li>Un ordenador con conexión a internet.</li>
+                <li>Una cuenta de Google (Gmail o la del instituto).</li>
+                <li>Un dispositivo móvil (móvil o tablet) conectado a la MISMA RED WIFI que el ordenador.</li>
+                <li>Instala en el móvil la app gratuita **"MIT AI2 Companion"** (disponible en Google Play Store o Apple App Store).</li>
+            </ol>
+            </div>
+            <div class="bg-blue-50 p-4 rounded shadow-sm">
+            <h4 class="text-xl font-bold text-blue-700 mt-4 mb-2">Paso 1: Iniciar sesión y crear el proyecto</h4>
+            <ol class="list-decimal list-inside ml-4 space-y-1 text-gray-700">
+                <li>Entra en la web: <code class="bg-gray-200 p-0.5 rounded">ai2.appinventor.mit.edu</code></li>
+                <li>Haz clic en el botón naranja **"Create Apps!"**.</li>
+                <li>Inicia sesión con tu cuenta de Google. (Acepta los términos de servicio si es la primera vez).</li>
+                <li>Aparecerá una ventana de bienvenida. Haz clic en "Comenzar un proyecto nuevo" (Start new project).</li>
+                <li>Nombre del proyecto: Escribe <code class="bg-gray-200 p-0.5 rounded">Hola Mundo</code> ( Importante: App Inventor NO permite espacios en los nombres de proyecto. Usa mayúsculas o guiones bajos).</li>
+                <li>Pulsa Aceptar.</li>
+            </ol>
+            </div>
+            <div class="bg-blue-50 p-4 rounded shadow-sm">
+            <h4 class="text-xl font-bold text-blue-700 mt-4 mb-2">Paso 2: El Diseñador (La cara de tu App)</h4>
+            <p class="mb-2 text-gray-700">Ahora estás en la vista de Diseñador. Aquí decidimos qué aspecto tendrá la app.</p>
+            <ol class="list-decimal list-inside ml-4 space-y-1 text-gray-700">
+                <li><strong>Pon un Botón:</strong> En la columna izquierda (Paleta), busca la sección "Interfaz de Usuario". Arrastra un **Botón** hacia la pantalla del móvil central.</li>
+                <li><strong>Personaliza el Botón:</strong> Con el botón seleccionado, mira la columna derecha (Propiedades). Busca la propiedad <strong>Texto</strong> y cámbialo por: <code class="bg-gray-200 p-0.5 rounded">PÚLSAME</code>. (Opcional) Cambia el ColorDeFondo a tu color favorito.</li>
+                <li><strong>Añade la voz (Componente Invisible):</strong> En la columna izquierda (Paleta), baja hasta encontrar la sección **Medios**. Arrastra el componente **TextoAVoz (TextToSpeech)** hacia la pantalla. Nota: Verás que no aparece en la pantalla del móvil, sino debajo, en "Componentes no visibles". ¡Es normal!</li>
+            </ol>
+            </div>
+            <div class="bg-blue-50 p-4 rounded shadow-sm">
+            <h4 class="text-xl font-bold text-blue-700 mt-4 mb-2">Paso 3: Los Bloques (El cerebro de tu App)</h4>
+            <p class="mb-2 text-gray-700">Vamos a programar. Haz clic en el botón **"Bloques"** situado en la esquina superior derecha de la web.</p>
+            <ol class="list-decimal list-inside ml-4 space-y-1 text-gray-700">
+                <li><strong>El Evento (¿Cuándo pasa algo?):</strong> En la columna izquierda, haz clic en <code class="bg-gray-200 p-0.5 rounded">Botón1</code>. Arrastra el bloque de color mostaza: <code class="bg-gray-200 p-0.5 rounded">Cuando Botón1.Clic ejecutar...</code></li>
+                <li><strong>La Acción (¿Qué pasa?):</strong> En la columna izquierda, haz clic en <code class="bg-gray-200 p-0.5 rounded">TextoAVoz1</code>. Arrastra el bloque morado: <code class="bg-gray-200 p-0.5 rounded">Llamar TextoAVoz1. Hablar mensaje</code> Encaja este bloque **DENTRO** del bloque del botón (debes oír un "clic").</li>
+                <li><strong>El Mensaje (¿Qué dice?):</strong> En la columna izquierda, haz clic en la sección **Texto** (color rosa). Sube arriba del todo y coge el primer bloque pequeño: <code class="bg-gray-200 p-0.5 rounded">""</code> (una comilla vacía). Encájalo en el hueco de "mensaje" y escribe dentro: <code class="bg-gray-200 p-0.5 rounded">¡Hola mundo! Ya soy programador.</code></li>
+            </ol>
+            </div>
+            <div class="bg-blue-50 p-4 rounded shadow-sm">
+            <h4 class="text-xl font-bold text-blue-700 mt-4 mb-2">Paso 4: Probar la App en tu móvil (Live Testing)</h4>
+            <p class="mb-2 text-gray-700">¡El momento de la verdad! No necesitas cables.</p>
+            <ol class="list-decimal list-inside ml-4 space-y-1 text-gray-700">
+                <li>En la web (arriba), haz clic en el menú <strong>Conectar $\rightarrow$ Al Companion</strong>.</li>
+                <li>Aparecerá un **Código QR** en la pantalla del ordenador.</li>
+                <li>Coge tu móvil, abre la app **MIT AI2 Companion**.</li>
+                <li>Pulsa el botón azul **"Scan QR code"** y apunta a la pantalla.</li>
+                <li>Espera unos segundos... ¡La app aparecerá en tu móvil!</li>
+                <li>Pulsa el botón. ¿Te ha saludado?</li>
+            </ol>
+            </div>
+            <div class="bg-blue-50 p-4 rounded shadow-sm">
+            <h4 class="text-xl font-bold text-blue-700 mt-4 mb-2">Paso 5: Exportar (Instalarla para siempre)</h4>
+            <p class="mb-2 text-gray-700">Lo que hicimos en el paso 4 es una prueba temporal. Si cierras la web, la app desaparece del móvil. Si quieres instalarla como una app real (y pasársela a tus amigos por WhatsApp):</p>
+            <ol class="list-decimal list-inside ml-4 space-y-1 text-gray-700">
+                <li>En la web (arriba), haz clic en **Generar (Build)**.</li>
+                <li>Selecciona **Android App (.apk)**.</li>
+                <li>Espera a que la barra de carga termine (puede tardar un minuto).</li>
+                <li>Te dará un nuevo código QR. Escanéalo y el móvil te preguntará si quieres descargar e instalar el archivo. Nota: Al no ser una app de la tienda oficial, el móvil te pedirá permiso para "Instalar aplicaciones desconocidas". Dile que sí.</li>
+            </ol>
+        </div>
+    </div>
+        <div class="bg-gray-100 p-4 rounded border border-gray-300 mt-6">    
+            <h4 class="text-xl font-bold text-gray-700 mb-2">Reto Extra (Para nota)</h4>
+            <p class="text-sm text-gray-600">Si ya te funciona, intenta esto antes de que acabe la clase:</p>
+            <ol class="list-decimal list-inside ml-4 space-y-1 text-gray-700">
+                <li>Añade un componente **Acelerómetro** (en Sensores).</li>
+                <li>Programa que cuando agites el móvil (<code class="bg-gray-200 p-0.5 rounded">Cuando Acelerometro1.Agitar</code>), el móvil diga "¡Terremoto!".</li>
+            </ol>
+        </div>
+        </section>
+
+        <section id="punto-3" class="mb-12 border-b border-gray-200 pb-8 last:border-0">
+            <h2 class="text-3xl font-bold text-orange-600 mb-6 border-l-8 border-orange-500 pl-4">3. Tu móvil tiene "sentidos": Uso de Sensores</h2>
+            <p class="mb-4 text-gray-700">Hasta ahora, nuestros programas funcionaban igual que en un ordenador: el usuario pulsaba un botón y pasaba algo. Pero un teléfono móvil es mucho más potente. Es un dispositivo lleno de **sensores** que le permiten "ver", "oir", "sentir" movimiento y saber dónde está.</p>
+            <p class="mb-4 text-gray-700">En App Inventor, estos elementos son **"Componentes No Visibles"**. Esto significa que cuando los arrastras al visor en el modo Diseñador, no aparecen dentro de la pantalla del móvil, sino que se quedan debajo, esperando a ser programados.</p>
+            <p class="mb-4 text-gray-700">Vamos a ver los tres más importantes y útiles para tus primeros proyectos:</p>
+
+            <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-3">3.1. El Acelerómetro (El sentido del equilibrio)</h3>
+            <p class="mb-3 text-gray-700">¿Cómo sabe tu móvil cuándo girar la pantalla si lo pones en horizontal? ¿O cómo cuenta tus pasos? Gracias al acelerómetro.</p>
+            <ul class="list-disc list-inside ml-4 space-y-1 text-gray-700">
+                <li>¿Qué hace? Detecta si el móvil se está moviendo, si se agita o si se inclina.</li>
+                <li>En App Inventor: Se llama <code class="bg-gray-200 p-0.5 rounded">AcelerometerSensor</code>.</li>
+                <li>Uso común: Juegos (usar el móvil como volante), podómetros, o borrar texto agitando el móvil.</li>
+                <li>Bloque estrella: <code class="bg-gray-200 p-0.5 rounded">Cuando AcelerometerSensor1. Agitar (Shaking) $\rightarrow$ Ejecutar acción.</code></li>
+            </ul>
+
+            <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-3">3.2. Reconocimiento de Voz y Texto a Voz (El oído y la boca)</h3>
+
+            <div class="page-break"></div>
+
+            <p class="mb-3 text-gray-700">Podemos hacer que nuestra aplicación hable con el usuario sin necesidad de leer la pantalla. Esto es fundamental para la accesibilidad (que vimos en el punto 1) y para hacer asistentes virtuales tipo Siri o Alexa.</p>
+            <ul class="list-disc list-inside ml-4 space-y-1 text-gray-700">
+                <li><strong>TextToSpeech (Texto a Voz):</strong> Tú escribes una frase en los bloques y el móvil la lee en voz alta.</li>
+                <li><strong>SpeechRecognizer (Reconocimiento de Voz):</strong> El móvil escucha lo que dices, lo convierte en texto escrito y nosotros podemos usar ese texto para tomar decisiones (ej: si digo "Rojo", la pantalla se pone roja).</li>
+            </ul>
+
+            <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-3">3.3. GPS y Localización (El sentido de la ubicación)</h3>
+            <p class="mb-3 text-gray-700">El móvil puede saber sus coordenadas exactas en el planeta Tierra (Latitud y Longitud).</p>
+            <ul class="list-disc list-inside ml-4 space-y-1 text-gray-700">
+                <li>En App Inventor: Se llama <code class="bg-gray-200 p-0.5 rounded">LocationSensor</code>.</li>
+                <li>Uso común: Mapas, medir distancias recorridas, juegos tipo Pokémon GO.</li>
+                <li><strong>Nota importante sobre Privacidad:</strong> Para usar este sensor, la aplicación debe pedir permiso al usuario. Como desarrolladores éticos, nunca debemos rastrear la ubicación de alguien sin que lo sepa y lo acepte.</li>
+            </ul>
+
+            <div class="bg-gray-100 p-4 rounded border border-gray-300 mt-6">
+                <h4 class="text-xl font-bold text-gray-700 mb-2">Propuesta de Actividad Práctica (Mini-Reto)</h4>
+            <p class="font-bold italic mb-2 text-gray-600">Nombre del reto: "El Loro Agitado" Objetivo: Combinar un sensor físico (movimiento) con una salida de audio.</p>
+            <p class="mb-2 text-gray-700 font-semibold">Pasos:</p>
+            <ol class="list-decimal list-inside ml-4 space-y-2 text-gray-700">
+                <li><strong>Diseño (UI):</strong> Pon una imagen de un loro (o tu mascota) en el centro de la pantalla.</li>
+                <li><strong>Componentes No Visibles:</strong> Arrastra un <span class="italic text-gray-500">AcelerometerSensor</span> y un <span class="italic text-gray-500">TextToSpeech</span> (están en la pestaña "Medios" y "Sensores").</li>
+                <li><strong>Lógica (Bloques):</strong>
+                    <ul class="list-circle list-inside ml-4 space-y-1 text-gray-700">
+                        <li>Busca el bloque amarillo: <code class="bg-gray-200 p-0.5 rounded">Cuando Acelerometer Sensor1.Agitar</code></li>
+                        <li>Dentro, encaja el bloque morado: <code class="bg-gray-200 p-0.5 rounded">Llamar TextToSpeech1.Hablar</code></li>
+                        <li>En el hueco de "mensaje", engancha un bloque de texto rojo vacío y escribe: <code class="bg-gray-200 p-0.5 rounded">"¡Ay! ¡No me marees!"</code></li>
+                    </ul>
+                </li>
+                <li><strong>Prueba:</strong> Conecta el móvil. Agítalo con fuerza. ¿Se queja tu móvil?</li>
+            </ol>
+        </div>
+        </section>
+
+        <section id="punto-4" class="mb-12 border-b border-gray-200 pb-8 last:border-0">
+            <h2 class="text-3xl font-bold text-orange-600 mb-6 border-l-8 border-orange-500 pl-4">4. Dando inteligencia a la App: Variables y Condicionales</h2>
+            <p class="mb-4 text-gray-700">Para que una aplicación sea útil de verdad, no puede limitarse a repetir siempre lo mismo. Debe reaccionar de forma diferente según lo que haga el usuario. Para ello, necesitamos dominar dos conceptos fundamentales de la programación: las **Variables (la memoria)** y los **Condicionales (la toma de decisiones)**.</p>
+
+            <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-3">4.1. Las Variables: La "Memoria" de la App</h3>
+            <p class="mb-3 text-gray-700">Imagina que estás jugando a un videojuego. Si matas un enemigo, ganas 10 puntos. ¿Dónde se guardan esos puntos? En una variable.</p>
+
+            <div class="page-break"></div>
+
+            <p class="mb-3 text-gray-700">¿Qué es? Una variable es como una caja etiquetada donde guardamos un dato. El contenido de la caja puede cambiar (variar) durante el uso de la app, pero la etiqueta siempre es la misma para que sepamos dónde buscar.</p>
+            <p class="mb-3 text-gray-700">¿Para qué sirven en 3º ESO?</p>
+            <ul class="list-disc list-inside ml-4 space-y-1 text-gray-700">
+                <li>Guardar una puntuación (empieza en 0, luego cambia a 10, luego a 20...).</li>
+                <li>Guardar el nombre de usuario que ha escrito la persona.</li>
+                <li>Contar cuántas veces se ha pulsado un botón.</li>
+            </ul>
+
+            <p class="font-semibold mt-4 mb-2 text-gray-700">En App Inventor:</p>
+            <p class="mb-2 text-gray-700">Usamos los bloques de color **Naranja**.</p>
+            <ol class="list-decimal list-inside ml-4 space-y-1 text-gray-700">
+                <li><code class="bg-gray-200 p-0.5 rounded">Inicializar global nombre como...</code> (Crear la caja al principio).</li>
+                <li><code class="bg-gray-200 p-0.5 rounded">Poner global nombre a...</code> (Meter un dato nuevo en la caja).</li>
+                <li><code class="bg-gray-200 p-0.5 rounded">Tomar global nombre</code> (Mirar qué hay dentro de la caja para usarlo).</li>
+            </ol>
+
+            <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-3">4.2. Los Condicionales: La "Toma de Decisiones"</h3>
+            <p class="mb-3 text-gray-700">En la vida real tomamos decisiones todo el tiempo basándonos en condiciones: "SI llueve, ENTONCES cojo el paraguas. SI NO, cojo las gafas de sol."</p>
+            <p class="mb-3 text-gray-700">En programación, esto es exactamente igual. Usamos la estructura **SI... ENTONCES... SINO** (If... Then... Else).</p>
+            <ul class="list-disc list-inside ml-4 space-y-1 text-gray-700">
+                <li>¿Cómo funciona? El programa hace una pregunta (una comparación lógica). Si la respuesta es "Verdadera", ejecuta una acción. Si es "Falsa", ignora esa acción o hace otra distinta.</li>
+                <li>Comparadores Lógicos: Para hacer la pregunta, necesitamos las matemáticas (Bloques Verdes):
+                    <ul class="list-circle list-inside ml-4 space-y-1 text-gray-700">
+                        <li>Es igual a (<span class="latex">$=$</span>)</li>
+                        <li>Es mayor que (<span class="latex">$>$</span>)</li>
+                        <li>Es menor que (<span class="latex">$<$</span>)</li>
+                    </ul>
+                </li>
+            </ul>
+            <p class="italic mb-2 text-gray-600">Ejemplo práctico: SI (Batería <span class="latex">$<$</span> 15%) $\rightarrow$ ENTONCES (Poner pantalla en modo ahorro).</p>
+            <p class="font-semibold mt-4 mb-2 text-gray-700">En App Inventor:</p>
+            <p class="mb-4 text-gray-700">Usamos los bloques de color **Amarillo oscuro (Control)**. El bloque principal se llama **Si... entonces** (o If... then).</p>
+
+            <div class="bg-gray-100 p-4 rounded border border-gray-300 mt-6">
+                <h4 class="text-xl font-bold text-gray-700 mb-2">Propuesta de Actividad Práctica: "El Portero de Discoteca"</h4>
+            <p class="mb-2 text-gray-700">Vamos a crear una mini-app que pida la edad al usuario y decida si puede entrar o no.</p>
+
+            <div class="page-break"></div>
+
+            <ol class="list-decimal list-inside ml-4 space-y-2 text-gray-700">
+                <li><strong>Diseño (UI):</strong>
+                    <ul class="list-circle list-inside ml-4 space-y-1 text-gray-700">
+                        <li>Una Etiqueta que diga: "¿Qué edad tienes?".</li>
+                        <li>Un CampoDeTexto (para que el usuario escriba el número).</li>
+                        <li>Un Botón que diga "Comprobar".</li>
+                        <li>Una Etiqueta vacía para el resultado.</li>
+                    </ul>
+                </li>
+                <li><strong>Lógica (Bloques):</strong>
+                    <ul class="list-circle list-inside ml-4 space-y-1 text-gray-700">
+                        <li>Usaremos un Condicional.</li>
+                        <li>Arrastra el evento: <code class="bg-gray-200 p-0.5 rounded">Cuando Botón1.Clic</code>.</li>
+                        <li>Dentro, pon el bloque de control: **Si... entonces... sino** (pulsa el engranaje azul del bloque para añadir el "sino" o "else").</li>
+                        <li><strong>La Pregunta:</strong> Usa un bloque matemático (<span class="latex">$=$</span>) del menú verde, pero cámbialo a Mayor o igual ($\ge$). ¿Es <code class="bg-gray-200 p-0.5 rounded">Campo De Texto. Texto $\ge$ 18</code>?</li>
+                        <li><strong>El "Entonces" (Si es verdad):</strong>
+                            <ul class="list-square list-inside ml-4 space-y-1 text-gray-700">
+                                <li><code class="bg-gray-200 p-0.5 rounded">Poner Etiqueta Resultado.Texto a "¡Puedes pasar! Disfruta de la fiesta."</code></li>
+                                <li>(Opcional: Cambiar el color de fondo a Verde).</li>
+                            </ul>
+                        </li>
+                        <li><strong>El "Sino" (Si es mentira):</strong>
+                            <ul class="list-square list-inside ml-4 space-y-1 text-gray-700">
+                                <li><code class="bg-gray-200 p-0.5 rounded">Poner Etiqueta Resultado.Texto a "Lo siento, eres menor. A casa a estudiar."</code></li>
+                                <li>(Opcional: Cambiar el color de fondo a Rojo).</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+        </section>
+
+        <section id="punto-5" class="mb-12 border-b border-gray-200 pb-8 last:border-0">
+            <h2 class="text-3xl font-bold text-orange-600 mb-6 border-l-8 border-orange-500 pl-4">5. Manos a la obra: Proyectos Finales con Impacto (ODS)</h2>
+            <p class="mb-4 text-gray-700">Hemos aprendido diseño (UI/UX), hemos manejado el entorno, sabemos usar sensores y aplicar lógica. Ahora toca demostrarlo.</p>
+            <p class="mb-6 text-gray-700">Elige **UNO** de los siguientes retos para tu proyecto final. Cada uno tiene un nivel de dificultad distinto, pero todos comparten un objetivo común: utilizar la tecnología para mejorar nuestro entorno, basándonos en los **Objetivos de Desarrollo Sostenible (ODS)** de la ONU.</p>
+
+            <div class="flex justify-center my-6">
+                <div class="text-center">
+                    <img src="https://via.placeholder.com/400x200?text=17+Sustainable+Development+Goals+Diagram" alt="17 Sustainable Development Goals Diagram" class="rounded-lg shadow-lg">
+                    <p class="text-sm text-gray-500 mt-2">17 SUSTAINABLE DEVELOPMENT GOALS</p>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-green-500 mt-6 mb-3 border-b border-green-300 pb-1">🟢 Nivel 1 (Básico): La "Zen App" (Bienestar Emocional)</h3>
+            <p class="mb-2 text-gray-700">Vinculado al ODS 3: **Salud y Bienestar**. Muchas personas sufren estrés o ansiedad. Tu misión es crear una aplicación sencilla que funcione como un "kit de emergencia" para relajarse.</p>
+            <ul class="list-disc list-inside ml-4 space-y-1 text-gray-700">
+                <li><strong>El Reto:</strong> Crear una botonera de sonidos relajantes (lluvia, bosque, mar) o frases motivadoras.</li>
+                <li><strong>Requisitos Técnicos:</strong>
+                    <ul class="list-circle list-inside ml-4 space-y-1 text-gray-700">
+                        <li>UI: Uso de Imágenes como botones y disposición estética (colores suaves).</li>
+                        <li>Código: Eventos simples (<code class="bg-gray-200 p-0.5 rounded">Cuando Botón.Clic</code>).</li>
+                        <li>Componentes: Sonido (<code class="bg-gray-200 p-0.5 rounded">Sound</code>) o Texto a Voz (<code class="bg-gray-200 p-0.5 rounded">TextToSpeech</code>).</li>
+                    </ul>
+                </li>
+                <li><strong>Funcionalidad:</strong> Al pulsar la imagen de una tormenta, debe sonar lluvia. Al pulsar un botón de "Consejo", el móvil debe hablar y dar un mensaje de ánimo.</li>
+            </ul>
+
+            <h3 class="text-2xl font-bold text-yellow-500 mt-6 mb-3 border-b border-yellow-300 pb-1">🟡 Nivel 2 (Intermedio): La Calculadora Eco-Friendly</h3>
+            <p class="mb-2 text-gray-700">Vinculado al ODS 12: **Producción y Consumo Responsables**. No somos conscientes de cuánta agua o plástico gastamos. Tu misión es crear una calculadora que conciencie al usuario.</p>
+
+            <div class="page-break"></div>
+
+            <ul class="list-disc list-inside ml-4 space-y-1 text-gray-700">
+                <li><strong>El Reto:</strong> Una app donde el usuario introduce un dato (ej: minutos que tarda en ducharse) y la app calcula el impacto.</li>
+                <li><strong>Requisitos Técnicos:</strong>
+                    <ul class="list-circle list-inside ml-4 space-y-1 text-gray-700">
+                        <li>UI: CampoDeTexto para introducir números y Etiquetas para resultados.</li>
+                        <li>Código: Uso de Variables y Operaciones Matemáticas.</li>
+                        <li>Lógica: Uso de Condicionales.</li>
+                    </ul>
+                </li>
+                <li><strong>Funcionalidad:</strong>
+                    <ul class="list-circle list-inside ml-4 space-y-1 text-gray-700">
+                        <li>El usuario escribe: "10" (minutos).</li>
+                        <li>La app multiplica por 20 litros/minuto.</li>
+                        <li>Condicional (Si...): SI el resultado es > 100 litros, el fondo se pone ROJO y sale un mensaje de "¡Cuidado! Gastas demasiada agua". SI es menor, sale VERDE.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3 class="text-2xl font-bold text-red-500 mt-6 mb-3 border-b border-red-300 pb-1">🔴 Nivel 3 (Avanzado): El Guardián de Bolsillo (Seguridad)</h3>
+            <p class="mb-2 text-gray-700">Vinculado al ODS 11 (Ciudades Seguras) y ODS 5 (Igualdad). El móvil puede ser una herramienta de defensa. Tu misión es crear una app que reaccione ante un movimiento brusco para situaciones de peligro.</p>
+            <ul class="list-disc list-inside ml-4 space-y-1 text-gray-700">
+                <li><strong>El Reto:</strong> Una app que detecte si el usuario está en peligro o necesita ayuda sin necesidad de mirar la pantalla.</li>
+                <li><strong>Requisitos Técnicos:</strong>
+                    <ul class="list-circle list-inside ml-4 space-y-1 text-gray-700">
+                        <li>UI: Diseño minimalista con un botón de "Activar/Desactivar".</li>
+                        <li>Código: Uso del <span class="italic text-gray-500">AcelerometerSensor</span> (Sensor de movimiento).</li>
+                        <li>Lógica: Condicionales complejos o temporizadores (Reloj).</li>
+                    </ul>
+                </li>
+                <li><strong>Funcionalidad:</strong>
+                    <ul class="list-circle list-inside ml-4 space-y-1 text-gray-700">
+                        <li>Al agitar el móvil fuertemente (<code class="bg-gray-200 p-0.5 rounded">Shaking</code>), la app debe activar automáticamente un sonido de alarma estridente (sirena) o decir una frase en bucle ("¡Necesito ayuda!") al volumen máximo.</li>
+                        <li>Extra: Que muestre en pantalla la ubicación actual (Latitud/Longitud) usando el <span class="italic text-gray-500">LocationSensor</span>.</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+  
+        </div>
+</main>
+
+
+<!-- Modal para ampliar imagen -->
+<div id="imageModal" class="modal">
+  <span class="close-modal">&times;</span>
+  <img class="modal-content" id="modalImage">
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // --- Lógica para el modal de la imagen ---
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
+        const images = document.querySelectorAll('.zoomable-image');
+        const closeBtn = document.querySelector(".close-modal");
+
+        images.forEach(img => {
+            img.onclick = function(){
+                modal.style.display = "flex";
+                modalImg.src = this.src;
+            }
+        });
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        closeBtn.onclick = closeModal;
+
+        modal.onclick = function(event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    });
+
+</script>
+</body>
+</html>
