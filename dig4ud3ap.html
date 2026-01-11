@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UD3. Edición y creación de contenido</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 fill=%22currentColor%22 class=%22bi bi-robot%22 viewBox=%220 0 16 16%22><path d=%22M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5ZM3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.58 26.58 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.933.933 0 0 1-.765.935c-.845.147-2.34.346-4.235.346-1.895 0-3.39-.2-4.235-.346A.933.933 0 0 1 3 9.219V8.062Zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a24.767 24.767 0 0 1-1.871-.183.25.25 0 0 0-.217.068l-.92.9a.25.25 0 0 0 .169.434l.92-.9a25.25 25.25 0 0 0 1.942.183.25.25 0 0 0 .217-.068l.92-.9a.25.25 0 0 0-.17-.434l-.92.9a24.767 24.767 0 0 1-1.871-.183Z%22/><path d=%22M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1.5a2.5 2.5 0 0 0 2.5 2.5h9A2.5 2.5 0 0 0 15 13.5V12a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2V1.866ZM14 7.5V12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5Z%22/></svg>" type="image/svg+xml">
+
+  
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Pequeños ajustes adicionales si fueran necesarios */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* Para los iconos de Bootstrap, si los estás usando */
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css");
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Open Sans"', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-gray-100 text-gray-800 font-sans">
+        <header class="bg-gray-900 text-gray-200 shadow-lg sticky top-0 z-40">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center gap-3">
+                    <a href="index.html" class="text-gray-100 hover:text-white flex items-center">
+                        <i class="bi bi-robot text-2xl mr-3"></i> <span class="font-bold text-xl">Digitalización</span>
+                    </a>
+                </div>
+                <div class="text-sm text-gray-400">
+                    <ol class="list-none p-0 inline-flex items-center">
+                        <li class="flex items-center">
+                            <a href="dig4.html" class="text-gray-300 hover:text-blue-300">4º ESO</a>
+                            <i class="bi bi-chevron-right mx-2 text-xs text-gray-500"></i>
+                        </li>
+                        <li class="flex items-center text-gray-100 font-semibold">
+                            <span>UD3. Edición y creación de contenido</span>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<main class="flex-grow">
+    <div class="relative bg-cover bg-center py-20 md:py-32 -mx-6 md:-mx-12 -mt-6 md:-mt-12 rounded-t-lg" style="background-image: url('https://www.publisuites.com/blog/wp-content/uploads/2024/08/creacion-de-contenido.jpg');">
+        <div class="absolute inset-0 bg-black opacity-50 rounded-t-lg"></div>
+        
+        <div class="container mx-auto px-12 relative z-10 text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-white pb-6 mb-8">
+                UD3. Edición y creación de contenido
+            </h1>
+        </div>
+    </div>
+    <div class="max-w-7xl mx-auto bg-white shadow-lg rounded-lg my-12 p-10">
+          <nav class="bg-slate-50 p-8 rounded-xl border border-slate-200 mb-16">
+                <h2 class="text-xl font-bold text-slate-900 mb-6 uppercase tracking-wider text-xs">Tabla de contenidos</h2>
+                <ul class="space-y-3 text-sm text-slate-600 font-medium leading-normal">
+                    <li class="hover:text-indigo-600 transition-colors">3.1. Introducción a la creación de contenidos digitales
+                        <ul class="pl-4 mt-2 space-y-2 border-l-2 border-slate-200">
+                            <li>3.1.1. Importancia y alcance</li>
+                            <li>3.1.2. Tipos de contenidos digitales</li>
+                        </ul>
+                    </li>
+                    <li class="mt-4 hover:text-indigo-600 transition-colors">3.2. Herramientas de productividad
+                        <ul class="pl-4 mt-2 space-y-2 border-l-2 border-slate-200">
+                            <li>3.2.1. Software de ofimática</li>
+                            <li>3.2.2. Herramientas de diseño gráfico y edición de imágenes</li>
+                        </ul>
+                    </li>
+                    <li class="mt-4 hover:text-indigo-600 transition-colors">3.3. Desarrollo de aplicaciones móviles básico
+                        <ul class="pl-4 mt-2 space-y-2 border-l-2 border-slate-200">
+                            <li>3.3.1. Plataformas y herramientas de desarrollo</li>
+                            <li>3.3.2. Fundamentos de programación para móviles</li>
+                            <li>3.3.3. Diseño de interfaces y experiencia de usuario</li>
+                        </ul>
+                    </li>
+                    <li class="mt-4 hover:text-indigo-600 transition-colors">3.4. Desarrollo de aplicaciones web básico
+                        <ul class="pl-4 mt-2 space-y-2 border-l-2 border-slate-200">
+                            <li>3.4.1. Características de la web</li>
+                            <li>3.4.2. Funcionamiento de la web</li>
+                            <li>3.4.3. Introducción a HTML, CSS y Javascript</li>
+                            <li>3.4.4. Creación de páginas web sencillas</li>
+                        </ul>
+                    </li>
+                    <li class="mt-4 hover:text-indigo-600 transition-colors">3.5. Realidad virtual, aumentada y mixta
+                        <ul class="pl-4 mt-2 space-y-2 border-l-2 border-slate-200">
+                            <li>3.5.1. Conceptos básicos</li>
+                            <li>3.5.2. Recursos para el desarrollo</li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <article class="prose prose-slate max-w-none prose-lg text-justify leading-loose space-y-8 text-slate-700">
+                <p>A la hora de abordar el mundo de la creación de contenidos digitales, nos encontramos en la encrucijada de la innovación tecnológica y la expresión creativa. Explorar este tema no solo nos va a enriquecer de conocimientos técnicos, sino que también va a fomentar nuestra creatividad. La digitalización, en su esencia, es la conversión de información en un formato digital. Esto permite su fácil manipulación, distribución y almacenamiento, abriendo un enorme abanico de posibilidades.</p>
+                <p>En este tema, abordaremos distintos aspectos de la creación de contenidos digitales, empezando por comprender su importancia y los diferentes tipos que existen. Desde textos y gráficos hasta aplicaciones móviles y sitios web, los contenidos digitales son omnipresentes en nuestro día a día. Profundiremos en herramientas de productividad y diseño gráfico, aprenderemos sobre software de ofimática, y exploraremos herramientas de diseño gráfico y edición de imágenes, cruciales para la comunicación visual.</p>
+                <p>El desarrollo de aplicaciones móviles y el desarrollo web básico son dos campos que han ganado una importancia sin precedentes en los últimos años. Aquí, tendremos la oportunidad de adentrarnos en el mundo de la programación, aprendiendo desde los fundamentos hasta la creación de interfaces y la experiencia de usuario. La programación móvil y el desarrollo web son habilidades altamente valoradas en el mercado laboral actual, y su comprensión básica es un activo importante para cualquier estudiante.</p>
+                <p>La realidad virtual (VR), aumentada (AR) y mixta (MR) son tecnologías emergentes que están redefiniendo la forma en que interactuamos con el mundo digital. Estudiaremos sus conceptos básicos, diferencias y aplicaciones prácticas, lo que nos permitirá entender cómo estas tecnologías están transformando sectores como la educación, la salud y el entretenimiento.</p>
+            </article>
+
+            <section class="border-t border-slate-200 pt-16 mt-16">
+                <h2 class="text-3xl font-bold text-indigo-900 mb-8">3.1. Introducción a la creación de contenidos digitales</h2>
+                <div class="text-justify leading-loose text-slate-700 space-y-8">
+                    <p>Al hablar de contenidos digitales, nos referimos a cualquier tipo de información que se crea, se almacena y se comparte en formato digital. Esta definición abarca desde textos y gráficos hasta videos y aplicaciones interactivas.</p>
+                    
+                    <h3 class="text-2xl font-semibold text-slate-800 mt-12 mb-6">3.1.1. Importancia y alcance</h3>
+                    <p>En nuestra sociedad, caracterizada por la omnipresencia de la tecnología, la creación de contenidos digitales ha adquirido una relevancia extraordinaria. Este fenómeno no se limita a un sector o área específica; su impacto se extiende a casi todos los aspectos de la vida cotidiana, especialmente para vosotros, que sois quienes estáis en constante interacción con estos contenidos. La importancia de la creación de contenidos digitales se puede apreciar en varios aspectos:</p>
+                    
+                    <ul class="space-y-6 list-none pl-0">
+                        <li class="flex gap-4">
+                            <span class="text-indigo-500 font-bold text-xl mt-1">●</span>
+                            <span><strong>Comunicación:</strong> los jóvenes de hoy utilizan contenidos digitales para expresar sus ideas, emociones y experiencias. Plataformas como Instagram y Tik Tok son ejemplos claros de cómo creáis y compartís contenido para expresaros y conectar con otros.</span>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="text-indigo-500 font-bold text-xl mt-1">●</span>
+                            <span><strong>Educación:</strong> la digitalización de materiales educativos ha revolucionado la forma de aprender. Los contenidos digitales como tutoriales en YouTube, podcasts educativos o blogs especializados, son recursos habituales para todos los que buscan comprender nuevos conceptos o profundizar en sus intereses. Ya es posible aprender habilidades, tan complejas como programar ordenadores, mediante tutoriales de una lista de reproducción en YouTube.</span>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="text-indigo-500 font-bold text-xl mt-1">●</span>
+                            <span><strong>Participación en la sociedad digital:</strong> la habilidad para crear contenidos digitales es clave para participar activamente en la sociedad actual. Las personas que saben cómo crear y compartir información de manera efectiva están mejor preparados para contribuir en debates, sacar adelante sus estudios o participar en proyectos solidarios.</span>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="text-indigo-500 font-bold text-xl mt-1">●</span>
+                            <span><strong>Preparación para el futuro profesional:</strong> en un mundo donde el mercado laboral está cada vez más digitalizado, conocer los fundamentos de la creación de contenidos digitales marca claramente la diferencia. Para un adolescente a punto de llegar a la universidad o al mercado laboral, habilidades como la edición de video, el diseño gráfico o la manipulación de audio son activos valiosos que aumentan su empleabilidad.</span>
+                        </li>
+                    </ul>
+                    <p>Comprender y dominar las habilidades implicadas en la creación digital, no solo nos permite adaptarnos al mundo de hoy, sino que también nos equipa con herramientas que serán imprescindibles en el mundo de mañana.</p>
+
+                    <h3 class="text-2xl font-semibold text-slate-800 mt-12 mb-6">3.1.2. Tipos de contenidos digitales</h3>
+                    <p>La diversidad en los tipos de contenidos digitales refleja la riqueza y complejidad del mundo digital en el que vivimos. Cada tipo de contenido tiene sus propias características y usos, siendo apropiados para diferentes formas de comunicación. Veamos cuáles son:</p>
+                    
+                    <div class="grid gap-8 mt-8">
+                        <div class="bg-slate-50 p-8 rounded-xl border border-slate-100 shadow-sm">
+                            <strong class="text-indigo-700 text-lg block mb-4">Textos digitales</strong>
+                            <p class="m-0 leading-relaxed">Los textos en formato digital los podemos encontrar en casi cualquier sitio. La escritura digital no solo nos permite expresar nuestras ideas, sino que también nos ayuda a desarrollar habilidades de redacción y argumentación. Algunos de los formatos de texto más usados son: .txt, .docx, .pdf, .odt, etc. Y entre las aplicaciones más usadas para leer o elaborar textos digitales están: Google Docs, Microsoft Word, LibreOffice Writer, Apple Pages o Adobe Acrobat Reader.</p>
+                        </div>
+                        <div class="bg-slate-50 p-8 rounded-xl border border-slate-100 shadow-sm">
+                            <strong class="text-indigo-700 text-lg block mb-4">Imágenes</strong>
+                            <p class="m-0 leading-relaxed">La fotografía digital y los gráficos juegan un papel crucial en la comunicación visual. Las imágenes capturadas con smartphones y compartidas en plataformas como Instagram forman parte de nuestra expresión social. Por otro lado, los gráficos como infografías y presentaciones ayudan a sintetizar y comunicar información de manera efectiva, tanto en el ámbito académico como en el personal.</p>
+                        </div>
+                        <div class="bg-slate-50 p-8 rounded-xl border border-slate-100 shadow-sm">
+                            <strong class="text-indigo-700 text-lg block mb-4">Vídeos</strong>
+                            <p class="m-0 leading-relaxed">Los vídeos son uno de los medios más populares y versátiles en la actualidad. Ya sea viendo tutoriales en YouTube, creando y compartiendo videos en Tik Tok, o participando en proyectos escolares que requieren la producción de videos, estamos constantemente interactuando con este formato. Los videos no solo sirven para entretenimiento, sino que son una potentísima herramienta educativa.</p>
+                        </div>
+                        <div class="bg-slate-50 p-8 rounded-xl border border-slate-100 shadow-sm">
+                            <strong class="text-indigo-700 text-lg block mb-4">Contenidos interactivos</strong>
+                            <p class="m-0 leading-relaxed">Incluyen aplicaciones móviles, juegos, sitios web interactivos y tecnologías inmersivas como las realidades virtual y aumentada. Con estos contenidos podemos aprender de manera lúdica, como en aplicaciones educativas que gamifican el aprendizaje, o para desarrollar habilidades específicas, como las que nos proporcionan plataformas interactivas de aprendizaje de programación o idiomas.</p>
+                        </div>
+                        <div class="bg-slate-50 p-8 rounded-xl border border-slate-100 shadow-sm">
+                            <strong class="text-indigo-700 text-lg block mb-4">Audio</strong>
+                            <p class="m-0 leading-relaxed">El contenido en formato de audio, como los podcasts, es otra área que ha ganado mucha popularidad últimamente. Los podcasts ofrecen una novedosa forma de aprender y entretenerse, abordando cualquier tema que se te ocurra.</p>
+                        </div>
+                    </div>
+                    <p class="mt-8">Estos tipos de contenidos digitales ofrecen diferentes medios de expresión y aprendizaje, además son clave para vuestro desarrollo en una sociedad cada vez más digitalizada. Al familiarizarte con estos formatos, te preparas para el futuro, y enriqueces tu presente, explorando nuevas formas de comunicación, creatividad y conocimiento.</p>
+                </div>
+            </section>
+
+            <section class="border-t border-slate-200 pt-16 mt-16">
+                <h2 class="text-3xl font-bold text-indigo-900 mb-8">3.2. Herramientas de productividad</h2>
+                <div class="text-justify leading-loose text-slate-700 space-y-8">
+                    <p>Nos enfocamos ahora en las herramientas de productividad que facilitan y optimizan la creación, gestión y compartición de contenidos digitales. Estas herramientas, que incluyen software de ofimática y aplicaciones de diseño gráfico, son indispensables en todas las facetas de nuestra vida: estudios, trabajo y vida personal. Familiarizarnos con estas herramientas significa adquirir habilidades que trascienden mucho más allá del aula. Este apartado, por lo tanto, no solo aborda el uso técnico de estas herramientas, sino que también subraya su importancia en el desarrollo de habilidades de comunicación, organización y creatividad.</p>
+
+                    <h3 class="text-2xl font-semibold text-slate-800 mt-12 mb-6">3.2.1. Software de ofimática</h3>
+                    <p>El software de ofimática es un conjunto de herramientas digitales diseñadas para tareas relacionadas con la oficina. Sin embargo, su utilidad va más allá del entorno laboral, extendiéndose al ámbito educativo y personal. En el contexto de un estudiante de 4º de ESO, el software de ofimática se convierte en un importante aliado para diversas actividades. Programas como Microsoft Office, con sus componentes clave como Word, Excel y PowerPoint, o alternativas gratuitas como LibreOffice y Google Workspace, son fundamentales en vuestra vida académica, y lo seguirá siendo cuando ésta termine.</p>
+                    <p>Por ejemplo, podrías utilizar los procesadores de texto Microsoft Word o Google Docs para escribir ensayos, informes de investigación, una publicación para las redes sociales o para elaborar tu propio currículum vitae. Estas herramientas no solo facilitan la escritura y edición de textos, sino que también ofrecen características avanzadas como la revisión ortográfica y gramatical, lo que mejora la calidad de tus trabajos escritos.</p>
+                    <p>Excel y Google Sheets, por otro lado, son hojas de cálculo, excelentes para manejar datos y realizar cálculos matemáticos. Podrías utilizar estas aplicaciones para proyectos de ciencia, donde necesitas recopilar, analizar y presentar datos. También son útiles para tareas cotidianas, como gestionar un presupuesto personal o planificar un viaje con amigos.</p>
+                    <p>PowerPoint, Google Slides, Canva o Genially se convierten en herramientas clave para presentaciones en clase. Te permiten no solo transmitir información, sino también desarrollar habilidades en diseño y presentación visual. Una presentación bien diseñada puede hacer que un proyecto sea más atractivo y efectivo en la comunicación de ideas.</p>
+                    <p>En un contexto más personal, puedes utilizar estas herramientas para gestionar tus propios proyectos y hobbies. Por ejemplo, si te interesa la escritura creativa, guiones para vídeos de Youtube, puntuaciones en un torneo o apoyo a alguna asociación solidaria; todas necesitan ser gestionadas con alguna de las herramientas de ofimática que vamos a ver.</p>
+                    
+                    <div class="my-10 bg-yellow-50 border-l-8 border-yellow-400 p-8 shadow-sm">
+                        <p class="font-bold text-yellow-900 text-lg mb-4">En nuestra tarea educativa dentro del currículo de esta asignatura, nos centraremos en el aprendizaje de las herramientas ofimáticas que nos ofrece Google Workspace en su versión for Education:</p>
+                        <ul class="list-disc pl-6 space-y-2 text-yellow-900">
+                            <li>Google Mail</li>
+                            <li>Google Drive</li>
+                            <li>Google Docs</li>
+                            <li>Google Sheets</li>
+                            <li>Google Forms</li>
+                        </ul>
+                    </div>
+                    <p>Así que, aquí realizamos una parada, iniciamos el camino de las prácticas y, al terminar, volveremos para continuar con el tema.</p>
+
+                    <h3 class="text-2xl font-semibold text-slate-800 mt-12 mb-6">3.2.2. Herramientas de diseño gráfico y edición de imágenes</h3>
+                    <p>Las herramientas de diseño gráfico y edición de imágenes son la piedra angular de la creación de contenido visual en la sociedad actual. Estas herramientas permiten manipular y mejorar fotografías, crear gráficos y diseños para sitios web, aplicaciones y publicidad. Si os fijáis, por ejemplo, en la web de una tienda online como Amazon o AliExpress: todos esos banners publicitarios, las imágenes de los productos o los ganchos promocionales, han sido cuidadosamente diseñadas para captar nuestra atención.</p>
+                    <p>Las posibles aplicaciones de estas herramientas son innumerables, encontrándose en numerosos aspectos de nuestra vida diaria. Hoy en día, casi todas las personas editan las fotos antes de publicarlas en redes sociales como Instagram; en el ámbito educativo, se realizan constantemente diseños gráficos con herramientas como Canva o Genially para crear material didáctico visualmente atractivo que capte la atención de los alumnos y también para la elaboración de los trabajos de los propios alumnos; organismos públicos diseñan su cartelería con este tipo de herramientas, las imprentas, editoriales, señales de tráfico, videojuegos, y así hasta prácticamente abarcar todos los sectores productivos que puedas imaginar.</p>
+                    <p>Así, la edición y el diseño gráfico no solo son fundamentales para profesionales del arte y la publicidad, sino también para nuestra comunicación diaria en el mundo digital. Por todo ello, está plenamente justificado el estudio de estas herramientas y la aplicación práctica que nos permita obtener una competencia, al menos, básica de su uso.</p>
+                    <p>Como presentes y futuros creadores de contenido digital, las próximas semanas aprenderéis a utilizar estas herramientas no solo para expresar vuestras ideas creativas sino también para entender mejor cómo los medios visuales influyen en nuestra percepción del mundo. Recordad siempre buscar la originalidad y respetar los derechos de autor en vuestras creaciones.</p>
+                    <p class="font-medium text-indigo-700 bg-indigo-50 p-4 rounded-lg inline-block">Es un excelente momento para que aprendas la diferencia entre una imagen de mapa de bits, y una imagen vectorial, porque es el primer concepto que debes entender a la hora de elegir una herramienta u otra.</p>
+
+                    <p class="mt-8">Ahora sí, veamos algunas de las herramientas más importantes que se utilizan a nivel profesional para el diseño gráfico y la edición de imágenes:</p>
+                    
+                    <ul class="space-y-6 my-8 list-none pl-0">
+                        <li class="p-6 bg-slate-50 rounded-xl border border-slate-200"><strong class="text-indigo-700 text-lg block mb-2">Adobe Photoshop</strong>Es el rey indiscutible de la edición de imágenes. Ofrece una amplia gama de funcionalidades, permitiendo desde la edición y optimización de fotografías hasta la creación de ilustraciones y conceptos tanto en 2D como en 3D. Además, su uso se extiende más allá de las imágenes, permitiendo también la edición y creación de vídeos. Su facilidad de uso lo hace accesible incluso para principiantes, especialmente en conceptos básicos como el manejo de capas.</li>
+                        <li class="p-6 bg-slate-50 rounded-xl border border-slate-200"><strong class="text-indigo-700 text-lg block mb-2">Adobe Illustrator</strong>Es fundamental para diseñar logotipos, dibujos, tipografías e ilustraciones a través de la vectorización. Esta característica le permite abarcar un amplio rango de proyectos, desde iconos web hasta diseños para revistas y libros.</li>
+                        <li class="p-6 bg-slate-50 rounded-xl border border-slate-200"><strong class="text-indigo-700 text-lg block mb-2">Adobe InDesign</strong>Otro componente del paquete de Adobe, es clave para trabajos editoriales digitales. Es especialmente útil en la maquetación de páginas y composición de textos, siendo ideal para la creación de folletos, revistas y libros.</li>
+                        <li class="p-6 bg-slate-50 rounded-xl border border-slate-200"><strong class="text-indigo-700 text-lg block mb-2">Canva</strong>Se ha convertido en una herramienta favorita para muchos debido a su facilidad de uso y excelente interfaz. Permite crear diseños rápidos y de alta calidad, ofreciendo una enorme gama de plantillas predeterminadas. Su versión gratuita, que incluye más de 7000 plantillas, es particularmente notable.</li>
+                        <li class="p-6 bg-slate-50 rounded-xl border border-slate-200"><strong class="text-indigo-700 text-lg block mb-2">Freepik</strong>Es como el Google de los diseñadores, siendo una extensa biblioteca de recursos tanto gratuitos como de pago. Permite descargar y editar libremente una gran variedad de recursos, incluyendo archivos PSD, vectores, fotografías, videos y GIFs animados.</li>
+                        <li class="p-6 bg-slate-50 rounded-xl border border-slate-200"><strong class="text-indigo-700 text-lg block mb-2">Google Fonts</strong>Herramienta indispensable para encontrar tipografías que se ajusten y realcen tus proyectos de diseño gráfico digital. Ofrece una amplia variedad de tipografías Open Source.</li>
+                        <li class="p-6 bg-slate-50 rounded-xl border border-slate-200"><strong class="text-indigo-700 text-lg block mb-2">Corel Draw</strong>Aunque Adobe lidera el sector, Corel Draw sigue siendo un software importante y uno de los clásicos en el diseño desde su lanzamiento en 1992. Ofrece una gran variedad de herramientas para la creación de ilustraciones vectoriales y edición de fotografías. Es una opción robusta para aquellos que trabajan en imprentas.</li>
+                    </ul>
+
+                    <p>En la comunidad educativa andaluza, es una recomendación bastante extendida utilizar siempre que se pueda una herramienta alternativa open source. Aquí algunas alternativas de escritorio:</p>
+                    <ul class="list-disc pl-8 space-y-4">
+                        <li><strong>GIMP (GNU Image Manipulation Program):</strong> potente herramienta de edición de imágenes que ofrece muchas de las funcionalidades de Photoshop.</li>
+                        <li><strong>Inkscape:</strong> aplicación de gráficos vectoriales que es una alternativa excelente a Illustrator.</li>
+                        <li><strong>Scribus:</strong> programa de maquetación de páginas similar a InDesign.</li>
+                        <li><strong>Krita:</strong> se enfoca más en la pintura digital y el dibujo, pero ofrece capacidades de diseño gráfico y vectorial.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="border-t border-slate-200 pt-16 mt-16">
+                <h2 class="text-3xl font-bold text-indigo-900 mb-8">3.3. Desarrollo de aplicaciones móviles básico</h2>
+                <div class="text-justify leading-loose text-slate-700 space-y-8">
+                    <p>En el mundo actual, donde la tecnología avanza a pasos agigantados -solo hay que ver cómo la evolucionado la IA en el último año-, el teléfono móvil se ha convertido en una extensión de nosotros mismos. No es solo una herramienta de comunicación, sino una puerta enorme a todo el conocimiento que existe. El desarrollo de aplicaciones móviles se erige como una disciplina primordial, capaz de transformar ideas innovadoras en soluciones prácticas. La importancia de estudiar estos contenidos radica en la adquisición de las habilidades técnicas para crear aplicaciones funcionales, y en entender el impacto profundo que estas tienen en la sociedad.</p>
+
+                    <h3 class="text-2xl font-semibold text-slate-800 mt-12 mb-6">3.3.1. Plataformas y herramientas de desarrollo</h3>
+                    <p>Básicamente, existen dos grandes ecosistemas:</p>
+                    <ul class="list-disc pl-8 mb-6 space-y-4">
+                        <li><strong>Android:</strong> desarrollado por Google, es el sistema operativo más utilizado a nivel mundial. La plataforma de desarrollo de Android, Android Studio, ofrece un conjunto de herramientas completas que incluyen un editor de código y emuladores.</li>
+                        <li><strong>iOS:</strong> el sistema operativo de Apple para iPhone y iPad cuenta con su propio entorno de desarrollo, Xcode.</li>
+                    </ul>
+                    <p>Existen entornos de desarrollo que no necesitan codificar las instrucciones en modo texto, sino en modo bloques. El programador diseña la aplicación arrastrando y soltando componentes de forma visual. En este tipo de herramientas dominan:</p>
+                    <ul class="list-disc pl-8 mb-6 space-y-4">
+                        <li>MIT App Inventor</li>
+                        <li>Thunkable</li>
+                        <li>AppyBuilder</li>
+                    </ul>
+
+                    <h3 class="text-2xl font-semibold text-slate-800 mt-12 mb-6">3.3.2. Fundamentos de programación para móviles</h3>
+                    <div class="space-y-6">
+                        <div class="p-6 bg-slate-50 border border-slate-100 rounded-xl">
+                            <strong class="text-indigo-700 block mb-2">Lenguajes de programación:</strong> Para Android, Java ha sido tradicionalmente el lenguaje de elección, aunque Kotlin es ahora preferido por Google. Para iOS se basa en Objective-C y Swift.
+                        </div>
+                        <div class="p-6 bg-slate-50 border border-slate-100 rounded-xl">
+                            <strong class="text-indigo-700 block mb-2">Gestión de la interfaz de usuario (UI):</strong> Implica entender cómo manejar elementos como botones, vistas y animaciones. Los desarrolladores deben seguir los principios de diseño de material para Android o las directrices de diseño humanizado de iOS.
+                        </div>
+                        <div class="p-6 bg-slate-50 border border-slate-100 rounded-xl">
+                            <strong class="text-indigo-700 block mb-2">Manejo de eventos:</strong> Un evento es cualquier acción que realizamos sobre el dispositivo: pulsar un botón, tocar la pantalla, hablarle, inclinarlo, rotarlo... El programa tendrá una respuesta preparada para cada uno de esos eventos.
+                        </div>
+                        <div class="p-6 bg-slate-50 border border-slate-100 rounded-xl">
+                            <strong class="text-indigo-700 block mb-2">Ciclo de vida de la aplicación:</strong> Entender transiciones entre estados como inicio, pausa y reanudación para conservar recursos.
+                        </div>
+                        <div class="p-6 bg-slate-50 border border-slate-100 rounded-xl">
+                            <strong class="text-indigo-700 block mb-2">Gestión del estado y almacenamiento:</strong> Opciones como SharedPreferences en Android o UserDefaults en iOS.
+                        </div>
+                        <div class="p-6 bg-slate-50 border border-slate-100 rounded-xl">
+                            <strong class="text-indigo-700 block mb-2">Conectividad:</strong> Las aplicaciones frecuentemente consumen datos de internet a través de APIs web (ej. datos meteorológicos de AEMET).
+                        </div>
+                        <div class="p-6 bg-slate-50 border border-slate-100 rounded-xl">
+                            <strong class="text-indigo-700 block mb-2">Optimización, rendimiento y seguridad:</strong> Minimizar el consumo de batería, asegurar que la aplicación se ejecute suavemente y proteger la información personal mediante cifrado y autenticación.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="border-t border-slate-200 pt-16 mt-16">
+                <h2 class="text-3xl font-bold text-indigo-900 mb-8">3.4. Desarrollo de aplicaciones web básico</h2>
+                <div class="text-justify leading-loose text-slate-700 space-y-8">
+                    <p>La Web fue ideada por Tim Berners-Lee en el CERN como un sistema de hipertextos. Ha redefinido las relaciones humanas, el comercio y la educación.</p>
+                    
+                    
+
+[Image of the client-server model (architecture)]
+
+
+                    <h3 class="text-2xl font-semibold text-slate-800 mt-12 mb-6">3.4.2. Funcionamiento de la web</h3>
+                    <p>Podemos imaginar la web como el almacén de cajas fuertes de un banco lleno de servidores con páginas web.</p>
+                    <ol class="list-decimal pl-8 space-y-6 mb-8">
+                        <li><strong>La solicitud del usuario:</strong> Abres tu navegador (Chrome, Firefox, Safari) y escribes una dirección web (URL). En este momento, estás haciendo un HTTP Request.</li>
+                        <li><strong>Localizando el recurso:</strong> Cada página tiene una dirección única conocida como URL (Uniform Resource Locator).</li>
+                        <li><strong>Interacción y más solicitudes:</strong> Una vez cargada, puedes interactuar (clic en enlaces, ver videos), lo cual genera nuevas solicitudes al servidor.</li>
+                    </ol>
+                    <p class="text-sm italic text-slate-500 mb-8 bg-slate-50 p-4 rounded border-l-4 border-slate-300">Este proceso ocurre gracias a la arquitectura cliente-servidor. Lo que el navegador muestra es el Frontend (la parte pública).</p>
+
+                    <h3 class="text-2xl font-semibold text-slate-800 mt-12 mb-6">3.4.3. Introducción a HTML, CSS y Javascript</h3>
+                    <p>Estos son los tres pilares fundamentales del desarrollo web del lado cliente:</p>
+                    <div class="grid md:grid-cols-3 gap-8 my-8">
+                        <div class="p-8 bg-indigo-50 rounded-xl text-center border border-indigo-100 shadow-sm">
+                            <div class="text-4xl mb-4">🦴</div>
+                            <h4 class="font-bold text-indigo-900 text-lg mb-2">HTML</h4>
+                            <p class="text-sm text-indigo-800 leading-relaxed">El esqueleto. Define la estructura y el contenido (títulos, párrafos, enlaces).</p>
+                        </div>
+                        <div class="p-8 bg-pink-50 rounded-xl text-center border border-pink-100 shadow-sm">
+                            <div class="text-4xl mb-4">👕</div>
+                            <h4 class="font-bold text-pink-900 text-lg mb-2">CSS</h4>
+                            <p class="text-sm text-pink-800 leading-relaxed">La ropa. Define el estilo, colores y apariencia visual.</p>
+                        </div>
+                        <div class="p-8 bg-yellow-50 rounded-xl text-center border border-yellow-100 shadow-sm">
+                            <div class="text-4xl mb-4">⚡</div>
+                            <h4 class="font-bold text-yellow-900 text-lg mb-2">JavaScript</h4>
+                            <p class="text-sm text-yellow-800 leading-relaxed">El sistema nervioso. Añade interactividad (clics, efectos, AJAX).</p>
+                        </div>
+                    </div>
+
+                    <p>Ejemplo de código JavaScript para validación de email:</p>
+                    <div class="bg-slate-900 text-teal-300 p-8 rounded-xl font-mono text-sm overflow-x-auto my-8 shadow-inner leading-normal">
+<pre>
+function validarEmail() {
+  var email = document.getElementById("email").value;
+  var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if(pattern.test(email)) {
+    alert("La dirección de email es válida.");
+  } else {
+    alert("La dirección de email es incorrecta.");
+  }
+}
+</pre>
+                    </div>
+
+                    <h3 class="text-2xl font-semibold text-slate-800 mt-12 mb-6">3.4.4. Creación de páginas web sencillas</h3>
+                    <p>Debido a la falta de tiempo para aprender la sintaxis de cada lenguaje, iniciaremos el camino con una herramienta <strong>«no-code»</strong>. Construiremos sitios web sin escribir ni una sola línea de código.</p>
+                </div>
+            </section>
+
+            <section class="border-t border-slate-200 pt-16 mt-16">
+                <h2 class="text-3xl font-bold text-indigo-900 mb-8">3.5. Realidad virtual, aumentada y mixta</h2>
+                <div class="text-justify leading-loose text-slate-700 space-y-8">
+                    <ul class="space-y-6 list-none pl-0">
+                        <li class="bg-indigo-50/50 p-6 rounded-xl border border-indigo-100"><strong class="text-indigo-900 block mb-2 text-lg">Realidad Virtual (VR):</strong> Inmersión total en mundos fantásticos o simulaciones de entrenamiento. Un ejemplo clásico es el de los videojuegos, donde podéis explorar mundos fantásticos como si realmente estuvierais allí. Pero también se extiende a simulaciones para formación en entornos peligrosos, como puede ser el entrenamiento de pilotos.</li>
+                        <li class="bg-indigo-50/50 p-6 rounded-xl border border-indigo-100"><strong class="text-indigo-900 block mb-2 text-lg">Realidad Aumentada (AR):</strong> Superpone información digital al mundo real. Esto se logra a través de dispositivos como teléfonos inteligentes o gafas especiales, que proyectan datos e imágenes sobre lo que naturalmente podemos ver. Un ejemplo cotidiano es el de aplicaciones que muestran reseñas de restaurantes simplemente apuntando la cámara de vuestro móvil hacia ellos. En el ámbito profesional, la AR ayuda a los cirujanos a visualizar información vital durante las operaciones sin desviar la mirada del paciente.</li>
+                        <li class="bg-indigo-50/50 p-6 rounded-xl border border-indigo-100"><strong class="text-indigo-900 block mb-2 text-lg">Realidad Mixta (MR):</strong> Combina VR y AR, creando escenarios donde objetos virtuales y reales coexisten y pueden interactuar en tiempo real.</li>
+                    </ul>
+
+                    <h3 class="text-2xl font-semibold text-slate-800 mt-12 mb-6">3.5.2. Recursos para el desarrollo</h3>
+                    <ul class="list-disc pl-8 space-y-6">
+                        <li><strong>Unreal Engine:</strong> conocido por su alta calidad gráfica, Unreal Engine es ideal para proyectos que requieren un alto nivel de detalle visual y efectos en tiempo real. Es muy apreciado en la industria del cine y la televisión para la creación de efectos visuales. Empresas de arquitectura utilizan Unreal para crear recorridos virtuales por edificios aún no construidos, permitiendo a los clientes experimentar el espacio antes de su ejecución.</li>
+                        <li><strong>ARKit (Apple) y ARCore (Google):</strong> son «frameworks» diseñados para el desarrollo de aplicaciones de realidad aumentada en iOS y Android, respectivamente. Ambos proporcionan funciones avanzadas como el seguimiento del movimiento, la comprensión del entorno y la estimación de la luz. Aplicaciones como «IKEA Place» utilizan estos frameworks para permitir a los usuarios visualizar muebles en sus propios hogares antes de comprarlos.</li>
+                    </ul>
+                    
+                    <h4 class="text-xl font-bold text-slate-700 mt-8 mb-4">Plataformas de hardware</h4>
+                    <p><strong>Oculus Rift y Quest:</strong> se trata de dispositivos de realidad virtual desarrollados por Oculus VR.</p>
+                </div>
+            </section>
+
+    </div>
+
+</main>
+<!-- Modal para ampliar imagen -->
+<div id="imageModal" class="modal">
+  <span class="close-modal">&times;</span>
+  <img class="modal-content" id="modalImage">
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // --- Lógica para el modal de la imagen ---
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
+        const images = document.querySelectorAll('.zoomable-image');
+        const closeBtn = document.querySelector(".close-modal");
+
+        images.forEach(img => {
+            img.onclick = function(){
+                modal.style.display = "flex";
+                modalImg.src = this.src;
+            }
+        });
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        closeBtn.onclick = closeModal;
+
+        modal.onclick = function(event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    });
+
+</script>
+</body>
+</html>
