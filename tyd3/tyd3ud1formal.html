@@ -276,67 +276,62 @@
             textarea.style.height = textarea.scrollHeight + 'px';
         }
 
-        function downloadPDF() {
-            const originalElement = document.getElementById('document-content');
+        async function generatePDF() {
+            const btn = document.getElementById('btn-download');
+            const originalText = btn.innerHTML;
+            const element = document.getElementById('document-content');
             
-            // 1. Clonar el elemento original
-            const clone = originalElement.cloneNode(true);
+            // 1. Mostrar estado de carga
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin text-2xl"></i><span>Generando...</span>';
 
-            // IMPORTANTE: Quitar clases que puedan recortar contenido en el clon
-            clone.classList.remove('overflow-hidden');
-            clone.classList.remove('shadow-xl'); // Quitar sombra para impresión limpia
-            clone.style.height = 'auto'; // Asegurar altura automática
-            
-            // 2. Transformar inputs/textareas en el clon a texto estático
-            const inputs = clone.querySelectorAll('input.input-field');
-            const textareas = clone.querySelectorAll('textarea.input-field');
+            // 2. Preparar el DOM para la "foto" (Modo Impresión)
+            // Creamos divs temporales con el valor de los inputs para que salgan en el PDF
+            const inputs = element.querySelectorAll('input.input-field, textarea.input-field');
+            const tempDivs = [];
 
             inputs.forEach(input => {
                 const div = document.createElement('div');
-                div.className = 'pdf-text-content';
-                div.textContent = input.value || ''; 
-                if(input.parentNode) input.parentNode.replaceChild(div, input);
+                div.className = 'pdf-view-only';
+                div.textContent = input.value || ' '; // Asegurar que tenga al menos un espacio para mantener altura
+                
+                // Insertamos el div justo después del input
+                if(input.parentNode) {
+                    input.parentNode.insertBefore(div, input.nextSibling);
+                    tempDivs.push(div); // Guardamos referencia para borrar luego
+                }
             });
 
-            textareas.forEach(textarea => {
-                const div = document.createElement('div');
-                div.className = 'pdf-text-content';
-                div.textContent = textarea.value || '';
-                if(textarea.parentNode) textarea.parentNode.replaceChild(div, textarea);
-            });
+            // Añadimos la clase que activa el CSS de impresión (oculta inputs, muestra divs)
+            element.classList.add('print-mode');
 
-            // 3. Ocultar instrucciones en el PDF
-            const instructions = clone.querySelector('#instructions-footer');
-            if(instructions) instructions.style.display = 'none';
-            
-            // Mostrar footer del PDF
-            const pdfFooter = clone.querySelector('#pdf-footer');
-            if(pdfFooter) pdfFooter.classList.remove('hidden');
-
-            // 4. Crear un contenedor temporal fuera de pantalla pero EN EL DOM
-            // Esto es crucial para que html2pdf calcule bien la altura total
-            const container = document.createElement('div');
-            container.style.position = 'absolute';
-            container.style.top = '-9999px';
-            container.style.left = '0';
-            container.style.width = originalElement.offsetWidth + 'px'; // Mantener el mismo ancho
-            container.appendChild(clone);
-            document.body.appendChild(container);
-
-            // 5. Configurar PDF
+            // 3. Configuración del PDF
             const opt = {
-                margin:       [0.3, 0.3], 
+                margin:       [0.3, 0.4, 0.3, 0.4],
                 filename:     'Technical_Analysis_Model.pdf',
                 image:        { type: 'jpeg', quality: 0.98 },
-                html2canvas:  { scale: 2, useCORS: true, scrollY: 0 }, 
+                html2canvas:  { 
+                    scale: 2, 
+                    useCORS: true, 
+                    scrollY: 0 
+                },
                 jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' },
                 pagebreak:    { mode: ['css', 'legacy'] }
             };
 
-            // 6. Generar y limpiar
-            html2pdf().set(opt).from(clone).save().then(() => {
-                document.body.removeChild(container);
-            });
+            try {
+                // 4. Generar el PDF usando el elemento YA MODIFICADO (sin clonar)
+                // Esto permite que Tailwind y estilos externos se apliquen correctamente
+                await html2pdf().set(opt).from(element).save();
+            } catch (err) {
+                console.error("Error PDF:", err);
+                alert("Hubo un error generando el PDF. Se abrirá la impresión normal.");
+                window.print();
+            } finally {
+                // 5. Restaurar estado original (Limpieza)
+                element.classList.remove('print-mode');
+                tempDivs.forEach(div => div.remove()); // Eliminar los divs temporales
+                btn.innerHTML = originalText;
+            }
         }
     </script>
 </body>
