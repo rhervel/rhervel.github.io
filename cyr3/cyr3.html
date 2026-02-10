@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="es" class="h-full">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Computación y Robótica 3º ESO</title>
+  <link href="../assets/css/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 fill=%22currentColor%22 class=%22bi bi-robot%22 viewBox=%220 0 16 16%22><path d=%22M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5ZM3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.58 26.58 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.933.933 0 0 1-.765.935c-.845.147-2.34.346-4.235.346-1.895 0-3.39-.2-4.235-.346A.933.933 0 0 1 3 9.219V8.062Zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a24.767 24.767 0 0 1-1.871-.183.25.25 0 0 0-.217.068l-.92.9a.25.25 0 0 0 .169.434l.92-.9a25.25 25.25 0 0 0 1.942.183.25.25 0 0 0 .217-.068l.92-.9a.25.25 0 0 0-.17-.434l-.92.9a24.767 24.767 0 0 1-1.871-.183Z%22/><path d=%22M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1.5a2.5 2.5 0 0 0 2.5 2.5h9A2.5 2.5 0 0 0 15 13.5V12a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2V1.866ZM14 7.5V12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5Z%22/></svg>" type="image/svg+xml">
+
+  
+  <!-- Estilos personalizados -->
+  <style>
+    .disabled-content {
+      filter: grayscale(100%);
+      opacity: 0.6;
+      transition: all 0.3s ease;
+    }
+    .disabled-link {
+      pointer-events: none;
+      cursor: default;
+    }
+    .card:hover .disabled-content {
+      filter: grayscale(80%);
+      opacity: 0.7;
+    }
+    body {
+        font-family: 'Inter', sans-serif;
+    }
+    .limited-height {
+        max-height: 400px; /* Establece la altura máxima que desees */
+        width: auto;       /* Hace que el ancho se ajuste para mantener la proporción */
+        object-fit: cover; /* Asegura que la imagen cubra el área sin deformarse */
+        display: block;    /* Ayuda a centrar la imagen si usas márgenes automáticos */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .limited-height-200 {
+        height: 300px; /* Establece la altura máxima que desees */
+        width: auto;       /* Hace que el ancho se ajuste para mantener la proporción */
+        object-fit: cover; /* Asegura que la imagen cubra el área sin deformarse */
+        display: block;    /* Ayuda a centrar la imagen si usas márgenes automáticos */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+  </style>
+</head>
+<body class="flex flex-col min-h-screen bg-gray-50">
+
+<header>
+  <!-- Barra de navegación -->
+  <div class="bg-gray-800 shadow-md">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-start h-16">
+        <a href="../index.html" class="text-white flex items-center">
+          <i class="bi bi-robot text-2xl mr-3"></i>
+          <span class="font-bold text-xl">Computación y Robótica</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="flex-grow">
+
+ <div class="relative bg-cover bg-center py-20 md:py-32" style="background-image: url('img/cyrbg.jpg');">
+    <!-- Superposición oscura para legibilidad del texto -->
+    <div class="absolute inset-0 bg-black opacity-50"></div>
+    
+    <!-- Contenedor del texto -->
+    <div class="container mx-auto px-12 relative z-10 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">Computación y Robótica</h1>
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-100 leading-tight mb-4">3º ESO</h2>
+      <p class="text-lg text-gray-200">Aquí encontrarás los apuntes y recursos necesarios para la materia de Computación y Robótica de 3º de ESO.</p>
+    </div>
+  </div>
+
+
+  <div class="py-12 bg-gray-100">
+    <div class="container mx-auto px-12">
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+        
+        <!-- UD1 - Contenido Disponible -->
+        <div class="col card bg-white rounded-lg shadow-md overflow-hidden transition-transform transform hover:-translate-y-1">
+          <a href="cyr3ud1.html">
+            <img src="img/cyr1.jpg" class="object-cover limited-height-200" alt="UD1">
+          </a>
+          <div class="p-5">
+            <p class="font-semibold text-gray-800 mb-3">UD1. Inteligencia Artificial</p>
+            <div class="flex justify-between items-center limited-height">
+              <a href="cyr3ud1.html" class="text-sm bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded-lg">Ver</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- UD2 - Contenido Disponible -->
+        <div class="col card bg-white rounded-lg shadow-md overflow-hidden transition-transform transform hover:-translate-y-1">
+          <a href="cyr3ud2.html">
+            <img src="img/cyr2.jpg" class="object-cover limited-height-200" alt="UD1">
+          </a>
+          <div class="p-5">
+            <p class="font-semibold text-gray-800 mb-3">UD2. Introducción a la programación</p>
+            <div class="flex justify-between items-center limited-height">
+              <a href="cyr3ud2.html" class="text-sm bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded-lg">Ver</a>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- UD3 - Contenido No Disponible -->
+        <div class="col card bg-white rounded-lg shadow-md overflow-hidden">
+          <a href="#" class="disabled-link">
+            <img src="img/cyr3.jpg" class="w-full  object-cover disabled-content limited-height-200" alt="UD3 - Próximamente">
+          </a>
+          <div class="p-5">
+            <p class="font-semibold text-gray-800 mb-3">UD3. Desarrollo Móvil</p>
+            <div class="flex justify-between items-center">
+              <a href="#" class="text-sm bg-gray-200 text-gray-400 font-semibold py-2 px-4 rounded-lg disabled-link">Ver</a>
+              <small class="text-gray-500">Próximamente</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- UD4 - Contenido No Disponible -->
+        <div class="col card bg-white rounded-lg shadow-md overflow-hidden">
+          <a href="#" class="disabled-link">
+            <img src="img/cyr4.jpg" class="w-full  object-cover disabled-content limited-height-200" alt="UD4 - Próximamente">
+          </a>
+          <div class="p-5">
+            <p class="font-semibold text-gray-800 mb-3">UD4. Computación Física</p>
+            <div class="flex justify-between items-center">
+              <a href="#" class="text-sm bg-gray-200 text-gray-400 font-semibold py-2 px-4 rounded-lg disabled-link">Ver</a>
+              <small class="text-gray-500">Próximamente</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- UD5 - Contenido No Disponible -->
+        <div class="col card bg-white rounded-lg shadow-md overflow-hidden">
+          <a href="#" class="disabled-link">
+            <img src="img/cyr5.jpg" class="w-full  object-cover disabled-content limited-height-200" alt="UD5 - Próximamente">
+          </a>
+          <div class="p-5">
+            <p class="font-semibold text-gray-800 mb-3">UD5. Programación Textual</p>
+            <div class="flex justify-between items-center">
+              <a href="#" class="text-sm bg-gray-200 text-gray-400 font-semibold py-2 px-4 rounded-lg disabled-link">Ver</a>
+              <small class="text-gray-500">Próximamente</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- UD6 - Contenido No Disponible -->
+        <div class="col card bg-white rounded-lg shadow-md overflow-hidden">
+          <a href="#" class="disabled-link">
+            <img src="img/cyr6.jpg" class="w-full  object-cover disabled-content limited-height-200" alt="UD6 - Próximamente">
+          </a>
+          <div class="p-5">
+            <p class="font-semibold text-gray-800 mb-3">UD6. Robótica</p>
+            <div class="flex justify-between items-center">
+              <a href="#" class="text-sm bg-gray-200 text-gray-400 font-semibold py-2 px-4 rounded-lg disabled-link">Ver</a>
+              <small class="text-gray-500">Próximamente</small>
+            </div>
+          </div>
+        </div>
+        
+        <!-- UD7 - Contenido No Disponible -->
+        <div class="col card bg-white rounded-lg shadow-md overflow-hidden">
+          <a href="#" class="disabled-link">
+            <img src="img/cyr7.jpg" class="w-full  object-cover disabled-content limited-height-200" alt="UD7 - Próximamente">
+          </a>
+          <div class="p-5">
+            <p class="font-semibold text-gray-800 mb-3">UD7. Desarrollo Web</p>
+            <div class="flex justify-between items-center">
+              <a href="#" class="text-sm bg-gray-200 text-gray-400 font-semibold py-2 px-4 rounded-lg disabled-link">Ver</a>
+              <small class="text-gray-500">Próximamente</small>
+            </div>
+          </div>
+        </div>
+        
+        <!-- UD8 - Contenido No Disponible -->
+        <div class="col card bg-white rounded-lg shadow-md overflow-hidden">
+          <a href="#" class="disabled-link">
+            <img src="img/cyr8.jpg" class="w-full  object-cover disabled-content limited-height-200" alt="UD8 - Próximamente">
+          </a>
+          <div class="p-5">
+            <p class="font-semibold text-gray-800 mb-3">UD8. Big Data</p>
+            <div class="flex justify-between items-center">
+              <a href="#" class="text-sm bg-gray-200 text-gray-400 font-semibold py-2 px-4 rounded-lg disabled-link">Ver</a>
+              <small class="text-gray-500">Próximamente</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- UD9 - Contenido No Disponible -->
+        <div class="col card bg-white rounded-lg shadow-md overflow-hidden">
+          <a href="#" class="disabled-link">
+            <img src="img/cyr9.jpg" class="w-full object-cover disabled-content limited-height-200" alt="UD8 - Próximamente">
+          </a>
+          <div class="p-5">
+            <p class="font-semibold text-gray-800 mb-3">UD9. Ciberseguridad</p>
+            <div class="flex justify-between items-center">
+              <a href="#" class="text-sm bg-gray-200 text-gray-400 font-semibold py-2 px-4 rounded-lg disabled-link">Ver</a>
+              <small class="text-gray-500">Próximamente</small>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="mt-auto py-4 bg-gray-800 text-white">
+  <div class="container mx-auto text-center">
+    <span>Dpto. de Tecnología   //   IES Huerta del Rosario   //   2025-2026</span>
+    <!--
+    <a href="https://blogsaverroes.juntadeandalucia.es/iesisladeleon/" class="text-white hover:underline ml-2">blogsaverroes.juntadeandalucia.es/iesisladeleon/</a>
+    -->
+  </div>
+</footer>
+
+</body>
+</html>

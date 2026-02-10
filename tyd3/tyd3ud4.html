@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UD4. Circuítos Electrónicos de Control</title>
+  <link href="../assets/css/styles.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 fill=%22currentColor%22 class=%22bi bi-robot%22 viewBox=%220 0 16 16%22><path d=%22M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5ZM3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.58 26.58 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.933.933 0 0 1-.765.935c-.845.147-2.34.346-4.235.346-1.895 0-3.39-.2-4.235-.346A.933.933 0 0 1 3 9.219V8.062Zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a24.767 24.767 0 0 1-1.871-.183.25.25 0 0 0-.217.068l-.92.9a.25.25 0 0 0 .169.434l.92-.9a25.25 25.25 0 0 0 1.942.183.25.25 0 0 0 .217-.068l.92-.9a.25.25 0 0 0-.17-.434l-.92.9a24.767 24.767 0 0 1-1.871-.183Z%22/><path d=%22M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1.5a2.5 2.5 0 0 0 2.5 2.5h9A2.5 2.5 0 0 0 15 13.5V12a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2V1.866ZM14 7.5V12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5Z%22/></svg>" type="image/svg+xml">
+
+  
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Pequeños ajustes adicionales si fueran necesarios */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* Para los iconos de Bootstrap, si los estás usando */
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css");
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Open Sans"', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        makecode: {
+                            blue: '#0074D9',    /* Básico */
+                            green: '#2ECC40',   /* Bucles */
+                            pink: '#D81B60',    /* Entrada */
+                            teal: '#009688',    /* Lógica */
+                            red: '#FF4136',     /* Variables */
+                            purple: '#9C27B0'   /* Matemáticas */
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Forzar impresión de colores de fondo para PDF */
+        @media print {
+            body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-slate-100 text-slate-700 font-sans antialiased leading-relaxed">
+    <header class="bg-gray-900 text-gray-200 shadow-lg sticky top-0 z-40">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center gap-3">
+                    <a href="../index.html" class="text-gray-100 hover:text-white flex items-center">
+                        <i class="bi bi-robot text-2xl mr-3"></i> <span class="font-bold text-xl">Tecnología y Digitalización</span>
+                    </a>
+                </div>
+                <div class="text-sm text-gray-400">
+                    <ol class="list-none p-0 inline-flex items-center">
+                        <li class="flex items-center">
+                            <a href="tyd3.html" class="text-gray-300 hover:text-blue-300">3º ESO</a>
+                            <i class="bi bi-chevron-right mx-2 text-xs text-gray-500"></i>
+                        </li>
+                        <li class="flex items-center text-gray-100 font-semibold">
+                            <span>UD4. Circuítos Electrónicos de Control</span>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <main class="flex-grow">
+        <div class="relative bg-cover bg-center py-20 md:py-32 -mx-6 md:-mx-12 -mt-6 md:-mt-12 rounded-t-lg" style="background-image: url('img/3ud4.jpg');">
+            <div class="absolute inset-0 bg-black opacity-50 rounded-t-lg"></div>
+            
+            <div class="container mx-auto px-12 relative z-10 text-center">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-white pb-6 mb-8">
+                    UD4. Circuítos Electrónicos de Control
+                </h1>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto bg-white shadow-lg rounded-lg my-12 p-10">
+        
+        <div class="mb-6">
+            <p class="text-lg mb-3">
+                <span class="font-bold italic">Apuntes:</span>
+            </p>
+            <ul class="list-none pl-4">
+                <li class="flex items-center group">
+                    <span class="text-gray-400 mr-2">•</span>
+                    <a href="https://docs.google.com/presentation/d/e/2PACX-1vRbA2jeI0UV2skCtBaQKSUBZXtOO65cAcza3BMa40jTs1YVcSYHWBqHi629T475R202wgGw2DZY_w6I/pub?start=false&loop=false&delayms=3000" target="_blank" class="text-blue-600 font-medium hover:text-blue-800 hover:underline transition-all">
+                        Proyecto
+                    </a>
+                </li>
+                <li class="flex items-center group">
+                    <span class="text-gray-400 mr-2">•</span>
+                    <a href="tyd3ud4ap.html" target="_blank" class="text-blue-600 font-medium hover:text-blue-800 hover:underline transition-all">
+                        UD4. Circuítos Electrónicos de Control
+                    </a>
+                </li>
+                <li class="flex items-center group">
+                    <span class="text-gray-400 mr-2">•</span>
+                    <a href="https://docs.google.com/presentation/d/e/2PACX-1vRVwEjNeXGwVEmqMsjNlPs24fQLxIF8ZG1epwMva8hWyFZeoCcOwj5bNL32fxWgQ19nAWTQo-TD4bqM/pub?start=false&loop=false&delayms=3000" target="_blank" class="text-blue-600 font-medium hover:text-blue-800 hover:underline transition-all">
+                        Circuítos Eléctricos y Electrónicos
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="mb-6">
+            <p class="text-lg mb-3">
+                <span class="font-bold italic">Actividades:</span>
+            </p>
+            <ul class="space-y-3 pl-4">
+                <li class="flex items-center group">
+                    <span class="text-gray-400 mr-2">•</span>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeMYvmuLE5sMTlV6_6cOqx4MNRB9nQMEfD9xAVWGoZwVxM5_w/viewform?usp=dialog" target="_blank" class="text-blue-600 font-medium hover:text-blue-800 hover:underline transition-all">
+                        Herramientas y Seguridad en el Taller
+                    </a>
+                </li>
+                <li class="flex items-center group">
+                    <span class="text-gray-400 mr-2">•</span>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdrXnIQNKd_CGO6g03o-ny3Z3gyEeVIxy3Niqtp6Y_vhv3RhQ/viewform?usp=dialog" target="_blank" class="text-blue-600 font-medium hover:text-blue-800 hover:underline transition-all">
+                        Cuestionario: La Electricidad y Ley de Ohm
+                    </a>
+                </li>
+                <li class="flex items-center group">
+                    <span class="text-gray-400 mr-2">•</span>
+                    <a href="https://docs.google.com/document/d/e/2PACX-1vTbdKxH1E610vW1vKMorQAZDo9FWEANSGl7NiMwm2AgXra8A_h2Dy8Z0nqH9pd6etOiMBxQTfgW4l_N/pub" target="_blank" class="text-blue-600 font-medium hover:text-blue-800 hover:underline transition-all">
+                        Tipos de Circuitos
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="mb-2">
+            <p class="text-lg mb-3">
+                <span class="font-bold italic">Tutoriales:</span>
+            </p>
+            <ul class="space-y-3 pl-4">
+                <li class="flex items-center group">
+                    <span class="text-gray-400 mr-2">•</span>
+                    <a href="https://www.youtube.com/watch?v=m6rJCh6lwPY" target="_blank" class="text-blue-600 font-medium hover:text-blue-800 hover:underline transition-all">
+                        Resolver un circuito en serie (intensidad, voltaje y resistencia)
+                    </a>
+                </li>
+                <li class="flex items-center group">
+                    <span class="text-gray-400 mr-2">•</span>
+                    <a href="https://www.youtube.com/watch?v=C1YRq4sMSPQ" target="_blank" class="text-blue-600 font-medium hover:text-blue-800 hover:underline transition-all">
+                        Resolver un circuito en paralelo (intensidad, voltaje y resistencia)
+                    </a>
+                </li>
+                <li class="flex items-center group">
+                    <span class="text-gray-400 mr-2">•</span>
+                    <a href="https://www.youtube.com/watch?v=TSuJ6l0k66w" target="_blank" class="text-blue-600 font-medium hover:text-blue-800 hover:underline transition-all">
+                        Resolver un circuito mixto (intensidad, voltaje y resistencia)
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        </div>
+</main>
+
+
+<!-- Modal para ampliar imagen -->
+<div id="imageModal" class="modal">
+  <span class="close-modal">&times;</span>
+  <img class="modal-content" id="modalImage">
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // --- Lógica para el modal de la imagen ---
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
+        const images = document.querySelectorAll('.zoomable-image');
+        const closeBtn = document.querySelector(".close-modal");
+
+        images.forEach(img => {
+            img.onclick = function(){
+                modal.style.display = "flex";
+                modalImg.src = this.src;
+            }
+        });
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        closeBtn.onclick = closeModal;
+
+        modal.onclick = function(event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    });
+
+</script>
+</body>
+</html>

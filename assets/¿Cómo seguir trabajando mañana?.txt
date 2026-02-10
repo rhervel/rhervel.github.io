@@ -1,0 +1,13 @@
+¿Cómo seguir trabajando mañana?
+Ahora que ya tienes todo configurado, tu flujo de trabajo diario será así:
+
+Abre tu Terminal.
+
+Entra en tu carpeta.
+
+Ejecuta este comando para activar el "Modo Vigilante":
+
+Bash
+./tailwindcss -i ./assets/css/input.css -o ./assets/css/styles.css --watch
+
+Mientras esa ventana negra esté abierta: Puedes crear nuevas páginas, cambiar colores o añadir clases en tu HTML, y el archivo styles.css se actualizará solo en tiempo real.

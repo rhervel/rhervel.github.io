@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UD2. Introducción a la Programación</title>
+  <link href="../assets/css/styles.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 fill=%22currentColor%22 class=%22bi bi-robot%22 viewBox=%220 0 16 16%22><path d=%22M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5ZM3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.58 26.58 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.933.933 0 0 1-.765.935c-.845.147-2.34.346-4.235.346-1.895 0-3.39-.2-4.235-.346A.933.933 0 0 1 3 9.219V8.062Zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a24.767 24.767 0 0 1-1.871-.183.25.25 0 0 0-.217.068l-.92.9a.25.25 0 0 0 .169.434l.92-.9a25.25 25.25 0 0 0 1.942.183.25.25 0 0 0 .217-.068l.92-.9a.25.25 0 0 0-.17-.434l-.92.9a24.767 24.767 0 0 1-1.871-.183Z%22/><path d=%22M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1.5a2.5 2.5 0 0 0 2.5 2.5h9A2.5 2.5 0 0 0 15 13.5V12a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2V1.866ZM14 7.5V12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5Z%22/></svg>" type="image/svg+xml">
+
+  
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Pequeños ajustes adicionales si fueran necesarios */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* Para los iconos de Bootstrap, si los estás usando */
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css");
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Open Sans"', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-gray-100 text-gray-800 font-sans">
+        <header class="bg-gray-900 text-gray-200 shadow-lg sticky top-0 z-40">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center gap-3">
+                    <a href="../index.html" class="text-gray-100 hover:text-white flex items-center">
+                        <i class="bi bi-robot text-2xl mr-3"></i> <span class="font-bold text-xl">Computación y Robótica</span>
+                    </a>
+                </div>
+                <div class="text-sm text-gray-400">
+                    <ol class="list-none p-0 inline-flex items-center">
+                        <li class="flex items-center">
+                            <a href="cyr3.html" class="text-gray-300 hover:text-blue-300">3º ESO</a>
+                            <i class="bi bi-chevron-right mx-2 text-xs text-gray-500"></i>
+                        </li>
+                        <li class="flex items-center text-gray-100 font-semibold">
+                            <span>UD2. Introducción a la Programación</span>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<main class="flex-grow">
+    <div class="relative bg-cover bg-center py-20 md:py-32 -mx-6 md:-mx-12 -mt-6 md:-mt-12 rounded-t-lg" style="background-image: url('https://lh6.googleusercontent.com/bYMFXwVXn-aYxrIxlt_5w9XUqK9EhMk79DELC_L4Sb4DI3N2vxDe6z6V3IiePtxE5rcMKc1RWnPykbYulwsvsZEMRve-FpXmVvVA91Gmwme5UD7IbQO2P_CP8bGEtdILHZTyy0Jk');">
+        <div class="absolute inset-0 bg-black opacity-50 rounded-t-lg"></div>
+        
+        <div class="container mx-auto px-12 relative z-10 text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-white pb-6 mb-8">
+                UD2. Introducción a la Programación
+            </h1>
+        </div>
+    </div>
+
+   <div class="max-w-7xl mx-auto bg-white shadow-lg rounded-lg my-12 p-10">
+<section id="introduccion-ordenador" class="mb-12">
+            <h2 class="text-3xl font-extrabold text-gray-900 mb-6">1. INTRODUCCIÓN: ¿CÓMO PIENSA UN ORDENADOR?</h2>
+            
+            <p class="text-lg mb-4">Vivimos rodeados de aparatos "inteligentes". Tu móvil reconoce tu cara, YouTube sabe qué vídeos te gustan y la aspiradora de tu casa esquiva al perro.</p>
+            <p class="text-xl font-bold text-indigo-600 mb-6">Parece magia, pero no lo es. Es <strong>PROGRAMACIÓN</strong>.</p>
+            
+            <p class="text-red-700 italic mb-6">Lo primero que tienes que aprender en esta asignatura es algo que te va a sorprender: Los <strong>ordenadores son tontos</strong>.</p>
+            
+            <p class="mb-4">Imagínate que tienes un amigo que es súper rápido corriendo, pero que no tiene sentido común.</p>
+            <p class="mb-4">Si le dices: "Ve a la cocina", él se chocará contra la pared porque no le has dicho "Abre la puerta primero".</p>
+            <p class="mb-4">Si le dices: "Tráeme eso", se quedará quieto porque no sabe qué es "eso".</p>
+            <p class="mb-4">Un ordenador es igual. Es una máquina capaz de hacer millones de cálculos en un segundo, pero incapaz de improvisar.</p>
+            <p class="mb-8">Solo hace <strong>exactamente lo que tú le ordenas</strong>. Ni más, ni menos.</p>
+            
+            <div class="page-break"></div>
+
+            <section id="que-es-programar">
+                <h3 class="text-2xl font-bold text-gray-800 border-b pb-2 mb-4">1.1. ¿Qué es Programar? (La Realidad vs. Hollywood)</h3>
+                <p class="mb-4">Es muy común que, al escuchar la palabra "programador", nos imaginemos una escena de película: una persona con capucha en una habitación oscura, escribiendo a la velocidad de la luz mientras caen letras verdes por la pantalla al estilo Matrix, o intentando "hackear" la NASA antes de que se acabe el tiempo.</p>
+                <p class="font-bold text-yellow-600 mb-4">SPOILER: Programar no es eso. Es algo mucho más cotidiano, creativo y menos frenético.</p>
+
+                <h4 class="text-xl font-semibold mt-6 mb-3">El Arte de Dar Instrucciones</h4>
+                <p class="mb-4">En esencia, programar es el arte de la <strong>comunicación</strong>. Pero no es una comunicación entre humanos (donde se entienden las indirectas o el contexto), sino una comunicación con una máquina.</p>
+                <p class="mb-4">Imagina que tienes al asistente más rápido y obediente del mundo, pero que también es extremadamente literal.</p>
+                <p class="mb-4">Si le dices "hazme un sándwich", se quedará quieto. ¿Por qué?</p>
+                <p class="mb-4">Porque no sabe qué es pan, dónde está, ni cómo usar un cuchillo.</p>
+                
+                <p class="font-bold text-green-800 mb-2">Programar es:</p>
+                <ol class="list-decimal list-inside ml-4 space-y-1 mb-4">
+                    <li>Desglosar un problema grande (hacer un sándwich) en <strong>pasos diminutos</strong>.</li>
+                    <li>Traducir esos pasos a un <strong>idioma que la máquina entienda</strong> (el lenguaje de programación).</li>
+                    <li>Ordenarle que los ejecute.</li>
+                </ol>
+                <p class="mt-3 font-semibold text-green-900 mb-8">La regla de oro: El ordenador no hace lo que tú quieres que haga; hace <strong>exactamente lo que tú le dices que haga</strong>.</p>
+                
+                <div class="page-break"></div>
+                
+                <h4 class="text-xl font-semibold mt-6 mb-3">El Idioma de la Máquina</h4>
+                <p class="mb-4">Tu ordenador es una calculadora increíblemente potente, pero por sí sola no es inteligente. Necesita que tú seas su cerebro.</p>
+                <p class="mb-4">Programar consiste en aprender a <strong>"hablar el idioma de la máquina"</strong> para explicarle paso a paso y sin errores qué debe suceder.</p>
+                
+                <ul class="list-disc ml-6 space-y-2 mb-6">
+                    <li><strong>Paso a paso (Algoritmo):</strong> Si te saltas un paso (por ejemplo, "abrir el bote de mermelada" antes de "untar la mermelada"), el programa fallará. La secuencia lógica es vital.</li>
+                    <li><strong>Sin errores (Sintaxis):</strong> A diferencia de un amigo que te entiende aunque escribas mal un WhatsApp, la máquina necesita precisión total. Una instrucción mal dada es una acción que no se realiza.</li>
+                </ul>
+                <p class="mb-8">En resumen: Programar no es magia negra; es simplemente la habilidad de decirle a una computadora cómo resolver un problema por nosotros.</p>
+            </section>
+
+            <section id="analogia-receta">
+                <h3 class="text-2xl font-bold text-gray-800 border-b pb-2 mb-4">1.1.1. La Analogía Perfecta: Una Receta de Cocina</h3>
+                <p class="mb-4">Para terminar de entender qué es programar, pensemos en algo que todos hemos visto: una receta de cocina.</p>
+                <p class="mb-4">Un programa informático no es más que una receta muy sofisticada.</p>
+                
+                <ul class="list-disc ml-4 space-y-1 mb-6">
+                    <li>Los Ingredientes son los <strong>Datos</strong> (números, textos, imágenes).</li>
+                    <li>Los Pasos de la receta son el <strong>Algoritmo</strong> (las instrucciones).</li>
+                    <li>El Plato final es el <strong>Resultado</strong> (lo que ves en la pantalla).</li>
+                </ul>
+                
+                <h4 class="text-xl font-semibold mt-6 mb-3">El problema de la "Mente Humana" vs. la "Mente Máquina"</h4>
+                <p class="mb-4">La gran diferencia es que, cuando un humano lee una receta que dice "Batir los huevos", su cerebro asume muchas cosas por contexto.</p>
+                <p class="mb-4">Sabe que primero debe romper la cáscara y poner el contenido en un bol.</p>
+                <p class="mb-6">Si le das esa misma instrucción a un ordenador (un robot de cocina literal) sin ser específico, intentará batir los huevos con la cáscara cerrada y destrozará la cocina.</p>
+
+                <h4 class="text-xl font-semibold mt-6 mb-3">Ejemplo: "Preparar Cereal con Leche"</h4>
+                
+                <div class="table-container overflow-x-auto mb-8">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Instrucción para un Humano</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Instrucción para una Máquina (Programar)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap align-top">"Prepárate un bol de cereal."</td>
+                                <td class="px-6 py-4 whitespace-nowrap">1. Buscar bol vacío.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap"></td>
+                                <td class="px-6 py-4 whitespace-nowrap">2. Colocar bol en la mesa.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap"></td>
+                                <td class="px-6 py-4 whitespace-nowrap">3. Buscar caja de cereal.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap"></td>
+                                <td class="px-6 py-4 whitespace-nowrap">4. Abrir caja.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap"></td>
+                                <td class="px-6 py-4 whitespace-nowrap">5. Verter cereal en el bol.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap"></td>
+                                <td class="px-6 py-4 whitespace-nowrap">6. Buscar leche.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap"></td>
+                                <td class="px-6 py-4 whitespace-nowrap">7. Verter leche sobre el cereal.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="page-break"></div>
+
+                <p class="font-semibold text-lg text-gray-900 mb-4">¿Por qué es vital este detalle?</p>
+                <p class="mb-4">8. Fin del proceso.</p>
+                <p class="mb-6">Si en la columna de la derecha cambiamos el orden y ponemos el paso 7 (verter leche) antes del paso 1 (buscar bol), la máquina verterá la leche directamente sobre la mesa.</p>
+                
+                <p class="italic mb-8">
+                    <strong>Conclusión:</strong> Programar es el arte de redactar esa receta perfecta, donde no dejamos nada a la imaginación, asegurándonos de que cada paso siga al anterior en el orden lógico correcto.
+                </p>
+            </section>
+            
+            <section id="pensamiento-computacional">
+                <h2 class="text-3xl font-extrabold text-gray-900 mb-6">1.2. El Pensamiento Computacional</h2>
+                <p class="mb-4">Existe una regla de oro en la informática: <strong>La programación es 20% escritura y 80% pensamiento</strong>.</p>
+                <p class="mb-4">Antes de lanzarte a tocar el teclado, tienes que "ordenar tu cabeza". A este proceso mental lo llamamos <strong>Pensamiento Computacional</strong>.</p>
+                <p class="mb-4">No es algo exclusivo de los ingenieros; es una habilidad para la vida.</p>
+                <p class="mb-6">Consiste en tomar un problema complejo y difícil, desmontarlo y convertirlo en una serie de pequeños pasos fáciles de resolver. A esto lo llamamos <strong>descomposición</strong>. Si no eres capaz de explicar la solución paso a paso en un papel, no serás capaz de programarla en el ordenador.</p>
+
+                <h4 class="text-xl font-semibold mt-6 mb-3">PARA PENSAR: El Desafío del Bocadillo</h4>
+                <p class="mb-4">Para entender la importancia de este pensamiento detallado, hagamos un ejercicio mental.</p>
+                <p class="mb-4">Imagina que tienes que enseñar a un robot, que no sabe nada del mundo humano, a prepararse un bocadillo de Nocilla.</p>
+                <p class="mb-4"><strong>El intento fallido:</strong> Si tú le dices simplemente: "Robot, hazme un bocadillo", el robot se quedará quieto.</p>
+                <p class="mb-4">No sabe qué es "bocadillo", ni dónde están las cosas. Es una instrucción demasiado vaga.</p>
+                <p class="mb-4"><strong>El intento detallado (Algoritmo):</strong> Para que funcione, tienes que descomponer la tarea en micro-instrucciones:</p>
+                <ol class="list-decimal list-inside ml-4 space-y-1 mb-6">
+                    <li>Ir a la despensa.</li>
+                    <li>Coger la bolsa de pan.</li>
+                    <li>Coger el bote de Nocilla.</li>
+                    <li>Coger un cuchillo.</li>
+                    <li>Sacar dos rebanadas de pan.</li>
+                    <li>Meter el cuchillo en el bote...</li>
+                    <li class="font-bold text-red-700">¡ERROR DE LÓGICA! ¿Te diste cuenta del fallo en la lista anterior?</li>
+                </ol>
+
+                <div class="page-break"></div>
+
+                <p class="mb-4">En el paso 6 le dijimos "Meter el cuchillo en el bote", pero... ¡se nos olvidó decirle que quitara la tapa roja primero!</p>
+                <p class="mb-4">Como el robot es literal y obedece ciegamente, intentará atravesar el cristal o la tapa de plástico con el cuchillo, romperá el bote y manchará toda la cocina.</p>
+                <p class="mb-4">El programa habrá fallado, no porque el robot no funcione, sino porque tu pensamiento computacional pasó por alto un detalle crítico.</p>
+                <p class="mb-8"><strong>Lección:</strong> En programación, lo que para ti es obvio (quitar la tapa), para la máquina es un misterio si no se lo explicas. El detalle lo es todo.</p>
+            </section>
+        </section>
+
+        <section id="el-algoritmo" class="mb-12">
+            <h2 class="text-3xl font-extrabold text-gray-900 mb-6">2. EL ALGORITMO: LA RECETA DE COCINA</h2>
+            <p class="text-xl font-bold text-indigo-700 mb-4">Esta es la palabra más importante de toda la unidad, así que grábatela a fuego: <strong>ALGORITMO</strong>.</p>
+            <p class="mb-4">A menudo, cuando la gente escucha "algoritmo", piensa en ecuaciones matemáticas imposibles o en secretos de Google.</p>
+            <p class="mb-4">Pero nada más lejos de la realidad. Un algoritmo es un concepto increíblemente simple:</p>
+            
+            <p class="text-indigo-700 italic text-lg mb-6">
+                <strong>Definición:</strong> Un algoritmo es una <strong>lista ordenada de instrucciones</strong> para conseguir un objetivo concreto.
+            </p>
+
+            <h4 class="text-xl font-semibold mt-6 mb-3">Tu día a día es un algoritmo</h4>
+            <p class="mb-4">Sin darte cuenta, ejecutas algoritmos todo el tiempo. Una receta de cocina es el ejemplo perfecto.</p>
+            <p class="mb-4">Imagina que quieres hacer una tortilla francesa:</p>
+            <ol class="list-decimal list-inside ml-4 space-y-1 mb-4">
+                <li>Romper los huevos.</li>
+                <li>Batir los huevos.</li>
+                <li>Echar la mezcla a la sartén.</li>
+            </ol>
+            <p class="mb-4">¿Qué pasa si cambiamos el orden? Si inviertes los pasos 1 y 3 (echas los huevos a la sartén antes de romperlos), no obtienes una tortilla.</p>
+            <p class="mb-4">Obtienes unos huevos fritos con cáscara y un desastre en la cocina.</p>
+            <p class="mb-6"><strong>En programación, el orden de los factores sí altera el producto.</strong></p>
+            
+            <h4 class="text-xl font-semibold mt-6 mb-3">Las 3 Leyes del Algoritmo</h4>
+            <p class="mb-4">Para que una lista de instrucciones sea considerada un "Algoritmo de verdad" en informática, no vale cualquier cosa.</p>
+            <p class="mb-4">Debe cumplir estrictamente estas tres normas:</p>
+            
+            <ul class="list-disc ml-6 space-y-3 mb-8">
+                <li><strong>1. Tiene que ser PRECISO:</strong> Las máquinas no entienden ambigüedades ni "medias tintas".
+                    <ul class="list-disc ml-6 text-sm text-gray-600">
+                        <li>Mal: "Muévete un poco hacia allá". (¿Cuánto es un poco? ¿Hacia dónde es allá?).</li>
+                        <li><strong>Bien:</strong> "Muévete 10 pasos hacia el norte".</li>
+                        <li>Mal: "Gira".</li>
+                        <li><strong>Bien:</strong> "Gira 90 grados a la derecha".</li>
+                    </ul>
+                </li>
+                <li><strong>2. Tiene que ser FINITO:</strong> Todo algoritmo debe tener un <strong>Principio</strong> y un <strong>Final</strong>. Debe resolver el problema y detenerse.
+                    <p class="text-sm text-gray-600 mt-1">Si un algoritmo entra en un bucle infinito sin salida y se queda "pensando" eternamente, se considera un error (se ha "colgado").</p>
+                </li>
+                <li><strong>3. Tiene que ser ORDENADO (Secuencia)</strong>: Los pasos deben ejecutarse uno detrás de otro, sin saltos extraños.
+                    <ul class="list-disc ml-6 text-sm text-gray-600">
+                        <li>Primero el paso 1.</li>
+                    </ul>
+                    <div class="page-break"></div>
+                    <ul class="list-disc ml-6 text-sm text-gray-600">
+                        <li>Luego el paso 2.</li>
+                        <li>Finalmente el paso 3. A esta ejecución lineal la llamamos <strong>SECUENCIA</strong>. Es la base de todo lo que programaremos.</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+        
+        <section id="diagramas-flujo" class="mb-12">
+            <h2 class="text-3xl font-extrabold text-gray-900 mb-6">3. LOS DIAGRAMAS DE FLUJO: EL MAPA DEL TESORO</h2>
+            <p class="mb-4">Hasta ahora hemos visto que un algoritmo es una lista de pasos. Pero, ¿qué pasa cuando la vida se complica?</p>
+            <p class="mb-4">A veces, escribir una lista de texto plano es un lío, sobre todo cuando aparecen decisiones.</p>
+            <p class="mb-4">La vida no es una línea recta; está llena de bifurcaciones:</p>
+            <ul class="list-disc ml-6 space-y-1 mb-4">
+                <li>"Si llueve, cojo paraguas... pero si no, cojo gafas de sol".</li>
+                <li>"Si tengo dinero, compro el helado... si no, sigo caminando".</li>
+            </ul>
+            <p class="mb-6">Escribir todos esos "SI" y "NO" en un texto puede resultar confuso muy rápido. Para ver estas decisiones con claridad, los programadores utilizamos una herramienta visual llamada <strong>DIAGRAMA DE FLUJO</strong>.</p>
+
+            <h4 class="text-xl font-semibold mt-6 mb-3">¿Qué es un Diagrama de Flujo?</h4>
+            <p class="mb-4">Es como un mapa de carreteras para tu programa. En lugar de leer frases, sigues una línea que te lleva de una instrucción a otra.</p>
+            <p class="mb-4">Te permite ver, de un solo vistazo, todos los caminos posibles que puede tomar tu código.</p>
+
+            <h4 class="text-xl font-semibold mt-6 mb-3">El Idioma de las Formas</h4>
+            <p class="mb-4">Para que este mapa lo pueda entender cualquier programador del mundo (sea de Japón, de Estados Unidos o de tu clase), nos hemos puesto de acuerdo en usar siempre las mismas formas geométricas.</p>
+            <p class="mb-4">Cada figura significa una cosa diferente:</p>
+            
+            <div class="table-container overflow-x-auto mb-8">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-100">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Forma</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nombre</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Significado</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">Óvalo</td>
+                            <td class="px-6 py-4 whitespace-nowrap font-bold">INICIO / FIN</td>
+                            <td class="px-6 py-4">Indica dónde empieza y dónde termina el algoritmo. Es la puerta de entrada y salida.</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">Rectángulo</td>
+                            <td class="px-6 py-4 whitespace-nowrap font-bold">PROCESO (Acción)</td>
+                            <td class="px-6 py-4">Representa una orden directa o una acción (ej: "Caminar", "Sumar", "Encender luz").</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">Rombo</td>
+                            <td class="px-6 py-4 whitespace-nowrap font-bold text-red-600">DECISIÓN</td>
+                            <td class="px-6 py-4">¡El más importante! Aquí se hace una pregunta de "Sí o No". El camino se divide en dos: una flecha para la respuesta Sí y otra para el NO.</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">Flechas</td>
+                            <td class="px-6 py-4 whitespace-nowrap font-bold">FLUJO</td>
+                            <td class="px-6 py-4">Son las carreteras. Nos dicen hacia dónde tenemos que ir después de cada paso.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="font-semibold text-gray-700 mb-8"><strong>La Regla de Oro:</strong> Nunca puedes perderte. Siguiendo las flechas, siempre debes llegar desde el "Inicio" hasta el "Fin", pasando por las acciones y decisiones correspondientes.</p>
+        </section>
+
+        <section id="programacion-bloques" class="mb-12">
+            <h2 class="text-3xl font-extrabold text-gray-900 mb-6">4. PROGRAMACIÓN POR BLOQUES: JUGANDO A LEGO</h2>
+            
+            <div class="page-break"></div>
+
+            <p class="mb-4">A menudo, cuando pensamos en programación, imaginamos pantallas negras llenas de texto incomprensible, símbolos extraños y la frustración de que un solo punto y coma faltante arruine todo el trabajo.</p>
+            <p class="mb-4">Sin embargo, el aprendizaje de la computación ha evolucionado para centrarse en lo que realmente importa: el pensamiento lógico.</p>
+            <p class="mb-6">Para este punto del curso, dejaremos de lado la escritura de código tradicional para adentrarnos en la <strong>Programación por Bloques</strong>, una metodología revolucionaria que democratiza el acceso a la tecnología.</p>
+
+            <h4 class="text-xl font-semibold mt-6 mb-3">1. ¿Por qué Bloques? El fin de los "Errores de Escritura"</h4>
+            <p class="mb-4">En los lenguajes de programación textuales (como C++, Python o Java), el programador debe dominar dos habilidades simultáneamente: la lógica del algoritmo (qué queremos que pase) y la sintaxis estricta (cómo debemos escribirlo).</p>
+            <p class="mb-4">El problema: Un error tipográfico, un paréntesis mal cerrado o una mayúscula donde iba una minúscula suelen provocar un "Error de Sintaxis" que impide que el programa funcione, generando frustración en quien está aprendiendo.</p>
+            <p class="mb-6">
+                La programación por bloques <strong>elimina esta barrera técnica</strong>. Al utilizar elementos visuales predefinidos, es imposible cometer errores de sintaxis. Esto nos permite canalizar el 100% de nuestra energía mental en resolver el problema y diseñar la solución, sin preocuparnos por la ortografía del código.
+            </p>
+
+            <h4 class="text-xl font-semibold mt-6 mb-3">2. La Metáfora de LEGO: Construyendo Algoritmos</h4>
+            <p class="mb-4">La mejor forma de visualizar este sistema es compararlo con el juego de construcción más famoso del mundo: <strong>LEGO</strong>.</p>
+            <p class="mb-4">Imagina que cada instrucción que quieres dar a la máquina (moverse, esperar, emitir un sonido, calcular) es una pieza de plástico de un color y forma específica:</p>
+            <ul class="list-disc ml-6 space-y-2 mb-6">
+                <li><strong>Encaje Visual:</strong> Al igual que las piezas de LEGO, los bloques de código tienen formas que indican cómo pueden conectarse. Si dos bloques no encajan visualmente (como una pieza redonda en un hueco cuadrado), significa que esas instrucciones no son compatibles lógicamente.</li>
+                <li><strong>Modularidad:</strong> Construimos programas complejos uniendo piezas simples, una encima de otra, creando estructuras sólidas y fáciles de leer a simple vista.</li>
+                <li><strong>Intuición:</strong> Los bloques suelen estar agrupados por colores (azul para movimiento, rosa para sonido, etc.), lo que hace que la navegación sea intuitiva y rápida.</li>
+            </ul>
+
+            <h4 class="text-xl font-semibold mt-6 mb-3">3. Nuestra Herramienta: Microsoft MakeCode</h4>
+            <p class="mb-4">Para llevar estos conceptos a la práctica, utilizaremos <strong>MakeCode</strong>, un entorno de desarrollo creado por Microsoft que es el estándar de oro en la educación STEM actual.</p>
+            <p class="mb-4">MakeCode no es un juguete; es un puente poderoso hacia la programación profesional.</p>
+            <p class="mb-4">Nos ofrece un lienzo interactivo donde arrastraremos y soltaremos nuestros bloques para dar vida a nuestros proyectos.</p>
+            <p class="mb-6">Además, tiene una ventaja educativa enorme: nos permite ver en tiempo real cómo nuestros bloques visuales se traducirían a código real (JavaScript o Python), facilitando la transición al código escrito en el futuro.</p>
+            
+            <p class="italic mb-8">
+                <strong>En resumen:</strong> En esta sección, aprenderemos a "pensar como un ordenador" usando un lenguaje visual, seguro y divertido. Olvídate de teclear comandos oscuros; aquí venimos a construir lógica pieza a pieza.
+            </p>
+        </section>
+
+        <section id="herramientas-programador" class="mb-12">
+            <h2 class="text-3xl font-extrabold text-gray-900 mb-6">5. LAS HERRAMIENTAS DEL PROGRAMADOR</h2>
+            <p class="mb-4">Para crear cualquier programa que te imagines, desde un videojuego complejo como Fortnite hasta el chip que controla la lavadora de tu casa, se utilizan siempre los mismos cimientos.</p>
+            <p class="mb-4">No importa el lenguaje; la lógica es universal. Aquí están las dos herramientas maestras que debes dominar.</p>
+
+            <section id="bucles">
+                <h3 class="text-2xl font-bold text-gray-800 border-b pb-2 mb-4">5.1. LOS BUCLES (La Repetición)</h3>
+                <p class="mb-4">Color en MakeCode: <strong class="text-green-600">VERDE (Bucles)</strong></p>
+                <p class="mb-4">Hay un secreto que debes saber: Los programadores somos "vagos" inteligentes.</p>
+                <p class="mb-4">Si queremos que el ordenador repita una acción mil veces, jamás escribiremos la misma orden mil veces.</p>
+                <p class="mb-4">Eso es perder el tiempo y arriesgarse a errores. En su lugar, escribimos la orden una sola vez y la metemos dentro de un <strong>BUCLE</strong>.</p>
+                <p class="mb-4">Un bucle es una estructura que dice: "Repite lo que hay aquí dentro". En MakeCode, usaremos principalmente dos tipos:</p>
+                
+                <ul class="list-disc ml-6 space-y-2 mb-6">
+                    <li><strong>Repetir [X] veces:</strong> Se usa cuando sabes el número exacto de repeticiones.
+                        <p class="text-sm text-gray-600 mt-1">Ejemplo: "Parpadear 3 veces" o "Dar 10 pasos". Una vez que termina la cuenta, el programa sigue.</p>
+                    </li>
+                    <li><strong>Por siempre (Forever):</strong> Este es el bloque rey en la robótica.
+                        <ul class="list-disc ml-6 text-sm text-gray-600 mt-1">
+                            <li>La analogía del corazón: Imagina que tu corazón latiera 100 veces y luego se detuviera. ¡Mal asunto! Tu corazón necesita latir "por siempre" mientras estés vivo.</li>
+                            <li>En robots: Un robot necesita este bucle para estar "vivo": leer sus sensores y esperar órdenes infinitamente hasta que se le acabe la batería. Si no usas este bloque, el robot hará la acción una vez y se "apagará".</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="condicionales">
+                <h3 class="text-2xl font-bold text-gray-800 border-b pb-2 mb-4">5.2. LOS CONDICIONALES (La Decisión) ❓</h3>
+                <p class="mb-4">Color en MakeCode: <strong class="text-blue-500">AZUL CELESTE (Lógica)</strong></p>
+                <p class="mb-4">Si los bucles son los músculos (repetición), los condicionales son el **cerebro**.</p>
+                <p class="mb-4">Aquí es donde la máquina empieza a parecer inteligente. Usamos el famoso bloque **"SI... ENTONCES..." (If... Then...)**.</p>
+                
+                <p class="font-bold text-blue-800 mb-2">Su funcionamiento es pura lógica binaria:</p>
+                <ol class="list-decimal list-inside ml-4 space-y-1 mb-6">
+                    <li>La máquina comprueba una <strong>Condición</strong> (una pregunta de Sí o No).</li>
+                    <li>Dependiendo de la respuesta, toma dos caminos:</li>
+                </ol>
+                
+                <div class="page-break"></div>
+
+                <ul class="list-disc ml-6 space-y-2 mb-6">
+                    <li>Si la condición es <strong>VERDADERA ($\text{True}$):</strong> El programa entra en la "boca" del bloque y ejecuta las instrucciones que hay dentro.</li>
+                    <li>SI la condición es <strong>FALSA ($\text{False}$):</strong> El programa ignora por completo lo que hay dentro y pasa a lo siguiente, como si no existiera.</li>
+                </ul>
+
+                <h4 class="text-xl font-semibold mt-6 mb-3">Ejemplo Práctico: Videojuego</h4>
+                <p class="mb-4">Imagina que estás programando un juego de plataformas y el personaje camina sobre el terreno.</p>
+                <p class="font-bold mb-2">Condición: ¿Estoy tocando la lava?</p>
+                <p class="ml-4 mb-2"><strong>SI (Verdadero):</strong> $\rightarrow$ Restar una vida y Reproducir sonido "Ouch".</p>
+                <p class="ml-4 mb-4"><strong>SI (Falso):</strong> $\rightarrow$ No pasa nada, el juego sigue normal.</p>
+                
+                <p class="mb-4">Sin condicionales, los programas serían tontos; harían siempre lo mismo pase lo que pase.</p>
+                <p class="mb-8">Con condicionales, el programa reacciona al mundo.</p>
+            </section>
+        </section>
+
+        <section id="variables" class="mb-12">
+            <h2 class="text-3xl font-extrabold text-gray-900 mb-6">6. LAS VARIABLES: LA MEMORIA DEL ORDENADOR</h2>
+            <p class="mb-4">Llegamos al "jefe final" de los conceptos básicos. Esta es la parte que suele costar más entender al principio, así que presta mucha atención.</p>
+            <p class="mb-6">Si entiendes esto, tienes el poder de recordar cosas.</p>
+
+            <h4 class="text-xl font-semibold mt-6 mb-3">El Problema de la Amnesia</h4>
+            <p class="mb-4">Imagina que estás jugando un partido de baloncesto muy intenso. Metes una canasta. Luego el equipo contrario mete dos.</p>
+            <p class="mb-4">Luego tú otra... Si no tuvieras dónde anotarlo, al cabo de 5 minutos nadie sabría quién va ganando.</p>
+            <p class="mb-4">Necesitas un marcador.</p>
+            <p class="mb-4">En programación, el ordenador sufre de amnesia constante. Si no le dices explícitamente "guarda este número", lo olvida al instante.</p>
+            <p class="mb-6">Ese "lugar seguro" donde apuntamos los datos para que no se pierdan se llama **VARIABLE**.</p>
+
+            <h4 class="text-xl font-semibold mt-6 mb-3">La Metáfora de la Caja</h4>
+            <p class="mb-4">Para entender qué es una variable, olvídate de las matemáticas y piensa en una caja de zapatos.</p>
+            <p class="mb-4">Una variable no es más que una <strong>caja vacía en la memoria del ordenador</strong> que creamos para guardar algo.</p>
+            <p class="mb-4">Esta caja tiene tres reglas de funcionamiento:</p>
+            
+            <div class="page-break"></div>
+
+            <ul class="list-decimal ml-6 space-y-2 mb-6">
+                <li><strong>1. La Etiqueta (El Nombre):</strong> Primero cogemos la caja y le escribimos un nombre con rotulador, por ejemplo: <code>Puntos</code>. Así, cuando queramos saber el resultado, le diremos al ordenador: "Ve a buscar la caja que se llama Puntos".</li>
+                <li><strong>2. El Contenido (El Valor):</strong> Al empezar el partido, la caja está vacía. Escribimos un número en un papel (por ejemplo, un 0) y lo metemos dentro.</li>
+                <li><strong>3. La Variación (Por eso se llama Variable):</strong> Aquí viene la magia. Cuando metes una canasta, vas a la caja <code>Puntos</code>, tiras a la basura el papel que ponía 0 y metes un papel nuevo que pone 2. El contenido <strong>varía a lo largo del tiempo</strong>, pero la caja sigue siendo la misma.</li>
+            </ul>
+            
+            <h4 class="text-xl font-semibold mt-6 mb-3">¿Para qué sirven en la vida real?</h4>
+            <p class="mb-4">Sin variables, el software moderno no existiría. Piénsalo:</p>
+            <ul class="list-disc ml-6 space-y-1 mb-8 text-sm text-gray-600">
+                <li>En Fortnite, la variable <code>Salud</code> empieza en 100 y baja cuando te disparan.</li>
+                <li>En Instagram, la variable <code>Nombre_Usuario</code> guarda tu nick para mostrarlo en tu perfil.</li>
+                <li>En tu móvil, la variable <code>Bateria</code> guarda el porcentaje de energía que queda.</li>
+            </ul>
+            <p class="font-bold text-gray-700 mb-4"><strong>En Resumen:</strong> Una variable es el truco que usamos para que el ordenador tenga memoria y pueda recordar datos (vidas, puntos, nombres) mientras el programa está funcionando.</p>
+        </section>
+
+        <section id="robotica" class="mb-12">
+            <h2 class="text-3xl font-extrabold text-gray-900 mb-6">7. ROBÓTICA: CUANDO EL CÓDIGO SALE DE LA PANTALLA</h2>
+            <p class="mb-4">Hasta este momento, todo lo que hemos aprendido (bucles, variables, condicionales) vivía encerrado dentro del ordenador. Eran "fantasmas" digitales.</p>
+            <p class="mb-4">Pero esta asignatura se llama <strong>Robótica</strong>, y aquí es donde la cosa se pone emocionante.</p>
+            <p class="mb-6">Un robot es, básicamente, una <strong>máquina programada que es capaz de interactuar con el mundo físico</strong>.</p>
+            <p class="mb-4">Ya no se trata de mover un personaje en un videojuego; se trata de mover un motor real, encender una luz real o detectar si en tu habitación hace frío o calor.</p>
+            
+            <h4 class="text-xl font-semibold mt-6 mb-3">El Esquema Sagrado: E-P-S (Entrada - Proceso - Salida)</h4>
+            <p class="mb-4">Para funcionar, absolutamente todos los robots del mundo (desde el Roomba que barre tu suelo hasta el rover Perseverance en Marte) funcionan siguiendo el mismo esquema de tres fases: <strong>E-P-S (Entrada - Proceso - Salida)</strong>.</p>
+            <p class="mb-6">Imagina al robot como si fuera un ser vivo:</p>
+            
+            <div class="space-y-6">
+                <section id="entrada-sensores">
+                    <h3 class="text-xl font-bold text-red-700">1. ENTRADA (Los Sentidos)</h3>
+                    <p class="text-red-600 font-medium mb-2">En el mundo técnico los llamamos <strong>SENSORES</strong>. Son los "ojos" y "oídos" de la máquina.</p>
+                    <p class="text-red-600 font-medium mb-2">Sin ellos, el robot sería ciego y sordo; no sabría qué está pasando a su alrededor.</p>
+                    <p class="text-red-600 font-medium mb-2">Su trabajo es capturar datos del mundo exterior y enviarlos al cerebro.</p>
+                    <ul class="list-disc ml-6 text-sm text-red-900">
+                        <li><strong>Botones:</strong> Equivalen al sentido del Tacto (saber si alguien lo toca).</li>
+                        <li><strong>Sensor de Luz:</strong> Equivale a la Vista (saber si es de día o de noche).</li>
+                        <li><strong>Micrófono:</strong> Equivale al oído (detectar ruido o palmas).</li>
+                        <li><strong>Acelerómetro:</strong> Equivale al Equilibrio (saber si está inclinado o cayendo).</li>
+                        <li><strong>Termómetro:</strong> Equivale a la Sensación térmica (temperatura).</li>
+                    </ul>
+                </section>
+                
+                <div class="page-break"></div>
+
+                <section id="proceso-cerebro">
+                    <h3 class="text-xl font-bold text-green-700">2. PROCESO (El Cerebro)</h3>
+                    <p class="text-green-600 font-medium mb-2">Aquí es donde ocurre la magia. Es el chip físico (en nuestro caso, la placa micro:bit).</p>
+                    <p class="text-green-600 font-medium mb-2">En su interior está guardado tu <strong>ALGORITMO</strong> (el programa que escribiste con bloques). El cerebro sigue estos pasos:</p>
+                    <ol class="list-decimal list-inside ml-4 space-y-1 mb-6 text-sm text-green-900">
+                        <li>Lee la información de los Sensores ("Oye, el sensor de luz dice que está oscuro").</li>
+                        <li>Consulta tus instrucciones ("Mi programador dijo que SI está oscuro, ENTONCES encienda la luz").</li>
+                        <li>Manda la orden a la siguiente fase.</li>
+                    </ol>
+                </section>
+                
+                <section id="salida-actuadores">
+                    <h3 class="text-xl font-bold text-blue-700">3. SALIDA (Los Músculos)</h3>
+                    <p class="text-blue-600 font-medium mb-2">En el mundo técnico los llamamos <strong>ACTUADORES</strong>. Son las piezas encargadas de realizar la acción física.</p>
+                    <p class="text-blue-600 font-medium mb-2">Son los que obedecen al cerebro y ejecutan el trabajo.</p>
+                    <ul class="list-disc ml-6 space-y-1 mb-6 text-sm text-blue-900">
+                        <li><strong>LEDs / Pantallas:</strong> Para comunicarse visualmente (mostrar una carita feliz o iluminar un camino).</li>
+                        <li><strong>Altavoces / Zumbadores:</strong> Para comunicarse con sonido (emitir una alarma o música).</li>
+                        <li><strong>Motores / Servos:</strong> Para generar movimiento (abrir una barrera, girar una rueda o mover un brazo).</li>
+                    </ul>
+                </section>
+            </div>
+
+            <h4 class="text-xl font-semibold mt-6 mb-3">PARA PENSAR: El ejemplo de la Puerta Automática</h4>
+            <p class="mb-4">Para ver si lo has entendido, analicemos una puerta automática de un supermercado:</p>
+            <ol class="list-decimal list-inside ml-4 space-y-1 mb-8">
+                <li><strong>Entrada (Sensor):</strong> Un sensor de movimiento detecta que te acercas.</li>
+                <li><strong>Proceso (Cerebro):</strong> El chip piensa: "¡Alerta! Hay un humano cerca $\rightarrow$ Orden: Abrir".</li>
+                <li><strong>Salida (Actuador):</strong> El motor eléctrico recibe la orden y desliza la puerta.</li>
+            </ol>
+            <p class="font-extrabold text-red-600">¡Si faltara cualquiera de las tres partes, la puerta no funcionaría!</p>
+        </section>
+</div>
+
+</main>
+<!-- Modal para ampliar imagen -->
+<div id="imageModal" class="modal">
+  <span class="close-modal">&times;</span>
+  <img class="modal-content" id="modalImage">
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // --- Lógica para el modal de la imagen ---
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
+        const images = document.querySelectorAll('.zoomable-image');
+        const closeBtn = document.querySelector(".close-modal");
+
+        images.forEach(img => {
+            img.onclick = function(){
+                modal.style.display = "flex";
+                modalImg.src = this.src;
+            }
+        });
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        closeBtn.onclick = closeModal;
+
+        modal.onclick = function(event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    });
+
+</script>
+</body>
+</html>
