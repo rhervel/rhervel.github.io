@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguimiento del Proyecto - Semáforo de Progreso</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { -webkit-print-color-adjust: exact; }
+        
+        /* Estilo personalizado para los sliders */
+        input[type=range] {
+            -webkit-appearance: none; 
+            width: 100%; 
+            background: transparent; 
+        }
+        
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #4f46e5;
+            cursor: pointer;
+            margin-top: -8px; 
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: #e2e8f0;
+            border-radius: 2px;
+        }
+
+        /* Colores dinámicos para el progreso */
+        .progress-low { color: #ef4444; }    /* Rojo */
+        .progress-mid { color: #f59e0b; }    /* Naranja */
+        .progress-high { color: #10b981; }   /* Verde */
+        
+        /* ESTILOS ESPECÍFICOS PARA IMPRESIÓN (CTRL+P) */
+        @media print {
+            body { 
+                background-color: white; 
+                padding: 0;
+            }
+            #report-card {
+                box-shadow: none;
+                border: none;
+                max-width: 100%;
+                margin: 0;
+            }
+            #download-btn { 
+                display: none !important; 
+            }
+            /* Asegurar que los textos largos se vean completos */
+            textarea {
+                border: 1px solid #ddd;
+                resize: none;
+                overflow: visible;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen py-10 font-sans text-gray-800">
+
+    <!-- Botón de Impresión -->
+    <div id="download-btn" class="fixed bottom-8 right-8 z-50">
+        <button onclick="window.print()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-6 rounded-full shadow-lg transform transition hover:-translate-y-1 flex items-center gap-3 border-2 border-white">
+            <i class="fa-solid fa-print text-2xl"></i>
+            <span>Imprimir Ficha</span>
+        </button>
+    </div>
+
+    <!-- Contenedor Principal -->
+    <div id="report-card" class="max-w-3xl mx-auto bg-white shadow-xl rounded-xl overflow-hidden border border-gray-200">
+        
+        <!-- Header -->
+        <div class="bg-slate-800 text-white p-6 border-b-4 border-indigo-500 flex justify-between items-center print:bg-slate-800 print:text-white">
+            <div>
+                <h1 class="text-2xl font-bold uppercase tracking-wide"><i class="fa-solid fa-chart-line mr-2"></i> Estado del Proyecto</h1>
+                <p class="text-slate-400 text-sm">Autoevaluación de Progreso Semanal</p>
+            </div>
+            <div class="text-right">
+                <input type="date" class="bg-slate-700 text-white border-none rounded px-2 py-1 text-sm print:text-black print:bg-white">
+            </div>
+        </div>
+
+        <div class="p-8 space-y-8">
+
+            <!-- Datos del Grupo -->
+            <div class="grid grid-cols-2 gap-4 bg-gray-50 p-4 rounded-lg border border-gray-200 print:bg-white print:border-gray-300">
+                <div>
+                    <label class="block text-xs font-bold text-gray-500 uppercase">Grupo / Clase</label>
+                    <input type="text" placeholder="Ej: Grupo 3 - 3ºA" class="w-full bg-transparent border-b border-gray-300 focus:outline-none focus:border-indigo-500 py-1 font-bold text-lg text-gray-800">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-500 uppercase">Nombre del Proyecto</label>
+                    <input type="text" placeholder="Ej: Casa Domótica" class="w-full bg-transparent border-b border-gray-300 focus:outline-none focus:border-indigo-500 py-1 text-gray-800">
+                </div>
+            </div>
+
+            <!-- SECCIÓN 1: FASES DEL PROYECTO (SLIDERS) -->
+            <div class="space-y-6">
+                <h2 class="text-lg font-bold text-indigo-900 border-b pb-2">1. Desglose de Avance (%)</h2>
+                
+                <!-- Item 1: Diseño -->
+                <div class="slider-container">
+                    <div class="flex justify-between mb-1">
+                        <label class="font-semibold text-gray-700"><i class="fa-solid fa-pen-ruler w-6 text-indigo-500"></i> Diseño y Planos</label>
+                        <span id="val-design" class="font-bold text-indigo-600">0%</span>
+                    </div>
+                    <input type="range" min="0" max="100" value="0" class="w-full" oninput="updateSlider('design', this.value)">
+                </div>
+
+                <!-- Item 2: Estructura -->
+                <div class="slider-container">
+                    <div class="flex justify-between mb-1">
+                        <label class="font-semibold text-gray-700"><i class="fa-solid fa-hammer w-6 text-indigo-500"></i> Estructura y Construcción</label>
+                        <span id="val-struct" class="font-bold text-indigo-600">0%</span>
+                    </div>
+                    <input type="range" min="0" max="100" value="0" class="w-full" oninput="updateSlider('struct', this.value)">
+                </div>
+
+                <!-- Item 3: Mecanismos -->
+                <div class="slider-container">
+                    <div class="flex justify-between mb-1">
+                        <label class="font-semibold text-gray-700"><i class="fa-solid fa-gears w-6 text-indigo-500"></i> Mecanismos Móviles</label>
+                        <span id="val-mech" class="font-bold text-indigo-600">0%</span>
+                    </div>
+                    <input type="range" min="0" max="100" value="0" class="w-full" oninput="updateSlider('mech', this.value)">
+                </div>
+
+                <!-- Item 4: Electricidad -->
+                <div class="slider-container">
+                    <div class="flex justify-between mb-1">
+                        <label class="font-semibold text-gray-700"><i class="fa-solid fa-bolt w-6 text-indigo-500"></i> Circuito Eléctrico / Soldadura</label>
+                        <span id="val-elec" class="font-bold text-indigo-600">0%</span>
+                    </div>
+                    <input type="range" min="0" max="100" value="0" class="w-full" oninput="updateSlider('elec', this.value)">
+                </div>
+
+                <!-- Item 5: Programación -->
+                <div class="slider-container">
+                    <div class="flex justify-between mb-1">
+                        <label class="font-semibold text-gray-700"><i class="fa-solid fa-code w-6 text-indigo-500"></i> Programación y Sensores</label>
+                        <span id="val-prog" class="font-bold text-indigo-600">0%</span>
+                    </div>
+                    <input type="range" min="0" max="100" value="0" class="w-full" oninput="updateSlider('prog', this.value)">
+                </div>
+            </div>
+
+            <!-- SECCIÓN 2: PROMEDIO TOTAL -->
+            <div class="bg-indigo-50 rounded-xl p-6 flex items-center justify-between border border-indigo-100 print:bg-white print:border-indigo-200">
+                <div>
+                    <h3 class="text-indigo-900 font-bold text-lg">Progreso Global</h3>
+                    <p class="text-sm text-indigo-600" id="status-text">El proyecto está comenzando.</p>
+                </div>
+                <div class="relative w-24 h-24 flex items-center justify-center">
+                    <!-- Círculo de fondo -->
+                    <svg class="w-full h-full transform -rotate-90">
+                        <circle cx="48" cy="48" r="40" stroke="#e0e7ff" stroke-width="8" fill="transparent" />
+                        <circle id="progress-ring" cx="48" cy="48" r="40" stroke="#4f46e5" stroke-width="8" fill="transparent" stroke-dasharray="251.2" stroke-dashoffset="251.2" class="transition-all duration-500" />
+                    </svg>
+                    <span id="total-percent" class="absolute text-2xl font-bold text-indigo-900">0%</span>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 3: OBSTÁCULOS Y NECESIDADES -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h2 class="text-sm font-bold text-gray-500 uppercase mb-2"><i class="fa-solid fa-triangle-exclamation mr-1 text-red-500"></i> Principal Obstáculo (Bloqueo)</h2>
+                    <textarea class="w-full bg-red-50 border border-red-100 rounded p-3 text-sm h-24 focus:outline-none focus:border-red-300 print:bg-white print:border-gray-300" placeholder="¿Qué os impide avanzar? (Ej: Nos falta madera, el código da error, el motor no gira...)"></textarea>
+                </div>
+                <div>
+                    <h2 class="text-sm font-bold text-gray-500 uppercase mb-2"><i class="fa-solid fa-list-check mr-1 text-green-500"></i> Objetivo Próxima Sesión</h2>
+                    <textarea class="w-full bg-green-50 border border-green-100 rounded p-3 text-sm h-24 focus:outline-none focus:border-green-300 print:bg-white print:border-gray-300" placeholder="¿Qué debemos tener terminado la próxima clase sin falta?"></textarea>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="bg-gray-50 p-4 text-center text-xs text-gray-400 border-t print:bg-white">
+            Documento de control interno - Tecnología y Digitalización
+        </div>
+    </div>
+
+    <script>
+        // Variables de estado
+        const scores = { design: 0, struct: 0, mech: 0, elec: 0, prog: 0 };
+
+        function updateSlider(category, value) {
+            // Actualizar número individual
+            document.getElementById(`val-${category}`).innerText = value + '%';
+            scores[category] = parseInt(value);
+            
+            // Recalcular total
+            calculateTotal();
+        }
+
+        function calculateTotal() {
+            const values = Object.values(scores);
+            const sum = values.reduce((a, b) => a + b, 0);
+            const average = Math.round(sum / values.length);
+
+            // Actualizar texto central
+            document.getElementById('total-percent').innerText = average + '%';
+
+            // Actualizar gráfico circular (SVG)
+            // 251.2 es la circunferencia (2 * PI * 40)
+            const circle = document.getElementById('progress-ring');
+            const offset = 251.2 - (251.2 * average / 100);
+            circle.style.strokeDashoffset = offset;
+
+            // Actualizar color y texto de estado
+            const statusText = document.getElementById('status-text');
+            if (average < 30) {
+                circle.setAttribute('stroke', '#ef4444'); // Rojo
+                statusText.innerText = "Fase inicial. ¡Hay que acelerar!";
+            } else if (average < 70) {
+                circle.setAttribute('stroke', '#f59e0b'); // Naranja
+                statusText.innerText = "Buen ritmo. Seguid así.";
+            } else {
+                circle.setAttribute('stroke', '#10b981'); // Verde
+                statusText.innerText = "Fase final. ¡Casi lo tenéis!";
+            }
+        }
+    </script>
+</body>
+</html>
