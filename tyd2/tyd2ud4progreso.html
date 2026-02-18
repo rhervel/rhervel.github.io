@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progreso Casa Tecnológica 2.0</title>
+  <link href="../assets/css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap');
+        
+        body { 
+            background-color: #f0f2f5; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        }
+
+        /* Estilo Sliders */
+        .progress-slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: #d1d5db;
+            outline: none;
+        }
+        .progress-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #22c55e;
+            cursor: pointer;
+            border: 2px solid white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+
+        /* Gráfico Circular de Progreso */
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.35s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white; }
+            .section-card { border: 1px solid #e5e7eb; box-shadow: none !important; }
+            input, textarea { border-bottom: 1px solid #ccc !important; background: none !important; }
+        }
+    </style>
+</head>
+<body class="py-10">
+
+    <div class="max-w-4xl mx-auto px-6">
+                <!-- Header -->
+        <div class="bg-slate-800 text-white p-6 border-b-4 border-indigo-500 flex justify-between items-center print:bg-slate-800 print:text-white">
+            <div>
+                <h1 class="text-2xl font-bold uppercase tracking-wide"><i class="fa-solid fa-chart-line mr-2"></i> Estado del Proyecto</h1>
+                <p class="text-emerald-600 font-bold uppercase tracking-widest text-sm">Casa Tecnológica 2.0 | 2º ESO Tecnología</p>
+                <p class="text-slate-400 text-sm">Autoevaluación de Progreso Semanal</p>
+            </div>
+            <div class="text-right">
+                <input type="date" class="bg-slate-700 text-white border-none rounded px-2 py-1 text-sm print:text-black print:bg-white">
+            </div>
+        </div>
+      
+
+        <form id="progressForm">
+            <!-- Datos del Equipo -->
+            <div class="bg-white border-x border-gray-200 p-8 grid grid-cols-1 md:grid-cols-2 gap-6 border-b">
+                <div class="md:col-span-2">
+                    <label class="block text-gray-700 font-bold mb-2">Nombre del Equipo</label>
+                    <input type="text" id="groupName" placeholder="Escribe aquí el nombre del grupo..." 
+                        class="w-full border-2 border-gray-100 p-3 rounded-lg focus:border-emerald-500 outline-none transition-colors">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Miembro 1</label>
+                    <input type="text" class="w-full border border-gray-200 p-2 rounded bg-gray-50 text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Miembro 2</label>
+                    <input type="text" class="w-full border border-gray-200 p-2 rounded bg-gray-50 text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Miembro 3</label>
+                    <input type="text" class="w-full border border-gray-200 p-2 rounded bg-gray-50 text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Miembro 4</label>
+                    <input type="text" class="w-full border border-gray-200 p-2 rounded bg-gray-50 text-sm">
+                </div>
+            </div>
+
+            <!-- Tareas: Grid de dos columnas -->
+            <div class="bg-white border-x border-gray-200 p-8 grid grid-cols-1 md:grid-cols-2 gap-12">
+                
+                <!-- Fase I -->
+                <div>
+                    <h2 class="text-xl font-bold text-gray-700 mb-6 flex items-center gap-2 border-b-2 border-emerald-500 pb-2 w-fit">
+                        <i class="fas fa-pencil-ruler"></i> Fase I: Memoria
+                    </h2>
+                    <div id="memoriaTasks" class="space-y-6"></div>
+                </div>
+
+                <!-- Fase II -->
+                <div>
+                    <h2 class="text-xl font-bold text-gray-700 mb-6 flex items-center gap-2 border-b-2 border-emerald-500 pb-2 w-fit">
+                        <i class="fas fa-hammer"></i> Fase II: Maqueta
+                    </h2>
+                    <div id="maquetaTasks" class="space-y-6"></div>
+                </div>
+            </div>
+
+            <!-- RESUMEN DE PROGRESO (Dinámico con Comentarios) -->
+            <div class="bg-gray-50 border-x border-gray-200 p-10 flex flex-col items-center border-y text-center">
+                <div class="relative mb-4">
+                    <svg class="progress-ring" width="160" height="160">
+                        <circle class="text-gray-200" stroke-width="12" stroke="currentColor" fill="transparent" r="70" cx="80" cy="80"/>
+                        <circle id="circleProgress" class="text-emerald-500 progress-ring__circle" stroke-width="12" stroke-dasharray="439.8" stroke-dashoffset="439.8" stroke-linecap="round" stroke="currentColor" fill="transparent" r="70" cx="80" cy="80"/>
+                    </svg>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <span id="globalPercentage" class="text-4xl font-black text-gray-800">0%</span>
+                    </div>
+                </div>
+                
+                <h3 class="font-bold text-gray-500 uppercase tracking-widest text-xs mb-2">Estado Actual</h3>
+                
+                <!-- COMENTARIO DINÁMICO -->
+                <div id="progressComment" class="bg-white px-6 py-2 rounded-full border border-gray-200 shadow-sm text-sm font-semibold text-gray-600 mb-6">
+                    ¡Comienza a marcar tus progresos!
+                </div>
+                
+                <!-- Barra de progreso horizontal estática -->
+                <div class="w-full max-w-md">
+                    <div class="flex justify-between text-[10px] font-bold text-gray-400 mb-2 uppercase">
+                        <span>Fase de Inicio</span>
+                        <span>Proyecto Finalizado</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden shadow-inner">
+                        <div id="globalProgressBar" class="bg-emerald-500 h-full transition-all duration-700" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reflexión -->
+            <div class="bg-white border-x border-gray-200 p-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h2 class="text-sm font-bold text-gray-500 uppercase mb-2"><i class="fa-solid fa-triangle-exclamation mr-1 text-red-500"></i> Principal Obstáculo (Bloqueo)</h2>
+                    <textarea class="w-full bg-red-50 border border-red-100 rounded p-3 text-sm h-24 focus:outline-none focus:border-red-300 print:bg-white print:border-gray-300" placeholder="¿Qué os impide avanzar? (Ej: Nos falta madera, el código da error, el motor no gira...)"></textarea>
+                </div>
+                <div>
+                    <h2 class="text-sm font-bold text-gray-500 uppercase mb-2"><i class="fa-solid fa-list-check mr-1 text-green-500"></i> Objetivo Próxima Sesión</h2>
+                    <textarea class="w-full bg-green-50 border border-green-100 rounded p-3 text-sm h-24 focus:outline-none focus:border-green-300 print:bg-white print:border-gray-300" placeholder="¿Qué debemos tener terminado la próxima clase sin falta?"></textarea>
+                </div>
+            </div>
+
+            <!-- Footer / Botón -->
+            <div class="bg-gray-100 rounded-b-2xl border border-gray-200 p-8 text-center no-print">
+                <button type="button" onclick="handlePrint()" 
+                    class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 px-10 rounded-full shadow-lg transition-all active:scale-95 flex items-center justify-center gap-3 mx-auto">
+                    <i class="fas fa-file-pdf"></i> Generar Reporte de Evaluación
+                </button>
+                <p class="text-gray-400 text-xs mt-4 italic">El reporte incluirá el porcentaje de progreso y el comentario actual.</p>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const tareasMemoria = ["Planos 2D", "Diseño 3D", "Presupuesto", "Hoja de Procesos"];
+        const tareasMaqueta = ["Estructura", "Mecanismos", "Instalación", "Acabados"];
+        let progressData = {};
+
+        function createTaskHTML(taskName, index, containerId) {
+            const taskId = `${containerId}-${index}`;
+            progressData[taskId] = 0;
+            return `
+                <div class="bg-gray-50 p-4 rounded-xl border border-gray-100">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-sm font-bold text-gray-600">${taskName}</span>
+                        <span id="label-${taskId}" class="text-xs font-black text-emerald-600 uppercase">0%</span>
+                    </div>
+                    <input type="range" min="0" max="100" value="0" step="10" 
+                        class="progress-slider no-print" 
+                        oninput="updateVal('${taskId}', this.value)">
+                    <div class="hidden print:block w-full bg-gray-200 h-2 rounded mt-2">
+                        <div id="print-bar-${taskId}" class="bg-emerald-500 h-2 rounded" style="width: 0%"></div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function updateVal(taskId, value) {
+            progressData[taskId] = parseInt(value);
+            document.getElementById(`label-${taskId}`).innerText = value + '%';
+            
+            const printBar = document.getElementById(`print-bar-${taskId}`);
+            if(printBar) printBar.style.width = value + '%';
+
+            calculateGlobalProgress();
+        }
+
+        function calculateGlobalProgress() {
+            const values = Object.values(progressData);
+            const average = Math.round(values.reduce((a, b) => a + b, 0) / values.length);
+            
+            // Actualizar UI básica
+            document.getElementById('globalPercentage').innerText = average + '%';
+            document.getElementById('globalProgressBar').style.width = average + '%';
+
+            // Actualizar círculo
+            const circle = document.getElementById('circleProgress');
+            const offset = 439.8 - (average / 100 * 439.8);
+            circle.style.strokeDashoffset = offset;
+
+            // Actualizar Comentario Dinámico
+            const commentBox = document.getElementById('progressComment');
+            let message = "";
+            let colorClass = "";
+
+            if (average === 0) {
+                message = "🚀 ¡Proyecto listo para arrancar!";
+                colorClass = "text-gray-500 border-gray-200";
+            } else if (average < 25) {
+                message = "🌱 Primeros pasos... ¡Ánimo!";
+                colorClass = "text-amber-600 border-amber-200 bg-amber-50";
+            } else if (average < 50) {
+                message = "🔨 ¡Buen ritmo! Ya casi tenéis la mitad.";
+                colorClass = "text-blue-600 border-blue-200 bg-blue-50";
+            } else if (average < 75) {
+                message = "✨ ¡Impresionante! El proyecto toma forma.";
+                colorClass = "text-indigo-600 border-indigo-200 bg-indigo-50";
+            } else if (average < 100) {
+                message = "🏁 ¡Últimos retoques! Casi lo tenéis.";
+                colorClass = "text-emerald-700 border-emerald-200 bg-emerald-50";
+            } else {
+                message = "🏆 ¡EXCELENTE! Proyecto completado al 100%.";
+                colorClass = "text-white bg-emerald-600 border-emerald-700";
+            }
+
+            commentBox.innerText = message;
+            commentBox.className = `px-6 py-2 rounded-full border shadow-sm text-sm font-bold mb-6 transition-all duration-300 ${colorClass}`;
+        }
+
+        window.onload = () => {
+            document.getElementById('memoriaTasks').innerHTML = tareasMemoria.map((t, i) => createTaskHTML(t, i, 'mem')).join('');
+            document.getElementById('maquetaTasks').innerHTML = tareasMaqueta.map((t, i) => createTaskHTML(t, i, 'maq')).join('');
+            calculateGlobalProgress();
+        };
+
+        function handlePrint() {
+            if(!document.getElementById('groupName').value) {
+                alert("Por favor, ponle un nombre a tu equipo.");
+                return;
+            }
+            window.print();
+        }
+    </script>
+</body>
+</html>
