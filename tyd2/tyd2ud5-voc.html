@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UD5. Introducción a la electricidad ⚡</title>
+  <link href="../assets/css/styles.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 fill=%22currentColor%22 class=%22bi bi-robot%22 viewBox=%220 0 16 16%22><path d=%22M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5ZM3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.58 26.58 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.933.933 0 0 1-.765.935c-.845.147-2.34.346-4.235.346-1.895 0-3.39-.2-4.235-.346A.933.933 0 0 1 3 9.219V8.062Zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a24.767 24.767 0 0 1-1.871-.183.25.25 0 0 0-.217.068l-.92.9a.25.25 0 0 0 .169.434l.92-.9a25.25 25.25 0 0 0 1.942.183.25.25 0 0 0 .217-.068l.92-.9a.25.25 0 0 0-.17-.434l-.92.9a24.767 24.767 0 0 1-1.871-.183Z%22/><path d=%22M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1.5a2.5 2.5 0 0 0 2.5 2.5h9A2.5 2.5 0 0 0 15 13.5V12a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2V1.866ZM14 7.5V12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5Z%22/></svg>" type="image/svg+xml">
+
+  
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Pequeños ajustes adicionales si fueran necesarios */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* Para los iconos de Bootstrap, si los estás usando */
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css");
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Open Sans"', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        makecode: {
+                            blue: '#0074D9',    /* Básico */
+                            green: '#2ECC40',   /* Bucles */
+                            pink: '#D81B60',    /* Entrada */
+                            teal: '#009688',    /* Lógica */
+                            red: '#FF4136',     /* Variables */
+                            purple: '#9C27B0'   /* Matemáticas */
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Forzar impresión de colores de fondo para PDF */
+        @media print {
+            body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-slate-100 text-slate-700 font-sans antialiased leading-relaxed">
+    <header class="bg-gray-900 text-gray-200 shadow-lg sticky top-0 z-40">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center gap-3">
+                    <a href="../index.html" class="text-gray-100 hover:text-white flex items-center">
+                        <i class="bi bi-robot text-2xl mr-3"></i> <span class="font-bold text-xl">Tecnología y Digitalización</span>
+                    </a>
+                </div>
+                <div class="text-sm text-gray-400">
+                    <ol class="list-none p-0 inline-flex items-center">
+                        <li class="flex items-center">
+                            <a href="tyd2.html" class="text-gray-300 hover:text-blue-300">2º ESO</a>
+                            <i class="bi bi-chevron-right mx-2 text-xs text-gray-500"></i>
+                        </li>
+                        <li class="flex items-center text-gray-100 font-semibold">
+                            <span>UD5. Introducción a la electricidad ⚡</span>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <main class="flex-grow">
+        <div class="relative bg-cover bg-center py-20 md:py-32 -mx-6 md:-mx-12 -mt-6 md:-mt-12 rounded-t-lg" style="background-image: url('img/2ud5.jpg');">
+            <div class="absolute inset-0 bg-black opacity-50 rounded-t-lg"></div>
+            
+            <div class="container mx-auto px-12 relative z-10 text-center">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-white pb-6 mb-8">
+                    UD5. Introducción a la electricidad ⚡
+                </h1>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto  my-12 p-10">
+        
+
+        <!-- CONTENEDOR DEL JUEGO -->
+        <div id="quiz-app-container"></div>
+
+        </div>
+
+        </div>
+</main>
+
+
+<!-- Modal para ampliar imagen -->
+<div id="imageModal" class="modal">
+  <span class="close-modal">&times;</span>
+  <img class="modal-content" id="modalImage">
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // --- Lógica para el modal de la imagen ---
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
+        const images = document.querySelectorAll('.zoomable-image');
+        const closeBtn = document.querySelector(".close-modal");
+
+        images.forEach(img => {
+            img.onclick = function(){
+                modal.style.display = "flex";
+                modalImg.src = this.src;
+            }
+        });
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        closeBtn.onclick = closeModal;
+
+        modal.onclick = function(event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    });
+
+
+    // --- LÓGICA DEL JUEGO (Adaptación a Vanilla JS) ---
+    const TERMS_DATA = [
+      { term: "Atom", def: "The basic unit of matter, formed by electrons, protons, and neutrons." },
+      { term: "Electron", def: "A very small particle with a negative electrical charge that orbits the nucleus of an atom." },
+      { term: "Proton", def: "A particle located in the nucleus of an atom with a positive electrical charge." },
+      { term: "Neutron", def: "A particle in the nucleus of an atom with no electrical charge." },
+      { term: "Valence Shell", def: "The outermost layer of an atom where electrons can be added or removed." },
+      { term: "Electricity", def: "The flow or passage of electrons from one atom to another." },
+      { term: "Direct Current (DC)", def: "A type of current where electrons always move in the same direction, from the negative pole to the positive pole." },
+      { term: "Alternating Current (AC)", def: "A type of current where the poles of the generator change periodically, causing the movement of electrons to change direction." },
+      { term: "Electric Circuit", def: "A closed path through which electric charges flow." },
+      { term: "Power Source", def: "A component that provides the energy necessary for electrons to move through the circuit (e.g., batteries, solar panels)." },
+      { term: "Conductor", def: "A material, such as copper wire, that channels the flow of electrons." },
+      { term: "Receiver", def: "A device that transforms electrical energy into a useful form of energy (light, heat, or movement)." },
+      { term: "Switch", def: "A control element that allows or interrupts the flow of electric current." },
+      { term: "Fuse", def: "A protection element that cuts off the current flow when it is excessive to prevent damage." },
+      { term: "Magnitude", def: "A physical property that can be measured using a specific instrument." },
+      { term: "Voltage (V)", def: "The potential difference between two points in a circuit. It is measured in volts." },
+      { term: "Intensity (I)", def: "The amount of electrons that pass through a conductor in a unit of time. It is measured in amperes." },
+      { term: "Resistance (R)", def: "The opposition that a component offers to the passage of electrons. It is measured in ohms." },
+      { term: "Ohm's Law", def: "The physical law stating that intensity is directly proportional to voltage and inversely proportional to resistance." },
+      { term: "Series Circuit", def: "A circuit where components are connected one after another, providing only one path for the current." },
+      { term: "Parallel Circuit", def: "A circuit with several paths for the current, where each receiver is connected directly to the power source poles." },
+      { term: "Mixed Circuit", def: "A circuit that combines both series and parallel connections." }
+    ];
+
+    let gameState = 'start'; 
+    let questions = [];
+    let currentIndex = 0;
+    let score = 0;
+    let mistakes = [];
+    let currentOptions = [];
+    let isAnswerChecked = false;
+
+    function shuffleArray(array) {
+        const shuffled = [...array];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled;
+    }
+
+    function generateOptions() {
+        const correctTerm = questions[currentIndex].term;
+        const otherTerms = TERMS_DATA.filter(q => q.term !== correctTerm).map(q => q.term);
+        const wrongOptions = shuffleArray(otherTerms).slice(0, 3);
+        currentOptions = shuffleArray([correctTerm, ...wrongOptions]);
+    }
+
+    window.startGame = function() {
+        questions = shuffleArray([...TERMS_DATA]);
+        currentIndex = 0;
+        score = 0;
+        mistakes = [];
+        isAnswerChecked = false;
+        gameState = 'playing';
+        generateOptions();
+        renderApp();
+    };
+
+    window.handleAnswer = function(selectedOpt) {
+        if (isAnswerChecked) return;
+        isAnswerChecked = true;
+
+        const currentQuestion = questions[currentIndex];
+        const isCorrect = selectedOpt === currentQuestion.term;
+
+        if (isCorrect) {
+            score++;
+        } else {
+            mistakes.push({ term: currentQuestion.term, def: currentQuestion.def, userAnswer: selectedOpt });
+        }
+
+        // Actualizar interfaz visual de los botones
+        currentOptions.forEach((opt, idx) => {
+            const btn = document.getElementById(`btn-opt-${idx}`);
+            const icon = document.getElementById(`icon-opt-${idx}`);
+            btn.className = "option-btn p-4 sm:p-5 rounded-xl text-left font-bold text-lg border-2 transition-all duration-200 flex justify-between items-center group";
+
+            if (opt === currentQuestion.term) {
+                btn.classList.add('bg-emerald-50', 'border-emerald-500', 'text-emerald-700', 'shadow-sm');
+                icon.className = "bi bi-check-circle-fill text-2xl text-emerald-500 animate-bounce";
+            } else if (opt === selectedOpt) {
+                btn.classList.add('bg-rose-50', 'border-rose-500', 'text-rose-700', 'shadow-sm');
+                icon.className = "bi bi-x-circle-fill text-2xl text-rose-500";
+            } else {
+                btn.classList.add('opacity-50', 'bg-slate-50', 'border-slate-200', 'text-slate-700');
+                icon.className = "hidden";
+            }
+        });
+
+        setTimeout(() => {
+            if (currentIndex < questions.length - 1) {
+                currentIndex++;
+                generateOptions();
+                isAnswerChecked = false;
+                renderApp();
+            } else {
+                gameState = 'results';
+                renderApp();
+            }
+        }, 1500);
+    };
+
+    function renderApp() {
+        const container = document.getElementById('quiz-app-container');
+        if (!container) return;
+
+        if (gameState === 'start') {
+            container.innerHTML = `
+                <div class="max-w-md mx-auto w-full bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-100">
+                    <div class="bg-blue-600 p-8 text-center text-white">
+                        <i class="bi bi-lightning-charge-fill text-yellow-300 text-6xl mb-4 inline-block"></i>
+                        <h2 class="text-3xl font-bold mb-2">Tech Vocab</h2>
+                        <p class="text-blue-100">Introduction to electricity</p>
+                    </div>
+                    <div class="p-8 text-center">
+                        <p class="mb-6 text-slate-600 leading-relaxed">
+                            Lee la definición en inglés y elige el término técnico correcto. ¡Pon a prueba tus conocimientos y practica tu inglés!
+                        </p>
+                        <div class="flex items-center justify-center space-x-2 mb-8 text-sm text-slate-500 font-medium">
+                            <i class="bi bi-book text-blue-500 text-xl"></i>
+                            <span>${TERMS_DATA.length} Términos en total</span>
+                        </div>
+                        <button onclick="startGame()" class="w-full flex items-center justify-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white py-4 px-6 rounded-xl font-bold text-lg transition-all transform hover:scale-[1.02] active:scale-95 shadow-md">
+                            <i class="bi bi-play-fill text-2xl"></i>
+                            <span>Empezar Juego</span>
+                        </button>
+                    </div>
+                </div>
+            `;
+        } else if (gameState === 'playing') {
+            const currentQuestion = questions[currentIndex];
+            const progressPercentage = ((currentIndex) / questions.length) * 100;
+
+            const optionsHTML = currentOptions.map((opt, index) => {
+                const escapedOpt = opt.replace(/'/g, "\\'");
+                return `
+                <button onclick="handleAnswer('${escapedOpt}')" id="btn-opt-${index}" class="option-btn p-4 sm:p-5 rounded-xl text-left font-bold text-slate-700 text-lg border-2 border-slate-200 hover:border-blue-400 hover:bg-blue-50 hover:text-blue-700 hover:shadow-md cursor-pointer transition-all duration-200 transform hover:-translate-y-1 flex justify-between items-center group">
+                    <span>${opt}</span>
+                    <i id="icon-opt-${index}" class="hidden"></i>
+                </button>`;
+            }).join('');
+
+            container.innerHTML = `
+                <div class="max-w-2xl mx-auto w-full bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-100 flex flex-col min-h-[500px]">
+                    <div class="p-6 pb-4 border-b border-slate-100 bg-white">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="font-semibold text-slate-500 text-sm">Pregunta ${currentIndex + 1} de ${questions.length}</span>
+                            <span class="bg-blue-100 text-blue-800 font-bold py-1 px-3 rounded-full text-sm flex items-center">
+                                <i class="bi bi-lightning-fill text-yellow-500 mr-1"></i> Score: ${score}
+                            </span>
+                        </div>
+                        <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                            <div class="bg-blue-500 h-full transition-all duration-300 ease-out" style="width: ${progressPercentage}%"></div>
+                        </div>
+                    </div>
+                    <div class="flex-1 p-6 sm:p-8 flex flex-col justify-center bg-slate-50">
+                        <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 text-center relative mt-4">
+                            <span class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Definition</span>
+                            <p class="text-xl sm:text-2xl text-slate-700 font-medium leading-relaxed mt-2">"${currentQuestion.def}"</p>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-white border-t border-slate-100 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                        ${optionsHTML}
+                    </div>
+                </div>
+            `;
+        } else if (gameState === 'results') {
+            const percentage = Math.round((score / questions.length) * 100);
+            let message = "";
+            if (percentage >= 90) message = "¡Excelente trabajo! 🏆";
+            else if (percentage >= 70) message = "¡Muy bien! Sigue así 👍";
+            else if (percentage >= 50) message = "Buen intento, pero puedes mejorar 🤔";
+            else message = "¡Toca repasar un poco más! 📚";
+
+            let mistakesHTML = '';
+            if (mistakes.length > 0) {
+                const list = mistakes.map(m => `
+                    <div class="bg-rose-50 border border-rose-100 p-4 rounded-xl text-left">
+                        <p class="text-sm font-medium text-slate-800 mb-2">"${m.def}"</p>
+                        <div class="flex flex-col sm:flex-row sm:items-center text-sm gap-2 mt-2">
+                            <div class="flex items-center text-rose-600">
+                                <i class="bi bi-x-circle-fill mr-1"></i> <span class="line-through">Tu respuesta: ${m.userAnswer}</span>
+                            </div>
+                            <div class="hidden sm:block text-slate-300">|</div>
+                            <div class="flex items-center text-emerald-600 font-bold">
+                                <i class="bi bi-check-circle-fill mr-1"></i> <span>Correcto: ${m.term}</span>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+                
+                mistakesHTML = `
+                    <div class="mb-8">
+                        <h3 class="font-bold text-lg mb-4 flex items-center text-rose-600 justify-center">
+                            <i class="bi bi-exclamation-triangle-fill mr-2"></i> Términos para repasar (${mistakes.length})
+                        </h3>
+                        <div class="space-y-4 max-h-72 overflow-y-auto pr-2 rounded-lg">
+                            ${list}
+                        </div>
+                    </div>
+                `;
+            } else {
+                mistakesHTML = `
+                    <div class="mb-8 p-6 bg-emerald-50 text-emerald-700 rounded-xl text-center border border-emerald-100">
+                        <i class="bi bi-check-circle-fill text-5xl mb-3 text-emerald-500 inline-block"></i>
+                        <p class="font-bold text-lg">¡Puntuación Perfecta!</p>
+                        <p class="text-sm mt-1">No has tenido ningún fallo.</p>
+                    </div>
+                `;
+            }
+
+            container.innerHTML = `
+                <div class="max-w-xl mx-auto w-full bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-100 text-center">
+                    <div class="bg-slate-800 p-8 text-white">
+                        <h2 class="text-3xl font-bold mb-2">Resultados Finales</h2>
+                        <p class="text-slate-300">${message}</p>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-center items-center mb-8">
+                            <div class="relative w-32 h-32 flex items-center justify-center rounded-full border-8 border-slate-100">
+                                <svg class="absolute inset-0 w-full h-full transform -rotate-90">
+                                    <circle cx="50%" cy="50%" r="56" fill="none" stroke="${percentage >= 50 ? '#10B981' : '#EF4444'}" stroke-width="8" stroke-dasharray="351.86" stroke-dashoffset="${351.86 - (351.86 * percentage) / 100}" class="transition-all duration-1000 ease-out"></circle>
+                                </svg>
+                                <div class="text-center absolute inset-0 flex flex-col items-center justify-center">
+                                    <span class="text-3xl font-black">${score}</span>
+                                    <span class="text-slate-400 text-sm block border-t border-slate-200 mt-1 pt-1">de ${questions.length}</span>
+                                </div>
+                            </div>
+                        </div>
+                        ${mistakesHTML}
+                        <button onclick="startGame()" class="w-full flex items-center justify-center space-x-2 bg-slate-800 hover:bg-slate-900 text-white py-4 px-6 rounded-xl font-bold text-lg transition-all transform hover:scale-[1.02] active:scale-95 shadow-md">
+                            <i class="bi bi-arrow-counterclockwise text-2xl"></i>
+                            <span>Jugar de nuevo</span>
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+    }
+
+    // Inicializar la interfaz cuando el DOM esté listo
+    document.addEventListener('DOMContentLoaded', renderApp);
+
+</script>
+</body>
+</html>
