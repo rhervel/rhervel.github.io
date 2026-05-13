@@ -1080,6 +1080,9 @@
   .max-h-\[70vh\] {
     max-height: 70vh;
   }
+  .max-h-\[90vh\] {
+    max-height: 90vh;
+  }
   .max-h-\[calc\(100vh-2rem\)\] {
     max-height: calc(100vh - 2rem);
   }
@@ -3207,6 +3210,9 @@
   .py-12 {
     padding-block: calc(var(--spacing) * 12);
   }
+  .py-16 {
+    padding-block: calc(var(--spacing) * 16);
+  }
   .py-20 {
     padding-block: calc(var(--spacing) * 20);
   }
@@ -3263,6 +3269,9 @@
   }
   .pb-20 {
     padding-bottom: calc(var(--spacing) * 20);
+  }
+  .pb-24 {
+    padding-bottom: calc(var(--spacing) * 24);
   }
   .pl-0 {
     padding-left: calc(var(--spacing) * 0);
@@ -4419,6 +4428,11 @@
   .transform-view {
     transform-box: view-box;
   }
+  .group-open\:-rotate-180 {
+    &:is(:where(.group):is([open], :popover-open, :open) *) {
+      rotate: calc(180deg * -1);
+    }
+  }
   .group-hover\:scale-110 {
     &:is(:where(.group):hover *) {
       @media (hover: hover) {
@@ -4574,6 +4588,12 @@
     &:last-child {
       border-style: var(--tw-border-style);
       border-width: 0px;
+    }
+  }
+  .open\:shadow-md {
+    &:is([open], :popover-open, :open) {
+      --tw-shadow: 0 4px 6px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 2px 4px -2px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
     }
   }
   .focus-within\:border-\[\#f3d5a3\] {
@@ -5156,6 +5176,16 @@
       margin-top: calc(var(--spacing) * -12);
     }
   }
+  .md\:mt-0 {
+    @media (width >= 48rem) {
+      margin-top: calc(var(--spacing) * 0);
+    }
+  }
+  .md\:block {
+    @media (width >= 48rem) {
+      display: block;
+    }
+  }
   .md\:flex {
     @media (width >= 48rem) {
       display: flex;
@@ -5291,6 +5321,16 @@
   .lg\:sticky {
     @media (width >= 64rem) {
       position: sticky;
+    }
+  }
+  .lg\:order-1 {
+    @media (width >= 64rem) {
+      order: 1;
+    }
+  }
+  .lg\:order-2 {
+    @media (width >= 64rem) {
+      order: 2;
     }
   }
   .lg\:col-span-3 {
