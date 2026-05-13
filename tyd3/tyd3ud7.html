@@ -1,552 +1,254 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UD6. Desarrollo de aplicaciones móviles</title>
-  <link href="../assets/css/styles.css" rel="stylesheet">
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 fill=%22currentColor%22 class=%22bi bi-robot%22 viewBox=%220 0 16 16%22><path d=%22M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5ZM3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.58 26.58 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.933.933 0 0 1-.765.935c-.845.147-2.34.346-4.235.346-1.895 0-3.39-.2-4.235-.346A.933.933 0 0 1 3 9.219V8.062Zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a24.767 24.767 0 0 1-1.871-.183.25.25 0 0 0-.217.068l-.92.9a.25.25 0 0 0 .169.434l.92-.9a25.25 25.25 0 0 0 1.942.183.25.25 0 0 0 .217-.068l.92-.9a.25.25 0 0 0-.17-.434l-.92.9a24.767 24.767 0 0 1-1.871-.183Z%22/><path d=%22M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1.5a2.5 2.5 0 0 0 2.5 2.5h9A2.5 2.5 0 0 0 15 13.5V12a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2V1.866ZM14 7.5V12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5Z%22/></svg>" type="image/svg+xml">
-
-  
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
-    
-    <style>
-        /* Pequeños ajustes adicionales si fueran necesarios */
-        body {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        /* Para los iconos de Bootstrap, si los estás usando */
-        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css");
-    </style>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['"Open Sans"', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        makecode: {
-                            blue: '#0074D9',    /* Básico */
-                            green: '#2ECC40',   /* Bucles */
-                            pink: '#D81B60',    /* Entrada */
-                            teal: '#009688',    /* Lógica */
-                            red: '#FF4136',     /* Variables */
-                            purple: '#9C27B0'   /* Matemáticas */
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        /* Forzar impresión de colores de fondo para PDF */
-        @media print {
-            body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-        }
-    </style>
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body class="bg-slate-100 text-slate-700 font-sans antialiased leading-relaxed">
-    <header class="bg-gray-900 text-gray-200 shadow-lg sticky top-0 z-40">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center py-4">
-                <div class="flex items-center gap-3">
-                    <a href="../index.html" class="text-gray-100 hover:text-white flex items-center">
-                        <i class="bi bi-robot text-2xl mr-3"></i> <span class="font-bold text-xl">Tecnología y Digitalización</span>
-                    </a>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>UD7. Tecnología, Sostenibilidad y Ética | Unidad Completa</title>
+        <link href="../assets/css/styles.css" rel="stylesheet">
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        html { scroll-behavior: smooth; }
+        body { background: #f8fafc; font-family: 'Inter', sans-serif; }
+        .sidebar-scroll::-webkit-scrollbar { width: 4px; }
+        .sidebar-scroll::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 10px; }
+        .modal { display: none; position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); cursor: zoom-out; }
+        .modal-content { margin: auto; display: block; width: 80%; max-width: 1000px; top: 50%; transform: translateY(-50%); position: relative; border-radius: 1rem; }
+        .img-trigger { cursor: zoom-in; transition: transform 0.3s ease; }
+        .img-trigger:hover { transform: scale(1.02); }
+        </style>
+    </head>
+    <body class="text-slate-900">
+        <div id="imgModal" class="modal" onclick="this.style.display='none'">
+            <img class="modal-content" id="modalImg">
+        </div>
+        <div class="flex min-h-screen">
+            <aside class="w-80 bg-slate-900 text-white fixed h-screen overflow-y-auto sidebar-scroll z-50">
+                <div class="p-8 border-b border-slate-800">
+                    <h1 class="text-2xl font-black leading-tight">UD7. Tecnología, Sostenibilidad y Ética</h1>
+                    <p class="text-xs text-indigo-400 mt-2 uppercase tracking-widest">3º ESO · Unidad Didáctica</p>
                 </div>
-                <div class="text-sm text-gray-400">
-                    <ol class="list-none p-0 inline-flex items-center">
-                        <li class="flex items-center">
-                            <a href="tyd3.html" class="text-gray-300 hover:text-blue-300">3º ESO</a>
-                            <i class="bi bi-chevron-right mx-2 text-xs text-gray-500"></i>
-                        </li>
-                        <li class="flex items-center text-gray-100 font-semibold">
-                            <span>UD6. Desarrollo de aplicaciones móviles</span>
-                        </li>
-                    </ol>
+                <nav class="p-6">
+                    <ul class="space-y-1 text-sm">
+                        <li><a href="#introduccion" class="block px-4 py-3 rounded-xl hover:bg-slate-800 transition">Introducción</a></li>
+                        <li><a href="#historia" class="block px-4 py-3 rounded-xl hover:bg-slate-800 transition">1. Historia tecnológica</a></li>
+                        <li><a href="#movil" class="block px-4 py-3 rounded-xl hover:bg-slate-800 transition">2. Dentro del móvil</a></li>
+                        <li><a href="#ciclo" class="block px-4 py-3 rounded-xl hover:bg-slate-800 transition">3. Ciclo de vida</a></li>
+                        <li><a href="#obsolescencia" class="block px-4 py-3 rounded-xl hover:bg-slate-800 transition">4. Obsolescencia</a></li>
+                        <li><a href="#internet" class="block px-4 py-3 rounded-xl hover:bg-slate-800 transition">5. Internet y contaminación</a></li>
+                        <li><a href="#ia" class="block px-4 py-3 rounded-xl hover:bg-slate-800 transition">6. Inteligencia Artificial</a></li>
+                        <li><a href="#actividades" class="block px-4 py-3 rounded-xl bg-indigo-600/20 text-indigo-400 mt-4">Actividades</a></li>
+                    </ul>
+                </nav>
+            </aside>
+            <main class="ml-80 flex-1 text-justify">
+                <header class="relative bg-cover bg-center text-white p-20 shadow-lg" style="background-image: url('https://www.abast.es/wp-content/uploads/2025/02/SostenibilidadIT_p.jpg');">
+                    <h1 class="text-5xl font-black mb-6">UD7. Tecnología, sostenibilidad y ética</h1>
+                    <p class="text-xl text-indigo-100 leading-relaxed">Descubre cómo la tecnología transforma el mundo, qué impacto tiene sobre el medioambiente y cómo podemos construir un futuro digital más sostenible y ético.</p>
+                </header>
+                <div class="px-16 py-12 space-y-20">
+                    
+                    <section id="introduccion" class="scroll-mt-10">
+                        <h2 class="text-3xl font-bold text-indigo-800 mb-8">Introducción</h2>
+                        <div class="grid md:grid-cols-3 gap-10 items-start py-8">
+                            <div class="space-y-6 leading-relaxed text-lg col-span-2">
+                                <p>En la actualidad, nuestra existencia se desarrolla en un entorno profundamente <b>tecnificado</b> donde la distinción entre el mundo físico y el digital es cada vez más difusa. Desde el primer impulso de revisar el teléfono al despertar hasta la gestión automatizada de nuestros hogares y empleos, interactuamos constantemente con una red invisible de dispositivos, algoritmos y plataformas. Esta presencia constante ha dejado de ser una novedad para convertirse en el tejido mismo de nuestra cotidianidad, condicionando no solo nuestras acciones, sino también nuestra forma de percibir la <b>realidad</b>.</p>
+                                <p>La <b>transformación</b> impulsada por la tecnología ha redefinido los pilares fundamentales de la sociedad, alterando radicalmente la manera en que nos comunicamos, aprendemos y trabajamos. <b>Internet</b> ha democratizado el acceso a la información, permitiéndonos conectar con cualquier rincón del planeta en milisegundos y colaborar en proyectos globales mediante el uso de <b>inteligencia artificial</b>. Esta capacidad de innovación ha derribado barreras históricas, ofreciendo herramientas sin precedentes para la creatividad humana y la resolución de problemas complejos que antes parecían inalcanzables.</p>
+                                
+                            </div>
+                            <img src="https://media.licdn.com/dms/image/v2/D4E12AQGej0ENQvYgIA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1721178621809?e=2147483647&v=beta&t=32UmkCe8ed9k29GumLqd8PHg9aLYn-tRq-4aZoOMstU" class="rounded-3xl shadow-xl img-trigger" onclick="openModal(this.src)">
+                        </div>
+                        <div class="space-y-6 leading-relaxed text-lg mb-10">
+                            <p>No obstante, este progreso acelerado conlleva una cara oculta que no podemos seguir ignorando por más tiempo. Cada interacción digital y cada nuevo dispositivo producido dejan una <b>huella física</b> en el planeta: desde el consumo masivo de energía en los centros de datos hasta la acumulación de <b>residuos electrónicos</b> y la explotación de recursos naturales finitos. A este impacto medioambiental se suman desafíos sociales y humanos críticos, como la vulnerabilidad de nuestra <b>privacidad</b>, el sesgo de los algoritmos y una creciente <b>dependencia digital</b> que afecta nuestra salud mental.</p>
+                            <p>Ante este panorama, surge la necesidad imperativa de adoptar una <b>visión crítica</b> que sitúe a la <b>sostenibilidad</b> y a la <b>ética</b> en el centro del desarrollo tecnológico. No basta con que una tecnología sea funcional o eficiente; debe ser también justa y respetuosa con el entorno. En esta unidad, nos propondremos analizar el impacto de nuestras herramientas digitales para aprender a construir un futuro donde la <b>innovación</b> no sea un fin en sí mismo, sino un medio responsable para mejorar la vida de las personas sin comprometer el <b>equilibrio del planeta</b>.</p>
+                        </div>
+                    </section>
+                    <section id="historia" class="scroll-mt-10">
+                        <h2 class="text-3xl font-bold text-indigo-800 mb-8">1. Historia de la revolución tecnológica</h2>
+                        <div class="space-y-6 leading-relaxed text-lg mb-10">
+                            <p>La tecnología no es un fenómeno reciente, sino una constante que ha acompañado a la <b>humanidad</b> desde sus orígenes. El primer gran hito tecnológico se produjo con la creación de las herramientas de piedra, las cuales permitieron a nuestros antepasados mejorar la <b>caza</b> y asegurar su <b>supervivencia</b>. Este ingenio inicial marcó el comienzo de una evolución imparable, donde el ser humano aprendió a transformar los materiales de su entorno para superar sus limitaciones biológicas y adaptarse a diversos ecosistemas.</p>
+                            <p>Siglos más tarde, la <b>Revolución Industrial</b> supuso un cambio de paradigma sin precedentes con la aparición de la <b>máquina de vapor</b> y la creación de las primeras fábricas. Este periodo no solo transformó la economía mediante la <b>producción masiva</b>, sino que también alteró profundamente la estructura social y el paisaje urbano. A este impulso le siguió una segunda oleada de innovaciones cruciales, como la llegada de la <b>electricidad</b>, el teléfono y la radio, culminando con el nacimiento de los primeros ordenadores, que sentaron las bases de la era de la computación.</p>
+                            <p>A finales del siglo XX, la aparición de <b>Internet</b> revolucionó completamente el planeta, marcando el inicio de la era de la información. La capacidad de transmitir datos a gran velocidad eliminó las distancias geográficas y dio lugar a nuevas formas de <b>comunicación digital</b>. Este proceso se aceleró vertiginosamente en las décadas siguientes: desde el hito de los primeros <b>microprocesadores</b> en los años 70, pasando por la expansión mundial de la red en los 90, hasta la popularización del <b>smartphone</b> en 2007, que puso el mundo en la palma de nuestra mano. Hoy, nos encontramos en plena expansión de la <b>inteligencia artificial generativa</b>, un nuevo capítulo que promete transformar nuestra realidad de formas que apenas estamos empezando a comprender.</p>
+                        </div>
+                        <div class="bg-white p-8 rounded-3xl shadow-sm border grid md:grid-cols-2 gap-10">
+                            <div class="space-y-4">
+                                <h3 class="font-bold text-2xl text-indigo-900 mb-8">
+                                Línea temporal de la revolución digital e IA
+                                </h3>
+                                <div class="border-l-4 border-indigo-500 pl-6 space-y-8">
+                                    <div>
+                                        <h4 class="font-bold text-indigo-800">1945 - 1956: Los Cimientos</h4>
+                                        <p class="text-sm mt-2">
+                                            Creación de ENIAC (primer ordenador electrónico) y la Conferencia de Dartmouth, donde nace el término "Inteligencia Artificial".
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-indigo-800">1970 - 1980: Microprocesadores y PC</h4>
+                                        <p class="text-sm mt-2">
+                                            Lanzamiento del Intel 4004 y la llegada de los ordenadores personales a los hogares y oficinas.
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-indigo-800">1990 - 1997: La Red y la lógica</h4>
+                                        <p class="text-sm mt-2">
+                                            Expansión mundial de la World Wide Web y el hito de <b>Deep Blue</b> de IBM venciendo a Garry Kasparov en ajedrez.
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-indigo-800">2007 - 2012: Movilidad y Deep Learning</h4>
+                                        <p class="text-sm mt-2">
+                                            Popularización del smartphone moderno (iPhone) y el renacimiento de las redes neuronales profundas con ImageNet.
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-indigo-800">2020 - Actualidad: IA Generativa</h4>
+                                        <p class="text-sm mt-2">
+                                            Explosión de modelos de lenguaje masivos y herramientas creativas que transforman la producción de contenido global.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/AI-History-Timeline-300dpi.jpg/3840px-AI-History-Timeline-300dpi.jpg" class="rounded-2xl img-trigger" onclick="openModal(this.src)">
+                        </div>
+                    </section>
+                    <section id="movil" class="scroll-mt-10">
+                        <h2 class="text-3xl font-bold text-indigo-800 mb-8">2. ¿Qué hay dentro de un teléfono móvil?</h2>
+                        <div class="grid md:grid-cols-3 gap-10 items-start">
+                            <div class="space-y-6 leading-relaxed text-lg mb-10 col-span-2">
+                                <p>Un smartphone es una obra maestra de la ingeniería moderna que alberga cientos de <b>componentes electrónicos</b> en un espacio reducido. Entre los elementos más críticos se encuentran los <b>procesadores</b>, que actúan como el cerebro del dispositivo, las <b>baterías de litio</b>, que proporcionan energía, y una compleja red de <b>sensores</b>, cámaras y antenas. Estos componentes permiten que el dispositivo no solo ejecute aplicaciones, sino que también interactúe con el entorno físico y se mantenga conectado permanentemente a las redes globales.</p>
+                                <p>La fabricación de esta tecnología avanzada depende de la obtención de <b>minerales escasos</b>, comúnmente conocidos como <b>tierras raras</b>. Estos materiales son fundamentales para el funcionamiento de las <b>pantallas OLED</b>, los imanes de los altavoces y los circuitos internos. Sin embargo, su obtención implica procesos químicos complejos y una <b>extracción minera</b> intensiva, ya que estos minerales se encuentran en concentraciones muy bajas en la corteza terrestre, lo que obliga a remover toneladas de tierra para obtener apenas unos gramos de material puro.</p>
+                                
+                            </div>
+                            <img src="https://cdn.masmovil.es/embed/7b4b2932f1aa247baa3f11287ae70980bb3a8eb31585136429/movil-desarmado.jpg?imagick=1&size=750" class="rounded-3xl shadow-xl img-trigger" onclick="openModal(this.src)">
+                        </div>
+                        <div class="space-y-6 leading-relaxed text-lg mb-10">
+                            <p>Esta dependencia mineral genera un <b>impacto ambiental</b> y social profundo. El proceso de refinamiento de estos componentes conlleva una alta <b>contaminación</b> del suelo y un <b>consumo de agua</b> desmedido en las zonas mineras. Además, la cadena de suministro a menudo se ve empañada por graves <b>problemas sociales</b>, incluyendo la <b>explotación laboral</b> en países en vías de desarrollo. A esto se suma el desafío de los <b>residuos electrónicos</b>; cuando un teléfono es desechado, los metales pesados y las sustancias tóxicas que contiene pueden filtrarse al medioambiente si no se gestionan a través de un sistema de reciclaje adecuado.</p>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div class="bg-slate-100 p-8 rounded-3xl">
+                                <h4 class="font-bold mb-4">Anatomía del dispositivo</h4>
+                                <ul class="grid grid-cols-2 gap-2 text-sm font-medium">
+                                    <li>• Procesador</li><li>• Memoria RAM</li><li>• Batería de litio</li><li>• Sensores</li><li>• Pantalla OLED</li><li>• Cámara digital</li>
+                                </ul>
+                            </div>
+                            <div class="bg-rose-50 border border-rose-100 p-8 rounded-3xl">
+                                <h4 class="font-bold text-rose-800 mb-4">Impacto Crítico</h4>
+                                <ul class="text-sm space-y-2 text-rose-900">
+                                    <li>• Extracción minera y emisiones.</li>
+                                    <li>• Residuos electrónicos (RAEE).</li>
+                                    <li>• Explotación laboral en minas.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="ciclo" class="scroll-mt-10">
+                        <h2 class="text-3xl font-bold text-indigo-800 mb-8">3. El ciclo de vida tecnológico</h2>
+                        <div class="grid md:grid-cols-3 gap-10 items-start py-8">
+                            <div class="space-y-6 leading-relaxed text-lg col-span-2">
+                                <p>El <b>ciclo de vida tecnológico</b> comprende todas las fases por las que atraviesa un dispositivo, desde su concepción hasta su desaparición definitiva. Este proceso comienza con la <b>extracción de materias primas</b>, seguida de una compleja etapa de <b>fabricación</b> en centros industriales especializados. Posteriormente, el producto se somete al <b>transporte</b> global para llegar a las manos del consumidor, quien inicia la fase de <b>uso</b>. El ciclo concluye con la <b>eliminación</b>, una etapa crítica que determina si el dispositivo se convertirá en un residuo tóxico o en una fuente de nuevos recursos.</p>
+                                <p>Históricamente, el sector tecnológico se ha basado en una <b>economía lineal</b>, un modelo insostenible que sigue el esquema de <b>extraer, fabricar, usar y tirar</b>. Esta mentalidad de "usar y tirar" acelera el agotamiento de los recursos naturales y genera volúmenes ingentes de basura. Para combatir esto, la sociedad actual intenta avanzar hacia una <b>economía circular</b>. Este nuevo paradigma busca romper el ciclo de desperdicio, fomentando que los productos sean diseñados para durar más tiempo y que sus componentes puedan ser reintegrados en la cadena productiva al finalizar su vida útil.</p>
+
+                            </div>
+                            <img src="https://ecoed.cl/wp-content/uploads/2021/01/Ciclo-de-vida-684x533.png" class="rounded-3xl shadow-xl img-trigger" onclick="openModal(this.src)">
+                        </div>
+                        <div class="space-y-6 leading-relaxed text-lg mb-10">
+                            <p>Para lograr esta transición, es fundamental aplicar la estrategia de las tres erres. En primer lugar, es necesario <b>reducir</b>, diseñando productos de manera más eficiente con <b>menos materiales</b> y menor consumo energético. En segundo lugar, debemos <b>reutilizar</b>, extendiendo la vida de los dispositivos mediante la reparación o dándoles una <b>segunda vida</b> en otros entornos. Finalmente, el <b>reciclaje</b> permite <b>recuperar materiales útiles</b> y metales preciosos de los aparatos viejos, evitando que terminen contaminando los ecosistemas y reduciendo la necesidad de nuevas excavaciones mineras.</p>
+                        </div>
+                    </section>
+                    <section id="obsolescencia" class="scroll-mt-10">
+                        <h2 class="text-3xl font-bold text-indigo-800 mb-8">4. Obsolescencia programada</h2>
+                        <div class="space-y-6 leading-relaxed text-lg">
+                            <p>La <b>obsolescencia programada</b> es una estrategia industrial que consiste en el diseño y la fabricación de productos con una <b>vida útil</b> deliberadamente limitada. Esta práctica asegura que, tras un periodo de tiempo determinado, el dispositivo falle, se vuelva ineficiente o resulte inutilizable. El objetivo principal de este modelo es <b>fomentar el consumo</b> constante, obligando al usuario a adquirir un nuevo modelo para mantener el mismo nivel de servicio, lo que permite a las empresas aumentar sus ventas de forma artificial a costa del bolsillo del consumidor y de la salud del planeta.</p>
+                            <p>Este fenómeno se manifiesta de diversas formas en nuestra vida diaria. Muchos dispositivos electrónicos, por ejemplo, cuentan con <b>baterías</b> que son extremadamente difíciles de reemplazar sin dañar el aparato, o carecen de piezas de repuesto accesibles. Además, la <b>obsolescencia técnica</b> se hace evidente cuando los componentes físicos se desgastan prematuramente. Por otro lado, la <b>obsolescencia de software</b> ocurre cuando un dispositivo perfectamente funcional deja de recibir <b>actualizaciones</b> de seguridad o sus aplicaciones se vuelven incompatibles con las nuevas versiones del sistema operativo, forzando una renovación innecesaria.</p>
+                            <p>Existe también una vertiente más sutil pero igualmente poderosa: la <b>obsolescencia psicológica</b>. En este caso, el producto sigue funcionando correctamente, pero el marketing y las tendencias de moda logran que el usuario lo perciba como <b>anticuado</b> o fuera de onda. Esta presión social, sumada a la falta de <b>derecho a la reparación</b>, genera un ciclo de consumo insostenible que dispara la generación de residuos. Combatir estas prácticas requiere tanto de leyes más estrictas que protejan al consumidor como de una mayor conciencia sobre el valor real y la durabilidad de la tecnología que compramos.</p>
+                        </div>
+                        <div class="my-10 bg-amber-50 border-l-8 border-amber-400 p-8 rounded-r-3xl shadow-sm">
+                            <div class="flex items-start gap-6">
+                                <div class="text-4xl">💡</div>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-amber-900 mb-3">Dato Curioso: El enigma de la bombilla eterna</h3>
+                                    <p class="text-[17px] leading-relaxed text-amber-950">
+                                        ¿Sabías que en un parque de bomberos de Livermore, California, existe una bombilla que lleva encendida casi ininterrumpidamente desde <b>1901</b>? Conocida como la <i>Centennial Light</i>, ha superado las <b>120 años de vida</b>, demostrando que la tecnología de principios del siglo XX podía fabricarse para durar casi indefinidamente.
+                                    </p>
+                                    <p class="text-[17px] leading-relaxed text-amber-950 mt-4">
+                                        Este caso se cita a menudo como el contrapunto perfecto a la <b>obsolescencia programada</b>. De hecho, en 1924, el "Cártel Phoebus" (formado por los principales fabricantes de bombillas) acordó limitar la vida útil de las lámparas a solo 1.000 horas para asegurar ventas constantes, marcando uno de los primeros ejemplos documentados de esta práctica en la historia industrial.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="internet" class="scroll-mt-10">
+                        <h2 class="text-3xl font-bold text-indigo-800 mb-8">5. Internet también contamina</h2>
+                        <div class="grid md:grid-cols-3 gap-10 items-start py-8">
+                            <div class="space-y-6 leading-relaxed text-lg col-span-2">
+                                <p>A menudo percibimos el mundo digital como algo etéreo o intangible ("la nube"), pero la realidad es que <b>Internet</b> depende de enormes <b>infraestructuras físicas</b> que tienen un impacto real en el planeta. Esta red global está sostenida por gigantescos <b>centros de datos</b>, miles de kilómetros de cables submarinos, antenas de telefonía y millones de <b>servidores</b> que funcionan las 24 horas del día. Estas instalaciones requieren una cantidad masiva de electricidad, no solo para procesar la información, sino también para alimentar los sistemas de refrigeración que evitan que las máquinas se sobrecalienten.</p>
+                            </div>
+                            <img src="https://www.datos101.com/wp-content/uploads/2017/07/google-cloud-datacenter-2-990x660-990x480.jpg" class="rounded-3xl shadow-xl img-trigger" onclick="openModal(this.src)">
+                        </div>
+                        
+                        <div class="space-y-6 leading-relaxed text-lg">
+                            <p>Cada acción que realizamos online, por pequeña que parezca, tiene un coste ambiental. Cada <b>búsqueda</b> en un navegador, cada mensaje enviado y cada archivo almacenado <b>consume energía</b>. Se estima que la huella de carbono de la industria digital es ya comparable a la de la industria de la aviación comercial. Este consumo energético proviene en gran medida de fuentes no renovables, lo que significa que nuestra actividad digital diaria contribuye directamente a las emisiones globales de gases de efecto invernadero.</p>
+                            <p>El auge del contenido en alta definición ha disparado este fenómeno. Plataformas de streaming como <b>Netflix, TikTok o YouTube</b> generan un <b>gran consumo eléctrico</b>, ya que la transferencia de vídeo requiere el movimiento de volúmenes de datos inmensos. Al visualizar un vídeo, se activa una cadena de consumo que va desde el servidor donde está alojado el contenido hasta el dispositivo del usuario, pasando por todos los nodos de la red. Por ello, la eficiencia de los algoritmos y la transición hacia centros de datos alimentados por <b>energías renovables</b> son retos críticos para lograr un futuro digital sostenible.</p>
+                            <p>Dentro de este escenario, es vital entender <b>el peso invisible de tus datos</b>. Aunque no podemos ver la energía que consume un correo electrónico o una foto en la nube, la suma de nuestras acciones digitales individuales crea una demanda masiva. La <b>infraestructura</b> necesaria para que los datos estén disponibles al instante implica naves industriales llenas de servidores con <b>consumo energético constante</b>. Por tanto, reducir nuestra huella implica desde optimizar el uso de servicios de <b>streaming</b> hasta mejorar la <b>refrigeración</b> y eficiencia de los centros donde vive nuestra información digital.</p>
+                        </div>
+                    </section>
+                    <section id="ia" class="scroll-mt-10">
+                        <h2 class="text-3xl font-bold text-indigo-800 mb-8">6. Inteligencia Artificial</h2>
+                        <div class="space-y-6 leading-relaxed text-lg">
+                            <p>La <b>inteligencia artificial</b> (IA) representa uno de los avances más disruptivos de nuestra era, basándose en el uso de <b>algoritmos</b> avanzados que son capaces de aprender patrones complejos a partir de grandes volúmenes de datos. A diferencia del software tradicional, que sigue instrucciones fijas, la IA tiene la capacidad de <b>tomar decisiones automáticas</b> y mejorar su rendimiento con la experiencia. Actualmente, esta tecnología está integrada en nuestra vida diaria a través de asistentes virtuales, videojuegos, redes sociales y plataformas digitales que personalizan nuestra experiencia en tiempo real.</p>
+                            <p>El potencial de la IA es inmenso y ofrece <b>ventajas</b> significativas para el progreso humano. En el campo de la <b>medicina avanzada</b>, permite diagnósticos más precisos y el descubrimiento de nuevos fármacos; en el ámbito académico, facilita una <b>educación personalizada</b> adaptada al ritmo de cada alumno; y en la industria, la <b>automatización</b> de tareas repetitivas libera a los trabajadores para realizar labores más creativas y estratégicas. Además, la capacidad de la IA para generar textos, imágenes y soluciones complejas está abriendo una nueva frontera en la innovación digital.</p>
+                            <p>Sin embargo, el despliegue de esta tecnología también plantea graves <b>riesgos</b> y problemas éticos que debemos gestionar. Los <b>sesgos algorítmicos</b> pueden perpetuar e incluso amplificar prejuicios sociales si los datos de entrenamiento no son equitativos. Por otro lado, la proliferación de <b>deepfakes</b> y la generación de contenido falso alimentan la <b>desinformación</b>, erosionando la confianza en la verdad digital. Por ello, construir una IA ética requiere transparencia, supervisión humana y un marco legal que garantice que estos sistemas se utilicen para el beneficio común sin vulnerar los derechos fundamentales.</p>
+                            <p>Para navegar este cambio, es esencial mantener un <b>equilibrio entre innovación y responsabilidad</b>. Mientras que el potencial positivo de la IA nos permite optimizar el <b>consumo energético</b> y acelerar la investigación científica, el <b>desafío ético</b> nos obliga a auditar los algoritmos constantemente. Solo mediante el desarrollo de herramientas que identifiquen contenidos manipulados y aseguren la equidad, podremos garantizar que la inteligencia artificial sea una fuerza aliada en la <b>sostenibilidad</b> y el bienestar global.</p>
+                        </div>
+                    </section>
+                    <section id="actividades" class="scroll-mt-10 bg-white rounded-[3rem] p-12 border shadow-sm">
+                        <h2 class="text-4xl font-black text-slate-800 mb-10 text-center">Actividades</h2>
+                        <p class="text-center text-slate-500 mb-12 italic">Responde a estas actividades en un documento y súbelo a la tarea de Moodle. <b>Atención:</b> si usas IA para completar las actividas la tarea no será corregida.</p>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            
+                            <div class="p-8 bg-blue-50 rounded-3xl border border-blue-100">
+                                <span class="text-xs font-bold text-blue-600 uppercase tracking-widest">Nivel 1</span>
+                                <h4 class="text-xl font-bold mt-2 mb-4 text-blue-900">Recordar</h4>
+                                <p class="text-sm text-blue-800">Enumera los cuatro hitos principales de la línea temporal tecnológica y define con tus propias palabras qué es la <b>obsolescencia programada</b>.</p>
+                            </div>
+                            <div class="p-8 bg-indigo-50 rounded-3xl border border-indigo-100">
+                                <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest">Nivel 2</span>
+                                <h4 class="text-xl font-bold mt-2 mb-4 text-indigo-900">Comprender</h4>
+                                <p class="text-sm text-indigo-800">Explica por qué Internet tiene una <b>huella física</b> tangible a pesar de que solemos percibirlo como algo etéreo o virtual.</p>
+                            </div>
+                            <div class="p-8 bg-emerald-50 rounded-3xl border border-emerald-100">
+                                <span class="text-xs font-bold text-emerald-600 uppercase tracking-widest">Nivel 3</span>
+                                <h4 class="text-xl font-bold mt-2 mb-4 text-emerald-900">Aplicar</h4>
+                                <p class="text-sm text-emerald-800">Calcula tu <b>huella digital</b> semanal sumando las horas de streaming (Netflix/YouTube) y búquedas en la red utilizando una calculadora de CO2 online.</p>
+                            </div>
+                            <div class="p-8 bg-amber-50 rounded-3xl border border-amber-100">
+                                <span class="text-xs font-bold text-amber-600 uppercase tracking-widest">Nivel 4</span>
+                                <h4 class="text-xl font-bold mt-2 mb-4 text-amber-900">Analizar</h4>
+                                <p class="text-sm text-amber-800">Compara el modelo de <b>economía lineal</b> frente a la <b>economía circular</b>. ¿Qué componentes de un móvil son más difíciles de reintegrar en el ciclo?</p>
+                            </div>
+                            <div class="p-8 bg-rose-50 rounded-3xl border border-rose-100">
+                                <span class="text-xs font-bold text-rose-600 uppercase tracking-widest">Nivel 5</span>
+                                <h4 class="text-xl font-bold mt-2 mb-4 text-rose-900">Evaluar</h4>
+                                <p class="text-sm text-rose-800">Debate sobre la <b>ética en la IA</b>: ¿Es responsable una empresa de los sesgos racistas o sexistas que pueda aprender su algoritmo? Justifica tu respuesta.</p>
+                            </div>
+                            <div class="p-8 bg-slate-900 rounded-3xl border border-slate-800 text-white shadow-2xl">
+                                <span class="text-xs font-bold text-indigo-400 uppercase tracking-widest">Nivel 6</span>
+                                <h4 class="text-xl font-bold mt-2 mb-4 text-indigo-300">Crear</h4>
+                                <p class="text-sm text-slate-300"><b>Proyecto:</b> Diseña un prototipo de dispositivo electrónico que cumpla con el "Derecho a la Reparación", detallando materiales y facilidad de desmontaje.</p>
+                            </div>
+                        </div>
+                    </section>
                 </div>
-            </div>
+                <footer class="bg-slate-900 text-slate-500 p-12 text-center text-sm">
+                    <p>© 2026 · Unidad Didáctica de Tecnología y Digitalización · 3º ESO</p>
+                </footer>
+            </main>
         </div>
-    </header>
-
-
-    <main class="flex-grow">
-        <div class="relative bg-cover bg-center py-20 md:py-32 -mx-6 md:-mx-12 -mt-6 md:-mt-12 rounded-t-lg" style="background-image: url('https://www.vocaeditorial.com/blog/media/robotica-infantil-1175x783.jpeg');">
-            <div class="absolute inset-0 bg-black opacity-50 rounded-t-lg"></div>
-            
-            <div class="container mx-auto px-12 relative z-10 text-center">
-                <h1 class="text-4xl md:text-5xl font-extrabold text-white pb-6 mb-8">
-                    UD6. Desarrollo de aplicaciones móviles
-                </h1>
-            </div>
-        </div>
-
-        <div class="max-w-7xl mx-auto bg-white shadow-lg rounded-lg my-12 p-10">
-            <section id="punto-1" class="mb-12 border-b border-gray-200 pb-8 last:border-0">
-            <h2 class="text-3xl font-bold text-orange-600 mb-6 border-l-8 border-orange-500 pl-4">1. Diseño de Aplicaciones: Más allá del código (UI y UX)</h2>
-            <p class="mb-4 text-gray-700">Antes de empezar a programar los bloques, debemos entender que una aplicación exitosa no solo "funciona", sino que es fácil y agradable de usar. En el mundo profesional, esto se divide en dos conceptos clave que a menudo se confunden: **UI** y **UX**.</p>
-
-            <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-3">1.1. ¿Qué es la UI? (User Interface - Interfaz de Usuario)</h3>
-            <p class="mb-3 text-gray-700">Es la "piel" de tu aplicación. Se refiere a todo lo que el usuario ve en la pantalla.</p>
-            <ul class="list-disc list-inside ml-4 space-y-1 text-gray-700">
-                <li>Se centra en: La estética y la apariencia visual.</li>
-                <li>Elementos: Los colores, el tipo de letra (tipografía), la forma de los botones, los iconos y las imágenes.</li>
-                <li>Objetivo: Que la app sea atractiva y visualmente coherente.</li>
-            </ul>
-
-            <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-3">1.2. ¿Qué es la UX? (User Experience - Experiencia de Usuario)</h3>
-            <p class="mb-3 text-gray-700">Es el "esqueleto" y el "cerebro" de tu aplicación. Se refiere a lo que el usuario siente al usarla y lo fácil que le resulta cumplir su objetivo.</p>
-            <ul class="list-disc list-inside ml-4 space-y-1 text-gray-700">
-                <li>Se centra en: La facilidad de uso (usabilidad) y la navegación.</li>
-                <li>Elementos: ¿Cuántos clics necesito para llegar al menú? ¿Es lógico el orden de las pantallas? ¿Se entiende para qué sirve cada botón?</li>
-                <li>Objetivo: Que el usuario no se frustre y disfrute usando la app.</li>
-            </ul>
-
-            <div class="bg-yellow-50 p-4 rounded border-l-4 border-yellow-400 mt-6 shadow-sm">
-                <h4 class="text-xl font-bold text-gray-700 mt-4 mb-2">La analogía del Ketchup:</h4>
-                <ul class="list-disc list-inside ml-4 space-y-1 text-gray-700">
-                    <li>UI es la botella de cristal clásica: Se ve muy elegante y bonita en la mesa.</li>
-                    <li>UX es la botella de plástico invertida: Quizás no es tan elegante, pero permite sacar el ketchup mucho más rápido y sin esfuerzo.</li>
-                </ul>
-            </div>
-
-            <div class="page-break mt-6"></div>
-
-            <p class="mb-4 text-gray-700">Una buena aplicación debe tener un equilibrio entre ambas.</p>
-
-            <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-3">1.3. Diferencias clave</h3>
-            <div class="overflow-x-auto mb-6">
-                <table class="min-w-full bg-white border border-gray-200">
-                    <thead class="bg-blue-100">
-                        <tr>
-                            <th class="py-2 px-4 border-b text-left text-sm font-medium text-blue-700">Característica</th>
-                            <th class="py-2 px-4 border-b text-left text-sm font-medium text-blue-700">UI (Interfaz)</th>
-                            <th class="py-2 px-4 border-b text-left text-sm font-medium text-blue-700">UX (Experiencia)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="py-2 px-4 border-b">Pregunta clave</td>
-                            <td class="py-2 px-4 border-b">¿Se ve bonito?</td>
-                            <td class="py-2 px-4 border-b">¿Es fácil de usar?</td>
-                        </tr>
-                        <tr>
-                            <td class="py-2 px-4 border-b">Foco</td>
-                            <td class="py-2 px-4 border-b">Visual (Colores, estilo)</td>
-                            <td class="py-2 px-4 border-b">Funcional (Lógica, estructura)</td>
-                        </tr>
-                        <tr>
-                            <td class="py-2 px-4 border-b">Herramientas</td>
-                            <td class="py-2 px-4 border-b">Diseño gráfico</td>
-                            <td class="py-2 px-4 border-b">Mapas de navegación, wireframes</td>
-                        </tr>
-                        <tr>
-                            <td class="py-2 px-4 border-b">Emoción</td>
-                            <td class="py-2 px-4 border-b">"¡Qué chulo!"</td>
-                            <td class="py-2 px-4 border-b">"¡Qué útil y rápido!"</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-3">1.4. Accesibilidad: Diseño para todos</h3>
-            <p class="mb-3 text-gray-700">Como creadores de tecnología, tenemos la responsabilidad ética de que nuestra app pueda ser usada por el mayor número de personas posible, incluidas aquellas con dificultades visuales o motoras.</p>
-            <h4 class="text-xl font-bold text-gray-700 mt-4 mb-2">Reglas de oro para tu proyecto en 3º ESO:</h4>
-            <ol class="list-decimal list-inside ml-4 space-y-2 text-gray-700 text-sm bg-gray-50 p-4 rounded">
-                <li><strong>Contraste de color:</strong> Nunca pongas texto gris claro sobre fondo blanco. Usa colores que resalten bien (ej. letras negras sobre fondo amarillo) para que personas con baja visión puedan leerlo.</li>
-                <li><strong>Tamaño de los botones:</strong> Recuerda que usamos el dedo, no un ratón de precisión. Los botones deben ser lo bastante grandes para pulsarlos con el dedo pulgar sin equivocarse (zona del pulgar).</li>
-                <li><strong>Menos es más:</strong> No llenes la pantalla de cosas. Deja "aire" (espacios vacíos) para que el usuario no se agobie.</li>
-            </ol>
-
-            <div class="bg-gray-100 p-4 rounded border border-gray-300 mt-6">
-                <h4 class="text-xl font-bold text-gray-700 mb-2">Propuesta de Actividad Breve (para incluir tras la teoría):</h4>
-                <p class="font-bold italic mb-2 text-gray-600">"El Crítico de Apps"</p>
-                <p class="mb-2 text-gray-700">Abre en tu móvil una app que uses mucho (Instagram, TikTok, WhatsApp).</p>
-                <ul class="list-disc list-inside ml-4 space-y-1 text-gray-700 text-sm">
-                    <li>Identifica un elemento de UI que te guste (ej: "me gusta el icono del corazón").</li>
-                    <li>Identifica un elemento de UX que te moleste o se pueda mejorar (ej: "es difícil encontrar los vídeos guardados", "el botón de cerrar publicidad es demasiado pequeño").</li>
-                </ul>
-            </div>
-
-        </section>
-
-        <section id="punto-2" class="mb-12 border-b border-gray-200 pb-8 last:border-0">
-            <h2 class="text-3xl font-bold text-orange-600 mb-6 border-l-8 border-orange-500 pl-4">2. Conociendo nuestra herramienta: MIT App Inventor</h2>
-            <p class="mb-4 text-gray-700">Para llevar a la realidad nuestros diseños, no necesitamos escribir miles de líneas de código complejo en inglés. Vamos a utilizar **MIT App Inventor**, una plataforma desarrollada por el Instituto Tecnológico de Massachusetts (MIT) y Google.</p>
-
-            <div class="page-break"></div>
-
-            <p class="mb-4 text-gray-700">Es una herramienta de **programación por bloques (visual)**, lo que significa que construiremos nuestra app encajando piezas lógicas como si fuera un puzle o un juego de construcción.</p>
-
-            <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-3">2.1. ¿Cómo funciona? La arquitectura de la nube</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
-                <div class="bg-green-50 p-5 rounded-lg border-l-4 border-green-500 shadow-sm">
-                    <h4 class="text-xl font-bold text-green-800 mb-2">A. La Vista de Diseñador (Designer)</h4>
-                    <p class="text-sm mb-2 font-semibold text-gray-700">Es el estudio de montaje. Aquí **NO** se programa.</p>
-                    <ul class="list-disc list-inside ml-4 space-y-1 text-gray-700 text-sm">
-                        <li>¿Qué hacemos aquí? Aplicamos la UI. Arrastramos Botones, Imágenes, Etiquetas, etc.</li>
-                        <li>Panel de Propiedades: Cambiamos color, tamaño y subimos imágenes.</li>
-                    </ul>
-                </div>
-
-                <div class="bg-yellow-50 p-5 rounded-lg border-l-4 border-yellow-500 shadow-sm">
-                    <h4 class="text-xl font-bold text-yellow-800 mb-2">B. La Vista de Bloques (Blocks)</h4>
-                    <p class="text-sm mb-2 font-semibold text-gray-700">Es el cerebro de la aplicación. Aquí definimos el comportamiento (la UX).</p>
-                    <ul class="list-disc list-inside ml-4 space-y-1 text-gray-700 text-sm">
-                        <li>¿Qué hacemos aquí? Le damos órdenes a los elementos.</li>
-                        <li>Ejemplo: "Cuando Botón1 recibe Clic $\rightarrow$ Hacer abrir otra pantalla".</li>
-                        <li>Lógica: Los bloques tienen colores según su función (Control, Lógica, Texto...).</li>
-                    </ul>
-                </div>
-            </div>
-
-            <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-3">2.2. El flujo de trabajo: Ordenador + Móvil</h3>
-            <p class="mb-3 text-gray-700">Una de las características más potentes de App Inventor es que podemos ver qué estamos creando en tiempo real.</p>
-            <p class="mb-3 text-gray-700">Para ello, necesitamos dos dispositivos trabajando en equipo:</p>
-            <ol class="list-decimal list-inside ml-4 space-y-1 text-gray-700 text-sm bg-gray-100 p-3 rounded">
-                <li>El Ordenador: Donde diseñamos la interfaz y montamos los bloques de lógica.</li>
-                <li>El Móvil (o Tablet): Donde probamos la app. Necesita tener instalada la aplicación gratuita **"MIT AI2 Companion"**.</li>
-            </ol>
-
-            <div class="page-break"></div>
-
-            <p class="mb-4 mt-4 text-gray-700">¿Cómo se conectan? El ordenador generará un código QR. Al escanearlo con la app del móvil, todo lo que hagas en la pantalla del PC aparecerá mágicamente en tu teléfono al instante. A esto se le llama **"Live Testing" (Prueba en vivo)**.</p>
-            <p class="mt-4 mb-4 text-justify font-bold text-red-600">¡Ojo! Para que esto funcione, tanto el ordenador como el móvil deben estar conectados a la **misma red WiFi** (la del instituto).</p>
-
-            <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-3 border-b pb-2">2.1 Tutorial Práctico: Tu primera App en 15 minutos</h3>
-            <p class="mb-2 text-gray-700">Objetivo: Crear una aplicación que hable cuando pulses un botón.</p>
-            <p class="mb-4 text-gray-700">Nivel: Iniciación Absoluta.</p>
-
-            <div class="space-y-4">
-            <div class="bg-blue-50 p-4 rounded shadow-sm">
-            <h4 class="text-xl font-bold text-blue-700 mt-4 mb-2">Paso 0: Preparativos</h4>
-            <p class="mb-2 text-gray-700">Antes de empezar, asegúrate de tener:</p>
-            <ol class="list-decimal list-inside ml-4 space-y-1 text-gray-700">
-                <li>Un ordenador con conexión a internet.</li>
-                <li>Una cuenta de Google (Gmail o la del instituto).</li>
-                <li>Un dispositivo móvil (móvil o tablet) conectado a la MISMA RED WIFI que el ordenador.</li>
-                <li>Instala en el móvil la app gratuita **"MIT AI2 Companion"** (disponible en Google Play Store o Apple App Store).</li>
-            </ol>
-            </div>
-            <div class="bg-blue-50 p-4 rounded shadow-sm">
-            <h4 class="text-xl font-bold text-blue-700 mt-4 mb-2">Paso 1: Iniciar sesión y crear el proyecto</h4>
-            <ol class="list-decimal list-inside ml-4 space-y-1 text-gray-700">
-                <li>Entra en la web: <code class="bg-gray-200 p-0.5 rounded">ai2.appinventor.mit.edu</code></li>
-                <li>Haz clic en el botón naranja **"Create Apps!"**.</li>
-                <li>Inicia sesión con tu cuenta de Google. (Acepta los términos de servicio si es la primera vez).</li>
-                <li>Aparecerá una ventana de bienvenida. Haz clic en "Comenzar un proyecto nuevo" (Start new project).</li>
-                <li>Nombre del proyecto: Escribe <code class="bg-gray-200 p-0.5 rounded">Hola Mundo</code> ( Importante: App Inventor NO permite espacios en los nombres de proyecto. Usa mayúsculas o guiones bajos).</li>
-                <li>Pulsa Aceptar.</li>
-            </ol>
-            </div>
-            <div class="bg-blue-50 p-4 rounded shadow-sm">
-            <h4 class="text-xl font-bold text-blue-700 mt-4 mb-2">Paso 2: El Diseñador (La cara de tu App)</h4>
-            <p class="mb-2 text-gray-700">Ahora estás en la vista de Diseñador. Aquí decidimos qué aspecto tendrá la app.</p>
-            <ol class="list-decimal list-inside ml-4 space-y-1 text-gray-700">
-                <li><strong>Pon un Botón:</strong> En la columna izquierda (Paleta), busca la sección "Interfaz de Usuario". Arrastra un **Botón** hacia la pantalla del móvil central.</li>
-                <li><strong>Personaliza el Botón:</strong> Con el botón seleccionado, mira la columna derecha (Propiedades). Busca la propiedad <strong>Texto</strong> y cámbialo por: <code class="bg-gray-200 p-0.5 rounded">PÚLSAME</code>. (Opcional) Cambia el ColorDeFondo a tu color favorito.</li>
-                <li><strong>Añade la voz (Componente Invisible):</strong> En la columna izquierda (Paleta), baja hasta encontrar la sección **Medios**. Arrastra el componente **TextoAVoz (TextToSpeech)** hacia la pantalla. Nota: Verás que no aparece en la pantalla del móvil, sino debajo, en "Componentes no visibles". ¡Es normal!</li>
-            </ol>
-            </div>
-            <div class="bg-blue-50 p-4 rounded shadow-sm">
-            <h4 class="text-xl font-bold text-blue-700 mt-4 mb-2">Paso 3: Los Bloques (El cerebro de tu App)</h4>
-            <p class="mb-2 text-gray-700">Vamos a programar. Haz clic en el botón **"Bloques"** situado en la esquina superior derecha de la web.</p>
-            <ol class="list-decimal list-inside ml-4 space-y-1 text-gray-700">
-                <li><strong>El Evento (¿Cuándo pasa algo?):</strong> En la columna izquierda, haz clic en <code class="bg-gray-200 p-0.5 rounded">Botón1</code>. Arrastra el bloque de color mostaza: <code class="bg-gray-200 p-0.5 rounded">Cuando Botón1.Clic ejecutar...</code></li>
-                <li><strong>La Acción (¿Qué pasa?):</strong> En la columna izquierda, haz clic en <code class="bg-gray-200 p-0.5 rounded">TextoAVoz1</code>. Arrastra el bloque morado: <code class="bg-gray-200 p-0.5 rounded">Llamar TextoAVoz1. Hablar mensaje</code> Encaja este bloque **DENTRO** del bloque del botón (debes oír un "clic").</li>
-                <li><strong>El Mensaje (¿Qué dice?):</strong> En la columna izquierda, haz clic en la sección **Texto** (color rosa). Sube arriba del todo y coge el primer bloque pequeño: <code class="bg-gray-200 p-0.5 rounded">""</code> (una comilla vacía). Encájalo en el hueco de "mensaje" y escribe dentro: <code class="bg-gray-200 p-0.5 rounded">¡Hola mundo! Ya soy programador.</code></li>
-            </ol>
-            </div>
-            <div class="bg-blue-50 p-4 rounded shadow-sm">
-            <h4 class="text-xl font-bold text-blue-700 mt-4 mb-2">Paso 4: Probar la App en tu móvil (Live Testing)</h4>
-            <p class="mb-2 text-gray-700">¡El momento de la verdad! No necesitas cables.</p>
-            <ol class="list-decimal list-inside ml-4 space-y-1 text-gray-700">
-                <li>En la web (arriba), haz clic en el menú <strong>Conectar $\rightarrow$ Al Companion</strong>.</li>
-                <li>Aparecerá un **Código QR** en la pantalla del ordenador.</li>
-                <li>Coge tu móvil, abre la app **MIT AI2 Companion**.</li>
-                <li>Pulsa el botón azul **"Scan QR code"** y apunta a la pantalla.</li>
-                <li>Espera unos segundos... ¡La app aparecerá en tu móvil!</li>
-                <li>Pulsa el botón. ¿Te ha saludado?</li>
-            </ol>
-            </div>
-            <div class="bg-blue-50 p-4 rounded shadow-sm">
-            <h4 class="text-xl font-bold text-blue-700 mt-4 mb-2">Paso 5: Exportar (Instalarla para siempre)</h4>
-            <p class="mb-2 text-gray-700">Lo que hicimos en el paso 4 es una prueba temporal. Si cierras la web, la app desaparece del móvil. Si quieres instalarla como una app real (y pasársela a tus amigos por WhatsApp):</p>
-            <ol class="list-decimal list-inside ml-4 space-y-1 text-gray-700">
-                <li>En la web (arriba), haz clic en **Generar (Build)**.</li>
-                <li>Selecciona **Android App (.apk)**.</li>
-                <li>Espera a que la barra de carga termine (puede tardar un minuto).</li>
-                <li>Te dará un nuevo código QR. Escanéalo y el móvil te preguntará si quieres descargar e instalar el archivo. Nota: Al no ser una app de la tienda oficial, el móvil te pedirá permiso para "Instalar aplicaciones desconocidas". Dile que sí.</li>
-            </ol>
-        </div>
-    </div>
-        <div class="bg-gray-100 p-4 rounded border border-gray-300 mt-6">    
-            <h4 class="text-xl font-bold text-gray-700 mb-2">Reto Extra (Para nota)</h4>
-            <p class="text-sm text-gray-600">Si ya te funciona, intenta esto antes de que acabe la clase:</p>
-            <ol class="list-decimal list-inside ml-4 space-y-1 text-gray-700">
-                <li>Añade un componente **Acelerómetro** (en Sensores).</li>
-                <li>Programa que cuando agites el móvil (<code class="bg-gray-200 p-0.5 rounded">Cuando Acelerometro1.Agitar</code>), el móvil diga "¡Terremoto!".</li>
-            </ol>
-        </div>
-        </section>
-
-        <section id="punto-3" class="mb-12 border-b border-gray-200 pb-8 last:border-0">
-            <h2 class="text-3xl font-bold text-orange-600 mb-6 border-l-8 border-orange-500 pl-4">3. Tu móvil tiene "sentidos": Uso de Sensores</h2>
-            <p class="mb-4 text-gray-700">Hasta ahora, nuestros programas funcionaban igual que en un ordenador: el usuario pulsaba un botón y pasaba algo. Pero un teléfono móvil es mucho más potente. Es un dispositivo lleno de **sensores** que le permiten "ver", "oir", "sentir" movimiento y saber dónde está.</p>
-            <p class="mb-4 text-gray-700">En App Inventor, estos elementos son **"Componentes No Visibles"**. Esto significa que cuando los arrastras al visor en el modo Diseñador, no aparecen dentro de la pantalla del móvil, sino que se quedan debajo, esperando a ser programados.</p>
-            <p class="mb-4 text-gray-700">Vamos a ver los tres más importantes y útiles para tus primeros proyectos:</p>
-
-            <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-3">3.1. El Acelerómetro (El sentido del equilibrio)</h3>
-            <p class="mb-3 text-gray-700">¿Cómo sabe tu móvil cuándo girar la pantalla si lo pones en horizontal? ¿O cómo cuenta tus pasos? Gracias al acelerómetro.</p>
-            <ul class="list-disc list-inside ml-4 space-y-1 text-gray-700">
-                <li>¿Qué hace? Detecta si el móvil se está moviendo, si se agita o si se inclina.</li>
-                <li>En App Inventor: Se llama <code class="bg-gray-200 p-0.5 rounded">AcelerometerSensor</code>.</li>
-                <li>Uso común: Juegos (usar el móvil como volante), podómetros, o borrar texto agitando el móvil.</li>
-                <li>Bloque estrella: <code class="bg-gray-200 p-0.5 rounded">Cuando AcelerometerSensor1. Agitar (Shaking) $\rightarrow$ Ejecutar acción.</code></li>
-            </ul>
-
-            <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-3">3.2. Reconocimiento de Voz y Texto a Voz (El oído y la boca)</h3>
-
-            <div class="page-break"></div>
-
-            <p class="mb-3 text-gray-700">Podemos hacer que nuestra aplicación hable con el usuario sin necesidad de leer la pantalla. Esto es fundamental para la accesibilidad (que vimos en el punto 1) y para hacer asistentes virtuales tipo Siri o Alexa.</p>
-            <ul class="list-disc list-inside ml-4 space-y-1 text-gray-700">
-                <li><strong>TextToSpeech (Texto a Voz):</strong> Tú escribes una frase en los bloques y el móvil la lee en voz alta.</li>
-                <li><strong>SpeechRecognizer (Reconocimiento de Voz):</strong> El móvil escucha lo que dices, lo convierte en texto escrito y nosotros podemos usar ese texto para tomar decisiones (ej: si digo "Rojo", la pantalla se pone roja).</li>
-            </ul>
-
-            <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-3">3.3. GPS y Localización (El sentido de la ubicación)</h3>
-            <p class="mb-3 text-gray-700">El móvil puede saber sus coordenadas exactas en el planeta Tierra (Latitud y Longitud).</p>
-            <ul class="list-disc list-inside ml-4 space-y-1 text-gray-700">
-                <li>En App Inventor: Se llama <code class="bg-gray-200 p-0.5 rounded">LocationSensor</code>.</li>
-                <li>Uso común: Mapas, medir distancias recorridas, juegos tipo Pokémon GO.</li>
-                <li><strong>Nota importante sobre Privacidad:</strong> Para usar este sensor, la aplicación debe pedir permiso al usuario. Como desarrolladores éticos, nunca debemos rastrear la ubicación de alguien sin que lo sepa y lo acepte.</li>
-            </ul>
-
-            <div class="bg-gray-100 p-4 rounded border border-gray-300 mt-6">
-                <h4 class="text-xl font-bold text-gray-700 mb-2">Propuesta de Actividad Práctica (Mini-Reto)</h4>
-            <p class="font-bold italic mb-2 text-gray-600">Nombre del reto: "El Loro Agitado" Objetivo: Combinar un sensor físico (movimiento) con una salida de audio.</p>
-            <p class="mb-2 text-gray-700 font-semibold">Pasos:</p>
-            <ol class="list-decimal list-inside ml-4 space-y-2 text-gray-700">
-                <li><strong>Diseño (UI):</strong> Pon una imagen de un loro (o tu mascota) en el centro de la pantalla.</li>
-                <li><strong>Componentes No Visibles:</strong> Arrastra un <span class="italic text-gray-500">AcelerometerSensor</span> y un <span class="italic text-gray-500">TextToSpeech</span> (están en la pestaña "Medios" y "Sensores").</li>
-                <li><strong>Lógica (Bloques):</strong>
-                    <ul class="list-circle list-inside ml-4 space-y-1 text-gray-700">
-                        <li>Busca el bloque amarillo: <code class="bg-gray-200 p-0.5 rounded">Cuando Acelerometer Sensor1.Agitar</code></li>
-                        <li>Dentro, encaja el bloque morado: <code class="bg-gray-200 p-0.5 rounded">Llamar TextToSpeech1.Hablar</code></li>
-                        <li>En el hueco de "mensaje", engancha un bloque de texto rojo vacío y escribe: <code class="bg-gray-200 p-0.5 rounded">"¡Ay! ¡No me marees!"</code></li>
-                    </ul>
-                </li>
-                <li><strong>Prueba:</strong> Conecta el móvil. Agítalo con fuerza. ¿Se queja tu móvil?</li>
-            </ol>
-        </div>
-        </section>
-
-        <section id="punto-4" class="mb-12 border-b border-gray-200 pb-8 last:border-0">
-            <h2 class="text-3xl font-bold text-orange-600 mb-6 border-l-8 border-orange-500 pl-4">4. Dando inteligencia a la App: Variables y Condicionales</h2>
-            <p class="mb-4 text-gray-700">Para que una aplicación sea útil de verdad, no puede limitarse a repetir siempre lo mismo. Debe reaccionar de forma diferente según lo que haga el usuario. Para ello, necesitamos dominar dos conceptos fundamentales de la programación: las **Variables (la memoria)** y los **Condicionales (la toma de decisiones)**.</p>
-
-            <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-3">4.1. Las Variables: La "Memoria" de la App</h3>
-            <p class="mb-3 text-gray-700">Imagina que estás jugando a un videojuego. Si matas un enemigo, ganas 10 puntos. ¿Dónde se guardan esos puntos? En una variable.</p>
-
-            <div class="page-break"></div>
-
-            <p class="mb-3 text-gray-700">¿Qué es? Una variable es como una caja etiquetada donde guardamos un dato. El contenido de la caja puede cambiar (variar) durante el uso de la app, pero la etiqueta siempre es la misma para que sepamos dónde buscar.</p>
-            <p class="mb-3 text-gray-700">¿Para qué sirven en 3º ESO?</p>
-            <ul class="list-disc list-inside ml-4 space-y-1 text-gray-700">
-                <li>Guardar una puntuación (empieza en 0, luego cambia a 10, luego a 20...).</li>
-                <li>Guardar el nombre de usuario que ha escrito la persona.</li>
-                <li>Contar cuántas veces se ha pulsado un botón.</li>
-            </ul>
-
-            <p class="font-semibold mt-4 mb-2 text-gray-700">En App Inventor:</p>
-            <p class="mb-2 text-gray-700">Usamos los bloques de color **Naranja**.</p>
-            <ol class="list-decimal list-inside ml-4 space-y-1 text-gray-700">
-                <li><code class="bg-gray-200 p-0.5 rounded">Inicializar global nombre como...</code> (Crear la caja al principio).</li>
-                <li><code class="bg-gray-200 p-0.5 rounded">Poner global nombre a...</code> (Meter un dato nuevo en la caja).</li>
-                <li><code class="bg-gray-200 p-0.5 rounded">Tomar global nombre</code> (Mirar qué hay dentro de la caja para usarlo).</li>
-            </ol>
-
-            <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-3">4.2. Los Condicionales: La "Toma de Decisiones"</h3>
-            <p class="mb-3 text-gray-700">En la vida real tomamos decisiones todo el tiempo basándonos en condiciones: "SI llueve, ENTONCES cojo el paraguas. SI NO, cojo las gafas de sol."</p>
-            <p class="mb-3 text-gray-700">En programación, esto es exactamente igual. Usamos la estructura **SI... ENTONCES... SINO** (If... Then... Else).</p>
-            <ul class="list-disc list-inside ml-4 space-y-1 text-gray-700">
-                <li>¿Cómo funciona? El programa hace una pregunta (una comparación lógica). Si la respuesta es "Verdadera", ejecuta una acción. Si es "Falsa", ignora esa acción o hace otra distinta.</li>
-                <li>Comparadores Lógicos: Para hacer la pregunta, necesitamos las matemáticas (Bloques Verdes):
-                    <ul class="list-circle list-inside ml-4 space-y-1 text-gray-700">
-                        <li>Es igual a (<span class="latex">$=$</span>)</li>
-                        <li>Es mayor que (<span class="latex">$>$</span>)</li>
-                        <li>Es menor que (<span class="latex">$<$</span>)</li>
-                    </ul>
-                </li>
-            </ul>
-            <p class="italic mb-2 text-gray-600">Ejemplo práctico: SI (Batería <span class="latex">$<$</span> 15%) $\rightarrow$ ENTONCES (Poner pantalla en modo ahorro).</p>
-            <p class="font-semibold mt-4 mb-2 text-gray-700">En App Inventor:</p>
-            <p class="mb-4 text-gray-700">Usamos los bloques de color **Amarillo oscuro (Control)**. El bloque principal se llama **Si... entonces** (o If... then).</p>
-
-            <div class="bg-gray-100 p-4 rounded border border-gray-300 mt-6">
-                <h4 class="text-xl font-bold text-gray-700 mb-2">Propuesta de Actividad Práctica: "El Portero de Discoteca"</h4>
-            <p class="mb-2 text-gray-700">Vamos a crear una mini-app que pida la edad al usuario y decida si puede entrar o no.</p>
-
-            <div class="page-break"></div>
-
-            <ol class="list-decimal list-inside ml-4 space-y-2 text-gray-700">
-                <li><strong>Diseño (UI):</strong>
-                    <ul class="list-circle list-inside ml-4 space-y-1 text-gray-700">
-                        <li>Una Etiqueta que diga: "¿Qué edad tienes?".</li>
-                        <li>Un CampoDeTexto (para que el usuario escriba el número).</li>
-                        <li>Un Botón que diga "Comprobar".</li>
-                        <li>Una Etiqueta vacía para el resultado.</li>
-                    </ul>
-                </li>
-                <li><strong>Lógica (Bloques):</strong>
-                    <ul class="list-circle list-inside ml-4 space-y-1 text-gray-700">
-                        <li>Usaremos un Condicional.</li>
-                        <li>Arrastra el evento: <code class="bg-gray-200 p-0.5 rounded">Cuando Botón1.Clic</code>.</li>
-                        <li>Dentro, pon el bloque de control: **Si... entonces... sino** (pulsa el engranaje azul del bloque para añadir el "sino" o "else").</li>
-                        <li><strong>La Pregunta:</strong> Usa un bloque matemático (<span class="latex">$=$</span>) del menú verde, pero cámbialo a Mayor o igual ($\ge$). ¿Es <code class="bg-gray-200 p-0.5 rounded">Campo De Texto. Texto $\ge$ 18</code>?</li>
-                        <li><strong>El "Entonces" (Si es verdad):</strong>
-                            <ul class="list-square list-inside ml-4 space-y-1 text-gray-700">
-                                <li><code class="bg-gray-200 p-0.5 rounded">Poner Etiqueta Resultado.Texto a "¡Puedes pasar! Disfruta de la fiesta."</code></li>
-                                <li>(Opcional: Cambiar el color de fondo a Verde).</li>
-                            </ul>
-                        </li>
-                        <li><strong>El "Sino" (Si es mentira):</strong>
-                            <ul class="list-square list-inside ml-4 space-y-1 text-gray-700">
-                                <li><code class="bg-gray-200 p-0.5 rounded">Poner Etiqueta Resultado.Texto a "Lo siento, eres menor. A casa a estudiar."</code></li>
-                                <li>(Opcional: Cambiar el color de fondo a Rojo).</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-            </ol>
-        </div>
-        </section>
-
-        <section id="punto-5" class="mb-12 border-b border-gray-200 pb-8 last:border-0">
-            <h2 class="text-3xl font-bold text-orange-600 mb-6 border-l-8 border-orange-500 pl-4">5. Manos a la obra: Proyectos Finales con Impacto (ODS)</h2>
-            <p class="mb-4 text-gray-700">Hemos aprendido diseño (UI/UX), hemos manejado el entorno, sabemos usar sensores y aplicar lógica. Ahora toca demostrarlo.</p>
-            <p class="mb-6 text-gray-700">Elige **UNO** de los siguientes retos para tu proyecto final. Cada uno tiene un nivel de dificultad distinto, pero todos comparten un objetivo común: utilizar la tecnología para mejorar nuestro entorno, basándonos en los **Objetivos de Desarrollo Sostenible (ODS)** de la ONU.</p>
-
-            <div class="flex justify-center my-6">
-                <div class="text-center">
-                    <img src="https://via.placeholder.com/400x200?text=17+Sustainable+Development+Goals+Diagram" alt="17 Sustainable Development Goals Diagram" class="rounded-lg shadow-lg">
-                    <p class="text-sm text-gray-500 mt-2">17 SUSTAINABLE DEVELOPMENT GOALS</p>
-                </div>
-            </div>
-
-            <h3 class="text-2xl font-bold text-green-500 mt-6 mb-3 border-b border-green-300 pb-1">🟢 Nivel 1 (Básico): La "Zen App" (Bienestar Emocional)</h3>
-            <p class="mb-2 text-gray-700">Vinculado al ODS 3: **Salud y Bienestar**. Muchas personas sufren estrés o ansiedad. Tu misión es crear una aplicación sencilla que funcione como un "kit de emergencia" para relajarse.</p>
-            <ul class="list-disc list-inside ml-4 space-y-1 text-gray-700">
-                <li><strong>El Reto:</strong> Crear una botonera de sonidos relajantes (lluvia, bosque, mar) o frases motivadoras.</li>
-                <li><strong>Requisitos Técnicos:</strong>
-                    <ul class="list-circle list-inside ml-4 space-y-1 text-gray-700">
-                        <li>UI: Uso de Imágenes como botones y disposición estética (colores suaves).</li>
-                        <li>Código: Eventos simples (<code class="bg-gray-200 p-0.5 rounded">Cuando Botón.Clic</code>).</li>
-                        <li>Componentes: Sonido (<code class="bg-gray-200 p-0.5 rounded">Sound</code>) o Texto a Voz (<code class="bg-gray-200 p-0.5 rounded">TextToSpeech</code>).</li>
-                    </ul>
-                </li>
-                <li><strong>Funcionalidad:</strong> Al pulsar la imagen de una tormenta, debe sonar lluvia. Al pulsar un botón de "Consejo", el móvil debe hablar y dar un mensaje de ánimo.</li>
-            </ul>
-
-            <h3 class="text-2xl font-bold text-yellow-500 mt-6 mb-3 border-b border-yellow-300 pb-1">🟡 Nivel 2 (Intermedio): La Calculadora Eco-Friendly</h3>
-            <p class="mb-2 text-gray-700">Vinculado al ODS 12: **Producción y Consumo Responsables**. No somos conscientes de cuánta agua o plástico gastamos. Tu misión es crear una calculadora que conciencie al usuario.</p>
-
-            <div class="page-break"></div>
-
-            <ul class="list-disc list-inside ml-4 space-y-1 text-gray-700">
-                <li><strong>El Reto:</strong> Una app donde el usuario introduce un dato (ej: minutos que tarda en ducharse) y la app calcula el impacto.</li>
-                <li><strong>Requisitos Técnicos:</strong>
-                    <ul class="list-circle list-inside ml-4 space-y-1 text-gray-700">
-                        <li>UI: CampoDeTexto para introducir números y Etiquetas para resultados.</li>
-                        <li>Código: Uso de Variables y Operaciones Matemáticas.</li>
-                        <li>Lógica: Uso de Condicionales.</li>
-                    </ul>
-                </li>
-                <li><strong>Funcionalidad:</strong>
-                    <ul class="list-circle list-inside ml-4 space-y-1 text-gray-700">
-                        <li>El usuario escribe: "10" (minutos).</li>
-                        <li>La app multiplica por 20 litros/minuto.</li>
-                        <li>Condicional (Si...): SI el resultado es > 100 litros, el fondo se pone ROJO y sale un mensaje de "¡Cuidado! Gastas demasiada agua". SI es menor, sale VERDE.</li>
-                    </ul>
-                </li>
-            </ul>
-
-            <h3 class="text-2xl font-bold text-red-500 mt-6 mb-3 border-b border-red-300 pb-1">🔴 Nivel 3 (Avanzado): El Guardián de Bolsillo (Seguridad)</h3>
-            <p class="mb-2 text-gray-700">Vinculado al ODS 11 (Ciudades Seguras) y ODS 5 (Igualdad). El móvil puede ser una herramienta de defensa. Tu misión es crear una app que reaccione ante un movimiento brusco para situaciones de peligro.</p>
-            <ul class="list-disc list-inside ml-4 space-y-1 text-gray-700">
-                <li><strong>El Reto:</strong> Una app que detecte si el usuario está en peligro o necesita ayuda sin necesidad de mirar la pantalla.</li>
-                <li><strong>Requisitos Técnicos:</strong>
-                    <ul class="list-circle list-inside ml-4 space-y-1 text-gray-700">
-                        <li>UI: Diseño minimalista con un botón de "Activar/Desactivar".</li>
-                        <li>Código: Uso del <span class="italic text-gray-500">AcelerometerSensor</span> (Sensor de movimiento).</li>
-                        <li>Lógica: Condicionales complejos o temporizadores (Reloj).</li>
-                    </ul>
-                </li>
-                <li><strong>Funcionalidad:</strong>
-                    <ul class="list-circle list-inside ml-4 space-y-1 text-gray-700">
-                        <li>Al agitar el móvil fuertemente (<code class="bg-gray-200 p-0.5 rounded">Shaking</code>), la app debe activar automáticamente un sonido de alarma estridente (sirena) o decir una frase en bucle ("¡Necesito ayuda!") al volumen máximo.</li>
-                        <li>Extra: Que muestre en pantalla la ubicación actual (Latitud/Longitud) usando el <span class="italic text-gray-500">LocationSensor</span>.</li>
-                    </ul>
-                </li>
-            </ul>
-        </section>
-  
-        </div>
-</main>
-
-
-<!-- Modal para ampliar imagen -->
-<div id="imageModal" class="modal">
-  <span class="close-modal">&times;</span>
-  <img class="modal-content" id="modalImage">
-</div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // --- Lógica para el modal de la imagen ---
-        const modal = document.getElementById("imageModal");
-        const modalImg = document.getElementById("modalImage");
-        const images = document.querySelectorAll('.zoomable-image');
-        const closeBtn = document.querySelector(".close-modal");
-
-        images.forEach(img => {
-            img.onclick = function(){
-                modal.style.display = "flex";
-                modalImg.src = this.src;
-            }
-        });
-
-        function closeModal() {
-            modal.style.display = "none";
+        <script>
+        function openModal(src) {
+        document.getElementById('modalImg').src = src;
+        document.getElementById('imgModal').style.display = "block";
         }
-
-        closeBtn.onclick = closeModal;
-
-        modal.onclick = function(event) {
-            if (event.target === modal) {
-                closeModal();
-            }
-        }
-    });
-
-</script>
-</body>
+        document.addEventListener('keydown', (e) => { if(e.key === "Escape") document.getElementById('imgModal').style.display = "none"; });
+        </script>
+    </body>
 </html>
