@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UD6. Ciudadanía Digital Crítica</title>
+  <link href="../assets/css/styles.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 fill=%22currentColor%22 class=%22bi bi-robot%22 viewBox=%220 0 16 16%22><path d=%22M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5ZM3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.58 26.58 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.933.933 0 0 1-.765.935c-.845.147-2.34.346-4.235.346-1.895 0-3.39-.2-4.235-.346A.933.933 0 0 1 3 9.219V8.062Zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a24.767 24.767 0 0 1-1.871-.183.25.25 0 0 0-.217.068l-.92.9a.25.25 0 0 0 .169.434l.92-.9a25.25 25.25 0 0 0 1.942.183.25.25 0 0 0 .217-.068l.92-.9a.25.25 0 0 0-.17-.434l-.92.9a24.767 24.767 0 0 1-1.871-.183Z%22/><path d=%22M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1.5a2.5 2.5 0 0 0 2.5 2.5h9A2.5 2.5 0 0 0 15 13.5V12a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2V1.866ZM14 7.5V12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5Z%22/></svg>" type="image/svg+xml">
+
+  
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Pequeños ajustes adicionales si fueran necesarios */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* Para los iconos de Bootstrap, si los estás usando */
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css");
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Open Sans"', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilos personalizados para el scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+        
+        /* Utilidad para el offset del scroll debido al header fijo (si lo hubiera) o márgenes */
+        .scroll-mt {
+            scroll-margin-top: 2rem;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 font-sans antialiased leading-relaxed">
+
+    <!-- Encabezado / Hero Section -->
+    <header class="bg-brand-900 text-white py-16 px-6 shadow-md">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between">
+            <div class="w-full md:w-2/3">
+                <span class="inline-block py-1 px-3 rounded-full bg-brand-800 text-brand-100 text-sm font-semibold tracking-wider mb-4 uppercase">
+                    Unidad Didáctica 6
+                </span>
+                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">Ciudadanía Digital Crítica</h1>
+                <p class="text-xl text-brand-100 font-light max-w-2xl">
+                    Desarrollando una comprensión profunda de nuestros derechos y deberes en el entorno digital para una participación activa y segura.
+                </p>
+            </div>
+            <div class="w-full md:w-1/3 mt-8 md:mt-0 flex justify-end opacity-20 hidden md:flex">
+                <!-- Icono decorativo SVG -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" fill="currentColor" viewBox="0 0 256 256"><path d="M208,40H48A24,24,0,0,0,24,64V192a24,24,0,0,0,24,24H208a24,24,0,0,0,24-24V64A24,24,0,0,0,208,40Zm8,152a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V64a8,8,0,0,1,8-8H208a8,8,0,0,1,8,8ZM176,88a8,8,0,0,1-8,8H88a8,8,0,0,1,0-16h80A8,8,0,0,1,176,88Zm0,40a8,8,0,0,1-8,8H88a8,8,0,0,1,0-16h80A8,8,0,0,1,176,128Zm0,40a8,8,0,0,1-8,8H88a8,8,0,0,1,0-16h80A8,8,0,0,1,176,168Z"></path></svg>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenedor Principal -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col lg:flex-row gap-10">
+        
+        <!-- Sidebar: Índice Pegajoso -->
+        <aside class="w-full lg:w-1/4 flex-shrink-0 order-2 lg:order-1 hidden md:block">
+            <div class="sticky top-8 bg-white p-6 rounded-xl shadow-sm border border-slate-200 h-auto max-h-[90vh] overflow-y-auto">
+                <h3 class="text-lg font-bold text-slate-800 uppercase tracking-wider mb-4 border-b pb-2">Tabla de Contenidos</h3>
+                <nav id="toc" class="text-sm font-medium space-y-1">
+                    <a href="#intro" class="toc-link block py-1.5 px-3 rounded-md text-slate-600 hover:bg-slate-100 hover:text-brand-600 transition-colors">Introducción</a>
+                    
+                    <a href="#sec-6-1" class="toc-link block py-1.5 px-3 rounded-md text-slate-800 font-semibold hover:bg-slate-100 hover:text-brand-600 transition-colors mt-2">6.1. Interactividad en la red</a>
+                    <div class="pl-4 border-l-2 border-slate-100 ml-2 space-y-1 my-1">
+                        <a href="#sec-6-1-1" class="toc-link block py-1 px-3 rounded-md text-slate-500 hover:text-brand-600 transition-colors">6.1.1. Libertad de expresión</a>
+                        <a href="#sec-6-1-2" class="toc-link block py-1 px-3 rounded-md text-slate-500 hover:text-brand-600 transition-colors">6.1.2. Etiqueta digital</a>
+                        <a href="#sec-6-1-3" class="toc-link block py-1 px-3 rounded-md text-slate-500 hover:text-brand-600 transition-colors">6.1.3. Propiedad intelectual</a>
+                        <a href="#sec-6-1-4" class="toc-link block py-1 px-3 rounded-md text-slate-500 hover:text-brand-600 transition-colors">6.1.4. Licencias de uso</a>
+                    </div>
+
+                    <a href="#sec-6-2" class="toc-link block py-1.5 px-3 rounded-md text-slate-800 font-semibold hover:bg-slate-100 hover:text-brand-600 transition-colors mt-2">6.2. Educación mediática</a>
+                    <div class="pl-4 border-l-2 border-slate-100 ml-2 space-y-1 my-1">
+                        <a href="#sec-6-2-1" class="toc-link block py-1 px-3 rounded-md text-slate-500 hover:text-brand-600 transition-colors">6.2.1. Periodismo digital</a>
+                        <a href="#sec-6-2-2" class="toc-link block py-1 px-3 rounded-md text-slate-500 hover:text-brand-600 transition-colors">6.2.2. Blogosfera</a>
+                        <a href="#sec-6-2-3" class="toc-link block py-1 px-3 rounded-md text-slate-500 hover:text-brand-600 transition-colors">6.2.3. Estrategias comunicativas</a>
+                        <a href="#sec-6-2-4" class="toc-link block py-1 px-3 rounded-md text-slate-500 hover:text-brand-600 transition-colors">6.2.4. Uso crítico de la red</a>
+                        <a href="#sec-6-2-5" class="toc-link block py-1 px-3 rounded-md text-slate-500 hover:text-brand-600 transition-colors">6.2.5. Herramientas detectar noticias</a>
+                    </div>
+
+                    <a href="#sec-6-3" class="toc-link block py-1.5 px-3 rounded-md text-slate-800 font-semibold hover:bg-slate-100 hover:text-brand-600 transition-colors mt-2">6.3. Gestiones administrativas</a>
+                    <div class="pl-4 border-l-2 border-slate-100 ml-2 space-y-1 my-1">
+                        <a href="#sec-6-3-1" class="toc-link block py-1 px-3 rounded-md text-slate-500 hover:text-brand-600 transition-colors">6.3.1. Servicios públicos en línea</a>
+                        <a href="#sec-6-3-2" class="toc-link block py-1 px-3 rounded-md text-slate-500 hover:text-brand-600 transition-colors">6.3.2. Registros oficiales</a>
+                        <a href="#sec-6-3-3" class="toc-link block py-1 px-3 rounded-md text-slate-500 hover:text-brand-600 transition-colors">6.3.3. Certificados oficiales</a>
+                    </div>
+
+                    <a href="#sec-6-4" class="toc-link block py-1.5 px-3 rounded-md text-slate-800 font-semibold hover:bg-slate-100 hover:text-brand-600 transition-colors mt-2">6.4. Ética en el uso de datos</a>
+                    <div class="pl-4 border-l-2 border-slate-100 ml-2 space-y-1 my-1">
+                        <a href="#sec-6-4-1" class="toc-link block py-1 px-3 rounded-md text-slate-500 hover:text-brand-600 transition-colors">6.4.1. Inteligencia artificial</a>
+                        <a href="#sec-6-4-2" class="toc-link block py-1 px-3 rounded-md text-slate-500 hover:text-brand-600 transition-colors">6.4.2. Sesgos algorítmicos</a>
+                        <a href="#sec-6-4-3" class="toc-link block py-1 px-3 rounded-md text-slate-500 hover:text-brand-600 transition-colors">6.4.3. Obsolescencia programada</a>
+                        <a href="#sec-6-4-4" class="toc-link block py-1 px-3 rounded-md text-slate-500 hover:text-brand-600 transition-colors">6.4.4. Soberanía tecnológica</a>
+                        <a href="#sec-6-4-5" class="toc-link block py-1 px-3 rounded-md text-slate-500 hover:text-brand-600 transition-colors">6.4.5. Digitalización sostenible</a>
+                    </div>
+
+                    <a href="#sec-6-5" class="toc-link block py-1.5 px-3 rounded-md text-slate-800 font-semibold hover:bg-slate-100 hover:text-brand-600 transition-colors mt-2">6.5. Activismo en línea</a>
+                    <div class="pl-4 border-l-2 border-slate-100 ml-2 space-y-1 my-1">
+                        <a href="#sec-6-5-1" class="toc-link block py-1 px-3 rounded-md text-slate-500 hover:text-brand-600 transition-colors">6.5.1. Plataformas ciudadanas</a>
+                        <a href="#sec-6-5-2" class="toc-link block py-1 px-3 rounded-md text-slate-500 hover:text-brand-600 transition-colors">6.5.2. Cibervoluntariado</a>
+                        <a href="#sec-6-5-3" class="toc-link block py-1 px-3 rounded-md text-slate-500 hover:text-brand-600 transition-colors">6.5.3. Software libre</a>
+                    </div>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Contenido Principal -->
+        <main class="w-full lg:w-3/4 order-1 lg:order-2 space-y-12 pb-24">
+
+            <!-- Bloque Currículo -->
+            <div id="intro" class="bg-brand-50 border-l-4 border-brand-500 p-6 rounded-r-xl shadow-sm content-section scroll-mt">
+                <div class="flex items-center gap-3 mb-2">
+                    <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <h3 class="font-bold text-brand-900 text-lg">Currículo</h3>
+                </div>
+                <p class="text-brand-800">
+                    Esta unidad cubre parte de los saberes básicos del <strong>Bloque D - Ciudadanía digital crítica</strong> (concretamente el DIG.4.D.1, DIG.4.D.2, DIG.4.D.3, DIG.4.D.5 y DIG.4.D.6) correspondiente a <strong>4ºESO</strong>. Además, se evalúan los criterios relacionados con los saberes citados.
+                </p>
+            </div>
+
+            <article class="bg-white p-8 md:p-10 rounded-2xl shadow-sm border border-slate-100 content-section scroll-mt">
+                <p class="text-lg mb-4 text-slate-700">
+                    En la sociedad actual, la digitalización ha transformado casi todos los aspectos de nuestras vidas, desde la manera en que nos comunicamos hasta cómo accedemos a la información y realizamos gestiones cotidianas. Esta transformación conlleva grandes oportunidades, pero también plantea numerosos debates éticos que debemos entender.
+                </p>
+                <p class="text-lg text-slate-700">
+                    Estudiar la ciudadanía digital crítica nos permite desarrollar una comprensión profunda de nuestros derechos y deberes en el entorno digital, promoviendo la participación activa en la sociedad digital. Nos ayuda a identificar y combatir la desinformación, a proteger nuestra privacidad, y a utilizar las herramientas tecnológicas de manera que beneficien a toda la sociedad, porque esa es una buena manera de proteger nuestra democracia.
+                </p>
+            </article>
+
+            <!-- 6.1. Interactividad en la red -->
+            <section id="sec-6-1" class="content-section scroll-mt">
+                <h2 class="text-3xl font-bold text-slate-900 mb-6 pb-2 border-b-2 border-slate-100 flex items-center gap-3">
+                    <span class="text-brand-500">6.1.</span> Interactividad en la red
+                </h2>
+                <p class="mb-8 text-slate-700 text-lg">
+                    La interactividad en la red se refiere a la capacidad de los usuarios para interactuar entre sí y con el contenido disponible en Internet. Esta interactividad es una característica fundamental del entorno digital, que permite una comunicación bidireccional y una participación activa en diversas plataformas online.
+                </p>
+
+                <!-- 6.1.1 -->
+                <div id="sec-6-1-1" class="mb-10 content-section scroll-mt">
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-4">6.1.1. Libertad de expresión</h3>
+                    <p class="mb-4 text-slate-700">La libertad de expresión es un derecho fundamental que protege la difusión de ideas por parte de individuos o colectivos sin temor a sufrir censuras o represalias. Este derecho se encuentra recogido tanto en la Declaración Universal de los Derechos Humanos como en la Constitución Española.</p>
+                    <p class="mb-4 text-slate-700">La libertad de expresión abarca las facultades que puede ejercer un ciudadano como titular del derecho a la comunicación. Esto incluye:</p>
+                    
+                    <ul class="list-disc pl-6 mb-6 space-y-2 text-slate-700 marker:text-brand-500">
+                        <li>La libertad de expresar y difundir libremente los pensamientos, ideas y opiniones mediante la palabra, el escrito o cualquier otro medio de reproducción.</li>
+                        <li>La libertad de producción literaria, artística, científica y técnica.</li>
+                        <li>La libertad de cátedra.</li>
+                        <li>La libertad de comunicar libremente información veraz por cualquier medio de difusión.</li>
+                    </ul>
+                    
+                    <p class="mb-4 text-slate-700">Es decir, implica la posibilidad de buscar, recibir y difundir información sin censura alguna, independientemente de que dicha información sea fiable o no.</p>
+                    
+                    <div class="bg-amber-50 border border-amber-200 p-5 rounded-lg mb-6">
+                        <p class="text-amber-900">Aunque la libertad de expresión es fundamental, también tiene límites. Estos límites están previstos en la Constitución y no pueden coartar la libertad de difusión. Por ejemplo, no se puede utilizar la libertad de expresión para incitar al odio, difamar a personas o divulgar información falsa con intención maliciosa.</p>
+                    </div>
+                    
+                    <!-- Ejercicio 6.1 -->
+                    <div class="bg-white border-2 border-brand-200 shadow-md rounded-xl p-6 my-8">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="bg-brand-500 text-white p-2 rounded-lg">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                            </span>
+                            <h4 class="text-xl font-bold text-slate-800">Ejercicio 6.1 - Los límites de la libertad de expresión</h4>
+                        </div>
+                        <p class="text-slate-700">En Classroom encontrarás un documento donde trabajaremos los límites de la libertad de expresión. Dirígete allí y realiza la actividad antes de continuar con el siguiente punto.</p>
+                    </div>
+                </div>
+
+                <!-- 6.1.2 -->
+                <div id="sec-6-1-2" class="mb-10 content-section scroll-mt">
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-4">6.1.2. Etiqueta digital</h3>
+                    <p class="mb-4 text-slate-700">La etiqueta digital se refiere al conjunto de recomendaciones que buscan promover una comunicación respetuosa. Estas normas son especialmente adaptadas a la convivencia online debido a las peculiaridades de la comunicación entre personas en Internet.</p>
+                    <p class="mb-4 text-slate-700 font-medium">Las 10 principales reglas que debes seguir:</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div class="bg-slate-100 p-4 rounded-lg flex gap-3 items-start">
+                            <span class="font-bold text-brand-600">1.</span>
+                            <p class="text-sm text-slate-700"><strong>Represéntate bien:</strong> utiliza un lenguaje respetuoso, ten cuidado con el sarcasmo, presta atención a tu gramática.</p>
+                        </div>
+                        <div class="bg-slate-100 p-4 rounded-lg flex gap-3 items-start">
+                            <span class="font-bold text-brand-600">2.</span>
+                            <p class="text-sm text-slate-700">Respeta la privacidad de los demás.</p>
+                        </div>
+                        <div class="bg-slate-100 p-4 rounded-lg flex gap-3 items-start">
+                            <span class="font-bold text-brand-600">3.</span>
+                            <p class="text-sm text-slate-700">Si hay algo que no dirías directamente, no lo digas en Internet.</p>
+                        </div>
+                        <div class="bg-slate-100 p-4 rounded-lg flex gap-3 items-start">
+                            <span class="font-bold text-brand-600">4.</span>
+                            <p class="text-sm text-slate-700">Sigue las normas de cada sitio.</p>
+                        </div>
+                        <div class="bg-slate-100 p-4 rounded-lg flex gap-3 items-start">
+                            <span class="font-bold text-brand-600">5.</span>
+                            <p class="text-sm text-slate-700">Verifica los hechos, sin dar por sentada la veracidad de una información que te cuenta otro.</p>
+                        </div>
+                        <div class="bg-slate-100 p-4 rounded-lg flex gap-3 items-start">
+                            <span class="font-bold text-brand-600">6.</span>
+                            <p class="text-sm text-slate-700">Respeta el tiempo y los límites de los demás.</p>
+                        </div>
+                        <div class="bg-slate-100 p-4 rounded-lg flex gap-3 items-start">
+                            <span class="font-bold text-brand-600">7.</span>
+                            <p class="text-sm text-slate-700">Responde en cuanto puedas.</p>
+                        </div>
+                        <div class="bg-slate-100 p-4 rounded-lg flex gap-3 items-start">
+                            <span class="font-bold text-brand-600">8.</span>
+                            <p class="text-sm text-slate-700">Mantén actualizada tu información.</p>
+                        </div>
+                        <div class="bg-slate-100 p-4 rounded-lg flex gap-3 items-start">
+                            <span class="font-bold text-brand-600">9.</span>
+                            <p class="text-sm text-slate-700">Envía archivos correctamente.</p>
+                        </div>
+                        <div class="bg-slate-100 p-4 rounded-lg flex gap-3 items-start">
+                            <span class="font-bold text-brand-600">10.</span>
+                            <p class="text-sm text-slate-700">Sé tolerante.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6.1.3 -->
+                <div id="sec-6-1-3" class="mb-10 content-section scroll-mt">
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-4">6.1.3. Propiedad intelectual</h3>
+                    <p class="mb-4 text-slate-700">La propiedad intelectual se refiere a los derechos legales que protegen las creaciones de la mente humana (obras literarias, artísticas, científicas, invenciones, marcas, etc.). En el contexto digital, se vuelve aún más relevante debido a la facilidad de copiar, distribuir y modificar contenido.</p>
+                    
+                    <ul class="space-y-4 text-slate-700 mb-6">
+                        <li class="flex gap-3"><span class="text-brand-500 mt-1">✓</span> <div><strong>Derechos de autor (copyright):</strong> protegen las obras originales. Los creadores tienen el derecho exclusivo de copiar, distribuir y adaptar sus obras durante un período determinado.</div></li>
+                        <li class="flex gap-3"><span class="text-brand-500 mt-1">✓</span> <div><strong>Licencias de uso:</strong> definen cómo se puede utilizar una obra protegida.</div></li>
+                        <li class="flex gap-3"><span class="text-brand-500 mt-1">✓</span> <div><strong>Piratería:</strong> descargar o compartir material protegido sin autorización es ilegal y perjudica a creadores e industria.</div></li>
+                        <li class="flex gap-3"><span class="text-brand-500 mt-1">✓</span> <div><strong>Plagio:</strong> implica tomar ideas, texto o contenido de otros sin dar crédito adecuado.</div></li>
+                        <li class="flex gap-3"><span class="text-brand-500 mt-1">✓</span> <div><strong>Dominios y marcas comerciales:</strong> los nombres de dominio deben ser únicos y no infringir marcas existentes.</div></li>
+                    </ul>
+                </div>
+
+                <!-- 6.1.4 -->
+                <div id="sec-6-1-4" class="content-section scroll-mt">
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-4">6.1.4. Licencias de uso</h3>
+                    <p class="mb-4 text-slate-700">Las licencias de uso son autorizaciones que otorgan los titulares de derechos para que otras personas utilicen sus obras. Las más importantes son:</p>
+                    
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-red-500 pl-4 py-2">
+                            <h4 class="font-bold text-slate-800">Copyright ©</h4>
+                            <p class="text-slate-600 text-sm">Es la licencia más restrictiva. El autor retiene todos los derechos y no permite el uso sin previa autorización expresa.</p>
+                        </div>
+                        <div class="border-l-4 border-green-500 pl-4 py-2">
+                            <h4 class="font-bold text-slate-800">Copyleft 🄯</h4>
+                            <p class="text-slate-600 text-sm">Relacionado con el software libre. Exige que todas las versiones modificadas o ampliadas de una obra también sean libres.</p>
+                        </div>
+                        <div class="border-l-4 border-blue-500 pl-4 py-2">
+                            <h4 class="font-bold text-slate-800">Creative Commons (CC)</h4>
+                            <p class="text-slate-600 text-sm">Basadas en copyleft, permiten el uso total o parcial bajo condiciones específicas (mención de autoría, uso no comercial, etc.).</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6.2. Educación mediática -->
+            <section id="sec-6-2" class="content-section scroll-mt pt-8">
+                <h2 class="text-3xl font-bold text-slate-900 mb-6 pb-2 border-b-2 border-slate-100 flex items-center gap-3">
+                    <span class="text-brand-500">6.2.</span> Educación mediática
+                </h2>
+                <p class="mb-8 text-slate-700 text-lg">
+                    La educación mediática es fundamental en la formación de ciudadanos digitales críticos y responsables. En un mundo donde la información fluye de manera constante, desarrollar habilidades para evaluar la calidad de los contenidos marca la diferencia entre estar bien informados o ser una "caja de bulos y prejuicios andante".
+                </p>
+
+                <!-- 6.2.1 -->
+                <div id="sec-6-2-1" class="mb-10 content-section scroll-mt">
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-4">6.2.1. Periodismo digital</h3>
+                    <p class="mb-4 text-slate-700">El periodismo digital tiene características muy marcadas:</p>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <li class="bg-white p-4 border border-slate-200 rounded-lg shadow-sm"><strong>Rapidez:</strong> Difusión global en segundos.</li>
+                        <li class="bg-white p-4 border border-slate-200 rounded-lg shadow-sm"><strong>Verificación de fuentes:</strong> Crucial para evitar consecuencias graves por desinformación.</li>
+                        <li class="bg-white p-4 border border-slate-200 rounded-lg shadow-sm"><strong>Formatos multimedia:</strong> Uso de infografías, vídeos, etc.</li>
+                        <li class="bg-white p-4 border border-slate-200 rounded-lg shadow-sm"><strong>Interactividad:</strong> Creación de conversación vía comentarios y redes.</li>
+                        <li class="bg-white p-4 border border-slate-200 rounded-lg shadow-sm"><strong>Responsabilidad:</strong> Precisión, imparcialidad y ética.</li>
+                        <li class="bg-white p-4 border border-slate-200 rounded-lg shadow-sm"><strong>Desafíos de monetización:</strong> Sostenibilidad frente a la gratuidad.</li>
+                    </ul>
+
+                    <p class="font-semibold text-slate-800 mb-2 mt-6">Ejemplos actuales:</p>
+                    <ul class="list-disc pl-6 space-y-2 text-slate-700 marker:text-brand-500">
+                        <li><strong>Investigación de filtraciones:</strong> Caso Cambridge Analytica (uso de datos de Facebook).</li>
+                        <li><strong>Cobertura en tiempo real:</strong> Desastres naturales o crisis (ej. Huracán María).</li>
+                        <li><strong>Reportajes multimedia:</strong> Proyecto Pulitzer de The New York Times.</li>
+                        <li><strong>Fact-checking:</strong> Snopes, Maldita.es, verificando la veracidad de noticias.</li>
+                        <li><strong>Periodismo ciudadano:</strong> Primavera Árabe informada vía redes sociales.</li>
+                    </ul>
+                </div>
+
+                <!-- 6.2.2 -->
+                <div id="sec-6-2-2" class="mb-10 content-section scroll-mt">
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-4">6.2.2. Blogosfera</h3>
+                    <p class="mb-4 text-slate-700">Término que engloba todos los blogs existentes interconectados mediante enlaces.</p>
+                    <ul class="list-disc pl-6 mb-6 space-y-2 text-slate-700 marker:text-brand-500">
+                        <li><strong>Estructura:</strong> Cronológica inversa.</li>
+                        <li><strong>Diversidad de voces:</strong> Diferentes perspectivas que enriquecen el panorama.</li>
+                        <li><strong>Credibilidad:</strong> Requiere evaluar posibles sesgos.</li>
+                        <li><strong>Selección natural:</strong> Temas populares (memes, noticias) se propagan y evolucionan.</li>
+                    </ul>
+                </div>
+
+                <!-- 6.2.3 -->
+                <div id="sec-6-2-3" class="mb-10 content-section scroll-mt">
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-4">6.2.3. Estrategias comunicativas</h3>
+                    <p class="mb-4 text-slate-700">Técnicas para transmitir mensajes de manera efectiva. Las principales son:</p>
+                    
+                    <div class="space-y-4">
+                        <details class="group bg-white border border-slate-200 rounded-lg open:shadow-md transition-all">
+                            <summary class="flex items-center justify-between cursor-pointer p-4 font-semibold text-slate-800">
+                                Conoce a tu audiencia & Claridad
+                                <span class="group-open:-rotate-180 transition-transform">▼</span>
+                            </summary>
+                            <div class="p-4 pt-0 text-slate-600 border-t mt-2">
+                                Entiende a tu público objetivo (ej. lenguaje juvenil en TikTok vs artículos en LinkedIn). Evita jerga innecesaria, sé directo y utiliza párrafos cortos.
+                            </div>
+                        </details>
+                        <details class="group bg-white border border-slate-200 rounded-lg open:shadow-md transition-all">
+                            <summary class="flex items-center justify-between cursor-pointer p-4 font-semibold text-slate-800">
+                                Uso de multimedia & Interacción
+                                <span class="group-open:-rotate-180 transition-transform">▼</span>
+                            </summary>
+                            <div class="p-4 pt-0 text-slate-600 border-t mt-2">
+                                Refuerza tu mensaje visualmente. Anima a interactuar vía comentarios y encuestas, construyendo comunidad y retroalimentación.
+                            </div>
+                        </details>
+                        <details class="group bg-white border border-slate-200 rounded-lg open:shadow-md transition-all">
+                            <summary class="flex items-center justify-between cursor-pointer p-4 font-semibold text-slate-800">
+                                Storytelling & Personalización
+                                <span class="group-open:-rotate-180 transition-transform">▼</span>
+                            </summary>
+                            <div class="p-4 pt-0 text-slate-600 border-t mt-2">
+                                Narra historias emotivas para generar conexión. Adapta la comunicación (ej. emails con nombre) para mejorar tasas de conversión.
+                            </div>
+                        </details>
+                        <details class="group bg-white border border-slate-200 rounded-lg open:shadow-md transition-all">
+                            <summary class="flex items-center justify-between cursor-pointer p-4 font-semibold text-slate-800">
+                                Transparencia, Consistencia y Adaptabilidad
+                                <span class="group-open:-rotate-180 transition-transform">▼</span>
+                            </summary>
+                            <div class="p-4 pt-0 text-slate-600 border-t mt-2">
+                                Mantén la identidad visual, sé ético citando fuentes y adáptate a las nuevas tendencias (ej. paso a videollamadas en pandemia).
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- 6.2.4 & 6.2.5 -->
+                <div id="sec-6-2-4" class="mb-10 content-section scroll-mt">
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-4">6.2.4. Uso crítico de la red y Herramientas (6.2.5)</h3>
+                    <p class="mb-4 text-slate-700">Implica la capacidad de analizar y evaluar la información para discernir su veracidad. Pilares fundamentales:</p>
+                    
+                    <ul class="list-disc pl-6 mb-8 space-y-2 text-slate-700 marker:text-brand-500">
+                        <li><strong>Evaluación de fuentes:</strong> Autoridad del autor, credibilidad de la web, fecha.</li>
+                        <li><strong>Contraste de información:</strong> Consultar múltiples medios.</li>
+                        <li><strong>Reconocimiento de sesgos:</strong> Ideológicos, políticos o comerciales.</li>
+                        <li><strong>Análisis de contenido:</strong> Detectar lenguajes sensacionalistas o "clickbait".</li>
+                        <li><strong>Pensamiento crítico:</strong> Escepticismo saludable.</li>
+                    </ul>
+
+                    <h4 class="text-xl font-semibold text-slate-800 mb-3" id="sec-6-2-5">Herramientas Anti-Fake News:</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="p-4 bg-brand-50 rounded-lg text-sm border border-brand-100">
+                            <strong>Plataformas de Fact-checking:</strong><br>Maldita.es, Newtral, Snopes.
+                        </div>
+                        <div class="p-4 bg-brand-50 rounded-lg text-sm border border-brand-100">
+                            <strong>Extensiones de Navegador:</strong><br>NewsGuard, Fake News Detector, Fact Check Google.
+                        </div>
+                        <div class="p-4 bg-brand-50 rounded-lg text-sm border border-brand-100">
+                            <strong>Verificación Visual:</strong><br>Google Reverse Image Search, TinEye, InVID (videos).
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6.3. Gestiones administrativas -->
+            <section id="sec-6-3" class="content-section scroll-mt pt-8">
+                <h2 class="text-3xl font-bold text-slate-900 mb-6 pb-2 border-b-2 border-slate-100 flex items-center gap-3">
+                    <span class="text-brand-500">6.3.</span> Gestiones administrativas
+                </h2>
+                
+                <div id="sec-6-3-1" class="mb-8 content-section scroll-mt">
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-4">6.3.1. Servicios públicos en línea</h3>
+                    <p class="mb-4 text-slate-700">Agilizan trámites sin desplazamiento físico. Destacan:</p>
+                    <ul class="space-y-4 text-slate-700">
+                        <li class="bg-white p-4 border rounded-md shadow-sm"><strong>Sede electrónica del Estado:</strong> Certificados, declaración de la renta, expedientes.</li>
+                        <li class="bg-white p-4 border rounded-md shadow-sm"><strong>Salud Pública:</strong> Cita previa médica, acceso a historia clínica, telemedicina.</li>
+                        <li class="bg-white p-4 border rounded-md shadow-sm"><strong>DGT (Tráfico):</strong> Renovación de carnet, pago de multas, consulta de puntos.</li>
+                        <li class="bg-white p-4 border rounded-md shadow-sm"><strong>Ministerio del Interior:</strong> Cita previa DNI y Pasaporte.</li>
+                    </ul>
+                </div>
+
+                <div id="sec-6-3-2" class="mb-8 content-section scroll-mt">
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-4">6.3.2. Registros oficiales</h3>
+                    <p class="mb-4 text-slate-700">Digitalización de bases de datos estatales:</p>
+                    <ul class="list-disc pl-6 space-y-2 text-slate-700 marker:text-brand-500 mb-4">
+                        <li><strong>Registro Civil:</strong> Nacimientos, matrimonios, defunciones, cambios de nombre.</li>
+                        <li><strong>Registro de la Propiedad:</strong> Notas simples, titularidad de inmuebles.</li>
+                        <li><strong>Registro Mercantil:</strong> Actos de empresas.</li>
+                    </ul>
+                    <div class="bg-slate-100 p-4 rounded-lg text-sm text-slate-600 italic">
+                        * Advertencia: Uno de los grandes problemas actuales es que muchos de estos trámites no son intuitivos, generando brecha digital.
+                    </div>
+                </div>
+
+                <div id="sec-6-3-3" class="mb-8 content-section scroll-mt">
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-4">6.3.3. Certificados oficiales</h3>
+                    <p class="text-slate-700 mb-3">Documentos digitales clave para trámites:</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-brand-100 text-brand-800 rounded-full text-sm font-medium">Firma electrónica / FNMT</span>
+                        <span class="px-3 py-1 bg-brand-100 text-brand-800 rounded-full text-sm font-medium">Empadronamiento</span>
+                        <span class="px-3 py-1 bg-brand-100 text-brand-800 rounded-full text-sm font-medium">Antecedentes Penales</span>
+                        <span class="px-3 py-1 bg-brand-100 text-brand-800 rounded-full text-sm font-medium">Nacimiento</span>
+                        <span class="px-3 py-1 bg-brand-100 text-brand-800 rounded-full text-sm font-medium">Discapacidad</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6.4. Ética en el uso de datos -->
+            <section id="sec-6-4" class="content-section scroll-mt pt-8">
+                <h2 class="text-3xl font-bold text-slate-900 mb-6 pb-2 border-b-2 border-slate-100 flex items-center gap-3">
+                    <span class="text-brand-500">6.4.</span> Ética en el uso de datos
+                </h2>
+                
+                <div id="sec-6-4-1" class="mb-8 content-section scroll-mt">
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-4">6.4.1. Inteligencia Artificial (IA) y 6.4.2 Sesgos</h3>
+                    <p class="mb-4 text-slate-700">La IA automatiza tareas complejas, pero genera problemas éticos significativos, especialmente los <strong>sesgos algorítmicos</strong>, que ocurren cuando un sistema favorece sistemáticamente a un grupo sobre otro:</p>
+                    <ul class="list-disc pl-6 space-y-2 text-slate-700 marker:text-brand-500 mb-6">
+                        <li><strong>Sesgo de selección:</strong> Datos de entrenamiento no representativos (ej. IA de reconocimiento facial entrenada solo con personas blancas).</li>
+                        <li><strong>Sesgo ideológico:</strong> Programación influenciada por la mentalidad del creador.</li>
+                    </ul>
+
+                    <!-- Ejercicio 6.2 -->
+                    <div class="bg-white border-2 border-brand-200 shadow-md rounded-xl p-6 my-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="bg-brand-500 text-white p-2 rounded-lg">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                            </span>
+                            <h4 class="text-xl font-bold text-slate-800">Ejercicio 6.2 – Sesgos cognitivos</h4>
+                        </div>
+                        <p class="text-slate-700 text-sm mb-3">Nuestro cerebro también tiene sesgos que determinan nuestras decisiones (explotados por plataformas para mantenernos enganchados).</p>
+                        <p class="text-slate-700 font-medium">Tarea: Selecciona 5 sesgos cognitivos conocidos y realiza un vídeo de al menos 3 minutos mirando a cámara donde expliques qué son y un ejemplo de cómo los sufres.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div id="sec-6-4-3" class="content-section scroll-mt">
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">6.4.3. Obsolescencia programada</h3>
+                        <p class="text-slate-600 text-sm">Diseño de productos con vida útil limitada intencionalmente. Genera un grave problema ecológico por residuos electrónicos (e-waste) y obliga al consumidor a renovar hardware constantemente.</p>
+                    </div>
+                    <div id="sec-6-4-4" class="content-section scroll-mt">
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">6.4.4. Soberanía tecnológica</h3>
+                        <p class="text-slate-600 text-sm">Control que tiene una región sobre su infraestructura (no depender exclusivamente de tecnologías extranjeras) y protección de los datos de sus ciudadanos.</p>
+                    </div>
+                    <div id="sec-6-4-5" class="content-section scroll-mt md:col-span-2">
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">6.4.5. Digitalización sostenible</h3>
+                        <p class="text-slate-600 text-sm">Uso de centros de datos eficientes, gestión responsable de residuos electrónicos, fomento de la economía circular (reacondicionados) y evitar consumo innecesario de energía en la red.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6.5. Activismo en línea -->
+            <section id="sec-6-5" class="content-section scroll-mt pt-8">
+                <h2 class="text-3xl font-bold text-slate-900 mb-6 pb-2 border-b-2 border-slate-100 flex items-center gap-3">
+                    <span class="text-brand-500">6.5.</span> Activismo en línea
+                </h2>
+                <p class="mb-8 text-slate-700 text-lg">
+                    Internet no es solo consumo; es una plataforma poderosa para la acción ciudadana y el cambio social.
+                </p>
+
+                <div id="sec-6-5-1" class="mb-8 content-section scroll-mt">
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-4">6.5.1. Plataformas ciudadanas</h3>
+                    <p class="mb-4 text-slate-700">Herramientas que permiten organizar campañas, peticiones y presupuestos participativos:</p>
+                    <ul class="list-disc pl-6 space-y-2 text-slate-700 marker:text-brand-500">
+                        <li><strong>Change.org & Avaaz:</strong> Peticiones globales masivas (ej. plásticos de un solo uso).</li>
+                        <li><strong>WeMove.EU:</strong> Incidencia a nivel europeo (ej. privacidad).</li>
+                        <li><strong>Decidim:</strong> Democracia participativa local (ej. Ayuntamiento de Barcelona).</li>
+                        <li><strong>Goteo:</strong> Crowdfunding cívico para proyectos sociales.</li>
+                    </ul>
+                </div>
+
+                <div id="sec-6-5-2" class="mb-8 content-section scroll-mt">
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-4">6.5.2. Cibervoluntariado</h3>
+                    <p class="mb-4 text-slate-700">Contribuir con tiempo y habilidades a través de la red:</p>
+                    <ul class="list-disc pl-6 space-y-2 text-slate-700 marker:text-brand-500">
+                        <li><strong>Traductores Sin Fronteras:</strong> Traducción de recursos críticos.</li>
+                        <li><strong>MicroMentor:</strong> Asesoramiento a emprendedores.</li>
+                        <li><strong>Humanitarian OpenStreetMap Team:</strong> Mapeo cartográfico para zonas de desastre o emergencias humanitarias.</li>
+                        <li><strong>Zooniverse:</strong> Colaboración en proyectos de investigación científica ciudadana.</li>
+                    </ul>
+                </div>
+
+                <div id="sec-6-5-3" class="mb-8 content-section scroll-mt">
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-4">6.5.3. Comunidades de software libre</h3>
+                    <p class="mb-4 text-slate-700">Grupos de desarrolladores y usuarios que construyen herramientas tecnológicas abiertas, accesibles y gratuitas para democratizar la tecnología:</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                        <div class="bg-white border border-slate-200 p-5 rounded-xl shadow-sm text-center hover:shadow-md transition-shadow cursor-default">
+                            <h4 class="font-bold text-xl text-brand-600 mb-2">LibreOffice</h4>
+                            <p class="text-sm text-slate-600">Suite ofimática libre. Alternativa real a herramientas propietarias, usada por gobiernos y ciudadanos.</p>
+                        </div>
+                        <div class="bg-white border border-slate-200 p-5 rounded-xl shadow-sm text-center hover:shadow-md transition-shadow cursor-default">
+                            <h4 class="font-bold text-xl text-brand-600 mb-2">Blender</h4>
+                            <p class="text-sm text-slate-600">Herramienta 3D profesional y gratuita. Ejemplo de desarrollo colaborativo en la industria creativa.</p>
+                        </div>
+                        <div class="bg-white border border-slate-200 p-5 rounded-xl shadow-sm text-center hover:shadow-md transition-shadow cursor-default">
+                            <h4 class="font-bold text-xl text-brand-600 mb-2">Nextcloud</h4>
+                            <p class="text-sm text-slate-600">Plataforma que permite a los usuarios configurar sus propios servicios de almacenamiento y colaboración en la nube garantizando su privacidad.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-8 text-center text-sm">
+        <p>Documento generado para la Unidad Didáctica 6: Ciudadanía Digital Crítica (4º ESO)</p>
+    </footer>
+
+    <!-- Script para navegación pegajosa -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.content-section');
+            const navLinks = document.querySelectorAll('.toc-link');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -80% 0px',
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Remover clase activa de todos
+                        navLinks.forEach(link => {
+                            link.classList.remove('text-brand-600', 'bg-brand-50');
+                            if(link.classList.contains('font-semibold')) {
+                                link.classList.add('text-slate-800');
+                            } else {
+                                link.classList.add('text-slate-500');
+                            }
+                        });
+
+                        // Añadir clase activa al enlace correspondiente
+                        const id = entry.target.getAttribute('id');
+                        const activeLink = document.querySelector(`.toc-link[href="#${id}"]`);
+                        
+                        if (activeLink) {
+                            activeLink.classList.remove('text-slate-800', 'text-slate-500');
+                            activeLink.classList.add('text-brand-600', 'bg-brand-50');
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                if (section.getAttribute('id')) {
+                    observer.observe(section);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
