@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>UD7. Desarrollo Web</title>
+        <link href="../assets/css/styles.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 fill=%22currentColor%22 class=%22bi bi-robot%22 viewBox=%220 0 16 16%22><path d=%22M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5ZM3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.58 26.58 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.933.933 0 0 1-.765.935c-.845.147-2.34.346-4.235.346-1.895 0-3.39-.2-4.235-.346A.933.933 0 0 1 3 9.219V8.062Zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a24.767 24.767 0 0 1-1.871-.183.25.25 0 0 0-.217.068l-.92.9a.25.25 0 0 0 .169.434l.92-.9a25.25 25.25 0 0 0 1.942.183.25.25 0 0 0 .217-.068l.92-.9a.25.25 0 0 0-.17-.434l-.92.9a24.767 24.767 0 0 1-1.871-.183Z%22/><path d=%22M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1.5a2.5 2.5 0 0 0 2.5 2.5h9A2.5 2.5 0 0 0 15 13.5V12a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2V1.866ZM14 7.5V12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5Z%22/></svg>" type="image/svg+xml">
+        
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+        
+        <style>
+        /* Pequeños ajustes adicionales si fueran necesarios */
+        body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        }
+        /* Para los iconos de Bootstrap, si los estás usando */
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css");
+        </style>
+        <script>
+        tailwind.config = {
+        theme: {
+        extend: {
+        fontFamily: {
+        sans: ['"Open Sans"', 'sans-serif'],
+        },
+        }
+        }
+        }
+        </script>
+
+        <link rel="stylesheet" href="../assets/css/styles.css">
+    </head>
+    <body class="bg-gray-100 text-gray-800 font-sans">
+        <header class="bg-gray-900 text-gray-200 shadow-lg sticky top-0 z-40">
+            <div class="container mx-auto px-4">
+                <div class="flex justify-between items-center py-4">
+                    <div class="flex items-center gap-3">
+                        <a href="../index.html" class="text-gray-100 hover:text-white flex items-center">
+                            <i class="bi bi-robot text-2xl mr-3"></i> <span class="font-bold text-xl">Computación y Robótica</span>
+                        </a>
+                    </div>
+                    <div class="text-sm text-gray-400">
+                        <ol class="list-none p-0 inline-flex items-center">
+                            <li class="flex items-center">
+                                <a href="cyr3.html" class="text-gray-300 hover:text-blue-300">3º ESO</a>
+                                <i class="bi bi-chevron-right mx-2 text-xs text-gray-500"></i>
+                            </li>
+                            <li class="flex items-center text-gray-100 font-semibold">
+                                <span>UD7. Desarrollo Web</span>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="flex-grow">
+            <div class="relative bg-cover bg-center py-20 md:py-32 -mx-6 md:-mx-12 -mt-6 md:-mt-12 rounded-t-lg" style="background-image: url('img/cyr7.jpg');">
+                <div class="absolute inset-0 bg-black opacity-50 rounded-t-lg"></div>
+                
+                <div class="container mx-auto px-12 relative z-10 text-center">
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-white pb-6 mb-8">
+                    UD7. Desarrollo Web
+                    </h1>
+                </div>
+            </div>
+            <div class="max-w-4xl mx-auto my-10 p-8 bg-white shadow-xl rounded-lg">
+        
+        <header class="border-b-2 border-indigo-500 pb-6 mb-8">
+            <h1 class="text-3xl font-bold text-indigo-900 uppercase tracking-tight">UD7. Desarrollo Web y Animación Digital</h1>
+        </header>
+
+        <section class="space-y-4 text-lg">
+            <p>La World Wide Web ha dejado de ser un simple repositorio de documentos estáticos para convertirse en un ecosistema dinámico y complejo.</p>
+            <p>Para un estudiante de Computación y Robótica, comprender cómo se construye y se sirve el contenido en la red es fundamental, ya que la web es la interfaz principal a través de la cual interactuamos con sistemas inteligentes, bases de datos y dispositivos remotos.</p>
+            <p>En esta unidad, analizaremos desde la arquitectura interna de un sitio web hasta las tecnologías que permiten dar vida a las interfaces mediante la animación, finalizando con la implementación práctica en entornos de desarrollo modernos.</p>
+        </section>
+
+        <hr class="my-10 border-slate-200">
+
+        <h2 class="text-2xl font-semibold text-indigo-700 mb-4">Análisis de la estructura de las páginas web</h2>
+        <p class="mb-4">Toda página web que visualizamos en nuestro navegador es el resultado de una arquitectura organizada en capas.</p>
+        
+        <div class="bg-indigo-50 p-4 rounded-md border-l-4 border-indigo-400 mb-6 italic">
+            Si comparamos una web con un edificio, el HTML sería la estructura de vigas, el CSS la pintura y decoración, y el JavaScript los sistemas automáticos (como el ascensor o los sensores de luz).
+        </div>
+
+        <ul class="space-y-4 mb-8">
+            <li><strong class="text-indigo-600">1. Capa de Estructura (HTML):</strong> El lenguaje de marcas de hipertexto define qué hay en la página. Utiliza etiquetas para identificar títulos, párrafos, imágenes y enlaces. Sin esta estructura, el navegador no sabría qué información mostrar.</li>
+            <li><strong class="text-indigo-600">2. Capa de Presentación (CSS):</strong> Define cómo se ve la información. Se encarga del diseño, los colores, las tipografías y la disposición de los elementos (layout). Es lo que permite que una web sea visualmente atractiva y adaptable a móviles (Responsive Design).</li>
+            <li><strong class="text-indigo-600">3. Capa de Comportamiento (JavaScript):</strong> Es el lenguaje de programación que añade interactividad. Permite que ocurran cosas sin recargar la página: desplegar menús, validar formularios o mostrar animaciones complejas.</li>
+        </ul>
+
+        <div class="bg-slate-800 text-white p-5 rounded-lg mb-8">
+            <h4 class="font-bold text-orange-400 mb-2">Nota técnica:</h4>
+            <p>La organización jerárquica de una web se conoce como DOM (Document Object Model). Es una estructura en forma de árbol que el navegador genera para representar todos los elementos de la página y poder manipularlos en tiempo real.</p>
+        </div>
+
+        <p class="mb-4">Tienes razón. Para que el análisis de la estructura sea completo desde el punto de vista de un desarrollador, es fundamental desglosar las secciones anatómicas que componen la interfaz de una página web profesional. Estos elementos aseguran la jerarquía de la información y una buena navegación.</p>
+
+        <h2 class="text-2xl font-semibold text-indigo-700 mt-10 mb-4">Anatomía de una página web: Header, Body y Footer</h2>
+        <p class="mb-6">Más allá de las capas de lenguajes (HTML, CSS, JS), una página se organiza visualmente en bloques funcionales que el usuario identifica de forma instintiva.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="p-4 border border-slate-200 rounded shadow-sm">
+                <h3 class="font-bold text-indigo-600 mb-2">1. El Header (Cabecera)</h3>
+                <p class="text-sm">Es la parte superior de la página y lo primero que carga el navegador. Su función es puramente de identificación y navegación. Elementos clave: El logotipo de la empresa o sitio, el menú de navegación principal (links a otras secciones), un buscador y, en ocasiones, botones de llamada a la acción (CTA como "Iniciar sesión" o "Comprar"). Importancia técnica: Suele ser consistente en todas las subpáginas del sitio para que el usuario no se pierda. En diseño moderno, se utiliza a menudo el "Sticky Header", que se queda fijo en la parte superior mientras haces scroll.</p>
+            </div>
+            <div class="p-4 border border-slate-200 rounded shadow-sm">
+                <h3 class="font-bold text-indigo-600 mb-2">2. El Body / Main Content (Cuerpo o contenido principal)</h3>
+                <p class="text-sm">Es el bloque central y el más variable. Aquí es donde reside la información específica que el usuario ha venido a buscar. Estructura interna: Se organiza mediante etiquetas semánticas como &lt;section&gt;, &lt;article&gt; y &lt;aside&gt; (barra lateral). Contenido dinámico: Es la zona donde se insertan las imágenes, vídeos, textos detallados y las animaciones que hemos analizado anteriormente. Su diseño debe priorizar la legibilidad.</p>
+            </div>
+            <div class="p-4 border border-slate-200 rounded shadow-sm">
+                <h3 class="font-bold text-indigo-600 mb-2">3. El Footer (Pie de página)</h3>
+                <p class="text-sm">Se encuentra en el extremo inferior y cierra la estructura del sitio. Aunque suele recibir menos atención, es vital para la credibilidad y el cumplimiento legal. Elementos clave: Información de contacto, enlaces a redes sociales, mapa del sitio web, avisos legales (política de privacidad y cookies) y créditos de copyright. Función técnica: Actúa como una red de seguridad; si el usuario llega al final de la página y no ha encontrado lo que buscaba, el footer le ofrece rutas alternativas.</p>
+            </div>
+        </div>
+
+        <h3 class="text-xl font-semibold mb-4">Tabla Comparativa: Secciones Estructurales</h3>
+        <div class="overflow-x-auto mb-10">
+            <table class="min-w-full bg-white border border-slate-300">
+                <thead class="bg-slate-100">
+                    <tr>
+                        <th class="border px-4 py-2 text-left">Sección</th>
+                        <th class="border px-4 py-2 text-left">Ubicación</th>
+                        <th class="border px-4 py-2 text-left">Función Principal</th>
+                        <th class="border px-4 py-2 text-left">Elemento Representativo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border px-4 py-2">Header</td>
+                        <td class="border px-4 py-2">Superior</td>
+                        <td class="border px-4 py-2">Identificación y acceso rápido.</td>
+                        <td class="border px-4 py-2">Logotipo y Menú.</td>
+                    </tr>
+                    <tr>
+                        <td class="border px-4 py-2">Body</td>
+                        <td class="border px-4 py-2">Central</td>
+                        <td class="border px-4 py-2">Entrega de contenido y valor.</td>
+                        <td class="border px-4 py-2">Artículos, imágenes y multimedia.</td>
+                    </tr>
+                    <tr>
+                        <td class="border px-4 py-2">Footer</td>
+                        <td class="border px-4 py-2">Inferior</td>
+                        <td class="border px-4 py-2">Información legal y secundaria.</td>
+                        <td class="border px-4 py-2">Copyright y redes sociales.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p class="mb-4 text-sm bg-blue-50 p-3 rounded text-blue-800">Nota técnica: En el desarrollo con HTML5, estas secciones no son solo visuales. Existen etiquetas específicas (&lt;header&gt;, &lt;footer&gt;, &lt;main&gt;) que ayudan a los motores de búsqueda como Google a entender qué parte de la web es la más importante, mejorando el posicionamiento SEO.</p>
+
+        <div class="bg-amber-50 border-l-4 border-amber-400 p-4 my-8">
+            <h4 class="font-bold text-amber-900">Sabías que...</h4>
+            <p>Existe una zona llamada "Above the fold" (por encima del pliegue). Es todo lo que el usuario ve en el Header y el inicio del Body sin necesidad de hacer scroll. Es la parte más crítica de una web: si no convence en menos de 3 segundos, el usuario suele abandonar el sitio.</p>
+        </div>
+
+        <hr class="my-10 border-slate-200">
+
+        <h2 class="text-2xl font-semibold text-indigo-700 mb-4">Servidores web: tipología</h2>
+        <p class="mb-4">Para que una página web esté disponible 24/7 en cualquier lugar del mundo, debe estar alojada en un servidor web. Un servidor es, esencialmente, un ordenador de altas prestaciones conectado permanentemente a Internet cuya función es "servir" (enviar) los archivos de la web al navegador del usuario (cliente) cuando este los solicita. Existen diferentes tipos de servidores según cómo gestionan sus recursos:</p>
+
+        <div class="overflow-x-auto mb-8">
+            <table class="min-w-full border-collapse border border-slate-300">
+                <thead class="bg-slate-100">
+                    <tr>
+                        <th class="border px-4 py-2">Tipo de Servidor</th>
+                        <th class="border px-4 py-2">Descripción</th>
+                        <th class="border px-4 py-2">Ventajas</th>
+                        <th class="border px-4 py-2">Inconvenientes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border px-4 py-2 font-semibold">Servidor Compartido</td>
+                        <td class="border px-4 py-2">Varias webs comparten los recursos (CPU, RAM) de una misma máquina.</td>
+                        <td class="border px-4 py-2">Económico y fácil de mantener.</td>
+                        <td class="border px-4 py-2">Si una web recibe mucho tráfico, puede ralentizar a las demás.</td>
+                    </tr>
+                    <tr>
+                        <td class="border px-4 py-2 font-semibold">Servidor VPS (Virtual Private Server)</td>
+                        <td class="border px-4 py-2">Un servidor físico se divide en varios servidores virtuales independientes.</td>
+                        <td class="border px-4 py-2">Mayor control y recursos garantizados.</td>
+                        <td class="border px-4 py-2">Requiere más conocimientos técnicos para su gestión.</td>
+                    </tr>
+                    <tr>
+                        <td class="border px-4 py-2 font-semibold">Servidor Dedicado</td>
+                        <td class="border px-4 py-2">Una máquina física completa para un solo cliente o proyecto.</td>
+                        <td class="border px-4 py-2">Máximo rendimiento y seguridad total.</td>
+                        <td class="border px-4 py-2">Coste muy elevado.</td>
+                    </tr>
+                    <tr>
+                        <td class="border px-4 py-2 font-semibold">Cloud Hosting (La Nube)</td>
+                        <td class="border px-4 py-2">La web se aloja en un conjunto de servidores interconectados.</td>
+                        <td class="border px-4 py-2">Escalabilidad inmediata y alta disponibilidad.</td>
+                        <td class="border px-4 py-2">El coste puede variar según el consumo de recursos.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="text-sm italic text-slate-500 mb-10">
+            Sabías que... Cuando escribes una dirección web (URL), un sistema llamado DNS (Domain Name System) traduce ese nombre a una dirección IP numérica, que es la dirección real del servidor donde están los archivos.
+        </div>
+
+        <h2 class="text-2xl font-semibold text-indigo-700 mb-4">Formatos de animación web</h2>
+        <p class="mb-6">La animación en la web no solo cumple una función estética, sino que mejora la experiencia de usuario (UX) al proporcionar feedback visual. No todos los formatos de animación son iguales; su elección depende del equilibrio entre calidad y peso del archivo.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+            <div class="bg-white p-4 border border-indigo-100 rounded shadow-sm">
+                <p><strong>GIF (Graphics Interchange Format):</strong> Es el formato más antiguo. Soporta transparencias binarias y bucles sencillos. Limitado a 256 tonos; ideal para memes o iconos simples.</p>
+            </div>
+            <div class="bg-white p-4 border border-indigo-100 rounded shadow-sm">
+                <p><strong>CSS Animations:</strong> No es un archivo de imagen, sino código. Permite animar elementos HTML. Ligero y eficiente; el navegador lo procesa directamente.</p>
+            </div>
+            <div class="bg-white p-4 border border-indigo-100 rounded shadow-sm">
+                <p><strong>SVG (Scalable Vector Graphics):</strong> Vectores basados en matemáticas. Ideales para logotipos e ilustraciones animadas sin pérdida de resolución.</p>
+            </div>
+            <div class="bg-white p-4 border border-indigo-100 rounded shadow-sm">
+                <p><strong>Lottie (JSON):</strong> Formato moderno; exporta animaciones complejas de herramientas profesionales a archivos de código muy ligeros. Estándar actual.</p>
+            </div>
+            <div class="bg-white p-4 border border-indigo-100 rounded shadow-sm col-span-1 md:col-span-2">
+                <p><strong>WebP / APNG:</strong> Versiones modernas con mejores compresiones que el GIF tradicional, soportando millones de colores y transparencias parciales.</p>
+            </div>
+        </div>
+
+        <h3 class="text-xl font-semibold mb-4 text-indigo-700">Herramientas de animación web</h3>
+        <ul class="list-disc ml-8 space-y-3 mb-8">
+            <li><strong>1. Editores de código (VS Code):</strong> Para animaciones con CSS o librerías JS (GSAP). Ofrece control absoluto pero requiere programación.</li>
+            <li><strong>2. Adobe Animate:</strong> Crea animaciones vectoriales complejas exportables a HTML5 y Canvas.</li>
+            <li><strong>3. LottieFiles / After Effects:</strong> Diseña alta fidelidad y transforma en código mediante el plugin Bodymovin.</li>
+            <li><strong>4. Herramientas online (SVGator, Canva):</strong> Creación visual sin código, ideales para prototipos rápidos.</li>
+        </ul>
+
+        <div class="bg-red-50 border-l-4 border-red-400 p-4 mb-10">
+            <p class="text-red-900 font-medium">Nota técnica: En la animación web es crucial vigilar la tasa de refresco. Una animación fluida debe ejecutarse idealmente a 60 FPS (cuadros por segundo) para que el ojo humano no perciba saltos, lo cual exige un código optimizado que no sobrecargue la CPU del dispositivo.</p>
+        </div>
+
+        <h2 class="text-2xl font-semibold text-indigo-700 mb-4">Páginas web con Google Sites: entorno de desarrollo y paso a paso</h2>
+        <p class="mb-4">Google Sites es una herramienta de creación de sitios web estructurada bajo el concepto WYSIWYG (What You See Is What You Get). A diferencia del desarrollo basado en código, permite construir sitios de manera visual y colaborativa.</p>
+
+        <h3 class="text-xl font-semibold mb-2">Entorno de desarrollo</h3>
+        <p class="mb-4">El entorno se divide principalmente en tres áreas:</p>
+        <ul class="list-disc ml-8 space-y-2 mb-8">
+            <li><strong>Lienzo central:</strong> Donde se arrastran y organizan los elementos.</li>
+            <li><strong>Panel lateral derecho:</strong> Herramientas de Insertar (textos, imágenes, Drive), Páginas y Temas.</li>
+            <li><strong>Barra superior:</strong> Opciones de deshacer, vista previa, colaboración y publicación.</li>
+        </ul>
+
+        <h3 class="text-xl font-semibold mb-2">Paso a paso para la creación:</h3>
+        <ol class="list-decimal ml-8 space-y-2 mb-8">
+            <li><strong>1. Planificación:</strong> Definir el mapa del sitio antes de abrir la herramienta.</li>
+            <li><strong>2. Selección de Tema:</strong> Elección de línea estética para mantener la coherencia.</li>
+            <li><strong>3. Maquetación por Bloques:</strong> Uso de bloques preconfigurados para asegurar diseño responsive.</li>
+            <li><strong>4. Integración de Elementos:</strong> Inserción directa de formularios, mapas, vídeos o documentos.</li>
+            <li><strong>5. Configuración de Navegación:</strong> Organización del menú superior o lateral.</li>
+            <li><strong>6. Publicación:</strong> Asignación de URL y permisos de visibilidad.</li>
+        </ol>
+
+        <div class="bg-indigo-900 text-indigo-100 p-6 rounded-lg shadow-inner">
+            <h4 class="text-orange-300 font-bold mb-2">Sabías que...</h4>
+            <p>Aunque Google Sites no permite editar el código HTML profundo, tiene un botón llamado "Insertar código" que permite añadir pequeños scripts o elementos externos, permitiendo una personalización técnica avanzada dentro de un entorno simplificado.</p>
+        </div>
+
+    </div>
+        </main>
+        <!-- Modal para ampliar imagen -->
+        <div id="imageModal" class="modal">
+            <span class="close-modal">&times;</span>
+            <img class="modal-content" id="modalImage">
+        </div>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        // --- Lógica para el modal de la imagen ---
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
+        const images = document.querySelectorAll('.zoomable-image');
+        const closeBtn = document.querySelector(".close-modal");
+        images.forEach(img => {
+        img.onclick = function(){
+        modal.style.display = "flex";
+        modalImg.src = this.src;
+        }
+        });
+        function closeModal() {
+        modal.style.display = "none";
+        }
+        closeBtn.onclick = closeModal;
+        modal.onclick = function(event) {
+        if (event.target === modal) {
+        closeModal();
+        }
+        }
+        });
+        </script>
+    </body>
+</html>
