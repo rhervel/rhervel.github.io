@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UD7: Tecnología, Sostenibilidad y Ética — 3º ESO</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Configuración personalizada de Tailwind para colores institucionales
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased selection:bg-emerald-200">
+
+  <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center space-x-3">
+          <span class="text-2xl">🌍</span>
+          <span class="font-bold text-gray-900 tracking-tight text-sm sm:text-base">TecnoAula 3º ESO</span>
+        </div>
+        <div class="flex space-x-1 sm:space-x-4 text-xs sm:text-sm font-medium">
+          <a href="#teoria" class="text-gray-600 hover:text-emerald-600 px-3 py-2 rounded-md transition-colors">1. Tema</a>
+          <a href="#tabla" class="text-gray-600 hover:text-emerald-600 px-3 py-2 rounded-md transition-colors">2. Factores</a>
+          <a href="#calculadora" class="bg-emerald-50 text-emerald-700 hover:bg-emerald-100 px-3 py-2 rounded-md transition-colors border border-emerald-200/50">3. Simulador</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-b from-emerald-800 to-emerald-950 text-white py-16 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <span class="px-3 py-1 inline-flex text-xs font-semibold rounded-full bg-emerald-700 text-emerald-200 mb-4 uppercase tracking-wider">
+        Unidad Didáctica 7: Sostenibilidad y Ética
+      </span>
+      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-4">
+        Tecnología en la Era Digital
+      </h1>
+      <p class="text-base sm:text-lg text-emerald-100 max-w-2xl mx-auto leading-relaxed">
+        Comprende el impacto ambiental oculto de la red, analiza el ciclo de vida de los componentes y aprende a calcular tu huella de carbono digital.
+      </p>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto my-12 px-4 space-y-16">
+
+    <section id="teoria" class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-gray-100 scroll-mt-20">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center space-x-3 border-b pb-4">
+        <span class="text-emerald-600">01.</span>
+        <span>Tema de Estudio: El Impacto Digital Oculto</span>
+      </h2>
+      
+      <div class="space-y-6 text-gray-600 leading-relaxed text-sm sm:text-base">
+        <div>
+          <h3 class="text-lg font-bold text-gray-800 mb-2 font-sans">1. El Ciclo de Vida y la Economía Circular</h3>
+          <p>
+            Tradicionalmente, la industria tecnológica ha operado bajo un modelo de <strong>economía lineal</strong> ("extraer, fabricar, consumir, tirar"). Este sistema es insostenible porque asume que los recursos del planeta son infinitos. La <strong>economía circular</strong> propone un cambio radical imitando a la naturaleza, donde el residuo de un proceso es la materia prima del siguiente, basándose en la reducción extrema, la reutilización estructural y el reciclaje selectivo.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">2. El "Lado Oscuro" de la Electrónica</h3>
+          <p>
+            Los microcontroladores, sensores y smartphones dependen de elementos críticos conocidos como <strong>tierras raras</strong> y minerales de conflicto como el <strong>coltán</strong> (tantalio). La extracción de estos materiales, concentrada en regiones vulnerables como la República Democrática del Congo, a menudo financia conflictos armados y genera graves problemas de derechos humanos y devastación ecológica.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">3. El Desafío de los Residuos RAEE</h3>
+          <p>
+            Los Residuos de Aparatos Eléctricos y Electrónicos (RAEE) son la basura que más rápido crece en el mundo. Contienen componentes altamente nocivos (plomo, mercurio, cadmio) que si acaban en vertederos tradicionales sufren un proceso de <strong>lixiviación</strong>, filtrándose a las aguas subterráneas. Por contra, su correcta gestión permite la <strong>minería urbana</strong>: recuperar metales valiosos directamente de los circuitos viejos sin necesidad de excavar nuevas minas.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">4. Obsolescencia y Ecodiseño</h3>
+          <p>
+            La <strong>obsolescencia programada</strong> es la planificación deliberada del fin de la vida útil de un producto para incentivar el consumo. Frente a esto, el <strong>ecodiseño</strong> aboga por crear productos bajo criterios de alta <strong>reparabilidad</strong> y estructuras modulares, permitiendo sustituir piezas rotas fácilmente sin necesidad de desechar el dispositivo completo.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="tabla" class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-gray-100 scroll-mt-20">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center space-x-3 border-b pb-4">
+        <span class="text-emerald-600">02.</span>
+        <span>Tabla Técnica de Factores de Emisión</span>
+      </h2>
+      <p class="text-gray-600 text-sm sm:text-base mb-6">
+        Estos indicadores cuantifican las emisiones promedio en gramos de CO₂ equivalente (<span class="lowercase">g</span>CO₂e), contemplando el consumo del propio dispositivo, el transporte por redes de telecomunicación y el mantenimiento térmico de los centros de datos (servidores virtuales).
+      </p>
+      
+      <div class="overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
+        <table class="min-w-full divide-y divide-gray-200 text-sm">
+          <thead class="bg-gradient-to-r from-emerald-700 to-green-800 text-white text-xs uppercase font-semibold tracking-wider">
+            <tr>
+              <th scope="col" class="px-6 py-4 text-left">Actividad Digital</th>
+              <th scope="col" class="px-6 py-4 text-left">Calidad / Tipo</th>
+              <th scope="col" class="px-6 py-4 text-center">Emisión Unitario</th>
+            </tr>
+          </thead>
+          <tbody class="bg-white divide-y divide-gray-200 text-gray-700">
+            <tr class="hover:bg-emerald-50/40 transition-colors">
+              <td class="px-6 py-4 font-medium text-gray-900">Streaming de Vídeo <span class="text-xs text-gray-400 block font-normal">(Netflix, YouTube, Twitch)</span></td>
+              <td class="px-6 py-4"><span class="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-red-100 text-red-800">Alta Definición (HD / 1080p)</span></td>
+              <td class="px-6 py-4 text-center font-semibold text-emerald-600">300 g <span class="text-xs text-gray-400 font-normal">/ hora</span></td>
+            </tr>
+            <tr class="bg-gray-50/40 hover:bg-emerald-50/40 transition-colors">
+              <td class="px-6 py-4 font-medium text-gray-900">Streaming de Vídeo <span class="text-xs text-gray-400 block font-normal">(Netflix, YouTube, Twitch)</span></td>
+              <td class="px-6 py-4"><span class="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-orange-100 text-orange-800">Estándar (SD / 480p)</span></td>
+              <td class="px-6 py-4 text-center font-semibold text-emerald-600">100 g <span class="text-xs text-gray-400 font-normal">/ hora</span></td>
+            </tr>
+            <tr class="hover:bg-emerald-50/40 transition-colors">
+              <td class="px-6 py-4 font-medium text-gray-900">Vídeo en Redes Sociales <span class="text-xs text-gray-400 block font-normal">(TikTok, Instagram Reels)</span></td>
+              <td class="px-6 py-4 text-gray-500">Formato Móvil Optimizado</td>
+              <td class="px-6 py-4 text-center font-semibold text-emerald-600">150 g <span class="text-xs text-gray-400 font-normal">/ hora</span></td>
+            </tr>
+            <tr class="bg-gray-50/40 hover:bg-emerald-50/40 transition-colors">
+              <td class="px-6 py-4 font-medium text-gray-900">Streaming de Música <span class="text-xs text-gray-400 block font-normal">(Spotify, Apple Music)</span></td>
+              <td class="px-6 py-4 text-gray-500">Calidad de audio normal</td>
+              <td class="px-6 py-4 text-center font-semibold text-emerald-600">30 g <span class="text-xs text-gray-400 font-normal">/ hora</span></td>
+            </tr>
+            <tr class="hover:bg-emerald-50/40 transition-colors">
+              <td class="px-6 py-4 font-medium text-gray-900">Consultas y Búsquedas <span class="text-xs text-gray-400 block font-normal">(Google, Bing)</span></td>
+              <td class="px-6 py-4 text-gray-500">Por motor de búsqueda</td>
+              <td class="px-6 py-4 text-center font-semibold text-emerald-600">0,5 g <span class="text-xs text-gray-400 font-normal">/ búsqueda</span></td>
+            </tr>
+            <tr class="bg-gray-50/40 hover:bg-emerald-50/40 transition-colors">
+              <td class="px-6 py-4 font-medium text-gray-900">Videojuegos Online <span class="text-xs text-gray-400 block font-normal">(Consola, PC, Servidor en Red)</span></td>
+              <td class="px-6 py-4 text-gray-500">Modo multijugador activo</td>
+              <td class="px-6 py-4 text-center font-semibold text-emerald-600">50 g <span class="text-xs text-gray-400 font-normal">/ hora</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
+    <section id="calculadora" class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-emerald-100 bg-gradient-to-b from-white to-emerald-50/20 scroll-mt-20">
+      <h2 class="text-2xl font-bold text-gray-900 mb-2 flex items-center space-x-3 border-b pb-4">
+        <span class="text-emerald-600">03.</span>
+        <span>Simulador de Huella Digital Co2</span>
+      </h2>
+      <p class="text-gray-600 text-sm sm:text-base mb-6">
+        Introduce tus horas de consumo semanal estimadas abajo para comprobar cómo funciona el algoritmo de cálculo matemático antes de redactar tu memoria.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+        <div>
+          <label class="block text-xs font-bold uppercase text-gray-700 mb-1">Streaming Vídeo HD (Horas/Semana)</label>
+          <input type="number" id="input-hd" min="0" value="0" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 font-medium">
+        </div>
+        <div>
+          <label class="block text-xs font-bold uppercase text-gray-700 mb-1">Streaming Vídeo SD (Horas/Semana)</label>
+          <input type="number" id="input-sd" min="0" value="0" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 font-medium">
+        </div>
+        <div>
+          <label class="block text-xs font-bold uppercase text-gray-700 mb-1">Redes Sociales / TikTok (Horas/Semana)</label>
+          <input type="number" id="input-rrss" min="0" value="0" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 font-medium">
+        </div>
+        <div>
+          <label class="block text-xs font-bold uppercase text-gray-700 mb-1">Música / Spotify (Horas/Semana)</label>
+          <input type="number" id="input-musica" min="0" value="0" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 font-medium">
+        </div>
+        <div>
+          <label class="block text-xs font-bold uppercase text-gray-700 mb-1">Búsquedas en Google (Nº al día)</label>
+          <input type="number" id="input-google" min="0" value="0" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 font-medium">
+        </div>
+        <div>
+          <label class="block text-xs font-bold uppercase text-gray-700 mb-1">Videojuegos Online (Horas/Semana)</label>
+          <input type="number" id="input-juegos" min="0" value="0" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 font-medium">
+        </div>
+      </div>
+
+      <button onclick="calcularHuella()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl transition-all shadow-sm tracking-wide">
+        Calcular Huella Semanal Realizar Operaciones
+      </button>
+
+      <div id="resultado-box" class="hidden mt-6 p-5 bg-white border border-emerald-200 rounded-xl shadow-inner space-y-4">
+        <div class="flex justify-between items-center border-b pb-3">
+          <span class="text-sm font-medium text-gray-600">Emisión Total Semanal:</span>
+          <span id="txt-gramos" class="text-xl font-mono font-bold text-emerald-700">0 gCO₂e</span>
+        </div>
+        <div class="flex justify-between items-center border-b pb-3">
+          <span class="text-sm font-medium text-gray-600">Conversión a Magnitud Masa:</span>
+          <span id="txt-kilos" class="text-xl font-mono font-bold text-emerald-700">0.00 kgCO₂e</span>
+        </div>
+        
+        <div class="bg-blue-50 border border-blue-100 text-blue-800 text-xs sm:text-sm p-3.5 rounded-lg flex items-center space-x-3">
+          <span>🚗</span>
+          <p>
+            Tu consumo digital semanal equivale a conducir un vehículo de combustión convencional durante una distancia estimada de <span id="txt-km" class="font-bold text-blue-900 font-mono">0.0</span> kilómetros.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-gray-900 text-gray-400 py-8 text-center text-xs sm:text-sm border-t border-gray-800">
+    <p>&copy; 2026 Departamento de Tecnología y Digitalización — Instituto de Educación Secundaria.</p>
+    <p class="mt-1 text-gray-600">Diseñado con propósitos didácticos bajo el marco normativo LOMLOE.</p>
+  </footer>
+
+  <script>
+    function calcularHuella() {
+      // 1. Capturar los valores numéricos de los inputs del formulario
+      const hd = parseFloat(document.getElementById('input-hd').value) || 0;
+      const sd = parseFloat(document.getElementById('input-sd').value) || 0;
+      const rrss = parseFloat(document.getElementById('input-rrss').value) || 0;
+      const musica = parseFloat(document.getElementById('input-musica').value) || 0;
+      const googleAlDia = parseFloat(document.getElementById('input-google').value) || 0;
+      const juegos = parseFloat(document.getElementById('input-juegos').value) || 0;
+
+      // Convertir búsquedas diarias en semanales (multiplicar por 7 días de la semana)
+      const googleSemanal = googleAlDia * 7;
+
+      // 2. Realizar el sumatorio aplicando los coeficientes de emisión de la tabla técnica
+      const totalGramos = (hd * 300) + (sd * 100) + (rrss * 150) + (musica * 30) + (googleSemanal * 0.5) + (juegos * 50);
+      
+      // Convertir gramos a Kilogramos (1 kg = 1000g)
+      const totalKilos = totalGramos / 1000;
+
+      // Calcular equivalencia en km de coche (asumiendo promedio estándar de 140g CO2 por km)
+      const equivalenciaKm = totalGramos / 140;
+
+      // 3. Modificar el DOM de la página web para renderizar las respuestas
+      document.getElementById('txt-gramos').innerText = totalGramos.toLocaleString('es-ES') + " gCO₂e";
+      document.getElementById('txt-kilos').innerText = totalKilos.toFixed(2).replace('.', ',') + " kgCO₂e";
+      document.getElementById('txt-km').innerText = equivalenciaKm.toFixed(1).replace('.', ',');
+
+      // Quitar la clase 'hidden' para desplegar visualmente el recuadro animado con el resultado
+      document.getElementById('resultado-box').classList.remove('hidden');
+    }
+  </script>
+
+</body>
+</html>
