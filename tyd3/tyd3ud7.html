@@ -16,32 +16,37 @@
         .img-trigger { cursor: zoom-in; transition: transform 0.3s ease; }
         .img-trigger:hover { transform: scale(1.02); }
         </style>
-        <link href="../assets/css/styles.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
     </head>
     <body class="text-slate-900">
         <div id="imgModal" class="modal" onclick="this.style.display='none'">
             <img class="modal-content" id="modalImg">
         </div>
-        <div class="flex min-h-screen">
-            <aside class="w-80 bg-slate-900 text-white fixed h-screen overflow-y-auto sidebar-scroll z-50">
-                <div class="p-8 border-b border-slate-800">
-                    <h1 class="text-2xl font-black leading-tight">UD7. Tecnología, Sostenibilidad y Ética</h1>
-                    <p class="text-xs text-indigo-400 mt-2 uppercase tracking-widest">3º ESO · Unidad Didáctica</p>
-                </div>
-                <nav class="p-6">
-                    <ul class="space-y-1 text-sm">
-                        <li><a href="#introduccion" class="block px-4 py-3 rounded-xl hover:bg-slate-800 transition">Introducción</a></li>
-                        <li><a href="#historia" class="block px-4 py-3 rounded-xl hover:bg-slate-800 transition">1. Historia tecnológica</a></li>
-                        <li><a href="#movil" class="block px-4 py-3 rounded-xl hover:bg-slate-800 transition">2. Dentro del móvil</a></li>
-                        <li><a href="#ciclo" class="block px-4 py-3 rounded-xl hover:bg-slate-800 transition">3. Ciclo de vida</a></li>
-                        <li><a href="#obsolescencia" class="block px-4 py-3 rounded-xl hover:bg-slate-800 transition">4. Obsolescencia</a></li>
-                        <li><a href="#internet" class="block px-4 py-3 rounded-xl hover:bg-slate-800 transition">5. Internet y contaminación</a></li>
-                        <li><a href="#ia" class="block px-4 py-3 rounded-xl hover:bg-slate-800 transition">6. Inteligencia Artificial</a></li>
-                        <li><a href="#actividades" class="block px-4 py-3 rounded-xl bg-indigo-600/20 text-indigo-400 mt-4">Actividades</a></li>
-                    </ul>
-                </nav>
-            </aside>
-            <main class="ml-80 flex-1 text-justify">
+<div class="flex min-h-screen relative">
+    
+    <button id="menuBtn" class="md:hidden fixed top-4 right-4 z-50 bg-indigo-600 text-white p-3 rounded-full shadow-lg font-bold">
+        ☰ Menú
+    </button>
+
+    <aside id="sidebar" class="hidden md:block w-80 bg-slate-900 text-white fixed h-screen overflow-y-auto sidebar-scroll z-50">
+        <div class="p-8 border-b border-slate-800">
+            <h1 class="text-2xl font-black leading-tight">UD7. Tecnología, Sostenibilidad y Ética</h1>
+            <p class="text-xs text-indigo-400 mt-2 uppercase tracking-widest">3º ESO · Unidad Didáctica</p>
+        </div>
+        <nav class="p-6">
+            <ul class="space-y-1 text-sm">
+                <li><a href="#introduccion" class="block px-4 py-3 rounded-xl hover:bg-slate-800 transition">Introducción</a></li>
+                <li><a href="#historia" class="block px-4 py-3 rounded-xl hover:bg-slate-800 transition">1. Historia tecnológica</a></li>
+                <li><a href="#movil" class="block px-4 py-3 rounded-xl hover:bg-slate-800 transition">2. Dentro del móvil</a></li>
+                <li><a href="#ciclo" class="block px-4 py-3 rounded-xl hover:bg-slate-800 transition">3. Ciclo de vida</a></li>
+                <li><a href="#obsolescencia" class="block px-4 py-3 rounded-xl hover:bg-slate-800 transition">4. Obsolescencia</a></li>
+                <li><a href="#internet" class="block px-4 py-3 rounded-xl hover:bg-slate-800 transition">5. Internet y contaminación</a></li>
+                <li><a href="#ia" class="block px-4 py-3 rounded-xl hover:bg-slate-800 transition">6. Inteligencia Artificial</a></li>
+                <li><a href="#actividades" class="block px-4 py-3 rounded-xl bg-indigo-600/20 text-indigo-400 mt-4">Actividades</a></li>
+            </ul>
+        </nav>
+    </aside>
+            <main class="ml-0 md:ml-80 flex-1 text-justify">
                 <header class="relative bg-cover bg-center text-white p-20 shadow-lg" style="background-image: url('img/3ud7.jpg');">
                     <h1 class="text-5xl font-black mb-6">UD7. Tecnología, sostenibilidad y ética</h1>
                     <p class="text-xl text-indigo-100 leading-relaxed">Descubre cómo la tecnología transforma el mundo, qué impacto tiene sobre el medioambiente y cómo podemos construir un futuro digital más sostenible y ético.</p>
@@ -219,7 +224,7 @@
                             <div class="p-8 bg-emerald-50 rounded-3xl border border-emerald-100">
                                 <span class="text-xs font-bold text-emerald-600 uppercase tracking-widest">Nivel 3</span>
                                 <h4 class="text-xl font-bold mt-2 mb-4 text-emerald-900">Aplicar</h4>
-                                <p class="text-sm text-emerald-800">Calcula tu <b>huella digital</b> semanal sumando las horas de streaming (Netflix/YouTube) y búsquedas en la red utilizando una calculadora de CO2 online.</p>
+                                <p class="text-sm text-emerald-800">Calcula tu <b>huella digital</b> semanal sumando las horas de streaming (Netflix/YouTube) y búsquedas en la red utilizando una calculadora de CO2 online. Utiliza esta <a href="tyd7calc.html" class="text-indigo-400S"><strong>calculadora</strong></a> online para realizar la tarea.</p>
                             </div>
                             <div class="p-8 bg-amber-50 rounded-3xl border border-amber-100">
                                 <span class="text-xs font-bold text-amber-600 uppercase tracking-widest">Nivel 4</span>
@@ -251,5 +256,37 @@
         }
         document.addEventListener('keydown', (e) => { if(e.key === "Escape") document.getElementById('imgModal').style.display = "none"; });
         </script>
+<script>
+const menuBtn = document.getElementById('menuBtn');
+const sidebar = document.getElementById('sidebar');
+
+menuBtn.addEventListener('click', () => {
+    // Usamos una clase personalizada o jugamos con 'hidden' de forma segura
+    sidebar.classList.toggle('hidden');
+    
+    // Cambia el texto del botón
+    menuBtn.innerText = sidebar.classList.contains('hidden') ? '☰ Menú' : '✕ Cerrar';
+});
+
+// Cerrar el menú al hacer clic en un enlace (solo si estamos en pantallas pequeñas)
+document.querySelectorAll('#sidebar a').forEach(link => {
+    link.addEventListener('click', () => {
+        if (window.innerWidth < 768) { // 768px es el corte 'md' de Tailwind
+            sidebar.classList.add('hidden');
+            menuBtn.innerText = '☰ Menú';
+        }
+    });
+});
+
+// Evitar que el menú se quede oculto si pasamos de móvil a PC con el menú cerrado
+window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768) {
+        sidebar.classList.remove('hidden');
+    } else {
+        sidebar.classList.add('hidden');
+        menuBtn.innerText = '☰ Menú';
+    }
+});
+</script>
     </body>
 </html>
