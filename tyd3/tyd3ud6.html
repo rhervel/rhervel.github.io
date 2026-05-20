@@ -1,400 +1,179 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UD6. Entorno Digital y Bienestar | Contenido Técnico 2º ESO</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>UD6. Entorno Digital y Bienestar</title>
+  <link href="../assets/css/styles.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 fill=%22currentColor%22 class=%22bi bi-robot%22 viewBox=%220 0 16 16%22><path d=%22M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5ZM3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.58 26.58 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.933.933 0 0 1-.765.935c-.845.147-2.34.346-4.235.346-1.895 0-3.39-.2-4.235-.346A.933.933 0 0 1 3 9.219V8.062Zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a24.767 24.767 0 0 1-1.871-.183.25.25 0 0 0-.217.068l-.92.9a.25.25 0 0 0 .169.434l.92-.9a25.25 25.25 0 0 0 1.942.183.25.25 0 0 0 .217-.068l.92-.9a.25.25 0 0 0-.17-.434l-.92.9a24.767 24.767 0 0 1-1.871-.183Z%22/><path d=%22M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1.5a2.5 2.5 0 0 0 2.5 2.5h9A2.5 2.5 0 0 0 15 13.5V12a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2V1.866ZM14 7.5V12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5Z%22/></svg>" type="image/svg+xml">
+
+  
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Pequeños ajustes adicionales si fueran necesarios */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* Para los iconos de Bootstrap, si los estás usando */
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css");
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Open Sans"', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primary: '#1a365d',
-                        secondary: '#2b6cb0',
-                        accent: '#4299e1',
-                        dark: '#2d3748'
+                        makecode: {
+                            blue: '#0074D9',    /* Básico */
+                            green: '#2ECC40',   /* Bucles */
+                            pink: '#D81B60',    /* Entrada */
+                            teal: '#009688',    /* Lógica */
+                            red: '#FF4136',     /* Variables */
+                            purple: '#9C27B0'   /* Matemáticas */
+                        }
                     }
                 }
             }
         }
     </script>
     <style>
-        /* Estilos personalizados para los Globos de Información (Tooltips) debido a limitaciones de pseudoelementos dinámicos en Tailwind puro */
-        .tooltip-term {
-            border-bottom: 2px dotted #2b6cb0;
-            cursor: help;
-            position: relative;
-            display: inline-block;
-            font-weight: 600;
-        }
-        .tooltip-term::after {
-            content: attr(data-definition);
-            position: absolute;
-            bottom: 125%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 240px;
-            background-color: #1a202c;
-            color: #ffffff;
-            text-align: justify;
-            padding: 10px;
-            border-radius: 6px;
-            font-size: 9pt;
-            font-weight: normal;
-            line-height: 1.4;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-            z-index: 50;
-        }
-        .tooltip-term:hover::after {
-            opacity: 1;
-        }
-        .tooltip-term::before {
-            content: "";
-            position: absolute;
-            bottom: 115%;
-            left: 50%;
-            transform: translateX(-50%);
-            border-width: 6px;
-            border-style: solid;
-            border-color: #1a202c transparent transparent transparent;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 50;
-        }
-        .tooltip-term:hover::before {
-            opacity: 1;
+        /* Forzar impresión de colores de fondo para PDF */
+        @media print {
+            body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
         }
     </style>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-white text-dark flex min-h-screen font-sans antialiased">
 
-    <nav class="w-64 h-screen bg-primary text-white fixed top-0 left-0 overflow-y-auto p-5 z-50 shadow-xl border-r border-slate-800">
-        <h2 class="text-xl font-bold mb-5 pb-2 border-b border-accent text-white">Contenidos</h2>
-        <ul class="space-y-1">
-            <li><a href="#intro" class="block py-1 text-slate-300 hover:text-accent text-sm transition-colors">Introducción</a></li>
-            
-            <li class="pt-4 pb-1 text-xs font-bold text-blue-300 uppercase tracking-wider">Bloque 1</li>
-            <li><a href="#t1_1" class="block py-1 text-slate-300 hover:text-accent text-sm transition-colors">1.1. La huella digital</a></li>
-            <li><a href="#t1_2" class="block py-1 text-slate-300 hover:text-accent text-sm transition-colors">1.2. Tratamiento de información</a></li>
-            <li><a href="#t1_3" class="block py-1 text-slate-300 hover:text-accent text-sm transition-colors">1.3. Copias de seguridad</a></li>
-            
-            <li class="pt-4 pb-1 text-xs font-bold text-blue-300 uppercase tracking-wider">Bloque 2</li>
-            <li><a href="#t2_1" class="block py-1 text-slate-300 hover:text-accent text-sm transition-colors">2.1. Amenazas en la red</a></li>
-            <li><a href="#t2_2" class="block py-1 text-slate-300 hover:text-accent text-sm transition-colors">2.2. Medidas de protección</a></li>
-            <li><a href="#t2_3" class="block py-1 text-slate-300 hover:text-accent text-sm transition-colors">2.3. Privacidad e intimidad</a></li>
-            
-            <li class="pt-4 pb-1 text-xs font-bold text-blue-300 uppercase tracking-wider">Bloque 3</li>
-            <li><a href="#t3_1" class="block py-1 text-slate-300 hover:text-accent text-sm transition-colors">3.1. Riesgos interacción online</a></li>
-            <li><a href="#t3_2" class="block py-1 text-slate-300 hover:text-accent text-sm transition-colors">3.2. Uso crítico y adicciones</a></li>
-            <li><a href="#t3_3" class="block py-1 text-slate-300 hover:text-accent text-sm transition-colors">3.3. Ergonomía física</a></li>
-        </ul>
-    </nav>
+<body class="bg-slate-100 text-slate-700 font-sans antialiased leading-relaxed">
+    <header class="bg-gray-900 text-gray-200 shadow-lg sticky top-0 z-40">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center gap-3">
+                    <a href="../index.html" class="text-gray-100 hover:text-white flex items-center">
+                        <i class="bi bi-robot text-2xl mr-3"></i> <span class="font-bold text-xl">Tecnología y Digitalización</span>
+                    </a>
+                </div>
+                <div class="text-sm text-gray-400">
+                    <ol class="list-none p-0 inline-flex items-center">
+                        <li class="flex items-center">
+                            <a href="tyd3.html" class="text-gray-300 hover:text-blue-300">3º ESO</a>
+                            <i class="bi bi-chevron-right mx-2 text-xs text-gray-500"></i>
+                        </li>
+                        <li class="flex items-center text-gray-100 font-semibold">
+                            <span>UD6. Entorno Digital y Bienestar</span>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </header>
+
 
     <main class="flex-grow">
-    <div class="relative bg-cover bg-center py-20 md:py-32 -mx-6 md:-mx-12 -mt-6 md:-mt-12 rounded-t-lg" style="background-image: url('https://www.realinfluencers.es/wp-content/uploads/2023/07/Portada_articulo_Lea-Sulmont.jpg');">
-        <div class="absolute inset-0 bg-black opacity-50 rounded-t-lg"></div>
+        <div class="relative bg-cover bg-center py-20 md:py-32 -mx-6 md:-mx-12 -mt-6 md:-mt-12 rounded-t-lg" style="background-image: url('img/3ud6.jpg');">
+            <div class="absolute inset-0 bg-black opacity-50 rounded-t-lg"></div>
+            
+            <div class="container mx-auto px-12 relative z-10 text-center">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-white pb-6 mb-8">
+                    UD6. Entorno Digital y Bienestar
+                </h1>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto bg-white shadow-lg rounded-lg my-12 p-10">
         
-        <div class="container mx-auto px-12 relative z-10 text-center">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-white pb-6 mb-8">
-                UD6. Entorno Digital y Bienestar
-            </h1>
-        </div>
-    </div>
-
-    <div class="max-w-7xl mx-auto my-12 p-10">
-        <h2 class="text-4xl font-extrabold text-primary border-b-4 border-secondary pb-3 mb-6" id="intro">UD6. Entorno Digital y Bienestar</h2>
-
-        <div class="bg-slate-50 border border-slate-200 p-5 mb-10 rounded-lg border-l-8 border-l-primary shadow-sm">
-            <p class="font-bold text-lg mb-2 text-primary">Introducción de la Unidad Didáctica</p>
-            <p class="text-justify leading-relaxed">El desarrollo tecnológico actual ha transformado por completo la forma en que interactuamos, trabajamos y gestionamos la información. Para los estudiantes de la materia de Tecnología y Digitalización, el entorno digital no es solo un conjunto de herramientas operativas, sino un espacio multidimensional donde se despliega la actividad humana. Esta unidad didáctica está diseñada para proporcionar una base teórica sólida y crítica sobre la interacción con los sistemas de información, la protección de las infraestructuras digitales y el mantenimiento de la salud física y psicológica. A lo largo de este tema, analizaremos los mecanismos técnicos e institucionales que rigen la red, permitiendo al alumno comprender la trascendencia de sus acciones en el ecosistema digital.</p>
-        </div>
-
-        <div class="grid grid-cols-4 gap-8 items-start mb-12 border-b border-slate-100 pb-8" id="t1_1">
-            <div class="col-span-3 space-y-4">
-                <h3 class="text-2xl font-bold text-secondary border-l-4 border-accent pl-3">1.1. La huella digital: Concepto de Identidad Digital y gestión de la propia imagen en la red.</h3>
-                <p class="text-justify">La <span class="tooltip-term" data-definition="Imagen e información que un usuario proyecta y consolida en Internet a través de sus interacciones y publicaciones directas o indirectas.">identidad digital</span> se define como el conjunto de información publicada en Internet sobre una persona física o jurídica, la cual conforma la imagen que los demás usuarios perciben de ella en el entorno virtual. A diferencia de la identidad analógica, la identidad digital no se limita a los datos oficiales de un individuo (como el nombre o el documento de identidad), sino que se construye de manera dinámica mediante una diversidad de aportaciones directas e indirectas.</p>
-                <p class="font-semibold text-slate-800">Los componentes esenciales que configuran la identidad digital se dividen en tres categorías principales:</p>
-                <ul class="list-disc pl-6 space-y-2 text-justify">
-                    <li><strong>Datos aportados por el propio usuario:</strong> Incluye los perfiles en redes sociales, fotografías, comentarios en foros, publicaciones en blogs y correos electrónicos enviados.</li>
-                    <li><strong>Datos derivados de las interacciones:</strong> El historial de navegación, los metadatos de las comunicaciones, los "me gusta" en diversas plataformas y las transacciones comerciales electrónicas.</li>
-                    <li><strong>Datos generados por terceros:</strong> Etiquetado en fotografías ajenas, menciones en artículos, comentarios de otros usuarios y bases de datos institucionales públicas o privadas.</li>
-                </ul>
-                <p class="text-justify">El rastro que dejamos de forma persistente al realizar cualquier actividad en Internet se denomina <strong>huella digital</strong> (<em>digital footprint</em>). Esta huella es de naturaleza acumulativa e imborrable en términos absolutos, debido a la indexación de los motores de búsqueda y los sistemas de almacenamiento replicados en servidores globales. Existen dos tipologías de huella digital:</p>
-                <ol class="list-decimal pl-6 space-y-2 text-justify">
-                    <li><strong>Huella digital activa:</strong> Se genera cuando el usuario transmite datos de manera consciente y deliberada. Ejemplos directos de esto son el envío de un formulario de registro o la publicación de un estado en una red social.</li>
-                    <li><strong>Huella digital pasiva:</strong> Se produce de manera invisible para el usuario, mediante la recopilación automatizada de información por parte de los servidores web. Esto incluye la dirección IP del dispositivo, el sistema operativo empleado, el navegador web y las cookies de seguimiento.</li>
-                </ol>
-                <p class="text-justify">La <strong>gestión de la propia imagen</strong> en la red requiere una aproximación técnica y preventiva. Una reputación digital negativa puede tener consecuencias jurídicas, académicas y laborales a largo plazo. Las directrices fundamentales para una gestión eficiente incluyen la configuración avanzada de la privacidad en las plataformas, el uso de alias no identificables cuando no sea estrictamente necesaria la validación legal, y la aplicación del principio de minimización de datos (publicar únicamente lo estrictamente necesario).</p>
-            </div>
-            <div class="col-span-1 space-y-4">
-                <div class="bg-sky-50 border-l-4 border-sky-600 p-4 rounded-r-lg text-sm shadow-sm">
-                    <span class="font-bold block text-slate-900 mb-1">&gt; Sabías que...</span> Los metadatos ocultos en una fotografía tomada con un teléfono móvil, conocidos como datos <span class="tooltip-term" data-definition="Exchangeable Image File Format. Especificación para formatos de archivos de imagen que almacena datos técnicos y de localización de la toma.">EXIF</span>, pueden revelar el modelo exacto de la cámara, la fecha, la hora precisa e incluso las coordenadas geográficas exactas mediante GPS de dónde fue tomada la imagen, si el usuario no tiene desactivados los permisos de geolocalización.
-                </div>
-                <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=500&q=80" alt="Concepto de Huella Digital e Identidad" class="w-full rounded-lg border border-slate-200 cursor-pointer transition-all duration-200 hover:scale-[1.02] hover:shadow-md aside-img">
-            </div>
-        </div>
-
-        <div class="grid grid-cols-4 gap-8 items-start mb-12 border-b border-slate-100 pb-8" id="t1_2">
-            <div class="col-span-3 space-y-4">
-                <h3 class="text-2xl font-bold text-secondary border-l-4 border-accent pl-3">1.2. Tratamiento y organización de la información: Técnicas de almacenamiento eficiente y estructuración de datos.</h3>
-                <p class="text-justify">El volumen masivo de datos que se genera diariamente en los sistemas informáticos requiere la aplicación de métodos científicos para su ordenación, búsqueda y conservación. El <strong>tratamiento de la información</strong> digital se fundamenta en la conversión de datos analógicos o digitales desestructurados en formatos lógicos y jerarquizados que optimicen los recursos de computación.</p>
-                <p class="text-justify">La estructuración de datos a nivel de usuario y de sistemas de archivos locales se realiza mediante <span class="tooltip-term" data-definition="Componente del sistema operativo encargado de administrar y estructurar la memoria secundaria en forma jerárquica para organizar archivos y carpetas.">sistemas de archivos jerárquicos</span>. Los sistemas operativos modernos (como NTFS en Windows, ext4 en Linux o APFS en macOS) organizan la información mediante una estructura de árbol invertido, donde el nodo principal es el <strong>directorio raíz</strong>, del cual penden subdirectorios (carpetas) y archivos específicos.</p>
-                <p class="font-semibold text-slate-800">Para lograr un almacenamiento eficiente, se deben implementar las siguientes técnicas de estructuración:</p>
-                <ul class="list-disc pl-6 space-y-2 text-justify">
-                    <li><strong>Nomenclatura normalizada:</strong> Establecer reglas estrictas para el nombramiento de archivos (ej. <code class="bg-slate-100 px-1.5 py-0.5 font-mono text-sm border border-slate-200 rounded">AAAA_MM_DD_NombreProyecto_Version</code>). Esto evita la duplicidad, facilita la indexación y permite búsquedas automatizadas eficientes en el sistema operativo.</li>
-                    <li><strong>Taxonomías lógicas:</strong> Clasificar la información por criterios funcionales o temáticos bien definidos, limitando la profundidad de las subcarpetas a un máximo de tres o cuatro niveles para evitar la pérdida de rutas de acceso.</li>
-                    <li><strong>Separación de datos estáticos y dinámicos:</strong> Mantener los archivos de consulta terminados en repositorios de almacenamiento secundario diferenciados de aquellos que sufren modificaciones constantes.</li>
-                </ul>
-            </div>
-            <div class="col-span-1 space-y-4">
-                <div class="bg-slate-50 border-l-4 border-slate-600 p-4 rounded-r-lg text-sm shadow-sm">
-                    <span class="font-bold block text-slate-900 mb-1">&gt; Nota técnica:</span> La eficiencia en el almacenamiento también depende del formato de archivo seleccionado. Los formatos <strong>propietarios</strong> (como <code class="font-mono bg-white border px-1 rounded text-xs">.docx</code> o <code class="font-mono bg-white border px-1 rounded text-xs">.psd</code>) suelen contener <span class="tooltip-term" data-definition="Datos estructurados que describen las características, origen, autoría y parámetros técnicos de un archivo de datos principal.">metadatos</span> complejos y estructuras pesadas, mientras que los formatos <strong>abiertos y normalizados</strong> (como <code class="font-mono bg-white border px-1 rounded text-xs">.txt</code>, <code class="font-mono bg-white border px-1 rounded text-xs">.csv</code> o <code class="font-mono bg-white border px-1 rounded text-xs">.pdf</code> estándar) optimizan el espacio en disco y garantizan la compatibilidad e interoperabilidad a largo plazo entre diferentes plataformas tecnológicas.
-                </div>
-                <img src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=500&q=80" alt="Estructuración de datos de servidores" class="w-full rounded-lg border border-slate-200 cursor-pointer transition-all duration-200 hover:scale-[1.02] hover:shadow-md aside-img">
-            </div>
-        </div>
-
-        <div class="grid grid-cols-4 gap-8 items-start mb-12 border-b border-slate-100 pb-8" id="t1_3">
-            <div class="col-span-3 space-y-4">
-                <h3 class="text-2xl font-bold text-secondary border-l-4 border-accent pl-3">1.3. Más vale prevenir: Estrategias y automatización de copias de seguridad (backups).</h3>
-                <p class="text-justify">La pérdida de datos en sistemas informáticos es una contingencia inevitable que puede producirse por fallos de hardware (degradación física de discos duros), errores de software, ataques de malware o descuidos humanos. Por ello, la implementación de una política de <strong>copias de seguridad</strong> (<em>backups</em>) es el pilar fundamental de la continuidad digital.</p>
-                <p class="text-justify">La estrategia técnica más robusta y aceptada a nivel internacional es la <strong>Regla 3-2-1</strong>. Esta metodología establece los siguientes requisitos:</p>
-                <ul class="list-disc pl-6 space-y-2 text-justify">
-                    <li>Mantener al menos <strong>3 copias</strong> de los datos (los datos de producción originales y un mínimo de 2 copias de seguridad adicionales).</li>
-                    <li>Almacenar las copias en <strong>2 soportes físicos diferentes</strong> (por ejemplo, un disco duro interno del ordenador y un sistema de almacenamiento conectado en red o <span class="tooltip-term" data-definition="Network Attached Storage. Dispositivo de almacenamiento dedicado conectado a una red informática local que permite el acceso a datos a clientes compartidos.">NAS</span>).</li>
-                    <li>Disponer de al menos <strong>1 copia fuera del sitio</strong> físico habitual (por ejemplo, en un servicio de almacenamiento en la nube cifrado), para proteger la información ante catástrofes físicas en el hogar o centro de trabajo (como incendios o inundaciones).</li>
-                </ul>
-
-                <div class="overflow-x-auto my-5">
-                    <table class="w-full text-sm border border-collapse border-slate-200 text-left">
-                        <thead>
-                            <tr class="bg-secondary text-white font-bold">
-                                <th class="p-3 border border-secondary">Tipo de Copia de Seguridad</th>
-                                <th class="p-3 border border-secondary">Mecanismo de Funcionamiento</th>
-                                <th class="p-3 border border-secondary">Ventajas Técnicas</th>
-                                <th class="p-3 border border-secondary">Desventajas Técnicas</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-slate-200">
-                            <tr class="hover:bg-slate-50 transition-colors">
-                                <td class="p-3 border font-semibold">Completa (Full)</td>
-                                <td class="p-3 border">Copia la totalidad de los datos seleccionados del sistema al soporte de destino, independientemente de si han sido modificados previamente.</td>
-                                <td class="p-3 border">Restauración directa y rápida, ya que toda la información se encuentra condensada en un único bloque o archivo de copia.</td>
-                                <td class="p-3 border text-red-700">Requiere un elevado ancho de banda, un gran espacio de almacenamiento y un tiempo de ejecución prolongado.</td>
-                            </tr>
-                            <tr class="bg-slate-50 hover:bg-slate-100 transition-colors">
-                                <td class="p-3 border font-semibold">Incremental</td>
-                                <td class="p-3 border">Solo copia los datos que han cambiado desde la última copia de seguridad realizada, ya fuera esta completa o incremental.</td>
-                                <td class="p-3 border text-green-700">El proceso de copia es sumamente rápido y consume una cantidad mínima de espacio en el dispositivo de almacenamiento.</td>
-                                <td class="p-3 border text-red-700">La restauración es lenta y compleja, requiriendo recuperar la última copia completa y todas las copias incrementales sucesivas.</td>
-                            </tr>
-                            <tr class="hover:bg-slate-50 transition-colors">
-                                <td class="p-3 border font-semibold">Diferencial</td>
-                                <td class="p-3 border">Copia únicamente los datos que se han modificado desde la realización de la última copia de seguridad completa.</td>
-                                <td class="p-3 border text-green-700">La restauración es más rápida que en la incremental (solo requiere la copia completa y la última diferencial). Menor espacio que la completa.</td>
-                                <td class="p-3 border text-red-700">El tamaño de la copia crece progresivamente cada día hasta que se vuelve a ejecutar una copia completa del sistema.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <p class="text-justify">La <strong>automatización</strong> de estos procesos se realiza mediante software específico programado que se ejecuta en segundo plano como un servicio del sistema. Estos programas monitorizan los cambios en los sectores de almacenamiento o en los sistemas de archivos y ejecutan las tareas de respaldo en horas de baja actividad computacional, minimizando el factor del error humano por olvido.</p>
-            </div>
-            <div class="col-span-1 space-y-4">
-                <img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=500&q=80" alt="Servidores de Backup y almacenamiento redundante" class="w-full rounded-lg border border-slate-200 cursor-pointer transition-all duration-200 hover:scale-[1.02] hover:shadow-md aside-img">
-            </div>
-        </div>
-
-        <div class="grid grid-cols-4 gap-8 items-start mb-12 border-b border-slate-100 pb-8" id="t2_1">
-            <div class="col-span-3 space-y-4">
-                <h3 class="text-2xl font-bold text-secondary border-l-4 border-accent pl-3">2.1. Amenazas en la red: Tipos de riesgos informáticos, malware y ataques comunes.</h3>
-                <p class="text-justify">El espacio digital presenta vulnerabilidades de seguridad que son explotadas de manera constante por agentes maliciosos. El concepto genérico que engloba al software diseñado con fines perjudiciales es el <span class="tooltip-term" data-definition="Malicious Software. Término genérico que describe cualquier programa diseñado intencionadamente para causar daños o realizar acciones no autorizadas en un sistema.">malware</span> (<em>malicious software</em>). El malware no debe confundirse con un simple fallo de programación; es un código informático desarrollado con el objetivo explícito de infiltrarse, dañar, o extraer datos sin la autorización del propietario.</p>
-                <p class="font-semibold text-slate-800">Las principales variantes de malware y vectores de ataque que afectan a los usuarios comunes son:</p>
-                <ul class="list-disc pl-6 space-y-2 text-justify">
-                    <li><strong>Virus informático:</strong> Código malicioso que se inserta dentro de un archivo ejecutable legítimo. Requiere la intervención directa del usuario (abrir el programa infectado) para propagarse y alterar el funcionamiento del sistema.</li>
-                    <li><strong>Gusano (Worm):</strong> Software malicioso autónomo que se duplica a sí mismo y se propaga a través de las redes de ordenadores aprovechando vulnerabilidades del sistema operativo, sin necesidad de que un usuario intervenga. Su principal efecto es el colapso por saturación de las redes de datos.</li>
-                    <li><strong>Troyano (Trojan):</strong> Programa que se presenta ante el usuario como una herramienta legítima e inofensiva (un videojuego, un editor de fotos de descarga gratuita), pero que al ejecutarse abre una <strong>puerta trasera</strong> (<em>backdoor</em>) para dar acceso remoto al atacante.</li>
-                    <li><strong>Ransomware:</strong> Uno de los ataques más lesivos de la actualidad. Este software cifra (codifica de forma matemática) los archivos del disco duro del usuario mediante algoritmos de criptografía asimétrica, volviéndolos completamente inaccesibles, y posteriormente exige el pago de un rescate financiero en criptomonedas para proporcionar la clave de descifrado.</li>
-                    <li><strong>Phishing:</strong> Técnica de <span class="tooltip-term" data-definition="Conjunto de técnicas psicológicas y de manipulación social empleadas por atacantes para inducir a los usuarios a cometer errores de seguridad.">ingeniería social</span>, no basada en fallos técnicos de los sistemas, sino en el engaño psicológico al usuario. Consiste en el envío de correos electrónicos, SMS o mensajes en redes que suplantan la identidad visual corporativa de entidades legítimas (bancos, plataformas educativas, servicios postales) para inducir a la víctima a introducir sus contraseñas o datos de tarjetas de crédito en páginas web falsificadas.</li>
-                </ul>
-            </div>
-            <div class="col-span-1 space-y-4">
-                <div class="bg-sky-50 border-l-4 border-sky-600 p-4 rounded-r-lg text-sm shadow-sm">
-                    <span class="font-bold block text-slate-900 mb-1">&gt; Sabías que...</span> El primer virus informático registrado de la historia que se propagó fuera de los laboratorios de investigación se llamó <strong>Elk Cloner</strong> (1982). Fue creado por un estudiante de instituto de 15 años como una broma para el sistema operativo Apple II y se transmitía exclusivamente a través de los disquetes de almacenamiento físico de la época.
-                </div>
-                <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=500&q=80" alt="Código informático de ciberseguridad" class="w-full rounded-lg border border-slate-200 cursor-pointer transition-all duration-200 hover:scale-[1.02] hover:shadow-md aside-img">
-            </div>
-        </div>
-
-        <div class="grid grid-cols-4 gap-8 items-start mb-12 border-b border-slate-100 pb-8" id="t2_2">
-            <div class="col-span-3 space-y-4">
-                <h3 class="text-2xl font-bold text-secondary border-l-4 border-accent pl-3">2.2. Medidas de protección activa y pasiva: Cifrado, contraseñas seguras, doble factor de autenticación (2FA) y protección de datos personales.</h3>
-                <p class="text-justify">La defensa de un systema informático requiere la combinación coordinada de dos enfoques metodológicos complementarios: la seguridad activa y la seguridad pasiva.</p>
-                <p class="text-justify">La <strong>seguridad activa</strong> comprende el conjunto de acciones técnicas y herramientas de software que operan en tiempo real para evitar, detectar y repeler las amenazas antes de que causen daños. Entre ellas destacan la instalación y actualización permanente de un <strong>antivirus/antimalware</strong>, la activación de un <strong>cortafuegos</strong> (<em>firewall</em>) para filtrar las conexiones entrantes y salientes de la red, y el uso de filtros antispam.</p>
-                <p class="text-justify">La <strong>seguridad pasiva</strong> entra en funcionamiento cuando un ataque ya se ha producido o cuando una vulnerabilidad ha sido explotada, con el fin de minimizar el impacto de la pérdida de información y mitigar las consecuencias. El ejemplo más claro de seguridad pasiva son las copias de seguridad analizadas en el bloque anterior, así como los sistemas de hardware redundantes (como las configuraciones de discos en RAID) y los planes de recuperación de datos.</p>
-                <p class="text-justify">A nivel del usuario individual, el control de accesos se fundamenta en la autenticación criptográfica. Una <strong>contraseña segura</strong> debe poseer una alta <span class="tooltip-term" data-definition="En informática y criptografía, es la medida de la aleatoriedad y grado de incertidumbre matemática que posee una clave para evitar ser descubierta.">entropía</span> (complejidad matemática de la clave) para resistir ataques por <strong>fuerza bruta</strong> (búsqueda combinatoria por software) o ataques de diccionario. Los requisitos técnicos de una contraseña robusta dictan que debe tener una longitud mínima de 12 caracteres, incluir letras mayúsculas y minúsculas, números y caracteres alfanuméricos especiales (ej. <code class="bg-slate-100 px-1 py-0.5 rounded text-sm font-mono border">$, #, *, @</code>), evitando cualquier dato predecible como fechas de nacimiento o nombres secuenciales.</p>
-                <p class="font-semibold text-slate-800">No obstante, debido a las filtraciones masivas de datos en servidores de Internet, la contraseña por sí sola ha dejado de ser una barrera suficiente. Es imprescindible la implantación del <strong>Doble Factor de Autenticación (2FA)</strong>. Este sistema añade una capa de verificación secundaria. Para validar la identidad del usuario, el sistema exige combinar dos de los siguientes tres factores lógicos:</p>
-                <ol class="list-decimal pl-6 space-y-2 text-justify">
-                    <li><strong>Algo que sabes:</strong> La contraseña alfanumérica tradicional o un PIN.</li>
-                    <li><strong>Algo que tienes:</strong> Un dispositivo físico específico, como un teléfono inteligente que recibe un código OTP (<em>One-Time Password</em>) a través de una aplicación de autenticación dedicada (como Google Authenticator) o una llave de seguridad USB de hardware (estándar FIDO2).</li>
-                    <li><strong>Algo que eres:</strong> Datos biométricos intrínsecos del usuario, como la huella dactilar, el reconocimiento facial o el escáner de iris.</li>
-                </ol>
-                <p class="text-justify">El <span class="tooltip-term" data-definition="Procedimiento que utiliza algoritmos lógicos y matemáticos para alterar el contenido original de un archivo o datos haciéndolo ilegible a sistemas no autorizados.">cifrado de datos</span> o criptografía consiste en la alteración mediante un algoritmo matemático del contenido original de un archivo o comunicación, transformándolo en un texto cifrado ininteligible para cualquier actor intermedio que no posea la <strong>clave criptográfica</strong> correspondiente. Los protocolos de transferencia segura de datos en la web (como <strong>HTTPS</strong>) utilizan cifrado de extremo a extremo, asegurando que la información viaje protegida a través de los nodos de Internet.</p>
-            </div>
-            <div class="col-span-1 space-y-4">
-                <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=500&q=80" alt="Autenticación segura y biometría" class="w-full rounded-lg border border-slate-200 cursor-pointer transition-all duration-200 hover:scale-[1.02] hover:shadow-md aside-img">
-            </div>
-        </div>
-
-        <div class="grid grid-cols-4 gap-8 items-start mb-12 border-b border-slate-100 pb-8" id="t2_3">
-            <div class="col-span-3 space-y-4">
-                <h3 class="text-2xl font-bold text-secondary border-l-4 border-accent pl-3">2.3. Privacidad e intimidad: Marco legal básico y derechos digitales de los menores.</h3>
-                <p class="text-justify">La protección de la información personal en el entorno digital no es solo una recomendación de carácter técnico, sino una obligación jurídica regulada por normativas internacionales y nacionales de obligado cumplimiento. En el ámbito de la Unión Europea, el marco normativo de referencia es el <strong>Reglamento General de Protección de Datos (RGPD)</strong>, adaptado en España a través de la <strong>Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD)</strong>.</p>
-                <p class="text-justify">La legislación define como <strong>dato de carácter personal</strong> cualquier información numérica, alfabética, gráfica o acústica concerniente a personas físicas identificadas o identificables. Esto abarca desde el nombre, la dirección de correo electrónico y el número de teléfono, hasta la dirección IP del ordenador, el identificador de publicidad del teléfono móvil y la imagen del rostro en un vídeo.</p>
-                <p class="font-semibold text-slate-800">El marco legal otorga a los ciudadanos, incluidos de forma explícita los menores de edad, un conjunto de garantías fundamentales conocidos tradicionalmente como los <strong>Derechos ARCO+</strong>, ampliados en la era digital:</p>
-                <ul class="list-disc pl-6 space-y-2 text-justify">
-                    <li><strong>Derecho de Acceso:</strong> Capacidad de solicitar a cualquier plataforma tecnológica que informe sobre qué datos personales específicos tiene almacenados de un usuario y con qué finalidad los está tratando.</li>
-                    <li><strong>Derecho de Rectificación:</strong> Permite exigir la corrección inmediata de aquellos datos personales que resulten ser inexactos, erróneos o que se encuentren incompletos.</li>
-                    <li><strong>Derecho de Supresión (Derecho al Olvido):</strong> Facultad de obligar a los motores de búsqueda en Internet y a las plataformas de redes sociales a eliminar los enlaces y datos personales vinculados a un nombre cuando estos carezcan de interés público o sean obsoletos.</li>
-                    <li><strong>Derecho de Oposición:</strong> Derecho a prohibir de forma vinculante que una empresa utilice los datos personales para fines de prospección comercial o elaboración de perfiles publicitarios automáticos.</li>
-                </ul>
-            </div>
-            <div class="col-span-1 space-y-4">
-                <div class="bg-slate-50 border-l-4 border-slate-600 p-4 rounded-r-lg text-sm shadow-sm">
-                    <span class="font-bold block text-slate-900 mb-1">&gt; Nota técnica:</span> En el ordenamiento jurídico español, la edad mínima para prestar el consentimiento legal válido para el tratamiento automatizado de datos de carácter personal en servicios de la sociedad de la información (como la creación de una cuenta en una red social) está fijada por ley en los <strong>14 años</strong>. Cualquier registro efectuado por un menor de dicha edad sin la intervención, validación y autorización expresa de los padres o tutores legales constituye una infracción administrativa directa de los términos de protección de datos.
-                </div>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-4 gap-8 items-start mb-12 border-b border-slate-100 pb-8" id="t3_1">
-            <div class="col-span-3 space-y-4">
-                <h3 class="text-2xl font-bold text-secondary border-l-4 border-accent pl-3">3.1. Riesgos de la interacción online: Prevención y actuación ante el ciberacoso (cyberbullying), sextorsión y acceso a contenidos inadecuados.</h3>
-                <p class="text-justify">La interconexión permanente en plataformas sociales y de mensajería expone a los usuarios a riesgos psicosociales y delictivos que requieren una comprensión profunda de sus dinámicas técnicas y conductuales para su prevención eficaz.</p>
-                <p class="text-justify">El <strong>ciberacoso</strong> (<em>cyberbullying</em>) consiste en el uso de los medios de comunicación digitales (redes sociales, chats de videojuegos online, mensajería instantánea) para ejercer un acoso psicológico continuado, intencionado y sistemático entre iguales (generalmente menores). Se diferencia del acoso escolar tradicional en que la naturaleza digital amplifica el daño debido a varios factores técnicos:</p>
-                <ul class="list-disc pl-6 space-y-2 text-justify">
-                    <li><strong>Persistencia temporal:</strong> El acoso no se limita a la jornada escolar; el menor está expuesto las 24 horas del día.</li>
-                    <li><strong>Amplitud de audiencia:</strong> El contenido denigrante puede difundirse masivamente en segundos, multiplicando la humillación pública.</li>
-                    <li><strong>Anonimato o suplantación:</strong> El agresor puede ocultar su identidad tras perfiles falsos, dificultando su localización inicial.</li>
-                </ul>
-                <p class="text-justify">La <strong>sextorsión</strong> es una modalidad delictiva grave que se inicia habitualmente con el <em>sexting</em> (envío voluntario de imágenes o vídeos de contenido íntimo o sexual a través de medios digitales). El riesgo surge cuando el receptor de dicho material, o un tercero que ha interceptado la comunicación mediante un hackeo, chantajea a la víctima con difundir las imágenes a sus contactos, familiares o páginas de Internet públicas si no realiza determinados actos o pagos económicos. Una vez que un archivo digital se comparte en la red, el emisor pierde por completo el <strong>control de distribución</strong> del mismo.</p>
-                <p class="text-justify">El <strong>acceso a contenidos inadecuados</strong> (violencia explícita, discursos de odio, desinformación radical o contenidos no aptos para la madurez del menor) se ve favorecido por los sistemas de recomendación algorítmica de las plataformas, diseñados para retener la atención del usuario sin evaluar la idoneidad ética del material expuesto.</p>
-
-                <div class="overflow-x-auto my-5">
-                    <table class="w-full text-sm border border-collapse border-slate-200 text-left">
-                        <thead>
-                            <tr class="bg-secondary text-white font-bold">
-                                <th class="p-3 border border-secondary">Riesgo Digital</th>
-                                <th class="p-3 border border-secondary">Mecanismo de Prevención Técnica</th>
-                                <th class="p-3 border border-secondary">Protocolo de Actuación Legal y Técnica</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-slate-200">
-                            <tr class="hover:bg-slate-50 transition-colors">
-                                <td class="p-3 border font-semibold">Ciberacoso (Cyberbullying)</td>
-                                <td class="p-3 border">Configuración estricta de perfiles privados. Restricción de mensajes entrantes de cuentas desconocidas. Bloqueo proactivo de usuarios hostiles.</td>
-                                <td class="p-3 border"><strong>No borrar las pruebas:</strong> Realizar capturas de pantalla con validez legal. Reportar formalmente a la plataforma. Informar a los tutores y a las autoridades policiales especializadas.</td>
-                            </tr>
-                            <tr class="bg-slate-50 hover:bg-slate-100 transition-colors">
-                                <td class="p-3 border font-semibold">Sextorsión</td>
-                                <td class="p-3 border">Práctica de la desconexión visual (tapar cámaras web). No almacenar ni transmitir imágenes íntimas, ya que los sistemas en la nube pueden ser vulnerados.</td>
-                                <td class="p-3 border">Cesar inmediatamente la comunicación con el extorsionador. <strong>No ceder jamás al chantaje financiero o conductual.</strong> Denunciar de urgencia ante los Cuerpos y Fuerzas de Seguridad del Estado.</td>
-                            </tr>
-                            <tr class="hover:bg-slate-50 transition-colors">
-                                <td class="p-3 border font-semibold">Contenidos Inadecuados</td>
-                                <td class="p-3 border">Implementación de pasarelas de control parental a nivel de router (filtrado DNS) y activación de los modos seguros en motores de búsqueda.</td>
-                                <td class="p-3 border">Notificar el enlace mediante los canales de denuncia de contenido de la plataforma. Configurar el borrado automático del historial y cookies de seguimiento.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="col-span-1 space-y-4">
-                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=500&q=80" alt="Uso responsable e interactivo de redes" class="w-full rounded-lg border border-slate-200 cursor-pointer transition-all duration-200 hover:scale-[1.02] hover:shadow-md aside-img">
-            </div>
-        </div>
-
-        <div class="grid grid-cols-4 gap-8 items-start mb-12 border-b border-slate-100 pb-8" id="t3_2">
-            <div class="col-span-3 space-y-4">
-                <h3 class="text-2xl font-bold text-secondary border-l-4 border-accent pl-3">3.2. Uso crítico y adicciones: Gestión del tiempo de pantalla, FOMO y control de la dependencia tecnológica.</h3>
-                <p class="text-justify">La economía de la atención es el modelo de negocio dominante en el desarrollo de aplicaciones móviles y redes sociales. Las interfaces de usuario están diseñadas siguiendo patrones de la neurobiología cognitiva para estimular la segregación de <span class="tooltip-term" data-definition="Neurotransmisor del sistema nervioso central asociado directamente con los sistemas de recompensa, motivación y placer en el cerebro humano.">dopamina</span> (el neurotransmisor del placer y la recompensa inmediata) mediante mecanismos funcionales idénticos a los de los juegos de azar, como el <em>scroll</em> infinito, las notificaciones push constantes y los sistemas de puntuación social ("likes").</p>
-                <p class="text-justify">Este diseño persuasivo puede derivar en un uso problemático o adicción conductual tecnológica, caracterizada por la pérdida de control sobre el tiempo de uso, el aislamiento social y el abandono de responsabilidades cotidianas. Un fenómeno psicológico directamente asociado a esta dependencia es el <strong>FOMO</strong> (<em>Fear Of Missing Out</em>, o el temor a quedar excluido del entorno social digital). El FOMO genera estados crónicos de ansiedad y obliga al usuario a verificar el dispositivo de manera compulsiva para cerciorarse de que no se está perdiendo ninguna interacción o evento en su comunidad virtual.</p>
-                <p class="font-semibold text-slate-800">Para mitigar la dependencia tecnológica, es necesario aplicar estrategias de gestión técnica del tiempo de pantalla:</p>
-                <ul class="list-disc pl-6 space-y-2 text-justify">
-                    <li><strong>Establecimiento de límites lógicos por software:</strong> Utilizar las herramientas nativas de los sistemas operativos móviles (como "Bienestar Digital" en Android o "Tiempo de Uso" en iOS) para programar bloqueos automáticos de aplicaciones tras superar una cuota de tiempo diario.</li>
-                    <li><strong>Desactivación sistemática de notificaciones no esenciales:</strong> Eliminar los estímulos sonoros y visuales intermitentes de las aplicaciones para que la interacción con el dispositivo sea reactiva a la necesidad real del usuario y no proactiva por parte del servidor.</li>
-                    <li><strong>Configuración de la pantalla en escala de grises:</strong> Esta medida reduce el impacto visual de los estímulos de diseño de las interfaces, restando atractivo cromático a las aplicaciones y disminuyendo el impulso de consulta subconsciente.</li>
-                </ul>
-            </div>
-            <div class="col-span-1 space-y-4">
-                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=500&q=80" alt="Gestión de pantallas inteligentes" class="w-full rounded-lg border border-slate-200 cursor-pointer transition-all duration-200 hover:scale-[1.02] hover:shadow-md aside-img">
-            </div>
-        </div>
-
-        <div class="grid grid-cols-4 gap-8 items-start mb-12" id="t3_3">
-            <div class="col-span-3 space-y-4">
-                <h3 class="text-2xl font-bold text-secondary border-l-4 border-accent pl-3">3.3. Ergonomía física y ambiental: Configuración del espacio de trabajo, postura correcta frente al ordenador y cuidado de la salud visual.</h3>
-                <p class="text-justify">El bienestar digital no se limita a la salud mental y la seguridad de los datos; engloba de forma obligatoria la interacción física del cuerpo humano con los dispositivos de hardware. La <span class="tooltip-term" data-definition="Estudio científico de las relaciones y adaptaciones mutuas entre el diseño de las máquinas, herramientas o entornos y la anatomía humana.">ergonomía</span> es la disciplina científica que estudia el diseño de los sistemas y entornos de trabajo para que se adapten a las características anatómicas y fisiológicas del usuario.</p>
-                <p class="text-justify">Una mala configuración del espacio de trabajo informático produce trastornos musculoesqueléticos crónicos (como tendinitis, el síndrome del túnel carpiano o contracturas cervicales) y fatiga orgánica.</p>
-                <p class="font-semibold text-slate-800">La <strong>postura correcta frente al ordenador</strong> se fundamenta en los siguientes parámetros anatómicos:</p>
-                <ol class="list-decimal pl-6 space-y-2 text-justify">
-                    <li><strong>Eje visual:</strong> El borde superior del monitor debe situarse a la altura de los ojos del usuario o ligeramente por debajo (entre 10 y 20 grados). La distancia entre la pantalla y los ojos debe mantenerse en un rango de entre 50 y 70 centímetros, dependiendo del tamaño del monitor.</li>
-                    <li><strong>Articulaciones superiores:</strong> Los brazos y antebrazos deben formar un ángulo recto de 90 grados. Las muñecas deben permanecer en una posición neutra y alineada al utilizar el teclado y el ratón, evitando desviaciones laterales.</li>
-                    <li><strong>Soporte lumbar y miembros inferiores:</strong> La espalda debe apoyarse firmemente contra el respaldo de la silla, respetando las curvaturas naturales de la columna. Las rodillas deben formar un ángulo de 90 grados, manteniendo los pies completamente planos sobre el suelo o sobre un reposapiés adecuado.</li>
-                </ol>
-                <p class="text-justify">Para preservar la salud visual frente a la radiación lumínica de las pantallas y el esfuerzo acomodativo del cristalino, la medicina del trabajo aplica la <strong>Regla Ergonómica del 20-20-20</strong>. Este método de pausa activa se rige por una métrica temporal estricta y se define formalmente mediante la siguiente expresión operativa:</p>
+        <div class="mb-6">
+            <p class="text-lg mb-3">
+                <span class="font-bold italic">Apuntes:</span>
+            </p>
+            <ul class="space-y-3 list-none pl-4">
+                <li class="flex items-center group">
+                    <span class="text-gray-400 mr-2">•</span>
+                    <a href="tyd3ud6ap.html" target="_blank" class="text-blue-600 font-medium hover:text-blue-800 hover:underline transition-all">
+                        UD6. Entorno Digital y Bienestar
+                    </a>
+                </li>
                 
-                <div class="text-center my-6 text-lg font-serif">
-                    Cada <span class="italic font-bold text-primary">T<sub>m</sub> = 20 minutos</span> de trabajo visual, el usuario debe desviar la mirada de la pantalla durante un tiempo de <span class="italic font-bold text-primary">T<sub>s</sub> = 20 segundos</span> enfocando a una distancia mínima de <span class="italic font-bold text-primary">D = 20 pies ≈ 6 metros</span>.
-                </div>
-                <p class="text-justify">Asimismo, la configuración ambiental requiere que la iluminación de la sala sea homogénea, evitando reflejos directos sobre la superficie de la pantalla mediante el uso de difusores de luz y persianas, y priorizando el uso de sistemas informáticos con tecnologías de atenuación de parpadeo (<em>Flicker-Free</em>) y filtros de reducción de emisión de luz azul de onda corta.</p>
-            </div>
-            <div class="col-span-1 space-y-4">
-                <div class="bg-sky-50 border-l-4 border-sky-600 p-4 rounded-r-lg text-sm shadow-sm">
-                    <span class="font-bold block text-slate-900 mb-1">&gt; Sabías que...</span> El parpadeo humano se reduce drásticamente de una media de 15 a 20 veces por minuto en condiciones normales, a tan solo 5 o 7 veces por minuto cuando fijamos la vista de forma continuada en una pantalla digital. Esta disminución drástica es la causa principal de la deshidratación de la córnea, el enrojecimiento y el desarrollo del síndrome del ojo seco.
-                </div>
-                <img src="https://images.unsplash.com/photo-1595225476474-87563907a212?auto=format&fit=crop&w=500&q=80" alt="Espacio de trabajo ergonómico estructurado" class="w-full rounded-lg border border-slate-200 cursor-pointer transition-all duration-200 hover:scale-[1.02] hover:shadow-md aside-img">
-            </div>
+            </ul>
         </div>
 
-    </div>
+        <div class="mb-6">
+            <p class="text-lg mb-3">
+                <span class="font-bold italic">Actividades:</span>
+            </p>
+            <ul class="space-y-3 pl-4">
+                <li class="flex items-center group">
+                    <span class="text-gray-400 mr-2">•</span>
+                    <a href="https://docs.google.com/document/d/19sGmkFk23KsnAWNFIcNp3NEYS17IelYYunDWXFB0Xxk/preview?usp=sharing" target="_blank" class="text-blue-600 font-medium hover:text-blue-800 hover:underline transition-all">
+                        🎬 SDA Digital Citizens: Vídeo Manual de Bienestar
+                    </a>
+                </li>
+                <li class="flex items-center group">
+                    <span class="text-gray-400 mr-2">•</span>
+                    <a href="https://docs.google.com/document/d/1cGFMrMsTxxupW_WTeh4eE4K7QgD2t3GQoz3PG5xdDX8/preview?usp=sharing" target="_blank" class="text-blue-600 font-medium hover:text-blue-800 hover:underline transition-all">
+                        📝 Plantilla De Ejemplo: Guión Para El Vídeo Manual
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
 
-    <div id="imageModal" class="hidden fixed inset-0 bg-slate-900/90 z-[1000] flex justify-center items-center">
-        <span class="absolute top-5 right-8 text-white text-5xl font-bold cursor-pointer select-none hover:text-slate-300" id="modalClose">&times;</span>
-        <img class="max-w-[80%] max-h-[80%] rounded-lg shadow-2xl" id="modalTargetImg" src="" alt="Vista ampliada">
-    </div>
-    
-    </main>
+        </div>
+</main>
 
 
-    <script>
+<!-- Modal para ampliar imagen -->
+<div id="imageModal" class="modal">
+  <span class="close-modal">&times;</span>
+  <img class="modal-content" id="modalImage">
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // --- Lógica para el modal de la imagen ---
         const modal = document.getElementById("imageModal");
-        const modalImg = document.getElementById("modalTargetImg");
-        const closeBtn = document.getElementById("modalClose");
+        const modalImg = document.getElementById("modalImage");
+        const images = document.querySelectorAll('.zoomable-image');
+        const closeBtn = document.querySelector(".close-modal");
 
-        // Asignar eventos de clic a todas las imágenes de la columna lateral
-        document.querySelectorAll('.aside-img').forEach(image => {
-            image.addEventListener('click', () => {
-                modal.classList.remove("hidden");
-                modalImg.src = image.src;
-                modalImg.alt = image.alt;
-            });
-        });
-
-        // Cerrar el modal al hacer clic en el botón de cierre
-        closeBtn.addEventListener('click', () => {
-            modal.classList.add("hidden");
-        });
-
-        // Cerrar el modal al hacer clic en cualquier parte fuera de la imagen
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.classList.add("hidden");
+        images.forEach(img => {
+            img.onclick = function(){
+                modal.style.display = "flex";
+                modalImg.src = this.src;
             }
         });
-    </script>
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        closeBtn.onclick = closeModal;
+
+        modal.onclick = function(event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    });
+
+</script>
 </body>
 </html>
