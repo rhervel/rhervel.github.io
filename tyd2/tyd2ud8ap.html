@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad Didáctica 8: Iniciación a la Robótica y Control</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .modal {
+            transition: opacity 0.25s ease;
+        }
+        body.modal-active {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased flex min-h-screen">
+
+    <aside class="w-64 bg-slate-900 text-slate-300 fixed h-full hidden md:flex flex-col justify-between border-r border-slate-800 z-30">
+        <div class="p-6">
+            <div class="flex items-center gap-3 text-white mb-8">
+                <a href="../index.html">
+                <i class="fa-solid fa-robot text-2xl text-indigo-400"></i>
+                <span class="font-bold text-lg tracking-wider">Tecnlogía y Digitalización</span>
+                </a>
+            </div>
+            <nav class="space-y-1">
+                <a href="#introduccion" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-slate-800 hover:text-white transition-colors">
+                    <i class="fa-solid fa-book-open w-5 text-slate-500"></i> Unidad 8
+                </a>
+                <a href="#sensores" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-slate-800 hover:text-white transition-colors">
+                    <i class="fa-solid fa-arrows-left-right w-5 text-slate-500"></i> 8.1 Sensores y Actuadores
+                </a>
+                <a href="#control" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-slate-800 hover:text-white transition-colors">
+                    <i class="fa-solid fa-toggle-on w-5 text-slate-500"></i> 8.2 Control Automático
+                </a>
+                <a href="#arduino" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-slate-800 hover:text-white transition-colors">
+                    <i class="fa-solid fa-microchip w-5 text-slate-500"></i> 8.3 Arduino
+                </a>
+                <a href="#programacion" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-slate-800 hover:text-white transition-colors">
+                    <i class="fa-solid fa-code w-5 text-slate-500"></i> 8.4 Programación Básica
+                </a>
+            </nav>
+        </div>
+        <div class="p-6 border-t border-slate-800 text-xs text-slate-500 text-center">
+            Material Didáctico v2.1
+        </div>
+    </aside>
+
+    <div class="flex-1 md:ml-64 flex flex-col min-h-screen">
+        
+        <header class="bg-gradient-to-r from-slate-900 via-indigo-950 to-blue-950 p-6 md:p-8 text-white shadow-md">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-4">
+                    <div class="bg-indigo-500/10 p-3 rounded-xl backdrop-blur-sm border border-indigo-500/20">
+                        <i class="fa-solid fa-graduation-cap text-3xl text-indigo-400"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-semibold tracking-widest uppercase text-indigo-300 block mb-0.5">Unidad Didáctica 8</span>
+                        <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight">Iniciación a la Robótica y Control</h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="flex-1 max-w-7xl w-full mx-auto p-4 md:p-8 space-y-12">
+            
+            <div id="introduccion" class="scroll-mt-6 grid grid-cols-1 lg:grid-cols-4 gap-8">
+                <div class="lg:col-span-3 bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 space-y-4">
+                    <p class="text-lg text-slate-600 font-medium border-l-4 border-indigo-500 pl-4">
+                        En nuestro día a día estamos rodeados de objetos que parecen "pensar" por sí mismos. Desde las puertas automáticas de un supermercado que se abren cuando nos acercamos, hasta los modernos sistemas de climatización que regulan la temperatura de una habitación de forma autónoma.
+                    </p>
+                    <p>
+                        Todos estos mecanismos no funcionan por magia, sino gracias a los principios de la robótica y los sistemas de control. Un sistema de control es un conjunto de componentes físicos conectados entre sí que regulan, dirigen o comandan el comportamiento de otro sistema para lograr un objetivo específico.
+                    </p>
+                    <p>
+                        En esta unidad, nos adentraremos en el diseño de estos sistemas, analizándolo cómo las máquinas perciben su entorno a través de sensores, cómo toman decisiones mediante un cerebro electrónico como Arduino, y cómo ejecutan acciones en el mundo físico utilizando actuadores. Comprender estos fundamentos teóricos es el primer paso para diseñar la tecnología del futuro.
+                    </p>
+                </div>
+                <div class="space-y-6"></div>
+            </div>
+
+            <div id="sensores" class="scroll-mt-6 grid grid-cols-1 lg:grid-cols-4 gap-8">
+                <div class="lg:col-span-3 bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 space-y-6">
+                    <div class="flex items-center gap-2 border-b border-slate-100 pb-3">
+                        <i class="fa-solid fa-arrows-left-right text-indigo-600 text-xl"></i>
+                        <h2 class="text-2xl font-bold text-slate-900">8.1 Sensores y actuadores</h2>
+                    </div>
+                    
+                    <p>
+                        Para que cualquier sistema automático o robot pueda interactuar con el entorno que le rodea, necesita establecer un canal de comunicación de doble sentido: debe ser capaz de recibir información del exterior y, a su vez, realizar acciones físicas sobre él. Esto se consigue mediante dos tipos de componentes fundamentales: los sensores y los actuadores.
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-2 text-indigo-600">
+                            <i class="fa-solid fa-sign-in-alt text-lg"></i>
+                            <h3 class="text-xl font-bold text-slate-900">Los Sensores (Entradas del sistema)</h3>
+                        </div>
+                        <p class="text-sm text-slate-600">
+                            Un sensor es un dispositivo físico diseñado para transformar una magnitud física del entorno (como la temperatura, la luz, la distancia o la presencia de un objeto) en una señal eléctrica que un circuito electrónico pueda procesar. En el cuerpo humano, los sensores equivalen a nuestros órganos de los sentidos (los ojos, la piel, los oídos).
+                        </p>
+                        <p class="text-sm font-semibold text-slate-700">Existen diferentes tipos de sensores según la variable física que miden:</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/60 shadow-sm">
+                                <span class="font-bold text-indigo-600 block mb-1"><i class="fa-solid fa-lightbulb mr-1"></i> Sensor de luz (LDR - Resistencia Variable con la Luz):</span>
+                                <span class="text-sm text-slate-600">Modifica su resistencia eléctrica en función de la luminosidad que recibe. Es el componente que permite a las farolas de la calle encenderse solas cuando anochece.</span>
+                            </div>
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/60 shadow-sm">
+                                <span class="font-bold text-indigo-600 block mb-1"><i class="fa-solid fa-temperature-half mr-1"></i> Sensor de temperatura (Termistor):</span>
+                                <span class="text-sm text-slate-600">Varía su comportamiento eléctrico según suba o baje la temperatura ambiental. Se encuentra en el interior de los termómetros digitales o los sistemas de calefacción.</span>
+                            </div>
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/60 shadow-sm">
+                                <span class="font-bold text-indigo-600 block mb-1"><i class="fa-solid fa-wave-square mr-1"></i> • Sensor de ultrasonidos:</span>
+                                <span class="text-sm text-slate-600">Mide la distancia a un objeto emitiendo una onda de sonido de alta frecuencia y calculando el tiempo que tarda en regresar el eco. Es el principio físico que utilizan los coches modernos para avisar al conductor mediante pitidos cuando se acercan a un obstáculo al aparcar.</span>
+                            </div>
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/60 shadow-sm">
+                                <span class="font-bold text-indigo-600 block mb-1"><i class="fa-solid fa-eye mr-1"></i> • Sensor de infrarrojos:</span>
+                                <span class="text-sm text-slate-600">Detecta la presencia de objetos o líneas (generalmente negras o blancas) midiendo la reflexión de un haz de luz invisible para el ojo humano. Muy utilizado en los robots rastreadores de líneas.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-center gap-2 text-blue-600">
+                            <i class="fa-solid fa-sign-out-alt text-lg"></i>
+                            <h3 class="text-xl font-bold text-slate-900">Los Actuadores (Salidas del sistema)</h3>
+                        </div>
+                        <p class="text-sm text-slate-600">
+                            Un actuador es el componente encargado de transformar la energía eléctrica (procedente del sistema de control) en energía mecánica, lumínica, sonora o térmica para generar un efecto en el mundo real. Equivalen a los músculos de nuestro cuerpo. Los actuadores más comunes en robótica son:
+                        </p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/60 shadow-sm flex items-start gap-3">
+                                <div class="text-blue-500 mt-1"><i class="fa-solid fa-gear text-lg"></i></div>
+                                <div>
+                                    <span class="font-bold text-slate-900 block">Motor de corriente continua (CC):</span>
+                                    <span class="text-sm text-slate-600">Transforma la energía eléctrica en movimiento rotatorio continuo. Se utiliza para mover las ruedas de un vehículo robótico.</span>
+                                </div>
+                            </div>
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/60 shadow-sm flex items-start gap-3">
+                                <div class="text-blue-500 mt-1"><i class="fa-solid fa-compass text-lg"></i></div>
+                                <div>
+                                    <span class="font-bold text-slate-900 block">Servomotor:</span>
+                                    <span class="text-sm text-slate-600">Es un motor de precisión que no gira de forma continua, sino que permite controlar de manera exacta el ángulo de su eje (normalmente entre 0° y 180°). Se usa para mover las articulaciones de un brazo robótico o el timón de un coche teledirigido.</span>
+                                </div>
+                            </div>
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/60 shadow-sm flex items-start gap-3">
+                                <div class="text-blue-500 mt-1"><i class="fa-solid fa-lightbulb text-lg"></i></div>
+                                <div>
+                                    <span class="font-bold text-slate-900 block">Diodo LED:</span>
+                                    <span class="text-sm text-slate-600">Transforma la corriente eléctrica en luz de forma muy eficiente. Se emplea para señalizaciones o iluminación.</span>
+                                </div>
+                            </div>
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/60 shadow-sm flex items-start gap-3">
+                                <div class="text-blue-500 mt-1"><i class="fa-solid fa-volume-high text-lg"></i></div>
+                                <div>
+                                    <span class="font-bold text-slate-900 block">Zumbador (Buzzer):</span>
+                                    <span class="text-sm text-slate-600">Dispositivo que convierte señales eléctricas en ondas sonoras (un pitido), ideal para emitir alertas o alarmas.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-cyan-50/80 border border-cyan-200 rounded-2xl p-5 space-y-2 lg:sticky lg:top-6">
+                        <div class="flex items-center gap-2 text-cyan-700 font-bold text-sm">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <h4>Sabías que...</h4>
+                        </div>
+                        <p class="text-xs text-cyan-900 leading-relaxed">
+                            Los sensores de ultrasonidos imitan exactamente el sistema de ecolocalización que utilizan los murciélagos y los delfines para orientarse en la oscuridad y cazar a sus presas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="control" class="scroll-mt-6 grid grid-cols-1 lg:grid-cols-4 gap-8">
+                <div class="lg:col-span-3 bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 space-y-6">
+                    <div class="flex items-center gap-2 border-b border-slate-100 pb-3">
+                        <i class="fa-solid fa-toggle-on text-indigo-600 text-xl"></i>
+                        <h2 class="text-2xl font-bold text-slate-900">8.2 Control automático</h2>
+                    </div>
+                    <p>
+                        El control automático es el conjunto de tecnologías y disciplinas que permiten que una máquina opere de manera independiente, sin necesidad de la intervención constante de un ser humano. Para entender cómo se estructuran estos procesos, la ingeniería de control divide los sistemas en dos categorías fundamentales llamadas lazos de control.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="border border-slate-200 rounded-xl p-5 bg-orange-50/20 space-y-2">
+                            <div class="flex items-center gap-2 text-orange-600 font-bold text-lg">
+                                <i class="fa-solid fa-circle-notch"></i>
+                                <h3>Sistema de lazo abierto</h3>
+                            </div>
+                            <p class="text-sm text-slate-700">
+                                En un sistema de lazo abierto, la acción de control se calcula previamente y se ejecuta sin tener en cuenta el resultado real de la salida. Es decir, el sistema no comprueba si se ha cumplido el objetivo; simplemente realiza la tarea programada durante un tiempo determinado.
+                            </p>
+                            <p class="text-xs text-slate-500 italic pt-1">
+                                <span class="font-bold text-orange-700 not-italic">Ejemplo cotidiano:</span> Una tostadora de pan. Nosotros ajustamos el selector de tiempo (por ejemplo, 2 minutos) y bajamos la palanca. La tostadora calentará durante ese tiempo exacto sin importar si el pan ya está negro y quemado, o si por el contrario estaba congelado y sigue frío. No hay ningún sensor miendo el "tostado" real del pan.
+                            </p>
+                        </div>
+
+                        <div class="border border-slate-200 rounded-xl p-5 bg-emerald-50/20 space-y-2">
+                            <div class="flex items-center gap-2 text-emerald-600 font-bold text-lg">
+                                <i class="fa-solid fa-rotate"></i>
+                                <h3>Sistema de lazo cerrado</h3>
+                            </div>
+                            <p class="text-sm text-slate-700">
+                                En un sistema de lazo cerrado, la salida del sistema tiene un effecto directo sobre la acción de control. Esto se consigue gracias a un proceso denominado realimentación (o feedback). El sistema utiliza sensores para medir constantemente el estado real de la salida, compara ese valor con el objetivo deseado (llamado consigna) y, si detecta un error, corrige la acción de los actuadores de forma automática.
+                            </p>
+                            <p class="text-xs text-slate-500 italic pt-1">
+                                <span class="font-bold text-emerald-700 not-italic">Ejemplo cotidiano:</span> El sistema de climatización o aire acondicionado de una vivienda. Si fijamos la temperatura de consigna en 22°C un sensor de temperatura interior medirá constantemente el aire de la sala. Si la temperatura sube a 25°C. el sistema detecta la diferencia (el error) y enciende el compresor de frío. En cuanto el sensor detecta que se han alcanzado los 22°C, ordena apagar el equipo para mantener la temperatura stable.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="overflow-x-auto shadow-sm border border-slate-200 rounded-xl mt-4">
+                        <table class="min-w-full divide-y divide-slate-200 text-sm text-left">
+                            <thead class="bg-slate-800 text-white font-semibold">
+                                <tr>
+                                    <th class="px-4 py-3">Característica</th>
+                                    <th class="px-4 py-3 bg-slate-700">Sistema de Lazo Abierto</th>
+                                    <th class="px-4 py-3 bg-indigo-900">Sistema de Lazo Closed (Cerrado)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 bg-white">
+                                <tr class="hover:bg-slate-50/80">
+                                    <td class="px-4 py-3 font-semibold text-slate-700 bg-slate-50">Presencia de sensores</td>
+                                    <td class="px-4 py-3 text-slate-600">No son imprescindibles para la salida.</td>
+                                    <td class="px-4 py-3 text-indigo-950 font-medium bg-indigo-50/10">Obligatorios para medir y realimentar.</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/80">
+                                    <td class="px-4 py-3 font-semibold text-slate-700 bg-slate-50">Precisión</td>
+                                    <td class="px-4 py-3 text-slate-600">Baja. Depende de una calibración fija previa.</td>
+                                    <td class="px-4 py-3 text-indigo-950 font-medium bg-indigo-50/10">Alta. Se adapta a los cambios del entorno.</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/80">
+                                    <td class="px-4 py-3 font-semibold text-slate-700 bg-slate-50">Complejidad</td>
+                                    <td class="px-4 py-3 text-slate-600">Sencillo y económico de diseñar.</td>
+                                    <td class="px-4 py-3 text-indigo-950 font-medium bg-indigo-50/10">Más complejo y costoso.</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/80">
+                                    <td class="px-4 py-3 font-semibold text-slate-700 bg-slate-50">Reacción a perturbaciones</td>
+                                    <td class="px-4 py-3 text-slate-600">Incapaz de corregir fallos externos.</td>
+                                    <td class="px-4 py-3 text-indigo-950 font-medium bg-indigo-50/10">Corrige las desviaciones automáticamente.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 space-y-3 lg:sticky lg:top-6">
+                        <span class="text-xs font-bold text-indigo-600 uppercase tracking-wide block"><i class="fa-solid fa-image mr-1"></i> Infografía Esquema</span>
+                        <button onclick="toggleModal('modal-lazo')" class="group relative w-full block overflow-hidden rounded-xl bg-slate-100 border border-slate-200">
+                            <img src="https://www.ariat-tech.es/upfile/images/47/20251105151152881.png" alt="Esquema de Lazos de Control" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-slate-900/20 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+                                <span class="bg-white/90 text-slate-800 px-3 py-1.5 rounded-lg text-xs font-bold shadow"><i class="fa-solid fa-expand mr-1"></i> Ampliar esquema</span>
+                            </div>
+                        </button>
+                        <p class="text-xs text-slate-500 leading-snug">Representación visual comparativa del flujo de datos en sistemas abiertos y cerrados de realimentación.</p>
+                        
+                        <div class="border-t border-slate-100 pt-3 mt-3">
+                            <div class="flex items-center gap-2 text-amber-700 font-bold text-xs mb-1">
+                                <i class="fa-solid fa-gears"></i>
+                                <h4>Nota técnica: Lazos</h4>
+                            </div>
+                            <p class="text-[11px] text-amber-900 leading-relaxed bg-amber-50/70 p-3 rounded-xl border border-amber-100">
+                                El objetivo prioritario de cualquier algoritmo de control es hacer que el error sea siempre igual a cero.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="arduino" class="scroll-mt-6 grid grid-cols-1 lg:grid-cols-4 gap-8">
+                <div class="lg:col-span-3 bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 space-y-6">
+                    <div class="flex items-center gap-2 border-b border-slate-100 pb-3">
+                        <i class="fa-solid fa-microchip text-indigo-600 text-xl"></i>
+                        <h2 class="text-2xl font-bold text-slate-900">8.3 Arduino</h2>
+                    </div>
+                    <p>
+                        Para comunicar los sensores con los actuadores y dotar de inteligencia a nuestro sistema de control, necesitamos un "cerebro". En el ámbito educativo y de prototipado rápido, la plataforma estándar más utilizada a nivel mundial es Arduino.
+                    </p>
+                    <p>
+                        Arduino es una plataforma de código abierto (open-source) basada en una placa electrónica que integra un circuito integrado reprogrammable y un entorno de desarrollo de software diseñado para facilitar la programación de sistemas electrónicos.
+                    </p>
+
+                    <div class="border border-indigo-100 rounded-xl p-5 bg-indigo-50/10 space-y-4">
+                        <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                            <i class="fa-solid fa-diagram-project text-indigo-600"></i> Anatomía de una placa Arduino Uno
+                        </h3>
+                        <p class="text-sm text-slate-600">La placa más común y extendida es la Arduino Uno. Sus componentes principales son los siguientes:</p>
+                        
+                        <div class="space-y-3">
+                            <div class="bg-white p-3 rounded-lg border border-slate-100 shadow-sm">
+                                <span class="font-bold text-slate-900"><i class="fa-solid fa-brain text-indigo-500 mr-2"></i>El Microcontrolador:</span>
+                                <p class="text-sm text-slate-600 mt-1">Es el circuito integrado central (el chip principal, habitualmente el ATmega328P). Funciona como el cerebro de la placa: almacena las instrucciones del programa que escribimos y las ejecuta de forma secuencial a gran velocidad.</p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg border border-slate-100 shadow-sm">
+                                <span class="font-bold text-slate-900"><i class="fa-solid fa-fingerprint text-indigo-500 mr-2"></i>Pines Digitales (0 al 13):</span>
+                                <p class="text-sm text-slate-600 mt-1">Son conexiones que solo pueden gestionar dos estados eléctricos: 0 VOLTIOS (bajo / LOW/falso) o 5 VOLTIOS (alto / HIGH / verdadero). Pueden configurarse tanto de entrada (para leer un pulsador) como de salida (para encender un LED).</p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg border border-slate-100 shadow-sm">
+                                <span class="font-bold text-slate-900"><i class="fa-solid fa-chart-line text-indigo-500 mr-2"></i>Pines Analógicos (A0 al A5):</span>
+                                <p class="text-sm text-slate-600 mt-1">Son conexiones de entrada que pueden leer un rango continuo de voltajes variables entre OV y 5V. Son indispensables para conectar sensores analógicos, como el sensor de luz o de temperatura, convirtiendo ese voltaje en un número digital comprensible para el microcontrolador.</p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg border border-slate-100 shadow-sm">
+                                <span class="font-bold text-slate-900"><i class="fa-solid fa-usb text-indigo-500 mr-2"></i>Puerto USB:</span>
+                                <p class="text-sm text-slate-600 mt-1">Permite conectar la placa al ordenador para dos funciones críticas: transferir el programa que hemos redactado y suministrar energía eléctrica para que la placa funcione.</p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg border border-slate-100 shadow-sm">
+                                <span class="font-bold text-slate-900"><i class="fa-solid fa-plug text-indigo-500 mr-2"></i>Conector de alimentación externa:</span>
+                                <p class="text-sm text-slate-600 mt-1">Permite alimentar la placa mediante una pila o un adaptador de corriente cuando el robot está desconectado del ordenador y funcionando de manera autónoma.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 space-y-3 lg:sticky lg:top-6">
+                        <span class="text-xs font-bold text-blue-600 uppercase tracking-wide block"><i class="fa-solid fa-image mr-1"></i> Hardware Vista</span>
+                        <button onclick="toggleModal('modal-arduino')" class="group relative w-full block overflow-hidden rounded-xl bg-slate-100 border border-slate-200">
+                            <img src="https://www.geekfactory.mx/wp-content/uploads/arduino-uno-r3-pinout-1024x1024.png" alt="Arduino Uno Pinout" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-slate-900/20 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+                                <span class="bg-white/90 text-slate-800 px-3 py-1.5 rounded-lg text-xs font-bold shadow"><i class="fa-solid fa-expand mr-1"></i> Ampliar mapa</span>
+                            </div>
+                        </button>
+                        <p class="text-xs text-slate-500 leading-snug">Identificación y mapa de conexiones de los pines de entrada/salida analógicos y digitales de la placa Arduino Uno.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="programacion" class="scroll-mt-6 grid grid-cols-1 lg:grid-cols-4 gap-8">
+                <div class="lg:col-span-3 bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 space-y-6">
+                    <div class="flex items-center gap-2 border-b border-slate-100 pb-3">
+                        <i class="fa-solid fa-code text-indigo-600 text-xl"></i>
+                        <h2 class="text-2xl font-bold text-slate-900">8.4 Programación básica</h2>
+                    </div>
+                    <p>
+                        Programar consiste en redactar una secuencia ordenada de instrucciones lógicas que el microcontrolador de Arduino ejecutará de forma estricta. El lenguaje de programación de Arduino está basado en C++ y presenta una estructura interna fija dividida en dos bloques de funciones obligatorias.
+                    </p>
+
+                    <div class="space-y-3">
+                        <h4 class="font-bold text-slate-900 text-base">Estructura obligatoria de un programa (Sketch)</h4>
+                        <p class="text-sm text-slate-600">Cualquier código de Arduino debe contener, como mínimo, las siguientes dos funciones para poder compilarse correctamente:</p>
+                        
+                        <div class="bg-slate-950 text-slate-200 p-5 rounded-xl font-mono text-sm shadow-inner relative overflow-hidden">
+                            <div class="absolute right-3 top-3 text-slate-700 font-sans text-xs font-bold uppercase">C++</div>
+                            <div class="space-y-1">
+                                <div><span class="text-blue-400">void</span> <span class="text-yellow-400">setup</span>() {</div>
+                                <div class="text-slate-500 pl-4">// Configuración inicial. Se ejecuta una sola vez.</div>
+                                <div>}</div>
+                                <div class="pt-2"><span class="text-blue-400">void</span> <span class="text-yellow-400">loop</span>() {</div>
+                                <div class="text-slate-500 pl-4">// Bucle principal. Se ejecuta indefinidamente en ciclo.</div>
+                                <div>}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex gap-4 items-start bg-slate-50 p-4 rounded-xl border border-slate-200/60">
+                            <div class="bg-indigo-600 text-white font-bold rounded-full w-7 h-7 flex items-center justify-center shrink-0 text-sm">1</div>
+                            <div>
+                                <h5 class="font-bold text-slate-900">La función setup():</h5>
+                                <p class="text-sm text-slate-600 mt-0.5">Es la sección de configuración. El microcontrolador la ejecuta una única vez en el momento en que la placa se enciende o se reinicia. Se utiliza para definir qué pines de la placa funcionarán como entradas (INPUT) y cuáles como salidas (OUTPUT).</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 items-start bg-slate-50 p-4 rounded-xl border border-slate-200/60">
+                            <div class="bg-indigo-600 text-white font-bold rounded-full w-7 h-7 flex items-center justify-center shrink-0 text-sm">2</div>
+                            <div>
+                                <h5 class="font-bold text-slate-900">La función loop():</h5>
+                                <p class="text-sm text-slate-600 mt-0.5">Es el núcleo del programa. Una vez que termina de ejecutarse la función setup(), el microcontrolador entra en el loop() y ejecuta las instrucciones de arriba a abajo. Cuando llega a la última línea, vuelve a empezar desde la primera de forma infinitamente rápida (miles de veces por segundo) hasta que se corte la alimentación eléctrica.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3 pt-2">
+                        <h4 class="font-bold text-slate-900 text-base"><i class="fa-solid fa-terminal text-indigo-500 mr-2"></i>Funciones de control esenciales</h4>
+                        <p class="text-sm text-slate-600">Para interactuar con el hardware de la placa, el lenguaje de Arduino utiliza comandos específicos bien definidos:</p>
+                        
+                        <div class="space-y-2">
+                            <div class="border border-slate-150 rounded-xl p-3 bg-slate-50/50 flex flex-col sm:flex-row sm:items-center gap-3">
+                                <code class="bg-indigo-50 text-indigo-700 px-2 py-1 rounded font-mono text-sm font-bold shrink-0">pinMode(pin, modo);</code>
+                                <span class="text-sm text-slate-600">Define el comportamiento de un pin. Ejemplo: <code class="bg-slate-100 px-1 py-0.5 rounded font-mono text-xs">pinMode(13, OUTPUT);</code> configura el pin digital 13 para enviar energía a un actuador.</span>
+                            </div>
+                            <div class="border border-slate-150 rounded-xl p-3 bg-slate-50/50 flex flex-col sm:flex-row sm:items-center gap-3">
+                                <code class="bg-indigo-50 text-indigo-700 px-2 py-1 rounded font-mono text-sm font-bold shrink-0">digitalWrite(pin, valor);</code>
+                                <span class="text-sm text-slate-600">Modifica el estado de un pin digital de salida. Puede recibir el valor HIGH (aplica 5V) o LOW (aplica OV). Ejemplo: <code class="bg-slate-100 px-1 py-0.5 rounded font-mono text-xs">digitalWrite(13, HIGH);</code> encendería un componente conectado a dicho pin.</span>
+                            </div>
+                            <div class="border border-slate-150 rounded-xl p-3 bg-slate-50/50 flex flex-col sm:flex-row sm:items-center gap-3">
+                                <code class="bg-indigo-50 text-indigo-700 px-2 py-1 rounded font-mono text-sm font-bold shrink-0">• delay(tiempo);</code>
+                                <span class="text-sm text-slate-600">Pausa la ejecución del programa durante un intervalo medido en milisegundos (1 segundo = 1000 milisegundos). Durante esa pausa, la placa mantiene el último estado configurado sin pasar a la siguiente línea de código.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-rose-50/70 border border-rose-200 rounded-2xl p-5 space-y-2 lg:sticky lg:top-6">
+                        <div class="flex items-center gap-2 text-rose-700 font-bold text-sm">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <h4>Nota técnica: Código</h4>
+                        </div>
+                        <p class="text-xs text-rose-900 leading-relaxed">
+                            Todas las líneas de código de instrucciones en Arduino deben terminar obligatoriamente con un carácter de punto y coma (;). Olvidar este carácter es uno de los errores sintácticos más comunes en programación y causará que el compilador detenga la transferencia del código informando de un fallo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="modal-lazo" class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center z-50">
+        <div onclick="toggleModal('modal-lazo')" class="modal-overlay absolute w-full h-full bg-slate-900/60 backdrop-blur-sm"></div>
+        <div class="modal-container bg-white w-11/12 md:max-w-2xl mx-auto rounded-2xl shadow-2xl z-50 overflow-y-auto border border-slate-200">
+            <div class="p-6 space-y-4">
+                <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+                    <h3 class="text-lg font-bold text-slate-900">Infografía Completa - Lazos de Control</h3>
+                    <button onclick="toggleModal('modal-lazo')" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-lg"></i></button>
+                </div>
+                <div class="bg-white rounded-xl p-2 flex justify-center">
+                    <img src="https://www.ariat-tech.es/upfile/images/47/20251105151152881.png" alt="Esquema Detallado Lazos de Control" class="max-h-[70vh] w-auto object-contain">
+                </div>
+                <div class="flex justify-end pt-2">
+                    <button onclick="toggleModal('modal-lazo')" class="px-4 py-2 bg-slate-900 text-white rounded-xl text-sm font-medium hover:bg-slate-800 transition-colors">Cerrar vista</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-arduino" class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center z-50">
+        <div onclick="toggleModal('modal-arduino')" class="modal-overlay absolute w-full h-full bg-slate-900/60 backdrop-blur-sm"></div>
+        <div class="modal-container bg-white w-11/12 md:max-w-2xl mx-auto rounded-2xl shadow-2xl z-50 overflow-y-auto border border-slate-200">
+            <div class="p-6 space-y-4">
+                <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+                    <h3 class="text-lg font-bold text-slate-900">Pinout Detallado - Arduino Uno</h3>
+                    <button onclick="toggleModal('modal-arduino')" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-lg"></i></button>
+                </div>
+                <div class="bg-white rounded-xl p-2 flex justify-center">
+                    <img src="https://www.geekfactory.mx/wp-content/uploads/arduino-uno-r3-pinout-1024x1024.png" alt="Arduino Uno Pinout Completo" class="max-h-[70vh] w-auto object-contain">
+                </div>
+                <div class="flex justify-end pt-2">
+                    <button onclick="toggleModal('modal-arduino')" class="px-4 py-2 bg-slate-900 text-white rounded-xl text-sm font-medium hover:bg-slate-800 transition-colors">Cerrar vista</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleModal(modalId) {
+            const body = document.querySelector('body');
+            const modal = document.getElementById(modalId);
+            modal.classList.toggle('opacity-0');
+            modal.classList.toggle('pointer-events-none');
+            body.classList.toggle('modal-active');
+        }
+    </script>
+
+</body>
+</html>
