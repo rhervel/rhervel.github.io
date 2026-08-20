@@ -1,146 +1,187 @@
-<!doctype html>
-<html lang="es" class="h-full">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contacto - Tecnología y Digitalización</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 fill=%22currentColor%22 class=%22bi bi-robot%22 viewBox=%220 0 16 16%22><path d=%22M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5ZM3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.58 26.58 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.933.933 0 0 1-.765.935c-.845.147-2.34.346-4.235.346-1.895 0-3.39-.2-4.235-.346A.933.933 0 0 1 3 9.219V8.062Zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a24.767 24.767 0 0 1-1.871-.183.25.25 0 0 0-.217.068l-.92.9a.25.25 0 0 0 .169.434l.92-.9a25.25 25.25 0 0 0 1.942.183.25.25 0 0 0 .217-.068l.92-.9a.25.25 0 0 0-.17-.434l-.92.9a24.767 24.767 0 0 1-1.871-.183Z%22/><path d=%22M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1.5a2.5 2.5 0 0 0 2.5 2.5h9A2.5 2.5 0 0 0 15 13.5V12a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2V1.866ZM14 7.5V12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5Z%22/></svg>" type="image/svg+xml">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
-    body {
-        font-family: 'Inter', sans-serif;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Rafael Heredia</title>
+    <link href="assets/css/styles.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcfcfd;
+            background-image: 
+                linear-gradient(#f1f5f9 1px, transparent 1px),
+                linear-gradient(90deg, #f1f5f9 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .nav-glass {
+            background: rgba(252, 252, 253, 0.8);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        .contact-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 3rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.05);
+        }
+
+        .input-field {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 1rem;
+            padding: 1rem;
+            width: 100%;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .input-field:focus {
+            background: white;
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+        }
+
+        .btn-send {
+            background: #0f172a;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.75rem;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .btn-send:hover {
+            background: #4f46e5;
+            transform: translateY(-2px);
+        }
+    </style>
 </head>
-<body class="flex flex-col min-h-screen bg-gray-50">
+<body class="text-slate-800">
 
-<header>
-  <!-- Barra de navegación -->
-  <div class="bg-gray-800 shadow-md">
-    <div class="container mx-auto px-4">
-      <div class="flex items-center justify-between h-16">
-        <a href="index.html" class="text-white flex items-center">
-          <i class="bi bi-robot text-2xl mr-3"></i>
-          <span class="font-bold text-xl">Tecnología y Digitalización</span>
-        </a>
-        <nav>
-            <ul class="flex items-center space-x-6">
-                <li><a href="index.html" class="text-gray-300 hover:text-white transition-colors">Inicio</a></li>
-                <li><a href="contacto.html" class="text-gray-300 hover:text-white transition-colors">Contacto</a></li>
-            </ul>
-        </nav>
-      </div>
-    </div>
-  </div>
-</header>
-
-<main class="flex-grow">
-  <div class="py-12 md:py-20">
-    <div class="container mx-auto px-4">
-      <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
-        <div class="text-center mb-8">
-          <h1 class="text-4xl font-bold text-gray-800">Contacto</h1>
-          <p class="text-gray-600 mt-2">¿Tienes alguna pregunta? Rellena el formulario y me pondré en contacto contigo.</p>
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 nav-glass">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <a href="index.html" class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-black text-sm">T</div>
+                    <span class="font-black text-slate-900 tracking-tighter uppercase text-sm">rhervel</span>
+                </a>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-[10px] font-black uppercase tracking-widest text-slate-500">
+                <a href="index.html" class="hover:text-indigo-600 transition-colors">Inicio</a>
+                <a href="blog/blog.html" class="hover:text-indigo-600 transition-colors">Blog</a>
+                <a href="contacto.html" class="text-indigo-600">Contacto</a>
+            </div>
         </div>
-        
-        <!-- Mensajes de estado -->
-        <div id="successMessage" class="hidden text-center p-4 mb-4 text-sm text-green-800 bg-green-100 rounded-lg" role="alert">
-          <span class="font-medium">¡Mensaje enviado con éxito!</span> Gracias por contactar.
+    </nav>
+
+    <!-- Content -->
+    <main class="pt-32 pb-24 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <!-- Left: Info -->
+                <div>
+                    <div class="inline-flex items-center gap-2 text-indigo-600 font-black text-[10px] uppercase tracking-[0.3em] mb-6">
+                        <span class="px-3 py-1 bg-indigo-100 rounded-full">Hablemos</span>
+                    </div>
+                    <h1 class="text-5xl font-black text-slate-900 tracking-tighter mb-6 leading-tight">
+                        ¿Tienes un proyecto en mente?
+                    </h1>
+                    <p class="text-lg text-slate-500 mb-10 leading-relaxed">
+                        Estoy disponible para colaboraciones, conferencias sobre tecnología 3D o simplemente para charlar sobre el futuro digital.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-white rounded-2xl border border-slate-100 flex items-center justify-center shadow-sm">
+                                <i data-lucide="mail" class="w-5 h-5 text-indigo-600"></i>
+                            </div>
+                            <div>
+                                <p class="text-[10px] font-black uppercase tracking-widest text-slate-400">Email</p>
+                                <p class="font-bold text-slate-900">contacto@rhervel.tech</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-white rounded-2xl border border-slate-100 flex items-center justify-center shadow-sm">
+                                <i data-lucide="map-pin" class="w-5 h-5 text-indigo-600"></i>
+                            </div>
+                            <div>
+                                <p class="text-[10px] font-black uppercase tracking-widest text-slate-400">Ubicación</p>
+                                <p class="font-bold text-slate-900">España</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-12 pt-12 border-t border-slate-200">
+                        <p class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-4">Redes sociales</p>
+                        <div class="flex gap-4">
+                            <a href="#" class="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center text-white hover:bg-indigo-600 transition-colors">
+                                <i data-lucide="linkedin" class="w-4 h-4"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center text-white hover:bg-indigo-600 transition-colors">
+                                <i data-lucide="twitter" class="w-4 h-4"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center text-white hover:bg-indigo-600 transition-colors">
+                                <i data-lucide="github" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Form -->
+                <div class="contact-card p-8 md:p-12">
+                    <!-- Formspree Endpoint (Cambia el ID 'tu-id' después de registrarte) -->
+                    <form action="https://formspree.io/f/tu-id" method="POST" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 ml-1">Nombre</label>
+                                <input type="text" name="name" required class="input-field" placeholder="Tu nombre">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 ml-1">Email</label>
+                                <input type="email" name="_replyto" required class="input-field" placeholder="tu@email.com">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 ml-1">Asunto</label>
+                            <input type="text" name="subject" class="input-field" placeholder="¿En qué puedo ayudarte?">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 ml-1">Mensaje</label>
+                            <textarea name="message" rows="5" required class="input-field" placeholder="Escribe tu mensaje aquí..."></textarea>
+                        </div>
+                        
+                        <!-- Honeypot para evitar spam -->
+                        <input type="text" name="_gotcha" style="display:none">
+
+                        <button type="submit" class="btn-send">
+                            Enviar mensaje
+                        </button>
+                    </form>
+                </div>
+
+            </div>
         </div>
-        <div id="errorMessage" class="hidden text-center p-4 mb-4 text-sm text-red-800 bg-red-100 rounded-lg" role="alert">
-          <span class="font-medium">¡Error!</span> No se pudo enviar el mensaje. Inténtalo más tarde.
-        </div>
+    </main>
 
-        <form id="contactForm" method="POST">
-          <div class="grid grid-cols-1 gap-6">
-            <div>
-              <label for="name" class="block text-sm font-medium text-gray-700">Nombre</label>
-              <div class="mt-1">
-                <input type="text" name="name" id="name" autocomplete="name" class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm" placeholder="Tu Nombre Completo" required>
-              </div>
-            </div>
-            <div>
-              <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-              <div class="mt-1">
-                <input id="email" name="email" type="email" autocomplete="email" required class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm" placeholder="tu@email.com" required>
-              </div>
-            </div>
-             <div>
-              <label for="subject" class="block text-sm font-medium text-gray-700">Asunto</label>
-              <div class="mt-1">
-                <input type="text" name="subject" id="subject" class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm" placeholder="Asunto del mensaje">
-              </div>
-            </div>
-            <div>
-              <label for="message" class="block text-sm font-medium text-gray-700">Mensaje</label>
-              <div class="mt-1">
-                <textarea id="message" name="message" rows="4" class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm" placeholder="Escribe tu mensaje aquí..." required></textarea>
-              </div>
-            </div>
-            <div class="text-center">
-              <button type="submit" class="inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-gray-700 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors">
-                Enviar Mensaje
-              </button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</main>
+    <!-- Footer -->
+    <footer class="py-12 text-center">
+        <p class="text-slate-400 text-[10px] font-black uppercase tracking-[0.4em]">rhervel // 2026</p>
+    </footer>
 
-<footer class="mt-auto py-4 bg-gray-800 text-white">
-  <div class="container mx-auto text-center">
-    <span>Dpto. de Tecnología   //   IES Huerta del Rosario   //   2025-2026</span>
-  </div>
-</footer>
-
-<!-- SDK de EmailJS -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
-<script>
-  (function() {
-    // 1. INICIA EMAILJS CON TU PUBLIC KEY
-    emailjs.init({
-      publicKey: "Kp5GMcHPz_W9T1EWF", // Pega aquí tu Public Key de EmailJS
-    });
-  })();
-
-  const contactForm = document.getElementById('contactForm');
-  const successMessage = document.getElementById('successMessage');
-  const errorMessage = document.getElementById('errorMessage');
-
-  contactForm.addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    // 2. DEFINE LOS IDs DE TU SERVICIO Y PLANTILLA
-    const serviceID = 'service_uk4f5dc'; // Pega aquí tu Service ID
-    const templateID = 'template_l2t5wxg'; // Pega aquí tu Template ID
-
-    // 3. ENVÍA EL FORMULARIO
-    emailjs.sendForm(serviceID, templateID, this)
-      .then(() => {
-        // Éxito
-        successMessage.classList.remove('hidden');
-        errorMessage.classList.add('hidden');
-        contactForm.reset();
-        setTimeout(() => {
-          successMessage.classList.add('hidden');
-        }, 5000);
-      }, (err) => {
-        // Error
-        errorMessage.classList.remove('hidden');
-        successMessage.classList.add('hidden');
-        console.error('Error al enviar el email:', JSON.stringify(err));
-         setTimeout(() => {
-          errorMessage.classList.add('hidden');
-        }, 5000);
-      });
-  });
-</script>
-
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>
-

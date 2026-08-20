@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SDA 1: El reto del diseño: del problema a la solución | rhervel</title>
+        <link href="../../assets/css/styles.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']] }
+        };
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 19px;
+            top: 40px;
+            bottom: -20px;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .timeline-item:last-child::before { display: none; }
+
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+        
+        html { scroll-behavior: smooth; }
+        </style>
+    </head>
+    <body class="bg-slate-50 text-slate-900 selection:bg-indigo-100 selection:text-indigo-900 antialiased">
+        
+        <div class="flex flex-col lg:flex-row min-h-screen">
+
+            <!-- BARRA LATERAL DE NAVEGACIÓN -->
+            <aside id="sidebar" class="w-full lg:w-80 bg-slate-950 text-slate-400 flex-shrink-0 flex flex-col sticky top-0 lg:h-screen overflow-y-auto z-50">
+                <div class="p-6 space-y-6">
+                    <!-- Branding -->
+                    <a href="../tyd2.html" onclick="goHome()" class="flex items-center gap-2 font-black text-white text-xl tracking-tighter group">
+                        <span class="bg-indigo-600 text-white w-8 h-8 rounded flex items-center justify-center group-hover:rotate-12 transition-transform font-bold text-base">T</span>
+                        <div>
+                            <span class="block leading-none text-white font-extrabold text-base">RHERVEL</span>
+                            <span id="site-subtitle" class="text-[10px] font-black uppercase text-slate-500 tracking-widest block mt-1">2º ESO · TECNOLOGÍA</span>
+                        </div>
+                    </a>
+
+                    <!-- Menú de Navegación Estilo Timeline -->
+                    <nav class="space-y-1">
+                        <p class="text-[10px] font-black uppercase text-slate-600 mb-4 tracking-widest">Navegación SDA</p>
+
+                        <a href="#section-hero" class="timeline-item relative flex items-center gap-3 px-4 py-3 text-sm font-bold text-white bg-white/10 rounded-xl transition">
+                            <i class="fa-solid fa-flag-checkered w-5 text-center text-indigo-400"></i>
+                            <span id="menu-intro">Introducción y Objetivos</span>
+                        </a>
+
+                        <a href="#section-resources" class="timeline-item relative flex items-center gap-3 px-4 py-3 text-sm font-bold transition hover:text-white">
+                            <i class="fa-solid fa-book-open w-5 text-center text-indigo-400"></i>
+                            <span id="menu-resources">Recursos y Apuntes</span>
+                        </a>
+
+                        <a href="#section-product" class="timeline-item relative flex items-center gap-3 px-4 py-3 text-sm font-bold transition hover:text-white">
+                            <i class="fa-solid fa-box-archive w-5 text-center text-amber-400"></i>
+                            <span id="menu-product">Producto Final</span>
+                        </a>
+
+                        <div class="pt-4 border-t border-white/5 mt-4">
+                            <a href="#section-evaluation" class="flex items-center gap-3 px-4 py-3 text-sm font-bold text-emerald-400 transition hover:bg-emerald-500/10 rounded-xl border border-emerald-500/20">
+                                <i class="fa-solid fa-star w-5 text-center"></i>
+                                <span id="menu-eval">Evaluación por Criterios</span>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+
+                <!-- Selector de Idioma y Footer Sidebar -->
+                <div class="mt-auto p-6 border-t border-white/5 space-y-4">
+                    <div class="flex bg-slate-900 p-1 rounded-xl text-xs font-bold border border-white/10">
+                        <button id="lang-es" onclick="changeLanguage('es')" class="w-1/2 py-1.5 rounded-lg bg-indigo-600 text-white shadow-sm transition">ES</button>
+                        <button id="lang-en" onclick="changeLanguage('en')" class="w-1/2 py-1.5 rounded-lg text-slate-400 hover:text-white transition">EN</button>
+                    </div>
+                    <p class="text-[9px] uppercase tracking-widest font-bold text-slate-600 text-center">SDA 1 · 10.28 Horas (9,52%)</p>
+                </div>
+            </aside>
+
+            <!-- CONTENIDO PRINCIPAL -->
+            <main class="flex-grow flex flex-col min-h-screen">
+                
+                <!-- TOP BAR NAVEGACIÓN -->
+                <nav class="h-16 bg-white/80 backdrop-blur-md border-b border-slate-200 px-6 flex items-center justify-between sticky top-0 z-40">
+                    <div class="flex items-center text-slate-400 text-[10px] font-black uppercase tracking-widest">
+                        <a href="javascript:void(0)" onclick="goHome()" class="hover:text-indigo-600 transition">SDA 1</a>
+                        <i class="fa-solid fa-chevron-right mx-3 text-[8px]"></i>
+                        <span class="text-slate-900 uppercase">El reto del diseño</span>
+                    </div>
+                    
+                    <div class="flex items-center gap-2">
+                        <button onclick="scrollToTop()" class="p-2 text-slate-400 hover:text-indigo-600 transition-colors">
+                            <i class="fa-solid fa-circle-chevron-up text-xl"></i>
+                        </button>
+                    </div>
+                </nav>
+
+                <div class="max-w-5xl w-full mx-auto p-6 md:p-12 flex-grow">
+                    
+                    <!-- VISTA PRINCIPAL (HOME) -->
+                    <div id="homeView" class="space-y-16">
+                        
+                        <!-- HERO & INTRODUCCIÓN CON IMAGEN -->
+                        <section id="section-hero" class="mb-12">
+                            <div class="mb-12">
+                                <span id="hero-tag" class="bg-indigo-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest">SITUACIÓN DE APRENDIZAJE 1</span>
+                                <h1 id="sda-title" class="text-4xl md:text-6xl font-black text-slate-950 tracking-tighter mt-6 mb-8 leading-tight">
+                                    El reto del diseño: del problema a la solución
+                                </h1>
+
+                                <!-- Imagen de Presentación (Estilo sda_taller.html) -->
+                                <div class="relative w-full h-80 rounded-[3rem] overflow-hidden mb-8 shadow-2xl shadow-indigo-100">
+                                    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1200" 
+                                         alt="El reto del diseño" 
+                                         class="w-full h-full object-cover">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent flex items-end p-8 md:p-10">
+                                        <p class="text-white font-medium text-base md:text-lg max-w-2xl">
+                                            Ideación, análisis técnico y resolución de problemas reales del centro educativo.
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <p id="sda-intro" class="text-xl text-slate-500 leading-relaxed max-w-4xl">
+                                    En esta unidad abordamos la resolución de problemas técnicos partiendo de una necesidad real detectada en el centro educativo. Mediante el trabajo colaborativo, la búsqueda y filtrado seguro de información y el análisis de objetos tecnológicos existentes, los estudiantes idearán soluciones viables, innovadoras y sostenibles.
+                                </p>
+                            </div>
+
+                            <!-- Grid de Objetivos y Plazo/Duración -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                
+                                <!-- Objetivos Didácticos -->
+                                <div class="bg-white border border-slate-200 p-8 rounded-[2.5rem] shadow-sm flex flex-col justify-between">
+                                    <div>
+                                        <h2 class="text-sm font-black text-indigo-600 uppercase tracking-widest mb-6 flex items-center gap-3">
+                                            <i class="fa-solid fa-bullseye"></i>
+                                            <span id="title-objectives">Objetivos Didácticos</span>
+                                        </h2>
+                                        <ul id="sda-objectives-list" class="space-y-4">
+                                            <!-- Inyectados por JS -->
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- Plazo y Duración -->
+                                <div class="bg-slate-900 p-8 rounded-[2.5rem] text-white flex flex-col justify-between">
+                                    <div class="space-y-6">
+                                        <div class="flex items-center gap-3 text-indigo-400">
+                                            <i class="fa-solid fa-calendar-days text-lg"></i>
+                                            <span id="label-deadline" class="text-[10px] font-black uppercase tracking-[0.2em]">Plazo de Entrega</span>
+                                        </div>
+                                        <p id="sda-deadline" class="text-4xl font-black text-white tracking-tight">24 de Octubre</p>
+                                        <div class="space-y-1 text-xs font-semibold text-slate-400">
+                                            <p id="sda-duration" class="uppercase tracking-wider">Duración: 10,28 Horas (9,52%)</p>
+                                            <p class="text-slate-400">Módulo: 2º ESO · Tecnología</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="pt-6 border-t border-white/10 flex items-center gap-3 text-xs font-bold text-amber-400">
+                                        <i class="fa-solid fa-triangle-exclamation"></i>
+                                        <span id="label-alert">No se admitirán entregas fuera de plazo</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- RECURSOS Y APUNTES VINCULADOS -->
+                        <section id="section-resources" class="space-y-6">
+                            <div>
+                                <h2 id="grid-header" class="text-2xl font-black text-slate-950 tracking-tight">Recursos y Apuntes vinculados</h2>
+                                <p id="grid-subheader" class="text-sm text-slate-500">Documentación de soporte teórica obligatoria para el desarrollo de esta misión.</p>
+                            </div>
+                            <div id="articlesGrid" class="grid grid-cols-1 md:grid-cols-12 gap-6"></div>
+                        </section>
+
+                        <!-- PRODUCTO FINAL -->
+                        <section id="section-product" class="bg-white border border-slate-200 rounded-[2.5rem] p-8 md:p-12 shadow-sm space-y-8">
+                            <div class="border-b border-slate-100 pb-6">
+                                <span class="bg-indigo-50 text-indigo-600 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest">ENTREGABLE PRINCIPAL</span>
+                                <h2 id="title-product" class="text-2xl md:text-3xl font-black text-slate-950 tracking-tight mt-3 flex items-center gap-3">
+                                    <i class="fa-solid fa-box-open text-indigo-600"></i>Producto Final: Anteproyecto Técnico y Panel de Investigación
+                                </h2>
+                            </div>
+
+                            <p id="sda-product-desc" class="text-slate-600 text-sm md:text-base leading-relaxed">
+                                El producto final consiste en la elaboración completa y presentación grupal de un <strong>Anteproyecto Técnico articulado junto con un Panel de Investigación Físico/Digital</strong> orientado a resolver una necesidad específica detectada en las instalaciones o vida diaria del centro educativo.
+                            </p>
+
+                            <!-- ESPECIFICACIONES TÉCNICAS -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                                <div class="bg-slate-50 border border-slate-200 p-6 rounded-2xl space-y-4">
+                                    <h3 class="font-black text-sm text-slate-900 flex items-center gap-2 text-indigo-600">
+                                        <i class="fa-solid fa-file-lines"></i>1. Memoria del Anteproyecto Técnico
+                                    </h3>
+                                    <ul class="text-xs text-slate-600 space-y-2 list-disc pl-4 leading-relaxed">
+                                        <li><strong>Definición del Problema:</strong> Justificación detallada de la necesidad detectada en el centro y requisitos a cumplir.</li>
+                                        <li><strong>Investigación de Fuentes:</strong> Recopilación contrastada de información en fuentes seguras (mínimo 3 fuentes analizadas críticamente).</li>
+                                        <li><strong>Análisis Técnico de Objetos:</strong> Desglose formal, funcional, técnico y socioeconómico de al menos un objeto similar existente.</li>
+                                        <li><strong>Bocetos e Ideación:</strong> Registro individual de lluvia de ideas y boceto final consensuado con acotación básica.</li>
+                                    </ul>
+                                </div>
+
+                                <div class="bg-slate-50 border border-slate-200 p-6 rounded-2xl space-y-4">
+                                    <h3 class="font-black text-sm text-slate-900 flex items-center gap-2 text-indigo-600">
+                                        <i class="fa-solid fa-display"></i>2. Panel de Investigación y Síntesis
+                                    </h3>
+                                    <ul class="text-xs text-slate-600 space-y-2 list-disc pl-4 leading-relaxed">
+                                        <li><strong>Soporte visual:</strong> Formato dinámico (Lámina DIN-A2 o Infografía digital en alta resolución).</li>
+                                        <li><strong>Esquema del Proceso:</strong> Representación clara de las fases de ideación y mapa mental del problema.</li>
+                                        <li><strong>Análisis de Viabilidad:</strong> Cuadro comparativo de alternativas justificando la sostenibilidad del diseño propuesto.</li>
+                                        <li><strong>Organización del Trabajo:</strong> Cuadrante con reparto explícito de roles de equipo y previsión de recursos.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- EVALUACIÓN Y CALIFICACIÓN POR CRITERIOS -->
+                        <section id="section-evaluation" class="bg-white border border-slate-200 rounded-[2.5rem] p-8 md:p-12 shadow-sm space-y-8">
+                            <div>
+                                <div class="flex items-center gap-2 text-indigo-600 text-xs font-bold uppercase tracking-widest">
+                                    <i class="fa-solid fa-award"></i>
+                                    <span>Marco de Evaluación Oficial LOMLOE / BOJA</span>
+                                </div>
+                                <h2 id="title-evaluation" class="text-2xl md:text-3xl font-black text-slate-950 tracking-tight mt-1">
+                                    Rúbrica de Evaluación por Criterio
+                                </h2>
+                                <p id="sub-evaluation" class="text-xs text-slate-400 font-medium uppercase tracking-wider mt-1">
+                                    Selecciona un criterio para desplegar sus saberes básicos y la rúbrica de desempeño
+                                </p>
+                            </div>
+
+                            <!-- Selector de Pestañas -->
+                            <div id="criteria-tabs" class="flex flex-wrap gap-2 border-b border-slate-200 pb-4">
+                                <!-- Inyectado dinámicamente -->
+                            </div>
+
+                            <!-- Contenedor del Criterio Activo -->
+                            <div id="criteria-detail-container" class="space-y-6 pt-2">
+                                <!-- Inyectado dinámicamente -->
+                            </div>
+                        </section>
+
+                    </div>
+
+                    <!-- VISTA DE ARTÍCULO DE RECURSO -->
+                    <div id="articleView" class="hidden space-y-8 py-4">
+                        <button onclick="goHome()" class="inline-flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-indigo-600 transition group">
+                            <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i>
+                            <span id="btn-back">Volver al panel de la SDA</span>
+                        </button>
+
+                        <article class="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-sm border border-slate-200 space-y-6">
+                            <div class="flex items-center justify-between border-b border-slate-100 pb-6">
+                                <span id="articleCategoryTag" class="text-xs font-black bg-indigo-50 text-indigo-600 px-3 py-1 rounded-full uppercase tracking-widest">RECURSO</span>
+                                <button onclick="copyArticleLink()" class="p-2 text-slate-400 hover:text-slate-900 bg-slate-50 hover:bg-slate-100 rounded-xl transition">
+                                    <i class="fa-solid fa-share-nodes"></i>
+                                </button>
+                            </div>
+                            <h1 id="articleTitle" class="text-3xl md:text-5xl font-black tracking-tight text-slate-950 leading-tight"></h1>
+                            
+                            <div id="articleImageContainer" class="hidden w-full h-64 md:h-96 rounded-2xl overflow-hidden bg-slate-100 my-6">
+                                <img id="articleImage" src="" alt="" class="w-full h-full object-cover">
+                            </div>
+                            
+                            <!-- CONTENIDO DEL ARTÍCULO -->
+                            <div id="articleContent" class="prose prose-slate max-w-none text-slate-800 leading-relaxed space-y-4 text-base md:text-lg"></div>
+
+                            <!-- BOTONES DE NAVEGACIÓN -->
+                            <div class="pt-8 mt-10 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+                                <button onclick="goHome()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-xs font-bold px-6 py-3 bg-indigo-600 text-white hover:bg-indigo-700 rounded-xl shadow-md transition">
+                                    <i class="fa-solid fa-arrow-left"></i>
+                                    <span>Volver a la SDA</span>
+                                </button>
+
+                                <button onclick="scrollToTop()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-xs font-bold px-6 py-3 bg-slate-100 text-slate-700 hover:bg-slate-200 rounded-xl transition">
+                                    <i class="fa-solid fa-arrow-up"></i>
+                                    <span>Volver Arriba</span>
+                                </button>
+                            </div>
+                        </article>
+                    </div>
+
+                </div>
+
+                <!-- FOOTER -->
+                <footer class="py-12 border-t border-slate-200 bg-white text-center mt-auto">
+                    <div class="flex items-center justify-center gap-2 mb-3">
+                        <div class="w-6 h-6 bg-slate-900 rounded flex items-center justify-center text-white font-black text-[10px]">T</div>
+                        <span class="font-black text-slate-900 tracking-tighter uppercase text-xs">rhervel.sda</span>
+                    </div>
+                    <p id="footer-text" class="text-slate-400 text-[10px] font-bold uppercase tracking-widest">© 2026 The Tecnoversation. Documentación Curricular Adaptada a BOJA.</p>
+                </footer>
+            </main>
+        </div>
+
+        <!-- NOTIFICACIÓN TOAST -->
+        <div id="toast" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-slate-950 text-white text-xs font-bold px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3 transition duration-300 translate-y-20 opacity-0 z-50">
+            <i class="fa-solid fa-circle-check text-emerald-400"></i>
+            <span id="toast-text">¡Enlace copiado!</span>
+        </div>
+
+        <script src="apuntes.js"></script>
+
+        <script>
+        const TARGET_SDA = "sda1"; 
+
+        // CRITERIOS Y DATOS CURRICULARES OFICIALES
+        const criteriaData = [
+            {
+                id: "1.1",
+                pesoSda: "14,76%",
+                pesoTot: "4,76%",
+                compSab: "3",
+                desc: "Definir problemas sencillos o necesidades básicas planteadas, buscando y contrastando información procedente de diferentes fuentes fácilmente accesibles de manera crítica y segura, evaluando su fiabilidad y pertinencia.",
+                saberes: [
+                    "TYD.2.A.1. Estrategias, técnicas y marcos de resolución de problemas sencillos en diferentes contextos y sus fases.",
+                    "El proceso tecnológico: fases del proyecto técnico (necesidad, idea, diseño, planificación, construcción, evaluación y memoria).",
+                    "Organización del trabajo en el aula-taller."
+                ],
+                rubric: {
+                    excelente: "Busca, filtra y contrasta activamente información en diversas fuentes digitales e impresas, evaluando críticamente su fiabilidad. Define con precisión quirúrgica el problema del centro.",
+                    enProceso: "Accede a fuentes de información sugeridas y contrasta aspectos básicos, identificando la necesidad central pero sin profundizar en la fiabilidad del origen.",
+                    insuficiente: "Recoge información de fuentes únicas o no fiables sin verificar pertinencia. Muestra dificultades para delimitar el problema técnico."
+                }
+            },
+            {
+                id: "1.2",
+                pesoSda: "22,38%",
+                pesoTot: "4,76%",
+                compSab: "2",
+                desc: "Comprender y examinar productos tecnológicos de uso habitual a través del análisis de objetos básicos y sistemas sencillos, empleando el método científico y utilizando herramientas elementales de simulación en la construcción de conocimiento.",
+                saberes: [
+                    "TYD.2.A.2. Estrategias de búsqueda crítica de información durante la investigación y definición de problemas sencillos planteados.",
+                    "Búsqueda y selección de información en fuentes impresas y digitales.",
+                    "Análisis de viabilidad de proyectos técnicos."
+                ],
+                rubric: {
+                    excelente: "Aplica de forma rigurosa el análisis formal, técnico, funcional y socioeconómico de objetos del entorno, extrayendo conclusiones clave para la viabilidad de la solución.",
+                    enProceso: "Realiza un análisis parcial del objeto (formal y funcional), identificando su utilidad pero omitiendo detalles de viabilidad socioeconómica o técnica.",
+                    insuficiente: "Se limita a describir superficialmente el objeto sin aplicar las pautas del método de análisis técnico ni evaluar su viabilidad."
+                }
+            },
+            {
+                id: "2.1",
+                pesoSda: "32,38%",
+                pesoTot: "7,14%",
+                compSab: "2",
+                desc: "Idear y diseñar soluciones eficaces, innovadoras y sostenibles a problemas sencillos definidos, introduciendo la aplicación de conceptos, técnicas y procedimientos interdisciplinares, así como criterios de sostenibilidad con actitud emprendedora, perseverante y creativa.",
+                saberes: [
+                    "TYD.2.A.3. Análisis de productos básicos y de sistemas tecnológicos sencillos para la construcción de conocimiento desde distintos enfoques y ámbitos.",
+                    "Método de análisis de objetos técnicos (análisis formal, técnico, funcional y socioeconómico).",
+                    "TYD.2.A.8. Emprendimiento, resiliencia, perseverancia y creatividad para abordar problemas sencillos desde una perspectiva interdisciplinar.",
+                    "Técnicas de creatividad e ideación (lluvia de ideas, mapas mentales).",
+                    "Trabajo colaborativo, reparto de roles y gestión del error en proyectos técnicos."
+                ],
+                rubric: {
+                    excelente: "Aporta ideas highly creativas, sostenibles y bien estructuradas mediante mapas mentales y lluvias de ideas. Muestra liderazgo colaborativo y excelente resiliencia.",
+                    enProceso: "Propone soluciones funcionales basadas en ideas convencionales. Participa activamente en el equipo y acepta el reparto de roles establecido.",
+                    insuficiente: "Escasa aportación en las fases de ideación. Muestra rigidez ante los errores y dificultades para trabajar de manera colaborativa o equitativa."
+                }
+            }
+        ];
+
+        // TRADUCCIONES Y OBJETIVOS
+        const uiTranslations = {
+            es: {
+                subtitle: "2º ESO · TECNOLOGÍA",
+                menuIntro: "Introducción y Objetivos",
+                menuResources: "Recursos y Apuntes",
+                menuProduct: "Producto Final",
+                menuEval: "Evaluación por Criterios",
+                heroTag: "SITUACIÓN DE APRENDIZAJE 1",
+                sdaTitle: "El reto del diseño: del problema a la solución",
+                titleObjectives: "Objetivos Didácticos",
+                objectives: [
+                    "Definir necesidades y problemas sencillos del centro buscando y contrastando información crítica y segura.",
+                    "Examinar y analizar objetos cotidianos aplicando el método de análisis formal, técnico, funcional y socioeconómico.",
+                    "Idear soluciones creativas, viables y sostenibles mediante técnicas de ideación y trabajo colaborativo."
+                ],
+                deadlineLabel: "Plazo de Entrega",
+                deadline: "24 de Octubre",
+                duration: "Duración: 10,28 Horas (9,52%)",
+                alertLabel: "No se admitirán entregas fuera de plazo",
+                sdaIntro: "En esta unidad abordamos la resolución de problemas técnicos partiendo de una necesidad real detectada en el centro educativo. Mediante el trabajo colaborativo, la búsqueda y filtrado seguro de información y el análisis de objetos tecnológicos existentes, los estudiantes idearán soluciones viables, innovadoras y sostenibles.",
+                gridHeader: "Recursos y Apuntes vinculados",
+                gridSubheader: "Documentación de soporte teórica obligatoria para el desarrollo de esta misión.",
+                titleProduct: "Producto Final: Anteproyecto Técnico y Panel de Investigación",
+                titleEvaluation: "Rúbrica de Evaluación por Criterio",
+                subEvaluation: "Selecciona un criterio para desplegar sus saberes básicos y la rúbrica de desempeño",
+                btnBack: "Volver al panel de la SDA",
+                toastText: "¡Enlace copiado con éxito!",
+                readNotes: "Estudiar este recurso",
+                footer: "© 2026 The Tecnoversation. Documentación Curricular Adaptada a BOJA."
+            },
+            en: {
+                subtitle: "2ND ESO · TECHNOLOGY",
+                menuIntro: "Intro & Objectives",
+                menuResources: "Resources & Notes",
+                menuProduct: "Final Product",
+                menuEval: "Evaluation Criteria",
+                heroTag: "LEARNING SITUATION 1",
+                sdaTitle: "The Design Challenge: From Problem to Solution",
+                titleObjectives: "Learning Objectives",
+                objectives: [
+                    "Define simple school needs by searching and contrasting critical and safe information.",
+                    "Examine and analyze everyday objects applying formal, technical, functional, and socio-economic methods.",
+                    "Devise creative, viable, and sustainable solutions using brainstorming techniques and collaborative work."
+                ],
+                deadlineLabel: "Submission Deadline",
+                deadline: "October 24th",
+                duration: "Duration: 10.28 Hours (9.52%)",
+                alertLabel: "Late submissions will not be accepted",
+                sdaIntro: "In this unit, we address technical problem-solving starting from a real need detected in the school center. Through collaborative work, searching and safe filtering of information, and analysis of existing objects, students will design viable, innovative, and sustainable solutions.",
+                gridHeader: "Linked Resources & Notes",
+                gridSubheader: "Mandatory supporting theoretical documentation for this mission.",
+                titleProduct: "Final Product: Technical Preliminary Project & Research Board",
+                titleEvaluation: "Rubric Evaluation by Criterion",
+                subEvaluation: "Select a criterion to unfold its basic knowledge and performance rubric",
+                btnBack: "Back to SDA Dashboard",
+                toastText: "Link copied successfully!",
+                readNotes: "Study this resource",
+                footer: "© 2026 The Tecnoversation. Curricular Documentation."
+            }
+        };
+
+        let currentLanguage = 'es';
+        let currentArticleId = null;
+        let selectedCriteriaId = "1.1";
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function setCriteria(critId) {
+            selectedCriteriaId = critId;
+            renderCriteriaSection();
+        }
+
+        function renderCriteriaSection() {
+            const crit = criteriaData.find(c => c.id === selectedCriteriaId);
+            if (!crit) return;
+
+            // Render Tabs
+            const tabsContainer = document.getElementById('criteria-tabs');
+            tabsContainer.innerHTML = criteriaData.map(c => {
+                const isActive = c.id === selectedCriteriaId;
+                const activeClass = isActive 
+                    ? "bg-indigo-600 text-white shadow-md" 
+                    : "bg-slate-100 text-slate-700 hover:bg-slate-200";
+                return `<button onclick="setCriteria('${c.id}')" class="px-4 py-2 rounded-xl text-xs font-black transition ${activeClass}">
+                    Criterio ${c.id} (${c.pesoSda})
+                </button>`;
+            }).join('');
+
+            // Render Detail
+            const detailContainer = document.getElementById('criteria-detail-container');
+            detailContainer.innerHTML = `
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-4">
+                    <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 pb-3">
+                        <span class="text-xs font-black text-indigo-600 uppercase tracking-wider">Criterio ${crit.id} · Competencia Sabida ${crit.compSab}</span>
+                        <div class="flex gap-4 text-xs font-bold text-slate-500">
+                            <span>Peso SDA: <strong class="text-slate-900">${crit.pesoSda}</strong></span>
+                            <span>Peso Total Curso: <strong class="text-slate-900">${crit.pesoTot}</strong></span>
+                        </div>
+                    </div>
+
+                    <p class="text-sm font-medium text-slate-800 leading-relaxed">${crit.desc}</p>
+
+                    <div class="space-y-2 pt-2">
+                        <h4 class="text-xs font-black text-slate-900 uppercase tracking-wider">Saberes Básicos Asociados (BOJA):</h4>
+                        <ul class="text-xs text-slate-600 space-y-1.5 list-disc pl-4">
+                            ${crit.saberes.map(s => `<li>${s}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Tabla de Rúbrica con Bloom styling -->
+                <div class="overflow-x-auto border border-slate-200 rounded-2xl">
+                    <table class="w-full text-left text-xs">
+                        <thead class="bg-slate-100 text-slate-700 font-bold uppercase tracking-wider">
+                            <tr>
+                                <th class="p-4 w-1/3 text-emerald-800 bg-emerald-50">Excelente (5 pts)</th>
+                                <th class="p-4 w-1/3 text-amber-800 bg-amber-50">En Proceso (3 pts)</th>
+                                <th class="p-4 w-1/3 text-rose-800 bg-rose-50">Insuficiente (1 pt)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 leading-relaxed text-slate-600 font-medium">
+                            <tr>
+                                <td class="p-4 bg-emerald-50/20 border-l-4 border-emerald-500">${crit.rubric.excelente}</td>
+                                <td class="p-4 bg-amber-50/10 border-l-4 border-amber-500">${crit.rubric.enProceso}</td>
+                                <td class="p-4 bg-rose-50/10 border-l-4 border-rose-500">${crit.rubric.insuficiente}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            `;
+        }
+
+        function changeLanguage(lang) {
+            currentLanguage = lang;
+            const t = uiTranslations[lang];
+
+            document.getElementById('lang-es').className = lang === 'es' ? "w-1/2 py-1.5 rounded-lg bg-indigo-600 text-white shadow-sm transition" : "w-1/2 py-1.5 rounded-lg text-slate-400 hover:text-white transition";
+            document.getElementById('lang-en').className = lang === 'en' ? "w-1/2 py-1.5 rounded-lg bg-indigo-600 text-white shadow-sm transition" : "w-1/2 py-1.5 rounded-lg text-slate-400 hover:text-white transition";
+            
+            document.getElementById('site-subtitle').innerText = t.subtitle;
+            document.getElementById('menu-intro').innerText = t.menuIntro;
+            document.getElementById('menu-resources').innerText = t.menuResources;
+            document.getElementById('menu-product').innerText = t.menuProduct;
+            document.getElementById('menu-eval').innerText = t.menuEval;
+            document.getElementById('hero-tag').innerText = t.heroTag;
+            document.getElementById('sda-title').innerText = t.sdaTitle;
+            document.getElementById('title-objectives').innerText = t.titleObjectives;
+            document.getElementById('label-deadline').innerText = t.deadlineLabel;
+            document.getElementById('sda-deadline').innerText = t.deadline;
+            document.getElementById('sda-duration').innerText = t.duration;
+            document.getElementById('label-alert').innerText = t.alertLabel;
+            document.getElementById('sda-intro').innerText = t.sdaIntro;
+            document.getElementById('grid-header').innerText = t.gridHeader;
+            document.getElementById('grid-subheader').innerText = t.gridSubheader;
+            document.getElementById('title-evaluation').innerText = t.titleEvaluation;
+            document.getElementById('sub-evaluation').innerText = t.subEvaluation;
+            document.getElementById('btn-back').innerText = t.btnBack;
+            document.getElementById('toast-text').innerText = t.toastText;
+            document.getElementById('footer-text').innerText = t.footer;
+
+            // Inyectar Objetivos
+            const objContainer = document.getElementById('sda-objectives-list');
+            objContainer.innerHTML = t.objectives.map((obj, idx) => `
+                <li class="flex items-start gap-4 p-4 bg-slate-50 rounded-2xl">
+                    <div class="w-6 h-6 bg-indigo-100 text-indigo-600 rounded-lg flex items-center justify-center text-xs font-bold flex-shrink-0">0${idx + 1}</div>
+                    <p class="text-xs font-bold text-slate-700 leading-relaxed">${obj}</p>
+                </li>
+            `).join('');
+
+            renderCriteriaSection();
+
+            if (currentArticleId) { showArticle(currentArticleId); } else { renderArticlesGrid(); }
+        }
+
+        function renderArticlesGrid() {
+            const gridContainer = document.getElementById('articlesGrid');
+            gridContainer.innerHTML = '';
+
+            const filtered = typeof articles !== 'undefined' ? articles.filter(art => art.sda === TARGET_SDA) : [];
+
+            if (filtered.length === 0) {
+                gridContainer.innerHTML = `<div class="col-span-full text-center py-12 text-slate-400 font-medium text-sm">No hay apuntes vinculados actualmente en la base de datos.</div>`;
+                return;
+            }
+
+            filtered.forEach(art => {
+                const title = currentLanguage === 'es' ? art.title : (art.title_en || art.title);
+                const intro = currentLanguage === 'es' ? art.intro : (art.intro_en || art.intro);
+                const categoryLabel = currentLanguage === 'es' ? art.categoryLabel : (art.categoryLabel_en || art.categoryLabel);
+
+                const card = document.createElement('div');
+                const baseClasses = "rounded-[2rem] p-6 shadow-sm hover:shadow-xl hover:shadow-indigo-500/10 transition duration-300 flex flex-col justify-between group cursor-pointer border border-slate-200 overflow-hidden";
+                const dynamicGridSize = art.gridClass || "md:col-span-4 bg-white";
+                card.className = `${baseClasses} ${dynamicGridSize}`;
+                card.setAttribute('onclick', `showArticle(${art.id})`);
+
+                const isIndigoCard = dynamicGridSize.includes('bg-indigo-600') || dynamicGridSize.includes('bg-red-600');
+                
+                if(isIndigoCard) {
+                    card.className = `${baseClasses} ${dynamicGridSize.replace('bg-red-600', 'bg-indigo-600')}`;
+                }
+
+                const tagClass = isIndigoCard ? "bg-indigo-700 text-indigo-100" : "bg-slate-100 text-slate-600 group-hover:bg-indigo-50 group-hover:text-indigo-600";
+                const titleClass = isIndigoCard ? "text-white" : "text-slate-900 group-hover:text-indigo-600";
+                const introClass = isIndigoCard ? "text-indigo-100" : "text-slate-500";
+                const footerClass = isIndigoCard ? "border-indigo-500 text-white" : "border-slate-100 text-slate-900 group-hover:text-indigo-600";
+
+                let imageHTML = '';
+                if (art.image && !isIndigoCard) {
+                    imageHTML = `
+                        <div class="relative h-48 -mx-6 -mt-6 mb-4 overflow-hidden bg-slate-100">
+                            <img src="${art.image}" alt="${title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                    `;
+                }
+
+                card.innerHTML = `
+                    <div class="space-y-4 flex-grow">
+                        ${imageHTML}
+                        <div class="flex items-center gap-2">
+                            <span class="text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest transition ${tagClass}">${categoryLabel}</span>
+                        </div>
+                        <h3 class="text-xl font-black tracking-tight leading-snug transition ${titleClass}">${title}</h3>
+                        <p class="text-sm leading-relaxed line-clamp-3 ${introClass}">${intro}</p>
+                    </div>
+                    <div class="pt-4 mt-6 border-t flex items-center justify-between text-xs font-bold transition ${footerClass}">
+                        <span>${uiTranslations[currentLanguage].readNotes}</span>
+                        <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                `;
+                gridContainer.appendChild(card);
+            });
+        }
+
+        function showArticle(id) {
+            if (typeof articles === 'undefined') return;
+            const art = articles.find(a => a.id === id);
+            if (!art) return;
+            currentArticleId = id;
+            document.getElementById('homeView').className = "hidden";
+            document.getElementById('articleView').className = "space-y-8 py-4";
+
+            const title = currentLanguage === 'es' ? art.title : (art.title_en || art.title);
+            const content = currentLanguage === 'es' ? art.content : (art.content_en || art.content);
+            
+            document.getElementById('articleCategoryTag').innerText = currentLanguage === 'es' ? art.categoryLabel : (art.categoryLabel_en || art.categoryLabel);
+            document.getElementById('articleTitle').innerText = title;
+            document.getElementById('articleContent').innerHTML = content;
+
+            const imageContainer = document.getElementById('articleImageContainer');
+            const articleImg = document.getElementById('articleImage');
+            if (art.image) {
+                articleImg.src = art.image;
+                articleImg.alt = title;
+                imageContainer.classList.remove('hidden');
+            } else {
+                imageContainer.classList.add('hidden');
+            }
+
+            if (window.MathJax) { MathJax.typesetPromise(); }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function goHome() {
+            currentArticleId = null;
+            document.getElementById('articleView').className = "hidden";
+            document.getElementById('homeView').className = "space-y-16";
+            changeLanguage(currentLanguage);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function copyArticleLink() {
+            const url = window.location.origin + window.location.pathname + `#apunte-${currentArticleId}`;
+            const tempInput = document.createElement("input");
+            tempInput.value = url; document.body.appendChild(tempInput); tempInput.select(); document.execCommand("copy"); document.body.removeChild(tempInput);
+            const toast = document.getElementById('toast');
+            toast.classList.remove('translate-y-20', 'opacity-0'); toast.classList.add('translate-y-0', 'opacity-100');
+            setTimeout(() => { toast.classList.remove('translate-y-0', 'opacity-100'); toast.classList.add('translate-y-20', 'opacity-0'); }, 3000);
+        }
+
+        window.onload = function () {
+            changeLanguage('es');
+        };
+        </script>
+    </body>
+</html>
