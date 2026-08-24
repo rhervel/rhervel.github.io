@@ -58,6 +58,7 @@
             font-size: 0.75rem;
             transition: all 0.3s ease;
             width: 100%;
+            cursor: pointer;
         }
 
         .btn-send:hover {
@@ -141,8 +142,14 @@
 
                 <!-- Right: Form -->
                 <div class="contact-card p-8 md:p-12">
-                    <!-- Formspree Endpoint (Cambia el ID 'tu-id' después de registrarte) -->
-                    <form action="https://formspree.io/f/tu-id" method="POST" class="space-y-6">
+                    <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+                        
+                        <!-- Pega tu clave de Web3Forms aquí -->
+                        <input type="hidden" name="access_key" value="2030f762-8cff-4b29-9fe7-0b8abf3a513f">
+                        
+                        <!-- Protección Anti-Spam de Web3Forms -->
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 ml-1">Nombre</label>
@@ -150,7 +157,7 @@
                             </div>
                             <div>
                                 <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 ml-1">Email</label>
-                                <input type="email" name="_replyto" required class="input-field" placeholder="tu@email.com">
+                                <input type="email" name="email" required class="input-field" placeholder="tu@email.com">
                             </div>
                         </div>
                         <div>
@@ -161,13 +168,13 @@
                             <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 ml-1">Mensaje</label>
                             <textarea name="message" rows="5" required class="input-field" placeholder="Escribe tu mensaje aquí..."></textarea>
                         </div>
-                        
-                        <!-- Honeypot para evitar spam -->
-                        <input type="text" name="_gotcha" style="display:none">
 
-                        <button type="submit" class="btn-send">
+                        <button type="submit" id="submitBtn" class="btn-send">
                             Enviar mensaje
                         </button>
+
+                        <!-- Mensaje de estado -->
+                        <p id="formResult" class="text-center text-xs font-bold mt-4 hidden"></p>
                     </form>
                 </div>
 
@@ -182,6 +189,50 @@
 
     <script>
         lucide.createIcons();
+
+        // Envío mediante AJAX para evitar redirecciones de página
+        const form = document.getElementById('contactForm');
+        const result = document.getElementById('formResult');
+        const submitBtn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            submitBtn.disabled = true;
+            submitBtn.innerText = 'ENVIANDO...';
+            result.classList.remove('hidden', 'text-emerald-600', 'text-rose-600');
+            result.classList.add('text-slate-500');
+            result.innerText = 'Procesando...';
+
+            const formData = new FormData(form);
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    result.classList.remove('text-slate-500');
+                    result.classList.add('text-emerald-600');
+                    result.innerText = '¡Mensaje enviado con éxito!';
+                    form.reset();
+                } else {
+                    result.classList.remove('text-slate-500');
+                    result.classList.add('text-rose-600');
+                    result.innerText = json.message || 'Ocurrió un error. Inténtalo de nuevo.';
+                }
+            })
+            .catch(error => {
+                result.classList.remove('text-slate-500');
+                result.classList.add('text-rose-600');
+                result.innerText = 'Error al conectar con el servidor.';
+            })
+            .then(function() {
+                submitBtn.disabled = false;
+                submitBtn.innerText = 'ENVIAR MENSAJE';
+            });
+        });
     </script>
 </body>
 </html>
