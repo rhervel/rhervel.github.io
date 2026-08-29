@@ -105,7 +105,7 @@
             </div>
 
             <!-- Vista de Artículo -->
-            <div id="articleView" class="hidden max-w-3xl mx-auto space-y-8">
+            <div id="articleView" class="hidden max-w-6xl mx-auto space-y-8">
                 <button onclick="goHome()" class="inline-flex items-center space-x-2 text-xs font-bold text-slate-500 hover:text-indigo-600 transition group">
                     <i data-lucide="arrow-left" class="w-3.5 h-3.5 transform group-hover:-translate-x-0.5 transition"></i>
                     <span id="btn-back">Volver</span>
@@ -276,7 +276,7 @@ function renderArticlesGrid() {
             if (!art) return;
             currentArticleId = id;
             document.getElementById('homeView').className = "hidden";
-            document.getElementById('articleView').className = "max-w-3xl mx-auto space-y-8";
+            document.getElementById('articleView').className = "max-w-6xl mx-auto space-y-8";
 
             const title = currentLanguage === 'es' ? art.title : (art.title_en || art.title);
             const content = currentLanguage === 'es' ? art.content : (art.content_en || art.content);
