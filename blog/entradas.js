@@ -155,7 +155,7 @@ title_en: "Local Area Network (LAN) Architecture & TCP/IP Model",
 intro: "Comprende cómo viajan los paquetes de datos a través de routers, switches, direcciones IP y redes WiFi domésticas.",
 intro_en: "Understand how data packets travel across routers, switches, IP addresses, and home WiFi networks.",
 image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80",
-gridClass: "md:col-span-8",
+gridClass: "md:col-span-4",
 content: `
 <p class="lead">Cada vez que abres una página web o envías un mensaje, miles de paquetes de información recorren una infraestructura compleja coordinada por el protocolo TCP/IP.</p>
 
@@ -190,7 +190,7 @@ title_en: "Cybersecurity & Privacy: Protection in Digital Environments",
 intro: "Estrategias esenciales para proteger la identidad digital, prevenir ataques de phishing y securizar contraseñas.",
 intro_en: "Essential strategies to protect your digital identity, prevent phishing attacks, and secure passwords.",
 image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80",
-gridClass: "md:col-span-12",
+gridClass: "md:col-span-4",
 content: `
 <p class="lead">La digitalización comporta importantes retos éticos y de seguridad. Proteger la huella digital y evitar vulnerabilidades es imprescindible para cualquier ciudadano digital.</p>
 
@@ -225,7 +225,7 @@ title_en: "Algorithmic Thinking: From Flowcharts to Block-based Coding",
 intro: "Estructuras de control, bucles, condicionales y funciones en Scratch y App Inventor para resolver problemas reales.",
 intro_en: "Control structures, loops, conditionals, and functions in Scratch and App Inventor for problem solving.",
 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
-gridClass: "md:col-span-8",
+gridClass: "md:col-span-4",
 content: `
 <p class="lead">Antes de escribir código textual, es crucial desarrollar la competencia de resolución algorítmica: dividir problemas complejos en subproblemas secuenciales más sencillos.</p>
 <h3>Estructuras de Control Fundamentales</h3>
@@ -257,7 +257,7 @@ title_en: "3D Design & Printing: From CAD to Additive Manufacturing",
 intro: "Aprende el flujo completo de prototipado 3D: diseño paramétrico, laminado en Ultimaker Cura e impresión en FDM.",
 intro_en: "Learn the end-to-end 3D prototyping workflow: CAD modeling, slicers (Cura), and FDM 3D printing.",
 image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
-gridClass: "md:col-span-4",
+gridClass: "md:col-span-8",
 content: `
 <p class="lead">El diseño asistido por ordenador (CAD) y la fabricación aditiva permiten materializar prototipos físicos directamente desde modelos virtuales en 3D.</p>
 <h3>El Flujo de Trabajo en Impresión 3D</h3>
@@ -321,7 +321,7 @@ title_en: "Fundamentals of Artificial Intelligence & Machine Learning",
 intro: "Introducción a las redes neuronales, entrenamiento de modelos con Teachable Machine y sesgo algorítmico.",
 intro_en: "Introduction to neural networks, model training with Teachable Machine, and algorithmic bias.",
 image: "https://www.telefonicaempresas.es/grandes-empresas/wp-content/uploads/sites/6/2025/01/ia-cabecera-aspect-ratio-1-1.jpg",
-gridClass: "md:col-span-8",
+gridClass: "md:col-span-4",
 content: `
 <p class="lead">La Inteligencia Artificial ha dejado de ser ciencia ficción para convertirse en una competencia técnica básica dentro del currículo de Tecnología y Digitalización.</p>
 <h3>¿Cómo aprende una máquina?</h3>

@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SDA 1: Sistemas Mecánicos e Ideación de Proyectos | rhervel</title>
+        <link href="../../assets/css/styles.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']] }
+        };
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 19px;
+            top: 40px;
+            bottom: -20px;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .timeline-item:last-child::before { display: none; }
+
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+        
+        html { scroll-behavior: smooth; }
+        </style>
+    </head>
+    <body class="bg-slate-50 text-slate-900 selection:bg-emerald-100 selection:text-emerald-900 antialiased">
+        
+        <div class="flex flex-col lg:flex-row min-h-screen">
+
+            <!-- BARRA LATERAL DE NAVEGACIÓN -->
+            <aside id="sidebar" class="w-full lg:w-80 bg-slate-950 text-slate-400 flex-shrink-0 flex flex-col sticky top-0 lg:h-screen overflow-y-auto z-50">
+                <div class="p-6 space-y-6">
+                    <!-- Branding -->
+                    <a href="../tyd3.html" onclick="goHome()" class="flex items-center gap-2 font-black text-white text-xl tracking-tighter group">
+                        <span class="bg-emerald-600 text-white w-8 h-8 rounded flex items-center justify-center group-hover:rotate-12 transition-transform font-bold text-base">T</span>
+                        <div>
+                            <span class="block leading-none text-white font-extrabold text-base">RHERVEL</span>
+                            <span id="site-subtitle" class="text-[10px] font-black uppercase text-slate-500 tracking-widest block mt-1">3º ESO · TECNOLOGÍA</span>
+                        </div>
+                    </a>
+
+                    <!-- Menú de Navegación Estilo Timeline -->
+                    <nav class="space-y-1">
+                        <p class="text-[10px] font-black uppercase text-slate-600 mb-4 tracking-widest">Navegación SDA</p>
+
+                        <a href="#section-hero" class="timeline-item relative flex items-center gap-3 px-4 py-3 text-sm font-bold text-white bg-white/10 rounded-xl transition">
+                            <i class="fa-solid fa-flag-checkered w-5 text-center text-emerald-400"></i>
+                            <span id="menu-intro">Introducción y Objetivos</span>
+                        </a>
+
+                        <a href="#section-resources" class="timeline-item relative flex items-center gap-3 px-4 py-3 text-sm font-bold transition hover:text-white">
+                            <i class="fa-solid fa-book-open w-5 text-center text-emerald-400"></i>
+                            <span id="menu-resources">Recursos y Apuntes</span>
+                        </a>
+
+                        <a href="#section-product" class="timeline-item relative flex items-center gap-3 px-4 py-3 text-sm font-bold transition hover:text-white">
+                            <i class="fa-solid fa-box-archive w-5 text-center text-amber-400"></i>
+                            <span id="menu-product">Producto Final</span>
+                        </a>
+
+                        <div class="pt-4 border-t border-white/5 mt-4">
+                            <a href="#section-evaluation" class="flex items-center gap-3 px-4 py-3 text-sm font-bold text-emerald-400 transition hover:bg-emerald-500/10 rounded-xl border border-emerald-500/20">
+                                <i class="fa-solid fa-star w-5 text-center"></i>
+                                <span id="menu-eval">Evaluación por Criterios</span>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+
+                <!-- Selector de Idioma y Footer Sidebar -->
+                <div class="mt-auto p-6 border-t border-white/5 space-y-4">
+                    <div class="flex bg-slate-900 p-1 rounded-xl text-xs font-bold border border-white/10">
+                        <button id="lang-es" onclick="changeLanguage('es')" class="w-1/2 py-1.5 rounded-lg bg-emerald-600 text-white shadow-sm transition">ES</button>
+                        <button id="lang-en" onclick="changeLanguage('en')" class="w-1/2 py-1.5 rounded-lg text-slate-400 hover:text-white transition">EN</button>
+                    </div>
+                    <p class="text-[9px] uppercase tracking-widest font-bold text-slate-600 text-center">SDA 1 · 12,00 Horas (11,11%)</p>
+                </div>
+            </aside>
+
+            <!-- CONTENIDO PRINCIPAL -->
+            <main class="flex-grow flex flex-col min-h-screen">
+                
+                <!-- TOP BAR NAVEGACIÓN -->
+                <nav class="h-16 bg-white/80 backdrop-blur-md border-b border-slate-200 px-6 flex items-center justify-between sticky top-0 z-40">
+                    <div class="flex items-center text-slate-400 text-[10px] font-black uppercase tracking-widest">
+                        <a href="javascript:void(0)" onclick="goHome()" class="hover:text-emerald-600 transition">SDA 1</a>
+                        <i class="fa-solid fa-chevron-right mx-3 text-[8px]"></i>
+                        <span class="text-slate-900 uppercase">Mecanismos y Proyecto Técnico</span>
+                    </div>
+                    
+                    <div class="flex items-center gap-2">
+                        <button onclick="scrollToTop()" class="p-2 text-slate-400 hover:text-emerald-600 transition-colors">
+                            <i class="fa-solid fa-circle-chevron-up text-xl"></i>
+                        </button>
+                    </div>
+                </nav>
+
+                <div class="max-w-5xl w-full mx-auto p-6 md:p-12 flex-grow">
+                    
+                    <!-- VISTA PRINCIPAL (HOME) -->
+                    <div id="homeView" class="space-y-16">
+                        
+                        <!-- HERO & INTRODUCCIÓN CON IMAGEN -->
+                        <section id="section-hero" class="mb-12">
+                            <div class="mb-12">
+                                <span id="hero-tag" class="bg-emerald-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest">SITUACIÓN DE APRENDIZAJE 1</span>
+                                <h1 id="sda-title" class="text-4xl md:text-6xl font-black text-slate-950 tracking-tighter mt-6 mb-8 leading-tight">
+                                    Diseño de Automatismos Mecánicos y Gestión del Proyecto
+                                </h1>
+
+                                <!-- Imagen de Presentación -->
+                                <div class="relative w-full h-80 rounded-[3rem] overflow-hidden mb-8 shadow-2xl shadow-emerald-100">
+                                    <img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&q=80&w=1200" 
+                                         alt="Mecanismos y Proyectos" 
+                                         class="w-full h-full object-cover">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent flex items-end p-8 md:p-10">
+                                        <p class="text-white font-medium text-base md:text-lg max-w-2xl">
+                                            Análisis de sistemas de transmisión de movimiento, cálculo de ventaja mecánica y modelado de soluciones tecnológicas.
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <p id="sda-intro" class="text-xl text-slate-500 leading-relaxed max-w-4xl">
+                                    En esta unidad profundizamos en la ingeniería de mecanismos y la metodología de proyectos técnicos complejos. Analizaremos sistemas de transmisión y transformación de movimiento, calcularemos sus relaciones de transmisión e integraremos soluciones sostenibles para automatizar problemas reales del entorno escolar o comunitario.
+                                </p>
+                            </div>
+
+                            <!-- Grid de Objetivos y Plazo/Duración -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                
+                                <!-- Objetivos Didácticos -->
+                                <div class="bg-white border border-slate-200 p-8 rounded-[2.5rem] shadow-sm flex flex-col justify-between">
+                                    <div>
+                                        <h2 class="text-sm font-black text-emerald-600 uppercase tracking-widest mb-6 flex items-center gap-3">
+                                            <i class="fa-solid fa-bullseye"></i>
+                                            <span id="title-objectives">Objetivos Didácticos</span>
+                                        </h2>
+                                        <ul id="sda-objectives-list" class="space-y-4">
+                                            <!-- Inyectados por JS -->
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- Plazo y Duración -->
+                                <div class="bg-slate-900 p-8 rounded-[2.5rem] text-white flex flex-col justify-between">
+                                    <div class="space-y-6">
+                                        <div class="flex items-center gap-3 text-emerald-400">
+                                            <i class="fa-solid fa-calendar-days text-lg"></i>
+                                            <span id="label-deadline" class="text-[10px] font-black uppercase tracking-[0.2em]">Plazo de Entrega</span>
+                                        </div>
+                                        <p id="sda-deadline" class="text-4xl font-black text-white tracking-tight">31 de Octubre</p>
+                                        <div class="space-y-1 text-xs font-semibold text-slate-400">
+                                            <p id="sda-duration" class="uppercase tracking-wider">Duración: 12,00 Horas (11,11%)</p>
+                                            <p class="text-slate-400">Módulo: 3º ESO · Tecnología</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="pt-6 border-t border-white/10 flex items-center gap-3 text-xs font-bold text-amber-400">
+                                        <i class="fa-solid fa-triangle-exclamation"></i>
+                                        <span id="label-alert">No se admitirán entregas fuera de plazo</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- RECURSOS Y APUNTES VINCULADOS -->
+                        <section id="section-resources" class="space-y-6">
+                            <div>
+                                <h2 id="grid-header" class="text-2xl font-black text-slate-950 tracking-tight">Recursos y Apuntes vinculados</h2>
+                                <p id="grid-subheader" class="text-sm text-slate-500">Documentación de soporte teórica obligatoria para el desarrollo de esta misión.</p>
+                            </div>
+                            <div id="articlesGrid" class="grid grid-cols-1 md:grid-cols-12 gap-6"></div>
+                        </section>
+
+                        <!-- PRODUCTO FINAL -->
+                        <section id="section-product" class="bg-white border border-slate-200 rounded-[2.5rem] p-8 md:p-12 shadow-sm space-y-8">
+                            <div class="border-b border-slate-100 pb-6">
+                                <span class="bg-emerald-50 text-emerald-600 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest">ENTREGABLE PRINCIPAL</span>
+                                <h2 id="title-product" class="text-2xl md:text-3xl font-black text-slate-950 tracking-tight mt-3 flex items-center gap-3">
+                                    <i class="fa-solid fa-gears text-emerald-600"></i>Producto Final: Memoria del Sistema Mecánico y Maqueta Funcional
+                                </h2>
+                            </div>
+
+                            <p id="sda-product-desc" class="text-slate-600 text-sm md:text-base leading-relaxed">
+                                El producto final consiste en la <strong>memoria de proyecto y construcción de una maqueta a escala de un prototipo mecánico articulado</strong> (reductor de velocidad, elevador o brazo móvil) que incluya al menos dos mecanismos combinados de transmisión o transformación del movimiento.
+                            </p>
+
+                            <!-- ESPECIFICACIONES TÉCNICAS -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                                <div class="bg-slate-50 border border-slate-200 p-6 rounded-2xl space-y-4">
+                                    <h3 class="font-black text-sm text-slate-900 flex items-center gap-2 text-emerald-600">
+                                        <i class="fa-solid fa-calculator"></i>1. Memoria Técnica y Hoja de Cálculos
+                                    </h3>
+                                    <ul class="text-xs text-slate-600 space-y-2 list-disc pl-4 leading-relaxed">
+                                        <li><strong>Análisis Cinemático:</strong> Cálculo explícito de la relación de transmisión global ($i$) y velocidades de entrada y salida ($n_1, n_2$).</li>
+                                        <li><strong>Planos Normalizados:</strong> Boceto acotado del conjunto y vistas principales (alzado, planta y perfil).</li>
+                                        <li><strong>Planificación y Presupuesto:</strong> Hoja de procesos, reparto de tareas e impacto económico/ambiental de los materiales seleccionados.</li>
+                                        <li><strong>Evaluación del Prototipo:</strong> Verificación de requisitos técnicos y gestión de correcciones.</li>
+                                    </ul>
+                                </div>
+
+                                <div class="bg-slate-50 border border-slate-200 p-6 rounded-2xl space-y-4">
+                                    <h3 class="font-black text-sm text-slate-900 flex items-center gap-2 text-emerald-600">
+                                        <i class="fa-solid fa-screwdriver-wrench"></i>2. Prototipo Mecánico Funcional
+                                    </h3>
+                                    <ul class="text-xs text-slate-600 space-y-2 list-disc pl-4 leading-relaxed">
+                                        <li><strong>Integración de Mecanismos:</strong> Uso combinado de engranajes, poleas, palancas o levas/bielas.</li>
+                                        <li><strong>Materiales Sostenibles:</strong> Empleo prioritario de materiales reciclables, maderas ligeras o piezas impresas en 3D.</li>
+                                        <li><strong>Acabados y Ajustes:</strong> Rigidez estructural, reducción de fricciones y funcionamiento fluido en prueba continuada.</li>
+                                        <li><strong>Seguridad en Taller:</strong> Aplicación estricta de normas de higiene y uso seguro de herramientas en el taller.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- EVALUACIÓN Y CALIFICACIÓN POR CRITERIOS -->
+                        <section id="section-evaluation" class="bg-white border border-slate-200 rounded-[2.5rem] p-8 md:p-12 shadow-sm space-y-8">
+                            <div>
+                                <div class="flex items-center gap-2 text-emerald-600 text-xs font-bold uppercase tracking-widest">
+                                    <i class="fa-solid fa-award"></i>
+                                    <span>Marco de Evaluación Oficial LOMLOE / BOJA</span>
+                                </div>
+                                <h2 id="title-evaluation" class="text-2xl md:text-3xl font-black text-slate-950 tracking-tight mt-1">
+                                    Rúbrica de Evaluación por Criterio
+                                </h2>
+                                <p id="sub-evaluation" class="text-xs text-slate-400 font-medium uppercase tracking-wider mt-1">
+                                    Selecciona un criterio para desplegar sus saberes básicos y la rúbrica de desempeño
+                                </p>
+                            </div>
+
+                            <!-- Selector de Pestañas -->
+                            <div id="criteria-tabs" class="flex flex-wrap gap-2 border-b border-slate-200 pb-4">
+                                <!-- Inyectado dinámicamente -->
+                            </div>
+
+                            <!-- Contenedor del Criterio Activo -->
+                            <div id="criteria-detail-container" class="space-y-6 pt-2">
+                                <!-- Inyectado dinámicamente -->
+                            </div>
+                        </section>
+
+                    </div>
+
+                    <!-- VISTA DE ARTÍCULO DE RECURSO -->
+                    <div id="articleView" class="hidden space-y-8 py-4">
+                        <button onclick="goHome()" class="inline-flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-emerald-600 transition group">
+                            <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i>
+                            <span id="btn-back">Volver al panel de la SDA</span>
+                        </button>
+
+                        <article class="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-sm border border-slate-200 space-y-6">
+                            <div class="flex items-center justify-between border-b border-slate-100 pb-6">
+                                <span id="articleCategoryTag" class="text-xs font-black bg-emerald-50 text-emerald-600 px-3 py-1 rounded-full uppercase tracking-widest">RECURSO</span>
+                                <button onclick="copyArticleLink()" class="p-2 text-slate-400 hover:text-slate-900 bg-slate-50 hover:bg-slate-100 rounded-xl transition">
+                                    <i class="fa-solid fa-share-nodes"></i>
+                                </button>
+                            </div>
+                            <h1 id="articleTitle" class="text-3xl md:text-5xl font-black tracking-tight text-slate-950 leading-tight"></h1>
+                            
+                            <div id="articleImageContainer" class="hidden w-full h-64 md:h-96 rounded-2xl overflow-hidden bg-slate-100 my-6">
+                                <img id="articleImage" src="" alt="" class="w-full h-full object-cover">
+                            </div>
+                            
+                            <!-- CONTENIDO DEL ARTÍCULO -->
+                            <div id="articleContent" class="prose prose-slate max-w-none text-slate-800 leading-relaxed space-y-4 text-base md:text-lg"></div>
+
+                            <!-- BOTONES DE NAVEGACIÓN -->
+                            <div class="pt-8 mt-10 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+                                <button onclick="goHome()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-xs font-bold px-6 py-3 bg-emerald-600 text-white hover:bg-emerald-700 rounded-xl shadow-md transition">
+                                    <i class="fa-solid fa-arrow-left"></i>
+                                    <span>Volver a la SDA</span>
+                                </button>
+
+                                <button onclick="scrollToTop()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-xs font-bold px-6 py-3 bg-slate-100 text-slate-700 hover:bg-slate-200 rounded-xl transition">
+                                    <i class="fa-solid fa-arrow-up"></i>
+                                    <span>Volver Arriba</span>
+                                </button>
+                            </div>
+                        </article>
+                    </div>
+
+                </div>
+
+                <!-- FOOTER -->
+                <footer class="py-12 border-t border-slate-200 bg-white text-center mt-auto">
+                    <div class="flex items-center justify-center gap-2 mb-3">
+                        <div class="w-6 h-6 bg-slate-900 rounded flex items-center justify-center text-white font-black text-[10px]">T</div>
+                        <span class="font-black text-slate-900 tracking-tighter uppercase text-xs">rhervel.sda</span>
+                    </div>
+                    <p id="footer-text" class="text-slate-400 text-[10px] font-bold uppercase tracking-widest">© 2026 The Tecnoversation. Documentación Curricular Adaptada a BOJA.</p>
+                </footer>
+            </main>
+        </div>
+
+        <!-- NOTIFICACIÓN TOAST -->
+        <div id="toast" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-slate-950 text-white text-xs font-bold px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3 transition duration-300 translate-y-20 opacity-0 z-50">
+            <i class="fa-solid fa-circle-check text-emerald-400"></i>
+            <span id="toast-text">¡Enlace copiado!</span>
+        </div>
+
+        <script src="apuntes.js"></script>
+
+        <script>
+        const TARGET_SDA = "sda1"; 
+
+        // CRITERIOS Y DATOS CURRICULARES OFICIALES (3º ESO)
+        const criteriaData = [
+            {
+                id: "1.1",
+                pesoSda: "15,00%",
+                pesoTot: "5,00%",
+                compSab: "3",
+                desc: "Analizar problemas o necesidades complejas identificando sus requerimientos técnicos, buscando y contrastando información crítica en fuentes especializadas digitales o impresas de forma autónoma y segura.",
+                saberes: [
+                    "TYD.3.A.1. Metodologías avanzadas de proyectos tecnológicos: fases, documentación y gestión del tiempo.",
+                    "Búsqueda avanzada, evaluación de la validez técnica y derechos de autor en documentación de ingeniería.",
+                    "Identificación de especificaciones y requerimientos técnicos en sistemas mecánicos."
+                ],
+                rubric: {
+                    excelente: "Identifica exhaustivamente los requerimientos técnicos del problema, consultando y sintetizando de forma crítica múltiples fuentes documentales con total corrección y rigor.",
+                    enProceso: "Identifica los aspectos principales del problema consultando fuentes fiables, aunque omite detalles específicos o análisis de validez de alguna información.",
+                    insuficiente: "Muestra dificultades para analizar el problema técnico e identificar requisitos básicos; utiliza información poco fiable o incompleta."
+                }
+            },
+            {
+                id: "1.2",
+                pesoSda: "20,00%",
+                pesoTot: "6,00%",
+                compSab: "2",
+                desc: "Examinar sistemas mecánicos y de transmisión del movimiento, calculando magnitudes físicas asociadas y analizando su ventaja mecánica mediante el uso de herramientas matemáticas y de simulación.",
+                saberes: [
+                    "TYD.3.A.2. Sistemas mecánicos: mecanismos de transmisión y transformación del movimiento.",
+                    "Relación de transmisión, velocidad angular, par de fuerzas y ventaja mecánica en sistemas de poleas y engranajes.",
+                    "Simulación y modelado de mecanismos mediante software específico."
+                ],
+                rubric: {
+                    excelente: "Aplica ecuaciones y principios mecánicos sin errores, calculando las magnitudes correctamente y extrayendo análisis cinemáticos y funcionales precisos del sistema.",
+                    enProceso: "Resuelve cálculos básicos de transmisión cinemática e identifica la función global del sistema, cometiendo errores menores en la justificación o en cálculos complejos.",
+                    insuficiente: "No logra resolver correctamente los cálculos de mecanismos ni explica el funcionamiento básico de las transmisiones involucradas."
+                }
+            },
+            {
+                id: "2.1",
+                pesoSda: "35,00%",
+                pesoTot: "8,00%",
+                compSab: "2",
+                desc: "Diseñar, planificar y construir prototipos mecánicos operativos integrando soluciones innovadoras, eficaces y sostenibles, aplicando técnicas de fabricación del aula-taller y respetando las normas de seguridad.",
+                saberes: [
+                    "TYD.3.A.3. Técnicas de ideación, diseño asistido por ordenador (CAD 2D/3D) y normalización de planos.",
+                    "Técnicas de conformación, mecanizado y ensamblaje con materiales sostenibles.",
+                    "TYD.3.A.8. Seguridad e higiene en el taller tecnológico, trabajo colaborativo y liderazgo distribuido."
+                ],
+                rubric: {
+                    excelente: "Diseña y construye un prototipo excelente, altamente robusto y funcional, integrando materiales sostenibles, planos precisos y un cumplimiento impecable de normas de taller.",
+                    enProceso: "Construye un prototipo funcional que cumple con las especificaciones mínimas planteadas, con planos sencillos y un seguimiento adecuado del trabajo en equipo.",
+                    insuficiente: "El prototipo no funciona adecuadamente o presenta fallos estructurales graves. No sigue las normas de seguridad o planificación de taller."
+                }
+            }
+        ];
+
+        // TRADUCCIONES Y OBJETIVOS (3º ESO)
+        const uiTranslations = {
+            es: {
+                subtitle: "3º ESO · TECNOLOGÍA",
+                menuIntro: "Introducción y Objetivos",
+                menuResources: "Recursos y Apuntes",
+                menuProduct: "Producto Final",
+                menuEval: "Evaluación por Criterios",
+                heroTag: "SITUACIÓN DE APRENDIZAJE 1",
+                sdaTitle: "Diseño de Automatismos Mecánicos y Gestión del Proyecto",
+                titleObjectives: "Objetivos Didácticos",
+                objectives: [
+                    "Analizar problemas mecánicos complejos seleccionando información técnica relevante y contrastada.",
+                    "Calcular relaciones de transmisión, velocidades y ventajas mecánicas en sistemas articulados.",
+                    "Diseñar y construir un prototipo funcional sostenible aplicando técnicas de representación y taller."
+                ],
+                deadlineLabel: "Plazo de Entrega",
+                deadline: "31 de Octubre",
+                duration: "Duración: 12,00 Horas (11,11%)",
+                alertLabel: "No se admitirán entregas fuera de plazo",
+                sdaIntro: "En esta unidad profundizamos en la ingeniería de mecanismos y la metodología de proyectos técnicos complejos. Analizaremos sistemas de transmisión y transformación de movimiento, calcularemos sus relaciones de transmisión e integraremos soluciones sostenibles para automatizar problemas reales del entorno escolar o comunitario.",
+                gridHeader: "Recursos y Apuntes vinculados",
+                gridSubheader: "Documentación de soporte teórica obligatoria para el desarrollo de esta misión.",
+                titleProduct: "Producto Final: Memoria del Sistema Mecánico y Maqueta Funcional",
+                titleEvaluation: "Rúbrica de Evaluación por Criterio",
+                subEvaluation: "Selecciona un criterio para desplegar sus saberes básicos y la rúbrica de desempeño",
+                btnBack: "Volver al panel de la SDA",
+                toastText: "¡Enlace copiado con éxito!",
+                readNotes: "Estudiar este recurso",
+                footer: "© 2026 The Tecnoversation. Documentación Curricular Adaptada a BOJA."
+            },
+            en: {
+                subtitle: "3RD ESO · TECHNOLOGY",
+                menuIntro: "Intro & Objectives",
+                menuResources: "Resources & Notes",
+                menuProduct: "Final Product",
+                menuEval: "Evaluation Criteria",
+                heroTag: "LEARNING SITUATION 1",
+                sdaTitle: "Mechanical Systems Design & Project Management",
+                titleObjectives: "Learning Objectives",
+                objectives: [
+                    "Analyze complex mechanical problems selecting relevant and verified technical information.",
+                    "Calculate gear ratios, angular speeds, and mechanical advantage in articulated systems.",
+                    "Design and build a sustainable functional prototype applying drafting and workshop techniques."
+                ],
+                deadlineLabel: "Submission Deadline",
+                deadline: "October 31st",
+                duration: "Duration: 12.00 Hours (11.11%)",
+                alertLabel: "Late submissions will not be accepted",
+                sdaIntro: "In this unit, we delve into mechanisms engineering and complex technical project methodologies. We will analyze motion transmission and transformation systems, calculate gear ratios, and integrate sustainable solutions to automate real-world problems.",
+                gridHeader: "Linked Resources & Notes",
+                gridSubheader: "Mandatory supporting theoretical documentation for this mission.",
+                titleProduct: "Final Product: Mechanical System Report & Functional Prototype",
+                titleEvaluation: "Rubric Evaluation by Criterion",
+                subEvaluation: "Select a criterion to unfold its basic knowledge and performance rubric",
+                btnBack: "Back to SDA Dashboard",
+                toastText: "Link copied successfully!",
+                readNotes: "Study this resource",
+                footer: "© 2026 The Tecnoversation. Curricular Documentation."
+            }
+        };
+
+        let currentLanguage = 'es';
+        let currentArticleId = null;
+        let selectedCriteriaId = "1.1";
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function setCriteria(critId) {
+            selectedCriteriaId = critId;
+            renderCriteriaSection();
+        }
+
+        function renderCriteriaSection() {
+            const crit = criteriaData.find(c => c.id === selectedCriteriaId);
+            if (!crit) return;
+
+            // Render Tabs
+            const tabsContainer = document.getElementById('criteria-tabs');
+            tabsContainer.innerHTML = criteriaData.map(c => {
+                const isActive = c.id === selectedCriteriaId;
+                const activeClass = isActive 
+                    ? "bg-emerald-600 text-white shadow-md" 
+                    : "bg-slate-100 text-slate-700 hover:bg-slate-200";
+                return `<button onclick="setCriteria('${c.id}')" class="px-4 py-2 rounded-xl text-xs font-black transition ${activeClass}">
+                    Criterio ${c.id} (${c.pesoSda})
+                </button>`;
+            }).join('');
+
+            // Render Detail
+            const detailContainer = document.getElementById('criteria-detail-container');
+            detailContainer.innerHTML = `
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-4">
+                    <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 pb-3">
+                        <span class="text-xs font-black text-emerald-600 uppercase tracking-wider">Criterio ${crit.id} · Competencia Sabida ${crit.compSab}</span>
+                        <div class="flex gap-4 text-xs font-bold text-slate-500">
+                            <span>Peso SDA: <strong class="text-slate-900">${crit.pesoSda}</strong></span>
+                            <span>Peso Total Curso: <strong class="text-slate-900">${crit.pesoTot}</strong></span>
+                        </div>
+                    </div>
+
+                    <p class="text-sm font-medium text-slate-800 leading-relaxed">${crit.desc}</p>
+
+                    <div class="space-y-2 pt-2">
+                        <h4 class="text-xs font-black text-slate-900 uppercase tracking-wider">Saberes Básicos Asociados (BOJA):</h4>
+                        <ul class="text-xs text-slate-600 space-y-1.5 list-disc pl-4">
+                            ${crit.saberes.map(s => `<li>${s}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Tabla de Rúbrica con Bloom styling -->
+                <div class="overflow-x-auto border border-slate-200 rounded-2xl">
+                    <table class="w-full text-left text-xs">
+                        <thead class="bg-slate-100 text-slate-700 font-bold uppercase tracking-wider">
+                            <tr>
+                                <th class="p-4 w-1/3 text-emerald-800 bg-emerald-50">Excelente (5 pts)</th>
+                                <th class="p-4 w-1/3 text-amber-800 bg-amber-50">En Proceso (3 pts)</th>
+                                <th class="p-4 w-1/3 text-rose-800 bg-rose-50">Insuficiente (1 pt)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 leading-relaxed text-slate-600 font-medium">
+                            <tr>
+                                <td class="p-4 bg-emerald-50/20 border-l-4 border-emerald-500">${crit.rubric.excelente}</td>
+                                <td class="p-4 bg-amber-50/10 border-l-4 border-amber-500">${crit.rubric.enProceso}</td>
+                                <td class="p-4 bg-rose-50/10 border-l-4 border-rose-500">${crit.rubric.insuficiente}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            `;
+        }
+
+        function changeLanguage(lang) {
+            currentLanguage = lang;
+            const t = uiTranslations[lang];
+
+            document.getElementById('lang-es').className = lang === 'es' ? "w-1/2 py-1.5 rounded-lg bg-emerald-600 text-white shadow-sm transition" : "w-1/2 py-1.5 rounded-lg text-slate-400 hover:text-white transition";
+            document.getElementById('lang-en').className = lang === 'en' ? "w-1/2 py-1.5 rounded-lg bg-emerald-600 text-white shadow-sm transition" : "w-1/2 py-1.5 rounded-lg text-slate-400 hover:text-white transition";
+            
+            document.getElementById('site-subtitle').innerText = t.subtitle;
+            document.getElementById('menu-intro').innerText = t.menuIntro;
+            document.getElementById('menu-resources').innerText = t.menuResources;
+            document.getElementById('menu-product').innerText = t.menuProduct;
+            document.getElementById('menu-eval').innerText = t.menuEval;
+            document.getElementById('hero-tag').innerText = t.heroTag;
+            document.getElementById('sda-title').innerText = t.sdaTitle;
+            document.getElementById('title-objectives').innerText = t.titleObjectives;
+            document.getElementById('label-deadline').innerText = t.deadlineLabel;
+            document.getElementById('sda-deadline').innerText = t.deadline;
+            document.getElementById('sda-duration').innerText = t.duration;
+            document.getElementById('label-alert').innerText = t.alertLabel;
+            document.getElementById('sda-intro').innerText = t.sdaIntro;
+            document.getElementById('grid-header').innerText = t.gridHeader;
+            document.getElementById('grid-subheader').innerText = t.gridSubheader;
+            document.getElementById('title-evaluation').innerText = t.titleEvaluation;
+            document.getElementById('sub-evaluation').innerText = t.subEvaluation;
+            document.getElementById('btn-back').innerText = t.btnBack;
+            document.getElementById('toast-text').innerText = t.toastText;
+            document.getElementById('footer-text').innerText = t.footer;
+
+            // Inyectar Objetivos
+            const objContainer = document.getElementById('sda-objectives-list');
+            objContainer.innerHTML = t.objectives.map((obj, idx) => `
+                <li class="flex items-start gap-4 p-4 bg-slate-50 rounded-2xl">
+                    <div class="w-6 h-6 bg-emerald-100 text-emerald-600 rounded-lg flex items-center justify-center text-xs font-bold flex-shrink-0">0${idx + 1}</div>
+                    <p class="text-xs font-bold text-slate-700 leading-relaxed">${obj}</p>
+                </li>
+            `).join('');
+
+            renderCriteriaSection();
+
+            if (currentArticleId) { showArticle(currentArticleId); } else { renderArticlesGrid(); }
+        }
+
+        function renderArticlesGrid() {
+            const gridContainer = document.getElementById('articlesGrid');
+            gridContainer.innerHTML = '';
+
+            const filtered = typeof articles !== 'undefined' ? articles.filter(art => art.sda === TARGET_SDA) : [];
+
+            if (filtered.length === 0) {
+                gridContainer.innerHTML = `<div class="col-span-full text-center py-12 text-slate-400 font-medium text-sm">No hay apuntes vinculados actualmente en la base de datos.</div>`;
+                return;
+            }
+
+            filtered.forEach(art => {
+                const title = currentLanguage === 'es' ? art.title : (art.title_en || art.title);
+                const intro = currentLanguage === 'es' ? art.intro : (art.intro_en || art.intro);
+                const categoryLabel = currentLanguage === 'es' ? art.categoryLabel : (art.categoryLabel_en || art.categoryLabel);
+
+                const card = document.createElement('div');
+                const baseClasses = "rounded-[2rem] p-6 shadow-sm hover:shadow-xl hover:shadow-emerald-500/10 transition duration-300 flex flex-col justify-between group cursor-pointer border border-slate-200 overflow-hidden";
+                const dynamicGridSize = art.gridClass || "md:col-span-4 bg-white";
+                card.className = `${baseClasses} ${dynamicGridSize}`;
+                card.setAttribute('onclick', `showArticle(${art.id})`);
+
+                const isAccentCard = dynamicGridSize.includes('bg-indigo-600') || dynamicGridSize.includes('bg-emerald-600') || dynamicGridSize.includes('bg-red-600');
+                
+                if(isAccentCard) {
+                    card.className = `${baseClasses} ${dynamicGridSize.replace('bg-indigo-600', 'bg-emerald-600').replace('bg-red-600', 'bg-emerald-600')}`;
+                }
+
+                const tagClass = isAccentCard ? "bg-emerald-700 text-emerald-100" : "bg-slate-100 text-slate-600 group-hover:bg-emerald-50 group-hover:text-emerald-600";
+                const titleClass = isAccentCard ? "text-white" : "text-slate-900 group-hover:text-emerald-600";
+                const introClass = isAccentCard ? "text-emerald-100" : "text-slate-500";
+                const footerClass = isAccentCard ? "border-emerald-500 text-white" : "border-slate-100 text-slate-900 group-hover:text-emerald-600";
+
+                let imageHTML = '';
+                if (art.image && !isAccentCard) {
+                    imageHTML = `
+                        <div class="relative h-48 -mx-6 -mt-6 mb-4 overflow-hidden bg-slate-100">
+                            <img src="${art.image}" alt="${title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                    `;
+                }
+
+                card.innerHTML = `
+                    <div class="space-y-4 flex-grow">
+                        ${imageHTML}
+                        <div class="flex items-center gap-2">
+                            <span class="text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest transition ${tagClass}">${categoryLabel}</span>
+                        </div>
+                        <h3 class="text-xl font-black tracking-tight leading-snug transition ${titleClass}">${title}</h3>
+                        <p class="text-sm leading-relaxed line-clamp-3 ${introClass}">${intro}</p>
+                    </div>
+                    <div class="pt-4 mt-6 border-t flex items-center justify-between text-xs font-bold transition ${footerClass}">
+                        <span>${uiTranslations[currentLanguage].readNotes}</span>
+                        <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                `;
+                gridContainer.appendChild(card);
+            });
+        }
+
+        function showArticle(id) {
+            if (typeof articles === 'undefined') return;
+            const art = articles.find(a => a.id === id);
+            if (!art) return;
+            currentArticleId = id;
+            document.getElementById('homeView').className = "hidden";
+            document.getElementById('articleView').className = "space-y-8 py-4";
+
+            const title = currentLanguage === 'es' ? art.title : (art.title_en || art.title);
+            const content = currentLanguage === 'es' ? art.content : (art.content_en || art.content);
+            
+            document.getElementById('articleCategoryTag').innerText = currentLanguage === 'es' ? art.categoryLabel : (art.categoryLabel_en || art.categoryLabel);
+            document.getElementById('articleTitle').innerText = title;
+            document.getElementById('articleContent').innerHTML = content;
+
+            const imageContainer = document.getElementById('articleImageContainer');
+            const articleImg = document.getElementById('articleImage');
+            if (art.image) {
+                articleImg.src = art.image;
+                articleImg.alt = title;
+                imageContainer.classList.remove('hidden');
+            } else {
+                imageContainer.classList.add('hidden');
+            }
+
+            if (window.MathJax) { MathJax.typesetPromise(); }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function goHome() {
+            currentArticleId = null;
+            document.getElementById('articleView').className = "hidden";
+            document.getElementById('homeView').className = "space-y-16";
+            changeLanguage(currentLanguage);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function copyArticleLink() {
+            const url = window.location.origin + window.location.pathname + `#apunte-${currentArticleId}`;
+            const tempInput = document.createElement("input");
+            tempInput.value = url; document.body.appendChild(tempInput); tempInput.select(); document.execCommand("copy"); document.body.removeChild(tempInput);
+            const toast = document.getElementById('toast');
+            toast.classList.remove('translate-y-20', 'opacity-0'); toast.classList.add('translate-y-0', 'opacity-100');
+            setTimeout(() => { toast.classList.remove('translate-y-0', 'opacity-100'); toast.classList.add('translate-y-20', 'opacity-0'); }, 3000);
+        }
+
+        window.onload = function () {
+            changeLanguage('es');
+        };
+        </script>
+    </body>
+</html>

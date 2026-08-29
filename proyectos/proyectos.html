@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>TechVerse — Tech, Design & Innovation</title>
+        <title>Showcase de Proyectos — Tecnología & Robótica</title>
         <link href="../assets/css/styles.css" rel="stylesheet">
         <script src="https://unpkg.com/lucide@latest"></script>
         <script>
@@ -52,8 +52,9 @@
                 <div class="flex items-center gap-8 text-[10px] font-black uppercase tracking-widest text-slate-500">
                     <div class="hidden md:flex items-center gap-8">
                         <a href="../index.html" class="hover:text-indigo-600 transition-colors">Inicio</a>
-                        <a href="../index.html#asignaturas" class="hover:text-indigo-600 transition-colors">Asignaturas</a>
-                        <a href="#" class="text-indigo-600" onclick="goHome(); return false;">Blog</a>
+                        <a href="../index.html#bilingual-core" class="hover:text-indigo-600 transition-colors">Asignaturas</a>
+                        <a href="#" class="text-indigo-600" onclick="goHome(); return false;">Proyectos</a>
+                        <a href="blog.html" class="hover:text-indigo-600 transition-colors">Blog</a>
                         <a href="../contacto.html" class="px-4 py-2 bg-slate-900 text-white rounded-full hover:bg-indigo-600 transition-all">Contacto</a>
                     </div>
                     
@@ -66,56 +67,55 @@
         </nav>
 
         <main class="flex-grow max-w-7xl w-full mx-auto px-6 pt-28 pb-12">
-            <!-- Vista de Inicio -->
+            <!-- Vista de Inicio de Proyectos -->
             <div id="homeView" class="space-y-12">
-                <!-- Hero Open, Clean con acento Índigo sutil -->
+                <!-- Hero Open -->
                 <div class="relative py-4 border-b border-slate-200/60">
                     <div class="max-w-2xl space-y-3">
                         <div id="hero-tag-container" class="inline-flex items-center gap-2 text-indigo-600 font-black text-[10px] uppercase tracking-[0.3em]">
-                            <i data-lucide="book-open" class="w-4 h-4"></i>
-                            <span id="hero-tag">Bitácora Digital</span>
+                            <i data-lucide="cpu" class="w-4 h-4"></i>
+                            <span id="hero-tag">Showcase del Alumnado</span>
                         </div>
-                        <h1 id="hero-title" class="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter leading-tight">Explora el futuro digital.</h1>
-                        <p id="hero-desc" class="text-slate-500 text-base font-medium leading-relaxed">Análisis profundos sobre Inteligencia Artificial, desarrollo de software, arquitectura de hardware y tendencias globales.</p>
+                        <h1 id="hero-title" class="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter leading-tight">Proyectos & Creaciones Maker.</h1>
+                        <p id="hero-desc" class="text-slate-500 text-base font-medium leading-relaxed">Muestra de trabajos prácticos realizados en el aula: impresión 3D, robótica con Arduino, domótica y desarrollo web.</p>
                         
                         <div class="pt-2 max-w-sm">
                             <div class="relative">
                                 <i data-lucide="search" class="absolute left-3.5 top-3 text-slate-400 w-4 h-4"></i>
-                                <input type="text" id="searchInput" oninput="filterArticles()" placeholder="Buscar artículos..." class="w-full bg-white border border-slate-200 text-slate-900 pl-10 pr-4 py-2 rounded-xl text-xs font-medium focus:outline-none focus:border-indigo-400 shadow-sm transition">
+                                <input type="text" id="searchInput" oninput="filterArticles()" placeholder="Buscar proyectos..." class="w-full bg-white border border-slate-200 text-slate-900 pl-10 pr-4 py-2 rounded-xl text-xs font-medium focus:outline-none focus:border-indigo-400 shadow-sm transition">
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Navegación de Categorías -->
+                <!-- Navegación por Asignaturas / Niveles -->
                 <div class="overflow-x-auto">
                     <nav class="flex space-x-6 pb-2 text-xs font-semibold border-b border-slate-200/60" id="categoryTabs">
                         <button id="btn-todos" onclick="changeCategory('todos')" class="category-btn whitespace-nowrap text-indigo-600 border-b-2 border-indigo-600 pb-2 font-black uppercase text-[10px] tracking-widest">Todos</button>
-                        <button id="btn-ia" onclick="changeCategory('ia')" class="category-btn whitespace-nowrap text-slate-400 hover:text-indigo-600 pb-2 font-bold uppercase text-[10px] tracking-widest transition">Inteligencia Artificial</button>
-                        <button id="btn-desarrollo" onclick="changeCategory('desarrollo')" class="category-btn whitespace-nowrap text-slate-400 hover:text-indigo-600 pb-2 font-bold uppercase text-[10px] tracking-widest transition">Software</button>
-                        <button id="btn-hardware" onclick="changeCategory('hardware')" class="category-btn whitespace-nowrap text-slate-400 hover:text-indigo-600 pb-2 font-bold uppercase text-[10px] tracking-widest transition">Hardware</button>
-                        <button id="btn-ciberseguridad" onclick="changeCategory('ciberseguridad')" class="category-btn whitespace-nowrap text-slate-400 hover:text-indigo-600 pb-2 font-bold uppercase text-[10px] tracking-widest transition">Ciberseguridad</button>
-                        <button id="btn-arduino" onclick="changeCategory('arduino')" class="category-btn whitespace-nowrap text-slate-400 hover:text-indigo-600 pb-2 font-bold uppercase text-[10px] tracking-widest transition">Arduino</button>
-                        <button id="btn-tendencias" onclick="changeCategory('tendencias')" class="category-btn whitespace-nowrap text-slate-400 hover:text-indigo-600 pb-2 font-bold uppercase text-[10px] tracking-widest transition">Tendencias</button>
+                        <button id="btn-tyd2" onclick="changeCategory('tyd2')" class="category-btn whitespace-nowrap text-slate-400 hover:text-indigo-600 pb-2 font-bold uppercase text-[10px] tracking-widest transition">TYD 2º ESO</button>
+                        <button id="btn-tyd3" onclick="changeCategory('tyd3')" class="category-btn whitespace-nowrap text-slate-400 hover:text-indigo-600 pb-2 font-bold uppercase text-[10px] tracking-widest transition">TYD 3º ESO</button>
+                        <button id="btn-cyr3" onclick="changeCategory('cyr3')" class="category-btn whitespace-nowrap text-slate-400 hover:text-indigo-600 pb-2 font-bold uppercase text-[10px] tracking-widest transition">Robótica 3º</button>
+                        <button id="btn-dig4" onclick="changeCategory('dig4')" class="category-btn whitespace-nowrap text-slate-400 hover:text-indigo-600 pb-2 font-bold uppercase text-[10px] tracking-widest transition">Digitalización 4º</button>
+                        <button id="btn-impresion3d" onclick="changeCategory('impresion3d')" class="category-btn whitespace-nowrap text-slate-400 hover:text-indigo-600 pb-2 font-bold uppercase text-[10px] tracking-widest transition">Impresión 3D</button>
                     </nav>
                 </div>
 
-                <!-- Parrilla de Artículos -->
+                <!-- Parrilla de Proyectos -->
                 <div id="articlesGrid" class="grid grid-cols-1 md:grid-cols-12 gap-8"></div>
             </div>
 
-            <!-- Vista de Artículo -->
+            <!-- Vista Detallada de Proyecto -->
             <div id="articleView" class="hidden max-w-3xl mx-auto space-y-8">
                 <button onclick="goHome()" class="inline-flex items-center space-x-2 text-xs font-bold text-slate-500 hover:text-indigo-600 transition group">
                     <i data-lucide="arrow-left" class="w-3.5 h-3.5 transform group-hover:-translate-x-0.5 transition"></i>
-                    <span id="btn-back">Volver</span>
+                    <span id="btn-back">Volver a Proyectos</span>
                 </button>
 
                 <article class="space-y-6 bg-white border border-slate-200 p-8 md:p-12 rounded-[2.5rem] shadow-sm">
                     <div class="flex items-center justify-between border-b border-slate-100 pb-4">
                         <div class="flex items-center space-x-3">
-                            <span id="articleCategoryTag" class="text-[10px] font-black bg-indigo-50 text-indigo-600 px-3 py-1 rounded-full uppercase tracking-widest">CATEGORÍA</span>
-                            <span id="articleReadingTime" class="text-xs text-slate-400 font-medium flex items-center"><i data-lucide="clock" class="w-3.5 h-3.5 mr-1"></i> 5 min</span>
+                            <span id="articleCategoryTag" class="text-[10px] font-black bg-indigo-50 text-indigo-600 px-3 py-1 rounded-full uppercase tracking-widest">ASIGNATURA</span>
+                            <span id="articleAuthor" class="text-xs text-slate-400 font-medium flex items-center"><i data-lucide="user" class="w-3.5 h-3.5 mr-1"></i> Alumnado</span>
                         </div>
                         <button onclick="copyArticleLink()" class="p-2 text-slate-400 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition">
                             <i data-lucide="share" class="w-4 h-4"></i>
@@ -136,7 +136,7 @@
         <!-- Footer -->
         <footer class="py-20 text-center mt-auto">
             <div class="w-12 h-1.5 bg-indigo-600 mx-auto mb-10 rounded-full"></div>
-            <p id="statsCounter" class="text-slate-400 text-[10px] font-black uppercase tracking-[0.4em]">rhervel // 2026 // Blog de Tecnología</p>
+            <p id="statsCounter" class="text-slate-400 text-[10px] font-black uppercase tracking-[0.4em]">rhervel // 2026 // Taller de Tecnología</p>
         </footer>
 
         <!-- Toast de notificación -->
@@ -145,27 +145,28 @@
             <span id="toast-text">Enlace copiado.</span>
         </div>
 
-        <script src="entradas.js"></script>
+        <!-- Archivo específico con la lista de proyectos -->
+        <script src="proyectos.js"></script>
 
         <script>
         const uiTranslations = {
             es: {
-                subtitle: "Tech & Innovation", heroTag: "Bitácora Digital",
-                heroTitle: "Explora el futuro digital.", heroDesc: "Análisis profundos sobre Inteligencia Artificial, desarrollo de software, arquitectura de hardware y tendencias globales.",
-                searchPlaceholder: "Buscar artículos...", catTodos: "Todos", catIa: "Inteligencia Artificial",
-                catDesarrollo: "Software", catHardware: "Hardware", catCiberseguridad: "Ciberseguridad",
-                catTendencias: "Tendencias", btnBack: "Volver", toastText: "¡Enlace copiado al portapapeles!",
-                readNotes: "Leer artículo", stats: "rhervel // 2026 // Blog de Tecnología", notes: "artículos",
-                categoryNames: { todos: "Todos", ia: "Inteligencia Artificial", desarrollo: "Software", hardware: "Hardware", ciberseguridad: "Ciberseguridad", tendencias: "Tendencias" }
+                subtitle: "Student Projects", heroTag: "Showcase del Alumnado",
+                heroTitle: "Proyectos & Creaciones Maker.", heroDesc: "Muestra de trabajos prácticos realizados en el aula: impresión 3D, robótica con Arduino, domótica y desarrollo web.",
+                searchPlaceholder: "Buscar proyectos...", catTodos: "Todos", catTyd2: "TYD 2º ESO",
+                catTyd3: "TYD 3º ESO", catCyr3: "Robótica 3º", catDig4: "Digitalización 4º",
+                catImpresion3d: "Impresión 3D", btnBack: "Volver a Proyectos", toastText: "¡Enlace del proyecto copiado!",
+                readNotes: "Ver proyecto completo", stats: "rhervel // 2026 // Taller de Tecnología",
+                categoryNames: { todos: "Todos", tyd2: "TYD 2º ESO", tyd3: "TYD 3º ESO", cyr3: "Robótica 3º", dig4: "Digitalización 4º", impresion3d: "Impresión 3D" }
             },
             en: {
-                subtitle: "Tech & Innovation", heroTag: "Digital Log",
-                heroTitle: "Explore the digital future.", heroDesc: "In-depth analysis on Artificial Intelligence, software development, hardware architecture, and global trends.",
-                searchPlaceholder: "Search posts...", catTodos: "All", catIa: "Artificial Intelligence",
-                catDesarrollo: "Software", catHardware: "Hardware", catCiberseguridad: "Cybersecurity",
-                catTendencias: "Trends", btnBack: "Back", toastText: "Link copied to clipboard!",
-                readNotes: "Read post", stats: "rhervel // 2026 // Tech Blog", notes: "posts",
-                categoryNames: { todos: "All", ia: "Artificial Intelligence", desarrollo: "Software", hardware: "Hardware", ciberseguridad: "Cybersecurity", tendencias: "Trends" }
+                subtitle: "Student Projects", heroTag: "Student Showcase",
+                heroTitle: "Maker Projects & Creations.", heroDesc: "Showcase of practical works made in class: 3D printing, Arduino robotics, home automation, and web design.",
+                searchPlaceholder: "Search projects...", catTodos: "All", catTyd2: "TYD 2nd Year",
+                catTyd3: "TYD 3rd Year", catCyr3: "Robotics 3rd", catDig4: "Digitalization 4th",
+                catImpresion3d: "3D Printing", btnBack: "Back to Projects", toastText: "Project link copied to clipboard!",
+                readNotes: "View full project", stats: "rhervel // 2026 // Technology Lab",
+                categoryNames: { todos: "All", tyd2: "TYD 2nd Year", tyd3: "TYD 3rd Year", cyr3: "Robotics 3rd", dig4: "Digitalization 4th", impresion3d: "3D Printing" }
             }
         };
 
@@ -187,18 +188,18 @@
             document.getElementById('toast-text').innerText = uiTranslations[lang].toastText;
 
             document.getElementById('btn-todos').innerText = uiTranslations[lang].catTodos;
-            document.getElementById('btn-ia').innerText = uiTranslations[lang].catIa;
-            document.getElementById('btn-desarrollo').innerText = uiTranslations[lang].catDesarrollo;
-            document.getElementById('btn-hardware').innerText = uiTranslations[lang].catHardware;
-            document.getElementById('btn-ciberseguridad').innerText = uiTranslations[lang].catCiberseguridad;
-            document.getElementById('btn-tendencias').innerText = uiTranslations[lang].catTendencias;
+            document.getElementById('btn-tyd2').innerText = uiTranslations[lang].catTyd2;
+            document.getElementById('btn-tyd3').innerText = uiTranslations[lang].catTyd3;
+            document.getElementById('btn-cyr3').innerText = uiTranslations[lang].catCyr3;
+            document.getElementById('btn-dig4').innerText = uiTranslations[lang].catDig4;
+            document.getElementById('btn-impresion3d').innerText = uiTranslations[lang].catImpresion3d;
 
             if (currentArticleId) { showArticle(currentArticleId); } else { renderArticlesGrid(); }
         }
 
         function changeCategory(category) {
             currentCategory = category;
-            const categories = ['todos', 'ia', 'desarrollo', 'hardware', 'ciberseguridad', 'tendencias'];
+            const categories = ['todos', 'tyd2', 'tyd3', 'cyr3', 'dig4', 'impresion3d'];
             categories.forEach(cat => {
                 const btn = document.getElementById(`btn-${cat}`);
                 if (btn) btn.className = "category-btn whitespace-nowrap text-slate-400 hover:text-indigo-600 pb-2 font-bold uppercase text-[10px] tracking-widest transition";
@@ -213,7 +214,9 @@ function renderArticlesGrid() {
     const gridContainer = document.getElementById('articlesGrid');
     gridContainer.innerHTML = '';
 
-    const filtered = articles.filter(art => {
+    const projectList = typeof projects !== 'undefined' ? projects : (typeof articles !== 'undefined' ? articles : []);
+
+    const filtered = projectList.filter(art => {
         const matchesCategory = currentCategory === 'todos' || art.category === currentCategory;
         const query = searchQuery.toLowerCase();
         const title = currentLanguage === 'es' ? art.title.toLowerCase() : (art.title_en ? art.title_en.toLowerCase() : art.title.toLowerCase());
@@ -222,7 +225,7 @@ function renderArticlesGrid() {
     });
 
     if (filtered.length === 0) {
-        gridContainer.innerHTML = `<div class="col-span-full text-center py-12 text-xs font-bold text-slate-400 uppercase tracking-widest">No se han encontrado artículos.</div>`;
+        gridContainer.innerHTML = `<div class="col-span-full text-center py-12 text-xs font-bold text-slate-400 uppercase tracking-widest">No se han encontrado proyectos.</div>`;
         return;
     }
 
@@ -232,7 +235,7 @@ function renderArticlesGrid() {
         const categoryLabel = currentLanguage === 'es' ? art.categoryLabel : (art.categoryLabel_en || art.categoryLabel);
 
         const card = document.createElement('div');
-        // Estilos limpios: sin fondo blanco exterior, sin bordes y sin padding interior
+        // Estilos limpios: sin tarjeta blanca envolvente, sin bordes y sin padding interno
         const baseClasses = "group cursor-pointer flex flex-col justify-between";
         const dynamicGridSize = art.gridClass || "md:col-span-4";
         
@@ -272,7 +275,8 @@ function renderArticlesGrid() {
         }
 
         function showArticle(id) {
-            const art = articles.find(a => a.id === id);
+            const projectList = typeof projects !== 'undefined' ? projects : (typeof articles !== 'undefined' ? articles : []);
+            const art = projectList.find(a => a.id === id);
             if (!art) return;
             currentArticleId = id;
             document.getElementById('homeView').className = "hidden";
@@ -306,12 +310,12 @@ function renderArticlesGrid() {
             currentArticleId = null;
             document.getElementById('articleView').className = "hidden";
             document.getElementById('homeView').className = "space-y-12";
-            history.pushState("", document.title, window.location.pathname + window.location.search);
+            history.pushState("", document.title, window.location.pathname);
             renderArticlesGrid();
         }
 
         function copyArticleLink() {
-            const url = window.location.origin + window.location.pathname + `#apunte-${currentArticleId}`;
+            const url = window.location.origin + window.location.pathname + `?id=${currentArticleId}`;
             const tempInput = document.createElement("input");
             tempInput.value = url; document.body.appendChild(tempInput); tempInput.select(); document.execCommand("copy"); document.body.removeChild(tempInput);
             const toast = document.getElementById('toast');
@@ -319,17 +323,30 @@ function renderArticlesGrid() {
             setTimeout(() => { toast.classList.remove('translate-y-0', 'opacity-100'); toast.classList.add('translate-y-20', 'opacity-0'); }, 3000);
         }
 
-        function checkUrlHash() {
+        function checkUrlParams() {
+            // Comprobamos si viene un ID por parámetro URL ?id=X
+            const urlParams = new URLSearchParams(window.location.search);
+            const idParam = urlParams.get('id');
+
+            if (idParam) {
+                const id = parseInt(idParam, 10);
+                if (id) {
+                    showArticle(id);
+                    return;
+                }
+            }
+
+            // Comprobamos si viene por hash #proyecto-X
             const hash = window.location.hash;
-            if (hash && hash.startsWith('#apunte-')) {
-                const id = parseInt(hash.replace('#apunte-', ''), 10);
+            if (hash && (hash.startsWith('#proyecto-') || hash.startsWith('#apunte-'))) {
+                const id = parseInt(hash.replace(/#(proyecto|apunte)-/, ''), 10);
                 if (id) showArticle(id);
             }
         }
 
         window.onload = function () {
             changeLanguage('es');
-            checkUrlHash();
+            checkUrlParams();
         };
         </script>
     </body>
