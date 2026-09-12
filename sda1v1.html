@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SdA 1: El Proceso Tecnológico y el Análisis de Objetos | rhervel</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 fill=%22currentColor%22 class=%22bi bi-robot%22 viewBox=%220 0 16 16%22><path d=%22M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5ZM3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.58 26.58 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.933.933 0 0 1-.765.935c-.845.147-2.34.346-4.235.346-1.895 0-3.39-.2-4.235-.346A.933.933 0 0 1 3 9.219V8.062Zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a24.767 24.767 0 0 1-1.871-.183.25.25 0 0 0-.217.068l-.92.9a.25.25 0 0 0 .169.434l.92-.9a25.25 25.25 0 0 0 1.942.183.25.25 0 0 0 .217-.068l.92-.9a.25.25 0 0 0-.17-.434l-.92.9a24.767 24.767 0 0 1-1.871-.183Z%22/><path d=%22M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1.5a2.5 2.5 0 0 0 2.5 2.5h9A2.5 2.5 0 0 0 15 13.5V12a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2V1.866ZM14 7.5V12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5Z%22/></svg>" type="image/svg+xml">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcfcfd;
+            background-image: 
+                linear-gradient(#f1f5f9 1px, transparent 1px),
+                linear-gradient(90deg, #f1f5f9 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .nav-glass {
+            background: rgba(252, 252, 253, 0.85);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        .content-card {
+            border-radius: 2.5rem;
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased leading-relaxed">
+
+    <!-- Navbar con botón para volver al Índice -->
+    <nav class="fixed top-0 w-full z-50 nav-glass">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-black text-sm shadow-md shadow-indigo-200 group-hover:bg-blue-600 transition-colors">T</div>
+                <span class="font-black text-slate-900 tracking-tighter uppercase text-sm">rhervel</span>
+            </a>
+            
+            <div class="flex items-center gap-4">
+                <a href="index.html" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-900 text-white text-[10px] font-black uppercase tracking-widest rounded-full hover:bg-indigo-600 transition-all shadow-sm">
+                    <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Volver al Índice
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header / Hero Section -->
+    <header class="relative pt-32 pb-12 px-6 overflow-hidden">
+        <div class="absolute top-[-10%] right-[-5%] w-96 h-96 bg-indigo-100 rounded-full blur-3xl opacity-40 animate-pulse"></div>
+        
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+                <div class="max-w-3xl">
+                    <div class="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-700 px-3.5 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-4">
+                        <i data-lucide="cpu" class="w-4 h-4"></i> Unidad Didáctica 1 // SdA 1
+                    </div>
+                    <h1 class="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter mb-4 uppercase">
+                        El Proceso Tecnológico y el <span class="text-blue-600">Análisis de Objetos</span>
+                    </h1>
+                    <p class="text-slate-500 text-base md:text-lg leading-relaxed font-medium">
+                        Guía de contenido teórico y actividades prácticas de taller para 2º de ESO.
+                    </p>
+                </div>
+                
+                <div class="rounded-[2.5rem] p-6 text-center min-w-[180px] shadow-xl text-white self-start md:self-auto" style="background: linear-gradient(135deg, #1d4ed8 0%, #312e81 100%);">
+                    <div class="text-4xl font-black tracking-tighter">SdA 1</div>
+                    <div class="text-[9px] uppercase tracking-[0.2em] font-black text-blue-200 mt-1">TECNOLOGÍA</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-6 py-8 relative z-10">
+        
+        <!-- Cabecera de la rejilla (Leyenda de Columnas en desktop) 
+        <div class="hidden lg:grid grid-cols-4 gap-8 mb-6 font-black text-center text-xs uppercase tracking-widest text-slate-400">
+            <div class="col-span-3 bg-slate-200/50 py-3 rounded-2xl border border-slate-200">Teoría y Contenido (3 Columnas)</div>
+            <div class="bg-amber-100/70 py-3 rounded-2xl border border-amber-200 text-amber-900">Actividades Prácticas (1 Columna)</div>
+        </div>
+        -->
+        <div class="space-y-16">
+
+            <!-- BLOQUE 1 -->
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
+                
+                <!-- Columna Teoría -->
+                <section class="lg:col-span-3 bg-white content-card p-6 sm:p-10 shadow-xl border border-slate-200/80">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-2xl bg-indigo-50 text-indigo-600 font-black text-lg border border-indigo-100">1</span>
+                        <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">CIENCIA Y TECNOLOGÍA: DOS CAMINOS COMPLEMENTARIOS</h2>
+                    </div>
+
+                    <!-- 1.1 -->
+                    <div class="mb-8">
+                        <h3 class="text-base font-bold text-indigo-600 mb-3 border-l-4 border-indigo-600 pl-3">1.1. ¿Qué es la Ciencia?</h3>
+                        <p class="text-slate-600 mb-4 text-sm font-medium">Durante milenios, la humanidad intentó explicar fenómenos como el rayo, las estaciones o las enfermedades a través de mitos y voluntades divinas. Sin embargo, hace unos 2.500 años en la antigua Grecia, nació una idea revolucionaria: la naturaleza no actúa por capricho, sino que sigue unas leyes inmutables.</p>
+                        <p class="text-slate-600 mb-6 text-sm font-medium">Para descubrir estas leyes, en el siglo XVII se consolidó el método científico, una metodología rigurosa para adquirir conocimiento objetivo.</p>
+
+                        <!-- Diagrama del Método Científico -->
+                        <div class="bg-indigo-50/50 rounded-2xl p-5 border border-indigo-100 mb-6">
+                            <p class="text-[10px] uppercase font-black text-indigo-900 tracking-widest mb-3 text-center">Esquema del Método Científico</p>
+                            <div class="flex flex-wrap items-center justify-center gap-2 text-xs font-bold">
+                                <span class="bg-white text-slate-700 px-3 py-1.5 rounded-xl shadow-xs border border-slate-200">[Observación]</span> →
+                                <span class="bg-white text-slate-700 px-3 py-1.5 rounded-xl shadow-xs border border-slate-200">[Pregunta]</span> →
+                                <span class="bg-white text-slate-700 px-3 py-1.5 rounded-xl shadow-xs border border-slate-200">[Hipótesis]</span> →
+                                <span class="bg-white text-slate-700 px-3 py-1.5 rounded-xl shadow-xs border border-slate-200">[Experimentación]</span> →
+                                <span class="bg-white text-slate-700 px-3 py-1.5 rounded-xl shadow-xs border border-slate-200">[Conclusión]</span>
+                            </div>
+                        </div>
+
+                        <ol class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6 text-sm">
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60 font-medium"><strong class="text-slate-900 font-bold">1. Observación:</strong> Detectar y examinar un fenómeno natural con atención.</li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60 font-medium"><strong class="text-slate-900 font-bold">2. Pregunta:</strong> Formular dudas sobre las causas o funcionamiento de lo observado.</li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60 font-medium"><strong class="text-slate-900 font-bold">3. Hipótesis:</strong> Proponer una explicación provisional y razonada.</li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60 font-medium"><strong class="text-slate-900 font-bold">4. Experimentación:</strong> Diseñar pruebas y medir variables cuantitativas para comprobar la hipótesis.</li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60 font-medium md:col-span-2"><strong class="text-slate-900 font-bold">5. Conclusión:</strong> Determinar si los datos validan la hipótesis. Si la rechazan, se debe formular una nueva.</li>
+                        </ol>
+
+                        <div class="bg-emerald-50 border-l-4 border-emerald-500 p-4 rounded-r-2xl text-emerald-950 text-sm font-medium">
+                            <p><strong class="font-bold text-emerald-900">Definición:</strong> La Ciencia es el conjunto de conocimientos estructurados sistemáticamente sobre el universo, obtenidos mediante la observación y la experimentación. Su producto final es el saber.</p>
+                        </div>
+                    </div>
+
+                    <!-- 1.2 -->
+                    <div class="mb-8">
+                        <h3 class="text-base font-bold text-indigo-600 mb-3 border-l-4 border-indigo-600 pl-3">1.2. ¿Qué es la Tecnología?</h3>
+                        <p class="text-slate-600 mb-4 text-sm font-medium">A diferencia de otros animales, el ser humano carece de garras afiladas, pelaje espeso o gran velocidad. Para sobrevivir, nuestra especie utilizó la inteligencia para transformar el entorno: convirtió rocas en cuchillos, pieles en abrigo y cutilas en refugios.</p>
+
+                        <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-2xl text-amber-950 text-sm font-medium mb-4">
+                            <p><strong class="font-bold text-amber-900">Definición:</strong> La Tecnología es la aplicación coordinada de un conjunto de conocimientos científicos y habilidades prácticas para crear soluciones (objetos, sistemas o servicios) que satisfagan las necesidades humanas o resuelvan problemas prácticos. Su producto final es el hacer y el transformar.</p>
+                        </div>
+                    </div>
+
+                    <!-- 1.3 -->
+                    <div>
+                        <h3 class="text-base font-bold text-indigo-600 mb-3 border-l-4 border-indigo-600 pl-3">1.3. Relación entre Ciencia y Tecnología: La Tecnociencia</h3>
+                        <p class="text-slate-600 mb-4 text-sm font-medium">Aunque a menudo se confunden, sus objetivos son completamente diferentes:</p>
+
+                        <!-- Tabla Ciencia vs Tecnología -->
+                        <div class="overflow-x-auto mb-6 rounded-2xl border border-slate-200">
+                            <table class="w-full text-left border-collapse text-sm">
+                                <thead>
+                                    <tr class="bg-slate-100 border-b border-slate-200 text-slate-800 font-bold">
+                                        <th class="p-3">Criterio</th>
+                                        <th class="p-3">Ciencia</th>
+                                        <th class="p-3">Tecnología</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-200 font-medium">
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="p-3 font-bold text-slate-900">Objetivo</td>
+                                        <td class="p-3 text-slate-600">Buscar la verdad y comprender el universo.</td>
+                                        <td class="p-3 text-slate-600">Resolver problemas prácticos y mejorar la vida.</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="p-3 font-bold text-slate-900">Resultado</td>
+                                        <td class="p-3 text-slate-600">Leyes, teoremas, modelos teóricos.</td>
+                                        <td class="p-3 text-slate-600">Productos, máquinas, herramientas, procesos.</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="p-3 font-bold text-slate-900">Verbo clave</td>
+                                        <td class="p-3 text-indigo-600 font-black">Saber</td>
+                                        <td class="p-3 text-indigo-600 font-black">Hacer/Crear</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="space-y-2 text-slate-600 bg-slate-50 p-4 rounded-2xl border border-slate-200 text-sm font-medium">
+                            <p class="font-bold text-slate-900">Una relación de doble sentido:</p>
+                            <ul class="space-y-1 list-disc pl-5">
+                                <li><strong class="text-slate-800 font-bold">La ciencia apoya a la tecnología:</strong> Para diseñar un motor eléctrico, un ingeniero necesita conocer las leyes del electromagnetismo descubiertas por la ciencia.</li>
+                                <li><strong class="text-slate-800 font-bold">La tecnología apoya a la ciencia:</strong> Para descubrir el Higgs o estudiar galaxias lejanas, los científicos necesitan instrumentos tecnológicos complejos (microscopios electrónicos, telescopios espaciales o aceleradores de partículas).</li>
+                            </ul>
+                            <p class="pt-2 italic text-slate-700">Hoy en día, ambas disciplinas están tan estrechamente ligadas que los especialistas utilizan el término <strong>Tecnociencia</strong>.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Columna Actividades -->
+                <aside class="bg-amber-50/90 content-card p-6 border border-amber-200 shadow-xl self-stretch flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 mb-4 pb-3 border-b border-amber-200">
+                            <i data-lucide="clipboard-list" class="w-5 h-5 text-amber-700"></i>
+                            <h3 class="font-black text-amber-950 text-sm uppercase tracking-wider">Actividades del Punto 1</h3>
+                        </div>
+                        <ul class="space-y-4 text-xs text-amber-950 font-medium">
+                            <li class="bg-white p-4 rounded-2xl border border-amber-200/80 shadow-xs">
+                                <span class="font-black block text-amber-900 mb-1 uppercase tracking-wider text-[10px]">Actividad 1.1: Clasificación Saber vs Hacer</span>
+                                Clasifica en dos columnas los siguientes términos: <i>Telescopio, Ley de la Gravedad, Microchip, Teorema de Pitágoras, Vacuna, Teoría de la Relatividad</i>.
+                            </li>
+                            <li class="bg-white p-4 rounded-2xl border border-amber-200/80 shadow-xs">
+                                <span class="font-black block text-amber-900 mb-1 uppercase tracking-wider text-[10px]">Actividad 1.2: El Método Científico</span>
+                                Diseña un experimento sencillo para comprobar qué material aísla mejor el calor (madera, plástico o aluminio) siguiendo las 5 fases del método científico.
+                            </li>
+                            <li class="bg-white p-4 rounded-2xl border border-amber-200/80 shadow-xs">
+                                <span class="font-black block text-amber-900 mb-1 uppercase tracking-wider text-[10px]">Actividad 1.3: Debate Tecnociencia</span>
+                                Investiga y redacta un ejemplo real donde un avance tecnológico haya permitido descubrir algo nuevo para la ciencia (ej. Telescopio James Webb).
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-6 pt-3 border-t border-amber-200/80 text-center">
+                        <span class="text-[9px] font-black text-amber-800 uppercase tracking-widest">Entregable: Cuaderno individual</span>
+                    </div>
+                </aside>
+
+            </div>
+
+            <!-- BLOQUE 2 -->
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
+                
+                <!-- Columna Teoría -->
+                <section class="lg:col-span-3 bg-white content-card p-6 sm:p-10 shadow-xl border border-slate-200/80">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-2xl bg-indigo-50 text-indigo-600 font-black text-lg border border-indigo-100">2</span>
+                        <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">EL MÉTODO TECNOLÓGICO: EL PROCESO DE PROYECTOS</h2>
+                    </div>
+
+                    <p class="text-slate-600 mb-6 text-sm font-medium">Así como la ciencia utiliza el método científico, la tecnología utiliza su propio método de trabajo: el Proceso Tecnológico (o Método de Proyectos). Es una secuencia ordenada de fases para pasar de un problema a una solución eficaz.</p>
+
+                    <!-- Diagrama del Proceso Tecnológico -->
+                    <div class="bg-slate-900 text-white rounded-2xl p-5 shadow-xl mb-6">
+                        <p class="text-[10px] uppercase font-black text-indigo-300 tracking-widest mb-3 text-center">Fases del Proceso Tecnológico</p>
+                        <div class="flex flex-wrap items-center justify-center gap-2 text-xs font-bold">
+                            <span class="bg-slate-800 px-3 py-1.5 rounded-xl border border-slate-700">[1. Problema]</span> →
+                            <span class="bg-slate-800 px-3 py-1.5 rounded-xl border border-slate-700">[2. Información]</span> →
+                            <span class="bg-slate-800 px-3 py-1.5 rounded-xl border border-slate-700">[3. Diseño]</span> →
+                            <span class="bg-slate-800 px-3 py-1.5 rounded-xl border border-slate-700">[4. Planificación]</span> →
+                            <span class="bg-slate-800 px-3 py-1.5 rounded-xl border border-slate-700">[5. Construcción]</span> →
+                            <span class="bg-slate-800 px-3 py-1.5 rounded-xl border border-slate-700">[6. Evaluación]</span>
+                        </div>
+                    </div>
+
+                    <p class="text-slate-600 mb-6 italic text-sm font-medium">A lo largo de este tema aplicaremos cada fase a un proyecto de taller: La construcción de un coche eléctrico de juguete.</p>
+
+                    <div class="space-y-6 text-sm font-medium">
+
+                        <!-- FASE 1 -->
+                        <div class="border-l-4 border-indigo-600 pl-4 space-y-2">
+                            <h3 class="font-bold text-slate-900">FASE 1: Descripción del problema (Condicionantes)</h3>
+                            <p class="text-slate-600">Consiste en redactar con máxima precisión la necesidad a resolver y los límites o restricciones impuestas (tiempo, presupuesto, materiales, espacio).</p>
+
+                            <div class="bg-slate-50 border border-slate-200 p-4 rounded-2xl space-y-2">
+                                <p class="font-bold text-slate-800">Ejemplo de propuesta en el taller:</p>
+                                <p class="text-slate-600">Diseñar y construir un vehículo eléctrico de juguete que cumpla con los siguientes condicionantes:</p>
+                                <ol class="list-decimal pl-5 space-y-1 text-slate-700 text-xs font-medium">
+                                    <li>Debe recorrer al menos 10 metros en línea recta.</li>
+                                    <li>Se construirá únicamente con las herramientas y materiales disponibles en el taller.</li>
+                                    <li>Estará accionado por un motor de Corriente Continua (CC) de 3V a 6V.</li>
+                                    <li>La fuente de energía será una pila de petaca (4.5V).</li>
+                                    <li>Dispondrá de un interruptor para encendido/apagado.</li>
+                                    <li>En esta primera fase, el chasis quedará al descubierto (sin carrocería).</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <!-- FASE 2 -->
+                        <div class="border-l-4 border-indigo-600 pl-4 space-y-2">
+                            <h3 class="font-bold text-slate-900">FASE 2: Búsqueda de información</h3>
+                            <p class="text-slate-600">Antes de inventar nada, debemos investigar qué soluciones existen y aprender la teoría necesaria.</p>
+                            <ul class="list-disc pl-5 space-y-1 text-slate-700 text-xs">
+                                <li><strong class="text-slate-900 font-bold">Internet y repositorios:</strong> Analizar proyectos similares creados por otros estudiantes o inventores.</li>
+                                <li><strong class="text-slate-900 font-bold">Consulta bibliográfica:</strong> Repasar conceptos teóricos de electricidad (circuitos en serie), mecánica (transmisiones por poleas o engranajes) y propiedades de los materiales.</li>
+                                <li><strong class="text-slate-900 font-bold">Catálogos técnicos:</strong> Consultar componentes comerciales en la aula-taller (reductoras, ruedas, soportes).</li>
+                                <li><strong class="text-slate-900 font-bold">Entrevistas a expertos:</strong> Preguntar a profesores, profesionales o compañeros de cursos superiores.</li>
+                            </ul>
+                        </div>
+
+                        <!-- FASE 3 -->
+                        <div class="border-l-4 border-indigo-600 pl-4 space-y-3">
+                            <h3 class="font-bold text-slate-900">FASE 3: Técnicas de creatividad e ideación</h3>
+                            <p class="text-slate-600">Esta es la fase de generación de ideas. Para no quedarnos con la primera opción que se nos ocurra, aplicamos técnicas de creatividad individual y grupal.</p>
+
+                            <div class="space-y-2">
+                                <h4 class="font-bold text-indigo-600">A. Lluvia de Ideas (Brainstorming)</h4>
+                                <p class="text-slate-600 text-xs">Técnica grupal donde todos los miembros del equipo proponen ideas de forma libre.</p>
+                                <p class="text-xs bg-amber-50 text-amber-900 p-3 rounded-xl border border-amber-200"><strong>Regla de oro:</strong> Queda prohibido criticar o juzgar las ideas durante la sesión. Las ideas más descabelladas pueden activar la solución definitiva en otro compañero.</p>
+                            </div>
+
+                            <div class="space-y-1">
+                                <h4 class="font-bold text-indigo-600">B. Mapas Mentales</h4>
+                                <p class="text-slate-600 text-xs">Diagramas visuales que organizan la información alrededor de un problema central. Ayudan a conectar ideas sobre materiales, mecanismos, formas y sistemas de energía de forma gráfica.</p>
+                            </div>
+
+                            <div class="space-y-1">
+                                <h4 class="font-bold text-indigo-600">C. Técnica SCAMPER</h4>
+                                <p class="text-slate-600 text-xs">Lista de preguntas para transformar una idea existente en una nueva:</p>
+                                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-700 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                                    <li class="p-2 bg-white rounded-xl border border-slate-200/60"><strong>Sustituir:</strong> ¿Puedo cambiar plástico por madera?</li>
+                                    <li class="p-2 bg-white rounded-xl border border-slate-200/60"><strong>Combinar:</strong> ¿Puedo unir el motor al chasis en una sola pieza?</li>
+                                    <li class="p-2 bg-white rounded-xl border border-slate-200/60"><strong>Adaptar:</strong> ¿Puedo usar tapones de botella como ruedas?</li>
+                                    <li class="p-2 bg-white rounded-xl border border-slate-200/60"><strong>Modificar:</strong> ¿Y si hago la estructura más estrecha?</li>
+                                    <li class="p-2 bg-white rounded-xl border border-slate-200/60"><strong>Proponer otros usos.</strong></li>
+                                    <li class="p-2 bg-white rounded-xl border border-slate-200/60"><strong>Eliminar:</strong> ¿Puedo quitar componentes innecesarios?</li>
+                                    <li class="p-2 bg-white rounded-xl border border-slate-200/60 sm:col-span-2"><strong>Reordenar / Reorganizar.</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- FASE 4 -->
+                        <div class="border-l-4 border-indigo-600 pl-4 space-y-3">
+                            <h3 class="font-bold text-slate-900">FASE 4: Diseño y concreción de la solución</h3>
+                            <p class="text-slate-600">De todas las ideas generadas, seleccionamos la más viable (evaluando coste, tiempo de ejecución y dificultad constructiva) y la desarrollamos técnicamente usando el lenguaje gráfico.</p>
+
+                            <ol class="list-decimal pl-5 space-y-1 text-slate-700 text-xs">
+                                <li><strong class="text-slate-900 font-bold">Esbozo:</strong> Dibujo rápido a mano alzada, no acotado, para plasmar las primeras ideas generales.</li>
+                                <li><strong class="text-slate-900 font-bold">Croquis:</strong> Dibujo a mano alzada más elaborado, proporcionado y acotado (con medidas reales expresadas en milímetros). Muestra las vistas principales del objeto (Alzado, Planta y Perfil).</li>
+                                <li><strong class="text-slate-900 font-bold">Planos técnicos:</strong> Dibujos delineados con instrumental (regla, escuadra, compás o programas CAD), a escala estandarizada, acotados y procesados para que cualquiera pueda construir la pieza sin dudas.</li>
+                                <li><strong class="text-slate-900 font-bold">Memoria descriptiva:</strong> Redacción explicativa del diseño final en texto.</li>
+                            </ol>
+
+                            <div class="bg-blue-50 border border-blue-200 p-4 rounded-2xl text-blue-950 text-xs space-y-1">
+                                <p class="font-bold text-blue-900">Ejemplo de descripción de la solución elegida:</p>
+                                <p class="leading-relaxed">
+                                    Vehículo eléctrico con chasis plano de plástico rígido de 220×70 mm y 3 mm de grosor. Tracción trasera mediante un grupo motorreductor fijado con tornillería. Transmisión por engranajes integrados para reducir las revoluciones y aumentar el par motor. Eje delantero libre montado sobre dos soportes guiados. Circuito eléctrico simple formado por pila de petaca de 4.5V, interruptor deslizable, motor CC y cableado de cobre unido mediante soldadura de estaño.
+                                </p>
+                            </div>
+
+                            <!-- Placeholder Imagen / Croquis -->
+                            <div class="border-2 border-dashed border-slate-300 rounded-2xl p-6 text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer">
+                                <p class="text-xs font-bold text-slate-500">[ Espacio para Imagen: Croquis y Vistas Acotadas (Alzado, Planta y Perfil) ]</p>
+                            </div>
+                        </div>
+
+                        <!-- FASE 5 -->
+                        <div class="border-l-4 border-indigo-600 pl-4 space-y-4">
+                            <h3 class="font-bold text-slate-900">FASE 5: Planificación del trabajo</h3>
+                            <p class="text-slate-600">Antes de entrar al taller, es imprescindible rellenar los documentos de gestión para repartir tareas, prever costes y organizar las fases de fabricación.</p>
+
+                            <!-- Tablas reducidas -->
+                            <div class="space-y-4 text-xs">
+                                <h4 class="font-bold text-slate-800">Ficha 1: Presupuesto y Relación de Materiales</h4>
+                                <div class="overflow-x-auto rounded-2xl border border-slate-200">
+                                    <table class="w-full text-left">
+                                        <thead class="bg-slate-100 text-slate-800 font-bold">
+                                            <tr><th class="p-2.5">Material</th><th class="p-2.5">Función</th><th class="p-2.5">Cantidad</th></tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-slate-200 text-slate-600 font-medium">
+                                            <tr><td class="p-2.5">Placa de plástico (3 mm)</td><td class="p-2.5">Chasis base</td><td class="p-2.5">1 un. (154 cm²)</td></tr>
+                                            <tr><td class="p-2.5">Grupo motorreductor CC</td><td class="p-2.5">Propulsión mecánica</td><td class="p-2.5">1 un.</td></tr>
+                                            <tr><td class="p-2.5">Eje metálico (Ø 3 mm)</td><td class="p-2.5">Eje delantero</td><td class="p-2.5">1 un. (110 mm)</td></tr>
+                                            <tr><td class="p-2.5">Ruedas de plástico (Ø 55 mm)</td><td class="p-2.5">Apoyo y rodadura</td><td class="p-2.5">4 un.</td></tr>
+                                            <tr><td class="p-2.5">Pila de petaca (4.5V)</td><td class="p-2.5">Fuente energía</td><td class="p-2.5">1 un.</td></tr>
+                                            <tr><td class="p-2.5">Interruptor de palanca</td><td class="p-2.5">Control encendido</td><td class="p-2.5">1 un.</td></tr>
+                                            <tr><td class="p-2.5">Cable conductor flexible</td><td class="p-2.5">Conexión eléctrica</td><td class="p-2.5">20 cm</td></tr>
+                                            <tr><td class="p-2.5">Soportes para eje</td><td class="p-2.5">Fijación de ejes</td><td class="p-2.5">2 un.</td></tr>
+                                            <tr><td class="p-2.5">Tornillos, tuercas, arandelas (M3)</td><td class="p-2.5">Uniones desmontables</td><td class="p-2.5">4 juegos</td></tr>
+                                            <tr><td class="p-2.5">Cinta adhesiva / Bridas</td><td class="p-2.5">Fijación de la pila</td><td class="p-2.5">25 cm</td></tr>
+                                            <tr><td class="p-2.5">Hilo de estaño para soldar</td><td class="p-2.5">Unión permanente</td><td class="p-2.5">4 cm</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <h4 class="font-bold text-slate-800 pt-2">Ficha 2: Hoja de Herramientas y Útiles</h4>
+                                <div class="overflow-x-auto rounded-2xl border border-slate-200">
+                                    <table class="w-full text-left">
+                                        <thead class="bg-slate-100 text-slate-800 font-bold">
+                                            <tr><th class="p-2.5">Herramienta</th><th class="p-2.5">Uso en taller</th></tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-slate-200 text-slate-600 font-medium">
+                                            <tr><td class="p-2.5 font-bold text-slate-900">Lápiz y rotulador permanente</td><td class="p-2.5">Marcado de cotas</td></tr>
+                                            <tr><td class="p-2.5 font-bold text-slate-900">Regla metálica y escuadra</td><td class="p-2.5">Medición y trazado</td></tr>
+                                            <tr><td class="p-2.5 font-bold text-slate-900">Sierra de marquetería / metal</td><td class="p-2.5">Corte del panel</td></tr>
+                                            <tr><td class="p-2.5 font-bold text-slate-900">Limas y papel de lija</td><td class="p-2.5">Desbarbado y acabado</td></tr>
+                                            <tr><td class="p-2.5 font-bold text-slate-900">Taladradora columna / manual</td><td class="p-2.5">Perforación de agujeros</td></tr>
+                                            <tr><td class="p-2.5 font-bold text-slate-900">Destornillador estrella / plano</td><td class="p-2.5">Apriete tornillería</td></tr>
+                                            <tr><td class="p-2.5 font-bold text-slate-900">Llave fija o de tubo (M3)</td><td class="p-2.5">Sujeción de tuercas</td></tr>
+                                            <tr><td class="p-2.5 font-bold text-slate-900">Alicates pelacables / Tijeras</td><td class="p-2.5">Corte de conductores</td></tr>
+                                            <tr><td class="p-2.5 font-bold text-slate-900">Soldador eléctrico lapicero</td><td class="p-2.5">Soldadura blanda estaño</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <h4 class="font-bold text-slate-800 pt-2">Ficha 3: Hoja de Procesos</h4>
+                                <div class="overflow-x-auto rounded-2xl border border-slate-200">
+                                    <table class="w-full text-left">
+                                        <thead class="bg-slate-100 text-slate-800 font-bold">
+                                            <tr><th class="p-2.5">Nº</th><th class="p-2.5">Tarea</th><th class="p-2.5">Herramientas</th><th class="p-2.5">Tiempo</th></tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-slate-200 text-slate-600 font-medium">
+                                            <tr><td class="p-2.5 font-bold">1</td><td class="p-2.5">Trazar chasis (220x70 mm)</td><td class="p-2.5">Regla, escuadra, rotulador</td><td class="p-2.5">10 min</td></tr>
+                                            <tr><td class="p-2.5 font-bold">2</td><td class="p-2.5">Cortar chasis y lijar rebabas</td><td class="p-2.5">Sierra, lima y lija</td><td class="p-2.5">25 min</td></tr>
+                                            <tr><td class="p-2.5 font-bold">3</td><td class="p-2.5">Marcar y taladrar orificios</td><td class="p-2.5">Taladro, broca 3 mm</td><td class="p-2.5">15 min</td></tr>
+                                            <tr><td class="p-2.5 font-bold">4</td><td class="p-2.5">Montar soportes eje delantero</td><td class="p-2.5">Destornillador y llave fija</td><td class="p-2.5">10 min</td></tr>
+                                            <tr><td class="p-2.5 font-bold">5</td><td class="p-2.5">Insertar eje y ruedas delanteras</td><td class="p-2.5">Ajuste manual</td><td class="p-2.5">5 min</td></tr>
+                                            <tr><td class="p-2.5 font-bold">6</td><td class="p-2.5">Fijar grupo motorreductor</td><td class="p-2.5">Destornillador y llave fija</td><td class="p-2.5">15 min</td></tr>
+                                            <tr><td class="p-2.5 font-bold">7</td><td class="p-2.5">Montar ruedas motrices traseras</td><td class="p-2.5">Ajuste manual</td><td class="p-2.5">5 min</td></tr>
+                                            <tr><td class="p-2.5 font-bold">8</td><td class="p-2.5">Fijar interruptor y pila al chasis</td><td class="p-2.5">Cinta adhesiva / Bridas</td><td class="p-2.5">10 min</td></tr>
+                                            <tr><td class="p-2.5 font-bold">9</td><td class="p-2.5">Conexiones según esquema</td><td class="p-2.5">Soldador, estaño, pelacables</td><td class="p-2.5">30 min</td></tr>
+                                            <tr><td class="p-2.5 font-bold">10</td><td class="p-2.5">Verificar funcionamiento</td><td class="p-2.5">Multímetro / Inspección</td><td class="p-2.5">10 min</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FASE 6 -->
+                        <div class="border-l-4 border-indigo-600 pl-4 space-y-2">
+                            <h3 class="font-bold text-slate-900">FASE 6: Construcción</h3>
+                            <p class="text-slate-600">Es la fase de ejecución práctica en la aula-taller. Se llevan a cabo las operaciones planificadas respetando siempre dos pautas fundamentales:</p>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-2 text-xs">
+                                <div class="p-4 rounded-2xl bg-red-50 border border-red-200">
+                                    <h4 class="font-bold text-red-900">1. Seguridad y Salud</h4>
+                                    <p class="text-red-800 font-medium">Uso obligatorio de gafas protectoras en el taladro, sujeción firme con tornillo de banco y precaución con el soldador.</p>
+                                </div>
+                                <div class="p-4 rounded-2xl bg-blue-50 border border-blue-200">
+                                    <h4 class="font-bold text-blue-900">2. Trabajo en equipo</h4>
+                                    <p class="text-blue-800 font-medium">Reparto equitativo de roles (coordinador, herramientas, seguridad, materiales) con respeto y cooperación.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FASE 7 -->
+                        <div class="border-l-4 border-indigo-600 pl-4 space-y-3">
+                            <h3 class="font-bold text-slate-900">FASE 7: Evaluación y Control de Calidad</h3>
+                            <p class="text-slate-600">Terminada la construcción, se somete el objeto a pruebas operativas para comprobar si cumple las condiciones iniciales de la Fase 1.</p>
+
+                            <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-2xl space-y-2 text-emerald-950 text-xs">
+                                <h4 class="font-bold text-emerald-900 border-b border-emerald-200 pb-1">Informe de Evaluación del Coche Eléctrico:</h4>
+                                <p><strong>Prueba de rendimiento:</strong> El vehículo ha recorrido 12.5 metros en línea recta, superando los 10 metros exigidos.</p>
+
+                                <div class="space-y-1">
+                                    <p class="font-bold text-emerald-900">Análisis de fallos y propuestas de mejora:</p>
+                                    <ol class="list-decimal pl-5 space-y-1">
+                                        <li><strong>Desviación:</strong> Tiende a girar levemente a la izquierda. <i>Solución: Recomprobar alineación del eje delantero.</i></li>
+                                        <li><strong>Ruido mecánico:</strong> Transmisión ruidosa. <i>Solución: Aplicar grasa de silicona o correa de goma.</i></li>
+                                        <li><strong>Pérdida de tracción:</strong> Ruedas traseras deslizan al arrancar. <i>Solución: Fijar eje con prisioneros o cianocrilato.</i></li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- Columna Actividades -->
+                <aside class="bg-amber-50/90 content-card p-6 border border-amber-200 shadow-xl self-stretch flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 mb-4 pb-3 border-b border-amber-200">
+                            <i data-lucide="wrench" class="w-5 h-5 text-amber-700"></i>
+                            <h3 class="font-black text-amber-950 text-sm uppercase tracking-wider">Actividades del Punto 2</h3>
+                        </div>
+                        <ul class="space-y-4 text-xs text-amber-950 font-medium">
+                            <li class="bg-white p-4 rounded-2xl border border-amber-200/80 shadow-xs">
+                                <span class="font-black block text-amber-900 mb-1 uppercase tracking-wider text-[10px]">Actividad 2.1: Sesión de SCAMPER</span>
+                                Aplica la técnica SCAMPER a una botella de agua de plástico estándar para transformarla en un objeto innovador para el taller. Responde a al menos 4 letras de la técnica.
+                            </li>
+                            <li class="bg-white p-4 rounded-2xl border border-amber-200/80 shadow-xs">
+                                <span class="font-black block text-amber-900 mb-1 uppercase tracking-wider text-[10px]">Actividad 2.2: Croquis Acotado</span>
+                                Realiza en tu cuaderno el croquis a mano alzada (Alzado, Planta y Perfil) de una caja de cerillas o sacapuntas, indicando las medidas reales en milímetros.
+                            </li>
+                            <li class="bg-white p-4 rounded-2xl border border-amber-200/80 shadow-xs">
+                                <span class="font-black block text-amber-900 mb-1 uppercase tracking-wider text-[10px]">Actividad 2.3: Planificación de Taller</span>
+                                Cumplimenta la Ficha de Procesos para la fabricación de una regla de madera de 20 cm, detallando herramientas, tareas y tiempos.
+                            </li>
+                            <li class="bg-white p-4 rounded-2xl border border-amber-200/80 shadow-xs">
+                                <span class="font-black block text-amber-900 mb-1 uppercase tracking-wider text-[10px]">Actividad 2.4: Control de Calidad</span>
+                                Si el coche eléctrico del proyecto no consigue arrancar por un fallo en el circuito, redacta la propuesta de localización de avería en 3 pasos.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-6 pt-3 border-t border-amber-200/80 text-center">
+                        <span class="text-[9px] font-black text-amber-800 uppercase tracking-widest">Entregable: Memoria de Proyecto</span>
+                    </div>
+                </aside>
+
+            </div>
+
+            <!-- BLOQUE 3 -->
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
+                
+                <!-- Columna Teoría -->
+                <section class="lg:col-span-3 bg-white content-card p-6 sm:p-10 shadow-xl border border-slate-200/80">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-2xl bg-indigo-50 text-indigo-600 font-black text-lg border border-indigo-100">3</span>
+                        <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">ANÁLISIS TÉCNICO DE OBJETOS TECNOLÓGICOS</h2>
+                    </div>
+
+                    <p class="text-slate-600 mb-6 text-sm font-medium">El análisis de objetos es el proceso inverso al diseño: consiste en desarmar conceptualmente un producto existente para comprender su diseño, funcionamiento e impacto.</p>
+
+                    <!-- Cuadro resumen 4 análisis -->
+                    <div class="bg-slate-900 text-white p-5 rounded-2xl mb-8 shadow-xl">
+                        <p class="text-[10px] uppercase tracking-widest text-indigo-300 font-black mb-4 text-center">Estructura del Análisis de Objetos</p>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs font-medium">
+                            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700">
+                                <span class="text-indigo-400 font-bold block">1. Formal</span>
+                                <span class="text-slate-300">Anatomía y Geometría</span>
+                            </div>
+                            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700">
+                                <span class="text-indigo-400 font-bold block">2. Funcional</span>
+                                <span class="text-slate-300">Funcionamiento</span>
+                            </div>
+                            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700">
+                                <span class="text-indigo-400 font-bold block">3. Técnico</span>
+                                <span class="text-slate-300">Materiales y Fabricación</span>
+                            </div>
+                            <div class="bg-slate-800 p-3 rounded-xl border border-slate-700">
+                                <span class="text-indigo-400 font-bold block">4. Socioeconómico</span>
+                                <span class="text-slate-300">Impacto y Precio</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6 text-sm font-medium">
+
+                        <!-- 3.1 -->
+                        <div class="space-y-2">
+                            <h3 class="font-bold text-indigo-600 border-l-4 border-indigo-600 pl-3">3.1. Análisis Formal (Anatomía y Geometría)</h3>
+                            <p class="text-slate-600">Estudia la forma exterior, la estructura y la representación gráfica del objeto.</p>
+
+                            <ul class="list-disc pl-5 space-y-1 text-slate-700 text-xs">
+                                <li><strong class="text-slate-900 font-bold">Piezas:</strong> Lista detallada de los componentes individuales que integran el conjunto.</li>
+                                <li><strong class="text-slate-900 font-bold">Forma:</strong> Geometría global (cilíndrica, prismática, esférica) y estudio ergonómico (adaptación a las formas del cuerpo humano).</li>
+                                <li>
+                                    <strong class="text-slate-900 font-bold">Vistas:</strong> Dibujo técnico en sistema diédrico:
+                                    <ul class="list-circle pl-4 mt-0.5 space-y-0.5 text-slate-600">
+                                        <li><strong>Alzado:</strong> Vista frontal principal.</li>
+                                        <li><strong>Planta:</strong> Vista superior.</li>
+                                        <li><strong>Perfil:</strong> Vista lateral (izquierda o derecha).</li>
+                                    </ul>
+                                </li>
+                                <li><strong class="text-slate-900 font-bold">Dimensiones:</strong> Mediciones principales (largo, ancho, alto) expresadas en milímetros.</li>
+                            </ul>
+                        </div>
+
+                        <!-- 3.2 -->
+                        <div class="space-y-2">
+                            <h3 class="font-bold text-indigo-600 border-l-4 border-indigo-600 pl-3">3.2. Análisis Funcional</h3>
+                            <p class="text-slate-600">Explica la utilidad del producto y las leyes físicas que aplica.</p>
+
+                            <ul class="list-disc pl-5 space-y-1 text-slate-700 text-xs">
+                                <li><strong class="text-slate-900 font-bold">Función global:</strong> ¿Para qué sirve el objeto? ¿Cuál es su utilidad principal?</li>
+                                <li><strong class="text-slate-900 font-bold">Principios científicos:</strong> Fenómenos físicos implicados (rozamiento, efecto palanca, conducción eléctrica, presión hidráulica).</li>
+                                <li><strong class="text-slate-900 font-bold">Función de elementos componentes:</strong> Papel específico que desempeña cada pieza dentro del conjunto.</li>
+                                <li><strong class="text-slate-900 font-bold">Seguridad y uso:</strong> Evaluación de los riesgos operativos (cortes, descargas, atrapamientos) y sistemas de protección incorporados.</li>
+                            </ul>
+                        </div>
+
+                        <!-- 3.3 -->
+                        <div class="space-y-2">
+                            <h3 class="font-bold text-indigo-600 border-l-4 border-indigo-600 pl-3">3.3. Análisis Técnico</h3>
+                            <p class="text-slate-600">Centrado en el estudio industrial y de fabricación.</p>
+
+                            <ul class="list-disc pl-5 space-y-1 text-slate-700 text-xs">
+                                <li><strong class="text-slate-900 font-bold">Materiales:</strong> Identificación de los materiales utilizados (plásticos, metales, maderas, cerámicas) y justificación de sus propiedades (rigidez, tenacidad, aislamiento eléctrico, densidad).</li>
+                                <li><strong class="text-slate-900 font-bold">Procesos de conformación:</strong> Técnicas para dar forma a las piezas (moldeo por inyección, mecanizado, estampación, extrusión).</li>
+                                <li>
+                                    <strong class="text-slate-900 font-bold">Ensamblado:</strong> Tipo de uniones empleadas:
+                                    <ul class="list-circle pl-4 mt-0.5 space-y-0.5 text-slate-600">
+                                        <li><strong>Uniones fijas:</strong> Pegado, remachado, soldadura.</li>
+                                        <li><strong>Uniones desmontables:</strong> Tornillos, roscas, pasadores, encajes a presión.</li>
+                                    </ul>
+                                </li>
+                                <li><strong class="text-slate-900 font-bold">Acabados superficiales:</strong> Tratamientos de protección o embellecimiento (barnizado, pulido, pintado, galvanizado).</li>
+                            </ul>
+                        </div>
+
+                        <!-- 3.4 -->
+                        <div class="space-y-2">
+                            <h3 class="font-bold text-indigo-600 border-l-4 border-indigo-600 pl-3">3.4. Análisis Socioeconómico</h3>
+                            <p class="text-slate-600">Estudia la repercusión social, ecológica y comercial del objeto.</p>
+
+                            <ul class="list-disc pl-5 space-y-1 text-slate-700 text-xs">
+                                <li><strong class="text-slate-900 font-bold">Necesidad cubierta:</strong> Problema humano que resuelve (comunicación, transporte, confort, sanidad).</li>
+                                <li><strong class="text-slate-900 font-bold">Evolución histórica:</strong> Antecedentes del objeto, origen y cómo las innovaciones tecnológicas han cambiado su diseño con el tiempo.</li>
+                                <li><strong class="text-slate-900 font-bold">Impacto ambiental:</strong> Análisis del ciclo de vida (origen de las materias primas, consumo de energía durante su uso, reciclabilidad de sus piezas y generación de residuos al final de su vida útil).</li>
+                                <li><strong class="text-slate-900 font-bold">Economía de mercado:</strong> Precio de venta estimado, relación calidad-precio y comparativa con productos competidores directos.</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- Columna Actividades -->
+                <aside class="bg-amber-50/90 content-card p-6 border border-amber-200 shadow-xl self-stretch flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 mb-4 pb-3 border-b border-amber-200">
+                            <i data-lucide="search" class="w-5 h-5 text-amber-700"></i>
+                            <h3 class="font-black text-amber-950 text-sm uppercase tracking-wider">Actividades del Punto 3</h3>
+                        </div>
+                        <ul class="space-y-4 text-xs text-amber-950 font-medium">
+                            <li class="bg-white p-4 rounded-2xl border border-amber-200/80 shadow-xs">
+                                <span class="font-black block text-amber-900 mb-1 uppercase tracking-wider text-[10px]">Actividad 3.1: Análisis de un Bolígrafo</span>
+                                Desmonta un bolígrafo convencional tipo BIC y completa una ficha con su análisis formal (nº piezas, dimensiones, ergonomía) y funcional (utilidad, principio físico del rodamiento).
+                            </li>
+                            <li class="bg-white p-4 rounded-2xl border border-amber-200/80 shadow-xs">
+                                <span class="font-black block text-amber-900 mb-1 uppercase tracking-wider text-[10px]">Actividad 3.2: Estudio de Uniones</span>
+                                Observa 5 objetos de tu aula e identifica si sus uniones son fijas o desmontables, justificando el porqué de esa elección de diseño.
+                            </li>
+                            <li class="bg-white p-4 rounded-2xl border border-amber-200/80 shadow-xs">
+                                <span class="font-black block text-amber-900 mb-1 uppercase tracking-wider text-[10px]">Actividad 3.3: Análisis de Ciclo de Vida</span>
+                                Elige un objeto cotidiano (ej. un teléfono móvil o una lata de refresco) y redacta un informe sobre su impacto ambiental desde la extracción de materia prima hasta su reciclaje.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-6 pt-3 border-t border-amber-200/80 text-center">
+                        <span class="text-[9px] font-black text-amber-800 uppercase tracking-widest">Entregable: Informe de Análisis Objeto</span>
+                    </div>
+                </aside>
+
+            </div>
+
+        </div>
+
+        <!-- Botón Volver al inicio al final del contenido -->
+        <div class="mt-16 text-center">
+            <a href="index.html" class="inline-flex items-center gap-3 bg-indigo-600 text-white px-8 py-4 rounded-full font-black text-xs hover:bg-slate-900 transition-all shadow-xl uppercase tracking-widest">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i> Volver al Índice Principal
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer de la web -->
+    <footer class="py-24 text-center border-t border-slate-100 mt-20">
+        <div class="w-12 h-1.5 bg-indigo-600 mx-auto mb-10 rounded-full"></div>
+        <p class="text-slate-400 text-[10px] font-black uppercase tracking-[0.4em]">rhervel // 2026 // Tecnología 2º ESO</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
