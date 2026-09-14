@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Normas de Convivencia | IES Kursaal</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 fill=%22currentColor%22 class=%22bi bi-robot%22 viewBox=%220 0 16 16%22><path d=%22M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5ZM3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.58 26.58 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.933.933 0 0 1-.765.935c-.845.147-2.34.346-4.235.346-1.895 0-3.39-.2-4.235-.346A.933.933 0 0 1 3 9.219V8.062Zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a24.767 24.767 0 0 1-1.871-.183.25.25 0 0 0-.217.068l-.92.9a.25.25 0 0 0 .169.434l.92-.9a25.25 25.25 0 0 0 1.942.183.25.25 0 0 0 .217-.068l.92-.9a.25.25 0 0 0-.17-.434l-.92.9a24.767 24.767 0 0 1-1.871-.183Z%22/><path d=%22M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1.5a2.5 2.5 0 0 0 2.5 2.5h9A2.5 2.5 0 0 0 15 13.5V12a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2V1.866ZM14 7.5V12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5Z%22/></svg>" type="image/svg+xml">
+  
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcfcfd;
+            background-image: 
+                linear-gradient(#f1f5f9 1px, transparent 1px),
+                linear-gradient(90deg, #f1f5f9 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .nav-glass {
+            background: rgba(252, 252, 253, 0.85);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        .content-card {
+            border-radius: 2.5rem;
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 nav-glass">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            
+            <div class="flex items-center gap-2">
+                <a href="index.html" class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-black text-sm shadow-md shadow-indigo-200">K</div>
+                <span class="font-black text-slate-900 tracking-tighter uppercase text-sm">IES KURSAAL</span>
+                </a>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-[10px] font-black uppercase tracking-widest text-slate-500">
+                <a href="index.html" class="hover:text-indigo-600 transition-colors">Inicio</a>
+                <a href="#horario" class="hover:text-indigo-600 transition-colors">Horario</a>
+                <a href="#normas" class="hover:text-indigo-600 transition-colors">Normas</a>
+                <a href="#banos" class="hover:text-indigo-600 transition-colors">Uso de Baños</a>
+                <a href="#recreos" class="hover:text-indigo-600 transition-colors">Recreos</a>
+                <a href="#horario-grupo" class="hover:text-indigo-600 transition-colors">Horarios 2º C</a>
+                <a href="#contacto" class="px-4 py-2 bg-slate-900 text-white rounded-full hover:bg-indigo-600 transition-all shadow-sm">Contacto</a>
+            </div>
+            <button id="menu-btn" class="md:hidden text-slate-900 focus:outline-none">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+        
+        <!-- Menú Móvil Desplegable -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-6 py-4 space-y-3 font-bold text-xs uppercase tracking-widest text-slate-600">
+            <a href="index.html" class="block hover:text-indigo-600">Inicio</a>
+            <a href="#horario" class="block hover:text-indigo-600">Horario</a>
+            <a href="#normas" class="block hover:text-indigo-600">Normas</a>
+            <a href="#banos" class="block hover:text-indigo-600">Uso de Baños</a>
+            <a href="#recreos" class="block hover:text-indigo-600">Recreos</a>
+            <a href="#horario-grupo" class="block hover:text-indigo-600">Horarios 2º C</a>
+            <a href="#contacto" class="block text-indigo-600 font-black">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-12 px-6 overflow-hidden">
+        <div class="absolute top-[-10%] right-[-5%] w-96 h-96 bg-indigo-100 rounded-full blur-3xl opacity-40 animate-pulse"></div>
+        
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+                <div class="max-w-3xl">
+                    <div class="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-700 px-3.5 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-4">
+                        <i data-lucide="file-text" class="w-4 h-4"></i> Información para familias y alumnado
+                    </div>
+                    <h1 class="text-5xl md:text-7xl font-black text-slate-900 tracking-tighter mb-4">
+                        I.E.S. <span class="text-blue-600">KURSAAL</span>
+                    </h1>
+                    <p class="text-slate-500 text-lg leading-relaxed font-medium">
+                        Normas generales de convivencia, horarios y funcionamiento del centro para garantizar un entorno educativo seguro y respetuoso.
+                    </p>
+                </div>
+                
+                <div class="rounded-[2.5rem] p-8 text-center min-w-[220px] shadow-xl text-white" style="background: linear-gradient(135deg, #1d4ed8 0%, #312e81 100%);">
+                    <div class="text-3xl font-black tracking-tighter">Curso</div>
+                    <div class="text-2xl font-black tracking-tight text-blue-200 mt-1">2026-2027</div>
+                    <div class="text-[10px] uppercase tracking-[0.2em] font-black text-blue-300 mt-3">Comunidad Educativa</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto py-8 px-6 relative z-10 space-y-12">
+        
+        <!-- 1. HORARIO GENERAL DE CLASES -->
+        <section id="horario" class="scroll-mt-24">
+            <div class="content-card bg-white border border-slate-200/80 p-8 md:p-10 shadow-sm">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 bg-blue-50 border border-blue-100 text-blue-600 rounded-2xl flex items-center justify-center font-black">
+                        <i data-lucide="clock" class="w-5 h-5"></i>
+                    </div>
+                    <h2 class="text-2xl font-black text-slate-900 tracking-tight">1. HORARIO GENERAL DE CLASES</h2>
+                </div>
+                <div class="space-y-4 text-slate-600 text-sm md:text-base leading-relaxed ">
+                    <p>Las clases comienzan a las <strong>8:15h</strong> y terminan a las <strong>14:45h</strong>. Se exigirá <strong>puntualidad</strong>. En caso de llegar tarde por un motivo justificado, el alumno deberá venir <strong>acompañado del padre, madre o tutor legal</strong>, que justificará el retraso, o presentará <strong>justificante oficial</strong>. </p>
+                    <p>El recreo es de <strong>11:15h a 11:45h</strong>.</p>
+                    <p>Los alumnos/as <strong>menores de edad no podrán abandonar el centro solos</strong> durante la jornada escolar. Deberán venir a recogerlos sus padres, tutores legales o persona autorizada en <strong>Pasen</strong>. Los alumnos de <strong>Bachillerato y Ciclos</strong> podrán abandonar el centro cuando el profesor falte a última hora siempre que estén <strong>autorizados por sus tutores legales en Pasen</strong>; igualmente podrán entrar a segunda hora cuando la ausencia se produzca a primera hora.</p>
+
+                    <!-- PÁRRAFO DESTACADO -->
+                    <div class="bg-amber-50 border border-amber-200 text-amber-900 p-4 rounded-2xl font-semibold flex items-start gap-3 my-2">
+                        <i data-lucide="alert-triangle" class="w-5 h-5 text-amber-600 shrink-0 mt-0.5"></i>
+                        <span><strong>No se permitirá la entrada y salida del centro</strong> de <strong>08:25h a 09:10h</strong> y de <strong>11:00h a 12:00h</strong>.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. NORMAS GENERALES -->
+        <section id="normas" class="scroll-mt-24">
+            <div class="content-card bg-white border border-slate-200/80 p-8 md:p-10 shadow-sm">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 bg-indigo-50 border border-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center font-black">
+                        <i data-lucide="shield-check" class="w-5 h-5"></i>
+                    </div>
+                    <h2 class="text-2xl font-black text-slate-900 tracking-tight">2. NORMAS GENERALES</h2>
+                </div>
+                <div class="space-y-4 text-slate-600 text-sm md:text-base leading-relaxed ">
+                    <p>Todos los miembros de la Comunidad Educativa deben <strong>respetar a los demás</strong>, ya sea profesorado, alumnado o personal no docente. <strong>No se permitirán comportamientos que impliquen discriminación</strong> por razón de raza, sexo, orientación sexual, convicciones ideológicas o religiosas, discapacidades físicas o psíquicas, así como cualquier otra condición.</p>
+                    
+                    <!-- PÁRRAFO DESTACADO PROHIBICIÓN MÓVILES -->
+                    <div class="bg-rose-50 border border-rose-200 text-rose-900 p-5 rounded-2xl space-y-2">
+                        <div class="flex items-center gap-2 text-rose-700 font-bold">
+                            <i data-lucide="smartphone" class="w-5 h-5"></i>
+                            <span>Prohibición de dispositivos electrónicos</span>
+                        </div>
+                        <p class="text-sm">Está <strong>prohibida la entrada al centro de teléfonos móviles</strong> y el uso de cualquier tipo de <strong>aparato electrónico</strong>. Cualquier aparato de estas características que sea sacado o utilizado en el centro deberá ser <strong>entregado en Jefatura de Estudios</strong> con el correspondiente <strong>parte disciplinario</strong>. Será devuelto <strong>únicamente al padre, madre o tutor legal</strong>.</p>
+                    </div>
+
+                    <p>Constituye un <strong>delito difundir imágenes de personas obtenidas sin su consentimiento</strong> que puedan dañar la imagen o la vida privada de los demás, así como <strong>amenazar, injuriar, o propagar calumnias</strong>, rumores, opiniones difamantes, insultantes, amenazantes o intimidantes. Tales hechos serán <strong>sancionados</strong>.</p>
+                    <p>El alumnado debe hacer <strong>uso adecuado del material y las dependencias</strong> del centro. Los desperfectos ocasionados por mal uso o comportamiento serán <strong>reparados a cargo del alumnado y/o sus familias</strong>. Estos hechos serán sancionados. Al finalizar la jornada de clases, los alumnos deben dejar el <strong>aula ordenada</strong>.</p>
+                    <p>Durante el <strong>intercambio de clases</strong>, el alumnado deberá <strong>permanecer en el aula</strong>. Únicamente podrán salir aquellos alumnos y alumnas que necesiten desplazarse a otra aula para asistir a la siguiente clase.</p>
+                    <p>El centro <strong>no puede dispensar medicamentos</strong>. En caso de enfermedad que requiera de un protocolo de actuación, la familia deberá presentar los <strong>informes médicos oportunos en Jefatura de Estudios</strong> a principios de cada curso escolar.</p>
+                    <p><strong>No se permite</strong> el uso de <strong>gorras o similar</strong> en el centro.</p>
+                    <p><strong>No se permite comer en clase.</strong></p>
+
+                    <!-- PÁRRAFO DESTACADO SUSTANCIAS -->
+                    <div class="bg-slate-900 text-white p-4 rounded-2xl flex items-center gap-3">
+                        <i data-lucide="ban" class="w-5 h-5 text-rose-400 shrink-0"></i>
+                        <span>Está <strong>estrictamente prohibido fumar y consumir bebidas alcohólicas</strong> o cualquier otra sustancia que pueda alterar la conducta, de acuerdo con la legislación vigente.</span>
+                    </div>
+
+                    <p>Las <strong>interrupciones de las clases</strong> para la entrega al alumnado de materiales olvidados <strong>no están permitidas</strong>. El teléfono del centro solo se puede usar en caso de <strong>enfermedad</strong>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. USO DEL BAÑO (NUEVA SECCIÓN DESTACADA) -->
+        <section id="banos" class="scroll-mt-24">
+            <div class="content-card bg-indigo-50 border border-indigo-200 p-8 md:p-10 shadow-sm">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 bg-indigo-600 text-white rounded-2xl flex items-center justify-center font-black">
+                        <i data-lucide="door-closed" class="w-5 h-5"></i>
+                    </div>
+                    <h2 class="text-2xl font-black text-slate-900 tracking-tight">3. NORMATIVA DE USO DE LOS BAÑOS</h2>
+                </div>
+                <div class="space-y-4 text-slate-700 text-sm md:text-base leading-relaxed ">
+                    <p class="font-bold text-slate-900">Se recuerda a todo el alumnado las pautas obligatorias para el uso de los servicios:</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3 bg-white p-4 rounded-xl border border-indigo-100 shadow-sm">
+                            <span class="w-6 h-6 rounded-full bg-indigo-600 text-white flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">1</span>
+                            <span>El alumnado debe <strong>ir al baño durante la hora del recreo</strong> para evitar salir durante las horas de clase. <strong>Está prohibido ir al baño durante los intercambios de clase.</strong></span>
+                        </li>
+                        <li class="flex items-start gap-3 bg-white p-4 rounded-xl border border-indigo-100 shadow-sm">
+                            <span class="w-6 h-6 rounded-full bg-indigo-600 text-white flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">2</span>
+                            <span>Los baños permanecerán <strong>cerrados a primera hora hasta las 9:30h</strong>. Tras el recreo, los baños se <strong>volverán a cerrar hasta las 13:30h</strong>.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. RECREOS -->
+        <section id="recreos" class="scroll-mt-24">
+            <div class="content-card bg-white border border-slate-200/80 p-8 md:p-10 shadow-sm">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 bg-blue-50 border border-blue-100 text-blue-600 rounded-2xl flex items-center justify-center font-black">
+                        <i data-lucide="sun" class="w-5 h-5"></i>
+                    </div>
+                    <h2 class="text-2xl font-black text-slate-900 tracking-tight">4. RECREOS</h2>
+                </div>
+                <div class="space-y-4 text-slate-600 text-sm md:text-base leading-relaxed ">
+                    <p>No se podrá jugar con <strong>pelotas, balones o similar</strong>, a no ser que el juego esté regulado por un profesor/a.</p>
+                    <p>El alumnado tiene <strong>totalmente prohibido el uso de los móviles</strong> durante la hora del recreo.</p>
+                    <p>Los alumnos <strong>mayores de edad</strong> que salgan del centro en el recreo deberán hacerlo <strong>inmediatamente después de tocar el timbre</strong>, y no podrán volver a acceder a él hasta antes de que toque el timbre.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 5. SECCIÓN DE HORARIOS DE SUBGRUPOS -->
+        <section id="horario-grupo" class="scroll-mt-24">
+            <div class="content-card bg-white border border-slate-200/80 p-8 md:p-10 shadow-sm">
+                <div class="flex items-center justify-between flex-wrap gap-4 mb-6">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-indigo-50 border border-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center font-black">
+                            <i data-lucide="calendar" class="w-5 h-5"></i>
+                        </div>
+                        <h2 class="text-2xl font-black text-slate-900 tracking-tight">5. HORARIOS DE SUBGRUPOS — 2º ESO C</h2>
+                    </div>
+                </div>
+
+                <div class="space-y-4 text-slate-600 text-sm md:text-base leading-relaxed ">
+                <p class="">
+                    Haz clic en cualquiera de los horarios para ampliar la imagen modal o utiliza los enlaces adjuntos para ver o descargar los archivos originales. En este <a href="https://docs.google.com/document/d/1QJdODTg-vydcJpxUYVHEvXqVjDTorW7BLBtoMI7Ky3o/preview?usp=sharing" target="_blank" class="text-indigo-600 hover:underline font-bold">enlace</a> se puede consultar el horario completo y el listado de profesores del grupo.
+                </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
+                    <!-- TARJETA SUBGRUPO C-1 -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-3xl p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-indigo-600 text-white text-xs font-black px-3 py-1 rounded-full uppercase">Subgrupo 2º ESO C-1</span>
+                            <a href="assets/img/horarioC1.png" target="_blank" class="text-indigo-600 hover:underline text-xs font-bold inline-flex items-center gap-1">
+                                <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Abrir original
+                            </a>
+                        </div>
+                        
+                        <div class="relative group cursor-pointer overflow-hidden rounded-2xl border border-slate-200 shadow-sm bg-white" onclick="openModal('assets/img/horarioC2.png', 'Horario 2º ESO C-1')">
+                            <img src="assets/img/horarioC1.png" alt="Horario 2º ESO C-1" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-bold text-sm gap-2">
+                                <i data-lucide="zoom-in" class="w-5 h-5"></i> Ampliar Imagen
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TARJETA SUBGRUPO C-2 -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-3xl p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-indigo-600 text-white text-xs font-black px-3 py-1 rounded-full uppercase">Subgrupo 2º ESO C-2</span>
+                            <a href="assets/img/horarioC2.png" target="_blank" class="text-indigo-600 hover:underline text-xs font-bold inline-flex items-center gap-1">
+                                <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Abrir original
+                            </a>
+                        </div>
+                        
+                        <div class="relative group cursor-pointer overflow-hidden rounded-2xl border border-slate-200 shadow-sm bg-white" onclick="openModal('assets/img/horarioC2.png', 'Horario 2º ESO C-2')">
+                            <img src="assets/img/horarioC2.png" alt="Horario 2º ESO C-2" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-bold text-sm gap-2">
+                                <i data-lucide="zoom-in" class="w-5 h-5"></i> Ampliar Imagen
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VENTANA MODAL EN JAVASCRIPT -->
+        <div id="image-modal" class="fixed inset-0 z-50 bg-slate-900/90 backdrop-blur-md hidden flex items-center justify-center p-4">
+            <div class="relative max-w-5xl w-full bg-white rounded-3xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]">
+                <div class="p-4 bg-slate-100 border-b border-slate-200 flex items-center justify-between">
+                    <h3 id="modal-title" class="font-black text-slate-800 text-base">Horario</h3>
+                    <div class="flex items-center gap-3">
+                        <a id="modal-download" href="#" target="_blank" download class="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-600 bg-indigo-50 px-3 py-1.5 rounded-xl hover:bg-indigo-100">
+                            <i data-lucide="download" class="w-4 h-4"></i> Descargar Original
+                        </a>
+                        <button onclick="closeModal()" class="w-8 h-8 rounded-full bg-slate-200 hover:bg-slate-300 flex items-center justify-center font-bold">✕</button>
+                    </div>
+                </div>
+                <div class="p-4 overflow-auto flex-1 flex items-center justify-center bg-slate-950">
+                    <img id="modal-img" src="" alt="Horario Ampliado" class="max-w-full h-auto object-contain max-h-[75vh] rounded-lg">
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. CONTACTO -->
+        <section id="contacto" class="scroll-mt-24">
+            <div class="content-card bg-white border border-slate-200/80 p-8 md:p-10 shadow-sm">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 bg-indigo-50 border border-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center font-black">
+                        <i data-lucide="mail" class="w-5 h-5"></i>
+                    </div>
+                    <h2 class="text-2xl font-black text-slate-900 tracking-tight">6. CONTACTO</h2>
+                </div>
+                <div class="space-y-4 text-slate-600 text-sm md:text-base leading-relaxed ">
+                    <p>Para cualquier consulta las familias pueden escribir a los tutores por <strong>Pasen</strong>. Para ser atendidos presencialmente, se deberá pedir <strong>cita previa</strong> indicando el motivo de la cita en el <strong>libro de conserjería o por Pasen</strong>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Declaración y Aceptación -->
+        <div class="rounded-[2.5rem] p-8 md:p-10 text-white relative overflow-hidden shadow-2xl" style="background: linear-gradient(135deg, #1d4ed8 0%, #1e1b4b 100%);">
+            <div class="absolute -top-32 -right-32 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+            <div class="relative z-10 flex items-start gap-4">
+                <div class="p-3 bg-white/10 rounded-2xl border border-white/20 shrink-0">
+                    <i data-lucide="check-circle" class="w-6 h-6 text-blue-200"></i>
+                </div>
+                <div>
+                    <p class="text-blue-100 text-sm md:text-base font-medium leading-relaxed">
+                        Con la presente lectura el <strong>alumnado y su familia acepta el cumplimiento de las normas</strong>. Con esta lectura se declara que se conocen las <strong>responsabilidades legales y económicas</strong> a que hubiera dado lugar por el comportamiento incorrecto del/la alumno/a.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-16 text-center border-t border-slate-100 mt-20">
+        <div class="w-12 h-1.5 bg-indigo-600 mx-auto mb-8 rounded-full"></div>
+        <p class="text-slate-400 text-[10px] font-black uppercase tracking-[0.4em]">IES KURSAAL // Curso 2026-2027 // Normas de Convivencia</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Menú móvil
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
