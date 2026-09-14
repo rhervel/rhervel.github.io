@@ -54,10 +54,11 @@
                     <span id="currentLangLabel">ES / <strong>EN</strong></span>
                 </button>
 
-                <!-- Botón Volver al Índice -->
+                <!-- Botón Volver al Índice 
                 <a href="index.html" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-900 text-white text-[10px] font-black uppercase tracking-widest rounded-full hover:bg-indigo-600 transition-all shadow-sm">
                     <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> <span data-i18n="navBack">Volver al Índice</span>
                 </a>
+                -->
             </div>
         </div>
     </nav>
@@ -76,7 +77,7 @@
                         <span data-i18n="heroTitlePart1">El Proceso Tecnológico y el</span> <span class="text-blue-600" data-i18n="heroTitlePart2">Análisis de Objetos</span>
                     </h1>
                     <p class="text-slate-500 text-base md:text-lg leading-relaxed font-medium" data-i18n="heroSubtitle">
-                        Guía de contenido teórico y actividades prácticas de taller para 2º de ESO.
+                        Del concepto a la práctica: Introducción a la metodología de proyectos, el proceso de resolución de problemas y el análisis técnico de objetos.
                     </p>
                 </div>
                 
@@ -134,8 +135,18 @@
                             <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold" data-i18n="m4_t">4. Experimentación:</strong> <span data-i18n="m4_d">Diseñar pruebas y medir variables cuantitativas para comprobar la hipótesis.</span></li>
                             <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60 md:col-span-2"><strong class="text-slate-900 font-bold" data-i18n="m5_t">5. Conclusión:</strong> <span data-i18n="m5_d">Determinar si los datos validan la hipótesis. Si la rechazan, se debe formular una nueva.</span></li>
                         </ol>
+                        
+                        <!-- Contenedor con evento onclick -->
+                        <div class="border-2 border-dashed border-slate-300 rounded-2xl p-4 text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden" onclick="abrirImagen(this.querySelector('img').src)">
+                            <img src="assets/img/sda1-3.jpeg" alt="El Método Científico" class="w-full h-auto max-h-96 object-contain rounded-xl shadow-sm" />
+                        </div>
 
-                        <div class="bg-emerald-50 border-l-4 border-emerald-500 p-4 rounded-r-2xl text-emerald-950 text-sm font-medium">
+                        <!-- Modal emergente oculto -->
+                        <div id="modalImagen" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4" onclick="cerrarImagen()">
+                            <img id="imagenAmpliada" class="max-w-full max-h-full object-contain rounded-lg" src="" alt="Vista ampliada">
+                        </div>
+
+                        <div class="bg-emerald-50  mt-4 border-l-4 border-emerald-500 p-4 rounded-r-2xl text-emerald-950 text-sm font-medium">
                             <p><strong class="font-bold text-emerald-900" data-i18n="defScienceLabel">Definición:</strong> <span data-i18n="defScienceText">La Ciencia es el conjunto de conocimientos estructurados sistemáticamente sobre el universo, obtenidos mediante la observación y la experimentación. Su producto final es el saber.</span></p>
                         </div>
                     </div>
@@ -192,6 +203,16 @@
                                 <li><strong class="text-slate-800 font-bold" data-i18n="rel2_t">La tecnología apoya a la ciencia:</strong> <span data-i18n="rel2_d">Para descubrir el Higgs o estudiar galaxias lejanas, los científicos necesitan instrumentos tecnológicos complejos (microscopios electrónicos, telescopios espaciales o aceleradores de partículas).</span></li>
                             </ul>
                             <p class="pt-2 italic text-slate-700" data-i18n="relFooter">Hoy en día, ambas disciplinas están tan estrechamente ligadas que los especialistas utilizan el término <strong>Tecnociencia</strong>.</p>
+                        </div>
+
+                        <!-- Contenedor con evento onclick -->
+                        <div class="border-2 border-dashed border-slate-300 rounded-2xl p-4 text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden" onclick="abrirImagen(this.querySelector('img').src)">
+                            <img src="assets/img/sda1-2.jpeg" alt="Saber y Hacer" class="w-full h-auto max-h-96 object-contain rounded-xl shadow-sm" />
+                        </div>
+
+                        <!-- Modal emergente oculto -->
+                        <div id="modalImagen" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4" onclick="cerrarImagen()">
+                            <img id="imagenAmpliada" class="max-w-full max-h-full object-contain rounded-lg" src="" alt="Vista ampliada">
                         </div>
                     </div>
                 </section>
@@ -251,11 +272,20 @@
                     </div>
 
                     <p class="text-slate-600 mb-6 italic text-sm font-medium" data-i18n="b2Subtext">A lo largo de este tema aplicaremos cada fase a un proyecto de taller: La construcción de un coche eléctrico de juguete.</p>
+                    <!-- Contenedor con evento onclick -->
+                        <div class="border-2 border-dashed border-slate-300 rounded-2xl p-4 text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden" onclick="abrirImagen(this.querySelector('img').src)">
+                            <img src="assets/img/sda1-4.jpeg" alt="Coche eléctrico" class="w-full h-auto max-h-96 object-contain rounded-xl shadow-sm" />
+                        </div>
+
+                        <!-- Modal emergente oculto -->
+                        <div id="modalImagen" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4" onclick="cerrarImagen()">
+                            <img id="imagenAmpliada" class="max-w-full max-h-full object-contain rounded-lg" src="" alt="Vista ampliada">
+                        </div>
 
                     <div class="space-y-6 text-sm font-medium">
 
                         <!-- FASE 1 -->
-                        <div class="border-l-4 border-indigo-600 pl-4 space-y-2">
+                        <div class="border-l-4 mt-4 border-indigo-600 pl-4 space-y-2">
                             <h3 class="font-bold text-slate-900" data-i18n="f1Head">FASE 1: Descripción del problema (Condicionantes)</h3>
                             <p class="text-slate-600" data-i18n="f1Desc">Consiste en redactar con máxima precisión la necesidad a resolver y los límites o restricciones impuestas (tiempo, presupuesto, materiales, espacio).</p>
 
@@ -287,7 +317,7 @@
 
                         <!-- FASE 3 -->
                         <div class="border-l-4 border-indigo-600 pl-4 space-y-3">
-                            <h3 class="font-bold text-slate-900" data-i18n="f3Head">FASE 3: Técnicas de creatividad e ideación</h3>
+                            <h3 class="font-bold text-slate-900" data-i18n="f4Head">FASE 3: Diseño y concreción de la solución</h3>
                             <p class="text-slate-600" data-i18n="f3Desc">Esta es la fase de generación de ideas. Para no quedarnos con la primera opción que se nos ocurra, aplicamos técnicas de creatividad individual y grupal.</p>
 
                             <div class="space-y-2">
@@ -314,11 +344,17 @@
                                     <li class="p-2 bg-white rounded-xl border border-slate-200/60 sm:col-span-2" data-i18n="scamperR"><strong>Reordenar / Reorganizar.</strong></li>
                                 </ul>
                             </div>
-                        </div>
 
-                        <!-- FASE 4 -->
-                        <div class="border-l-4 border-indigo-600 pl-4 space-y-3">
-                            <h3 class="font-bold text-slate-900" data-i18n="f4Head">FASE 4: Diseño y concreción de la solución</h3>
+                            <!-- Contenedor con evento onclick -->
+                            <div class="border-2 border-dashed border-slate-300 rounded-2xl p-4 text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden" onclick="abrirImagen(this.querySelector('img').src)">
+                                <img src="assets/img/sda1-5.jpeg" alt="Técnicas de creatividad" class="w-full h-auto max-h-96 object-contain rounded-xl shadow-sm" />
+                            </div>
+
+                            <!-- Modal emergente oculto -->
+                            <div id="modalImagen" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4" onclick="cerrarImagen()">
+                                <img id="imagenAmpliada" class="max-w-full max-h-full object-contain rounded-lg" src="" alt="Vista ampliada">
+                            </div>
+
                             <p class="text-slate-600" data-i18n="f4Desc">De todas las ideas generadas, seleccionamos la más viable (evaluando coste, tiempo de ejecución y dificultad constructiva) y la desarrollamos técnicamente usando el lenguaje gráfico.</p>
 
                             <ol class="list-decimal pl-5 space-y-1 text-slate-700 text-xs">
@@ -335,15 +371,20 @@
                                 </p>
                             </div>
 
-                            <!-- Placeholder Imagen / Croquis -->
-                            <div class="border-2 border-dashed border-slate-300 rounded-2xl p-6 text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer">
-                                <p class="text-xs font-bold text-slate-500" data-i18n="imgPlaceholder">[ Espacio para Imagen: Croquis y Vistas Acotadas (Alzado, Planta y Perfil) ]</p>
+                            <!-- Contenedor con evento onclick -->
+                            <div class="border-2 border-dashed border-slate-300 rounded-2xl p-4 text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden" onclick="abrirImagen(this.querySelector('img').src)">
+                                <img src="assets/img/sda1-1.jpeg" alt="Croquis y Vistas Acotadas" class="w-full h-auto max-h-96 object-contain rounded-xl shadow-sm" />
+                            </div>
+
+                            <!-- Modal emergente oculto -->
+                            <div id="modalImagen" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4" onclick="cerrarImagen()">
+                                <img id="imagenAmpliada" class="max-w-full max-h-full object-contain rounded-lg" src="" alt="Vista ampliada">
                             </div>
                         </div>
 
-                        <!-- FASE 5 -->
+                        <!-- FASE 4 -->
                         <div class="border-l-4 border-indigo-600 pl-4 space-y-4">
-                            <h3 class="font-bold text-slate-900" data-i18n="f5Head">FASE 5: Planificación del trabajo</h3>
+                            <h3 class="font-bold text-slate-900" data-i18n="f5Head">FASE 4: Planificación del trabajo</h3>
                             <p class="text-slate-600" data-i18n="f5Desc">Antes de entrar al taller, es imprescindible rellenar los documentos de gestión para repartir tareas, prever costes y organizar las fases de fabricación.</p>
 
                             <!-- Tablas reducidas -->
@@ -389,6 +430,15 @@
                                         </tbody>
                                     </table>
                                 </div>
+                            <!-- Contenedor con evento onclick -->
+                            <div class="border-2 border-dashed border-slate-300 rounded-2xl p-4 text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden" onclick="abrirImagen(this.querySelector('img').src)">
+                                <img src="assets/img/sda1-6.jpeg" alt="Herramientas" class="w-full h-auto max-h-96 object-contain rounded-xl shadow-sm" />
+                            </div>
+
+                            <!-- Modal emergente oculto -->
+                            <div id="modalImagen" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4" onclick="cerrarImagen()">
+                                <img id="imagenAmpliada" class="max-w-full max-h-full object-contain rounded-lg" src="" alt="Vista ampliada">
+                            </div>
 
                                 <h4 class="font-bold text-slate-800 pt-2" data-i18n="tbl3Head">Ficha 3: Hoja de Procesos</h4>
                                 <div class="overflow-x-auto rounded-2xl border border-slate-200">
@@ -413,9 +463,9 @@
                             </div>
                         </div>
 
-                        <!-- FASE 6 -->
+                        <!-- FASE 5 -->
                         <div class="border-l-4 border-indigo-600 pl-4 space-y-2">
-                            <h3 class="font-bold text-slate-900" data-i18n="f6Head">FASE 6: Construcción</h3>
+                            <h3 class="font-bold text-slate-900" data-i18n="f6Head">FASE 5: Construcción</h3>
                             <p class="text-slate-600" data-i18n="f6Desc">Es la fase de ejecución práctica en la aula-taller. Se llevan a cabo las operaciones planificadas respetando siempre dos pautas fundamentales:</p>
 
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-2 text-xs">
@@ -430,9 +480,9 @@
                             </div>
                         </div>
 
-                        <!-- FASE 7 -->
+                        <!-- FASE 6 -->
                         <div class="border-l-4 border-indigo-600 pl-4 space-y-3">
-                            <h3 class="font-bold text-slate-900" data-i18n="f7Head">FASE 7: Evaluación y Control de Calidad</h3>
+                            <h3 class="font-bold text-slate-900" data-i18n="f7Head">FASE 6: Evaluación y Control de Calidad</h3>
                             <p class="text-slate-600" data-i18n="f7Desc">Terminada la construcción, se somete el objeto a pruebas operativas para comprobar si cumple las condiciones iniciales de la Fase 1.</p>
 
                             <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-2xl space-y-2 text-emerald-950 text-xs">
@@ -541,6 +591,15 @@
                                 </li>
                                 <li><strong class="text-slate-900 font-bold" data-i18n="af4_t">Dimensiones:</strong> <span data-i18n="af4_d">Mediciones principales (largo, ancho, alto) expresadas en milímetros.</span></li>
                             </ul>
+                            <!-- Contenedor con evento onclick -->
+                            <div class="border-2 border-dashed border-slate-300 rounded-2xl p-4 text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden" onclick="abrirImagen(this.querySelector('img').src)">
+                                <img src="assets/img/sda1-7.jpeg" alt="Vista explosionada de un bolígrafo" class="w-full h-auto max-h-96 object-contain rounded-xl shadow-sm" />
+                            </div>
+
+                            <!-- Modal emergente oculto -->
+                            <div id="modalImagen" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4" onclick="cerrarImagen()">
+                                <img id="imagenAmpliada" class="max-w-full max-h-full object-contain rounded-lg" src="" alt="Vista ampliada">
+                            </div>
                         </div>
 
                         <!-- 3.2 -->
@@ -845,7 +904,7 @@
                 badgeUnit: "Unit 1 // Learning Unit 1",
                 heroTitlePart1: "The Technological Process and",
                 heroTitlePart2: "Object Analysis",
-                heroSubtitle: "Theoretical content guide and practical workshop activities for 2nd Grade Secondary School (ESO).",
+                heroSubtitle: "From Concept to Practice: Introduction to Project Methodology, Problem-Solving Process, and Technical Object Analysis.",
                 subjectLabel: "TECHNOLOGY",
                 colTheoryHeader: "Theory & Content (3 Columns)",
                 colPracticeHeader: "Practical Activities (1 Column)",
@@ -1065,5 +1124,19 @@
 
         lucide.createIcons();
     </script>
+    <script>
+        function abrirImagen(src) {
+            const modal = document.getElementById('modalImagen');
+            document.getElementById('imagenAmpliada').src = src;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function cerrarImagen() {
+            const modal = document.getElementById('modalImagen');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }
+        </script>
 </body>
 </html>
