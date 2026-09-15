@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información Primer Día de Clase | Tecnología y Digitalización 2º ESO</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 fill=%22currentColor%22 class=%22bi bi-robot%22 viewBox=%220 0 16 16%22><path d=%22M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5ZM3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.58 26.58 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.933.933 0 0 1-.765.935c-.845.147-2.34.346-4.235.346-1.895 0-3.39-.2-4.235-.346A.933.933 0 0 1 3 9.219V8.062Zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a24.767 24.767 0 0 1-1.871-.183.25.25 0 0 0-.217.068l-.92.9a.25.25 0 0 0 .169.434l.92-.9a25.25 25.25 0 0 0 1.942.183.25.25 0 0 0 .217-.068l.92-.9a.25.25 0 0 0-.17-.434l-.92.9a24.767 24.767 0 0 1-1.871-.183Z%22/><path d=%22M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1.5a2.5 2.5 0 0 0 2.5 2.5h9A2.5 2.5 0 0 0 15 13.5V12a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2V1.866ZM14 7.5V12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5Z%22/></svg>" type="image/svg+xml">
+  
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+
+        .header-bg {
+            background: linear-gradient(135deg, #1d4ed8 0%, #1e1b4b 100%);
+        }
+
+        /* Modal backdrop animation */
+        .modal {
+            transition: opacity 0.25s ease;
+        }
+        body.modal-active {
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 min-h-screen">
+
+    <div class="max-w-4xl mx-auto space-y-6">
+
+        <!-- Botón Volver al Índice -->
+        <div class="flex items-center justify-between">
+            <a href="index.html" class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-full text-slate-700 font-bold text-xs hover:bg-slate-50 hover:text-indigo-600 transition-all shadow-sm">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                Volver al Índice
+            </a>
+            <span class="text-xs font-black uppercase tracking-widest text-slate-400">2º ESO // CLIL</span>
+        </div>
+
+        <!-- Header Section -->
+        <div class="header-bg text-white p-6 md:p-8 rounded-3xl shadow-xl">
+            <div class="inline-block bg-white/15 text-blue-200 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest mb-2">
+                Bilingual Programme // 2º ESO
+            </div>
+            <h1 class="text-3xl md:text-4xl font-black tracking-tight mb-2">Tecnología y Digitalización</h1>
+            <p class="text-blue-200 text-sm md:text-base font-medium">Guía de Inicio y Requisitos para el Primer Día de Clase</p>
+        </div>
+
+        <!-- Materiales -->
+        <div class="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm">
+            <h2 class="text-lg font-black text-slate-900 border-l-4 border-blue-600 pl-3 mb-4 flex items-center gap-2">
+                📦 Materiales Necesarios
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-slate-50 p-4 rounded-2xl">
+                    <h4 class="text-xs font-black text-blue-900 uppercase tracking-wider mb-2">Básicos</h4>
+                    <ul class="list-disc list-inside text-xs text-slate-600 space-y-1 font-medium">
+                        <li>Cuaderno o libreta de notas</li>
+                        <li>Bolígrafos (azul/negro y rojo)</li>
+                        <li>Lápiz o portaminas y goma</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-2xl">
+                    <h4 class="text-xs font-black text-blue-900 uppercase tracking-wider mb-2">Dibujo Técnico</h4>
+                    <ul class="list-disc list-inside text-xs text-slate-600 space-y-1 font-medium">
+                        <li>Regla graduada</li>
+                        <li>Juego de escuadra y cartabón</li>
+                        <li>Compás técnico</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-2xl">
+                    <h4 class="text-xs font-black text-blue-900 uppercase tracking-wider mb-2">Acceso Digital</h4>
+                    <ul class="list-disc list-inside text-xs text-slate-600 space-y-1 font-medium">
+                        <li>Credenciales web del centro</li>
+                        <li>Dispositivo para tareas en casa</li>
+                        <li>Auriculares estándar</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lo que aprenderemos -->
+        <div class="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm">
+            <h2 class="text-lg font-black text-slate-900 border-l-4 border-blue-600 pl-3 mb-4">
+                🚀 ¿Qué aprenderemos este curso?
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-700 leading-relaxed font-medium">
+                <ul class="space-y-2">
+                    <li><strong class="text-slate-900">Proceso Tecnológico:</strong> Fases del método de proyectos, diseño y evaluación de soluciones.</li>
+                    <li><strong class="text-slate-900">Taller y Herramientas:</strong> Técnicas de mecanizado, uso seguro de herramientas y mantenimiento.</li>
+                    <li><strong class="text-slate-900">Expresión Gráfica:</strong> Bocetos, vistas ortogonales, acotación y diseño asistido por ordenador (CAD 3D).</li>
+                    <li><strong class="text-slate-900">Materiales Técnicos:</strong> Maderas, metales, procesos de obtención e impacto ambiental.</li>
+                </ul>
+                <ul class="space-y-2">
+                    <li><strong class="text-slate-900">Estructuras, Mecanismos y Electricidad:</strong> Tipos de estructuras, esfuerzos, mecanismos (palancas, poleas y engranajes) y esquemas de circuitos.</li>
+                    <li><strong class="text-slate-900">Pensamiento Computacional:</strong> Programación por bloques, algoritmos, sensores y robótica.</li>
+                    <li><strong class="text-slate-900">Hardware y Ciberseguridad:</strong> Redes, arquitectura de ordenadores e identidad digital segura.</li>
+                    <li><strong class="text-slate-900">Entorno Digital (PLE):</strong> Organización del espacio personal de trabajo y herramientas colaborativas.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SECCIÓN DE METODOLOGÍA Y EVALUACIÓN -->
+        <div class="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm">
+            <h2 class="text-lg font-black text-slate-900 border-l-4 border-blue-600 pl-3 mb-2 flex items-center gap-2">
+                <i data-lucide="award" class="w-5 h-5 text-blue-600"></i> Metodología y Evaluación
+            </h2>
+            <p class="text-xs text-slate-500 mb-4 font-medium">
+                La materia se basa en un enfoque práctico e investigador (<em>Learning by Doing</em> / Aprendizaje Basado en Proyectos), combinando trabajo individual y colaborativo.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                <!-- Proyectos Prácticos -->
+                <div class="bg-slate-50 border border-slate-200 p-4 rounded-2xl">
+                    <div class="w-8 h-8 bg-blue-100 text-blue-700 rounded-xl flex items-center justify-center mb-3">
+                        <i data-lucide="hammer" class="w-4 h-4"></i>
+                    </div>
+                    <h4 class="text-xs font-black text-slate-900 uppercase tracking-wider mb-1">Proyectos y Taller</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed font-medium">
+                        Diseño, construcción y entrega de memorias de proyectos tecnológicos individuales y en equipo.
+                    </p>
+                </div>
+
+                <!-- Presentaciones y Comunicaciones -->
+                <div class="bg-slate-50 border border-slate-200 p-4 rounded-2xl">
+                    <div class="w-8 h-8 bg-blue-100 text-blue-700 rounded-xl flex items-center justify-center mb-3">
+                        <i data-lucide="presentation" class="w-4 h-4"></i>
+                    </div>
+                    <h4 class="text-xs font-black text-slate-900 uppercase tracking-wider mb-1">Presentaciones Orales</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed font-medium">
+                        Exposición pública de soluciones técnicas, prototipos y contenidos tanto en español como en inglés (CLIL).
+                    </p>
+                </div>
+
+                <!-- Actividades Evaluables -->
+                <div class="bg-slate-50 border border-slate-200 p-4 rounded-2xl">
+                    <div class="w-8 h-8 bg-blue-100 text-blue-700 rounded-xl flex items-center justify-center mb-3">
+                        <i data-lucide="check-square" class="w-4 h-4"></i>
+                    </div>
+                    <h4 class="text-xs font-black text-slate-900 uppercase tracking-wider mb-1">Actividades Continuas</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed font-medium">
+                        Pruebas escritas/digitales, retos de programación, láminas de dibujo técnico y revisión del cuaderno digital/físico.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Criterios generales -->
+            <div class="bg-blue-50/60 border border-blue-100 p-4 rounded-2xl flex items-start gap-3 text-xs text-slate-700 font-medium">
+                <i data-lucide="info" class="w-5 h-5 text-blue-600 shrink-0 mt-0.5"></i>
+                <div>
+                    <strong class="text-slate-900">Evaluación Competencial Continua:</strong> Se valorará especialmente la actitud emprendedora, la creatividad en la resolución de problemas, el trabajo en equipo, la puntualidad en las entregas y el respeto estricto a las normas de seguridad en el aula-taller.
+                </div>
+            </div>
+        </div>
+
+        <!-- Software -->
+        <div class="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm">
+            <h2 class="text-lg font-black text-slate-900 border-l-4 border-blue-600 pl-3 mb-2">
+                💻 Software y Plataformas de Aula
+            </h2>
+            <p class="text-xs text-slate-500 mb-3 font-medium">Herramientas digitales que utilizaremos a lo largo de las distintas Unidades Didácticas:</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="bg-blue-50 text-blue-700 border border-blue-200 px-3 py-1.5 rounded-xl text-xs font-bold">Tinkercad 3D / Circuits</span>
+                <span class="bg-blue-50 text-blue-700 border border-blue-200 px-3 py-1.5 rounded-xl text-xs font-bold">Arduino IDE</span>
+                <span class="bg-blue-50 text-blue-700 border border-blue-200 px-3 py-1.5 rounded-xl text-xs font-bold">Scratch (MIT)</span>
+                <span class="bg-blue-50 text-blue-700 border border-blue-200 px-3 py-1.5 rounded-xl text-xs font-bold">FreeCAD</span>
+                <span class="bg-blue-50 text-blue-700 border border-blue-200 px-3 py-1.5 rounded-xl text-xs font-bold">GIMP</span>
+            </div>
+        </div>
+
+        <!-- Normas -->
+        <div class="bg-blue-50 border border-blue-200 rounded-3xl p-6">
+            <h3 class="text-sm font-black text-blue-900 mb-1 flex items-center gap-2">
+                <i data-lucide="shield-check" class="w-4 h-4"></i> Normas de Convivencia e Información del Centro
+            </h3>
+            <p class="text-xs text-blue-800 leading-relaxed font-medium">
+                Las normas del aula, el uso de las instalaciones del taller y los horarios de clase se rigen por el reglamento oficial del <strong>IES Kursaal</strong>. Puedes consultar la información detallada y actualizada en la sección de normas de la plataforma digital.
+            </p>
+        </div>
+
+        <!-- SECCIÓN DE PORTADA Y CONTRAPORTADA (CON MODALES) -->
+        <div class="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm">
+            <h2 class="text-lg font-black text-slate-900 border-l-4 border-blue-600 pl-3 mb-2 flex items-center gap-2">
+                <i data-lucide="book-open" class="w-5 h-5 text-blue-600"></i> Diseño de Portada y Contraportada
+            </h2>
+            <p class="text-xs text-slate-500 mb-4 font-medium">Haz clic en cualquiera de las imágenes para ampliar la vista previa:</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Columna Portada -->
+                <div class="space-y-2 text-center">
+                    <span class="text-xs font-black uppercase tracking-widest text-slate-500">Diseño de Portada</span>
+                    <div onclick="openModal('modalPortada')" class="group relative bg-slate-100 rounded-2xl overflow-hidden cursor-pointer border border-slate-200 aspect-[3/4] flex items-center justify-center shadow-sm hover:shadow-md transition-all">
+                        <img id="imgPortada" src="assets/img/guia1.jpeg" alt="Vista previa Portada" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white gap-2 font-bold text-xs">
+                            <i data-lucide="maximize-2" class="w-4 h-4"></i> Ampliar Portada
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Contraportada -->
+                <div class="space-y-2 text-center">
+                    <span class="text-xs font-black uppercase tracking-widest text-slate-500">Diseño de Contraportada</span>
+                    <div onclick="openModal('modalContraportada')" class="group relative bg-slate-100 rounded-2xl overflow-hidden cursor-pointer border border-slate-200 aspect-[3/4] flex items-center justify-center shadow-sm hover:shadow-md transition-all">
+                        <img id="imgContraportada" src="assets/img/guia2.jpeg" alt="Vista previa Contraportada" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white gap-2 font-bold text-xs">
+                            <i data-lucide="maximize-2" class="w-4 h-4"></i> Ampliar Contraportada
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botón Inferior para Volver al Índice -->
+        <div class="pt-4 text-center">
+            <a href="index.html" class="inline-flex items-center gap-2 px-6 py-3 bg-slate-900 hover:bg-indigo-600 text-white rounded-full font-bold text-xs transition-all shadow-md uppercase tracking-wider">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                Volver al Índice General
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center text-[10px] font-black uppercase tracking-widest text-slate-400 pt-6 border-t border-slate-200">
+            rhervel // Tecnología y Digitalización 2º ESO // Learn by doing
+        </div>
+
+    </div>
+
+    <!-- MODAL PORTADA -->
+    <div id="modalPortada" class="modal opacity-0 pointer-events-none fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/80 backdrop-blur-sm">
+        <div class="relative bg-white rounded-3xl overflow-hidden max-w-2xl w-full max-h-[90vh] flex flex-col shadow-2xl">
+            <div class="flex items-center justify-between p-4 border-b border-slate-100">
+                <h3 class="font-black text-slate-900 text-sm uppercase tracking-wider">Vista Previa: Portada</h3>
+                <button onclick="closeModal('modalPortada')" class="p-1 rounded-full text-slate-400 hover:text-slate-900 hover:bg-slate-100 transition-colors">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <div class="p-4 overflow-y-auto flex-1 bg-slate-100 flex items-center justify-center">
+                <img src="assets/img/guia1.jpeg" alt="Portada Ampliada" class="max-h-[75vh] w-auto rounded-xl object-contain shadow-md">
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL CONTRAPORTADA -->
+    <div id="modalContraportada" class="modal opacity-0 pointer-events-none fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/80 backdrop-blur-sm">
+        <div class="relative bg-white rounded-3xl overflow-hidden max-w-2xl w-full max-h-[90vh] flex flex-col shadow-2xl">
+            <div class="flex items-center justify-between p-4 border-b border-slate-100">
+                <h3 class="font-black text-slate-900 text-sm uppercase tracking-wider">Vista Previa: Contraportada</h3>
+                <button onclick="closeModal('modalContraportada')" class="p-1 rounded-full text-slate-400 hover:text-slate-900 hover:bg-slate-100 transition-colors">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <div class="p-4 overflow-y-auto flex-1 bg-slate-100 flex items-center justify-center">
+                <img src="assets/img/guia2.jpeg" alt="Contraportada Ampliada" class="max-h-[75vh] w-auto rounded-xl object-contain shadow-md">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            document.body.classList.add('modal-active');
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            document.body.classList.remove('modal-active');
+        }
+
+        // Cerrar modal al hacer clic fuera del contenido
+        window.addEventListener('click', function(event) {
+            if (event.target.classList.contains('modal')) {
+                closeModal(event.target.id);
+            }
+        });
+
+        // Cerrar modal con la tecla ESC
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal('modalPortada');
+                closeModal('modalContraportada');
+            }
+        });
+    </script>
+</body>
+</html>
