@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UD2. Herramientas del Taller | rhervel</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 fill=%22currentColor%22 class=%22bi bi-robot%22 viewBox=%220 0 16 16%22><path d=%22M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5ZM3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.58 26.58 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.933.933 0 0 1-.765.935c-.845.147-2.34.346-4.235.346-1.895 0-3.39-.2-4.235-.346A.933.933 0 0 1 3 9.219V8.062Zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a24.767 24.767 0 0 1-1.871-.183.25.25 0 0 0-.217.068l-.92.9a.25.25 0 0 0 .169.434l.92-.9a25.25 25.25 0 0 0 1.942.183.25.25 0 0 0 .217-.068l.92-.9a.25.25 0 0 0-.17-.434l-.92.9a24.767 24.767 0 0 1-1.871-.183Z%22/><path d=%22M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1.5a2.5 2.5 0 0 0 2.5 2.5h9A2.5 2.5 0 0 0 15 13.5V12a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2V1.866ZM14 7.5V12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5Z%22/></svg>" type="image/svg+xml">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcfcfd;
+            background-image: 
+                linear-gradient(#f1f5f9 1px, transparent 1px),
+                linear-gradient(90deg, #f1f5f9 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .nav-glass {
+            background: rgba(252, 252, 253, 0.85);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        .content-card {
+            border-radius: 2.5rem;
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased leading-relaxed">
+
+    <!-- Navbar con selector de idioma y botón para volver al Índice -->
+    <nav class="fixed top-0 w-full z-50 nav-glass">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-black text-sm shadow-md shadow-indigo-200 group-hover:bg-blue-600 transition-colors">T</div>
+                <span class="font-black text-slate-900 tracking-tighter uppercase text-sm">rhervel</span>
+            </a>
+            
+            <div class="flex items-center gap-3">
+                <!-- Selector de Idioma -->
+                <button id="langToggleBtn" onclick="toggleLanguage()" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-full border border-slate-200 transition-all shadow-xs">
+                    <i data-lucide="globe" class="w-3.5 h-3.5 text-indigo-600"></i>
+                    <span id="currentLangLabel">ES / <strong>EN</strong></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header / Hero Section -->
+    <header class="relative pt-32 pb-12 px-6 overflow-hidden">
+        <div class="absolute top-[-10%] right-[-5%] w-96 h-96 bg-indigo-100 rounded-full blur-3xl opacity-40 animate-pulse"></div>
+        
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+                <div class="max-w-3xl">
+                    <div class="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-700 px-3.5 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-4">
+                        <i data-lucide="wrench" class="w-4 h-4"></i> <span>Unidad Didáctica 2 // SdA 2</span>
+                    </div>
+                    <h1 class="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter mb-4 uppercase">
+                        <span>UD2. Herramientas del</span> <span class="text-blue-600">Taller</span>
+                    </h1>
+                    <p class="text-slate-500 text-base md:text-lg leading-relaxed font-medium">
+                        Hoy en día, en el aula-taller no solo trabajamos con herramientas tradicionales de carpintería y metal, sino que también diseñamos digitalmente y utilizamos herramientas de fabricación digital. A continuación, tenéis el tema ampliado, organizado por familias y con todas las normas de seguridad e higiene que debéis cumplir estrictamente en el taller.
+                    </p>
+                </div>
+                
+                <div class="rounded-[2.5rem] p-6 text-center min-w-[180px] shadow-xl text-white self-start md:self-auto" style="background: linear-gradient(135deg, #1d4ed8 0%, #312e81 100%);">
+                    <div class="text-4xl font-black tracking-tighter">SdA 2</div>
+                    <div class="text-[9px] uppercase tracking-[0.2em] font-black text-blue-200 mt-1">TECNOLOGÍA</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-6 py-8 relative z-10">
+        
+        <div class="space-y-16">
+
+            <!-- BLOQUE PRINCIPAL DE CONTENIDO -->
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
+                
+                <!-- Columna Teoría -->
+                <section class="lg:col-span-3 bg-white content-card p-6 sm:p-10 shadow-xl border border-slate-200/80">
+                    
+                    <!-- 1. Herramientas del Taller -->
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-2xl bg-indigo-50 text-indigo-600 font-black text-lg border border-indigo-100">1</span>
+                        <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">HERRAMIENTAS DEL TALLER</h2>
+                    </div>
+
+                    <div class="mb-8 font-medium text-sm text-slate-600 space-y-4">
+                        <p>Para desarrollar cualquier proyecto tecnológico en el aula-taller, necesitamos seleccionar y manejar las herramientas adecuadas. Una herramienta es un instrumento que permite realizar trabajos mecánicos o manuales con mayor precisión, menor esfuerzo y mayor seguridad. Las herramientas se agrupan en distintas familias tecnológicas según la función o el tipo de trabajo que realizan.</p>
+
+                        <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-2xl text-amber-950 text-sm font-medium">
+                            <p><strong class="font-bold text-amber-900">Norma Básica del Taller:</strong> Cada herramienta ha sido diseñada para una función específica. Usar una herramienta para algo distinto a su cometido (por ejemplo, usar un destornillador como palanca o tijeras para cortar alambre grueso) es peligroso y puede deteriorar el equipamiento.</p>
+                        </div>
+                    </div>
+
+                    <!-- 1.1 -->
+                    <div class="mb-8">
+                        <h3 class="text-base font-bold text-indigo-600 mb-3 border-l-4 border-indigo-600 pl-3">1.1. Herramientas para medir, marcar y trazar</h3>
+                        <p class="text-slate-600 mb-4 text-sm font-medium">Antes de cortar o conformar cualquier material, es fundamental medir con exactitud y trasladar las dimensiones del diseño sobre el material de trabajo. Este proceso evita el malgasto de materia prima.</p>
+
+                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm font-medium">
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">Regla graduada de acero:</strong> <span class="text-slate-600">Construida en acero inoxidable para evitar su desgaste. Permite medir longitudes directas y trazar líneas rectas con precisión de milímetros.</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">Flexómetro (o metro de cinta metálica):</strong> <span class="text-slate-600">Dispone de una cinta metálica flexible graduada que se enrolla dentro de una carcasa. Indicado para medir distancias largas (de 2 a 5 metros).</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">Escuadra de taller:</strong> <span class="text-slate-600">Formada por una regla de acero fija a un cartabón de hierro o aluminio a 90º. Sirve para comprobar la perpendicularidad de las caras de una pieza y trazar líneas a 90º y 45º.</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">Transportador de ángulos o goniómetro:</strong> <span class="text-slate-600">Instrumento graduado que permite medir y transportar ángulos sobre el material de trabajo.</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">Calibre o pie de rey:</strong> <span class="text-slate-600">Instrumento de medición de alta precisión (capaz de apreciar décimas o centésimas de milímetro). Permite medir diámetros exteriores, diámetros interiores y profundidades en piezas pequeñas.</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">Punta de marcar (o trazador):</strong> <span class="text-slate-600">Varilla de acero templado acilada en punta dura. Se utiliza para rayar y dejar marcas permanentes en superficies metálicas o plásticas donde el lápiz no se adhiere.</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">Compás de puntas de acero:</strong> <span class="text-slate-600">Compás rígido con dos puntas metálicas. Se utiliza para trazar circunferencias y arcos sobre metal y madera, o para transportar distancias exactamente.</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">Nivel de burbuja:</strong> <span class="text-slate-600">Instrumento con tubos de líquido y una burbuja de aire que indica si una superficie está perfectamente horizontal, vertical o a 45º.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- 1.2 -->
+                    <div class="mb-8">
+                        <h3 class="text-base font-bold text-indigo-600 mb-3 border-l-4 border-indigo-600 pl-3">1.2. Herramientas de corte</h3>
+                        <p class="text-slate-600 mb-4 text-sm font-medium">Permiten separar o seccionar materiales para obtener las dimensiones deseadas por desprendimiento de viruta o por cizalladura.</p>
+
+                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm font-medium">
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">Serrucho ordinario y de costilla:</strong> <span class="text-slate-600">Herramienta manual para cortar madera. El serrucho de costilla cuenta con un refuerzo metálico en la parte superior de la hoja que le da rigidez, permitiendo cortes muy rectos y finos.</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">Sierra de marquetería (o de pelo):</strong> <span class="text-slate-600">Consta de un arco de metal en forma de 'U' donde se tensa un hilo dentado fino (pelo de sierra). Es ideal para calar y realizar cortes curvos sobre maderas finas (como el contrachapado de 3 o 4 mm).</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">Sierra de metal (sierra de arco):</strong> <span class="text-slate-600">Dispone de una hoja de acero con dientes pequeños y duros montada sobre un arco metálico. Diseñada para cortar tubos y perfiles de metal y plástico.</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">Sierra eléctrica de calar (caladora):</strong> <span class="text-slate-600">Máquina eléctrica portátil dotada de una hoja fija que realiza un movimiento vaivén vertical rápido. Permite realizar cortes rectos o curvos en tablas de madera, plásticos y chapas metálicas según el tipo de hoja instalado.</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">Tijeras de electricista:</strong> <span class="text-slate-600">Tijeras de hojas cortas, muesca pelacables e insuladas con empuñadura de material aislante homologado para evitar descargas eléctricas.</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">Tijeras para chapa (tijeras de aviación):</strong> <span class="text-slate-600">Diseñadas con gran ventaja mecánica para cortar láminas finas de metal (aluminio, latón o chapa de acero fino).</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60 md:col-span-2"><strong class="text-slate-900 font-bold">Cúter:</strong> <span class="text-slate-600">Cuchilla retráctil muy afilada sostenida por una carcasa plástica o metálica. Utilizada para cortar cartón, papel, goma EVA y láminas finas de plástico. Requiere el uso de regla metálica como guía.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- 1.3 -->
+                    <div class="mb-8">
+                        <h3 class="text-base font-bold text-indigo-600 mb-3 border-l-4 border-indigo-600 pl-3">1.3. Herramientas de percusión</h3>
+                        <p class="text-slate-600 mb-4 text-sm font-medium">Diseñadas para transmitir un impacto sobre un material o sobre otra herramienta con la finalidad de deformar, clavar, ensamblar o romper.</p>
+
+                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm font-medium">
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">Martillo de peña:</strong> <span class="text-slate-600">Cuenta con una cabeza metálica con una cara plana (para golpear) y un extremo en forma de cuña o peña (ideal para clavar clavos pequeños de tapicería o sujetar puntas).</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">Martillo de bola:</strong> <span class="text-slate-600">Superficie redonda en uno de sus extremos, muy empleado en conformado de metales, remachado y trabajos mecánicos.</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">Martillo de orejas:</strong> <span class="text-slate-600">Incorpora dos ganchos curvados (orejas) en el extremo opuesto a la cara de golpeo. Esta forma permite hacer palanca y extraer clavos doblados con facilidad.</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">Maceta de albañil:</strong> <span class="text-slate-600">Martillo pesado con dos caras planas, empleado para golpear cinceles o romper materiales duros.</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60 md:col-span-2"><strong class="text-slate-900 font-bold">Maza de goma o nailon:</strong> <span class="text-slate-600">Diseñada para golpear piezas delicadas, ensambles de madera o chapa sin dejar marcas ni deformar el material.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- 1.4 -->
+                    <div class="mb-8">
+                        <h3 class="text-base font-bold text-indigo-600 mb-3 border-l-4 border-indigo-600 pl-3">1.4. Herramientas para desbastar, limar y pulir</h3>
+                        <p class="text-slate-600 mb-4 text-sm font-medium">Tienen como objetivo arrancar pequeñas virutas o polvo de material para rebajar dimensiones, eliminar rebabas cortantes y dar un acabado suave a las piezas.</p>
+
+                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm font-medium">
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">Limas:</strong> <span class="text-slate-600">Barras de acero templado con la superficie labrada en forma de dientes (estriado). Se clasifican según su forma plana, redonda, de media caña, cuadrada o triangular. Permiten alisar bordes en metales y plásticos.</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">Escofinas:</strong> <span class="text-slate-600">Herramientas parecidas a las limas pero con resaltes individuales y gruesos en forma de pirámide. Arrancan gran cantidad de material rápidamente y se usan únicamente en madera maciza.</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">Papel de lija:</strong> <span class="text-slate-600">Soporte de papel o tela sobre el que se adhiere un grano abrasivo (óxido de aluminio o carburo de silicio). La finura de la lija depende de su número de grano: a menor número, grano más grueso y desbaste más agresivo.</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">Lijadora orbital:</strong> <span class="text-slate-600">Máquina-herramienta eléctrica que imprime un movimiento vibratorio orbital a la lija adaptada en su base, facilitando el lijado de grandes superficies planas de madera.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- 1.5 -->
+                    <div class="mb-8">
+                        <h3 class="text-base font-bold text-indigo-600 mb-3 border-l-4 border-indigo-600 pl-3">1.5. Herramientas de perforación</h3>
+                        <p class="text-slate-600 mb-4 text-sm font-medium">Sirven para realizar agujeros cilíndricos en distintos materiales mediante la rotación de un accesorio cortante denominado broca.</p>
+
+                        <ul class="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm font-medium mb-6">
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">Barrena:</strong> <span class="text-slate-600">Herramienta manual de rosca helicoidal con empuñadura en 'T'. Se gira con la mano para hacer pequeños taladros guía en madera blanda.</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">Taladro portátil (de cable o batería):</strong> <span class="text-slate-600">Máquina eléctrica provista de un portabrocas que gira a altas revoluciones. Los modelos a batería ofrecen portabilidad en el taller, mientras que los de cable ofrecen mayor potencia para perforaciones continuas.</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">Taladro de columna (o de sobremesa):</strong> <span class="text-slate-600">Máquina fija anclada a la mesa de trabajo. Permite realizar taladros perfectamente verticales y con profundidad regulable con la máxima precisión y seguridad.</span></li>
+                        </ul>
+
+                        <div class="bg-indigo-50/50 p-4 rounded-2xl border border-indigo-100 space-y-2 text-sm font-medium">
+                            <h4 class="font-bold text-indigo-900 text-xs uppercase tracking-wider">Tipos de Brocas:</h4>
+                            <ul class="space-y-1 list-disc pl-5 text-slate-700">
+                                <li><strong class="text-slate-900 font-bold">Broca para madera:</strong> Tiene una punta centradora muy afilada en el extremo.</li>
+                                <li><strong class="text-slate-900 font-bold">Broca para metal (HSS):</strong> Punta cónica con ángulo de 118º y acanaladura helicoidal.</li>
+                                <li><strong class="text-slate-900 font-bold">Broca para pared/hormigón:</strong> Cuenta con una plaquita de metal duro (widia) en la punta en forma de flecha.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 1.6 -->
+                    <div class="mb-8">
+                        <h3 class="text-base font-bold text-indigo-600 mb-3 border-l-4 border-indigo-600 pl-3">1.6. Herramientas de sujeción y montaje</h3>
+                        <p class="text-slate-600 mb-4 text-sm font-medium">Son imprescindibles para mantener inmóviles las piezas mientras se mecanizan (cortan, taladran, liman) o para mantenerlas unidas firmemente durante el secado de adhesivos.</p>
+
+                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm font-medium">
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">Tornillo de banco:</strong> <span class="text-slate-600">Mecanismo integrado en las mesas del taller con dos mordazas de hierro que se abren o cierran mediante una palanca roscada. Inmoviliza firmemente la pieza de trabajo.</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">Sargento o gato de marquetería:</strong> <span class="text-slate-600">Herramienta de sujeción portátil en forma de 'C' o 'F'. Se fija mediante un tornillo roscado para presionar piezas sobre la mesa o unir tablas durante el encolado.</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">Alicates universales:</strong> <span class="text-slate-600">Herramienta manual multifunción que sirve para sujetar piezas, doblar pletinas y cortar alambres gracias a su zona dentada y cuchilla integrada.</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">Alicates de punta plana o redonda:</strong> <span class="text-slate-600">Alicates de mordazas finas para manipular componentes pequeños, doblar terminales de cables eléctricos o dar forma a hilos metálicos.</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60 md:col-span-2"><strong class="text-slate-900 font-bold">Grip o alicate de presión:</strong> <span class="text-slate-600">Alicates que se bloquean sobre la pieza fijando la fuerza de apriete mediante un tornillo en el mango.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- 1.7 -->
+                    <div class="mb-8">
+                        <h3 class="text-base font-bold text-indigo-600 mb-3 border-l-4 border-indigo-600 pl-3">1.7. Herramientas para atornillar y uniones mecánicas</h3>
+                        <p class="text-slate-600 mb-4 text-sm font-medium">Destinadas a realizar uniones desmontables entre piezas empleando tornillos, tuercas y elementos roscados.</p>
+
+                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm font-medium">
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">Destornilladores (plano, Philips/estrella y Pozidriv):</strong> <span class="text-slate-600">Herramientas con mango aislante y varilla de acero que encajan en la cabeza de los tornillos. Se debe elegir exactamente el tamaño y forma que coincida con la huella del tornillo.</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">Llaves fijas (plana y de estrella):</strong> <span class="text-slate-600">Herramientas de acero al cromo-vanadio de dimensiones estandarizadas en milímetros. Se utilizan para apretar o aflojar tuercas y tornillos hexagonales.</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">Llave inglesa:</strong> <span class="text-slate-600">Llave ajustable provista de una muesca móvil regulable mediante un sinfín. Permite adaptarse a diferentes medidas de tuerca.</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">Llave Allen:</strong> <span class="text-slate-600">Varilla de sección hexagonal doblada en 'L'. Se encaja dentro de las cabezas de tornillos con huella hexagonal embutida.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- 1.8 -->
+                    <div class="mb-8">
+                        <h3 class="text-base font-bold text-indigo-600 mb-3 border-l-4 border-indigo-600 pl-3">1.8. Fabricación Digital y Prototipado (Materia de Digitalización)</h3>
+                        <p class="text-slate-600 mb-4 text-sm font-medium">En el currículo actual de 2º de ESO incorporamos las tecnologías de fabricación aditiva y corte digital, que nos permiten pasar directamente de un modelo 3D diseñado en ordenador a un objeto físico real.</p>
+
+                        <div class="overflow-x-auto mb-6 rounded-2xl border border-slate-200">
+                            <table class="w-full text-left border-collapse text-sm">
+                                <thead>
+                                    <tr class="bg-slate-100 border-b border-slate-200 text-slate-800 font-bold">
+                                        <th class="p-3">Tecnología / Herramienta</th>
+                                        <th class="p-3">Descripción del Funcionamiento</th>
+                                        <th class="p-3">Aplicación en el Aula-Taller</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-200 font-medium text-slate-600">
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="p-3 font-bold text-slate-900">Impresora 3D (FDM)</td>
+                                        <td class="p-3">Deposita filamento termoplástico (como PLA) fundido capa por capa mediante un extrusor caliente controlando ejes X, Y y Z.</td>
+                                        <td class="p-3">Creación de engranajes, soportes, carcasas personalizadas y piezas mecánicas diseñadas en Tinkercad.</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="p-3 font-bold text-slate-900">Cortadora / Grabadora Láser</td>
+                                        <td class="p-3">Utiliza un haz de luz láser de alta potencia para cortar o grabar con precisión milimétrica sobre materiales finos.</td>
+                                        <td class="p-3">Corte rápido de piezas de contrachapado, metacrilato o cartón para maquetas estructurales.</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="p-3 font-bold text-slate-900">Plotter de Corte / Vinilo</td>
+                                        <td class="p-3">Dispone de una pequeña cuchilla orientable que se desplaza sobre una lámina de vinilo adhesivo o papel.</td>
+                                        <td class="p-3">Recorte de señalética para el taller, pegatinas protectoras y circuitos flexibles en lámina de cobre.</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="p-3 font-bold text-slate-900">Soldador Eléctrico de Estaño</td>
+                                        <td class="p-3">Herramienta térmica que transforma energía eléctrica en calor en su punta fina (alcanza aprox. 350ºC).</td>
+                                        <td class="p-3">Unión fija permanente de cables eléctricos, motores de CC e interruptores en circuitos de proyectos.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- 1.9 -->
+                    <div class="mb-8">
+                        <h3 class="text-base font-bold text-indigo-600 mb-3 border-l-4 border-indigo-600 pl-3">1.9. Ficha de Organización de Herramientas y Normas de Seguridad</h3>
+                        <p class="text-slate-600 mb-4 text-sm font-bold">Tabla Resumen de Uso Correcto de Herramientas</p>
+
+                        <div class="overflow-x-auto mb-6 rounded-2xl border border-slate-200">
+                            <table class="w-full text-left border-collapse text-sm">
+                                <thead>
+                                    <tr class="bg-slate-100 border-b border-slate-200 text-slate-800 font-bold">
+                                        <th class="p-3">Familia</th>
+                                        <th class="p-3">Herramienta Clave</th>
+                                        <th class="p-3">Uso Principal</th>
+                                        <th class="p-3">Riesgo Principal</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-200 font-medium text-slate-600">
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="p-3 font-bold text-slate-900">Trazado</td>
+                                        <td class="p-3">Calibre / Pie de rey</td>
+                                        <td class="p-3">Medición precisa en mm</td>
+                                        <td class="p-3 text-red-600 font-semibold">Caída o descalibración</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="p-3 font-bold text-slate-900">Corte</td>
+                                        <td class="p-3">Sierra de calar</td>
+                                        <td class="p-3">Corte rápido en tablas</td>
+                                        <td class="p-3 text-red-600 font-semibold">Atrapamiento / Corte en manos</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="p-3 font-bold text-slate-900">Percusión</td>
+                                        <td class="p-3">Martillo de peña</td>
+                                        <td class="p-3">Clavado de puntas</td>
+                                        <td class="p-3 text-red-600 font-semibold">Golpe en dedos</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="p-3 font-bold text-slate-900">Desbaste</td>
+                                        <td class="p-3">Lima / Escofina</td>
+                                        <td class="p-3">Alisado de bordes y virutas</td>
+                                        <td class="p-3 text-red-600 font-semibold">Clavado de la espiga si falta mango</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="p-3 font-bold text-slate-900">Perforación</td>
+                                        <td class="p-3">Taladro de columna</td>
+                                        <td class="p-3">Agujeros verticales precisos</td>
+                                        <td class="p-3 text-red-600 font-semibold">Enganche de pelo/ropa en la broca</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="p-3 font-bold text-slate-900">Sujeción</td>
+                                        <td class="p-3">Tornillo de banco</td>
+                                        <td class="p-3">Inmovilizar la pieza</td>
+                                        <td class="p-3 text-red-600 font-semibold">Pellizco al cerrar mordazas</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="p-3 font-bold text-slate-900">Fabricación Digital</td>
+                                        <td class="p-3">Impresora 3D / Soldador</td>
+                                        <td class="p-3">Prototipado / Soldadura eléctrica</td>
+                                        <td class="p-3 text-red-600 font-semibold">Quemaduras por altas temperaturas</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- 1.10 -->
+                    <div>
+                        <h3 class="text-base font-bold text-indigo-600 mb-3 border-l-4 border-indigo-600 pl-3">1.10 Reglas de Seguridad e Higiene en el Taller</h3>
+                        
+                        <ol class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm font-medium">
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">1. Equipos de Protección Individual (EPIs):</strong> <span class="text-slate-600">Es obligatorio el uso de gafas de protección cuando utilicemos el taladro, la lijadora o herramientas que desprendan esquirlas o virutas.</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">2. Ropa adecuada:</strong> <span class="text-slate-600">Llevar el pelo largo siempre recogido con una goma. Evitar bufandas, colgantes o mangas anchas que puedan ser atrapadas por máquinas giratorias.</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">3. Inspección visual:</strong> <span class="text-slate-600">Antes de usar cualquier herramienta (especialmente eléctricas o martillos), verifica que no tenga el mango suelto, la estructura agrietada o el cable dañado.</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">4. Sujeción previa:</strong> <span class="text-slate-600">NUNCA sujetes con la mano una pieza pequeña mientras la taladras o la cortas con la caladora; utiliza SIEMPRE el tornillo de banco o un sargento.</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">5. Uso del soldador:</strong> <span class="text-slate-600">El soldador de estaño se debe depositar siempre en su soporte metálico mientras no se esté aplicando. Nunca tocar la punta metálica.</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">6. Orden en el panel:</strong> <span class="text-slate-600">Al finalizar la sesión, cada herramienta debe limpiarse con un cepillo y volver a su silueta asignada en el panel del taller.</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">7. Zona de trabajo despejada:</strong> <span class="text-slate-600">Mantener la mesa limpia de virutas, objetos de basura o herramientas innecesarias para el trabajo actual.</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">8. Atención y actitud:</strong> <span class="text-slate-600">No se permite correr, jugar ni distraer a los compañeros mientras están operando herramientas de corte o maquinaria.</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">9. Desconexión eléctrica:</strong> <span class="text-slate-600">Para cambiar una broca en el taladro o una hoja en la sierra eléctrica, la máquina debe estar desenchufada de la red eléctrica.</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">10. Higienización personal:</strong> <span class="text-slate-600">Al terminar la clase de taller, lávate detenidamente las manos con agua y jabón para retirar restos de polvo, aceites o resinas.</span></li>
+                        </ol>
+                    </div>
+
+                </section>
+
+                <!-- Columna Actividades Prácticas -->
+                <aside class="bg-amber-50/90 content-card p-6 border border-amber-200 shadow-xl self-stretch flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 mb-4 pb-3 border-b border-amber-200">
+                            <i data-lucide="clipboard-list" class="w-5 h-5 text-amber-700"></i>
+                            <h3 class="font-black text-amber-950 text-sm uppercase tracking-wider">Actividades Prácticas</h3>
+                        </div>
+                        <ul class="space-y-4 text-xs text-amber-950 font-medium">
+                            <li class="bg-white p-4 rounded-2xl border border-amber-200/80 shadow-xs">
+                                <span class="font-black block text-amber-900 mb-1 uppercase tracking-wider text-[10px]">Actividad 2.1: Identificación de Herramientas</span>
+                                <span>Observa el panel de taller e identifica 5 herramientas asignándoles su familia tecnológica correspondiente.</span>
+                            </li>
+                            <li class="bg-white p-4 rounded-2xl border border-amber-200/80 shadow-xs">
+                                <span class="font-black block text-amber-900 mb-1 uppercase tracking-wider text-[10px]">Actividad 2.2: Medición de Precisión</span>
+                                <span>Utiliza el calibre o pie de rey para medir el diámetro exterior, interior y profundidad de un tubo de PVC proporcionado en el taller.</span>
+                            </li>
+                            <li class="bg-white p-4 rounded-2xl border border-amber-200/80 shadow-xs">
+                                <span class="font-black block text-amber-900 mb-1 uppercase tracking-wider text-[10px]">Actividad 2.3: Chequeo de Seguridad</span>
+                                <span>Elabora una lista de comprobación de EPIs requeridos para el corte con sierra de calar y el taladrado de piezas metálicas.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-6 pt-3 border-t border-amber-200/80 text-center">
+                        <span class="text-[9px] font-black text-amber-800 uppercase tracking-widest">Entregable: Cuaderno individual / Ficha Taller</span>
+                    </div>
+                </aside>
+
+            </div>
+
+        </div>
+
+        <!-- Botón Volver al inicio al final del contenido -->
+        <div class="mt-16 text-center">
+            <a href="index.html" class="inline-flex items-center gap-3 bg-indigo-600 text-white px-8 py-4 rounded-full font-black text-xs hover:bg-slate-900 transition-all shadow-xl uppercase tracking-widest">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i> <span>Volver al Índice Principal</span>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer de la web -->
+    <footer class="py-24 text-center border-t border-slate-100 mt-20">
+        <div class="w-12 h-1.5 bg-indigo-600 mx-auto mb-10 rounded-full"></div>
+        <p class="text-slate-400 text-[10px] font-black uppercase tracking-[0.4em]">rhervel // 2026 // Tecnología 2º ESO</p>
+    </footer>
+
+    <!-- Inicialización de iconos Lucide -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
