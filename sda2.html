@@ -124,6 +124,25 @@
                             <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">Nivel de burbuja:</strong> <span class="text-slate-600">Instrumento con tubos de líquido y una burbuja de aire que indica si una superficie está perfectamente horizontal, vertical o a 45º.</span></li>
                         </ul>
                     </div>
+                   <!-- Contenedor Flex/Grid para poner las imágenes lado a lado -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 border-2 border-dashed border-slate-300 rounded-2xl p-4 mb-8">
+
+                        <!-- Primera imagen -->
+                        <div class="text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden" onclick="abrirImagen(this.querySelector('img').src)">
+                            <img src="assets/img/sda2-1.jpeg" alt="Calibre o pie de rey" class="w-full h-auto max-h-96 object-contain rounded-xl shadow-sm" />
+                        </div>
+
+                        <!-- Segunda imagen -->
+                        <div class="text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden" onclick="abrirImagen(this.querySelector('img').src)">
+                            <img src="assets/img/sda2-2.jpeg" alt="Set de trazado" class="w-full h-auto max-h-96 object-contain rounded-xl shadow-sm" />
+                        </div>
+
+                    </div>
+
+                    <!-- Único modal emergente (fuera del contenedor grid) -->
+                    <div id="modalImagen" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4" onclick="cerrarImagen()">
+                        <img id="imagenAmpliada" class="max-w-full max-h-full object-contain rounded-lg" src="" alt="Vista ampliada">
+                    </div>
 
                     <!-- 1.2 -->
                     <div class="mb-8">
@@ -140,6 +159,16 @@
                             <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60 md:col-span-2"><strong class="text-slate-900 font-bold">Cúter:</strong> <span class="text-slate-600">Cuchilla retráctil muy afilada sostenida por una carcasa plástica o metálica. Utilizada para cortar cartón, papel, goma EVA y láminas finas de plástico. Requiere el uso de regla metálica como guía.</span></li>
                         </ul>
                     </div>
+
+                    <!-- Contenedor con evento onclick -->
+                        <div class="mb-8 border-dashed border-slate-300 rounded-2xl p-4 text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden" onclick="abrirImagen(this.querySelector('img').src)">
+                            <img src="assets/img/sda2-3.jpeg" alt="Comparativa de sierras" class="w-full h-auto max-h-96 object-contain rounded-xl shadow-sm" />
+                        </div>
+
+                        <!-- Modal emergente oculto -->
+                        <div id="modalImagen" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4" onclick="cerrarImagen()">
+                            <img id="imagenAmpliada" class="max-w-full max-h-full object-contain rounded-lg" src="" alt="Vista ampliada">
+                        </div>
 
                     <!-- 1.3 -->
                     <div class="mb-8">
@@ -167,6 +196,15 @@
                             <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">Lijadora orbital:</strong> <span class="text-slate-600">Máquina-herramienta eléctrica que imprime un movimiento vibratorio orbital a la lija adaptada en su base, facilitando el lijado de grandes superficies planas de madera.</span></li>
                         </ul>
                     </div>
+                    <!-- Contenedor con evento onclick -->
+                        <div class="mb-8 border-dashed border-slate-300 rounded-2xl p-4 text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden" onclick="abrirImagen(this.querySelector('img').src)">
+                            <img src="assets/img/sda2-4.jpeg" alt="Diferencia entre Lima y Escofina" class="w-full h-auto max-h-96 object-contain rounded-xl shadow-sm" />
+                        </div>
+
+                        <!-- Modal emergente oculto -->
+                        <div id="modalImagen" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4" onclick="cerrarImagen()">
+                            <img id="imagenAmpliada" class="max-w-full max-h-full object-contain rounded-lg" src="" alt="Vista ampliada">
+                        </div>
 
                     <!-- 1.5 -->
                     <div class="mb-8">
@@ -188,6 +226,25 @@
                             </ul>
                         </div>
                     </div>
+                    <!-- Contenedor Flex/Grid para poner las imágenes lado a lado -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 border-2 border-dashed border-slate-300 rounded-2xl p-4 mb-8">
+
+                        <!-- Primera imagen -->
+                        <div class="text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden" onclick="abrirImagen(this.querySelector('img').src)">
+                            <img src="assets/img/sda2-5.jpeg" alt="Taladro de columna" class="w-full h-auto max-h-96 object-contain rounded-xl shadow-sm" />
+                        </div>
+
+                        <!-- Segunda imagen -->
+                        <div class="text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden" onclick="abrirImagen(this.querySelector('img').src)">
+                            <img src="assets/img/sda2-6.jpeg" alt="Tipos de brocas" class="w-full h-auto max-h-96 object-contain rounded-xl shadow-sm" />
+                        </div>
+
+                    </div>
+
+                    <!-- Único modal emergente (fuera del contenedor grid) -->
+                    <div id="modalImagen" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4" onclick="cerrarImagen()">
+                        <img id="imagenAmpliada" class="max-w-full max-h-full object-contain rounded-lg" src="" alt="Vista ampliada">
+                    </div>
 
                     <!-- 1.6 -->
                     <div class="mb-8">
@@ -202,6 +259,15 @@
                             <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60 md:col-span-2"><strong class="text-slate-900 font-bold">Grip o alicate de presión:</strong> <span class="text-slate-600">Alicates que se bloquean sobre la pieza fijando la fuerza de apriete mediante un tornillo en el mango.</span></li>
                         </ul>
                     </div>
+                    <!-- Contenedor con evento onclick -->
+                        <div class="mb-8 border-dashed border-slate-300 rounded-2xl p-4 text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden" onclick="abrirImagen(this.querySelector('img').src)">
+                            <img src="assets/img/sda2-7.jpeg" alt="Tornillo de banco y sargentos" class="w-full h-auto max-h-96 object-contain rounded-xl shadow-sm" />
+                        </div>
+
+                        <!-- Modal emergente oculto -->
+                        <div id="modalImagen" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4" onclick="cerrarImagen()">
+                            <img id="imagenAmpliada" class="max-w-full max-h-full object-contain rounded-lg" src="" alt="Vista ampliada">
+                        </div>
 
                     <!-- 1.7 -->
                     <div class="mb-8">
@@ -254,6 +320,25 @@
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                    <!-- Contenedor Flex/Grid para poner las imágenes lado a lado -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 border-2 border-dashed border-slate-300 rounded-2xl p-4 mb-8">
+
+                        <!-- Primera imagen -->
+                        <div class="text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden" onclick="abrirImagen(this.querySelector('img').src)">
+                            <img src="assets/img/sda2-8.jpeg" alt="Impresora 3D (FDM)" class="w-full h-auto max-h-96 object-contain rounded-xl shadow-sm" />
+                        </div>
+
+                        <!-- Segunda imagen -->
+                        <div class="text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden" onclick="abrirImagen(this.querySelector('img').src)">
+                            <img src="assets/img/sda2-9.jpeg" alt="Estación de soldadura" class="w-full h-auto max-h-96 object-contain rounded-xl shadow-sm" />
+                        </div>
+
+                    </div>
+
+                    <!-- Único modal emergente (fuera del contenedor grid) -->
+                    <div id="modalImagen" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4" onclick="cerrarImagen()">
+                        <img id="imagenAmpliada" class="max-w-full max-h-full object-contain rounded-lg" src="" alt="Vista ampliada">
                     </div>
 
                     <!-- 1.9 -->
@@ -318,6 +403,15 @@
                             </table>
                         </div>
                     </div>
+                    <!-- Contenedor con evento onclick -->
+                        <div class="mb-8 border-dashed border-slate-300 rounded-2xl p-4 text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden" onclick="abrirImagen(this.querySelector('img').src)">
+                            <img src="assets/img/sda2-10.jpeg" alt="Panel de herramientas organizado" class="w-full h-auto max-h-96 object-contain rounded-xl shadow-sm" />
+                        </div>
+
+                        <!-- Modal emergente oculto -->
+                        <div id="modalImagen" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4" onclick="cerrarImagen()">
+                            <img id="imagenAmpliada" class="max-w-full max-h-full object-contain rounded-lg" src="" alt="Vista ampliada">
+                        </div>
 
                     <!-- 1.10 -->
                     <div>
@@ -336,6 +430,15 @@
                             <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold">10. Higienización personal:</strong> <span class="text-slate-600">Al terminar la clase de taller, lávate detenidamente las manos con agua y jabón para retirar restos de polvo, aceites o resinas.</span></li>
                         </ol>
                     </div>
+                    <!-- Contenedor con evento onclick -->
+                        <div class="mb-8 border-dashed border-slate-300 rounded-2xl p-4 text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden" onclick="abrirImagen(this.querySelector('img').src)">
+                            <img src="assets/img/sda2-11.jpeg" alt="Infografía de EPIs" class="w-full h-auto max-h-96 object-contain rounded-xl shadow-sm" />
+                        </div>
+
+                        <!-- Modal emergente oculto -->
+                        <div id="modalImagen" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4" onclick="cerrarImagen()">
+                            <img id="imagenAmpliada" class="max-w-full max-h-full object-contain rounded-lg" src="" alt="Vista ampliada">
+                        </div>
 
                 </section>
 
@@ -388,5 +491,19 @@
     <script>
         lucide.createIcons();
     </script>
+    <script>
+        function abrirImagen(src) {
+            const modal = document.getElementById('modalImagen');
+            document.getElementById('imagenAmpliada').src = src;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function cerrarImagen() {
+            const modal = document.getElementById('modalImagen');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }
+        </script>
 </body>
 </html>
