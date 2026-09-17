@@ -1,6 +1,6 @@
 # rhervel - Recursos de Tecnología y Digitalización 🚀
 
-Bienvenido al repositorio oficial de **rhervel**. Este espacio aloja el código fuente y los recursos del portal educativo del departamento de Tecnología para el **IES Huerta del Rosario** (Curso 2025-2026).
+Bienvenido al repositorio oficial de **rhervel**. Este espacio aloja el código fuente y los recursos del portal educativo del departamento de Tecnología para el **IES Kursaal** (Curso 2026-2027).
 
 🌍 **Visita la web en vivo:** [https://rhervel.github.io/](https://rhervel.github.io/) 
 
@@ -8,10 +8,7 @@ Bienvenido al repositorio oficial de **rhervel**. Este espacio aloja el código 
 
 En este portal se centralizan todos los apuntes, actividades y proyectos de las siguientes materias de Educación Secundaria Obligatoria (ESO), adaptados a la normativa vigente en Andalucía (Orden de 30 de mayo de 2023):
 
-* **Tecnología y Digitalización** (2º y 3º de ESO)
-* **Computación y Robótica** (3º de ESO)
-* **Digitalización** (4º de ESO)
-* **Atención Educativa** (3º de ESO)
+* **Tecnología y Digitalización** (2º de ESO)
 
 ## 🛠️ Herramientas y Software Libre
 
