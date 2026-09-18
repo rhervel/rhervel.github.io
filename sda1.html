@@ -39,7 +39,7 @@
 </head>
 <body class="text-slate-800 antialiased leading-relaxed">
 
-    <!-- Navbar con selector de idioma y botón para volver al Índice -->
+    <!-- Navbar con selector de idioma -->
     <nav class="fixed top-0 w-full z-50 nav-glass">
         <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-2 group">
@@ -48,17 +48,10 @@
             </a>
             
             <div class="flex items-center gap-3">
-                <!-- Selector de Idioma -->
                 <button id="langToggleBtn" onclick="toggleLanguage()" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-full border border-slate-200 transition-all shadow-xs">
                     <i data-lucide="globe" class="w-3.5 h-3.5 text-indigo-600"></i>
                     <span id="currentLangLabel">ES / <strong>EN</strong></span>
                 </button>
-
-                <!-- Botón Volver al Índice 
-                <a href="index.html" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-900 text-white text-[10px] font-black uppercase tracking-widest rounded-full hover:bg-indigo-600 transition-all shadow-sm">
-                    <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> <span data-i18n="navBack">Volver al Índice</span>
-                </a>
-                -->
             </div>
         </div>
     </nav>
@@ -91,19 +84,10 @@
 
     <!-- Main Content Container -->
     <main class="max-w-7xl mx-auto px-6 py-8 relative z-10">
-        
-        <!-- Cabecera de la rejilla (Leyenda de Columnas) 
-        <div class="hidden lg:grid grid-cols-4 gap-8 mb-6 font-black text-center text-xs uppercase tracking-widest text-slate-400">
-            <div class="col-span-3 bg-slate-200/50 py-3 rounded-2xl border border-slate-200" data-i18n="colTheoryHeader">Teoría y Contenido (3 Columnas)</div>
-            <div class="bg-amber-100/70 py-3 rounded-2xl border border-amber-200 text-amber-900" data-i18n="colPracticeHeader">Actividades Prácticas (1 Columna)</div>
-        </div>
-        -->
         <div class="space-y-16">
 
             <!-- BLOQUE 1 -->
             <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
-                
-                <!-- Columna Teoría -->
                 <section class="lg:col-span-3 bg-white content-card p-6 sm:p-10 shadow-xl border border-slate-200/80">
                     <div class="flex items-center gap-3 mb-6">
                         <span class="flex items-center justify-center w-10 h-10 rounded-2xl bg-indigo-50 text-indigo-600 font-black text-lg border border-indigo-100">1</span>
@@ -116,7 +100,6 @@
                         <p class="text-slate-600 mb-4 text-sm font-medium" data-i18n="b1Text1">Durante milenios, la humanidad intentó explicar fenómenos como el rayo, las estaciones o las enfermedades a través de mitos y voluntades divinas. Sin embargo, hace unos 2.500 años en la antigua Grecia, nació una idea revolucionaria: la naturaleza no actúa por capricho, sino que sigue unas leyes inmutables.</p>
                         <p class="text-slate-600 mb-6 text-sm font-medium" data-i18n="b1Text2">Para descubrir estas leyes, en el siglo XVII se consolidó el método científico, una metodología rigurosa para adquirir conocimiento objetivo.</p>
 
-                        <!-- Diagrama del Método Científico -->
                         <div class="bg-indigo-50/50 rounded-2xl p-5 border border-indigo-100 mb-6">
                             <p class="text-[10px] uppercase font-black text-indigo-900 tracking-widest mb-3 text-center" data-i18n="b1MethodHeader">Esquema del Método Científico</p>
                             <div class="flex flex-wrap items-center justify-center gap-2 text-xs font-bold">
@@ -136,17 +119,11 @@
                             <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60 md:col-span-2"><strong class="text-slate-900 font-bold" data-i18n="m5_t">5. Conclusión:</strong> <span data-i18n="m5_d">Determinar si los datos validan la hipótesis. Si la rechazan, se debe formular una nueva.</span></li>
                         </ol>
                         
-                        <!-- Contenedor con evento onclick -->
                         <div class="border-2 border-dashed border-slate-300 rounded-2xl p-4 text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden" onclick="abrirImagen(this.querySelector('img').src)">
                             <img src="assets/img/sda1-3.jpeg" alt="El Método Científico" class="w-full h-auto max-h-96 object-contain rounded-xl shadow-sm" />
                         </div>
 
-                        <!-- Modal emergente oculto -->
-                        <div id="modalImagen" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4" onclick="cerrarImagen()">
-                            <img id="imagenAmpliada" class="max-w-full max-h-full object-contain rounded-lg" src="" alt="Vista ampliada">
-                        </div>
-
-                        <div class="bg-emerald-50  mt-4 border-l-4 border-emerald-500 p-4 rounded-r-2xl text-emerald-950 text-sm font-medium">
+                        <div class="bg-emerald-50 mt-4 border-l-4 border-emerald-500 p-4 rounded-r-2xl text-emerald-950 text-sm font-medium">
                             <p><strong class="font-bold text-emerald-900" data-i18n="defScienceLabel">Definición:</strong> <span data-i18n="defScienceText">La Ciencia es el conjunto de conocimientos estructurados sistemáticamente sobre el universo, obtenidos mediante la observación y la experimentación. Su producto final es el saber.</span></p>
                         </div>
                     </div>
@@ -166,7 +143,6 @@
                         <h3 class="text-base font-bold text-indigo-600 mb-3 border-l-4 border-indigo-600 pl-3" data-i18n="b1Sub3">1.3. Relación entre Ciencia y Tecnología: La Tecnociencia</h3>
                         <p class="text-slate-600 mb-4 text-sm font-medium" data-i18n="b1Text4">Aunque a menudo se confunden, sus objetivos son completamente diferentes:</p>
 
-                        <!-- Tabla Ciencia vs Tecnología -->
                         <div class="overflow-x-auto mb-6 rounded-2xl border border-slate-200">
                             <table class="w-full text-left border-collapse text-sm">
                                 <thead>
@@ -205,93 +181,48 @@
                             <p class="pt-2 italic text-slate-700" data-i18n="relFooter">Hoy en día, ambas disciplinas están tan estrechamente ligadas que los especialistas utilizan el término <strong>Tecnociencia</strong>.</p>
                         </div>
 
-                        <!-- Contenedor con evento onclick -->
-                        <div class="border-2 border-dashed border-slate-300 rounded-2xl p-4 text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden" onclick="abrirImagen(this.querySelector('img').src)">
+                        <div class="border-2 border-dashed border-slate-300 rounded-2xl p-4 text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden mt-4" onclick="abrirImagen(this.querySelector('img').src)">
                             <img src="assets/img/sda1-2.jpeg" alt="Saber y Hacer" class="w-full h-auto max-h-96 object-contain rounded-xl shadow-sm" />
-                        </div>
-
-                        <!-- Modal emergente oculto -->
-                        <div id="modalImagen" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4" onclick="cerrarImagen()">
-                            <img id="imagenAmpliada" class="max-w-full max-h-full object-contain rounded-lg" src="" alt="Vista ampliada">
                         </div>
                     </div>
                 </section>
 
-                <!-- Columna Actividades -->
-                <aside class="bg-amber-50/90 content-card p-6 border border-amber-200 shadow-xl self-stretch flex flex-col justify-between">
+                <aside class="bg-indigo-50/90 content-card p-6 border border-indigo-200 shadow-xl self-stretch flex flex-col justify-between">
                     <div>
-                        <div class="flex items-center gap-2 mb-4 pb-3 border-b border-amber-200">
-                            <i data-lucide="clipboard-list" class="w-5 h-5 text-amber-700"></i>
-                            <h3 class="font-black text-amber-950 text-sm uppercase tracking-wider" data-i18n="actTitle1">Actividades del Punto 1</h3>
+                        <div class="flex items-center gap-2 mb-4 pb-3 border-b border-indigo-200">
+                            <i data-lucide="sparkles" class="w-5 h-5 text-indigo-700"></i>
+                            <h3 class="font-black text-indigo-950 text-sm uppercase tracking-wider" data-i18n="curiosityHeader">Sabías que... / Historia</h3>
                         </div>
-                        <ul class="space-y-4 text-xs text-amber-950 font-medium">
-                            <li class="bg-white p-4 rounded-2xl border border-amber-200/80 shadow-xs">
-                                <span class="font-black block text-amber-900 mb-1 uppercase tracking-wider text-[10px]" data-i18n="act1_1_title">Actividad 1.1: Clasificación Saber vs Hacer</span>
-                                <span data-i18n="act1_1_desc">Clasifica en dos columnas los siguientes términos: Telescopio, Ley de la Gravedad, Microchip, Teorema de Pitágoras, Vacuna, Teoría de la Relatividad.</span>
-                            </li>
-                            <li class="bg-white p-4 rounded-2xl border border-amber-200/80 shadow-xs space-y-3">
-                                <!-- Título de la actividad -->
-                                <span class="font-black block text-amber-900 uppercase tracking-wider text-[10px]" data-i18n="act1_2_title">
-                                    Actividad 1.2: El Método Científico
-                                </span>
-                                <span data-i18n="act1_2_desc">Vamos a diseñar un experimento sencillo para comprobar qué material aísla mejor el calor (madera, plástico o aluminio) siguiendo las 5 fases del método científico.</span>
-                                
-                                <!-- Parte 1: Ordenar pasos -->
-                                <div class="space-y-1 text-slate-700 text-xs">
-                                    <p class="font-bold text-amber-950">1. Ordena los pasos del 1 al 5:</p>
-                                    <ul class="space-y-1 pl-1">
-                                        <li class="flex items-center gap-1.5"><span class="border border-amber-300 rounded-md px-1.5 py-0.5 font-mono text-[10px] bg-amber-50">()</span> <span>Probamos los materiales con agua caliente.</span></li>
-                                        <li class="flex items-center gap-1.5"><span class="border border-amber-300 rounded-md px-1.5 py-0.5 font-mono text-[10px] bg-amber-50">()</span> <span>¿Qué material aísla mejor el calor?</span></li>
-                                        <li class="flex items-center gap-1.5"><span class="border border-amber-300 rounded-md px-1.5 py-0.5 font-mono text-[10px] bg-amber-50">()</span> <span>Descubrimos el mejor aislante.</span></li>
-                                        <li class="flex items-center gap-1.5"><span class="border border-amber-300 rounded-md px-1.5 py-0.5 font-mono text-[10px] bg-amber-50">()</span> <span>Pensamos cuál funcionará mejor.</span></li>
-                                        <li class="flex items-center gap-1.5"><span class="border border-amber-300 rounded-md px-1.5 py-0.5 font-mono text-[10px] bg-amber-50">()</span> <span>Notamos diferencias de temperatura.</span></li>
-                                    </ul>
-                                </div>
+                        
+                        <div class="space-y-4 text-xs text-indigo-950 font-medium">
+                            <div class="bg-white p-4 rounded-2xl border border-indigo-200/80 shadow-xs">
+                                <span class="font-black block text-indigo-900 mb-1 uppercase tracking-wider text-[10px]" data-i18n="c1_t">La invención del hacha de mano</span>
+                                <p class="text-slate-700 leading-relaxed" data-i18n="c1_d">El bifaz o hacha de mano es la herramienta tecnológica de mayor éxito histórico: ¡se estuvo utilizando sin apenas variaciones durante más de un millón de años!</p>
+                            </div>
 
-                                <!-- Parte 2: Relacionar con flechas -->
-                                <div class="space-y-1 text-slate-700 text-xs pt-1 border-t border-amber-100">
-                                    <p class="font-bold text-amber-950">2. Une con flechas cada material:</p>
-                                    <div class="grid grid-cols-2 gap-2 text-[11px] bg-amber-50/50 p-2 rounded-xl border border-amber-200/50">
-                                        <div class="space-y-1 font-semibold">
-                                            <p>• Cuchara de aluminio</p>
-                                            <p>• Cuchara de madera</p>
-                                            <p>• Cuchara de plástico</p>
-                                        </div>
-                                        <div class="space-y-1 text-slate-600">
-                                            <p>• Peor aislante (se calienta rápido)</p>
-                                            <p>• Mejor aislante (no quema)</p>
-                                            <p>• Aislante intermedio</p>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="bg-white p-4 rounded-2xl border border-indigo-200/80 shadow-xs">
+                                <span class="font-black block text-indigo-900 mb-1 uppercase tracking-wider text-[10px]" data-i18n="c2_t">Eratóstenes y el tamaño de la Tierra</span>
+                                <p class="text-slate-700 leading-relaxed" data-i18n="c2_d">Hace más de 2.200 años, Eratóstenes midió la circunferencia de la Tierra usando solo un palo, sus sombras en dos ciudades y matemáticas básicas, con un error menor al 2%.</p>
+                            </div>
 
-                                <!-- Parte 3: Elección múltiple -->
-                                <div class="space-y-1.5 text-slate-700 text-xs pt-1 border-t border-amber-100">
-                                    <p class="font-bold text-amber-950">3. Rodea la opción correcta:</p>
-                                    <div class="space-y-1 text-[11px]">
-                                        <p class="font-semibold text-slate-800">A. ¿Cómo comprobamos el calor?</p>
-                                        <p class="pl-2">a) Tocando con cuidado el extremo superior tras unos minutos.</p>
-                                        <p class="pl-2">b) Rompiendo los tres materiales.</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="bg-white p-4 rounded-2xl border border-amber-200/80 shadow-xs">
-                                <span class="font-black block text-amber-900 mb-1 uppercase tracking-wider text-[10px]" data-i18n="act1_3_title">Actividad 1.3: Debate Tecnociencia</span>
-                                <span data-i18n="act1_3_desc">Investiga y redacta un ejemplo real donde un avance tecnológico haya permitido descubrir algo nuevo para la ciencia (ej. Telescopio James Webb).</span>
-                            </li>
-                        </ul>
+                            <div class="bg-white p-4 rounded-2xl border border-indigo-200/80 shadow-xs">
+                                <span class="font-black block text-indigo-900 mb-1 uppercase tracking-wider text-[10px]" data-i18n="c3_t">El primer microscopio</span>
+                                <p class="text-slate-700 leading-relaxed" data-i18n="c3_d">Anton van Leeuwenhoek perfeccionó la fabricación de lentes para revisar la calidad de las telas y terminó descubriendo las bacterias, un mundo invisible gracias a un avance técnico.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mt-6 pt-3 border-t border-amber-200/80 text-center">
-                        <span class="text-[9px] font-black text-amber-800 uppercase tracking-widest" data-i18n="deliv1">Entregable: Cuaderno individual</span>
+
+                    <div class="mt-6 pt-3 border-t border-indigo-200/80">
+                        <button onclick="abrirModalActividades(1)" class="w-full flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-black py-3 px-4 rounded-xl text-xs uppercase tracking-wider transition-all shadow-md">
+                            <i data-lucide="clipboard-list" class="w-4 h-4"></i>
+                            <span data-i18n="btnAct1">Ver Actividades del Punto 1</span>
+                        </button>
                     </div>
                 </aside>
-
             </div>
 
             <!-- BLOQUE 2 -->
             <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
-                
-                <!-- Columna Teoría -->
                 <section class="lg:col-span-3 bg-white content-card p-6 sm:p-10 shadow-xl border border-slate-200/80">
                     <div class="flex items-center gap-3 mb-6">
                         <span class="flex items-center justify-center w-10 h-10 rounded-2xl bg-indigo-50 text-indigo-600 font-black text-lg border border-indigo-100">2</span>
@@ -300,7 +231,6 @@
 
                     <p class="text-slate-600 mb-6 text-sm font-medium" data-i18n="b2Intro">Así como la ciencia utiliza el método científico, la tecnología utiliza su propio método de trabajo: el Proceso Tecnológico (o Método de Proyectos). Es una secuencia ordenada de fases para pasar de un problema a una solución eficaz.</p>
 
-                    <!-- Diagrama del Proceso Tecnológico -->
                     <div class="bg-slate-900 text-white rounded-2xl p-5 shadow-xl mb-6">
                         <p class="text-[10px] uppercase font-black text-indigo-300 tracking-widest mb-3 text-center" data-i18n="b2HeaderFlow">Fases del Proceso Tecnológico</p>
                         <div class="flex flex-wrap items-center justify-center gap-2 text-xs font-bold">
@@ -314,20 +244,14 @@
                     </div>
 
                     <p class="text-slate-600 mb-6 italic text-sm font-medium" data-i18n="b2Subtext">A lo largo de este tema aplicaremos cada fase a un proyecto de taller: La construcción de un coche eléctrico de juguete.</p>
-                    <!-- Contenedor con evento onclick -->
-                        <div class="border-2 border-dashed border-slate-300 rounded-2xl p-4 text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden" onclick="abrirImagen(this.querySelector('img').src)">
-                            <img src="assets/img/sda1-4.jpeg" alt="Coche eléctrico" class="w-full h-auto max-h-96 object-contain rounded-xl shadow-sm" />
-                        </div>
+                    
+                    <div class="border-2 border-dashed border-slate-300 rounded-2xl p-4 text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden" onclick="abrirImagen(this.querySelector('img').src)">
+                        <img src="assets/img/sda1-4.jpeg" alt="Coche eléctrico" class="w-full h-auto max-h-96 object-contain rounded-xl shadow-sm" />
+                    </div>
 
-                        <!-- Modal emergente oculto -->
-                        <div id="modalImagen" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4" onclick="cerrarImagen()">
-                            <img id="imagenAmpliada" class="max-w-full max-h-full object-contain rounded-lg" src="" alt="Vista ampliada">
-                        </div>
-
-                    <div class="space-y-6 text-sm font-medium">
-
+                    <div class="space-y-6 text-sm font-medium mt-6">
                         <!-- FASE 1 -->
-                        <div class="border-l-4 mt-4 border-indigo-600 pl-4 space-y-2">
+                        <div class="border-l-4 border-indigo-600 pl-4 space-y-2">
                             <h3 class="font-bold text-slate-900" data-i18n="f1Head">FASE 1: Descripción del problema (Condicionantes)</h3>
                             <p class="text-slate-600" data-i18n="f1Desc">Consiste en redactar con máxima precisión la necesidad a resolver y los límites o restricciones impuestas (tiempo, presupuesto, materiales, espacio).</p>
 
@@ -387,14 +311,8 @@
                                 </ul>
                             </div>
 
-                            <!-- Contenedor con evento onclick -->
                             <div class="border-2 border-dashed border-slate-300 rounded-2xl p-4 text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden" onclick="abrirImagen(this.querySelector('img').src)">
                                 <img src="assets/img/sda1-5.jpeg" alt="Técnicas de creatividad" class="w-full h-auto max-h-96 object-contain rounded-xl shadow-sm" />
-                            </div>
-
-                            <!-- Modal emergente oculto -->
-                            <div id="modalImagen" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4" onclick="cerrarImagen()">
-                                <img id="imagenAmpliada" class="max-w-full max-h-full object-contain rounded-lg" src="" alt="Vista ampliada">
                             </div>
 
                             <p class="text-slate-600" data-i18n="f4Desc">De todas las ideas generadas, seleccionamos la más viable (evaluando coste, tiempo de ejecución y dificultad constructiva) y la desarrollamos técnicamente usando el lenguaje gráfico.</p>
@@ -413,14 +331,8 @@
                                 </p>
                             </div>
 
-                            <!-- Contenedor con evento onclick -->
                             <div class="border-2 border-dashed border-slate-300 rounded-2xl p-4 text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden" onclick="abrirImagen(this.querySelector('img').src)">
                                 <img src="assets/img/sda1-1.jpeg" alt="Croquis y Vistas Acotadas" class="w-full h-auto max-h-96 object-contain rounded-xl shadow-sm" />
-                            </div>
-
-                            <!-- Modal emergente oculto -->
-                            <div id="modalImagen" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4" onclick="cerrarImagen()">
-                                <img id="imagenAmpliada" class="max-w-full max-h-full object-contain rounded-lg" src="" alt="Vista ampliada">
                             </div>
                         </div>
 
@@ -429,7 +341,6 @@
                             <h3 class="font-bold text-slate-900" data-i18n="f5Head">FASE 4: Planificación del trabajo</h3>
                             <p class="text-slate-600" data-i18n="f5Desc">Antes de entrar al taller, es imprescindible rellenar los documentos de gestión para repartir tareas, prever costes y organizar las fases de fabricación.</p>
 
-                            <!-- Tablas reducidas -->
                             <div class="space-y-4 text-xs">
                                 <h4 class="font-bold text-slate-800" data-i18n="tbl1Head">Ficha 1: Presupuesto y Relación de Materiales</h4>
                                 <div class="overflow-x-auto rounded-2xl border border-slate-200">
@@ -472,15 +383,10 @@
                                         </tbody>
                                     </table>
                                 </div>
-                            <!-- Contenedor con evento onclick -->
-                            <div class="border-2 border-dashed border-slate-300 rounded-2xl p-4 text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden" onclick="abrirImagen(this.querySelector('img').src)">
-                                <img src="assets/img/sda1-6.jpeg" alt="Herramientas" class="w-full h-auto max-h-96 object-contain rounded-xl shadow-sm" />
-                            </div>
 
-                            <!-- Modal emergente oculto -->
-                            <div id="modalImagen" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4" onclick="cerrarImagen()">
-                                <img id="imagenAmpliada" class="max-w-full max-h-full object-contain rounded-lg" src="" alt="Vista ampliada">
-                            </div>
+                                <div class="border-2 border-dashed border-slate-300 rounded-2xl p-4 text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden" onclick="abrirImagen(this.querySelector('img').src)">
+                                    <img src="assets/img/sda1-6.jpeg" alt="Herramientas" class="w-full h-auto max-h-96 object-contain rounded-xl shadow-sm" />
+                                </div>
 
                                 <h4 class="font-bold text-slate-800 pt-2" data-i18n="tbl3Head">Ficha 3: Hoja de Procesos</h4>
                                 <div class="overflow-x-auto rounded-2xl border border-slate-200">
@@ -545,117 +451,42 @@
                     </div>
                 </section>
 
-                <aside class="bg-amber-50/90 content-card p-6 border border-amber-200 shadow-xl self-stretch flex flex-col justify-between">
-    <div>
-        <div class="flex items-center gap-2 mb-4 pb-3 border-b border-amber-200">
-            <i data-lucide="wrench" class="w-5 h-5 text-amber-700"></i>
-            <h3 class="font-black text-amber-950 text-sm uppercase tracking-wider" data-i18n="actTitle2">Actividades del Punto 2 (Adaptadas)</h3>
-        </div>
-        
-        <ul class="space-y-4 text-xs text-amber-950 font-medium">
+                <aside class="bg-indigo-50/90 content-card p-6 border border-indigo-200 shadow-xl self-stretch flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 mb-4 pb-3 border-b border-indigo-200">
+                            <i data-lucide="sparkles" class="w-5 h-5 text-indigo-700"></i>
+                            <h3 class="font-black text-indigo-950 text-sm uppercase tracking-wider" data-i18n="curiosityHeader">Sabías que... / Historia</h3>
+                        </div>
+                        
+                        <div class="space-y-4 text-xs text-indigo-950 font-medium">
+                            <div class="bg-white p-4 rounded-2xl border border-indigo-200/80 shadow-xs">
+                                <span class="font-black block text-indigo-900 mb-1 uppercase tracking-wider text-[10px]" data-i18n="c4_t">El origen de SCAMPER</span>
+                                <p class="text-slate-700 leading-relaxed" data-i18n="c4_d">Bob Eberle inventó la técnica SCAMPER en 1971 basándose en la lista de preguntas de Alex Osborn (el creador de la "Lluvia de Ideas"). ¡Es una de las mejores herramientas de innovación del mundo!</p>
+                            </div>
 
-            <!-- Actividad 2.1: Identificar las Fases -->
-            <li class="bg-white p-4 rounded-2xl border border-amber-200/80 shadow-xs space-y-2">
-                <span class="font-black block text-amber-900 uppercase tracking-wider text-[10px]">Actividad 2.1: Las Fases del Proceso</span>
-                <p class="text-slate-700 text-[11px]">Escribe el número del 1 al 6 según el orden de cada fase:</p>
-                <ul class="space-y-1 text-[11px] text-slate-700">
-                    <li class="flex items-center gap-1.5"><span class="border border-amber-300 rounded px-1.5 py-0.5 font-mono text-[10px] bg-amber-50">( &nbsp; )</span> <span>Dibujar el croquis y acotar medidas.</span></li>
-                    <li class="flex items-center gap-1.5"><span class="border border-amber-300 rounded px-1.5 py-0.5 font-mono text-[10px] bg-amber-50">( &nbsp; )</span> <span>Construir el coche en el taller.</span></li>
-                    <li class="flex items-center gap-1.5"><span class="border border-amber-300 rounded px-1.5 py-0.5 font-mono text-[10px] bg-amber-50">( &nbsp; )</span> <span>Leer las condiciones del problema.</span></li>
-                    <li class="flex items-center gap-1.5"><span class="border border-amber-300 rounded px-1.5 py-0.5 font-mono text-[10px] bg-amber-50">( &nbsp; )</span> <span>Probar el vehículo y evaluar fallos.</span></li>
-                    <li class="flex items-center gap-1.5"><span class="border border-amber-300 rounded px-1.5 py-0.5 font-mono text-[10px] bg-amber-50">( &nbsp; )</span> <span>Planificar herramientas y materiales.</span></li>
-                    <li class="flex items-center gap-1.5"><span class="border border-amber-300 rounded px-1.5 py-0.5 font-mono text-[10px] bg-amber-50">( &nbsp; )</span> <span>Buscar información e ideas.</span></li>
-                </ul>
-            </li>
+                            <div class="bg-white p-4 rounded-2xl border border-indigo-200/80 shadow-xs">
+                                <span class="font-black block text-indigo-900 mb-1 uppercase tracking-wider text-[10px]" data-i18n="c5_t">Edison y el fallo en los experimentos</span>
+                                <p class="text-slate-700 leading-relaxed" data-i18n="c5_d">Al evaluar sus prototipos de bombilla, Thomas Edison dijo: "No fracasé, solo encontré 10.000 formas que no funcionaban". El control de calidad y los errores son clave en la ingeniería.</p>
+                            </div>
 
-            <!-- Actividad 2.2: Detective de Condicionantes -->
-            <li class="bg-white p-4 rounded-2xl border border-amber-200/80 shadow-xs space-y-2">
-                <span class="font-black block text-amber-900 uppercase tracking-wider text-[10px]">Actividad 2.2: Condicionantes</span>
-                <p class="text-slate-700 text-[11px]">Marca con una <strong>X</strong> los condicionantes (límites u obligaciones) reales del proyecto:</p>
-                <div class="space-y-1 text-[11px] text-slate-700">
-                    <p class="flex items-center gap-1.5"><span class="border border-amber-300 rounded px-1.5 py-0.5 font-mono text-[10px] bg-amber-50">[ &nbsp; ]</span> <span>Debe recorrer 10 metros en línea recta.</span></p>
-                    <p class="flex items-center gap-1.5"><span class="border border-amber-300 rounded px-1.5 py-0.5 font-mono text-[10px] bg-amber-50">[ &nbsp; ]</span> <span>Tiene que estar pintado de azul brillante.</span></p>
-                    <p class="flex items-center gap-1.5"><span class="border border-amber-300 rounded px-1.5 py-0.5 font-mono text-[10px] bg-amber-50">[ &nbsp; ]</span> <span>Usar solo materiales del taller.</span></p>
-                    <p class="flex items-center gap-1.5"><span class="border border-amber-300 rounded px-1.5 py-0.5 font-mono text-[10px] bg-amber-50">[ &nbsp; ]</span> <span>Funcionar con una pila de 4.5V.</span></p>
-                </div>
-            </li>
-
-            <!-- Actividad 2.3: SCAMPER Guiado -->
-            <li class="bg-white p-4 rounded-2xl border border-amber-200/80 shadow-xs space-y-2">
-                <span class="font-black block text-amber-900 uppercase tracking-wider text-[10px]">Actividad 2.3: Ficha SCAMPER Botella</span>
-                <p class="text-slate-700 text-[11px]">Completa los huecos para transformar una botella de plástico:</p>
-                <div class="space-y-1.5 text-[11px] text-slate-700 bg-amber-50/50 p-2.5 rounded-xl border border-amber-200/60">
-                    <p><strong>S (Sustituir):</strong> Llenaré la botella de <span class="border-b border-amber-900 px-3 inline-block"></span> para usarla como peso.</p>
-                    <p><strong>A (Adaptar):</strong> Cortaré la base para usarla como <span class="border-b border-amber-900 px-3 inline-block"></span>.</p>
-                    <p><strong>E (Eliminar):</strong> Si le quito el tapón puedo usarla de <span class="border-b border-amber-900 px-3 inline-block"></span>.</p>
-                </div>
-            </li>
-
-            <!-- Actividad 2.4: Croquis y Acotación -->
-            <li class="bg-white p-4 rounded-2xl border border-amber-200/80 shadow-xs space-y-2">
-                <span class="font-black block text-amber-900 uppercase tracking-wider text-[10px]">Actividad 2.4: Dibujo y Acotación</span>
-                <p class="text-slate-700 text-[11px]">
-                    Mide con tu regla en milímetros el chasis de tu cuaderno y añade las cotas principales (Largo y Ancho) en las flechas correspondientes.
-                </p>
-            </li>
-
-            <!-- Actividad 2.5: Emparejar Herramientas -->
-            <li class="bg-white p-4 rounded-2xl border border-amber-200/80 shadow-xs space-y-2">
-                <span class="font-black block text-amber-900 uppercase tracking-wider text-[10px]">Actividad 2.5: Planificación de Herramientas</span>
-                <p class="text-slate-700 text-[11px]">Relaciona con flechas cada herramienta con su uso:</p>
-                <div class="grid grid-cols-2 gap-2 text-[10px] bg-amber-50/50 p-2 rounded-xl border border-amber-200/50">
-                    <div class="space-y-1.5 font-semibold text-amber-950">
-                        <p>• Sierra marquetería</p>
-                        <p>• Lija / Lima</p>
-                        <p>• Soldador eléctrico</p>
+                            <div class="bg-white p-4 rounded-2xl border border-indigo-200/80 shadow-xs">
+                                <span class="font-black block text-indigo-900 mb-1 uppercase tracking-wider text-[10px]" data-i18n="c6_t">Los primeros coches eléctricos</span>
+                                <p class="text-slate-700 leading-relaxed" data-i18n="c6_d">A finales del siglo XIX, ¡los vehículos eléctricos vendían más unidades que los de gasolina! Eran silenciosos, limpios y no necesitaban manivela para arrancar.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="space-y-1.5 text-slate-600">
-                        <p>• Quitar rebabas</p>
-                        <p>• Unir cables con estaño</p>
-                        <p>• Cortar el chasis</p>
+
+                    <div class="mt-6 pt-3 border-t border-indigo-200/80">
+                        <button onclick="abrirModalActividades(2)" class="w-full flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-black py-3 px-4 rounded-xl text-xs uppercase tracking-wider transition-all shadow-md">
+                            <i data-lucide="wrench" class="w-4 h-4"></i>
+                            <span data-i18n="btnAct2">Ver Actividades del Punto 2</span>
+                        </button>
                     </div>
-                </div>
-            </li>
-
-            <!-- Actividad 2.6: Seguridad en el Taller -->
-            <li class="bg-white p-4 rounded-2xl border border-amber-200/80 shadow-xs space-y-2">
-                <span class="font-black block text-amber-900 uppercase tracking-wider text-[10px]">Actividad 2.6: Seguridad y Normas</span>
-                <p class="text-slate-700 text-[11px]">Rodea <strong>V</strong> (Verdadero) o <strong>F</strong> (Falso):</p>
-                <div class="space-y-1 text-[11px] text-slate-700">
-                    <p><strong>V / F</strong> — Es obligatorio usar gafas en el taladro.</p>
-                    <p><strong>V / F</strong> — Se puede dejar el soldador caliente en cualquier sitio.</p>
-                    <p><strong>V / F</strong> — Cada miembro del equipo tiene una tarea asignada.</p>
-                </div>
-            </li>
-
-            <!-- Actividad 2.7: Localizador de Averías -->
-            <li class="bg-white p-4 rounded-2xl border border-amber-200/80 shadow-xs space-y-2">
-                <span class="font-black block text-amber-900 uppercase tracking-wider text-[10px]">Actividad 2.7: Control de Calidad</span>
-                <p class="text-slate-700 text-[11px]">Si el coche no funciona, completa los 3 pasos de revisión:</p>
-                <ol class="list-decimal pl-4 space-y-1 text-[11px] text-slate-700">
-                    <li>Revisar si la <strong class="text-amber-950">pila</strong> está conectada.</li>
-                    <li>Revisar que no haya ningún <strong class="text-amber-950">cable</strong> suelto.</li>
-                    <li>Comprobar si las <strong class="text-amber-950">ruedas</strong> giran libremente.</li>
-                </ol>
-            </li>
-
-        </ul>
-    </div>
-
-    <!-- Pie del panel lateral -->
-    <div class="mt-6 pt-3 border-t border-amber-200/80 text-center">
-        <a href="assets/img/sda1-ej1.jpeg" target="_blank" rel="noopener noreferrer" class="inline-block hover:opacity-80 transition-opacity">
-            <span class="text-[9px] font-black text-amber-800 uppercase tracking-widest" data-i18n="deliv2">Entregable: Ficha de Actividades del Proyecto</span>
-        </a>
-    </div>
-</aside>
-
+                </aside>
             </div>
 
             <!-- BLOQUE 3 -->
             <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
-                
-                <!-- Columna Teoría -->
                 <section class="lg:col-span-3 bg-white content-card p-6 sm:p-10 shadow-xl border border-slate-200/80">
                     <div class="flex items-center gap-3 mb-6">
                         <span class="flex items-center justify-center w-10 h-10 rounded-2xl bg-indigo-50 text-indigo-600 font-black text-lg border border-indigo-100">3</span>
@@ -664,7 +495,6 @@
 
                     <p class="text-slate-600 mb-6 text-sm font-medium" data-i18n="b3Intro">El análisis de objetos es el proceso inverso al diseño: consiste en desarmar conceptualmente un producto existente para comprender su diseño, funcionamiento e impacto.</p>
 
-                    <!-- Cuadro resumen 4 análisis -->
                     <div class="bg-slate-900 text-white p-5 rounded-2xl mb-8 shadow-xl">
                         <p class="text-[10px] uppercase tracking-widest text-indigo-300 font-black mb-4 text-center" data-i18n="b3GridHead">Estructura del Análisis de Objetos</p>
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs font-medium">
@@ -688,7 +518,6 @@
                     </div>
 
                     <div class="space-y-6 text-sm font-medium">
-
                         <!-- 3.1 -->
                         <div class="space-y-2">
                             <h3 class="font-bold text-indigo-600 border-l-4 border-indigo-600 pl-3" data-i18n="b3Sub1">3.1. Análisis Formal (Anatomía y Geometría)</h3>
@@ -707,14 +536,9 @@
                                 </li>
                                 <li><strong class="text-slate-900 font-bold" data-i18n="af4_t">Dimensiones:</strong> <span data-i18n="af4_d">Mediciones principales (largo, ancho, alto) expresadas en milímetros.</span></li>
                             </ul>
-                            <!-- Contenedor con evento onclick -->
+                            
                             <div class="border-2 border-dashed border-slate-300 rounded-2xl p-4 text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden" onclick="abrirImagen(this.querySelector('img').src)">
                                 <img src="assets/img/sda1-7.jpeg" alt="Vista explosionada de un bolígrafo" class="w-full h-auto max-h-96 object-contain rounded-xl shadow-sm" />
-                            </div>
-
-                            <!-- Modal emergente oculto -->
-                            <div id="modalImagen" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4" onclick="cerrarImagen()">
-                                <img id="imagenAmpliada" class="max-w-full max-h-full object-contain rounded-lg" src="" alt="Vista ampliada">
                             </div>
                         </div>
 
@@ -766,40 +590,42 @@
                     </div>
                 </section>
 
-                <!-- Columna Actividades -->
-                <aside class="bg-amber-50/90 content-card p-6 border border-amber-200 shadow-xl self-stretch flex flex-col justify-between">
+                <aside class="bg-indigo-50/90 content-card p-6 border border-indigo-200 shadow-xl self-stretch flex flex-col justify-between">
                     <div>
-                        <div class="flex items-center gap-2 mb-4 pb-3 border-b border-amber-200">
-                            <i data-lucide="search" class="w-5 h-5 text-amber-700"></i>
-                            <h3 class="font-black text-amber-950 text-sm uppercase tracking-wider" data-i18n="actTitle3">Actividades del Punto 3</h3>
+                        <div class="flex items-center gap-2 mb-4 pb-3 border-b border-indigo-200">
+                            <i data-lucide="sparkles" class="w-5 h-5 text-indigo-700"></i>
+                            <h3 class="font-black text-indigo-950 text-sm uppercase tracking-wider" data-i18n="curiosityHeader">Sabías que... / Historia</h3>
                         </div>
-                        <ul class="space-y-4 text-xs text-amber-950 font-medium">
-                            <li class="bg-white p-4 rounded-2xl border border-amber-200/80 shadow-xs">
-                                <span class="font-black block text-amber-900 mb-1 uppercase tracking-wider text-[10px]" data-i18n="act3_1_title">Actividad 3.1: Análisis de un Bolígrafo</span>
-                                <span data-i18n="act3_1_desc">Desmonta un bolígrafo convencional tipo BIC y completa una ficha con su análisis formal (nº piezas, dimensiones, ergonomía) y funcional (utilidad, principio físico del rodamiento).</span>
-                            </li>
-                            <li class="bg-white p-4 rounded-2xl border border-amber-200/80 shadow-xs">
-                                <span class="font-black block text-amber-900 mb-1 uppercase tracking-wider text-[10px]" data-i18n="act3_2_title">Actividad 3.2: Estudio de Uniones</span>
-                                <span data-i18n="act3_2_desc">Observa 5 objetos de tu aula e identifica si sus uniones son fijas o desmontables, justificando el porqué de esa elección de diseño.</span>
-                            </li>
-                            <li class="bg-white p-4 rounded-2xl border border-amber-200/80 shadow-xs">
-                                <span class="font-black block text-amber-900 mb-1 uppercase tracking-wider text-[10px]" data-i18n="act3_3_title">Actividad 3.3: Análisis de Ciclo de Vida</span>
-                                <span data-i18n="act3_3_desc">Elige un objeto cotidiano (ej. un teléfono móvil o una lata de refresco) y redacta un informe sobre su impacto ambiental desde la extracción de materia prima hasta su reciclaje.</span>
-                            </li>
-                        </ul>
+                        
+                        <div class="space-y-4 text-xs text-indigo-950 font-medium">
+                            <div class="bg-white p-4 rounded-2xl border border-indigo-200/80 shadow-xs">
+                                <span class="font-black block text-indigo-900 mb-1 uppercase tracking-wider text-[10px]" data-i18n="c7_t">La bolita del bolígrafo BIC</span>
+                                <p class="text-slate-700 leading-relaxed" data-i18n="c7_d">El invento revolucionario de László Bíró en 1938 consistió en colocar una esfera diminuta de carburo de tungsteno extremadamente dura que gira libremente para transferir la tinta.</p>
+                            </div>
+
+                            <div class="bg-white p-4 rounded-2xl border border-indigo-200/80 shadow-xs">
+                                <span class="font-black block text-indigo-900 mb-1 uppercase tracking-wider text-[10px]" data-i18n="c8_t">Ingeniería Inversa</span>
+                                <p class="text-slate-700 leading-relaxed" data-i18n="c8_d">El análisis de objetos es la base de la ingeniería inversa. Durante la Segunda Guerra Mundial, muchos países desmontaban aviones enemigos pieza por pieza para copiar sus tecnologías secretas.</p>
+                            </div>
+
+                            <div class="bg-white p-4 rounded-2xl border border-indigo-200/80 shadow-xs">
+                                <span class="font-black block text-indigo-900 mb-1 uppercase tracking-wider text-[10px]" data-i18n="c9_t">Diseño Ergonomía NASA</span>
+                                <p class="text-slate-700 leading-relaxed" data-i18n="c9_d">Las normas modernas de ergonomía y diseño formal se desarrollaron en gran parte gracias a los estudios de la NASA para optimizar los mandos y trajes en gravedad cero.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mt-6 pt-3 border-t border-amber-200/80 text-center">
-                        <a href="assets/img/sda1-ej2.jpeg" target="_blank" rel="noopener noreferrer" class="inline-block hover:opacity-80 transition-opacity">
-                            <span class="text-[9px] font-black text-amber-800 uppercase tracking-widest" data-i18n="deliv2">Entregable: Informe de Análisis Objeto</span>
-                        </a>
+
+                    <div class="mt-6 pt-3 border-t border-indigo-200/80">
+                        <button onclick="abrirModalActividades(3)" class="w-full flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-black py-3 px-4 rounded-xl text-xs uppercase tracking-wider transition-all shadow-md">
+                            <i data-lucide="search" class="w-4 h-4"></i>
+                            <span data-i18n="btnAct3">Ver Actividades del Punto 3</span>
+                        </button>
                     </div>
                 </aside>
-
             </div>
 
         </div>
 
-        <!-- Botón Volver al inicio al final del contenido -->
         <div class="mt-16 text-center">
             <a href="index.html" class="inline-flex items-center gap-3 bg-indigo-600 text-white px-8 py-4 rounded-full font-black text-xs hover:bg-slate-900 transition-all shadow-xl uppercase tracking-widest">
                 <i data-lucide="arrow-left" class="w-4 h-4"></i> <span data-i18n="navBackBottom">Volver al Índice Principal</span>
@@ -807,48 +633,84 @@
         </div>
     </main>
 
-    <!-- Footer de la web -->
     <footer class="py-24 text-center border-t border-slate-100 mt-20">
         <div class="w-12 h-1.5 bg-indigo-600 mx-auto mb-10 rounded-full"></div>
         <p class="text-slate-400 text-[10px] font-black uppercase tracking-[0.4em]" data-i18n="footerText">rhervel // 2026 // Tecnología 2º ESO</p>
     </footer>
 
-    <!-- Script de Traducción Completa -->
+    <!-- MODAL EMERGENTE DE ACTIVIDADES -->
+    <div id="modalActividades" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm hidden items-center justify-center z-50 p-4" onclick="cerrarModalActividades(event)">
+        <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[85vh] overflow-y-auto p-6 md:p-8 shadow-2xl border border-slate-200 relative" onclick="event.stopPropagation()">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-200 mb-6">
+                <div class="flex items-center gap-2">
+                    <div class="p-2 bg-amber-100 text-amber-800 rounded-xl">
+                        <i data-lucide="clipboard-list" class="w-6 h-6"></i>
+                    </div>
+                    <h3 id="modalTitle" class="text-lg font-black text-slate-900 uppercase tracking-wide">Actividades</h3>
+                </div>
+                <button onclick="cerrarModalActividadesDirecto()" class="text-slate-400 hover:text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-full p-2 transition-colors">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <div id="modalContent" class="space-y-4 text-xs font-medium text-slate-700">
+                <!-- Contenido dinámico -->
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-100 flex justify-between items-center">
+                <span class="text-[10px] font-black text-amber-800 uppercase tracking-widest" data-i18n="modalFooterTag">Entregable: Cuaderno de Taller</span>
+                <button onclick="cerrarModalActividadesDirecto()" class="bg-slate-900 text-white text-xs font-bold px-5 py-2.5 rounded-xl hover:bg-indigo-600 transition-colors" data-i18n="modalCloseBtn">
+                    Cerrar Ventana
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Ampliación de Imágenes -->
+    <div id="modalImagen" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4" onclick="cerrarImagen()">
+        <img id="imagenAmpliada" class="max-w-full max-h-full object-contain rounded-lg" src="" alt="Vista ampliada">
+    </div>
+
+    <!-- SCRIPT DE FUNCIONALIDAD E IDIOMAS -->
     <script>
+        lucide.createIcons();
+
+        let currentLang = 'es';
+        let currentActiveBlock = null;
+
+        // DICCIONARIO COMPLETO DE TRADUCCIONES ES/EN
         const translations = {
             es: {
-                navBack: "Volver al Índice",
-                navBackBottom: "Volver al Índice Principal",
                 badgeUnit: "Unidad Didáctica 1 // SdA 1",
                 heroTitlePart1: "El Proceso Tecnológico y el",
                 heroTitlePart2: "Análisis de Objetos",
-                heroSubtitle: "Guía de contenido teórico y actividades prácticas de taller para 2º de ESO.",
+                heroSubtitle: "Del concepto a la práctica: Introducción a la metodología de proyectos, el proceso de resolución de problemas y el análisis técnico de objetos.",
                 subjectLabel: "TECNOLOGÍA",
-                colTheoryHeader: "Teoría y Contenido (3 Columnas)",
-                colPracticeHeader: "Actividades Prácticas (1 Columna)",
-                
-                // Bloque 1
+                curiosityHeader: "Sabías que... / Historia",
+                btnAct1: "Ver Actividades del Punto 1",
+                btnAct2: "Ver Actividades del Punto 2",
+                btnAct3: "Ver Actividades del Punto 3",
+                navBackBottom: "Volver al Índice Principal",
+                footerText: "rhervel // 2026 // Tecnología 2º ESO",
+                modalFooterTag: "Entregable: Cuaderno de Taller",
+                modalCloseBtn: "Cerrar Ventana",
+
+                // BLOQUE 1
                 b1Title: "CIENCIA Y TECNOLOGÍA: DOS CAMINOS COMPLEMENTARIOS",
                 b1Sub1: "1.1. ¿Qué es la Ciencia?",
                 b1Text1: "Durante milenios, la humanidad intentó explicar fenómenos como el rayo, las estaciones o las enfermedades a través de mitos y voluntades divinas. Sin embargo, hace unos 2.500 años en la antigua Grecia, nació una idea revolucionaria: la naturaleza no actúa por capricho, sino que sigue unas leyes inmutables.",
                 b1Text2: "Para descubrir estas leyes, en el siglo XVII se consolidó el método científico, una metodología rigurosa para adquirir conocimiento objetivo.",
                 b1MethodHeader: "Esquema del Método Científico",
-                m1: "[Observación]",
-                m2: "[Pregunta]",
-                m3: "[Hipótesis]",
-                m4: "[Experimentación]",
-                m5: "[Conclusión]",
+                m1: "[Observación]", m2: "[Pregunta]", m3: "[Hipótesis]", m4: "[Experimentación]", m5: "[Conclusión]",
                 m1_t: "1. Observación:", m1_d: "Detectar y examinar un fenómeno natural con atención.",
                 m2_t: "2. Pregunta:", m2_d: "Formular dudas sobre las causas o funcionamiento de lo observado.",
                 m3_t: "3. Hipótesis:", m3_d: "Proponer una explicación provisional y razonada.",
                 m4_t: "4. Experimentación:", m4_d: "Diseñar pruebas y medir variables cuantitativas para comprobar la hipótesis.",
                 m5_t: "5. Conclusión:", m5_d: "Determinar si los datos validan la hipótesis. Si la rechazan, se debe formular una nueva.",
-                defScienceLabel: "Definición:",
-                defScienceText: "La Ciencia es el conjunto de conocimientos estructurados sistemáticamente sobre el universo, obtenidos mediante la observación y la experimentación. Su producto final es el saber.",
+                defScienceLabel: "Definición:", defScienceText: "La Ciencia es el conjunto de conocimientos estructurados sistemáticamente sobre el universo, obtenidos mediante la observación y la experimentación. Su producto final es el saber.",
                 b1Sub2: "1.2. ¿Qué es la Tecnología?",
                 b1Text3: "A diferencia de otros animales, el ser humano carece de garras afiladas, pelaje espeso o gran velocidad. Para sobrevivir, nuestra especie utilizó la inteligencia para transformar el entorno: convirtió rocas en cuchillos, pieles en abrigo y cuevas en refugios.",
-                defTechLabel: "Definición:",
-                defTechText: "La Tecnología es la aplicación coordinada de un conjunto de conocimientos científicos y habilidades prácticas para crear soluciones (objetos, sistemas o servicios) que satisfagan las necesidades humanas o resuelvan problemas prácticos. Su producto final es el hacer y el transformar.",
+                defTechLabel: "Definición:", defTechText: "La Tecnología es la aplicación coordinada de un conjunto de conocimientos científicos y habilidades prácticas para crear soluciones (objetos, sistemas o servicios) que satisfagan las necesidades humanas o resuelvan problemas prácticos. Su producto final es el hacer y el transformar.",
                 b1Sub3: "1.3. Relación entre Ciencia y Tecnología: La Tecnociencia",
                 b1Text4: "Aunque a menudo se confunden, sus objetivos son completamente diferentes:",
                 thCrit: "Criterio", thSci: "Ciencia", thTech: "Tecnología",
@@ -859,16 +721,12 @@
                 rel1_t: "La ciencia apoya a la tecnología:", rel1_d: "Para diseñar un motor eléctrico, un ingeniero necesita conocer las leyes del electromagnetismo descubiertas por la ciencia.",
                 rel2_t: "La tecnología apoya a la ciencia:", rel2_d: "Para descubrir el Higgs o estudiar galaxias lejanas, los científicos necesitan instrumentos tecnológicos complejos (microscopios electrónicos, telescopios espaciales o aceleradores de partículas).",
                 relFooter: "Hoy en día, ambas disciplinas están tan estrechamente ligadas que los especialistas utilizan el término Tecnociencia.",
-                actTitle1: "Actividades del Punto 1",
-                act1_1_title: "Actividad 1.1: Clasificación Saber vs Hacer",
-                act1_1_desc: "Clasifica en dos columnas los siguientes términos: Telescopio, Ley de la Gravedad, Microchip, Teorema de Pitágoras, Vacuna, Teoría de la Relatividad.",
-                act1_2_title: "Actividad 1.2: El Método Científico",
-                act1_2_desc: "Diseña un experimento sencillo para comprobar qué material aísla mejor el calor (madera, plástico o aluminio) siguiendo las 5 fases del método científico.",
-                act1_3_title: "Actividad 1.3: Debate Tecnociencia",
-                act1_3_desc: "Investiga y redacta un ejemplo real donde un avance tecnológico haya permitido descubrir algo nuevo para la ciencia (ej. Telescopio James Webb).",
-                deliv1: "Entregable: Cuaderno individual",
 
-                // Bloque 2
+                c1_t: "La invención del hacha de mano", c1_d: "El bifaz o hacha de mano es la herramienta tecnológica de mayor éxito histórico: ¡se estuvo utilizando sin apenas variaciones durante más de un millón de años!",
+                c2_t: "Eratóstenes y el tamaño de la Tierra", c2_d: "Hace más de 2.200 años, Eratóstenes midió la circunferencia de la Tierra usando solo un palo, sus sombras en dos ciudades y matemáticas básicas, con un error menor al 2%.",
+                c3_t: "El primer microscopio", c3_d: "Anton van Leeuwenhoek perfeccionó la fabricación de lentes para revisar la calidad de las telas y terminó descubriendo las bacterias, un mundo invisible gracias a un avance técnico.",
+
+                // BLOQUE 2
                 b2Title: "EL MÉTODO TECNOLÓGICO: EL PROCESO DE PROYECTOS",
                 b2Intro: "Así como la ciencia utiliza el método científico, la tecnología utiliza su propio método de trabajo: el Proceso Tecnológico (o Método de Proyectos). Es una secuencia ordenada de fases para pasar de un problema a una solución eficaz.",
                 b2HeaderFlow: "Fases del Proceso Tecnológico",
@@ -878,28 +736,19 @@
                 f1Desc: "Consiste en redactar con máxima precisión la necesidad a resolver y los límites o restricciones impuestas (tiempo, presupuesto, materiales, espacio).",
                 f1ExTitle: "Ejemplo de propuesta en el taller:",
                 f1ExSub: "Diseñar y construir un vehículo eléctrico de juguete que cumpla con los siguientes condicionantes:",
-                f1_c1: "Debe recorrer al menos 10 metros en línea recta.",
-                f1_c2: "Se construirá únicamente con las herramientas y materiales disponibles en el taller.",
-                f1_c3: "Estará accionado por un motor de Corriente Continua (CC) de 3V a 6V.",
-                f1_c4: "La fuente de energía será una pila de petaca (4.5V).",
-                f1_c5: "Dispondrá de un interruptor para encendido/apagado.",
-                f1_c6: "En esta primera fase, el chasis quedará al descubierto (sin carrocería).",
+                f1_c1: "Debe recorrer al menos 10 metros en línea recta.", f1_c2: "Se construirá únicamente con las herramientas y materiales disponibles en el taller.", f1_c3: "Estará accionado por un motor de Corriente Continua (CC) de 3V a 6V.", f1_c4: "La fuente de energía será una pila de petaca (4.5V).", f1_c5: "Dispondrá de un interruptor para encendido/apagado.", f1_c6: "En esta primera fase, el chasis quedará al descubierto (sin carrocería).",
                 f2Head: "FASE 2: Búsqueda de información",
                 f2Desc: "Antes de inventar nada, debemos investigar qué soluciones existen y aprender la teoría necesaria.",
                 f2_1_t: "Internet y repositorios:", f2_1_d: "Analizar proyectos similares creados por otros estudiantes o inventores.",
                 f2_2_t: "Consulta bibliográfica:", f2_2_d: "Repasar conceptos teóricos de electricidad (circuitos en serie), mecánica (transmisiones por poleas o engranajes) y propiedades de los materiales.",
                 f2_3_t: "Catálogos técnicos:", f2_3_d: "Consultar componentes comerciales en la aula-taller (reductoras, ruedas, soportes).",
                 f2_4_t: "Entrevistas a expertos:", f2_4_d: "Preguntar a profesores, profesionales o compañeros de cursos superiores.",
-                f3Head: "FASE 3: Técnicas de creatividad e ideación",
+                f4Head: "FASE 3: Diseño y concreción de la solución",
                 f3Desc: "Esta es la fase de generación de ideas. Para no quedarnos con la primera opción que se nos ocurra, aplicamos técnicas de creatividad individual y grupal.",
-                f3A_t: "A. Lluvia de Ideas (Brainstorming)", f3A_d: "Técnica grupal donde todos los miembros del equipo proponen ideas de forma libre.",
-                f3A_note: "Regla de oro: Queda prohibido criticar o juzgar las ideas durante la sesión. Las ideas más descabelladas pueden activar la solución definitiva en otro compañero.",
+                f3A_t: "A. Lluvia de Ideas (Brainstorming)", f3A_d: "Técnica grupal donde todos los miembros del equipo proponen ideas de forma libre.", f3A_note: "Regla de oro: Queda prohibido criticar o juzgar las ideas durante la sesión. Las ideas más descabelladas pueden activar la solución definitiva en otro compañero.",
                 f3B_t: "B. Mapas Mentales", f3B_d: "Diagramas visuales que organizan la información alrededor de un problema central. Ayudan a conectar ideas sobre materiales, mecanismos, formas y sistemas de energía de forma gráfica.",
                 f3C_t: "C. Técnica SCAMPER", f3C_d: "Lista de preguntas para transformar una idea existente en una nueva:",
-                scamperS: "Sustituir: ¿Puedo cambiar plástico por madera?", scamperC: "Combinar: ¿Puedo unir el motor al chasis en una sola pieza?",
-                scamperA: "Adaptar: ¿Puedo usar tapones de botella como ruedas?", scamperM: "Modificar: ¿Y si hago la estructura más estrecha?",
-                scamperP: "Proponer otros usos.", scamperE: "Eliminar: ¿Puedo quitar componentes innecesarios?", scamperR: "Reordenar / Reorganizar.",
-                f4Head: "FASE 4: Diseño y concreción de la solución",
+                scamperS: "Sustituir: ¿Puedo cambiar plástico por madera?", scamperC: "Combinar: ¿Puedo unir el motor al chasis en una sola pieza?", scamperA: "Adaptar: ¿Puedo usar tapones de botella como ruedas?", scamperM: "Modificar: ¿Y si hago la estructura más estrecha?", scamperP: "Proponer otros usos.", scamperE: "Eliminar: ¿Puedo quitar componentes innecesarios?", scamperR: "Reordenar / Reorganizar.",
                 f4Desc: "De todas las ideas generadas, seleccionamos la más viable (evaluando coste, tiempo de ejecución y dificultad constructiva) y la desarrollamos técnicamente usando el lenguaje gráfico.",
                 f4_1_t: "Esbozo:", f4_1_d: "Dibujo rápido a mano alzada, no acotado, para plasmar las primeras ideas generales.",
                 f4_2_t: "Croquis:", f4_2_d: "Dibujo a mano alzada más elaborado, proporcionado y acotado (con medidas reales expresadas en milímetros). Muestra las vistas principales del objeto (Alzado, Planta y Perfil).",
@@ -907,33 +756,14 @@
                 f4_4_t: "Memoria descriptiva:", f4_4_d: "Redacción explicativa del diseño final en texto.",
                 f4ExTitle: "Ejemplo de descripción de la solución elegida:",
                 f4ExText: "Vehículo eléctrico con chasis plano de plástico rígido de 220×70 mm y 3 mm de grosor. Tracción trasera mediante un grupo motorreductor fijado con tornillería. Transmisión por engranajes integrados para reducir las revoluciones y aumentar el par motor. Eje delantero libre montado sobre dos soportes guiados. Circuito eléctrico simple formado por pila de petaca de 4.5V, interruptor deslizable, motor CC y cableado de cobre unido mediante soldadura de estaño.",
-                imgPlaceholder: "[ Espacio para Imagen: Croquis y Vistas Acotadas (Alzado, Planta y Perfil) ]",
-                f5Head: "FASE 5: Planificación del trabajo",
+                f5Head: "FASE 4: Planificación del trabajo",
                 f5Desc: "Antes de entrar al taller, es imprescindible rellenar los documentos de gestión para repartir tareas, prever costes y organizar las fases de fabricación.",
                 tbl1Head: "Ficha 1: Presupuesto y Relación de Materiales",
                 thMat: "Material", thFunc: "Función", thQty: "Cantidad",
-                t1_m1: "Placa de plástico (3 mm)", t1_f1: "Chasis base",
-                t1_m2: "Grupo motorreductor CC", t1_f2: "Propulsión mecánica",
-                t1_m3: "Eje metálico (Ø 3 mm)", t1_f3: "Eje delantero",
-                t1_m4: "Ruedas de plástico (Ø 55 mm)", t1_f4: "Apoyo y rodadura",
-                t1_m5: "Pila de petaca (4.5V)", t1_f5: "Fuente energía",
-                t1_m6: "Interruptor de palanca", t1_f6: "Control encendido",
-                t1_m7: "Cable conductor flexible", t1_f7: "Conexión eléctrica",
-                t1_m8: "Soportes para eje", t1_f8: "Fijación de ejes",
-                t1_m9: "Tornillos, tuercas, arandelas (M3)", t1_f9: "Uniones desmontables",
-                t1_m10: "Cinta adhesiva / Bridas", t1_f10: "Fijación de la pila",
-                t1_m11: "Hilo de estaño para soldar", t1_f11: "Unión permanente",
+                t1_m1: "Placa de plástico (3 mm)", t1_f1: "Chasis base", t1_m2: "Grupo motorreductor CC", t1_f2: "Propulsión mecánica", t1_m3: "Eje metálico (Ø 3 mm)", t1_f3: "Eje delantero", t1_m4: "Ruedas de plástico (Ø 55 mm)", t1_f4: "Apoyo y rodadura", t1_m5: "Pila de petaca (4.5V)", t1_f5: "Fuente energía", t1_m6: "Interruptor de palanca", t1_f6: "Control encendido", t1_m7: "Cable conductor flexible", t1_f7: "Conexión eléctrica", t1_m8: "Soportes para eje", t1_f8: "Fijación de ejes", t1_m9: "Tornillos, tuercas, arandelas (M3)", t1_f9: "Uniones desmontables", t1_m10: "Cinta adhesiva / Bridas", t1_f10: "Fijación de la pila", t1_m11: "Hilo de estaño para soldar", t1_f11: "Unión permanente",
                 tbl2Head: "Ficha 2: Hoja de Herramientas y Útiles",
                 thTool: "Herramienta", thUse: "Uso en taller",
-                t2_t1: "Lápiz y rotulador permanente", t2_u1: "Marcado de cotas",
-                t2_t2: "Regla metálica y escuadra", t2_u2: "Medición y trazado",
-                t2_t3: "Sierra de marquetería / metal", t2_u3: "Corte del panel",
-                t2_t4: "Limas y papel de lija", t2_u4: "Desbarbado y acabado",
-                t2_t5: "Taladradora columna / manual", t2_u5: "Perforación de agujeros",
-                t2_t6: "Destornillador estrella / plano", t2_u6: "Apriete tornillería",
-                t2_t7: "Llave fija o de tubo (M3)", t2_u7: "Sujeción de tuercas",
-                t2_t8: "Alicates pelacables / Tijeras", t2_u8: "Corte de conductores",
-                t2_t9: "Soldador eléctrico lapicero", t2_u9: "Soldadura blanda estaño",
+                t2_t1: "Lápiz y rotulador permanente", t2_u1: "Marcado de cotas", t2_t2: "Regla metálica y escuadra", t2_u2: "Medición y trazado", t2_t3: "Sierra de marquetería / metal", t2_u3: "Corte del panel", t2_t4: "Limas y papel de lija", t2_u4: "Desbarbado y acabado", t2_t5: "Taladradora columna / manual", t2_u5: "Perforación de agujeros", t2_t6: "Destornillador estrella / plano", t2_u6: "Apriete tornillería", t2_t7: "Llave fija o de tubo (M3)", t2_u7: "Sujeción de tuercas", t2_t8: "Alicates pelacables / Tijeras", t2_u8: "Corte de conductores", t2_t9: "Soldador eléctrico lapicero", t2_u9: "Soldadura blanda estaño",
                 tbl3Head: "Ficha 3: Hoja de Procesos",
                 thTask: "Tarea", thToolsReq: "Herramientas", thTime: "Tiempo",
                 p1_tk: "Trazar chasis (220x70 mm)", p1_tl: "Regla, escuadra, rotulador",
@@ -946,315 +776,558 @@
                 p8_tk: "Fijar interruptor y pila al chasis", p8_tl: "Cinta adhesiva / Bridas",
                 p9_tk: "Conexiones según esquema", p9_tl: "Soldador, estaño, pelacables",
                 p10_tk: "Verificar funcionamiento", p10_tl: "Multímetro / Inspección",
-                f6Head: "FASE 6: Construcción",
-                f6Desc: "Es la fase de ejecución práctica en la aula-taller. Se llevan a cabo las operaciones planificadas respetando siempre dos pautas fundamentales:",
+                f6Head: "FASE 5: Construcción", f6Desc: "Es la fase de ejecución práctica en la aula-taller. Se llevan a cabo las operaciones planificadas respetando siempre dos pautas fundamentales:",
                 f6_s1_t: "1. Seguridad y Salud", f6_s1_d: "Uso obligatorio de gafas protectoras en el taladro, sujeción firme con tornillo de banco y precaución con el soldador.",
                 f6_s2_t: "2. Trabajo en equipo", f6_s2_d: "Reparto equitativo de roles (coordinador, herramientas, seguridad, materiales) con respeto y cooperación.",
-                f7Head: "FASE 7: Evaluación y Control de Calidad",
-                f7Desc: "Terminada la construcción, se somete el objeto a pruebas operativas para comprobar si cumple las condiciones iniciales de la Fase 1.",
-                f7ReportHead: "Informe de Evaluación del Coche Eléctrico:",
-                f7TestLabel: "Prueba de rendimiento:", f7TestVal: "El vehículo ha recorrido 12.5 metros en línea recta, superando los 10 metros exigidos.",
-                f7FixHead: "Análisis de fallos y propuestas de mejora:",
-                f7_err1_t: "Desviación:", f7_err1_d: "Tiende a girar levemente a la izquierda. Solución: Recomprobar alineación del eje delantero.",
-                f7_err2_t: "Ruido mecánico:", f7_err2_d: "Transmisión ruidosa. Solución: Aplicar grasa de silicona o correa de goma.",
-                f7_err3_t: "Pérdida de tracción:", f7_err3_d: "Ruedas traseras deslizan al arrancar. Solución: Fijar eje con prisioneros o cianocrilato.",
-                actTitle2: "Actividades del Punto 2",
-                act2_1_title: "Actividad 2.1: Sesión de SCAMPER",
-                act2_1_desc: "Aplica la técnica SCAMPER a una botella de agua de plástico estándar para transformarla en un objeto innovador para el taller. Responde a al menos 4 letras de la técnica.",
-                act2_2_title: "Actividad 2.2: Croquis Acotado",
-                act2_2_desc: "Realiza en tu cuaderno el croquis a mano alzada (Alzado, Planta y Perfil) de una caja de cerillas o sacapuntas, indicando las medidas reales en milímetros.",
-                act2_3_title: "Actividad 2.3: Planificación de Taller",
-                act2_3_desc: "Cumplimenta la Ficha de Procesos para la fabricación de una regla de madera de 20 cm, detallando herramientas, tareas y tiempos.",
-                act2_4_title: "Actividad 2.4: Control de Calidad",
-                act2_4_desc: "Si el coche eléctrico del proyecto no consigue arrancar por un fallo en el circuito, redacta la propuesta de localización de avería en 3 pasos.",
-                deliv2: "Entregable: Memoria de Proyecto",
+                f7Head: "FASE 6: Evaluación y Control de Calidad", f7Desc: "Terminada la construcción, se somete el objeto a pruebas operativas para comprobar si cumple las condiciones iniciales de la Fase 1.",
+                f7ReportHead: "Informe de Evaluación del Coche Eléctrico:", f7TestLabel: "Prueba de rendimiento:", f7TestVal: "El vehículo ha recorrido 12.5 metros en línea recta, superando los 10 metros exigidos.",
+                f7FixHead: "Análisis de fallos y propuestas de mejora:", f7_err1_t: "Desviación:", f7_err1_d: "Tiende a girar levemente a la izquierda. Solución: Recomprobar alineación del eje delantero.", f7_err2_t: "Ruido mecánico:", f7_err2_d: "Transmisión ruidosa. Solución: Aplicar grasa de silicona o correa de goma.", f7_err3_t: "Pérdida de tracción:", f7_err3_d: "Ruedas traseras deslizan al arrancar. Solución: Fijar eje con prisioneros o cianocrilato.",
 
-                // Bloque 3
+                c4_t: "El origen de SCAMPER", c4_d: "Bob Eberle inventó la técnica SCAMPER en 1971 basándose en la lista de preguntas de Alex Osborn (el creador de la 'Lluvia de Ideas'). ¡Es una de las mejores herramientas de innovación del mundo!",
+                c5_t: "Edison y el fallo en los experimentos", c5_d: "Al evaluar sus prototipos de bombilla, Thomas Edison dijo: 'No fracasé, solo encontré 10.000 formas que no funcionaban'. El control de calidad y los errores son clave en la ingeniería.",
+                c6_t: "Los primeros coches eléctricos", c6_d: "A finales del siglo XIX, ¡los vehículos eléctricos vendían más unidades que los de gasolina! Eran silenciosos, limpios y no necesitaban manivela para arrancar.",
+
+                // BLOQUE 3
                 b3Title: "ANÁLISIS TÉCNICO DE OBJETOS TECNOLÓGICOS",
                 b3Intro: "El análisis de objetos es el proceso inverso al diseño: consiste en desarmar conceptualmente un producto existente para comprender su diseño, funcionamiento e impacto.",
                 b3GridHead: "Estructura del Análisis de Objetos",
-                g1_t: "1. Formal", g1_d: "Anatomía y Geometría",
-                g2_t: "2. Funcional", g2_d: "Funcionamiento",
-                g3_t: "3. Técnico", g3_d: "Materiales y Fabricación",
-                g4_t: "4. Socioeconómico", g4_d: "Impacto y Precio",
-                b3Sub1: "3.1. Análisis Formal (Anatomía y Geometría)",
-                b3Text1: "Estudia la forma exterior, la estructura y la representación gráfica del objeto.",
+                g1_t: "1. Formal", g1_d: "Anatomía y Geometría", g2_t: "2. Funcional", g2_d: "Funcionamiento", g3_t: "3. Técnico", g3_d: "Materiales y Fabricación", g4_t: "4. Socioeconómico", g4_d: "Impacto y Precio",
+                b3Sub1: "3.1. Análisis Formal (Anatomía y Geometría)", b3Text1: "Estudia la forma exterior, la estructura y la representación gráfica del objeto.",
                 af1_t: "Piezas:", af1_d: "Lista detallada de los componentes individuales que integran el conjunto.",
                 af2_t: "Forma:", af2_d: "Geometría global (cilíndrica, prismática, esférica) y estudio ergonómico (adaptación a las formas del cuerpo humano).",
                 af3_t: "Vistas:", af3_d: "Dibujo técnico en sistema diédrico:",
-                v1_t: "Alzado:", v1_d: "Vista frontal principal.",
-                v2_t: "Planta:", v2_d: "Vista superior.",
-                v3_t: "Perfil:", v3_d: "Vista lateral (izquierda o derecha).",
+                v1_t: "Alzado:", v1_d: "Vista frontal principal.", v2_t: "Planta:", v2_d: "Vista superior.", v3_t: "Perfil:", v3_d: "Vista lateral (izquierda o derecha).",
                 af4_t: "Dimensiones:", af4_d: "Mediciones principales (largo, ancho, alto) expresadas en milímetros.",
-                b3Sub2: "3.2. Análisis Funcional",
-                b3Text2: "Explica la utilidad del producto y las leyes físicas que aplica.",
+                b3Sub2: "3.2. Análisis Funcional", b3Text2: "Explica la utilidad del producto y las leyes físicas que aplica.",
                 fn1_t: "Función global:", fn1_d: "¿Para qué sirve el objeto? ¿Cuál es su utilidad principal?",
                 fn2_t: "Principios científicos:", fn2_d: "Fenómenos físicos implicados (rozamiento, efecto palanca, conducción eléctrica, presión hidráulica).",
                 fn3_t: "Función de elementos componentes:", fn3_d: "Papel específico que desempeña cada pieza dentro del conjunto.",
                 fn4_t: "Seguridad y uso:", fn4_d: "Evaluación de los riesgos operativos (cortes, descargas, atrapamientos) y sistemas de protección incorporados.",
-                b3Sub3: "3.3. Análisis Técnico",
-                b3Text3: "Centrado en el estudio industrial y de fabricación.",
+                b3Sub3: "3.3. Análisis Técnico", b3Text3: "Centrado en el estudio industrial y de fabricación.",
                 tc1_t: "Materiales:", tc1_d: "Identificación de los materiales utilizados (plásticos, metales, maderas, cerámicas) y justificación de sus propiedades (rigidez, tenacidad, aislamiento eléctrico, densidad).",
                 tc2_t: "Procesos de conformación:", tc2_d: "Técnicas para dar forma a las piezas (moldeo por inyección, mecanizado, estampación, extrusión).",
                 tc3_t: "Ensamblado:", tc3_d: "Tipo de uniones empleadas:",
-                u1_t: "Uniones fijas:", u1_d: "Pegado, remachado, soldadura.",
-                u2_t: "Uniones desmontables:", u2_d: "Tornillos, roscas, pasadores, encajes a presión.",
+                u1_t: "Uniones fijas:", u1_d: "Pegado, remachado, soldadura.", u2_t: "Uniones desmontables:", u2_d: "Tornillos, roscas, pasadores, encajes a presión.",
                 tc4_t: "Acabados superficiales:", tc4_d: "Tratamientos de protección o embellecimiento (barnizado, pulido, pintado, galvanizado).",
-                b3Sub4: "3.4. Análisis Socioeconómico",
-                b3Text4: "Estudia la repercusión social, ecológica y comercial del objeto.",
+                b3Sub4: "3.4. Análisis Socioeconómico", b3Text4: "Estudia la repercusión social, ecológica y comercial del objeto.",
                 se1_t: "Necesidad cubierta:", se1_d: "Problema humano que resuelve (comunicación, transporte, confort, sanidad).",
                 se2_t: "Evolución histórica:", se2_d: "Antecedentes del objeto, origen y cómo las innovaciones tecnológicas han cambiado su diseño con el tiempo.",
                 se3_t: "Impacto ambiental:", se3_d: "Análisis del ciclo de vida (origen de las materias primas, consumo de energía durante su uso, reciclabilidad de sus piezas y generación de residuos al final de su vida útil).",
                 se4_t: "Economía de mercado:", se4_d: "Precio de venta estimado, relación calidad-precio y comparativa con productos competidores directos.",
-                actTitle3: "Actividades del Punto 3",
-                act3_1_title: "Actividad 3.1: Análisis de un Bolígrafo",
-                act3_1_desc: "Desmonta un bolígrafo convencional tipo BIC y completa una ficha con su análisis formal (nº piezas, dimensiones, ergonomía) y funcional (utilidad, principio físico del rodamiento).",
-                act3_2_title: "Actividad 3.2: Estudio de Uniones",
-                act3_2_desc: "Observa 5 objetos de tu aula e identifica si sus uniones son fijas o desmontables, justificando el porqué de esa elección de diseño.",
-                act3_3_title: "Actividad 3.3: Análisis de Ciclo de Vida",
-                act3_3_desc: "Elige un objeto cotidiano (ej. un teléfono móvil o una lata de refresco) y redacta un informe sobre su impacto ambiental desde la extracción de materia prima hasta su reciclaje.",
-                deliv3: "Entregable: Informe de Análisis Objeto",
-                footerText: "rhervel // 2026 // Tecnología 2º ESO"
+
+                c7_t: "La bolita del bolígrafo BIC", c7_d: "El invento revolucionario de László Bíró en 1938 consistió en colocar una esfera diminuta de carburo de tungsteno extremadamente dura que gira libremente para transferir la tinta.",
+                c8_t: "Ingeniería Inversa", c8_d: "El análisis de objetos es la base de la ingeniería inversa. Durante la Segunda Guerra Mundial, muchos países desmontaban aviones enemigos pieza por pieza para copiar sus tecnologías secretas.",
+                c9_t: "Diseño Ergonomía NASA", c9_d: "Las normas modernas de ergonomía y diseño formal se desarrollaron en gran parte gracias a los estudios de la NASA para optimizar los mandos y trajes en gravedad cero."
             },
             en: {
-                navBack: "Back to Index",
-                navBackBottom: "Back to Main Index",
-                badgeUnit: "Unit 1 // Learning Unit 1",
+                badgeUnit: "Teaching Unit 1 // SdA 1",
                 heroTitlePart1: "The Technological Process and",
                 heroTitlePart2: "Object Analysis",
-                heroSubtitle: "From Concept to Practice: Introduction to Project Methodology, Problem-Solving Process, and Technical Object Analysis.",
+                heroSubtitle: "From concept to practice: Introduction to project methodology, problem-solving process, and technical analysis of objects.",
                 subjectLabel: "TECHNOLOGY",
-                colTheoryHeader: "Theory & Content (3 Columns)",
-                colPracticeHeader: "Practical Activities (1 Column)",
-                
-                // Block 1
+                curiosityHeader: "Did you know...? / History",
+                btnAct1: "View Section 1 Activities",
+                btnAct2: "View Section 2 Activities",
+                btnAct3: "View Section 3 Activities",
+                navBackBottom: "Back to Main Index",
+                footerText: "rhervel // 2026 // Technology 2nd ESO",
+                modalFooterTag: "Deliverable: Workshop Notebook",
+                modalCloseBtn: "Close Window",
+
+                // BLOQUE 1
                 b1Title: "SCIENCE AND TECHNOLOGY: TWO COMPLEMENTARY PATHS",
                 b1Sub1: "1.1. What is Science?",
-                b1Text1: "For millennia, humanity tried to explain phenomena such as lightning, seasons, or diseases through myths and divine will. However, about 2,500 years ago in ancient Greece, a revolutionary idea was born: nature does not act on a whim, but follows immutable laws.",
-                b1Text2: "To discover these laws, the scientific method was consolidated in the 17th century as a rigorous methodology to acquire objective knowledge.",
-                b1MethodHeader: "Scientific Method Flowchart",
-                m1: "[Observation]",
-                m2: "[Question]",
-                m3: "[Hypothesis]",
-                m4: "[Experimentation]",
-                m5: "[Conclusion]",
+                b1Text1: "For millennia, humanity tried to explain phenomena like lightning, seasons, or diseases through myths and divine wills. However, about 2,500 years ago in ancient Greece, a revolutionary idea was born: nature does not act on a whim, but follows immutable laws.",
+                b1Text2: "To discover these laws, the scientific method was consolidated in the 17th century as a rigorous methodology for acquiring objective knowledge.",
+                b1MethodHeader: "Scientific Method Diagram",
+                m1: "[Observation]", m2: "[Question]", m3: "[Hypothesis]", m4: "[Experimentation]", m5: "[Conclusion]",
                 m1_t: "1. Observation:", m1_d: "Detect and carefully examine a natural phenomenon.",
-                m2_t: "2. Question:", m2_d: "Formulate doubts about the causes or operation of what was observed.",
+                m2_t: "2. Question:", m2_d: "Formulate questions about the causes or workings of what was observed.",
                 m3_t: "3. Hypothesis:", m3_d: "Propose a provisional and reasoned explanation.",
                 m4_t: "4. Experimentation:", m4_d: "Design tests and measure quantitative variables to verify the hypothesis.",
-                m5_t: "5. Conclusion:", m5_d: "Determine whether the data validates the hypothesis. If rejected, a new one must be formulated.",
-                defScienceLabel: "Definition:",
-                defScienceText: "Science is the set of systematically structured knowledge about the universe, obtained through observation and experimentation. Its final product is knowledge (knowing).",
+                m5_t: "5. Conclusion:", m5_d: "Determine if data validates the hypothesis. If rejected, a new one must be made.",
+                defScienceLabel: "Definition:", defScienceText: "Science is the set of systematically structured knowledge about the universe, obtained through observation and experimentation. Its final product is knowledge (knowing).",
                 b1Sub2: "1.2. What is Technology?",
-                b1Text3: "Unlike other animals, humans lack sharp claws, thick fur, or great speed. To survive, our species used intelligence to transform the environment: turning rocks into knives, hides into coat, and caves into shelters.",
-                defTechLabel: "Definition:",
-                defTechText: "Technology is the coordinated application of scientific knowledge and practical skills to create solutions (objects, systems, or services) that meet human needs or solve practical problems. Its final product is doing and transforming.",
+                b1Text3: "Unlike other animals, humans lack sharp claws, thick fur, or high speed. To survive, our species used intelligence to transform the environment: turning rocks into knives, hides into shelter, and caves into homes.",
+                defTechLabel: "Definition:", defTechText: "Technology is the coordinated application of scientific knowledge and practical skills to create solutions (objects, systems, or services) that meet human needs or solve practical problems. Its final product is doing and transforming.",
                 b1Sub3: "1.3. Relationship between Science and Technology: Technoscience",
-                b1Text4: "Although often confused, their objectives are completely different:",
-                thCrit: "Criteria", thSci: "Science", thTech: "Technology",
-                tdObj: "Objective", tdSciObj: "Seek truth and understand the universe.", tdTechObj: "Solve practical problems and improve life.",
+                b1Text4: "Although often confused, their goals are completely different:",
+                thCrit: "Criterion", thSci: "Science", thTech: "Technology",
+                tdObj: "Goal", tdSciObj: "Seek truth and understand the universe.", tdTechObj: "Solve practical problems and improve life.",
                 tdRes: "Result", tdSciRes: "Laws, theorems, theoretical models.", tdTechRes: "Products, machines, tools, processes.",
-                tdVerb: "Key Verb", tdSciVerb: "To Know", tdTechVerb: "To Do / Create",
+                tdVerb: "Key Verb", tdSciVerb: "To know", tdTechVerb: "To make/create",
                 relTitle: "A two-way relationship:",
                 rel1_t: "Science supports technology:", rel1_d: "To design an electric motor, an engineer needs to know the laws of electromagnetism discovered by science.",
-                rel2_t: "Technology supports science:", rel2_d: "To discover the Higgs boson or study distant galaxies, scientists need complex technological instruments (electron microscopes, space telescopes, or particle accelerators).",
+                rel2_t: "Technology supports science:", rel2_d: "To discover the Higgs boson or study far galaxies, scientists need complex tools (electron microscopes, space telescopes, particle accelerators).",
                 relFooter: "Today, both disciplines are so closely linked that specialists use the term Technoscience.",
-                actTitle1: "Section 1 Activities",
-                act1_1_title: "Activity 1.1: Knowing vs Doing Classification",
-                act1_1_desc: "Classify into two columns: Telescope, Law of Gravity, Microchip, Pythagoras Theorem, Vaccine, Theory of Relativity.",
-                act1_2_title: "Activity 1.2: The Scientific Method",
-                act1_2_desc: "Design a simple experiment to test which material insulates heat best (wood, plastic, or aluminum) following the 5 phases of the scientific method.",
-                act1_3_title: "Activity 1.3: Technoscience Debate",
-                act1_3_desc: "Research and write a real example where a technological advance enabled a new scientific discovery (e.g., James Webb Space Telescope).",
-                deliv1: "Deliverable: Individual Notebook",
 
-                // Block 2
-                b2Title: "THE TECHNOLOGICAL METHOD: PROJECT-BASED LEARNING",
-                b2Intro: "Just as science uses the scientific method, technology uses its own working method: the Technological Process (or Project Method). It is an ordered sequence of phases to move from a problem to an effective solution.",
+                c1_t: "The invention of the hand axe", c1_d: "The biface or hand axe is the most historically successful technological tool: it was used with almost no changes for over a million years!",
+                c2_t: "Eratosthenes and Earth's size", c2_d: "More than 2,200 years ago, Eratosthenes measured Earth's circumference using only a stick, shadows in two cities, and basic math, with an error of less than 2%.",
+                c3_t: "The first microscope", c3_d: "Anton van Leeuwenhoek perfected lens making to check fabric quality and ended up discovering bacteria, an invisible world revealed by technical progress.",
+
+                // BLOQUE 2
+                b2Title: "THE TECHNOLOGICAL METHOD: THE PROJECT METHODOLOGY",
+                b2Intro: "Just as science uses the scientific method, technology uses its own working method: the Technological Process (or Project Method). It is an ordered sequence of phases to go from a problem to an effective solution.",
                 b2HeaderFlow: "Phases of the Technological Process",
                 pf1: "[1. Problem]", pf2: "[2. Information]", pf3: "[3. Design]", pf4: "[4. Planning]", pf5: "[5. Construction]", pf6: "[6. Evaluation]",
-                b2Subtext: "Throughout this unit we will apply each phase to a workshop project: Building a toy electric car.",
+                b2Subtext: "Throughout this topic, we will apply each phase to a workshop project: Building a toy electric car.",
                 f1Head: "PHASE 1: Problem Description (Constraints)",
-                f1Desc: "Consists of writing down with maximum precision the need to be solved and the limits or restrictions imposed (time, budget, materials, space).",
-                f1ExTitle: "Workshop proposal example:",
-                f1ExSub: "Design and build a toy electric vehicle meeting the following constraints:",
-                f1_c1: "It must travel at least 10 meters in a straight line.",
-                f1_c2: "It will be built using only tools and materials available in the workshop.",
-                f1_c3: "Powered by a 3V to 6V Direct Current (DC) motor.",
-                f1_c4: "The power source will be a 4.5V lantern battery.",
-                f1_c5: "Equipped with an ON/OFF switch.",
-                f1_c6: "In this initial phase, the chassis will remain exposed (no bodywork).",
+                f1Desc: "Consists of writing with maximum precision the need to solve and the restrictions imposed (time, budget, materials, space).",
+                f1ExTitle: "Example of workshop proposal:",
+                f1ExSub: "Design and build a toy electric vehicle that meets the following constraints:",
+                f1_c1: "It must travel at least 10 meters in a straight line.", f1_c2: "It will be built using only tools and materials available in the workshop.", f1_c3: "Powered by a DC motor (3V to 6V).", f1_c4: "Energy source will be a 4.5V lantern battery.", f1_c5: "Must include an ON/OFF switch.", f1_c6: "In this first phase, the chassis will remain uncovered (no bodywork).",
                 f2Head: "PHASE 2: Information Search",
-                f2Desc: "Before inventing anything, we must research existing solutions and learn the necessary theory.",
+                f2Desc: "Before inventing anything, we must research existing solutions and learn necessary theory.",
                 f2_1_t: "Internet & Repositories:", f2_1_d: "Analyze similar projects created by other students or inventors.",
-                f2_2_t: "Literature review:", f2_2_d: "Review theoretical concepts of electricity (series circuits), mechanics (pulley/gear transmissions), and material properties.",
-                f2_3_t: "Technical catalogs:", f2_3_d: "Check commercial components in the workshop classroom (gearboxes, wheels, brackets).",
-                f2_4_t: "Expert interviews:", f2_4_d: "Ask teachers, professionals, or upper-grade peers.",
-                f3Head: "PHASE 3: Ideation and Creativity Techniques",
-                f3Desc: "This is the idea generation phase. To avoid settling for the first idea, we apply individual and group creativity techniques.",
-                f3A_t: "A. Brainstorming", f3A_d: "Group technique where all team members propose ideas freely.",
-                f3A_note: "Golden Rule: Criticizing or judging ideas during the session is strictly forbidden. Wild ideas can trigger the final solution in another peer.",
-                f3B_t: "B. Mind Maps", f3B_d: "Visual diagrams organizing information around a core problem. Helps graphically connect ideas about materials, mechanisms, shapes, and energy systems.",
-                f3C_t: "C. SCAMPER Technique", f3C_d: "Question list to transform an existing idea into a new one:",
-                scamperS: "Substitute: Can I swap plastic for wood?", scamperC: "Combine: Can I attach the motor directly to the chassis?",
-                scamperA: "Adapt: Can I use bottle caps as wheels?", scamperM: "Modify: What if I make the frame narrower?",
-                scamperP: "Put to another use.", scamperE: "Eliminate: Can I remove unnecessary components?", scamperR: "Rearrange / Reverse.",
-                f4Head: "PHASE 4: Design and Technical Solution",
-                f4Desc: "From all generated ideas, we select the most viable one (evaluating cost, execution time, and technical difficulty) and develop it technically using graphic language.",
-                f4_1_t: "Draft sketch:", f4_1_d: "Quick freehand drawing, un-dimensioned, to capture initial ideas.",
-                f4_2_t: "Croquis (Technical Freehand):", f4_2_d: "Proportional, dimensioned freehand drawing (in mm). Shows main orthographic views (Front, Top, Side).",
-                f4_3_t: "Technical Drawings:", f4_3_d: "Instrument-drawn (ruler, set square, CAD) scaled drawings with standard dimensions for production.",
-                f4_4_t: "Descriptive Report:", f4_4_d: "Explanatory text describing the final chosen design.",
-                f4ExTitle: "Example of selected design description:",
-                f4ExText: "Electric vehicle featuring a flat 220×70 mm, 3 mm thick rigid plastic chassis. Rear-wheel drive via a bolted gearmotor unit. Integrated gear transmission to lower RPM and increase torque. Free front axle mounted on guided brackets. Simple electrical circuit consisting of a 4.5V battery, slide switch, DC motor, and soldered copper wiring.",
-                imgPlaceholder: "[ Image Space: Technical Freehand Sketch & Orthographic Views (Front, Top, Side) ]",
-                f5Head: "PHASE 5: Work Planning",
-                f5Desc: "Before entering the workshop, management documents must be completed to assign tasks, project costs, and sequence fabrication.",
-                tbl1Head: "Form 1: Budget and Material List",
+                f2_2_t: "Literature Review:", f2_2_d: "Review theoretical concepts of electricity (series circuits), mechanics (gear/pulley drives), and material properties.",
+                f2_3_t: "Technical Catalogs:", f2_3_d: "Check commercial components available in the workshop (gearboxes, wheels, brackets).",
+                f2_4_t: "Expert Interviews:", f2_4_d: "Ask teachers, professionals, or older students.",
+                f4Head: "PHASE 3: Design and Solution Definition",
+                f3Desc: "This is the idea generation phase. To avoid settling on the first option, we apply individual and group creativity techniques.",
+                f3A_t: "A. Brainstorming", f3A_d: "Group technique where all team members freely propose ideas.", f3A_note: "Golden Rule: Criticizing or judging ideas during the session is forbidden. The wildest ideas can trigger the final solution in a teammate.",
+                f3B_t: "B. Mind Maps", f3B_d: "Visual diagrams organizing information around a central problem. Helps visually connect ideas on materials, mechanisms, shapes, and energy systems.",
+                f3C_t: "C. SCAMPER Technique", f3C_d: "List of questions to transform an existing idea into a new one:",
+                scamperS: "Substitute: Can I replace plastic with wood?", scamperC: "Combine: Can I join motor and chassis in one piece?", scamperA: "Adapt: Can I use bottle caps as wheels?", scamperM: "Modify: What if I make the frame narrower?", scamperP: "Put to another use.", scamperE: "Eliminate: Can I remove unnecessary parts?", scamperR: "Reverse / Rearrange.",
+                f4Desc: "From all generated ideas, we select the most viable (evaluating cost, time, build difficulty) and technically develop it using graphical language.",
+                f4_1_t: "Freehand Sketch:", f4_1_d: "Quick drawing, undimensioned, to capture main general ideas.",
+                f4_2_t: "Technical Sketch (Croquis):", f4_2_d: "Elaborate freehand drawing, proportional and dimensioned (real sizes in mm). Shows main views (Front, Top, Side).",
+                f4_3_t: "Technical Plans:", f4_3_d: "Instrument-drawn plans (ruler, set square, CAD), standardized scale, dimensioned for accurate building.",
+                f4_4_t: "Descriptive Report:", f4_4_d: "Explanatory text describing the final design.",
+                f4ExTitle: "Example of chosen solution description:",
+                f4ExText: "Electric vehicle with flat rigid plastic chassis (220×70 mm, 3mm thick). Rear-wheel drive via a bolted gearmotor group. Integrated gear transmission to lower RPM and increase torque. Free front axle mounted on two guided supports. Simple electric circuit with 4.5V battery, slide switch, DC motor, and soldered copper wires.",
+                f5Head: "PHASE 4: Work Planning",
+                f5Desc: "Before entering the workshop, filling out management documents is essential to assign tasks, estimate costs, and schedule manufacturing.",
+                tbl1Head: "Sheet 1: Budget and Bill of Materials",
                 thMat: "Material", thFunc: "Function", thQty: "Quantity",
-                t1_m1: "Plastic sheet (3 mm)", t1_f1: "Base chassis",
-                t1_m2: "DC Gearmotor unit", t1_f2: "Mechanical propulsion",
-                t1_m3: "Metal axle (Ø 3 mm)", t1_f3: "Front axle",
-                t1_m4: "Plastic wheels (Ø 55 mm)", t1_f4: "Support and rolling",
-                t1_m5: "Lantern battery (4.5V)", t1_f5: "Power source",
-                t1_m6: "Toggle switch", t1_f6: "ON/OFF control",
-                t1_m7: "Flexible wire", t1_f7: "Electrical connection",
-                t1_m8: "Axle brackets", t1_f8: "Axle support",
-                t1_m9: "Screws, nuts, washers (M3)", t1_f9: "Removable joints",
-                t1_m10: "Adhesive tape / Cable ties", t1_f10: "Battery mounting",
-                t1_m11: "Solder wire", t1_f11: "Permanent joint",
-                tbl2Head: "Form 2: Tools and Equipment Sheet",
-                thTool: "Tool", thUse: "Workshop Usage",
-                t2_t1: "Pencil & Permanent marker", t2_u1: "Marking dimensions",
-                t2_t2: "Steel ruler & Set square", t2_u2: "Measuring & Layout",
-                t2_t3: "Copingsaw / Hacksaw", t2_u3: "Cutting panel",
-                t2_t4: "Files & Sandpaper", t2_u4: "Deburring & Finishing",
-                t2_t5: "Pillar drill / Hand drill", t2_u5: "Drilling holes",
-                t2_t6: "Screwdrivers (Flat/Cross)", t2_u6: "Tightening fasteners",
-                t2_t7: "Spanner / Socket wrench (M3)", t2_u7: "Holding nuts",
-                t2_t8: "Wire strippers / Scissors", t2_u8: "Cutting conductors",
-                t2_t9: "Soldering iron", t2_u9: "Soft tin soldering",
-                tbl3Head: "Form 3: Process Sheet",
-                thTask: "Task", thToolsReq: "Tools Required", thTime: "Time",
-                p1_tk: "Layout chassis (220x70 mm)", p1_tl: "Ruler, square, marker",
-                p2_tk: "Cut chassis and deburr edges", p2_tl: "Saw, file, sandpaper",
-                p3_tk: "Mark and drill mounting holes", p3_tl: "Drill, 3 mm bit",
-                p4_tk: "Mount front axle brackets", p4_tl: "Screwdriver, spanner",
-                p5_tk: "Insert front axle and wheels", p5_tl: "Manual fitting",
-                p6_tk: "Secure DC gearmotor unit", p6_tl: "Screwdriver, spanner",
-                p7_tk: "Mount rear drive wheels", p7_tl: "Manual fitting",
-                p8_tk: "Mount switch and battery", p8_tl: "Tape / Cable ties",
-                p9_tk: "Wire circuit per schematic", p9_tl: "Soldering iron, solder, stripper",
-                p10_tk: "Test system operation", p10_tl: "Multimeter / Inspection",
-                f6Head: "PHASE 6: Construction",
-                f6Desc: "The practical execution phase in the workshop. Planned operations are carried out while adhering strictly to two fundamental guidelines:",
-                f6_s1_t: "1. Health & Safety", f6_s1_d: "Mandatory safety goggles when drilling, firm clamping in bench vices, and care with hot soldering irons.",
-                f6_s2_t: "2. Teamwork", f6_s2_d: "Equitable role distribution (coordinator, tools, safety, materials) with mutual respect and cooperation.",
-                f7Head: "PHASE 7: Evaluation & Quality Control",
-                f7Desc: "Once built, the object undergoes operational testing to verify compliance with Phase 1 initial requirements.",
-                f7ReportHead: "Electric Car Evaluation Report:",
-                f7TestLabel: "Performance test:", f7TestVal: "The vehicle traveled 12.5 meters in a straight line, exceeding the required 10 meters.",
-                f7FixHead: "Failure analysis & improvement proposals:",
-                f7_err1_t: "Deviation:", f7_err1_d: "Veers slightly to the left. Solution: Re-check front axle alignment.",
-                f7_err2_t: "Mechanical noise:", f7_err2_d: "Noisy transmission. Solution: Apply silicone grease or rubber belt drive.",
-                f7_err3_t: "Traction loss:", f7_err3_d: "Rear wheels slip on startup. Solution: Secure axle with set screws or cyanoacrylate.",
-                actTitle2: "Section 2 Activities",
-                act2_1_title: "Activity 2.1: SCAMPER Workshop",
-                act2_1_desc: "Apply the SCAMPER technique to a standard plastic water bottle to transform it into an innovative workshop object. Address at least 4 letters of the technique.",
-                act2_2_title: "Activity 2.2: Dimensioned Freehand Sketch",
-                act2_2_desc: "Draw a freehand croquis (Front, Top, Side views) of a matchbox or pencil sharpener in your notebook, including real dimensions in millimeters.",
-                act2_3_title: "Activity 2.3: Workshop Planning",
-                act2_3_desc: "Complete the Process Sheet for manufacturing a 20 cm wooden ruler, specifying tools, tasks, and times.",
-                act2_4_title: "Activity 2.4: Quality Control Troubleshooting",
-                act2_4_desc: "If the electric car fails to start due to a circuit fault, write down a 3-step troubleshooting procedure.",
-                deliv2: "Deliverable: Project Report",
+                t1_m1: "Plastic sheet (3 mm)", t1_f1: "Base chassis", t1_m2: "DC Gearmotor group", t1_f2: "Mechanical propulsion", t1_m3: "Metal shaft (Ø 3 mm)", t1_f3: "Front axle", t1_m4: "Plastic wheels (Ø 55 mm)", t1_f4: "Support and rolling", t1_m5: "4.5V Battery", t1_f5: "Power source", t1_m6: "Toggle/Slide switch", t1_f6: "Power control", t1_m7: "Flexible wire", t1_f7: "Electrical connection", t1_m8: "Axle supports", t1_f8: "Axle mounting", t1_m9: "Screws, nuts, washers (M3)", t1_f9: "Removable joints", t1_m10: "Adhesive tape / Cable ties", t1_f10: "Battery mounting", t1_m11: "Soldering tin wire", t1_f11: "Permanent joint",
+                tbl2Head: "Sheet 2: Tools and Equipment",
+                thTool: "Tool", thUse: "Workshop Use",
+                t2_t1: "Pencil & permanent marker", t2_u1: "Marking dimensions", t2_t2: "Steel rule & set square", t2_u2: "Measuring & layout", t2_t3: "Fret saw / Hacksaw", t2_u3: "Cutting panel", t2_t4: "Files & sandpaper", t2_u4: "Deburring & finishing", t2_t5: "Pillar / hand drill", t2_u5: "Drilling holes", t2_t6: "Screwdrivers", t2_u6: "Tightening fasteners", t2_t7: "Spanner / Socket wrench (M3)", t2_u7: "Holding nuts", t2_t8: "Wire strippers / Scissors", t2_u8: "Cutting wires", t2_t9: "Soldering iron", t2_u9: "Soft tin soldering",
+                tbl3Head: "Sheet 3: Process Sheet",
+                thTask: "Task", thToolsReq: "Tools", thTime: "Time",
+                p1_tk: "Mark chassis (220x70 mm)", p1_tl: "Ruler, set square, marker",
+                p2_tk: "Cut chassis & sand edges", p2_tl: "Saw, file, sandpaper",
+                p3_tk: "Mark & drill holes", p3_tl: "Drill, 3 mm bit",
+                p4_tk: "Mount front axle supports", p4_tl: "Screwdriver & spanner",
+                p5_tk: "Insert front axle & wheels", p5_tl: "Manual adjustment",
+                p6_tk: "Fix gearmotor assembly", p6_tl: "Screwdriver & spanner",
+                p7_tk: "Mount rear drive wheels", p7_tl: "Manual adjustment",
+                p8_tk: "Fix switch & battery on chassis", p8_tl: "Tape / Cable ties",
+                p9_tk: "Solder wiring as scheduled", p9_tl: "Soldering iron, wire stripper",
+                p10_tk: "Verify operation", p10_tl: "Multimeter / Inspection",
+                f6Head: "PHASE 5: Construction", f6Desc: "This is the practical execution phase in the workshop. Planned operations are carried out while always respecting two core rules:",
+                f6_s1_t: "1. Health & Safety", f6_s1_d: "Mandatory safety goggles at drill press, firm vice clamping, and care with soldering iron.",
+                f6_s2_t: "2. Teamwork", f6_s2_d: "Fair role distribution (coordinator, tools, safety, materials) with respect and cooperation.",
+                f7Head: "PHASE 6: Evaluation and Quality Control", f7Desc: "Once built, the object undergoes operational testing to check compliance with Phase 1 initial constraints.",
+                f7ReportHead: "Electric Car Evaluation Report:", f7TestLabel: "Performance test:", f7TestVal: "The vehicle traveled 12.5 meters in a straight line, exceeding the 10m required.",
+                f7FixHead: "Failure analysis & improvement proposals:", f7_err1_t: "Steering drift:", f7_err1_d: "Tends to veer left. Solution: Re-align front axle supports.", f7_err2_t: "Mechanical noise:", f7_err2_d: "Noisy drivetrain. Solution: Apply silicone grease or rubber belt.", f7_err3_t: "Loss of traction:", f7_err3_d: "Rear wheels slip on start. Solution: Lock axle with grub screws or glue.",
 
-                // Block 3
-                b3Title: "TECHNICAL ANALYSIS OF TECHNOLOGICAL OBJECTS",
-                b3Intro: "Object analysis is reverse engineering/design: conceptually dismantling an existing product to understand its design, operation, and impact.",
-                b3GridHead: "Object Analysis Framework",
-                g1_t: "1. Morphological", g1_d: "Anatomy & Geometry",
-                g2_t: "2. Functional", g2_d: "Operation & Science",
-                g3_t: "3. Technical", g3_d: "Materials & Manufacturing",
-                g4_t: "4. Socioeconomic", g4_d: "Impact & Cost",
-                b3Sub1: "3.1. Morphological Analysis (Anatomy & Geometry)",
-                b3Text1: "Examines external shape, structure, and graphic representation.",
-                af1_t: "Parts list:", af1_d: "Detailed breakdown of individual components.",
+                c4_t: "Origin of SCAMPER", c4_d: "Bob Eberle created SCAMPER in 1971 based on Alex Osborn's question list (creator of Brainstorming). It is one of the best innovation tools in the world!",
+                c5_t: "Edison and experiment failures", c5_d: "When evaluating lightbulb prototypes, Thomas Edison said: 'I have not failed. I've just found 10,000 ways that won't work.' Quality control and errors are key to engineering.",
+                c6_t: "First electric cars", c6_d: "In the late 19th century, electric cars outsold gasoline cars! They were quiet, clean, and didn't require a hand crank to start.",
+
+                // BLOQUE 3
+                b3Title: "TECHNICAL ANALYSIS OF OBJECTS",
+                b3Intro: "Object analysis is the reverse of design: conceptually taking apart an existing product to understand its design, working principles, and impact.",
+                b3GridHead: "Object Analysis Structure",
+                g1_t: "1. Formal", g1_d: "Anatomy & Geometry", g2_t: "2. Functional", g2_d: "Operation", g3_t: "3. Technical", g3_d: "Materials & Manufacturing", g4_t: "4. Socioeconomic", g4_d: "Impact & Price",
+                b3Sub1: "3.1. Formal Analysis (Anatomy & Geometry)", b3Text1: "Studies external shape, structure, and graphic representation.",
+                af1_t: "Parts:", af1_d: "Detailed list of individual components in the assembly.",
                 af2_t: "Shape:", af2_d: "Overall geometry (cylindrical, prismatic, spherical) and ergonomic study (adaptation to human body).",
-                af3_t: "Views:", af3_d: "Technical orthographic projection drawings:",
-                v1_t: "Front view (Alzado):", v1_d: "Primary front view.",
-                v2_t: "Top view (Planta):", v2_d: "Overhead view.",
-                v3_t: "Side view (Perfil):", v3_d: "Lateral view (left or right).",
-                af4_t: "Dimensions:", af4_d: "Primary measurements (length, width, height) in millimeters.",
-                b3Sub2: "3.2. Functional Analysis",
-                b3Text2: "Explains product utility and applied scientific principles.",
-                fn1_t: "Overall function:", fn1_d: "What is the primary purpose of the object?",
-                fn2_t: "Scientific principles:", fn2_d: "Physical phenomena involved (friction, leverage, electrical conduction, hydraulic pressure).",
-                fn3_t: "Component function:", fn3_d: "Specific role played by each part within the assembly.",
-                fn4_t: "Safety & Use:", fn4_d: "Evaluation of operational hazards (cuts, shocks, pinching) and integrated safety features.",
-                b3Sub3: "3.3. Technical Analysis",
-                b3Text3: "Focuses on industrial design and manufacturing methods.",
-                tc1_t: "Materials:", tc1_d: "Identification of materials used (plastics, metals, wood, ceramics) and rationale for their properties (stiffness, toughness, electrical insulation, density).",
+                af3_t: "Views:", af3_d: "Technical orthographic drawing:",
+                v1_t: "Front view:", v1_d: "Main front perspective.", v2_t: "Top view:", v2_d: "View from above.", v3_t: "Side view:", v3_d: "Profile view (left or right).",
+                af4_t: "Dimensions:", af4_d: "Key measurements (length, width, height) in millimeters.",
+                b3Sub2: "3.2. Functional Analysis", b3Text2: "Explains utility and applied physical laws.",
+                fn1_t: "Global function:", fn1_d: "What is the object for? Main utility?",
+                fn2_t: "Scientific principles:", fn2_d: "Physical phenomena involved (friction, leverage, electrical conduction, pressure).",
+                fn3_t: "Component function:", fn3_d: "Specific role played by each component in the system.",
+                fn4_t: "Safety & Use:", fn4_d: "Evaluation of operational risks (cuts, shocks, traps) and safety features.",
+                b3Sub3: "3.3. Technical Analysis", b3Text3: "Focused on industrial and manufacturing studies.",
+                tc1_t: "Materials:", tc1_d: "Material identification (plastics, metals, wood, ceramics) and property justification (rigidity, toughness, electrical insulation, density).",
                 tc2_t: "Shaping processes:", tc2_d: "Techniques used to form parts (injection molding, machining, stamping, extrusion).",
-                tc3_t: "Assembly joints:", tc3_d: "Types of joints utilized:",
-                u1_t: "Permanent joints:", u1_d: "Gluing, riveting, welding/soldering.",
-                u2_t: "Removable joints:", u2_d: "Screws, threads, pins, press-fits.",
-                tc4_t: "Surface finishes:", tc4_d: "Protective or decorative treatments (varnishing, polishing, painting, galvanizing).",
-                b3Sub4: "3.4. Socioeconomic Analysis",
-                b3Text4: "Studies the social, ecological, and commercial impact of the product.",
-                se1_t: "Need addressed:", se1_d: "Human problem solved (communication, transport, comfort, healthcare).",
-                se2_t: "Historical evolution:", se2_d: "Object origin, antecedents, and how technological innovations shaped its design over time.",
-                se3_t: "Environmental impact:", se3_d: "Life Cycle Assessment (raw material origin, operational energy use, recyclability, and waste management).",
-                se4_t: "Market economics:", se4_d: "Estimated retail price, price-to-quality ratio, and competitor comparison.",
-                actTitle3: "Section 3 Activities",
-                act3_1_title: "Activity 3.1: Pen Analysis",
-                act3_1_desc: "Dismantle a standard BIC ballpoint pen and complete an analysis form covering morphological (parts, dimensions, ergonomics) and functional aspects.",
-                act3_2_title: "Activity 3.2: Joint Study",
-                act3_2_desc: "Observe 5 objects in your classroom and identify whether their joints are permanent or removable, justifying the design choice.",
-                act3_3_title: "Activity 3.3: Life Cycle Assessment",
-                act3_3_desc: "Select an everyday object (e.g., smartphone or soda can) and write a report on its environmental impact from raw material extraction to recycling.",
-                deliv3: "Deliverable: Object Analysis Report",
-                footerText: "rhervel // 2026 // 2nd Grade Secondary School Technology"
+                tc3_t: "Assembly:", tc3_d: "Types of joints used:",
+                u1_t: "Permanent joints:", u1_d: "Gluing, riveting, welding/soldering.", u2_t: "Removable joints:", u2_d: "Screws, threads, pins, press-fits.",
+                tc4_t: "Surface finishes:", tc4_d: "Protective or decorative treatments (varnishing, polishing, painting, plating).",
+                b3Sub4: "3.4. Socioeconomic Analysis", b3Text4: "Studies social, ecological, and commercial impact.",
+                se1_t: "Need met:", se1_d: "Human problem solved (communication, transport, comfort, health).",
+                se2_t: "Historical evolution:", se2_d: "Background, origins, and how tech innovation changed its design over time.",
+                se3_t: "Environmental impact:", se3_d: "Life cycle analysis (raw material origin, operational energy, recyclability, waste).",
+                se4_t: "Market economics:", se4_d: "Estimated price, quality-price ratio, and competitor comparison.",
+
+                c7_t: "The BIC ballpoint sphere", c7_d: "László Bíró's 1938 revolutionary invention was placing a tiny, extremely hard tungsten carbide sphere that rotates freely to transfer ink.",
+                c8_t: "Reverse Engineering", c8_d: "Object analysis is the basis of reverse engineering. In WWII, military forces disassembled captured planes piece by piece to copy secrets.",
+                c9_t: "NASA Ergonomics Design", c9_d: "Modern ergonomics standards were largely developed thanks to NASA research to optimize controls and suits in zero gravity."
             }
         };
 
-        let currentLang = 'es';
+        // BANCO DE ACTIVIDADES NUEVAS ACTUALIZADAS SEGÚN IDIOMA
+        const actividadesData = {
+            es: {
+                1: {
+                    title: "Actividades del Punto 1: Ciencia y Tecnología",
+                    html: `
+                        <ul class="space-y-4 text-xs text-slate-800 font-medium">
+                            <li class="bg-amber-50/50 p-4 rounded-2xl border border-amber-200 shadow-xs">
+                                <span class="font-black block text-amber-900 mb-1 uppercase tracking-wider text-[10px]">Actividad 1.1: Clasificación Saber vs Hacer</span>
+                                <span>Clasifica en dos columnas los siguientes términos: Telescopio, Ley de la Gravedad, Microchip, Teorema de Pitágoras, Vacuna, Teoría de la Relatividad.</span>
+                            </li>
+                            <li class="bg-amber-50/50 p-4 rounded-2xl border border-amber-200 shadow-xs space-y-3">
+                                <span class="font-black block text-amber-900 uppercase tracking-wider text-[10px]">Actividad 1.2: El Método Científico</span>
+                                <span>Vamos a diseñar un experimento sencillo para comprobar qué material aísla mejor el calor (madera, plástico o aluminio) siguiendo las 5 fases del método científico.</span>
+                                
+                                <div class="space-y-1 text-slate-700 text-xs">
+                                    <p class="font-bold text-amber-950">1. Ordena los pasos del 1 al 5:</p>
+                                    <ul class="space-y-1 pl-1">
+                                        <li class="flex items-center gap-1.5"><span class="border border-amber-300 rounded-md px-1.5 py-0.5 font-mono text-[10px] bg-white">( &nbsp; )</span> <span>Probamos los materiales con agua caliente.</span></li>
+                                        <li class="flex items-center gap-1.5"><span class="border border-amber-300 rounded-md px-1.5 py-0.5 font-mono text-[10px] bg-white">( &nbsp; )</span> <span>¿Qué material aísla mejor el calor?</span></li>
+                                        <li class="flex items-center gap-1.5"><span class="border border-amber-300 rounded-md px-1.5 py-0.5 font-mono text-[10px] bg-white">( &nbsp; )</span> <span>Descubrimos el mejor aislante.</span></li>
+                                        <li class="flex items-center gap-1.5"><span class="border border-amber-300 rounded-md px-1.5 py-0.5 font-mono text-[10px] bg-white">( &nbsp; )</span> <span>Pensamos cuál funcionará mejor.</span></li>
+                                        <li class="flex items-center gap-1.5"><span class="border border-amber-300 rounded-md px-1.5 py-0.5 font-mono text-[10px] bg-white">( &nbsp; )</span> <span>Notamos diferencias de temperatura.</span></li>
+                                    </ul>
+                                </div>
 
+                                <div class="space-y-1 text-slate-700 text-xs pt-1 border-t border-amber-200/50">
+                                    <p class="font-bold text-amber-950">2. Une con flechas cada material:</p>
+                                    <div class="grid grid-cols-2 gap-2 text-[11px] bg-white p-2 rounded-xl border border-amber-200">
+                                        <div class="space-y-1 font-semibold">
+                                            <p>• Cuchara de aluminio</p>
+                                            <p>• Cuchara de madera</p>
+                                            <p>• Cuchara de plástico</p>
+                                        </div>
+                                        <div class="space-y-1 text-slate-600">
+                                            <p>• Peor aislante (se calienta rápido)</p>
+                                            <p>• Mejor aislante (no quema)</p>
+                                            <p>• Aislante intermedio</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-1 text-slate-700 text-xs pt-1 border-t border-amber-200/50">
+                                    <p class="font-bold text-amber-950">3. Rodea la opción correcta:</p>
+                                    <p class="font-semibold text-[11px]">A. ¿Cómo comprobamos el calor?</p>
+                                    <p class="pl-2">a) Tocando con cuidado el extremo superior tras unos minutos.</p>
+                                    <p class="pl-2">b) Rompiendo los tres materiales.</p>
+                                </div>
+                            </li>
+                            <li class="bg-amber-50/50 p-4 rounded-2xl border border-amber-200 shadow-xs">
+                                <span class="font-black block text-amber-900 mb-1 uppercase tracking-wider text-[10px]">Actividad 1.3: Debate Tecnociencia</span>
+                                <span>Investiga y redacta un ejemplo real donde un avance tecnológico haya permitido descubrir algo nuevo para la ciencia (ej. Telescopio James Webb).</span>
+                            </li>
+                        </ul>
+                    `
+                },
+                2: {
+                    title: "Actividades del Punto 2: Proceso Tecnológico",
+                    html: `
+                        <ul class="space-y-4 text-xs text-slate-800 font-medium">
+                            <li class="bg-amber-50/50 p-4 rounded-2xl border border-amber-200 shadow-xs space-y-2">
+                                <span class="font-black block text-amber-900 uppercase tracking-wider text-[10px]">Actividad 2.1: Las Fases del Proceso</span>
+                                <p>Escribe el número del 1 al 6 según el orden de cada fase:</p>
+                                <ul class="space-y-1 text-[11px] text-slate-700">
+                                    <li class="flex items-center gap-1.5"><span class="border border-amber-300 rounded px-1.5 py-0.5 font-mono text-[10px] bg-white">( &nbsp; )</span> <span>Dibujar el croquis y acotar medidas.</span></li>
+                                    <li class="flex items-center gap-1.5"><span class="border border-amber-300 rounded px-1.5 py-0.5 font-mono text-[10px] bg-white">( &nbsp; )</span> <span>Construir el coche en el taller.</span></li>
+                                    <li class="flex items-center gap-1.5"><span class="border border-amber-300 rounded px-1.5 py-0.5 font-mono text-[10px] bg-white">( &nbsp; )</span> <span>Leer las condiciones del problema.</span></li>
+                                    <li class="flex items-center gap-1.5"><span class="border border-amber-300 rounded px-1.5 py-0.5 font-mono text-[10px] bg-white">( &nbsp; )</span> <span>Probar el vehículo y evaluar fallos.</span></li>
+                                    <li class="flex items-center gap-1.5"><span class="border border-amber-300 rounded px-1.5 py-0.5 font-mono text-[10px] bg-white">( &nbsp; )</span> <span>Planificar herramientas y materiales.</span></li>
+                                    <li class="flex items-center gap-1.5"><span class="border border-amber-300 rounded px-1.5 py-0.5 font-mono text-[10px] bg-white">( &nbsp; )</span> <span>Buscar información e ideas.</span></li>
+                                </ul>
+                            </li>
+
+                            <li class="bg-amber-50/50 p-4 rounded-2xl border border-amber-200 shadow-xs space-y-2">
+                                <span class="font-black block text-amber-900 uppercase tracking-wider text-[10px]">Actividad 2.2: Condicionantes</span>
+                                <p>Marca con una <strong>X</strong> los condicionantes (límites u obligaciones) reales del proyecto:</p>
+                                <div class="space-y-1 text-[11px] text-slate-700">
+                                    <p class="flex items-center gap-1.5"><span class="border border-amber-300 rounded px-1.5 py-0.5 font-mono text-[10px] bg-white">[ &nbsp; ]</span> <span>Debe recorrer 10 metros en línea recta.</span></p>
+                                    <p class="flex items-center gap-1.5"><span class="border border-amber-300 rounded px-1.5 py-0.5 font-mono text-[10px] bg-white">[ &nbsp; ]</span> <span>Tiene que estar pintado de azul brillante.</span></p>
+                                    <p class="flex items-center gap-1.5"><span class="border border-amber-300 rounded px-1.5 py-0.5 font-mono text-[10px] bg-white">[ &nbsp; ]</span> <span>Usar solo materiales del taller.</span></p>
+                                    <p class="flex items-center gap-1.5"><span class="border border-amber-300 rounded px-1.5 py-0.5 font-mono text-[10px] bg-white">[ &nbsp; ]</span> <span>Funcionar con una pila de 4.5V.</span></p>
+                                </div>
+                            </li>
+
+                            <li class="bg-amber-50/50 p-4 rounded-2xl border border-amber-200 shadow-xs space-y-2">
+                                <span class="font-black block text-amber-900 uppercase tracking-wider text-[10px]">Actividad 2.3: Ficha SCAMPER Botella</span>
+                                <p>Completa los huecos para transformar una botella de plástico:</p>
+                                <div class="space-y-1.5 text-[11px] text-slate-700 bg-white p-2.5 rounded-xl border border-amber-200">
+                                    <p><strong>S (Sustituir):</strong> Llenaré la botella de <span class="border-b border-amber-900 px-3 inline-block"></span> para usarla como peso.</p>
+                                    <p><strong>A (Adaptar):</strong> Cortaré la base para usarla como <span class="border-b border-amber-900 px-3 inline-block"></span>.</p>
+                                    <p><strong>E (Eliminar):</strong> Si le quito el tapón puedo usarla de <span class="border-b border-amber-900 px-3 inline-block"></span>.</p>
+                                </div>
+                            </li>
+
+                            <li class="bg-amber-50/50 p-4 rounded-2xl border border-amber-200 shadow-xs">
+                                <span class="font-black block text-amber-900 mb-1 uppercase tracking-wider text-[10px]">Actividad 2.4: Dibujo y Acotación</span>
+                                <span>Mide con tu regla en milímetros el chasis de tu cuaderno y añade las cotas principales (Largo y Ancho) en las flechas correspondientes.</span>
+                            </li>
+
+                            <li class="bg-amber-50/50 p-4 rounded-2xl border border-amber-200 shadow-xs space-y-2">
+                                <span class="font-black block text-amber-900 uppercase tracking-wider text-[10px]">Actividad 2.5: Planificación de Herramientas</span>
+                                <p>Relaciona con flechas cada herramienta con su uso:</p>
+                                <div class="grid grid-cols-2 gap-2 text-[11px] bg-white p-2 rounded-xl border border-amber-200 font-semibold">
+                                    <div class="space-y-1">
+                                        <p>• Sierra marquetería</p>
+                                        <p>• Lija / Lima</p>
+                                        <p>• Soldador eléctrico</p>
+                                    </div>
+                                    <div class="space-y-1 text-slate-600">
+                                        <p>• Quitar rebabas</p>
+                                        <p>• Unir cables con estaño</p>
+                                        <p>• Cortar el chasis</p>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="bg-amber-50/50 p-4 rounded-2xl border border-amber-200 shadow-xs space-y-1">
+                                <span class="font-black block text-amber-900 uppercase tracking-wider text-[10px]">Actividad 2.6: Seguridad y Normas</span>
+                                <p class="text-[11px]">Rodea V (Verdadero) o F (Falso):</p>
+                                <p class="text-[11px]"><strong>V / F</strong> — Es obligatorio usar gafas en el taladro.</p>
+                                <p class="text-[11px]"><strong>V / F</strong> — Se puede dejar el soldador caliente en cualquier sitio.</p>
+                                <p class="text-[11px]"><strong>V / F</strong> — Cada miembro del equipo tiene una tarea asignada.</p>
+                            </li>
+
+                            <li class="bg-amber-50/50 p-4 rounded-2xl border border-amber-200 shadow-xs space-y-1">
+                                <span class="font-black block text-amber-900 uppercase tracking-wider text-[10px]">Actividad 2.7: Control de Calidad</span>
+                                <p class="text-[11px]">Si el coche no funciona, completa los 3 pasos de revisión:</p>
+                                <ol class="list-decimal pl-5 text-[11px] text-slate-700 space-y-0.5">
+                                    <li>Revisar si la pila está conectada.</li>
+                                    <li>Revisar que no haya ningún cable suelto.</li>
+                                    <li>Comprobar si las ruedas giran libremente.</li>
+                                </ol>
+                            </li>
+                        </ul>
+                    `
+                },
+                3: {
+                    title: "Actividades del Punto 3: Análisis de Objetos",
+                    html: `
+                        <ul class="space-y-4 text-xs text-slate-800 font-medium">
+                            <li class="bg-amber-50/50 p-4 rounded-2xl border border-amber-200 shadow-xs">
+                                <span class="font-black block text-amber-900 mb-1 uppercase tracking-wider text-[10px]">Actividad 3.1: Análisis de un Bolígrafo</span>
+                                <span>Desmonta un bolígrafo convencional tipo BIC y completa una ficha con su análisis formal (nº piezas, dimensiones, ergonomía) y funcional (utilidad, principio físico del rodamiento).</span>
+                            </li>
+                            <li class="bg-amber-50/50 p-4 rounded-2xl border border-amber-200 shadow-xs">
+                                <span class="font-black block text-amber-900 mb-1 uppercase tracking-wider text-[10px]">Actividad 3.2: Estudio de Uniones</span>
+                                <span>Observa 5 objetos de tu aula e identifica si sus uniones son fijas o desmontables, justificando el porqué de esa elección de diseño.</span>
+                            </li>
+                            <li class="bg-amber-50/50 p-4 rounded-2xl border border-amber-200 shadow-xs">
+                                <span class="font-black block text-amber-900 mb-1 uppercase tracking-wider text-[10px]">Actividad 3.3: Análisis de Ciclo de Vida</span>
+                                <span>Elige un objeto cotidiano (ej. un teléfono móvil o una lata de refresco) y redacta un informe sobre su impacto ambiental desde la extracción de materia prima hasta su reciclaje.</span>
+                            </li>
+                        </ul>
+                    `
+                }
+            },
+            en: {
+                1: {
+                    title: "Section 1 Activities: Science and Technology",
+                    html: `
+                        <ul class="space-y-4 text-xs text-slate-800 font-medium">
+                            <li class="bg-amber-50/50 p-4 rounded-2xl border border-amber-200 shadow-xs">
+                                <span class="font-black block text-amber-900 mb-1 uppercase tracking-wider text-[10px]">Activity 1.1: Knowing vs Doing Classification</span>
+                                <span>Classify the following terms into two columns: Telescope, Law of Gravity, Microchip, Pythagorean Theorem, Vaccine, Theory of Relativity.</span>
+                            </li>
+                            <li class="bg-amber-50/50 p-4 rounded-2xl border border-amber-200 shadow-xs space-y-3">
+                                <span class="font-black block text-amber-900 uppercase tracking-wider text-[10px]">Activity 1.2: The Scientific Method</span>
+                                <span>Let's design a simple experiment to test which material insulates heat best (wood, plastic, or aluminum) following the 5 phases of the scientific method.</span>
+                                
+                                <div class="space-y-1 text-slate-700 text-xs">
+                                    <p class="font-bold text-amber-950">1. Order the steps from 1 to 5:</p>
+                                    <ul class="space-y-1 pl-1">
+                                        <li class="flex items-center gap-1.5"><span class="border border-amber-300 rounded-md px-1.5 py-0.5 font-mono text-[10px] bg-white">( &nbsp; )</span> <span>We test the materials with hot water.</span></li>
+                                        <li class="flex items-center gap-1.5"><span class="border border-amber-300 rounded-md px-1.5 py-0.5 font-mono text-[10px] bg-white">( &nbsp; )</span> <span>Which material insulates heat best?</span></li>
+                                        <li class="flex items-center gap-1.5"><span class="border border-amber-300 rounded-md px-1.5 py-0.5 font-mono text-[10px] bg-white">( &nbsp; )</span> <span>We discover the best insulator.</span></li>
+                                        <li class="flex items-center gap-1.5"><span class="border border-amber-300 rounded-md px-1.5 py-0.5 font-mono text-[10px] bg-white">( &nbsp; )</span> <span>We think about which one will work best.</span></li>
+                                        <li class="flex items-center gap-1.5"><span class="border border-amber-300 rounded-md px-1.5 py-0.5 font-mono text-[10px] bg-white">( &nbsp; )</span> <span>We notice temperature differences.</span></li>
+                                    </ul>
+                                </div>
+
+                                <div class="space-y-1 text-slate-700 text-xs pt-1 border-t border-amber-200/50">
+                                    <p class="font-bold text-amber-950">2. Match each material with arrows:</p>
+                                    <div class="grid grid-cols-2 gap-2 text-[11px] bg-white p-2 rounded-xl border border-amber-200">
+                                        <div class="space-y-1 font-semibold">
+                                            <p>• Aluminum spoon</p>
+                                            <p>• Wooden spoon</p>
+                                            <p>• Plastic spoon</p>
+                                        </div>
+                                        <div class="space-y-1 text-slate-600">
+                                            <p>• Worst insulator (heats up fast)</p>
+                                            <p>• Best insulator (doesn't burn)</p>
+                                            <p>• Intermediate insulator</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-1 text-slate-700 text-xs pt-1 border-t border-amber-200/50">
+                                    <p class="font-bold text-amber-950">3. Circle the correct option:</p>
+                                    <p class="font-semibold text-[11px]">A. How do we test the heat?</p>
+                                    <p class="pl-2">a) Carefully touching the top end after a few minutes.</p>
+                                    <p class="pl-2">b) Breaking all three materials.</p>
+                                </div>
+                            </li>
+                            <li class="bg-amber-50/50 p-4 rounded-2xl border border-amber-200 shadow-xs">
+                                <span class="font-black block text-amber-900 mb-1 uppercase tracking-wider text-[10px]">Activity 1.3: Technoscience Debate</span>
+                                <span>Research and write a real example where a technological advancement allowed discovering something new for science (e.g. James Webb Space Telescope).</span>
+                            </li>
+                        </ul>
+                    `
+                },
+                2: {
+                    title: "Section 2 Activities: Technological Process",
+                    html: `
+                        <ul class="space-y-4 text-xs text-slate-800 font-medium">
+                            <li class="bg-amber-50/50 p-4 rounded-2xl border border-amber-200 shadow-xs space-y-2">
+                                <span class="font-black block text-amber-900 uppercase tracking-wider text-[10px]">Activity 2.1: Process Phases</span>
+                                <p>Write the number from 1 to 6 according to the order of each phase:</p>
+                                <ul class="space-y-1 text-[11px] text-slate-700">
+                                    <li class="flex items-center gap-1.5"><span class="border border-amber-300 rounded px-1.5 py-0.5 font-mono text-[10px] bg-white">( &nbsp; )</span> <span>Draw the sketch and add measurements.</span></li>
+                                    <li class="flex items-center gap-1.5"><span class="border border-amber-300 rounded px-1.5 py-0.5 font-mono text-[10px] bg-white">( &nbsp; )</span> <span>Build the car in the workshop.</span></li>
+                                    <li class="flex items-center gap-1.5"><span class="border border-amber-300 rounded px-1.5 py-0.5 font-mono text-[10px] bg-white">( &nbsp; )</span> <span>Read problem conditions.</span></li>
+                                    <li class="flex items-center gap-1.5"><span class="border border-amber-300 rounded px-1.5 py-0.5 font-mono text-[10px] bg-white">( &nbsp; )</span> <span>Test vehicle and evaluate flaws.</span></li>
+                                    <li class="flex items-center gap-1.5"><span class="border border-amber-300 rounded px-1.5 py-0.5 font-mono text-[10px] bg-white">( &nbsp; )</span> <span>Plan tools and materials.</span></li>
+                                    <li class="flex items-center gap-1.5"><span class="border border-amber-300 rounded px-1.5 py-0.5 font-mono text-[10px] bg-white">( &nbsp; )</span> <span>Search information and ideas.</span></li>
+                                </ul>
+                            </li>
+
+                            <li class="bg-amber-50/50 p-4 rounded-2xl border border-amber-200 shadow-xs space-y-2">
+                                <span class="font-black block text-amber-900 uppercase tracking-wider text-[10px]">Activity 2.2: Constraints</span>
+                                <p>Mark with an <strong>X</strong> the real project constraints (limits or obligations):</p>
+                                <div class="space-y-1 text-[11px] text-slate-700">
+                                    <p class="flex items-center gap-1.5"><span class="border border-amber-300 rounded px-1.5 py-0.5 font-mono text-[10px] bg-white">[ &nbsp; ]</span> <span>Must travel 10 meters in a straight line.</span></p>
+                                    <p class="flex items-center gap-1.5"><span class="border border-amber-300 rounded px-1.5 py-0.5 font-mono text-[10px] bg-white">[ &nbsp; ]</span> <span>Must be painted bright blue.</span></p>
+                                    <p class="flex items-center gap-1.5"><span class="border border-amber-300 rounded px-1.5 py-0.5 font-mono text-[10px] bg-white">[ &nbsp; ]</span> <span>Use workshop materials only.</span></p>
+                                    <p class="flex items-center gap-1.5"><span class="border border-amber-300 rounded px-1.5 py-0.5 font-mono text-[10px] bg-white">[ &nbsp; ]</span> <span>Work with a 4.5V battery.</span></p>
+                                </div>
+                            </li>
+
+                            <li class="bg-amber-50/50 p-4 rounded-2xl border border-amber-200 shadow-xs space-y-2">
+                                <span class="font-black block text-amber-900 uppercase tracking-wider text-[10px]">Activity 2.3: Bottle SCAMPER Sheet</span>
+                                <p>Fill in the blanks to transform a plastic bottle:</p>
+                                <div class="space-y-1.5 text-[11px] text-slate-700 bg-white p-2.5 rounded-xl border border-amber-200">
+                                    <p><strong>S (Substitute):</strong> I will fill the bottle with <span class="border-b border-amber-900 px-3 inline-block"></span> to use it as a weight.</p>
+                                    <p><strong>A (Adapt):</strong> I will cut the base to use it as a <span class="border-b border-amber-900 px-3 inline-block"></span>.</p>
+                                    <p><strong>E (Eliminate):</strong> If I remove the cap I can use it as a <span class="border-b border-amber-900 px-3 inline-block"></span>.</p>
+                                </div>
+                            </li>
+
+                            <li class="bg-amber-50/50 p-4 rounded-2xl border border-amber-200 shadow-xs">
+                                <span class="font-black block text-amber-900 mb-1 uppercase tracking-wider text-[10px]">Activity 2.4: Drawing and Dimensioning</span>
+                                <span>Measure your notebook's chassis in millimeters with your ruler and add the main dimensions (Length and Width) on the corresponding arrows.</span>
+                            </li>
+
+                            <li class="bg-amber-50/50 p-4 rounded-2xl border border-amber-200 shadow-xs space-y-2">
+                                <span class="font-black block text-amber-900 uppercase tracking-wider text-[10px]">Activity 2.5: Tool Planning</span>
+                                <p>Match each tool with its use with arrows:</p>
+                                <div class="grid grid-cols-2 gap-2 text-[11px] bg-white p-2 rounded-xl border border-amber-200 font-semibold">
+                                    <div class="space-y-1">
+                                        <p>• Fret saw</p>
+                                        <p>• Sandpaper / File</p>
+                                        <p>• Electric soldering iron</p>
+                                    </div>
+                                    <div class="space-y-1 text-slate-600">
+                                        <p>• Remove burrs</p>
+                                        <p>• Join wires with tin</p>
+                                        <p>• Cut the chassis</p>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="bg-amber-50/50 p-4 rounded-2xl border border-amber-200 shadow-xs space-y-1">
+                                <span class="font-black block text-amber-900 uppercase tracking-wider text-[10px]">Activity 2.6: Safety and Rules</span>
+                                <p class="text-[11px]">Circle T (True) or F (False):</p>
+                                <p class="text-[11px]"><strong>T / F</strong> — Goggles are mandatory at the drill press.</p>
+                                <p class="text-[11px]"><strong>T / F</strong> — You can leave the hot soldering iron anywhere.</p>
+                                <p class="text-[11px]"><strong>T / F</strong> — Each team member has an assigned task.</p>
+                            </li>
+
+                            <li class="bg-amber-50/50 p-4 rounded-2xl border border-amber-200 shadow-xs space-y-1">
+                                <span class="font-black block text-amber-900 uppercase tracking-wider text-[10px]">Activity 2.7: Quality Control</span>
+                                <p class="text-[11px]">If the car doesn't work, complete the 3 check steps:</p>
+                                <ol class="list-decimal pl-5 text-[11px] text-slate-700 space-y-0.5">
+                                    <li>Check if the battery is connected.</li>
+                                    <li>Check that there are no loose wires.</li>
+                                    <li>Check if the wheels rotate freely.</li>
+                                </ol>
+                            </li>
+                        </ul>
+                    `
+                },
+                3: {
+                    title: "Section 3 Activities: Technical Analysis of Objects",
+                    html: `
+                        <ul class="space-y-4 text-xs text-slate-800 font-medium">
+                            <li class="bg-amber-50/50 p-4 rounded-2xl border border-amber-200 shadow-xs">
+                                <span class="font-black block text-amber-900 mb-1 uppercase tracking-wider text-[10px]">Activity 3.1: Analysis of a Pen</span>
+                                <span>Disassemble a conventional BIC pen and complete a report with its formal analysis (number of parts, dimensions, ergonomics) and functional analysis (utility, physical principle of the rolling ball).</span>
+                            </li>
+                            <li class="bg-amber-50/50 p-4 rounded-2xl border border-amber-200 shadow-xs">
+                                <span class="font-black block text-amber-900 mb-1 uppercase tracking-wider text-[10px]">Activity 3.2: Study of Joints</span>
+                                <span>Observe 5 objects in your classroom and identify whether their joints are fixed or detachable, justifying the reason behind that design choice.</span>
+                            </li>
+                            <li class="bg-amber-50/50 p-4 rounded-2xl border border-amber-200 shadow-xs">
+                                <span class="font-black block text-amber-900 mb-1 uppercase tracking-wider text-[10px]">Activity 3.3: Life Cycle Analysis</span>
+                                <span>Choose an everyday object (e.g. a mobile phone or a soda can) and write a report on its environmental impact from raw material extraction to recycling.</span>
+                            </li>
+                        </ul>
+                    `
+                }
+            }
+        };
+
+        // ALTERNAR IDIOMA
         function toggleLanguage() {
             currentLang = currentLang === 'es' ? 'en' : 'es';
             
-            // Actualizar html lang attribute
-            document.documentElement.lang = currentLang;
-
             // Actualizar etiqueta del botón
-            document.getElementById('currentLangLabel').innerHTML = currentLang === 'es' 
-                ? 'ES / <strong>EN</strong>' 
-                : '<strong>ES</strong> / EN';
-
-            // Traducir todos los elementos marcados con data-i18n
-            document.querySelectorAll('[data-i18n]').forEach(element => {
-                const key = element.getAttribute('data-i18n');
+            document.getElementById('currentLangLabel').innerHTML = currentLang === 'es' ? 'ES / <strong>EN</strong>' : '<strong>ES</strong> / EN';
+            
+            // Actualizar textos HTML que tengan data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(elem => {
+                const key = elem.getAttribute('data-i18n');
                 if (translations[currentLang][key]) {
-                    element.textContent = translations[currentLang][key];
+                    elem.innerHTML = translations[currentLang][key];
                 }
             });
+
+            // Si el modal de actividades está abierto, refrescarlo en el nuevo idioma
+            if (currentActiveBlock) {
+                abrirModalActividades(currentActiveBlock);
+            }
         }
 
-        lucide.createIcons();
-    </script>
-    <script>
+        // CONTROL DE MODAL DE ACTIVIDADES
+        function abrirModalActividades(blockNum) {
+            currentActiveBlock = blockNum;
+            const data = actividadesData[currentLang][blockNum];
+            if (data) {
+                document.getElementById('modalTitle').innerText = data.title;
+                document.getElementById('modalContent').innerHTML = data.html;
+                document.getElementById('modalActividades').classList.remove('hidden');
+                document.getElementById('modalActividades').classList.add('flex');
+            }
+        }
+
+        function cerrarModalActividades(event) {
+            if (event.target.id === 'modalActividades') {
+                cerrarModalActividadesDirecto();
+            }
+        }
+
+        function cerrarModalActividadesDirecto() {
+            document.getElementById('modalActividades').classList.add('hidden');
+            document.getElementById('modalActividades').classList.remove('flex');
+            currentActiveBlock = null;
+        }
+
+        // CONTROL DE AMPLIACIÓN DE IMÁGENES
         function abrirImagen(src) {
-            const modal = document.getElementById('modalImagen');
             document.getElementById('imagenAmpliada').src = src;
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
+            document.getElementById('modalImagen').classList.remove('hidden');
+            document.getElementById('modalImagen').classList.add('flex');
         }
 
         function cerrarImagen() {
-            const modal = document.getElementById('modalImagen');
-            modal.classList.remove('flex');
-            modal.classList.add('hidden');
+            document.getElementById('modalImagen').classList.add('hidden');
+            document.getElementById('modalImagen').classList.remove('flex');
         }
-        </script>
+    </script>
 </body>
 </html>
