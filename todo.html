@@ -3,84 +3,156 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gestor de Tareas Sincronizado</title>
+  <title>TaskMaster - Gestor de Tareas Sincronizado</title>
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="bg-gray-100 min-h-screen p-4 md:p-8">
-  <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-md p-6">
-    <div class="flex justify-between items-center mb-6">
-      <h1 class="text-2xl font-bold text-gray-800">Lista de Tareas</h1>
-      <button onclick="fetchTasks()" class="text-sm bg-gray-200 text-gray-700 px-3 py-1 rounded hover:bg-gray-300">
-        🔄 Sincronizar
+<body class="bg-slate-900 text-slate-100 min-h-screen antialiased">
+
+  <!-- Header / Navbar -->
+  <header class="border-b border-slate-800 bg-slate-950/50 backdrop-blur sticky top-0 z-10">
+    <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <div class="bg-indigo-600 p-2 rounded-xl text-white shadow-lg shadow-indigo-500/20">
+          <i data-lucide="check-square" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <h1 class="font-bold text-lg text-white leading-tight">TaskMaster</h1>
+          <p class="text-xs text-slate-400">Google Sheets Sync</p>
+        </div>
+      </div>
+      <button onclick="fetchTasks()" class="flex items-center space-x-2 text-xs bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-2 rounded-lg border border-slate-700 transition">
+        <i data-lucide="refresh-cw" id="syncIcon" class="w-4 h-4"></i>
+        <span class="hidden sm:inline">Sincronizar</span>
       </button>
     </div>
+  </header>
 
-    <!-- Formulario -->
-    <form id="taskForm" class="space-y-4 mb-8">
-      <div>
-        <label class="block text-sm font-medium text-gray-700">Tarea</label>
-        <input type="text" id="descripcion" required class="w-full border rounded-lg p-2 mt-1 focus:ring-2 focus:ring-blue-500">
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div>
-          <label class="block text-sm font-medium text-gray-700">Categoría</label>
-          <select id="categoria" class="w-full border rounded-lg p-2 mt-1">
-            <option value="Tutoría">Tutoría</option>
-            <option value="Gestión">Gestión</option>
-            <option value="Clases">Clases</option>
-            <option value="Otros">Otros</option>
-          </select>
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-700">Prioridad</label>
-          <select id="prioridad" class="w-full border rounded-lg p-2 mt-1">
-            <option value="Alta">Alta</option>
-            <option value="Media" selected>Media</option>
-            <option value="Baja">Baja</option>
-          </select>
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-700">Fecha Límite</label>
-          <input type="date" id="fechaLimite" required class="w-full border rounded-lg p-2 mt-1">
-        </div>
-      </div>
-      <button type="submit" id="submitBtn" class="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700">
-        Añadir Tarea
-      </button>
-    </form>
+  <main class="max-w-4xl mx-auto px-4 py-6 space-y-6">
 
-    <!-- Lista de tareas -->
-    <div id="loading" class="text-center py-4 text-gray-500">Cargando tareas de Google Sheets...</div>
+    <!-- Tarjetas de Métricas -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="bg-slate-800/60 border border-slate-700/50 rounded-xl p-4 flex items-center justify-between">
+        <div>
+          <p class="text-xs text-slate-400">Pendientes</p>
+          <p id="statTotal" class="text-2xl font-bold text-white mt-1">0</p>
+        </div>
+        <div class="bg-blue-500/10 text-blue-400 p-3 rounded-lg"><i data-lucide="list-todo" class="w-5 h-5"></i></div>
+      </div>
+      <div class="bg-slate-800/60 border border-slate-700/50 rounded-xl p-4 flex items-center justify-between">
+        <div>
+          <p class="text-xs text-slate-400">Alta Prioridad</p>
+          <p id="statHigh" class="text-2xl font-bold text-red-400 mt-1">0</p>
+        </div>
+        <div class="bg-red-500/10 text-red-400 p-3 rounded-lg"><i data-lucide="alert-circle" class="w-5 h-5"></i></div>
+      </div>
+      <div class="bg-slate-800/60 border border-slate-700/50 rounded-xl p-4 flex items-center justify-between">
+        <div>
+          <p class="text-xs text-slate-400">Por Vencer</p>
+          <p id="statDue" class="text-2xl font-bold text-amber-400 mt-1">0</p>
+        </div>
+        <div class="bg-amber-500/10 text-amber-400 p-3 rounded-lg"><i data-lucide="clock" class="w-5 h-5"></i></div>
+      </div>
+      <div class="bg-slate-800/60 border border-slate-700/50 rounded-xl p-4 flex items-center justify-between">
+        <div>
+          <p class="text-xs text-slate-400">Categorías</p>
+          <p id="statCat" class="text-2xl font-bold text-emerald-400 mt-1">0</p>
+        </div>
+        <div class="bg-emerald-500/10 text-emerald-400 p-3 rounded-lg"><i data-lucide="folder" class="w-5 h-5"></i></div>
+      </div>
+    </div>
+
+    <!-- Formulario para Nueva Tarea -->
+    <div class="bg-slate-800/80 border border-slate-700 rounded-2xl p-5 shadow-xl">
+      <h2 class="text-sm font-semibold text-slate-300 mb-4 flex items-center gap-2">
+        <i data-lucide="plus-circle" class="w-4 h-4 text-indigo-400"></i> Nueva Tarea
+      </h2>
+      <form id="taskForm" class="space-y-4">
+        <div>
+          <input type="text" id="descripcion" placeholder="¿Qué hay que hacer?" required 
+                 class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 text-sm">
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div>
+            <label class="block text-xs text-slate-400 mb-1">Categoría</label>
+            <select id="categoria" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-slate-200 text-sm focus:outline-none focus:border-indigo-500">
+              <option value="Clases">📚 Clases</option>
+              <option value="Tutoría">👤 Tutoría</option>
+              <option value="Gestión">💼 Gestión</option>
+              <option value="Otros">📌 Otros</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs text-slate-400 mb-1">Prioridad</label>
+            <select id="prioridad" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-slate-200 text-sm focus:outline-none focus:border-indigo-500">
+              <option value="Alta">🔴 Alta</option>
+              <option value="Media" selected>🟡 Media</option>
+              <option value="Baja">🟢 Baja</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs text-slate-400 mb-1">Fecha Límite</label>
+            <input type="date" id="fechaLimite" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-slate-200 text-sm focus:outline-none focus:border-indigo-500">
+          </div>
+        </div>
+        <button type="submit" id="submitBtn" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium py-2.5 rounded-xl transition shadow-lg shadow-indigo-600/30 flex items-center justify-center space-x-2 text-sm">
+          <i data-lucide="plus" class="w-4 h-4"></i>
+          <span>Agregar Tarea</span>
+        </button>
+      </form>
+    </div>
+
+    <!-- Filtros Rápidos -->
+    <div class="flex items-center justify-between overflow-x-auto pb-2 gap-2 text-xs">
+      <div class="flex items-center gap-1 bg-slate-800 p-1 rounded-xl border border-slate-700/60">
+        <button onclick="setFilter('all')" id="btnFilterAll" class="px-3 py-1.5 rounded-lg font-medium transition bg-indigo-600 text-white">Todas</button>
+        <button onclick="setFilter('Alta')" id="btnFilterHigh" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-slate-200 transition">Alta Prioridad</button>
+        <button onclick="setFilter('Urgent')" id="btnFilterUrgent" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-slate-200 transition">Por Vencer</button>
+      </div>
+    </div>
+
+    <!-- Lista de Tareas -->
+    <div id="loading" class="text-center py-10 text-slate-400 space-y-2">
+      <i data-lucide="loader-2" class="w-8 h-8 animate-spin mx-auto text-indigo-400"></i>
+      <p class="text-xs">Sincronizando con Google Sheets...</p>
+    </div>
+
     <div id="taskList" class="space-y-3"></div>
-  </div>
+  </main>
 
   <script>
-    // SUSTITUYE CON TU URL DE APPS SCRIPT
+    // SUSTITUYE ESTA URL CON TU URL DE APPS SCRIPT
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxbuFnsJl63dcRAWZqO1vGLszyNES4lZSkkd8vPo078-wRvnavbw_UUy5OZZUmdUXWY/exec";
 
     let tasks = [];
+    let currentFilter = 'all';
 
-    // Cargar tareas al abrir la web
     async function fetchTasks() {
+      const syncIcon = document.getElementById('syncIcon');
       const loading = document.getElementById('loading');
-      loading.classList.remove('hidden');
+      syncIcon.classList.add('animate-spin');
+      if (tasks.length === 0) loading.classList.remove('hidden');
+
       try {
         const response = await fetch(GOOGLE_SCRIPT_URL);
         tasks = await response.json();
         renderTasks();
       } catch (err) {
-        alert("Error al cargar las tareas: " + err.message);
+        alert("Error al sincronizar datos: " + err.message);
       } finally {
+        syncIcon.classList.remove('animate-spin');
         loading.classList.add('hidden');
       }
     }
 
-    // Añadir nueva tarea
     document.getElementById('taskForm').addEventListener('submit', async (e) => {
       e.preventDefault();
       const submitBtn = document.getElementById('submitBtn');
       submitBtn.disabled = true;
-      submitBtn.innerText = 'Guardando...';
+      submitBtn.innerHTML = '<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i><span>Guardando...</span>';
+      lucide.createIcons();
 
       const newTask = {
         id: "ID-" + Date.now(),
@@ -98,22 +170,18 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ action: "create", task: newTask })
         });
-
         document.getElementById('taskForm').reset();
-        // Esperamos un segundo antes de refrescar para que Sheets procese los datos
         setTimeout(fetchTasks, 1000);
       } catch (err) {
-        alert("Error al guardar la tarea: " + err.message);
+        alert("Error al guardar: " + err.message);
       } finally {
         submitBtn.disabled = false;
-        submitBtn.innerText = 'Añadir Tarea';
+        submitBtn.innerHTML = '<i data-lucide="plus" class="w-4 h-4"></i><span>Agregar Tarea</span>';
+        lucide.createIcons();
       }
     });
 
-    // Completar tarea
     async function completeTask(id) {
-      if (!confirm("¿Marcar esta tarea como completada?")) return;
-
       try {
         await fetch(GOOGLE_SCRIPT_URL, {
           method: 'POST',
@@ -121,44 +189,89 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ action: "complete", taskId: id })
         });
-
-        setTimeout(fetchTasks, 1000);
+        tasks = tasks.filter(t => t.id !== id);
+        renderTasks();
+        setTimeout(fetchTasks, 1200);
       } catch (err) {
-        alert("Error al completar la tarea: " + err.message);
+        alert("Error al completar: " + err.message);
       }
     }
 
+    function setFilter(filter) {
+      currentFilter = filter;
+      document.querySelectorAll('[id^="btnFilter"]').forEach(btn => {
+        btn.className = "px-3 py-1.5 rounded-lg text-slate-400 hover:text-slate-200 transition";
+      });
+      if (filter === 'all') document.getElementById('btnFilterAll').className = "px-3 py-1.5 rounded-lg font-medium transition bg-indigo-600 text-white";
+      if (filter === 'Alta') document.getElementById('btnFilterHigh').className = "px-3 py-1.5 rounded-lg font-medium transition bg-indigo-600 text-white";
+      if (filter === 'Urgent') document.getElementById('btnFilterUrgent').className = "px-3 py-1.5 rounded-lg font-medium transition bg-indigo-600 text-white";
+      renderTasks();
+    }
+
+    function updateStats() {
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById('statTotal').innerText = tasks.length;
+      document.getElementById('statHigh').innerText = tasks.filter(t => t.prioridad === 'Alta').length;
+      document.getElementById('statDue').innerText = tasks.filter(t => t.fechaLimite <= today).length;
+      document.getElementById('statCat').innerText = new Set(tasks.map(t => t.categoria)).size;
+    }
+
     function renderTasks() {
+      updateStats();
       const list = document.getElementById('taskList');
       list.innerHTML = '';
 
-      if (!Array.isArray(tasks) || tasks.length === 0) {
-        list.innerHTML = '<p class="text-gray-500 text-center py-4">No hay tareas pendientes.</p>';
+      let filtered = tasks;
+      const today = new Date().toISOString().split('T')[0];
+
+      if (currentFilter === 'Alta') filtered = tasks.filter(t => t.prioridad === 'Alta');
+      if (currentFilter === 'Urgent') filtered = tasks.filter(t => t.fechaLimite <= today);
+
+      if (!Array.isArray(filtered) || filtered.length === 0) {
+        list.innerHTML = `
+          <div class="text-center py-12 border border-dashed border-slate-800 rounded-2xl">
+            <i data-lucide="check-circle-2" class="w-10 h-10 text-slate-600 mx-auto mb-2"></i>
+            <p class="text-sm text-slate-400">No hay tareas pendientes en este filtro.</p>
+          </div>`;
+        lucide.createIcons();
         return;
       }
 
-      tasks.forEach(task => {
+      const prioColor = {
+        'Alta': 'bg-red-500/10 text-red-400 border-red-500/20',
+        'Media': 'bg-amber-500/10 text-amber-400 border-amber-500/20',
+        'Baja': 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'
+      };
+
+      filtered.forEach(task => {
+        const isOverdue = task.fechaLimite < today;
         const item = document.createElement('div');
-        item.className = 'border rounded-lg p-4 flex justify-between items-center bg-gray-50 shadow-sm';
+        item.className = 'bg-slate-800/60 border border-slate-700/60 rounded-xl p-4 flex items-center justify-between hover:border-slate-600 transition group';
         item.innerHTML = `
-          <div>
-            <div class="font-semibold text-gray-800">${task.descripcion}</div>
-            <div class="text-xs text-gray-500 mt-1 space-x-2">
-              <span class="bg-blue-100 text-blue-800 px-2 py-0.5 rounded">${task.categoria}</span>
-              <span class="bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded">Prioridad: ${task.prioridad}</span>
-              <span>Inclusión: ${task.fechaInclusion}</span>
-              <span class="font-medium text-red-600">Límite: ${task.fechaLimite}</span>
+          <div class="space-y-1 pr-4">
+            <div class="flex items-center space-x-2">
+              <span class="font-medium text-slate-100 text-sm">${task.descripcion}</span>
+              ${isOverdue ? '<span class="text-[10px] bg-red-500/20 text-red-400 border border-red-500/30 px-1.5 py-0.5 rounded">Vencida</span>' : ''}
+            </div>
+            <div class="flex flex-wrap items-center gap-2 text-xs text-slate-400">
+              <span class="bg-slate-700/60 text-slate-300 px-2 py-0.5 rounded-md border border-slate-600/40">${task.categoria}</span>
+              <span class="px-2 py-0.5 rounded-md border ${prioColor[task.prioridad]}">${task.prioridad}</span>
+              <span class="flex items-center gap-1 text-slate-400"><i data-lucide="calendar" class="w-3 h-3"></i> Límit: ${task.fechaLimite}</span>
             </div>
           </div>
-          <button onclick="completeTask('${task.id}')" class="bg-green-600 text-white px-3 py-1 rounded text-sm hover:bg-green-700">
-            Completar
+          <button onclick="completeTask('${task.id}')" title="Marcar como completada" 
+                  class="bg-slate-700/50 hover:bg-emerald-600 hover:text-white text-slate-300 border border-slate-600/50 p-2.5 rounded-xl transition flex-shrink-0">
+            <i data-lucide="check" class="w-4 h-4"></i>
           </button>
         `;
         list.appendChild(item);
       });
+
+      lucide.createIcons();
     }
 
-    // Carga inicial
+    // Inicializar fecha mínima en el input de fecha al día de hoy
+    document.getElementById('fechaLimite').value = new Date().toISOString().split('T')[0];
     fetchTasks();
   </script>
 </body>
