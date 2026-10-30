@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth" style="font-size: 16px;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test UD2: Herramientas del Taller | rhervel</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 fill=%22currentColor%22 class=%22bi bi-robot%22 viewBox=%220 0 16 16%22><path d=%22M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5ZM3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.58 26.58 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.933.933 0 0 1-.765.935c-.845.147-2.34.346-4.235.346-1.895 0-3.39-.2-4.235-.346A.933.933 0 0 1 3 9.219V8.062Zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a24.767 24.767 0 0 1-1.871-.183.25.25 0 0 0-.217.068l-.92.9a.25.25 0 0 0 .169.434l.92-.9a25.25 25.25 0 0 0 1.942.183.25.25 0 0 0 .217-.068l.92-.9a.25.25 0 0 0-.17-.434l-.92.9a24.767 24.767 0 0 1-1.871-.183Z%22/><path d=%22M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1.5a2.5 2.5 0 0 0 2.5 2.5h9A2.5 2.5 0 0 0 15 13.5V12a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2V1.866ZM14 7.5V12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5Z%22/></svg>" type="image/svg+xml">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcfcfd;
+            background-image: 
+                linear-gradient(#f1f5f9 1px, transparent 1px),
+                linear-gradient(90deg, #f1f5f9 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .nav-glass {
+            background: rgba(252, 252, 253, 0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        .content-card {
+            border-radius: 2.5rem;
+        }
+
+        .opt-btn {
+            transition: all 0.2s ease-in-out;
+        }
+        
+        .opt-btn:not(:disabled):hover {
+            border-color: #6366f1;
+            background-color: #f5f3ff;
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased leading-relaxed min-h-screen flex flex-col justify-between">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 nav-glass">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-2 sm:gap-4">
+            <a href="sda2.html" class="flex items-center gap-2 group shrink-0">
+                <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-black text-sm shadow-md shadow-indigo-200 group-hover:bg-blue-600 transition-colors">T</div>
+                <span class="font-black text-slate-900 tracking-tighter uppercase text-sm">rhervel</span>
+            </a>
+
+            <!-- Progress tracker badge in navbar -->
+            <div class="hidden sm:flex items-center gap-2 bg-slate-100/80 px-3 py-1.5 rounded-full border border-slate-200 text-xs font-bold text-slate-700">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-indigo-600"></i>
+                <span data-i18n="navProgress">Progreso:</span>
+                <span id="navProgressText" class="text-indigo-600 font-black">0 / 25</span>
+            </div>
+            
+            <div class="flex items-center gap-2 shrink-0">
+                <!-- Font Size Controls -->
+                <div class="flex items-center bg-slate-100 border border-slate-200 rounded-full p-0.5 text-xs font-black text-slate-700 shadow-xs">
+                    <button onclick="changeFontSize(-1)" title="Reducir tamaño de letra" class="w-7 h-7 flex items-center justify-center rounded-full hover:bg-white hover:text-indigo-600 transition-all">
+                        A-
+                    </button>
+                    <button onclick="resetFontSize()" title="Tamaño original" class="w-7 h-7 flex items-center justify-center rounded-full hover:bg-white hover:text-indigo-600 transition-all text-[10px]">
+                        100%
+                    </button>
+                    <button onclick="changeFontSize(1)" title="Aumentar tamaño de letra" class="w-7 h-7 flex items-center justify-center rounded-full hover:bg-white hover:text-indigo-600 transition-all">
+                        A+
+                    </button>
+                </div>
+
+                <!-- Language Toggle Button -->
+                <button id="langToggleBtn" onclick="toggleLanguage()" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 text-xs font-bold rounded-full border border-indigo-200 transition-all shadow-xs">
+                    <i data-lucide="globe" class="w-3.5 h-3.5 text-indigo-600"></i>
+                    <span id="currentLangLabel">ES / <strong class="font-black">EN</strong></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header / Hero Section -->
+    <header class="relative pt-28 pb-8 px-6 overflow-hidden">
+        <div class="absolute top-[-10%] right-[-5%] w-96 h-96 bg-indigo-100 rounded-full blur-3xl opacity-40 animate-pulse"></div>
+        
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div class="max-w-3xl">
+                    <div class="inline-flex items-center gap-2 bg-indigo-50 border border-indigo-200 text-indigo-700 px-3.5 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-4">
+                        <i data-lucide="clipboard-check" class="w-4 h-4"></i> <span data-i18n="heroBadge">Test de Repaso Evaluativo</span>
+                    </div>
+                    <h1 class="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter mb-4 uppercase">
+                        <span data-i18n="heroTitlePart1">Cuestionario:</span> <span class="text-indigo-600" data-i18n="heroTitlePart2">Herramientas del Taller</span>
+                    </h1>
+                    <p class="text-slate-500 text-base md:text-lg leading-relaxed font-medium" data-i18n="heroDesc">
+                        Comprueba tus conocimientos acumulados sobre las 25 preguntas clave relativas a familias de herramientas, métrica, corte, sujeción, fabricación digital y normas de seguridad en el taller (SdA 2 - 2º ESO).
+                    </p>
+                </div>
+                
+                <div class="rounded-[2.5rem] p-6 text-center min-w-[200px] shadow-xl text-white self-start md:self-auto" style="background: linear-gradient(135deg, #4338ca 0%, #1e1b4b 100%);">
+                    <div class="text-xs uppercase tracking-widest font-black text-indigo-200 mb-1" data-i18n="scoreBoxTitle">Puntuación Real</div>
+                    <div class="text-4xl font-black tracking-tighter"><span id="scoreCounter">0</span> / 25</div>
+                    <div class="text-[10px] uppercase tracking-[0.2em] font-black text-indigo-300 mt-2" id="scoreGradeText" data-i18n="gradeInitial">Nota: 0.0 / 10</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 py-6 w-full flex-grow">
+        
+        <!-- Interactive Sticky Status Header -->
+        <div class="bg-white/90 backdrop-blur-md rounded-2xl p-4 shadow-md border border-slate-200/80 mb-8 sticky top-20 z-40 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="w-full sm:w-auto flex items-center justify-between gap-4 text-xs font-black text-slate-700">
+                <span class="flex items-center gap-1.5">
+                    <i data-lucide="help-circle" class="w-4 h-4 text-indigo-600"></i>
+                    <span data-i18n="statusResponded">Respondidas:</span> <strong id="statusRespondedCount" class="text-slate-900 font-bold">0 / 25</strong>
+                </span>
+                <span class="flex items-center gap-1.5">
+                    <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600"></i>
+                    <span data-i18n="statusCorrect">Aciertos:</span> <strong id="statusCorrectCount" class="text-emerald-600 font-bold">0</strong>
+                </span>
+            </div>
+
+            <div class="w-full sm:w-1/2 bg-slate-100 h-3 rounded-full overflow-hidden border border-slate-200">
+                <div id="progressBar" class="bg-indigo-600 h-full w-0 transition-all duration-300 rounded-full"></div>
+            </div>
+
+            <button onclick="scrollToResults()" class="w-full sm:w-auto text-xs font-extrabold bg-slate-900 text-white px-4 py-2 rounded-xl hover:bg-indigo-600 transition-colors shrink-0 flex items-center justify-center gap-1.5">
+                <i data-lucide="bar-chart-2" class="w-3.5 h-3.5"></i>
+                <span data-i18n="btnFinish">Finalizar Test</span>
+            </button>
+        </div>
+
+        <!-- Questions List Container -->
+        <div id="questionsContainer" class="space-y-8">
+            <!-- Questions will be rendered dynamically here -->
+        </div>
+
+        <!-- Final Results Panel Modal/Card -->
+        <div id="resultsCard" class="hidden bg-white content-card p-6 sm:p-10 shadow-2xl border-2 border-indigo-200 my-12 text-center relative overflow-hidden">
+            <div class="absolute -top-12 -right-12 w-40 h-40 bg-indigo-100 rounded-full blur-2xl opacity-60"></div>
+            
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-3xl bg-indigo-50 text-indigo-600 mb-4 shadow-inner">
+                <i data-lucide="award" class="w-8 h-8"></i>
+            </div>
+            <h2 class="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight mb-2" data-i18n="resPanelTitle">Resultado Final de la Evaluación</h2>
+            <p class="text-slate-500 text-sm font-medium mb-8" data-i18n="resPanelDesc">Resumen del rendimiento obtenido en el test interactivo de la Unidad Didáctica 2.</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+                <div class="bg-slate-50 border border-slate-200/80 p-5 rounded-2xl">
+                    <span class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1" data-i18n="resScoreLabel">Aciertos</span>
+                    <span class="text-3xl font-black text-slate-900" id="finalCorrectRatio">0 / 25</span>
+                </div>
+                <div class="bg-indigo-50 border border-indigo-200 p-5 rounded-2xl">
+                    <span class="block text-[10px] font-black uppercase tracking-widest text-indigo-600 mb-1" data-i18n="resMarkLabel">Nota Final</span>
+                    <span class="text-3xl font-black text-indigo-600" id="finalMark10">0.0 / 10</span>
+                </div>
+                <div class="bg-emerald-50 border border-emerald-200 p-5 rounded-2xl">
+                    <span class="block text-[10px] font-black uppercase tracking-widest text-emerald-600 mb-1" data-i18n="resPercentLabel">Porcentaje</span>
+                    <span class="text-3xl font-black text-emerald-600" id="finalPercent">0%</span>
+                </div>
+            </div>
+
+            <div id="performanceBadge" class="p-4 rounded-2xl mb-8 font-bold text-sm border">
+                <!-- Injected via JS -->
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button onclick="restartQuiz()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-black px-8 py-4 rounded-2xl transition-all shadow-lg hover:scale-105 text-xs uppercase tracking-wider">
+                    <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+                    <span data-i18n="btnRestart">Reiniciar Test</span>
+                </button>
+                <a href="sda2.html" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 font-extrabold px-8 py-4 rounded-2xl transition-all text-xs uppercase tracking-wider">
+                    <i data-lucide="book-open" class="w-4 h-4"></i>
+                    <span data-i18n="btnBackUnit">Volver al Tema (SdA 2)</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Back to Top Button -->
+        <div class="mt-12 text-center">
+            <a href="sda2.html" class="inline-flex items-center gap-3 bg-indigo-600 text-white px-8 py-4 rounded-full font-black text-xs hover:bg-slate-900 transition-all shadow-xl uppercase tracking-widest">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i> <span data-i18n="backHomeBtn">Volver a la Teoría de la Unidad</span>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 text-center border-t border-slate-200 mt-16 bg-white/50">
+        <div class="w-12 h-1.5 bg-indigo-600 mx-auto mb-6 rounded-full"></div>
+        <p class="text-slate-400 text-[10px] font-black uppercase tracking-[0.4em]">rhervel // 2026 // Technology 2nd ESO</p>
+    </footer>
+
+    <!-- Quiz Data & Logic Script -->
+    <script>
+        // Database of 25 Questions with Spanish & English content
+        const quizData = [
+            {
+                id: 1,
+                q_es: "¿Cuál es la definición general de herramienta según el tema y qué establece su norma básica de uso?",
+                q_en: "What is the general definition of a tool according to the topic, and what does its basic rule state?",
+                options_es: [
+                    "Es un aparato eléctrico que realiza tareas por sí solo sin esfuerzo humano.",
+                    "Es un instrumento que permite realizar trabajos mecánicos o manuales con mayor precisión, menor esfuerzo y seguridad, debiendo usarse exclusivamente para la función que fue diseñada.",
+                    "Es cualquier objeto metálico que sirve para golpear, sujetar y cortar sin restricciones.",
+                    "Es un utensilio exclusivo para madera que se puede usar indistintamente como palanca."
+                ],
+                options_en: [
+                    "An electrical apparatus that executes tasks autonomously without human effort.",
+                    "An instrument that allows mechanical or manual tasks with greater precision, less effort, and safety, strictly reserved for its designed function.",
+                    "Any metal object used for striking, clamping, and cutting without restrictions.",
+                    "An exclusive woodworking device that can be interchangeably used as a lever."
+                ],
+                correct: 1,
+                exp_es: "Una herramienta es un instrumento para trabajos mecánicos o manuales con mayor precisión, menor esfuerzo y mayor seguridad. La norma básica exige usar cada herramienta solo para su cometido específico.",
+                exp_en: "A tool is an instrument for mechanical/manual tasks providing precision, safety, and reduced effort. The basic rule requires using each tool strictly for its intended purpose."
+            },
+            {
+                id: 2,
+                q_es: "¿Qué herramienta de trazado y medición está formada por una regla de acero fija a un cartabón de hierro o aluminio a 90º y sirve para comprobar la perpendicularidad y trazar líneas a 90º y 45º?",
+                q_en: "Which measuring and layout tool consists of a steel rule fixed to an iron/aluminum stock at 90º to check perpendicularity and draw 90º and 45º lines?",
+                options_es: [
+                    "Transportador de ángulos o goniómetro.",
+                    "Flexómetro de cinta metálica.",
+                    "Escuadra de taller.",
+                    "Regla graduada de acero."
+                ],
+                options_en: [
+                    "Angle protractor or goniometer.",
+                    "Metallic tape flexometer.",
+                    "Workshop try square.",
+                    "Graduated steel rule."
+                ],
+                correct: 2,
+                exp_es: "La escuadra de taller consta de una regla fija a un cartabón a 90º y permite comprobar perpendicularidad y trazar ángulos de 90º y 45º.",
+                exp_en: "The workshop try square is made of a steel rule fixed at 90º to a stock, allowing checking perpendicularity and scribing 90º and 45º lines."
+            },
+            {
+                id: 3,
+                q_es: "En el calibre o pie de rey, ¿qué elementos específicos se utilizan para medir los diámetros interiores y las profundidades respectivamente?",
+                q_en: "In a vernier caliper, which specific features are used to measure internal diameters and depths respectively?",
+                options_es: [
+                    "Mordazas para exteriores y escala principal.",
+                    "Orejetas para interiores y sonda de profundidad.",
+                    "Botón de bloqueo y escala vernier (nonio).",
+                    "Orejetas para exteriores y escala vernier."
+                ],
+                options_en: [
+                    "External jaws and main scale.",
+                    "Internal nibs/lugs and depth rod/probe.",
+                    "Locking screw and vernier scale (nonius).",
+                    "External lugs and vernier scale."
+                ],
+                correct: 1,
+                exp_es: "El calibre dispone de orejetas en la parte superior para medir diámetros interiores y de una sonda desplazable en el extremo opuesto para profundidades.",
+                exp_en: "The caliper uses internal nibs on top to measure inside diameters and a sliding depth rod at the end for measuring depths."
+            },
+            {
+                id: 4,
+                q_es: "¿Para qué sirve la punta de marcar (o trazador) en el taller?",
+                q_en: "What is the primary function of a scriber in the workshop?",
+                options_es: [
+                    "Para clavar puntas pequeñas en maderas blandas.",
+                    "Para medir la profundidad de orificios cilíndricos.",
+                    "Para rayar y dejar marcas permanentes en superficies metálicas o plásticas donde el lápiz no se adhiere.",
+                    "Para sujetar hojas de papel sobre la mesa de trabajo."
+                ],
+                options_en: [
+                    "To drive small tacks into soft woods.",
+                    "To measure the depth of cylindrical holes.",
+                    "To scratch permanent reference marks on metal or plastic surfaces where pencil leads fail to adhere.",
+                    "To hold paper sheets firmly against the workbench."
+                ],
+                correct: 2,
+                exp_es: "La punta de marcar es una varilla de acero templado afilada para rayar superficies metálicas o plásticas resistentes al grafito del lápiz.",
+                exp_en: "A scriber is a hardened steel rod with a sharp tip designed to scratch lines onto metal or plastic surfaces where pencils cannot mark."
+            },
+            {
+                id: 5,
+                q_es: "¿Cómo indica un nivel de burbuja la correcta nivelación de una superficie?",
+                q_en: "How does a spirit level indicate proper surface alignment?",
+                options_es: [
+                    "Mediante una aguja imantada que apunta al norte.",
+                    "Mediante tubos de líquido con una burbuja de aire que debe quedar centrada para indicar horizontalidad, verticalidad o 45º.",
+                    "A través de un indicador digital graduado en milímetros.",
+                    "Mediante una plomada de acero suspendida por un hilo."
+                ],
+                options_en: [
+                    "By a magnetic needle pointing towards north.",
+                    "Through liquid tubes with an air bubble that must center to show horizontal, vertical, or 45º alignment.",
+                    "Via a digital readout graduated in millimeters.",
+                    "With a steel plumb bob suspended by a thread."
+                ],
+                correct: 1,
+                exp_es: "El nivel de burbuja cuenta con viales de líquido donde la burbuja se centra exactamante al lograr horizontalidad, verticalidad o inclinación a 45º.",
+                exp_en: "A spirit level uses liquid vials where the centered air bubble confirms horizontal, vertical, or 45º orientation."
+            },
+            {
+                id: 6,
+                q_es: "¿Qué característica diferencia al serrucho de costilla del serrucho ordinario de carpintero?",
+                q_en: "What structural feature distinguishes a tenon saw from a regular hand saw?",
+                options_es: [
+                    "Posee un hilo metálico dentado intercambiable.",
+                    "Carece de empuñadura y se maneja con dos manos.",
+                    "Tiene un refuerzo metálico rígido en la parte superior de la hoja que permite realizar cortes muy rectos y finos.",
+                    "Funciona conectado a la corriente eléctrica."
+                ],
+                options_en: [
+                    "It features an interchangeable fine wire blade.",
+                    "It lacks a handle and requires two-handed operation.",
+                    "It has a rigid metal spine reinforcement along the top edge allowing very straight, fine cuts.",
+                    "It runs on electric power."
+                ],
+                correct: 2,
+                exp_es: "El serrucho de costilla incorpora un lomo o refuerzo metálico en la parte superior que evita la flexión de la hoja, garantizando cortes rectos y precisos en madera.",
+                exp_en: "The tenon saw features a stiff metal spine along the top of the blade that prevents flexing for straight, accurate woodworking cuts."
+            },
+            {
+                id: 7,
+                q_es: "¿Quién inventó la sierra eléctrica de calar (caladora) en 1946 y cuál fue su fuente de inspiración?",
+                q_en: "Who invented the electric jigsaw in 1946 and what inspired its creation?",
+                options_es: [
+                    "Pierre Vernier, tras estudiar la escala de los mapas topográficos.",
+                    "Albert Kaufmann, al sustituir la aguja de la máquina de coser de su esposa por una hoja de sierra.",
+                    "Wilhelm Fein, al acoplar un motor eléctrico a un martillo manual.",
+                    "David Maydole, al rediseñar la cabeza de un martillo con orejas."
+                ],
+                options_en: [
+                    "Pierre Vernier, while studying topographic map scales.",
+                    "Albert Kaufmann, by replacing the needle on his wife's sewing machine with a saw blade.",
+                    "Wilhelm Fein, by attaching an electric motor to a hand hammer.",
+                    "David Maydole, by redesigning the claw hammer head."
+                ],
+                correct: 1,
+                exp_es: "Albert Kaufmann (ingeniero de Scintilla AG) inventó la caladora en 1946 al cambiar la aguja de la máquina de coser de su esposa por una pequeña hoja de sierra.",
+                exp_en: "Albert Kaufmann (Scintilla AG engineer) invented the jigsaw in 1946 by swapping his wife's sewing machine needle for a small saw blade."
+            },
+            {
+                id: 8,
+                q_es: "¿Qué características especiales poseen las tijeras de electricista para trabajar con seguridad?",
+                q_en: "What specific safety features do electrician's scissors possess?",
+                options_es: [
+                    "Hojas de acero templado extralargas para cortar cables armados de alta tensión.",
+                    "Hojas cortas con muesca pelacables e insuladas con empuñadura aislante homologada.",
+                    "Mangos de madera sin aislamiento pero con filo de diamante.",
+                    "Mordazas dentadas ajustables con tornillo de bloqueo."
+                ],
+                options_en: [
+                    "Extra-long hardened steel blades for cutting heavy high-voltage cables.",
+                    "Short blades with a wire-stripping notch and insulated handles certified against electric shock.",
+                    "Uninsulated wooden handles with diamond-edge blades.",
+                    "Adjustable serrated jaws with a locking screw."
+                ],
+                correct: 1,
+                exp_es: "Las tijeras de electricista tienen hojas cortas con muesca pelacables y mangos recubiertos con aislante homologado para proteger frente a descargas.",
+                exp_en: "Electrician scissors feature short blades, wire-stripping notches, and certified insulated handles to protect against electrical shocks."
+            },
+            {
+                id: 9,
+                q_es: "¿Qué tipo de martillo incorpora dos ganchos curvados en el extremo opuesto a la cara de golpeo para extraer clavos haciendo palanca?",
+                q_en: "Which type of hammer incorporates two curved hooks opposite the striking face to lever out nails?",
+                options_es: [
+                    "Martillo de peña.",
+                    "Martillo de bola.",
+                    "Martillo de orejas.",
+                    "Maceta de albañil."
+                ],
+                options_en: [
+                    "Cross-peen hammer.",
+                    "Ball-peen hammer.",
+                    "Claw hammer.",
+                    "Club hammer / Mallet."
+                ],
+                correct: 2,
+                exp_es: "El martillo de orejas cuenta con una doble curva trasera (orejas) diseñada para enganchar la cabeza de los clavos doblados y extraerlos mediante palanca.",
+                exp_en: "The claw hammer has a curved split claw at the back tailored to grab screw/nail heads and pull them using leverage."
+            },
+            {
+                id: 10,
+                q_es: "¿Cuál es la diferencia fundamental entre una lima y una escofina?",
+                q_en: "What is the primary operational difference between a file and a rasp?",
+                options_es: [
+                    "La lima es metálica y la escofina está hecha íntegramente de plástico duro.",
+                    "La lima tiene un estriado fino para metal y plástico; la escofina tiene resaltes piramidales gruesos y se usa exclusivamente en madera maciza.",
+                    "La escofina se utiliza para pulir metales duros y la lima para cortar papel.",
+                    "No hay diferencia; son dos nombres para la misma herramienta."
+                ],
+                options_en: [
+                    "The file is metallic while the rasp is made entirely of rigid plastic.",
+                    "The file has fine teeth for metals/plastics; the rasp has coarse individual pyramid teeth used exclusively on solid wood.",
+                    "The rasp polishes hard metals while the file cuts cardboard.",
+                    "There is no difference; they are synonymous names."
+                ],
+                correct: 1,
+                exp_es: "Las limas poseen picado estriado para alisar metales/plásticos, mientras que las escofinas tienen dientes individuales gruesos en forma de pirámide solo para madera.",
+                exp_en: "Files feature fine teeth for metal/plastics, whereas rasps have coarse individual triangular teeth designed exclusively for wood."
+            },
+            {
+                id: 11,
+                q_es: "En relación al papel de lija, ¿cómo influye el número de grano en la capacidad de desbaste?",
+                q_en: "Regarding sandpaper, how does the grit number affect its abrading aggressiveness?",
+                options_es: [
+                    "A menor número de grano, más grueso es el abrasivo y más agresivo es el desbaste.",
+                    "A mayor número de grano, más grueso es el grano y más rápido rebaja la madera.",
+                    "El número de grano indica únicamente el espesor del papel base.",
+                    "El número de grano no tiene relación con el tamaño de las partículas abrasivas."
+                ],
+                options_en: [
+                    "A lower grit number means coarser abrasive particles and more aggressive material removal.",
+                    "A higher grit number means larger grains for faster wood reduction.",
+                    "The grit number only indicates backing paper thickness.",
+                    "The grit number bears no relation to particle sizes."
+                ],
+                correct: 0,
+                exp_es: "En el papel de lija, los números bajos (ej. 60 u 80) representan granos gruesos y agresivos, mientras que los altos (ej. 240 o 400) corresponden a acabados finos.",
+                exp_en: "For sandpaper, lower numbers (e.g., 60 or 80) signify coarse, aggressive grains, while high numbers (e.g., 240+) represent fine finishing grit."
+            },
+            {
+                id: 12,
+                q_es: "¿Qué herramienta manual de perforación con empuñadura en 'T' y rosca helicoidal se gira a mano para hacer pequeños agujeros guía en madera blanda?",
+                q_en: "Which manual drilling tool with a T-handle and screw tip is rotated by hand to bore small pilot holes in soft wood?",
+                options_es: [
+                    "Taladro de columna.",
+                    "Barrena.",
+                    "Punta de marcar.",
+                    "Destornillador Pozidriv."
+                ],
+                options_en: [
+                    "Pillar drill press.",
+                    "Gimlet / Hand auger.",
+                    "Scriber.",
+                    "Pozidriv screwdriver."
+                ],
+                correct: 1,
+                exp_es: "La barrena es una herramienta manual sencilla con punta roscada en hélice y mango en 'T' para realizar taladros guía iniciales en madera.",
+                exp_en: "A gimlet is a small T-handled manual tool with a spiral screw point used for making pilot holes in soft wood."
+            },
+            {
+                id: 13,
+                q_es: "¿Cómo se distingue visualmente una broca para madera de una broca para metal (HSS) o una de pared?",
+                q_en: "How can a wood drill bit be visually distinguished from a metal bit (HSS) or a masonry bit?",
+                options_es: [
+                    "La broca para madera tiene una plaquita de widia en forma de flecha.",
+                    "La broca para madera presenta una punta centradora muy afilada en su extremo.",
+                    "La broca para madera tiene una punta cónica a 118º sin espuela.",
+                    "La broca para madera es completamente lisa y sin acanaladuras helicoidales."
+                ],
+                options_en: [
+                    "The wood bit features a tungsten carbide arrow tip.",
+                    "The wood bit presents a sharp center spur/point at its tip.",
+                    "The wood bit has a 118º conical tip without a spur.",
+                    "The wood bit is smooth without spiral flutes."
+                ],
+                correct: 1,
+                exp_es: "La broca para madera tiene una sobresaliente punta centradora central en la punta que evita que se desvíe al iniciar el taladrado.",
+                exp_en: "A wood drill bit features a sharp central spur (point) at the tip to keep the bit centered when starting a hole."
+            },
+            {
+                id: 14,
+                q_es: "¿Qué herramienta de sujeción fija va integrada en los bancos de trabajo del taller y consta de dos mordazas de hierro movidas por un husillo roscado?",
+                q_en: "Which stationary clamping tool is integrated into workshop tables and features two iron jaws opened or closed via a threaded screw?",
+                options_es: [
+                    "Sargento de marquetería.",
+                    "Grip o alicate de presión.",
+                    "Tornillo de banco.",
+                    "Alicate universal."
+                ],
+                options_en: [
+                    "C-clamp / F-clamp.",
+                    "Locking pliers (grip).",
+                    "Bench vise.",
+                    "Combination pliers."
+                ],
+                correct: 2,
+                exp_es: "El tornillo de banco está anclado a las mesas de trabajo y permite inmovilizar piezas firmemente entre sus dos mordazas metálicas mediante una palanca roscada.",
+                exp_en: "The bench vise is bolted to workbenches, holding workpieces firmly between two metal jaws driven by a threaded spindle."
+            },
+            {
+                id: 15,
+                q_es: "¿Qué tipo de alicate permite bloquearse sobre la pieza ejerciendo una fuerza de apriete constante gracias a un tornillo en el mango?",
+                q_en: "Which type of pliers can lock onto a workpiece to apply constant pressure, adjusted via a screw in the handle?",
+                options_es: [
+                    "Alicate universal.",
+                    "Alicate de punta redonda.",
+                    "Grip o alicate de presión.",
+                    "Tijera de aviación."
+                ],
+                options_en: [
+                    "Combination pliers.",
+                    "Round-nose pliers.",
+                    "Locking pliers / Grip.",
+                    "Tin snips."
+                ],
+                correct: 2,
+                exp_es: "El alicate de presión o grip cuenta con un mecanismo articulado que se bloquea al cerrar la mordaza y se regula mediante un tornillo tensor en la empuñadura.",
+                exp_en: "Locking pliers (grip) feature an over-center toggle mechanism that locks onto workpieces with force adjusted by a screw in the handle."
+            },
+            {
+                id: 16,
+                q_es: "¿Cuáles son las tres huellas o cabezas de tornillo principales para las que existen destornilladores específicos en el taller?",
+                q_en: "What are the three main screw head drives for which specific screwdrivers exist in the workshop?",
+                options_es: [
+                    "Plano, Philips (estrella) y Pozidriv.",
+                    "Allen, Torx y Cuadrada.",
+                    "Hexagonal, Redonda y De gancho.",
+                    "Triangular, De mariposa y Cónica."
+                ],
+                options_en: [
+                    "Flathead, Philips (cross), and Pozidriv.",
+                    "Allen, Torx, and Square.",
+                    "Hexagonal, Round, and Hook.",
+                    "Triangular, Butterfly, and Conical."
+                ],
+                correct: 0,
+                exp_es: "Los tres tipos comunes descritos en la unidad son el plano (boca recta), Philips (estrella en cruz) y Pozidriv (estrella con estrías adicionales).",
+                exp_en: "The three common screwdriver types listed in the text are flathead (slotted), Philips (cross-recess), and Pozidriv (double cross)."
+            },
+            {
+                id: 17,
+                q_es: "¿Qué herramienta para uniones mecánicas consiste en una varilla de sección hexagonal doblada en 'L'?",
+                q_en: "Which mechanical fastening tool consists of an L-shaped hexagonal steel bar?",
+                options_es: [
+                    "Llave inglesa.",
+                    "Llave fija de estrella.",
+                    "Llave Allen.",
+                    "Destornillador de pala."
+                ],
+                options_en: [
+                    "Adjustable crescent wrench.",
+                    "Box-end ring wrench.",
+                    "Allen key / Hex wrench.",
+                    "Flathead screwdriver."
+                ],
+                correct: 2,
+                exp_es: "La llave Allen es una varilla hexagonal acodada en 'L' diseñada para encajar en tornillos con huella hexagonal interior embutida.",
+                exp_en: "An Allen key is a hexagonal L-shaped bar engineered to fit internal hex-recessed screw heads."
+            },
+            {
+                id: 18,
+                q_es: "En la tecnología de Fabricación Digital, ¿cómo funciona una impresora 3D FDM?",
+                q_en: "In Digital Fabrication, how does an FDM 3D printer operate?",
+                options_es: [
+                    "Utiliza un rayo láser para endurecer una resina líquida fotosensible en un tanque.",
+                    "Deposita filamento termoplástico (como PLA) fundido capa por capa mediante un extrusor caliente sobre los ejes X, Y y Z.",
+                    "Mecaniza un bloque sólido de madera quitando virutas con una fresa giratoria.",
+                    "Corta láminas adhesivas mediante una cuchilla orientable."
+                ],
+                options_en: [
+                    "It uses a laser beam to cure photosensitive liquid resin inside a vat.",
+                    "It deposits molten thermoplastic filament (such as PLA) layer by layer through a heated nozzle across X, Y, and Z axes.",
+                    "It carves a solid wood block by removing material with a rotary router bit.",
+                    "It cuts adhesive vinyl sheets using a swivel blade."
+                ],
+                correct: 1,
+                exp_es: "La tecnología FDM (Fused Deposition Modeling) funde filamento termoplástico (PLA) y lo deposita capa sobre capa mediante un cabezal móvil en 3 ejes.",
+                exp_en: "FDM (Fused Deposition Modeling) extrudes heated thermoplastic filament (PLA) layer by layer driven along three axes."
+            },
+            {
+                id: 19,
+                q_es: "¿Cuál es la aplicación principal de la cortadora/grabadora láser en el aula-taller de tecnología?",
+                q_en: "What is the primary application of a laser cutter/engraver in the technology classroom?",
+                options_es: [
+                    "Fundir metales gruesos para soldar estructuras de chasis.",
+                    "Imprimir circuitos electrónicos flexibles en láminas de papel.",
+                    "Cortar o grabar con precisión milimétrica materiales finos como contrachapado, metacrilato o cartón para maquetas.",
+                    "Sujetar piezas pesadas durante el proceso de lijado."
+                ],
+                options_en: [
+                    "Melting heavy structural steel for chassis welding.",
+                    "Printing flexible electronic circuits on paper sheets.",
+                    "Cutting or engraving thin materials like plywood, acrylic, or cardboard with millimeter precision for scale models.",
+                    "Clamping heavy components during sanding procedures."
+                ],
+                correct: 2,
+                exp_es: "El láser de CO2 o diodo permite realizar cortes y grabados ultraprecisos sobre paneles finos de madera contrachapada, plásticos y cartón.",
+                exp_en: "High-power laser beams enable swift, millimeter-precise cutting and engraving of plywood, acrylic, and cardboard sheets."
+            },
+            {
+                id: 20,
+                q_es: "¿Qué herramienta de fabricación digital utiliza una pequeña cuchilla orientable para cortar vinilo adhesivo o láminas de cobre?",
+                q_en: "Which digital tool uses a small swivel blade to cut adhesive vinyl or copper foil sheets?",
+                options_es: [
+                    "Plotter de corte o vinilo.",
+                    "Impresora 3D.",
+                    "Cortadora láser.",
+                    "Sierra eléctrica de calar."
+                ],
+                options_en: [
+                    "Vinyl / Cutting plotter.",
+                    "3D printer.",
+                    "Laser cutter.",
+                    "Electric jigsaw."
+                ],
+                correct: 0,
+                exp_es: "El plotter de corte arrastra el material mientras una cuchilla orientable recorta pegatinas, señaléctica o circuitos en lámina de cobre.",
+                exp_en: "A vinyl cutting plotter feeds material past a drag blade to slice stickers, workshop signs, or flexible copper foil circuits."
+            },
+            {
+                id: 21,
+                q_es: "¿A qué temperatura aproximada trabaja la punta del soldador eléctrico de estaño y dónde debe colocarse siempre mientras no se usa?",
+                q_en: "At approximately what temperature does a soldering iron tip operate, and where must it be placed when resting?",
+                options_es: [
+                    "Alcanza 100°C y debe dejarse sobre la mesa de madera.",
+                    "Alcanza aprox. 350°C y debe depositarse siempre en su soporte metálico.",
+                    "Alcanza 800°C y debe enfriarse en un cubo de agua tras cada uso.",
+                    "Alcanza 50°C y se puede guardar directamente en el bolsillo."
+                ],
+                options_en: [
+                    "Reaches 100°C and can rest directly on wood workbenches.",
+                    "Reaches approx. 350°C and must always rest in its dedicated metal stand.",
+                    "Reaches 800°C and requires water immersion after each joint.",
+                    "Reaches 50°C and can be stored in pockets right away."
+                ],
+                correct: 1,
+                exp_es: "El soldador alcanza unos 350°C en la punta para fundir la aleación de estaño; para prevenir incendios y quemaduras debe apoyarse en su soporte metálico.",
+                exp_en: "Electric soldering irons heat up to ~350°C to melt solder alloy; they must always rest on safety stands to prevent burns and fires."
+            },
+            {
+                id: 22,
+                q_es: "¿En qué operaciones del taller es OBLIGATORIO el uso de gafas de protección (EPI)?",
+                q_en: "In which workshop tasks is the use of safety goggles (PPE) MANDATORY?",
+                options_es: [
+                    "Únicamente al dibujar con regla y lápiz sobre el cuaderno.",
+                    "Al utilizar el taladro, la lijadora o herramientas que desprendan esquirlas o virutas.",
+                    "Solo al limpiar la mesa con el cepillo al final de la clase.",
+                    "Exclusivamente durante el uso de destornilladores planos."
+                ],
+                options_en: [
+                    "Only when drawing with a ruler and pencil in notebooks.",
+                    "When operating drills, sanders, or tools generating flying chips, dust, or sparks.",
+                    "Only while brushing workbenches clean at the end of class.",
+                    "Exclusively when driving flathead screws."
+                ],
+                correct: 1,
+                exp_es: "Es obligatorio llevar gafas de protección siempre que se operen máquinas o herramientas que proyecten virutas, polvo o esquirlas (taladro, lijadora, etc.).",
+                exp_en: "Safety goggles are mandatory whenever operating power equipment or tools that throw off dust, chips, or particles (drills, sanders, saws)."
+            },
+            {
+                id: 23,
+                q_es: "Respecto a la indumentaria y seguridad personal, ¿qué norma de seguridad es INCORRECTA?",
+                q_en: "Regarding attire and personal safety, which statement is INCORRECT?",
+                options_es: [
+                    "Se debe llevar el pelo largo siempre recogido con una goma.",
+                    "Se deben evitar bufandas, colgantes o mangas anchas.",
+                    "Está permitido llevar bufandas largas cerca de máquinas giratorias siempre que sean de algodón.",
+                    "Hay que realizar una inspección visual de las herramientas antes de usarlas."
+                ],
+                options_en: [
+                    "Long hair must always be tied back with an elastic band.",
+                    "Scarves, dangling neckwear, or wide sleeves must be avoided.",
+                    "Wearing long scarves near rotating machinery is allowed provided they are cotton.",
+                    "Visual inspection of tools must occur before operation."
+                ],
+                correct: 2,
+                exp_es: "Está estrictamente PROHIBIDO llevar prendas holgadas, bufandas o colgantes cerca de maquinaria giratoria para evitar riesgos de enganche y atrapamiento.",
+                exp_en: "Wearing loose items or scarves around spinning machinery is strictly forbidden due to severe entanglement hazards."
+            },
+            {
+                id: 24,
+                q_es: "¿Qué se debe hacer SIEMPRE antes de cambiar una broca en el taladro o una hoja en la sierra eléctrica?",
+                q_en: "What MUST always be done prior to replacing a drill bit or a jigsaw blade?",
+                options_es: [
+                    "Encender la máquina a la máxima velocidad.",
+                    "Desenchufar la máquina de la red eléctrica (o desconectar la batería).",
+                    "Aplicar aceite lubricante sobre la broca en marcha.",
+                    "Sostener la broca con la mano desnuda mientras se pulsa el gatillo."
+                ],
+                options_en: [
+                    "Turn on the tool at maximum speed.",
+                    "Unplug the machine from the electrical mains (or remove its battery).",
+                    "Apply lubricating oil to the bit while running.",
+                    "Hold the bit with bare hands while pulling the trigger."
+                ],
+                correct: 1,
+                exp_es: "Para cambiar accesorios de corte en herramientas eléctricas, la máquina DEBE estar totalmente desenchufada para evitar arranques accidentales.",
+                exp_en: "Before swapping blades or bits on power machinery, the unit MUST be disconnected from power outlets to avoid accidental startup."
+            },
+            {
+                id: 25,
+                q_es: "¿Cuál es la última norma de seguridad e higiene personal que se debe cumplir obligatoriamente al finalizar la clase de taller?",
+                q_en: "What is the final personal hygiene rule that must strictly be followed at the conclusion of every workshop class?",
+                options_es: [
+                    "Guardar las virutas de madera en la mochila escolar.",
+                    "Lavarse detenidamente las manos con agua y jabón para retirar restos de polvo, aceites o resinas.",
+                    "Dejar las máquinas eléctricas encendidas para el grupo siguiente.",
+                    "Limpiar las gafas de seguridad con disolvente inflamable."
+                ],
+                options_en: [
+                    "Store wood shavings inside school backpacks.",
+                    "Thoroughly wash hands with soap and water to remove dust, chemical oils, or resins.",
+                    "Leave power machines plugged in and running for the next class.",
+                    "Clean safety goggles with flammable solvents."
+                ],
+                correct: 1,
+                exp_es: "Al terminar el trabajo en el taller, es imprescindible lavarse las manos con agua y jabón para eliminar suciedad, resinas y residuos químicos adheridos.",
+                exp_en: "Upon finishing workshop activities, students must thoroughly wash their hands with soap and water to remove dust, resins, and oil residues."
+            }
+        ];
+
+        // State variables
+        let currentLang = 'es';
+        let userAnswers = new Array(quizData.length).fill(null);
+        let currentFontSizePx = 16;
+
+        // UI Translation dictionary
+        const translations = {
+            es: {
+                navProgress: "Progreso:",
+                heroBadge: "Test de Repaso Evaluativo",
+                heroTitlePart1: "Cuestionario:",
+                heroTitlePart2: "Herramientas del Taller",
+                heroDesc: "Comprueba tus conocimientos acumulados sobre las 25 preguntas clave relativas a familias de herramientas, métrica, corte, sujeción, fabricación digital y normas de seguridad en el taller (SdA 2 - 2º ESO).",
+                scoreBoxTitle: "Puntuación Real",
+                gradeInitial: "Nota: 0.0 / 10",
+                statusResponded: "Respondidas:",
+                statusCorrect: "Aciertos:",
+                btnFinish: "Ver Resultados",
+                qTitlePrefix: "Pregunta",
+                btnExplainCorrect: "¡CORRECTO!",
+                btnExplainIncorrect: "INCORRECTO",
+                resPanelTitle: "Resultado Final de la Evaluación",
+                resPanelDesc: "Resumen del rendimiento obtenido en el test interactivo de la Unidad Didáctica 2.",
+                resScoreLabel: "Aciertos",
+                resMarkLabel: "Nota Final",
+                resPercentLabel: "Porcentaje",
+                btnRestart: "Reiniciar Test",
+                btnBackUnit: "Volver al Tema (SdA 2)",
+                backHomeBtn: "Volver a la Teoría de la Unidad",
+                badgeExcelent: "🌟 ¡Excelente Trabajo! Dominas perfectamente las herramientas del taller y las normas de seguridad.",
+                badgeGood: "👍 ¡Muy Buen Resultado! Tienes un gran conocimiento de la unidad didáctica.",
+                badgeRegular: "⚠️ Aprobado Justo. Te recomendamos repasar las familias de herramientas y seguridad.",
+                badgeFail: "❌ Necesitas Repasar el Tema. Revisa la lección interactiva e inténtalo de nuevo."
+            },
+            en: {
+                navProgress: "Progress:",
+                heroBadge: "Review Quiz Assessment",
+                heroTitlePart1: "Quiz:",
+                heroTitlePart2: "Workshop Tools",
+                heroDesc: "Test your knowledge on 25 key questions covering tool families, measuring, cutting, clamping, digital fabrication, and workshop safety rules (Unit 2 - 2nd ESO).",
+                scoreBoxTitle: "Current Score",
+                gradeInitial: "Mark: 0.0 / 10",
+                statusResponded: "Answered:",
+                statusCorrect: "Correct:",
+                btnFinish: "View Results",
+                qTitlePrefix: "Question",
+                btnExplainCorrect: "CORRECT!",
+                btnExplainIncorrect: "INCORRECT",
+                resPanelTitle: "Final Evaluation Results",
+                resPanelDesc: "Performance summary for Unit 2 Workshop Tools interactive quiz.",
+                resScoreLabel: "Correct Answers",
+                resMarkLabel: "Final Mark",
+                resPercentLabel: "Percentage",
+                btnRestart: "Restart Quiz",
+                btnBackUnit: "Back to Topic (Unit 2)",
+                backHomeBtn: "Back to Unit Theory",
+                badgeExcelent: "🌟 Excellent Work! You have mastered workshop tools and safety rules thoroughly.",
+                badgeGood: "👍 Very Good Job! You hold a strong command over the unit topics.",
+                badgeRegular: "⚠️ Barely Passed. We advise reviewing tool families and safety guidelines.",
+                badgeFail: "❌ Needs Review. Please study the theory document and try again."
+            }
+        };
+
+        // Render Questions
+        function renderQuestions() {
+            const container = document.getElementById('questionsContainer');
+            container.innerHTML = '';
+
+            const optionLetters = ['A', 'B', 'C', 'D'];
+
+            quizData.forEach((q, idx) => {
+                const questionCard = document.createElement('div');
+                questionCard.id = `q-card-${idx}`;
+                questionCard.className = "bg-white content-card p-6 sm:p-8 shadow-xl border border-slate-200/80 transition-all";
+
+                const isAnswered = userAnswers[idx] !== null;
+                const selectedOpt = userAnswers[idx];
+                const isCorrect = selectedOpt === q.correct;
+
+                const questionText = currentLang === 'es' ? q.q_es : q.q_en;
+                const optionsList = currentLang === 'es' ? q.options_es : q.options_en;
+                const expText = currentLang === 'es' ? q.exp_es : q.exp_en;
+
+                let headerBadge = '';
+                if (isAnswered) {
+                    if (isCorrect) {
+                        headerBadge = `<span class="bg-emerald-100 text-emerald-800 text-xs font-black px-3 py-1 rounded-full flex items-center gap-1"><i data-lucide="check" class="w-3.5 h-3.5"></i> ${translations[currentLang].btnExplainCorrect}</span>`;
+                    } else {
+                        headerBadge = `<span class="bg-rose-100 text-rose-800 text-xs font-black px-3 py-1 rounded-full flex items-center gap-1"><i data-lucide="x" class="w-3.5 h-3.5"></i> ${translations[currentLang].btnExplainIncorrect}</span>`;
+                    }
+                }
+
+                let optionsHTML = '<div class="grid grid-cols-1 gap-3 mb-4">';
+                optionsList.forEach((optText, optIdx) => {
+                    let btnStyle = "bg-slate-50 border-slate-200 text-slate-700";
+                    let iconHTML = `<span class="w-7 h-7 rounded-lg bg-slate-200 text-slate-700 font-black text-xs flex items-center justify-center shrink-0">${optionLetters[optIdx]}</span>`;
+
+                    if (isAnswered) {
+                        if (optIdx === q.correct) {
+                            btnStyle = "bg-emerald-50 border-emerald-500 text-emerald-950 font-bold ring-2 ring-emerald-400";
+                            iconHTML = `<span class="w-7 h-7 rounded-lg bg-emerald-600 text-white font-black text-xs flex items-center justify-center shrink-0">✓</span>`;
+                        } else if (optIdx === selectedOpt && !isCorrect) {
+                            btnStyle = "bg-rose-50 border-rose-500 text-rose-950 font-bold ring-2 ring-rose-400";
+                            iconHTML = `<span class="w-7 h-7 rounded-lg bg-rose-600 text-white font-black text-xs flex items-center justify-center shrink-0">✕</span>`;
+                        } else {
+                            btnStyle = "bg-slate-50/50 border-slate-200/50 text-slate-400 opacity-60";
+                        }
+                    }
+
+                    optionsHTML += `
+                        <button onclick="selectOption(${idx}, ${optIdx})" ${isAnswered ? 'disabled' : ''} class="opt-btn w-full text-left p-4 rounded-2xl border text-xs sm:text-sm flex items-center gap-3 ${btnStyle}">
+                            ${iconHTML}
+                            <span class="flex-1">${optText}</span>
+                        </button>
+                    `;
+                });
+                optionsHTML += '</div>';
+
+                let feedbackBanner = '';
+                if (isAnswered) {
+                    const bannerBg = isCorrect ? 'bg-emerald-50 border-emerald-200 text-emerald-950' : 'bg-rose-50 border-rose-200 text-rose-950';
+                    const bannerTitle = isCorrect ? translations[currentLang].btnExplainCorrect : translations[currentLang].btnExplainIncorrect;
+                    const bannerIcon = isCorrect ? 'check-circle-2' : 'alert-circle';
+                    const bannerIconColor = isCorrect ? 'text-emerald-600' : 'text-rose-600';
+
+                    feedbackBanner = `
+                        <div class="p-4 rounded-2xl border ${bannerBg} text-xs leading-relaxed space-y-1">
+                            <div class="flex items-center gap-2 font-black uppercase tracking-wider text-[11px] ${bannerIconColor}">
+                                <i data-lucide="${bannerIcon}" class="w-4 h-4"></i>
+                                <span>${bannerTitle}</span>
+                            </div>
+                            <p class="font-medium pt-1">${expText}</p>
+                        </div>
+                    `;
+                }
+
+                questionCard.innerHTML = `
+                    <div class="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-slate-100">
+                        <div class="flex items-center gap-2">
+                            <span class="w-8 h-8 rounded-xl bg-indigo-50 text-indigo-600 font-black text-xs flex items-center justify-center border border-indigo-100">${q.id}</span>
+                            <span class="text-xs font-black uppercase tracking-widest text-slate-400">${translations[currentLang].qTitlePrefix} ${q.id} / 25</span>
+                        </div>
+                        ${headerBadge}
+                    </div>
+
+                    <h3 class="text-base sm:text-lg font-extrabold text-slate-900 mb-5 leading-snug">${questionText}</h3>
+                    
+                    ${optionsHTML}
+                    ${feedbackBanner}
+                `;
+
+                container.appendChild(questionCard);
+            });
+
+            lucide.createIcons();
+            updateStats();
+        }
+
+        // Option selection handler
+        function selectOption(qIndex, optionIndex) {
+            if (userAnswers[qIndex] !== null) return;
+            userAnswers[qIndex] = optionIndex;
+            renderQuestions();
+        }
+
+        // Update score counters & top progress bar
+        function updateStats() {
+            let answeredCount = 0;
+            let correctCount = 0;
+
+            userAnswers.forEach((ans, idx) => {
+                if (ans !== null) {
+                    answeredCount++;
+                    if (ans === quizData[idx].correct) {
+                        correctCount++;
+                    }
+                }
+            });
+
+            // Update DOM text
+            document.getElementById('navProgressText').textContent = `${answeredCount} / 25`;
+            document.getElementById('statusRespondedCount').textContent = `${answeredCount} / 25`;
+            document.getElementById('statusCorrectCount').textContent = `${correctCount}`;
+            document.getElementById('scoreCounter').textContent = `${correctCount}`;
+
+            const mark10 = ((correctCount / 25) * 10).toFixed(1);
+            document.getElementById('scoreGradeText').textContent = `Nota: ${mark10} / 10`;
+
+            const percent = Math.round((answeredCount / 25) * 100);
+            document.getElementById('progressBar').style.width = `${percent}%`;
+
+            // Auto reveal results if all questions answered
+            if (answeredCount === 25) {
+                showResultsPanel();
+            }
+        }
+
+        // Show final performance summary panel
+        function showResultsPanel() {
+            let correctCount = 0;
+            userAnswers.forEach((ans, idx) => {
+                if (ans === quizData[idx].correct) correctCount++;
+            });
+
+            const mark10 = ((correctCount / 25) * 10).toFixed(1);
+            const percent = Math.round((correctCount / 25) * 100);
+
+            document.getElementById('finalCorrectRatio').textContent = `${correctCount} / 25`;
+            document.getElementById('finalMark10').textContent = `${mark10} / 10`;
+            document.getElementById('finalPercent').textContent = `${percent}%`;
+
+            const badgeEl = document.getElementById('performanceBadge');
+            if (correctCount >= 23) {
+                badgeEl.className = "p-4 rounded-2xl mb-8 font-bold text-xs sm:text-sm bg-emerald-50 border-emerald-200 text-emerald-900 border";
+                badgeEl.textContent = translations[currentLang].badgeExcelent;
+            } else if (correctCount >= 18) {
+                badgeEl.className = "p-4 rounded-2xl mb-8 font-bold text-xs sm:text-sm bg-blue-50 border-blue-200 text-blue-900 border";
+                badgeEl.textContent = translations[currentLang].badgeGood;
+            } else if (correctCount >= 13) {
+                badgeEl.className = "p-4 rounded-2xl mb-8 font-bold text-xs sm:text-sm bg-amber-50 border-amber-200 text-amber-900 border";
+                badgeEl.textContent = translations[currentLang].badgeRegular;
+            } else {
+                badgeEl.className = "p-4 rounded-2xl mb-8 font-bold text-xs sm:text-sm bg-rose-50 border-rose-200 text-rose-900 border";
+                badgeEl.textContent = translations[currentLang].badgeFail;
+            }
+
+            document.getElementById('resultsCard').classList.remove('hidden');
+        }
+
+        function scrollToResults() {
+            showResultsPanel();
+            document.getElementById('resultsCard').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function restartQuiz() {
+            userAnswers = new Array(quizData.length).fill(null);
+            document.getElementById('resultsCard').classList.add('hidden');
+            renderQuestions();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Bilingual Toggle System
+        function toggleLanguage() {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            
+            const langLabel = document.getElementById('currentLangLabel');
+            if (currentLang === 'es') {
+                langLabel.innerHTML = 'ES / <strong class="font-black">EN</strong>';
+            } else {
+                langLabel.innerHTML = '<strong class="font-black">ES</strong> / EN';
+            }
+
+            document.documentElement.lang = currentLang;
+
+            // Translate Static UI elements
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    el.textContent = translations[currentLang][key];
+                }
+            });
+
+            // Re-render questions with new language
+            renderQuestions();
+        }
+
+        // Font Size Adjuster
+        function changeFontSize(delta) {
+            currentFontSizePx = Math.max(12, Math.min(22, currentFontSizePx + delta));
+            document.documentElement.style.fontSize = currentFontSizePx + 'px';
+        }
+
+        function resetFontSize() {
+            currentFontSizePx = 16;
+            document.documentElement.style.fontSize = '16px';
+        }
+
+        // Initialize quiz on window load
+        window.onload = function() {
+            renderQuestions();
+        };
+    </script>
+</body>
+</html>
