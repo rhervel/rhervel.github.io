@@ -10,13 +10,14 @@
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    
-    <!-- MathJax for rendering LaTeX formulas -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
+    <!-- KaTeX CDN para fórmulas matemáticas -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
     <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 fill=%22currentColor%22 class=%22bi bi-robot%22 viewBox=%220 0 16 16%22><path d=%22M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5ZM3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.58 26.58 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.933.933 0 0 1-.765.935c-.845.147-2.34.346-4.235.346-1.895 0-3.39-.2-4.235-.346A.933.933 0 0 1 3 9.219V8.062Zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a24.767 24.767 0 0 1-1.871-.183.25.25 0 0 0-.217.068l-.92.9a.25.25 0 0 0 .169.434l.92-.9a25.25 25.25 0 0 0 1.942.183.25.25 0 0 0 .217-.068l.92-.9a.25.25 0 0 0-.17-.434l-.92.9a24.767 24.767 0 0 1-1.871-.183Z%22/><path d=%22M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1.5a2.5 2.5 0 0 0 2.5 2.5h9A2.5 2.5 0 0 0 15 13.5V12a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2V1.866ZM14 7.5V12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5Z%22/></svg>" type="image/svg+xml">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 fill=%22currentColor%22 class=%22bi bi-pencil-ruler%22 viewBox=%220 0 16 16%22><path d=%22M12 0a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h8zM3 1.683V13.5a.5.5 0 0 0 .5.5h.5V1.5h-.5a.5.5 0 0 0-.5.183zM5 1.5v13h6a.5.5 0 0 0 .5-.5V2a.5.5 0 0 0-.5-.5H5z%22/></svg>" type="image/svg+xml">
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
@@ -28,17 +29,17 @@
                 linear-gradient(#f1f5f9 1px, transparent 1px),
                 linear-gradient(90deg, #f1f5f9 1px, transparent 1px);
             background-size: 40px 40px;
-        
+        }
 
         .nav-glass {
             background: rgba(252, 252, 253, 0.92);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(226, 232, 240, 0.8);
-        
+        }
 
         .content-card {
             border-radius: 2.5rem;
-        
+        }
     </style>
 </head>
 <body class="text-slate-800 antialiased leading-relaxed">
@@ -52,10 +53,9 @@
             </a>
 
             <div class="hidden lg:flex items-center gap-1.5 bg-slate-100/80 p-1 rounded-full border border-slate-200 text-xs font-bold">
-                <a href="#bloque1" data-i18n="navBlock1" class="px-3 py-1 rounded-full text-slate-600 hover:text-indigo-600 hover:bg-white transition-all">1. Útiles y Escalas</a>
-                <a href="#bloque2" data-i18n="navBlock2" class="px-3 py-1 rounded-full text-slate-600 hover:text-indigo-600 hover:bg-white transition-all">2. Sistema Diédrico</a>
-                <a href="#bloque3" data-i18n="navBlock3" class="px-3 py-1 rounded-full text-slate-600 hover:text-indigo-600 hover:bg-white transition-all">3. Vistas y Acotación</a>
-                <a href="#bloque4" data-i18n="navBlock4" class="px-3 py-1 rounded-full text-slate-600 hover:text-indigo-600 hover:bg-white transition-all">4. Perspectivas</a>
+                <a href="#bloque1" data-i18n="navBlock1" class="px-3 py-1 rounded-full text-slate-600 hover:text-indigo-600 hover:bg-white transition-all">1. Fundamentos y Materiales</a>
+                <a href="#bloque2" data-i18n="navBlock2" class="px-3 py-1 rounded-full text-slate-600 hover:text-indigo-600 hover:bg-white transition-all">2. Escalas y Diédrico</a>
+                <a href="#bloque3" data-i18n="navBlock3" class="px-3 py-1 rounded-full text-slate-600 hover:text-indigo-600 hover:bg-white transition-all">3. Perspectivas y CAD</a>
                 <a href="#recursos" data-i18n="navResources" class="px-3 py-1 rounded-full bg-indigo-600 text-white hover:bg-indigo-700 transition-all shadow-xs">Recursos</a>
             </div>
             
@@ -93,16 +93,16 @@
                         <i data-lucide="pen-tool" class="w-4 h-4"></i> <span data-i18n="unitSubhead">Unidad Didáctica 3 // SdA 3</span>
                     </div>
                     <h1 class="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter mb-4 uppercase">
-                        <span data-i18n="heroTitlePart1">UD3. Expresión Gráfica y</span> <span class="text-blue-600" data-i18n="heroTitlePart2">Sistemas de Representación</span>
+                        <span data-i18n="heroTitlePart1">UD2. EXPRESIÓN GRÁFICA Y</span> <span class="text-blue-600" data-i18n="heroTitlePart2">SISTEMAS DE REPRESENTACIÓN</span>
                     </h1>
                     <p class="text-slate-500 text-base md:text-lg leading-relaxed font-medium" data-i18n="heroDesc">
-                        En Tecnología y Digitalización es imprescindible saber transmitir nuestras ideas mediante el lenguaje gráfico universal. A través de esta unidad aprenderás el uso de herramientas de trazado, escalas, la proyección diédrica de vistas, acotación normalizada y representación de piezas en perspectiva 3D.
+                        La Expresión Gráfica es el lenguaje universal de la Tecnología. A lo largo de esta unidad aprenderemos a comunicar ideas de forma clara, rigurosa y normalizada: desde los primeros bocetos a mano alzada hasta la representación en 3D (perspectivas e isométrica), pasando por las vistas diédricas normalizadas y el modelado 3D mediante software CAD.
                     </p>
                 </div>
                 
                 <div class="rounded-[2.5rem] p-6 text-center min-w-[180px] shadow-xl text-white self-start md:self-auto" style="background: linear-gradient(135deg, #1d4ed8 0%, #312e81 100%);">
                     <div class="text-4xl font-black tracking-tighter">SdA 3</div>
-                    <div class="text-[9px] uppercase tracking-[0.2em] font-black text-blue-200 mt-1" data-i18n="subjectLabel">TECNOLOGÍA Y DIGITALIZACIÓN 2º ESO</div>
+                    <div class="text-[9px] uppercase tracking-[0.2em] font-black text-blue-200 mt-1" data-i18n="subjectLabel">TECNOLOGÍA</div>
                 </div>
             </div>
         </div>
@@ -113,342 +113,433 @@
         
         <div class="space-y-16">
 
-            <!-- BLOQUE 1: LOS ÚTILES DE DIBUJO Y LA ESCALA BÁSICA -->
+            <!-- BLOQUE 1: FUNDAMENTOS, PROCESO Y MATERIALES -->
             <div id="bloque1" class="scroll-mt-24">
                 
                 <section class="bg-white content-card p-6 sm:p-10 shadow-xl border border-slate-200/80">
                     
                     <div class="flex items-center gap-3 mb-6">
                         <span class="flex items-center justify-center w-10 h-10 rounded-2xl bg-indigo-50 text-indigo-600 font-black text-lg border border-indigo-100">1</span>
-                        <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight" data-i18n="b1Title">LOS ÚTILES DE DIBUJO Y LA ESCALA BÁSICA</h2>
+                        <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight" data-i18n="b1Title">FUNDAMENTOS, PROCESO DE DISEÑO Y MATERIALES</h2>
                     </div>
 
-                    <div class="mb-8 font-medium text-sm text-slate-600 space-y-4">
-                        <p data-i18n="b1Intro">Para expresarnos gráficamente en Tecnología necesitamos precisión y limpieza. El uso correcto de las herramientas marca la diferencia entre un garabato y un plano técnico.</p>
-                    </div>
+                    <!-- 1. INTRODUCCIÓN -->
+                    <div class="mb-10">
+                        <h3 class="text-base font-bold text-indigo-600 mb-3 border-l-4 border-indigo-600 pl-3" data-i18n="sec1Title">1. Introducción: El Dibujo como Lenguaje Universal ✏️</h3>
+                        <p class="text-slate-600 mb-4 text-sm font-medium" data-i18n="sec1Desc">
+                            Desde los orígenes de la humanidad, el ser humano ha utilizado imágenes para comunicarse. Antes de la invención de la escritura, las pinturas rupestres permitían transmitir historias, cazas e instrucciones. En el ámbito técnico y tecnológico, la expresión gráfica se divide en dos grandes ramas con objetivos claramente diferenciados:
+                        </p>
 
-                    <!-- 1.1. Materiales de dibujo -->
-                    <div class="mb-8">
-                        <h3 class="text-base font-bold text-indigo-600 mb-3 border-l-4 border-indigo-600 pl-3" data-i18n="sec11Title">1.1. Materiales de dibujo</h3>
-                        
-                        <div class="space-y-4 text-sm font-medium">
-                            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60">
-                                <strong class="text-slate-900 font-bold block mb-2" data-i18n="matPencilTitle">El lápiz y las minas:</strong>
-                                <p class="text-slate-600 mb-2" data-i18n="matPencilDesc">La mina está hecha de una mezcla de grafito (la mina negra) y arcilla. Según su dureza, los lápices se dividen en tres clases:</p>
-                                <ul class="list-disc pl-5 space-y-1.5 text-slate-600">
-                                    <li><strong class="text-slate-900 font-bold" data-i18n="pencilH">H (Hard / Duros):</strong> <span data-i18n="pencilHDesc">Dejan un trazo muy fino y claro. Los usamos para líneas auxiliares, bocetos iniciales y líneas que luego borraremos.</span></li>
-                                    <li><strong class="text-slate-900 font-bold" data-i18n="pencilHB">HB (Medium / Medio):</strong> <span data-i18n="pencilHBDesc">Es el lápiz común para escribir y hacer los primeros trazos de un dibujo.</span></li>
-                                    <li><strong class="text-slate-900 font-bold" data-i18n="pencilB">B (Soft / Blandos):</strong> <span data-i18n="pencilBDesc">Dejan un trazo muy oscuro y grueso. Se usan solo al final para repasar y remarcar el dibujo definitivo.</span></li>
-                                </ul>
-                            </div>
+                        <div class="overflow-x-auto mb-6 rounded-2xl border border-slate-200">
+                            <table class="w-full text-left border-collapse text-sm">
+                                <thead>
+                                    <tr class="bg-slate-100 border-b border-slate-200 text-slate-800 font-bold">
+                                        <th class="p-3" data-i18n="thCrit">Criterio</th>
+                                        <th class="p-3" data-i18n="thArt">Dibujo Artístico 🎨</th>
+                                        <th class="p-3" data-i18n="thTechDraw">Dibujo Técnico 📐</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-200 font-medium text-slate-600">
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="p-3 font-bold text-slate-900" data-i18n="row1_crit">Objetivo</td>
+                                        <td class="p-3" data-i18n="row1_art">Expresar emociones, sentimientos o belleza estética.</td>
+                                        <td class="p-3" data-i18n="row1_tech">Describir un objeto de forma exacta para su posterior fabricación.</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="p-3 font-bold text-slate-900" data-i18n="row2_crit">Normas</td>
+                                        <td class="p-3" data-i18n="row2_art">Libre, basado en la creatividad del autor.</td>
+                                        <td class="p-3" data-i18n="row2_tech">Sigue normas internacionales estrictas (Normas ISO / UNE).</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="p-3 font-bold text-slate-900" data-i18n="row3_crit">Resultado</td>
+                                        <td class="p-3" data-i18n="row3_art"><strong>Subjetivo:</strong> cada espectador puede interpretarlo de forma distinta.</td>
+                                        <td class="p-3" data-i18n="row3_tech"><strong>Objetivo:</strong> solo admite una interpretación exacta sin ambigüedades.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
-                            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60">
-                                <strong class="text-slate-900 font-bold block mb-1" data-i18n="matEraserTitle">La goma de borrar:</strong>
-                                <p class="text-slate-600" data-i18n="matEraserDesc">Sirve para eliminar trazos no deseados. Debe estar siempre limpia para no emborronar la lámina.</p>
-                            </div>
-
-                            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60">
-                                <strong class="text-slate-900 font-bold block mb-2" data-i18n="matPaperTitle">El papel y sus tamaños (Norma ISO):</strong>
-                                <p class="text-slate-600 mb-2" data-i18n="matPaperDesc1">El tamaño estándar básico es el A0 (que mide 1 m2).</p>
-                                <p class="text-slate-600" data-i18n="matPaperDesc2">Si doblamos un A0 por la mitad, obtenemos un A1; si doblamos un A1, un A2; si doblamos este, un A3, y si doblamos el A3 por la mitad obtenemos la hoja estándar que usamos en clase: el A4 (210 * 297 mm).</p>
-                            </div>
+                        <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-2xl text-amber-950 text-sm font-medium">
+                            <p><strong class="font-bold text-amber-900" data-i18n="summaryLabel">En resumen:</strong> <span data-i18n="summaryText">Mientras el dibujo artístico habla el idioma de las emociones, el dibujo técnico habla el idioma de la precisión. Si dos ingenieros en distintos países leen el mismo plano técnico, construirán exactamente la misma pieza.</span></p>
                         </div>
                     </div>
 
-                    <div class="mb-8 border border-dashed border-slate-300 rounded-2xl p-4 text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden" onclick="abrirImagen(this.querySelector('img').src)">
-                        <img src="assets/img/sda3-1.png" alt="Formatos A Series ISO 216" class="w-full h-auto max-h-96 object-contain rounded-xl shadow-sm mx-auto" />
-                        <span class="text-xs text-slate-500 font-bold mt-2 block" data-i18n="img1Caption">Formatos y tamaños de papel según la norma ISO 216 (Serie A)</span>
-                    </div>
+                    <!-- 2. PROCESO DE DISEÑO TÉCNICO -->
+                    <div class="mb-10">
+                        <h3 class="text-base font-bold text-indigo-600 mb-3 border-l-4 border-indigo-600 pl-3" data-i18n="sec2Title">2. El Proceso de Diseño Técnico: Del Problema a la Solución 🛠️</h3>
+                        <p class="text-slate-600 mb-4 text-sm font-medium" data-i18n="sec2Desc">
+                            Cuando diseñamos un objeto en Tecnología, no pasamos directamente de la idea a la fabricación final. Seguimos un proceso secuencial de tres fases gráficas fundamentales:
+                        </p>
 
-                    <!-- 1.2. Herramientas de trazado y medida -->
-                    <div class="mb-8">
-                        <h3 class="text-base font-bold text-indigo-600 mb-3 border-l-4 border-indigo-600 pl-3" data-i18n="sec12Title">1.2. Herramientas de trazado y medida</h3>
-                        
-                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm font-medium mb-4">
-                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold" data-i18n="tool1_title">Regla graduada:</strong> <span class="text-slate-600" data-i18n="tool1_desc">Mide en centímetros y milímetros. Sirve para medir distancias, no para trazar líneas largas (para eso se usan la escuadra y el cartabón).</span></li>
-                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold" data-i18n="tool2_title">Transportador de ángulos:</strong> <span class="text-slate-600" data-i18n="tool2_desc">Es un semicírculo con grados (0º a 180º) que sirve para medir o construir ángulos.</span></li>
-                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60 md:col-span-2">
-                                <strong class="text-slate-900 font-bold block mb-1" data-i18n="tool3_title">Juego de escuadra y cartabón:</strong>
-                                <ul class="list-disc pl-5 space-y-1 text-slate-600 mt-1">
-                                    <li><strong class="text-slate-900 font-bold" data-i18n="tool3_sq">Escuadra:</strong> <span data-i18n="tool3_sq_desc">Tiene forma de triángulo rectángulo isósceles (90º, 45º, 45º). Tiene dos lados iguales.</span></li>
-                                    <li><strong class="text-slate-900 font-bold" data-i18n="tool3_cart">Cartabón:</strong> <span data-i18n="tool3_cart_desc">Tiene forma de triángulo rectángulo escaleno (90º, 60º, 30º). Sus tres lados son diferentes y su lado más largo (hipotenusa) mide el doble que su lado corto.</span></li>
-                                </ul>
-                            </li>
-                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60 md:col-span-2"><strong class="text-slate-900 font-bold" data-i18n="tool4_title">Compás:</strong> <span class="text-slate-600" data-i18n="tool4_desc">Sirve para trazar circunferencias y arcos. Consta de dos patas: una con pincho de metal y otra con la mina de lápiz.</span></li>
-                        </ul>
-
-                        <div class="bg-indigo-50/70 border border-indigo-200 p-4 rounded-2xl text-xs text-indigo-950 space-y-2 mb-4">
-                            <h4 class="font-bold text-indigo-900 uppercase tracking-wider text-xs" data-i18n="traceGuideTitle">¿Cómo trazar paralelas y perpendiculares?</h4>
-                            <ul class="space-y-1.5 font-medium">
-                                <li><strong class="font-bold text-indigo-900" data-i18n="traceParTitle">Paralelas:</strong> <span data-i18n="traceParDesc">Se apoya la escuadra sobre la hipotenusa del cartabón (que se queda fijo como una vía de tren). Al deslizar la escuadra arriba o abajo, trazamos líneas totalmente paralelas.</span></li>
-                                <li><strong class="font-bold text-indigo-900" data-i18n="tracePerpTitle">Perpendiculares:</strong> <span data-i18n="tracePerpDesc">Se coloca la posición inicial de paralelas, se fija el cartabón y se gira la escuadra 90º apoyando su otro lado recto sobre el cartabón.</span></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- 1.3. Fases para dibujar una idea -->
-                    <div class="mb-8">
-                        <h3 class="text-base font-bold text-indigo-600 mb-3 border-l-4 border-indigo-600 pl-3" data-i18n="sec13Title">1.3. Fases para dibujar una idea</h3>
-                        <p class="text-slate-600 mb-4 text-sm font-medium" data-i18n="sec13Desc">Cuando diseñamos un objeto en Tecnología, seguimos tres pasos obligatorios:</p>
-
-                        <ol class="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm font-medium">
-                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60">
-                                <span class="w-6 h-6 rounded-full bg-indigo-600 text-white font-black text-xs inline-flex items-center justify-center mb-2">1</span>
-                                <strong class="text-slate-900 font-bold block" data-i18n="step1Title">Apunte o Boceto (Outline):</strong>
-                                <span class="text-slate-600" data-i18n="step1Desc">Es un dibujo rápido a mano alzada de la idea que tenemos en la cabeza. No lleva medidas exactas ni muchos detalles.</span>
-                            </li>
-                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60">
-                                <span class="w-6 h-6 rounded-full bg-indigo-600 text-white font-black text-xs inline-flex items-center justify-center mb-2">2</span>
-                                <strong class="text-slate-900 font-bold block" data-i18n="step2Title">Croquis (Sketch):</strong>
-                                <span class="text-slate-600" data-i18n="step2Desc">Es un dibujo hecho a mano alzada pero mucho más detallado. Incluye todas las medidas reales, los materiales y cómo se montan las piezas.</span>
-                            </li>
-                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60">
-                                <span class="w-6 h-6 rounded-full bg-indigo-600 text-white font-black text-xs inline-flex items-center justify-center mb-2">3</span>
-                                <strong class="text-slate-900 font-bold block" data-i18n="step3Title">Plano (Plan):</strong>
-                                <span class="text-slate-600" data-i18n="step3Desc">Es el dibujo definitivo hecho con regla, escuadra y compás (o por ordenador). Es superpreciso y a escala. En la parte inferior lleva un cajetín de rotulación con el nombre del dibujo, el autor, la fecha y la escala usada.</span>
-                            </li>
-                        </ol>
-                    </div>
-
-                    <!-- 1.4. ¿Qué es la Escala? -->
-                    <div>
-                        <h3 class="text-base font-bold text-indigo-600 mb-3 border-l-4 border-indigo-600 pl-3" data-i18n="sec14Title">1.4. ¿Qué es la Escala?</h3>
-                        <p class="text-slate-600 mb-4 text-sm font-medium" data-i18n="sec14Desc">A veces las cosas que queremos dibujar son muy grandes (un coche, una casa) o muy pequeñas (un tornillo, un chip). La escala es la relación que existe entre el tamaño del dibujo en el papel y el tamaño real del objeto en la vida real:</p>
-
-                        <div class="bg-indigo-50/80 border border-indigo-200 p-4 rounded-2xl text-center mb-6 max-w-md mx-auto">
-                            <p class="text-sm font-bold text-indigo-950 mb-1" data-i18n="scaleFormulaLabel">Fórmula general de la escala:</p>
-                            <div class="text-lg font-black text-indigo-700 my-2">
-                                Escala = Medida en el papel / Medida en la realidad
-                            </div>
+                        <div class="bg-slate-900 text-slate-100 p-4 rounded-2xl text-xs sm:text-sm font-mono text-center mb-6 overflow-x-auto shadow-md">
+                            [ IDEA EN LA CABEZA ] ➔ 1. Boceto ➔ 2. Croquis ➔ 3. Plano Definitivo ➔ [ PRODUCTO REAL ]
                         </div>
 
-                        <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wider mb-3" data-i18n="scaleTypesTitle">Los 3 tipos de escala:</h4>
-                        <ul class="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm font-medium">
-                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60">
-                                <strong class="text-slate-900 font-bold block text-base mb-1" data-i18n="scaleNatTitle">1. Escala Natural (1:1):</strong>
-                                <span class="text-slate-600" data-i18n="scaleNatDesc">El objeto se dibuja exactamente con el mismo tamaño que tiene en la realidad. (Ejemplo: una borradora de clase).</span>
+                        <ul class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm font-medium">
+                            <li class="bg-slate-50 p-5 rounded-2xl border border-slate-200/60 shadow-xs">
+                                <span class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 font-bold inline-flex items-center justify-center mb-3">1</span>
+                                <h4 class="text-slate-900 font-bold mb-1" data-i18n="phase1Title">1. Boceto (Draft):</h4>
+                                <p class="text-slate-600 text-xs leading-relaxed" data-i18n="phase1Desc">Dibujo rápido a mano alzada, poco detallado. Sirve para plasmar las primeras ideas de forma ágil sin preocuparse por las medidas exactas.</p>
                             </li>
-                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60">
-                                <strong class="text-slate-900 font-bold block text-base mb-1" data-i18n="scaleRedTitle">2. Escala de Reducción (1:2, 1:5, 1:100):</strong>
-                                <span class="text-slate-600" data-i18n="scaleRedDesc">El dibujo es más pequeño que el objeto real. Escala 1:2 significa que 1 cm en el dibujo equivale a 2 cm en la realidad (hemos reducido la pieza a la mitad).</span>
+                            <li class="bg-slate-50 p-5 rounded-2xl border border-slate-200/60 shadow-xs">
+                                <span class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 font-bold inline-flex items-center justify-center mb-3">2</span>
+                                <h4 class="text-slate-900 font-bold mb-1" data-i18n="phase2Title">2. Croquis (Sketch):</h4>
+                                <p class="text-slate-600 text-xs leading-relaxed" data-i18n="phase2Desc">Dibujo también a mano alzada, pero detallado y proporcionado. Contiene todas las medidas reales (acotación), anotaciones sobre materiales y forma de montaje.</p>
                             </li>
-                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60">
-                                <strong class="text-slate-900 font-bold block text-base mb-1" data-i18n="scaleAmpTitle">3. Escala de Ampliación (2:1, 5:1):</strong>
-                                <span class="text-slate-600" data-i18n="scaleAmpDesc">El dibujo es más grande que el objeto real. Escala 2:1 significa que 2 cm en el dibujo equivalen a 1 cm en la realidad (hemos ampliado la pieza al doble).</span>
+                            <li class="bg-slate-50 p-5 rounded-2xl border border-slate-200/60 shadow-xs">
+                                <span class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 font-bold inline-flex items-center justify-center mb-3">3</span>
+                                <h4 class="text-slate-900 font-bold mb-1" data-i18n="phase3Title">3. Plano Definitivo (Technical Plan):</h4>
+                                <p class="text-slate-600 text-xs leading-relaxed" data-i18n="phase3Desc">Dibujo hecho con máxima precisión empleando instrumentos de dibujo (escuadra, cartabón, compás) o software CAD. Se dibuja a escala, con vistas normalizadas e incluye un cajetín de rotulación.</p>
                             </li>
                         </ul>
                     </div>
+
+                    <!-- 3. INSTRUMENTOS DE DIBUJO Y MATERIALES -->
+                    <div class="mb-8">
+                        <h3 class="text-base font-bold text-indigo-600 mb-3 border-l-4 border-indigo-600 pl-3" data-i18n="sec3Title">3. Instrumentos de Dibujo y Materiales 📏</h3>
+                        
+                        <h4 class="text-sm font-bold text-slate-800 mb-2 uppercase tracking-wide" data-i18n="sub31Title">3.1. Materiales Básicos y Normativa</h4>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                            <!-- Dureza Lápices -->
+                            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200/60">
+                                <h5 class="font-bold text-slate-900 text-sm mb-2" data-i18n="pencilTitle">Dureza de Lápices y Minas (Grafito + Arcilla):</h5>
+                                <ul class="space-y-2 text-xs text-slate-600">
+                                    <li><strong class="text-slate-900" data-i18n="pencilH">H (Hard / Duros):</strong> Contienen más arcilla. Trazo fino y claro. Ideales para líneas auxiliares y trazados previos que deban borrarse.</li>
+                                    <li><strong class="text-slate-900" data-i18n="pencilHB">HB (Medium / Medio):</strong> Mezcla equilibrada. Lápiz estándar para escribir y trazar líneas generales del croquis.</li>
+                                    <li><strong class="text-slate-900" data-i18n="pencilB">B (Soft / Blandos):</strong> Contienen más grafito. Trazo oscuro y grueso. Utilizados exclusivamente al final para repasar aristas visibles definitivas.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Formatos de Papel -->
+                            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200/60">
+                                <h5 class="font-bold text-slate-900 text-sm mb-2" data-i18n="paperTitle">Formatos de Papel (Norma ISO 216):</h5>
+                                <p class="text-xs text-slate-600 mb-2" data-i18n="paperDesc">El formato base es el <strong>A0</strong> (superficie exacta de $1\text{ m}^2$, con dimensiones de $841 \times 1189\text{ mm}$). Doblando un pliego a la mitad por su lado más largo obtenemos los siguientes formatos:</p>
+                                <div class="bg-indigo-50/70 p-2.5 rounded-xl text-center text-xs font-bold text-indigo-900 mb-2">
+                                    $$\text{A0} \rightarrow \text{A1} \rightarrow \text{A2} \rightarrow \text{A3} \rightarrow \text{A4}$$
+                                </div>
+                                <p class="text-xs text-slate-600" data-i18n="paperA4">El <strong>A4</strong> ($210 \times 297\text{ mm}$) es la hoja estándar utilizada en el aula.</p>
+                            </div>
+                        </div>
+
+                        <h4 class="text-sm font-bold text-slate-800 mb-2 uppercase tracking-wide" data-i18n="sub32Title">3.2. Herramientas de Trazado y Medida</h4>
+                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs font-medium mb-6">
+                            <li class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/60"><strong class="text-slate-900" data-i18n="toolRuler">Regla graduada:</strong> Permite medir distancias en mm y cm. <em>(No se usa para trazar líneas paralelas largas).</em></li>
+                            <li class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/60"><strong class="text-slate-900" data-i18n="toolSetSquare">Escuadra:</strong> Triángulo rectángulo isósceles (ángulos de $90^\circ$, $45^\circ$, $45^\circ$).</li>
+                            <li class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/60"><strong class="text-slate-900" data-i18n="toolDraftSquare">Cartabón:</strong> Triángulo rectángulo escaleno (ángulos de $90^\circ$, $60^\circ$, $30^\circ$). Su hipotenusa mide el doble del cateto menor.</li>
+                            <li class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/60"><strong class="text-slate-900" data-i18n="toolCompass">Compás:</strong> Herramienta de dos patas (pinchón de metal y mina) para trazar arcos y circunferencias.</li>
+                            <li class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/60 md:col-span-2"><strong class="text-slate-900" data-i18n="toolProtractor">Transportador de ángulos:</strong> Semicírculo graduado de $0^\circ$ a $180^\circ$ para medir y construir ángulos.</li>
+                        </ul>
+
+                        <h4 class="text-sm font-bold text-slate-800 mb-2 uppercase tracking-wide" data-i18n="sub33Title">3.3. Guía Visual de Trazado: Paralelas y Perpendiculares</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                            <div class="bg-slate-900 text-slate-200 p-4 rounded-2xl font-mono text-xs">
+                                <p class="text-indigo-400 font-bold mb-1" data-i18n="parallelLabel">PARALELAS:</p>
+                                <pre>  / / Escuadra (desliza)
+ / / 
++---+ Cartabón (fijo como riel)</pre>
+                                <p class="text-[11px] text-slate-400 mt-2" data-i18n="parallelDesc">Se apoya la hipotenusa de la escuadra sobre la del cartabón (riel fijo). Se desliza la escuadra sin mover el cartabón.</p>
+                            </div>
+                            <div class="bg-slate-900 text-slate-200 p-4 rounded-2xl font-mono text-xs">
+                                <p class="text-indigo-400 font-bold mb-1" data-i18n="perpLabel">PERPENDICULARES:</p>
+                                <pre>  |  Escuadra (girada 90°)
+  | 
++---+ Cartabón (fijo)</pre>
+                                <p class="text-[11px] text-slate-400 mt-2" data-i18n="perpDesc">Manteniendo el cartabón fijo, se gira la escuadra 90° apoyando su otro cateto recto sobre el cartabón.</p>
+                            </div>
+                        </div>
+
+                        <!-- Dato Histórico 1 -->
+                        <div class="bg-indigo-50/80 border border-indigo-200 p-4 rounded-2xl text-xs text-indigo-950 flex items-start gap-3">
+                            <div class="p-2 bg-indigo-600 text-white rounded-xl shrink-0">
+                                <i data-lucide="sparkles" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <strong class="font-bold text-indigo-900 block mb-0.5" data-i18n="fact1Title">📐 Sabías que... // El Origen del Formato Din A4 (ISO 216):</strong>
+                                <span data-i18n="fact1Text">El formato normalizado ISO 216 fue diseñado en Alemania en 1922 por el ingeniero Walter Porstmann. La proporción matemática entre los lados de la hoja es exactamente de 1 a $\sqrt{2}$ (1 : 1,4142). Gracias a esto, si cortas la hoja por la mitad, el rectángulo resultante conserva exactamente las mismas proporciones.</span>
+                            </div>
+                        </div>
+                    </div>
+
                 </section>
 
             </div>
 
-            <!-- BLOQUE 2: EL SISTEMA DIÉDRICO -->
+            <!-- BLOQUE 2: ESCALAS Y SISTEMA DIÉDRICO -->
             <div id="bloque2" class="scroll-mt-24">
                 
                 <section class="bg-white content-card p-6 sm:p-10 shadow-xl border border-slate-200/80">
                     
                     <div class="flex items-center gap-3 mb-6">
                         <span class="flex items-center justify-center w-10 h-10 rounded-2xl bg-indigo-50 text-indigo-600 font-black text-lg border border-indigo-100">2</span>
-                        <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight" data-i18n="b2Title">EL SISTEMA DIÉDRICO: PLANTA, ALZADO Y PERFIL</h2>
+                        <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight" data-i18n="b2Title">ESCALAS, SISTEMA DIÉDRICO Y NORMALIZACIÓN</h2>
                     </div>
 
-                    <p class="text-slate-600 mb-6 text-sm font-medium" data-i18n="b2Intro">El sistema diédrico nos permite dibujar un objeto tridimensional (3D) en una hoja de papel bidimensional (2D), mirándolo desde tres puntos de vista diferentes.</p>
+                    <!-- 4. ESCALAS -->
+                    <div class="mb-10">
+                        <h3 class="text-base font-bold text-indigo-600 mb-3 border-l-4 border-indigo-600 pl-3" data-i18n="sec4Title">4. Escalas: Representación de Objetos Reales 🔍</h3>
+                        <p class="text-slate-600 mb-4 text-sm font-medium" data-i18n="sec4Desc">
+                            La <strong>Escala ($E$)</strong> es la relación matemática entre el tamaño del dibujo en el papel ($D$) y el tamaño real del objeto en la realidad ($R$):
+                        </p>
 
-                    <div class="mb-8 border border-dashed border-slate-300 rounded-2xl p-4 text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden" onclick="abrirImagen(this.querySelector('img').src)">
-                        <img src="assets/img/sda3-2.png" alt="Sistema Diédrico Europeo y Americano" class="w-full h-auto max-h-96 object-contain rounded-xl shadow-sm mx-auto" />
-                        <span class="text-xs text-slate-500 font-bold mt-2 block" data-i18n="img2Caption">Proyección de vistas en Sistemas Europeo y Americano</span>
-                    </div>
+                        <div class="bg-indigo-50 p-4 rounded-2xl text-center text-sm font-bold text-indigo-950 mb-4">
+                            $$\text{Escala } (E) = \frac{\text{Medida en el Dibujo } (D)}{\text{Medida en la Realidad } (R)}$$
+                        </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 text-sm font-medium">
-                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60">
-                            <strong class="text-indigo-600 font-bold text-base block mb-1" data-i18n="viewAlzadoTitle">1. Alzado (Front View):</strong>
-                            <span class="text-slate-600" data-i18n="viewAlzadoDesc">Es la vista del objeto mirando de frente. Es la vista más importante y la que nos da más información sobre su forma.</span>
+                        <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-2xl text-amber-950 text-xs font-medium mb-6">
+                            <strong class="font-bold text-amber-900 uppercase block mb-1" data-i18n="scaleRuleTitle">⚠️ Regla de Oro de las Unidades:</strong>
+                            <span data-i18n="scaleRuleText">Antes de calcular una escala o aplicar la fórmula, las medidas del dibujo ($D$) y de la realidad ($R$) <strong>deben estar expresadas en la misma unidad de medida</strong> (por ejemplo, ambas en mm o ambas en cm).</span>
                         </div>
-                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60">
-                            <strong class="text-indigo-600 font-bold text-base block mb-1" data-i18n="viewPlantaTitle">2. Planta (Top View):</strong>
-                            <span class="text-slate-600" data-i18n="viewPlantaDesc">Es la vista del objeto mirando desde arriba. Se dibuja siempre justo debajo del alzado.</span>
-                        </div>
-                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60">
-                            <strong class="text-indigo-600 font-bold text-base block mb-1" data-i18n="viewPerfilTitle">3. Perfil Izquierdo (Left Side View):</strong>
-                            <span class="text-slate-600" data-i18n="viewPerfilDesc">Es la vista del objeto mirando desde su lado izquierdo. Se proyecta y se dibuja siempre a la derecha del alzado.</span>
-                        </div>
-                    </div>
 
-                    <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-2xl text-amber-950 text-sm font-medium">
-                        <h4 class="font-bold text-amber-900 uppercase tracking-wider text-xs mb-2" data-i18n="goldenRuleTitle">Regla de oro de la colocación de vistas (Sistema Europeo):</h4>
-                        <ul class="space-y-1 list-disc pl-5">
-                            <li data-i18n="goldenRule1">El Alzado manda arriba a la izquierda.</li>
-                            <li data-i18n="goldenRule2">La Planta va DEBAJO del Alzado.</li>
-                            <li data-i18n="goldenRule3">El Perfil Izquierdo va a la DERECHA del Alzado.</li>
+                        <!-- Ejemplo práctico -->
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 mb-6 text-xs text-slate-700">
+                            <h5 class="font-bold text-slate-900 mb-1" data-i18n="exTitle">Ejemplo Práctico de Cálculo:</h5>
+                            <p data-i18n="exDesc">Si una mesa mide $1,2\text{ m}$ de largo en la realidad ($1200\text{ mm}$) y la dibujamos en el papel con un tamaño de $12\text{ cm}$ ($120\text{ mm}$):</p>
+                            <div class="text-center font-bold my-2 text-indigo-700">
+                                $$E = \frac{120\text{ mm}}{1200\text{ mm}} = \frac{1}{10} \implies \text{Escala } 1:10$$
+                            </div>
+                        </div>
+
+                        <h4 class="text-sm font-bold text-slate-800 mb-2 uppercase tracking-wide" data-i18n="scaleTypesTitle">Tipos de Escalas</h4>
+                        <ul class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs font-medium">
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60">
+                                <strong class="text-slate-900 font-bold block mb-1 text-sm" data-i18n="scaleNaturalTitle">1. Escala Natural (1:1):</strong>
+                                <span class="text-slate-600" data-i18n="scaleNaturalDesc">El tamaño del dibujo coincide exactamente con el objeto real. <em>Ejemplo: Una goma de borrar dibujada con sus dimensiones reales.</em></span>
+                            </li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60">
+                                <strong class="text-slate-900 font-bold block mb-1 text-sm" data-i18n="scaleRedTitle">2. Escala de Reducción (1:2, 1:5, 1:50):</strong>
+                                <span class="text-slate-600" data-i18n="scaleRedDesc">El dibujo es menor que el objeto real. <em>Ejemplo: 1:2 significa que $1\text{ cm}$ en el papel representa $2\text{ cm}$ de la realidad.</em></span>
+                            </li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60">
+                                <strong class="text-slate-900 font-bold block mb-1 text-sm" data-i18n="scaleAmpTitle">3. Escala de Ampliación (2:1, 5:1, 10:1):</strong>
+                                <span class="text-slate-600" data-i18n="scaleAmpDesc">El dibujo es mayor que el objeto real. <em>Ejemplo: 5:1 significa que $5\text{ cm}$ en el papel representan $1\text{ cm}$ de la realidad (relojería/chips).</em></span>
+                            </li>
                         </ul>
-                        <p class="mt-3 text-xs text-amber-900 font-semibold" data-i18n="goldenRuleNote"><strong>Importante:</strong> Todas las vistas tienen que estar alineadas entre sí. La anchura del alzado es exactamente la misma anchura de la planta.</p>
+                    </div>
+
+                    <!-- 5. SISTEMA DIÉDRICO -->
+                    <div class="mb-10">
+                        <h3 class="text-base font-bold text-indigo-600 mb-3 border-l-4 border-indigo-600 pl-3" data-i18n="sec5Title">5. El Sistema Diédrico: Vistas Ortogonales 📦</h3>
+                        <p class="text-slate-600 mb-4 text-sm font-medium" data-i18n="sec5Desc">
+                            El Sistema Diédrico nos permite representar un objeto tridimensional (3D) sobre un plano bidimensional 2D (papel) mediante proyecciones ortogonales (perpendiculares a $90^\circ$) desde tres puntos de vista principales:
+                        </p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs font-medium mb-6">
+                            <div class="bg-indigo-50 p-4 rounded-2xl border border-indigo-100">
+                                <strong class="text-indigo-900 font-bold block text-sm mb-1" data-i18n="viewFrontTitle">1. Alzado (Front View):</strong>
+                                <span class="text-slate-700" data-i18n="viewFrontDesc">Vista frontal del objeto. Es la vista principal y la que mejor define su forma característica.</span>
+                            </div>
+                            <div class="bg-indigo-50 p-4 rounded-2xl border border-indigo-100">
+                                <strong class="text-indigo-900 font-bold block text-sm mb-1" data-i18n="viewTopTitle">2. Planta (Top View):</strong>
+                                <span class="text-slate-700" data-i18n="viewTopDesc">Vista del objeto observado perpendicularmente desde arriba.</span>
+                            </div>
+                            <div class="bg-indigo-50 p-4 rounded-2xl border border-indigo-100">
+                                <strong class="text-indigo-900 font-bold block text-sm mb-1" data-i18n="viewSideTitle">3. Perfil Izquierdo (Left Side View):</strong>
+                                <span class="text-slate-700" data-i18n="viewSideDesc">Vista del objeto observado desde su lado izquierdo.</span>
+                            </div>
+                        </div>
+
+                        <h4 class="text-sm font-bold text-slate-800 mb-2 uppercase tracking-wide" data-i18n="euroSystemTitle">5.2. Regla de Oro en la Colocación de Vistas (Sistema Europeo)</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center mb-6">
+                            <div class="bg-slate-900 text-slate-100 p-4 rounded-2xl font-mono text-xs">
+                                <pre>+------------------+---------------------------+
+|     ALZADO       |     PERFIL IZQUIERDO      |
+| (Vista frontal)  | (Se dibuja A LA DERECHA)  |
++------------------+---------------------------+
+|     PLANTA       |                           |
+| (Se dibuja ABAJO)|                           |
++------------------+---------------------------+</pre>
+                            </div>
+                            <div class="space-y-2 text-xs text-slate-600 font-medium">
+                                <p><strong class="text-slate-900" data-i18n="ruleCorrTitle">Regla de Correspondencia:</strong></p>
+                                <ul class="list-disc pl-4 space-y-1">
+                                    <li data-i18n="ruleCorr1">El <strong>ancho</strong> del Alzado coincide exactamente con el ancho de la Planta.</li>
+                                    <li data-i18n="ruleCorr2">La <strong>altura</strong> del Alzado coincide exactamente con la altura del Perfil.</li>
+                                    <li data-i18n="ruleCorr3">La <strong>profundidad</strong> de la Planta (alto) coincide con el ancho del Perfil.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6. NORMALIZACIÓN Y ACOTACIÓN -->
+                    <div class="mb-8">
+                        <h3 class="text-base font-bold text-indigo-600 mb-3 border-l-4 border-indigo-600 pl-3" data-i18n="sec6Title">6. Normalización: Tipos de Líneas y Normas de Acotación 📐</h3>
+                        
+                        <h4 class="text-sm font-bold text-slate-800 mb-2 uppercase tracking-wide" data-i18n="linesTitle">6.1. Convenio de Tipos de Línea</h4>
+                        <div class="overflow-x-auto mb-6 rounded-2xl border border-slate-200">
+                            <table class="w-full text-left border-collapse text-sm">
+                                <thead>
+                                    <tr class="bg-slate-100 border-b border-slate-200 text-slate-800 font-bold">
+                                        <th class="p-3" data-i18n="thLineType">Tipo de Línea</th>
+                                        <th class="p-3" data-i18n="thLineRep">Representación Gráfica</th>
+                                        <th class="p-3" data-i18n="thLineApp">Aplicación Técnica</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-200 font-medium text-slate-600">
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="p-3 font-bold text-slate-900" data-i18n="line1Type">Continua gruesa</td>
+                                        <td class="p-3 font-mono text-indigo-600">──────────────</td>
+                                        <td class="p-3" data-i18n="line1App">Aristas y contornos visibles del objeto.</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="p-3 font-bold text-slate-900" data-i18n="line2Type">Discontinua (trazos)</td>
+                                        <td class="p-3 font-mono text-indigo-600">─ ─ ─ ─ ─ ─ ─ ─</td>
+                                        <td class="p-3" data-i18n="line2App">Aristas ocultas o túneles interiores no visibles.</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="p-3 font-bold text-slate-900" data-i18n="line3Type">Fina de trazo y punto</td>
+                                        <td class="p-3 font-mono text-indigo-600">─── · ─── · ───</td>
+                                        <td class="p-3" data-i18n="line3App">Ejes de simetría y centros de circunferencias/agujeros.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h4 class="text-sm font-bold text-slate-800 mb-2 uppercase tracking-wide" data-i18n="dimTitle">6.2. Normas de Acotación Básicas</h4>
+                        <p class="text-slate-600 text-xs mb-3 font-medium" data-i18n="dimDesc">Acotar es indicar sobre el plano las medidas reales de la pieza mediante cifras, líneas y símbolos normalizados (líneas de cota, auxiliares y cifras de cota).</p>
+                        
+                        <ol class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs font-medium">
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold block mb-0.5" data-i18n="dimRule1Title">1. Unidades:</strong> <span class="text-slate-600" data-i18n="dimRule1Desc">Las medidas se anotan siempre en milímetros. Nunca se escribe la coletilla "mm" tras la cifra.</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold block mb-0.5" data-i18n="dimRule2Title">2. Cruce de líneas:</strong> <span class="text-slate-600" data-i18n="dimRule2Desc">Las líneas de cota jamás deben cruzarse entre sí ni con líneas del propio dibujo.</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold block mb-0.5" data-i18n="dimRule3Title">3. No duplicidad:</strong> <span class="text-slate-600" data-i18n="dimRule3Desc">No se deben repetir cotas innecesarias. Si una medida queda clara en el Alzado, no se repite en la Planta.</span></li>
+                            <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold block mb-0.5" data-i18n="dimRule4Title">4. Ubicación externa:</strong> <span class="text-slate-600" data-i18n="dimRule4Desc">Las cotas deben colocarse siempre por fuera de la figura.</span></li>
+                        </ol>
                     </div>
 
                 </section>
             </div>
 
-            <!-- BLOQUE 3: DIBUJO DE VISTAS Y ACOTACIÓN -->
+            <!-- BLOQUE 3: PERSPECTIVAS, CAD Y PROYECTO STEAM -->
             <div id="bloque3" class="scroll-mt-24">
                 
                 <section class="bg-white content-card p-6 sm:p-10 shadow-xl border border-slate-200/80">
                     
                     <div class="flex items-center gap-3 mb-6">
                         <span class="flex items-center justify-center w-10 h-10 rounded-2xl bg-indigo-50 text-indigo-600 font-black text-lg border border-indigo-100">3</span>
-                        <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight" data-i18n="b3Title">DIBUJO DE VISTAS Y NORMAS DE ACOTACIÓN</h2>
+                        <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight" data-i18n="b3Title">PERSPECTIVAS 3D, CAD DIGITAL Y PROYECTO LEGO</h2>
                     </div>
 
-                    <!-- 3. Dibujo de vistas de piezas sencillas -->
+                    <!-- 7. PERSPECTIVAS -->
+                    <div class="mb-10">
+                        <h3 class="text-base font-bold text-indigo-600 mb-3 border-l-4 border-indigo-600 pl-3" data-i18n="sec7Title">7. Perspectivas: Representación Tridimensional (3D) 🧊</h3>
+                        <p class="text-slate-600 mb-4 text-sm font-medium" data-i18n="sec7Desc">Las perspectivas permiten visualizar el objeto completo en un solo dibujo tridimensional (mostrando simultáneamente alto, ancho y profundidad).</p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs font-medium mb-6">
+                            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60">
+                                <strong class="text-indigo-900 font-bold block text-sm mb-1" data-i18n="pIsoTitle">7.1. Perspectiva Isométrica</strong>
+                                <p class="text-slate-600 leading-relaxed" data-i18n="pIsoDesc">Ejes a $120^\circ$ entre sí. Se dibuja sobre mallas de triángulos equiláteros (líneas a $30^\circ$). Las medidas reales se aplican directamente 1:1 en las tres direcciones sin coeficientes de reducción.</p>
+                            </div>
+                            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60">
+                                <strong class="text-indigo-900 font-bold block text-sm mb-1" data-i18n="pCabTitle">7.2. Perspectiva Caballera</strong>
+                                <p class="text-slate-600 leading-relaxed" data-i18n="pCabDesc">Cara frontal en ángulos rectos ($90^\circ$). El eje de profundidad se traza inclinado a $45^\circ$. <strong>Corrección obligatoria:</strong> Las medidas en la profundidad deben reducirse a la mitad (multiplicar por $0{,}5$).</p>
+                            </div>
+                            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60">
+                                <strong class="text-indigo-900 font-bold block text-sm mb-1" data-i18n="pConTitle">7.3. Perspectiva Cónica</strong>
+                                <p class="text-slate-600 leading-relaxed" data-i18n="pConDesc">Basada en puntos de fuga. Imita la visión humana. Altamente realista pero no permite tomar medidas directas sobre el dibujo.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 8. DISEÑO DIGITAL CAD -->
+                    <div class="mb-10">
+                        <h3 class="text-base font-bold text-indigo-600 mb-3 border-l-4 border-indigo-600 pl-3" data-i18n="sec8Title">8. Diseño Digital Asistido por Ordenador (Software CAD) 💻</h3>
+                        <p class="text-slate-600 mb-3 text-sm font-medium" data-i18n="sec8Desc">En el aula de Tecnología compaginamos el dibujo técnico tradicional con herramientas digitales CAD 3D de libre acceso:</p>
+                        
+                        <div class="bg-indigo-50/60 border border-indigo-100 p-4 rounded-2xl text-xs text-indigo-950 font-medium">
+                            <strong class="font-bold text-indigo-900 text-sm block mb-1" data-i18n="cadSoftwareTitle">SketchUp Free / Tinkercad:</strong>
+                            <ul class="list-disc pl-4 space-y-1 text-slate-700">
+                                <li data-i18n="cadFeat1">Permite extruir bocetos bidimensionales mediante la herramienta <strong>Empujar/Tirar (Push/Pull)</strong>.</li>
+                                <li data-i18n="cadFeat2">Permite validar visualmente las vistas diédricas cambiando entre vistas ortogonales estándar (Frontal, Superior, Lateral).</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 9. LÁMINAS Y PROYECTO STEAM -->
+                    <div class="mb-10">
+                        <h3 class="text-base font-bold text-indigo-600 mb-3 border-l-4 border-indigo-600 pl-3" data-i18n="sec9Title">9. Bloque Práctico: Láminas y Proyecto STEAM 🚀</h3>
+                        
+                        <h4 class="text-sm font-bold text-slate-800 mb-2 uppercase tracking-wide" data-i18n="sheetsTitle">9.1. Láminas de Trabajo en Papel A4</h4>
+                        <ul class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs font-medium mb-6">
+                            <li class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/60"><strong class="text-slate-900" data-i18n="sheet1Item">Lámina 1:</strong> Trazado de paralelas y perpendiculares con escuadra y cartabón (Trama geométrica).</li>
+                            <li class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/60"><strong class="text-slate-900" data-i18n="sheet2Item">Lámina 2:</strong> Obtención de vistas diédricas (Alzado, Planta, Perfil) de una pieza en "L" acotada.</li>
+                            <li class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/60"><strong class="text-slate-900" data-i18n="sheet3Item">Lámina 3:</strong> Perspectiva Isométrica sobre red pautada de la pieza diédrica acotada.</li>
+                        </ul>
+
+                        <h4 class="text-sm font-bold text-slate-800 mb-2 uppercase tracking-wide" data-i18n="legoTitle">9.2. Proyecto Integrador Final: "El Reto LEGO" 🧩</h4>
+                        <div class="bg-slate-50 border border-slate-200 p-5 rounded-2xl text-xs space-y-3 font-medium">
+                            <p><strong class="font-bold text-slate-900" data-i18n="legoConsignTitle">Consigna:</strong> <span data-i18n="legoConsignDesc">Diseñar una nueva pieza de construcción compatible con el sistema LEGO®, documentándola desde el boceto inicial hasta el prototipo digital en 3D.</span></p>
+                            <div>
+                                <strong class="font-bold text-slate-900 block mb-1" data-i18n="legoPhasesTitle">Entregables (Dossier Técnico Digital en Google Slides):</strong>
+                                <ol class="list-decimal pl-4 space-y-1 text-slate-600">
+                                    <li><strong data-i18n="legoP1">Fase 1 (Boceto):</strong> Apunte inicial a mano alzada proponiendo su función.</li>
+                                    <li><strong data-i18n="legoP2">Fase 2 (Croquis Acotado):</strong> Dibujo detallado a mano alzada con normas de acotación (mm).</li>
+                                    <li><strong data-i18n="legoP3">Fase 3 (Vistas Normalizadas):</strong> Dibujo con instrumentos técnicos de Alzado, Planta y Perfil (Sistema Europeo).</li>
+                                    <li><strong data-i18n="legoP4">Fase 4 (Modelo CAD 3D):</strong> Modelado tridimensional digital de la pieza en SketchUp Free.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 10. RÚBRICA DE EVALUACIÓN -->
                     <div class="mb-8">
-                        <h3 class="text-base font-bold text-indigo-600 mb-3 border-l-4 border-indigo-600 pl-3" data-i18n="sec31Title">3. Dibujo de vistas de piezas sencillas</h3>
-                        <p class="text-slate-600 mb-4 text-sm font-medium" data-i18n="sec31Desc">Imaginemos un trozo de madera en forma de "L" que mide 30 mm de alto, 30 mm de ancho y 20 mm de profundidad:</p>
-
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm font-medium mb-6">
-                            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60">
-                                <strong class="text-slate-900 font-bold block mb-1" data-i18n="exStep1Title">Paso 1 (Alzado):</strong>
-                                <span class="text-slate-600" data-i18n="exStep1Desc">Si miras la L de frente, ves una forma de "L". La dibujas en la esquina superior izquierda.</span>
-                            </div>
-                            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60">
-                                <strong class="text-slate-900 font-bold block mb-1" data-i18n="exStep2Title">Paso 2 (Planta):</strong>
-                                <span class="text-slate-600" data-i18n="exStep2Desc">Si miras la L desde arriba, solo ves dos rectángulos planos pegados. Los dibujas justo debajo de la "L".</span>
-                            </div>
-                            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60">
-                                <strong class="text-slate-900 font-bold block mb-1" data-i18n="exStep3Title">Paso 3 (Perfil):</strong>
-                                <span class="text-slate-600" data-i18n="exStep3Desc">Si miras la L desde su lado izquierdo, ves un rectángulo alto. Lo dibujas justo a la derecha de la "L".</span>
-                            </div>
+                        <h3 class="text-base font-bold text-indigo-600 mb-3 border-l-4 border-indigo-600 pl-3" data-i18n="sec10Title">10. Criterios de Evaluación y Rúbrica 📊</h3>
+                        <div class="overflow-x-auto mb-6 rounded-2xl border border-slate-200">
+                            <table class="w-full text-left border-collapse text-xs">
+                                <thead>
+                                    <tr class="bg-slate-100 border-b border-slate-200 text-slate-800 font-bold">
+                                        <th class="p-3" data-i18n="rubCrit">Criterio / Nivel</th>
+                                        <th class="p-3 text-red-700" data-i18n="rubBad">Insuficiente (1-4)</th>
+                                        <th class="p-3 text-amber-700" data-i18n="rubOk">Aceptable (5-6)</th>
+                                        <th class="p-3 text-blue-700" data-i18n="rubGood">Notable (7-8)</th>
+                                        <th class="p-3 text-emerald-700" data-i18n="rubExcel">Sobresaliente (9-10)</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-200 font-medium text-slate-600">
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="p-3 font-bold text-slate-900" data-i18n="rub1_name">Uso de Útiles y Limpieza</td>
+                                        <td class="p-3" data-i18n="rub1_bad">Trazo sucio, líneas poco definidas, error en uso de paralelismo.</td>
+                                        <td class="p-3" data-i18n="rub1_ok">Trazo correcto pero presenta manchas o imprecisiones leves.</td>
+                                        <td class="p-3" data-i18n="rub1_good">Buena precisión en paralelas/perpendiculares y lámina limpia.</td>
+                                        <td class="p-3 font-bold text-slate-900" data-i18n="rub1_excel">Trazo impecable, diferenciación clara de durezas (H/B) y precisión milimétrica.</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="p-3 font-bold text-slate-900" data-i18n="rub2_name">Sistema Diédrico</td>
+                                        <td class="p-3" data-i18n="rub2_bad">Vistas mal colocadas, desalineadas o confusión de perfiles.</td>
+                                        <td class="p-3" data-i18n="rub2_ok">Vistas bien colocadas pero con errores de alineación.</td>
+                                        <td class="p-3" data-i18n="rub2_good">Vistas bien trazadas y alineadas. Representación correcta de aristas.</td>
+                                        <td class="p-3 font-bold text-slate-900" data-i18n="rub2_excel">Proyección perfecta, alineada y representación exacta de aristas ocultas.</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="p-3 font-bold text-slate-900" data-i18n="rub3_name">Normas de Acotación</td>
+                                        <td class="p-3" data-i18n="rub3_bad">Inclusión de "mm", cruces de líneas de cota o cotas repetidas.</td>
+                                        <td class="p-3" data-i18n="rub3_ok">Respeta la mayoría de normas pero comete 1-2 errores leve.</td>
+                                        <td class="p-3" data-i18n="rub3_good">Acotación correcta, números bien centrados sobre la línea de cota.</td>
+                                        <td class="p-3 font-bold text-slate-900" data-i18n="rub3_excel">Aplicación rigurosa de todas las normas de acotación sin redundancias.</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="p-3 font-bold text-slate-900" data-i18n="rub4_name">Perspectiva 3D y CAD</td>
+                                        <td class="p-3" data-i18n="rub4_bad">Dificultad para trasladar al plano 3D o modelo CAD incompleto.</td>
+                                        <td class="p-3" data-i18n="rub4_ok">Pieza 3D reconocible pero con desproporción en ejes.</td>
+                                        <td class="p-3" data-i18n="rub4_good">Perspectiva isométrica bien construida y modelo CAD completado.</td>
+                                        <td class="p-3 font-bold text-slate-900" data-i18n="rub4_excel">Perspectiva isométrica perfecta en red y prototipo 3D detallado.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-                    </div>
-
-                    <!-- 4. Piezas con aristas ocultas y vaciados -->
-                    <div class="mb-8">
-                        <h3 class="text-base font-bold text-indigo-600 mb-3 border-l-4 border-indigo-600 pl-3" data-i18n="sec4Title">4. Piezas con aristas ocultas y vaciados</h3>
-                        <p class="text-slate-600 mb-4 text-sm font-medium" data-i18n="sec4Desc">No todas las piezas son cubos o bloques macizos. Muchas tienen huecos internos, túneles o cortes traseros que no se ven a simple vista cuando las miras de frente.</p>
-
-                        <div class="bg-indigo-50/50 p-5 rounded-2xl border border-indigo-100 space-y-3 text-sm font-medium mb-4">
-                            <h4 class="font-bold text-indigo-900 text-xs uppercase tracking-wider" data-i18n="lineTypesTitle">Tipos de líneas en Dibujo Técnico:</h4>
-                            <ul class="space-y-2 text-slate-700">
-                                <li class="flex items-center gap-2">
-                                    <span class="w-8 h-1 bg-slate-900 inline-block"></span>
-                                    <div><strong class="text-slate-900 font-bold" data-i18n="lineContTitle">Línea continua gruesa:</strong> <span data-i18n="lineContDesc">Representa todas las aristas y contornos visibles.</span></div>
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <span class="w-8 h-0.5 border-t-2 border-dashed border-slate-900 inline-block"></span>
-                                    <div><strong class="text-slate-900 font-bold" data-i18n="lineDiscTitle">Línea discontinua o de trazos:</strong> <span data-i18n="lineDiscDesc">Representa las aristas ocultas (líneas, túneles o huecos que están por dentro o por detrás de la pieza y que la vista principal nos tapa).</span></div>
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <span class="w-8 h-0.5 border-t border-slate-600 inline-block relative"><span class="w-1 h-1 bg-slate-900 rounded-full absolute left-1/2 -top-0.5 transform -translate-x-1/2"></span></span>
-                                    <div><strong class="text-slate-900 font-bold" data-i18n="lineAxisTitle">Línea fina de trazo y punto:</strong> <span data-i18n="lineAxisDesc">Se usa para marcar ejes de simetría o el centro de un agujero redondo.</span></div>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60 text-sm font-medium">
-                            <strong class="text-slate-900 font-bold block mb-1" data-i18n="tunnelExTitle">Ejemplo práctico: Una pieza con un túnel interior</strong>
-                            <p class="text-slate-600 mb-2" data-i18n="tunnelExDesc">Si una pieza tiene un túnel de lado a lado por la base:</p>
-                            <ul class="list-disc pl-5 space-y-1 text-slate-600">
-                                <li data-i18n="tunnelEx1">En la vista lateral (Perfil) se verá la boca de entrada del túnel con línea continua.</li>
-                                <li data-i18n="tunnelEx2">En la vista frontal (Alzado) no se ve el túnel porque lo tapa la pared exterior; por tanto, el techo del túnel se dibuja con una línea de trazos discontinuos a la altura correspondiente.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- 5. Normas básicas de acotación -->
-                    <div>
-                        <h3 class="text-base font-bold text-indigo-600 mb-3 border-l-4 border-indigo-600 pl-3" data-i18n="sec5Title">5. Normas básicas de acotación</h3>
-                        <p class="text-slate-600 mb-4 text-sm font-medium" data-i18n="sec5Desc">Acotar consiste en poner las medidas reales sobre el dibujo mediante líneas, flechas y números para que el fabricante sepa cuánto mide exactamente la pieza sin necesidad de usar la regla sobre el papel.</p>
-
-                        <div class="mb-6 border border-dashed border-slate-300 rounded-2xl p-4 text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden" onclick="abrirImagen(this.querySelector('img').src)">
-                            <img src="assets/img/sda3-3.png" alt="Elementos de acotación" class="w-full h-auto max-h-80 object-contain rounded-xl shadow-sm mx-auto" />
-                            <span class="text-xs text-slate-500 font-bold mt-2 block" data-i18n="img3Caption">Elementos fundamentales de una cota (Línea, auxiliar y cifra de cota)</span>
-                        </div>
-
-                        <div class="mb-6">
-                            <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wider mb-3" data-i18n="dimElementsTitle">Elementos de una cota:</h4>
-                            <ul class="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm font-medium">
-                                <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold block mb-1" data-i18n="dimEl1Title">1. Línea de cota:</strong> <span class="text-slate-600" data-i18n="dimEl1Desc">Línea fina paralela al borde que queremos medir. Lleva una flecha fina en cada extremo.</span></li>
-                                <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold block mb-1" data-i18n="dimEl2Title">2. Líneas auxiliares de cota:</strong> <span class="text-slate-600" data-i18n="dimEl2Desc">Líneas perpendiculares que salen del dibujo marcando dónde empieza y dónde termina la medida.</span></li>
-                                <li class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60"><strong class="text-slate-900 font-bold block mb-1" data-i18n="dimEl3Title">3. Cifra de cota:</strong> <span class="text-slate-600" data-i18n="dimEl3Desc">Es el número que indica la medida real (en milímetros). Se escribe centrada y siempre por encima de la línea de cota (o girada a la izquierda si la cota es vertical).</span></li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-rose-50 border-l-4 border-rose-500 p-5 rounded-r-2xl text-rose-950 text-sm font-medium">
-                            <h4 class="font-bold text-rose-900 uppercase tracking-wider text-xs mb-2" data-i18n="dimRulesTitle">Las 4 reglas de acotación que no puedes olvidar:</h4>
-                            <ol class="space-y-1.5 list-decimal pl-5">
-                                <li data-i18n="dimRule1">Las medidas se expresan siempre en milímetros (no se escribe "mm" al lado del número).</li>
-                                <li data-i18n="dimRule2">Las líneas de cota nunca se cruzan entre sí ni con las líneas del dibujo.</li>
-                                <li data-i18n="dimRule3">No hay que repetir medidas. Si una medida ya está clara en el alzado, no la vuelvas a poner en la planta.</li>
-                                <li data-i18n="dimRule4">Acota siempre por fuera de la figura, evitando poner números dentro de la pieza a menos que sea imprescindible.</li>
-                            </ol>
-                        </div>
-                    </div>
-                </section>
-
-            </div>
-
-            <!-- BLOQUE 4: PERSPECTIVAS (ISOMÉTRICA Y CABALLERA) -->
-            <div id="bloque4" class="scroll-mt-24">
-                
-                <section class="bg-white content-card p-6 sm:p-10 shadow-xl border border-slate-200/80">
-                    
-                    <div class="flex items-center gap-3 mb-6">
-                        <span class="flex items-center justify-center w-10 h-10 rounded-2xl bg-indigo-50 text-indigo-600 font-black text-lg border border-indigo-100">4</span>
-                        <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight" data-i18n="b4Title">PERSPECTIVA CABALLERA E ISOMÉTRICA (RED ISOMÉTRICA)</h2>
-                    </div>
-
-                    <p class="text-slate-600 mb-6 text-sm font-medium" data-i18n="b4Intro">Las perspectivas nos sirven para ver el objeto en 3D de un solo vistazo (con alto, ancho y profundidad).</p>
-
-                    <div class="mb-8 border border-dashed border-slate-300 rounded-2xl p-4 text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden" onclick="abrirImagen(this.querySelector('img').src)">
-                        <img src="assets/img/sda3-4.png" alt="Comparativa Perspectivas Isométrica, Caballera y Militar" class="w-full h-auto max-h-96 object-contain rounded-xl shadow-sm mx-auto" />
-                        <span class="text-xs text-slate-500 font-bold mt-2 block" data-i18n="img4Caption">Comparativa de perspectivas 3D: Isométrica (30º/30º), Caballera (45º) y Militar (30º/60º)</span>
-                    </div>
-
-                    <div class="bg-slate-100 p-3 rounded-xl text-center text-xs font-semibold text-slate-600 mb-8" data-i18n="obliqueNote">
-                        En las proyecciones oblicuas se utilizará una reducción del 30\%. Coeficiente 0.7.
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                        <!-- 6.1. Perspectiva Caballera -->
-                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200/60 text-sm font-medium">
-                            <h3 class="text-base font-bold text-indigo-600 mb-3 border-l-4 border-indigo-600 pl-3" data-i18n="sec61Title">6.1. Perspectiva Caballera</h3>
-                            <ul class="space-y-2 text-slate-600 list-disc pl-5">
-                                <li data-i18n="cab1">La cara frontal se dibuja tal cual es (usando ángulos de 90º normales).</li>
-                                <li data-i18n="cab2">La profundidad se dibuja inclinada a 45º.</li>
-                                <li data-i18n="cab3"><strong class="text-slate-900 font-bold">Inconveniente:</strong> Para que no parezca deformada o demasiado larga, las medidas de profundidad hay que reducirlas a la mitad (* 0.5).</li>
-                            </ul>
-                        </div>
-
-                        <!-- 6.2. Perspectiva Isométrica -->
-                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200/60 text-sm font-medium">
-                            <h3 class="text-base font-bold text-indigo-600 mb-3 border-l-4 border-indigo-600 pl-3" data-i18n="sec62Title">6.2. Perspectiva Isométrica (Simplificada)</h3>
-                            <ul class="space-y-2 text-slate-600 list-disc pl-5">
-                                <li data-i18n="iso1">Utiliza una red o plantilla isométrica (malla formada por triángulos equiláteros o líneas inclinadas a 30º).</li>
-                                <li data-i18n="iso2">Los tres ejes principales (X, Y, Z) forman entre sí ángulos iguales de 120º.</li>
-                                <li data-i18n="iso3"><strong class="text-slate-900 font-bold">Ventaja en 2º E.S.O.:</strong> En la red isométrica no reducimos las medidas. Si una arista mide 3 cm, contamos 3 unidades en la rejilla hacia cualquier dirección (alto, ancho o profundidad).</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="bg-indigo-50/70 border border-indigo-200 p-5 rounded-2xl text-xs text-indigo-950 space-y-2">
-                        <h4 class="font-bold text-indigo-900 uppercase tracking-wider text-xs" data-i18n="isoStepsTitle">Pasos para construir un objeto en red isométrica:</h4>
-                        <ol class="space-y-1.5 font-medium list-decimal pl-5">
-                            <li data-i18n="isoStep1"><strong class="text-indigo-900 font-bold">Dibujar el "cubo envolvente"</strong> o caja exterior contando las unidades de ancho, alto y profundidad en la rejilla.</li>
-                            <li data-i18n="isoStep2"><strong class="text-indigo-900 font-bold">Dibujar con lápiz duro (H)</strong> los cortes y escalones restando bloques a la caja.</li>
-                            <li data-i18n="isoStep3"><strong class="text-indigo-900 font-bold">Repasar con lápiz blando (B)</strong> o rotulador las líneas visibles definitivas.</li>
-                        </ol>
                     </div>
 
                     <!-- Botón para ver las Actividades Prácticas -->
-                    <div class="pt-8 mt-8 border-t border-slate-200 text-center">
+                    <div class="pt-6 border-t border-slate-200 text-center">
                         <button onclick="abrirModalActividades()" class="inline-flex items-center justify-center gap-2 bg-amber-400 hover:bg-amber-300 text-indigo-950 font-black px-8 py-4 rounded-2xl transition-all shadow-lg hover:scale-105 text-xs uppercase tracking-wider">
                             <i data-lucide="clipboard-list" class="w-5 h-5"></i>
-                            <span data-i18n="btnActivities">Ver Actividades Prácticas de la Unidad</span>
+                            <span data-i18n="btnActivities">Ver Actividades Prácticas y Reto LEGO</span>
                         </button>
                     </div>
 
                 </section>
-
             </div>
 
-            <!-- BLOQUE UNIFICADO DE RECURSOS Y EVALUACIÓN -->
+            <!-- BLOQUE UNIFICADO DE RECURSOS, JUEGO Y EVALUACIÓN -->
             <section id="recursos" class="bg-white rounded-[2.5rem] p-6 sm:p-10 shadow-xl border border-slate-200/80 mb-8 scroll-mt-24">
                 <div class="mb-8 border-b border-slate-200/80 pb-6 text-center md:text-left">
                     <div class="inline-flex items-center gap-2 bg-indigo-50 border border-indigo-200 text-indigo-700 px-3.5 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest mb-3">
@@ -456,7 +547,7 @@
                         <span data-i18n="resBadge">CENTRO DE RECURSOS Y PRÁCTICA</span>
                     </div>
                     <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight" data-i18n="resTitle">Material Didáctico y Evaluación</h2>
-                    <p class="text-slate-500 text-sm font-medium mt-1" data-i18n="resDesc">Accede a toda la documentación de trabajo, láminas de dibujo, plantillas isométrica y cuestionarios de la unidad.</p>
+                    <p class="text-slate-500 text-sm font-medium mt-1" data-i18n="resDesc">Accede a toda la documentación de trabajo, láminas normalizadas y cuestionarios de la unidad.</p>
                 </div>
 
                 <div class="space-y-8">
@@ -466,27 +557,17 @@
                             <div class="p-1.5 bg-indigo-100 text-indigo-700 rounded-lg">
                                 <i data-lucide="file-text" class="w-4 h-4"></i>
                             </div>
-                            <h3 class="text-sm font-black text-slate-900 uppercase tracking-wider" data-i18n="cat1Title">1. Documentación y Plantillas</h3>
+                            <h3 class="text-sm font-black text-slate-900 uppercase tracking-wider" data-i18n="cat1Title">1. Documentación y Láminas</h3>
                         </div>
 
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <a href="assets/sda3-esq.pdf" target="_blank" class="flex items-center gap-3 bg-slate-50 hover:bg-indigo-50 border border-slate-200 hover:border-indigo-300 p-4 rounded-2xl transition-all group shadow-xs">
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <a href="https://docs.google.com/document/d/17Ed3A4O2khg7j6SuBZLyblPqyElJCxk9g71CorhCkjc/preview?usp=sharing" target="_blank" class="flex items-center gap-3 bg-slate-50 hover:bg-indigo-50 border border-slate-200 hover:border-indigo-300 p-4 rounded-2xl transition-all group shadow-xs">
                                 <div class="p-2.5 bg-indigo-100 text-indigo-600 rounded-xl group-hover:bg-indigo-600 group-hover:text-white transition-colors shrink-0">
-                                    <i data-lucide="search" class="w-4 h-4"></i>
+                                    <i data-lucide="layers" class="w-4 h-4"></i>
                                 </div>
                                 <div class="text-left">
-                                    <span class="block text-[10px] font-black uppercase text-indigo-600 tracking-wider" data-i18n="sheet1Badge">Apuntes</span>
-                                    <span class="text-xs font-bold text-slate-800 leading-snug block" data-i18n="sheet1Title">Esquemas y Resumen Gráfico</span>
-                                </div>
-                            </a>
-
-                            <a href="assets/sda3-red-isometrica.pdf" target="_blank" class="flex items-center gap-3 bg-slate-50 hover:bg-indigo-50 border border-slate-200 hover:border-indigo-300 p-4 rounded-2xl transition-all group shadow-xs">
-                                <div class="p-2.5 bg-indigo-100 text-indigo-600 rounded-xl group-hover:bg-indigo-600 group-hover:text-white transition-colors shrink-0">
-                                    <i data-lucide="grid" class="w-4 h-4"></i>
-                                </div>
-                                <div class="text-left">
-                                    <span class="block text-[10px] font-black uppercase text-indigo-600 tracking-wider" data-i18n="sheet2Badge">Plantilla</span>
-                                    <span class="text-xs font-bold text-slate-800 leading-snug block" data-i18n="sheet2Title">Red e Malla Isométrica A4</span>
+                                    <span class="block text-[10px] font-black uppercase text-indigo-600 tracking-wider" data-i18n="sheet1Badge">Esquema</span>
+                                    <span class="text-xs font-bold text-slate-800 leading-snug block" data-i18n="sheet1Title">Resumen esquemático del tema</span>
                                 </div>
                             </a>
                         </div>
@@ -502,7 +583,7 @@
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <a href="sda3-juego.html" class="flex items-center gap-4 p-4 bg-slate-50 hover:bg-indigo-50/70 border border-slate-200 hover:border-indigo-300 rounded-2xl transition-all group shadow-xs">
+                            <a href="ud2-juego.html" class="flex items-center gap-4 p-4 bg-slate-50 hover:bg-indigo-50/70 border border-slate-200 hover:border-indigo-300 rounded-2xl transition-all group shadow-xs">
                                 <div class="w-12 h-12 bg-indigo-600 text-white rounded-xl flex items-center justify-center shrink-0 shadow-xs group-hover:scale-105 transition-transform">
                                     <i data-lucide="gamepad-2" class="w-6 h-6"></i>
                                 </div>
@@ -510,13 +591,13 @@
                                     <span class="inline-block px-2 py-0.5 bg-indigo-100 text-indigo-700 font-extrabold text-[9px] rounded-full uppercase tracking-wider mb-0.5" data-i18n="gameBadge">
                                         Interactive Game
                                     </span>
-                                    <h4 class="text-sm font-black text-slate-900 group-hover:text-indigo-600 transition-colors" data-i18n="gameTitle">Reto de Vistas y Perspectiva</h4>
-                                    <p class="text-xs text-slate-500 font-medium leading-tight" data-i18n="gameDesc">Relaciona piezas 3D con sus vistas diédricas correspondientes.</p>
+                                    <h4 class="text-sm font-black text-slate-900 group-hover:text-indigo-600 transition-colors" data-i18n="gameTitle">Reto de Vistas Diédricas</h4>
+                                    <p class="text-xs text-slate-500 font-medium leading-tight" data-i18n="gameDesc">Relaciona piezas 3D con sus vistas ortogonales correspondientes.</p>
                                 </div>
                                 <i data-lucide="arrow-right" class="w-4 h-4 text-indigo-600 group-hover:translate-x-1 transition-transform mr-2"></i>
                             </a>
 
-                            <a href="assets/sda3-voc.pdf" class="flex items-center gap-4 p-4 bg-slate-50 hover:bg-sky-50/70 border border-slate-200 hover:border-sky-300 rounded-2xl transition-all group shadow-xs">
+                            <a href="assets/ud2-voc.pdf" class="flex items-center gap-4 p-4 bg-slate-50 hover:bg-sky-50/70 border border-slate-200 hover:border-sky-300 rounded-2xl transition-all group shadow-xs">
                                 <div class="w-12 h-12 bg-sky-600 text-white rounded-xl flex items-center justify-center shrink-0 shadow-xs group-hover:scale-105 transition-transform">
                                     <i data-lucide="book-open" class="w-6 h-6"></i>
                                 </div>
@@ -524,8 +605,8 @@
                                     <span class="inline-block px-2 py-0.5 bg-sky-100 text-sky-700 font-extrabold text-[9px] rounded-full uppercase tracking-wider mb-0.5" data-i18n="vocBadge">
                                         Vocabulary
                                     </span>
-                                    <h4 class="text-sm font-black text-slate-900 group-hover:text-sky-600 transition-colors" data-i18n="vocTitle">Unit Terms &amp; Glossary</h4>
-                                    <p class="text-xs text-slate-500 font-medium leading-tight" data-i18n="vocDesc">Glosario técnico bilingüe sobre dibujo y sistemas de representación.</p>
+                                    <h4 class="text-sm font-black text-slate-900 group-hover:text-sky-600 transition-colors" data-i18n="vocTitle">Glosario de Expresión Gráfica</h4>
+                                    <p class="text-xs text-slate-500 font-medium leading-tight" data-i18n="vocDesc">Términos técnicos bilingües de dibujo industrial.</p>
                                 </div>
                                 <i data-lucide="arrow-right" class="w-4 h-4 text-sky-600 group-hover:translate-x-1 transition-transform mr-2"></i>
                             </a>
@@ -547,12 +628,12 @@
                                     <i data-lucide="check-circle-2" class="w-3 h-3 text-emerald-400"></i>
                                     <span data-i18n="evalBadge">EVALUACIÓN DE APRENDIZAJE</span>
                                 </div>
-                                <h4 class="text-lg font-black tracking-tight" data-i18n="evalTitle">¡Ponte a prueba con el Test Final!</h4>
+                                <h4 class="text-lg font-black tracking-tight" data-i18n="evalTitle">¡Ponte a prueba con el Test Final de Expresión Gráfica!</h4>
                                 <p class="text-indigo-200 text-xs font-medium max-w-xl leading-relaxed" data-i18n="evalDesc">
-                                    Comprueba tus conocimientos sobre útiles de dibujo, escalas, alzado, planta, perfil, acotación y perspectiva isométrica.
+                                    Comprueba lo aprendido sobre escalas, proyecciones diédricas, acotación y perspectivas 3D.
                                 </p>
                             </div>
-                            <a href="test_sda3.html" class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-6 py-3 rounded-xl transition-all shadow-md hover:shadow-emerald-500/20 hover:scale-105 uppercase tracking-wider text-xs whitespace-nowrap shrink-0">
+                            <a href="ud2-test.html" class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-6 py-3 rounded-xl transition-all shadow-md hover:shadow-emerald-500/20 hover:scale-105 uppercase tracking-wider text-xs whitespace-nowrap shrink-0">
                                 <span data-i18n="evalBtn">Realizar Test Final</span>
                                 <i data-lucide="arrow-right" class="w-4 h-4"></i>
                             </a>
@@ -571,7 +652,7 @@
         </div>
     </main>
 
-    <!-- Modal para Actividades Prácticas -->
+    <!-- Modal para Actividades Prácticas y Reto LEGO -->
     <div id="modalActividades" class="fixed inset-0 bg-slate-900/80 backdrop-blur-xs hidden items-center justify-center z-50 p-4" onclick="cerrarModalActividades(event)">
         <div class="bg-amber-50 max-w-lg w-full rounded-3xl p-6 md:p-8 border border-amber-200 shadow-2xl relative text-amber-950" onclick="event.stopPropagation()">
             <button onclick="cerrarModalActividades()" class="absolute top-4 right-4 text-amber-800 hover:text-amber-950 bg-amber-200/60 p-2 rounded-full transition-colors">
@@ -579,24 +660,24 @@
             </button>
             <div class="flex items-center gap-2 mb-4 pb-3 border-b border-amber-200">
                 <i data-lucide="clipboard-list" class="w-6 h-6 text-amber-700"></i>
-                <h3 class="font-black text-amber-950 text-base uppercase tracking-wider" data-i18n="modalActTitle">Actividades Prácticas UD3</h3>
+                <h3 class="font-black text-amber-950 text-base uppercase tracking-wider" data-i18n="modalActTitle">Láminas y Reto LEGO (UD2)</h3>
             </div>
             <ul class="space-y-4 text-xs font-medium">
                 <li class="bg-white p-4 rounded-2xl border border-amber-200/80 shadow-xs">
-                    <span class="font-black block text-amber-900 mb-1 uppercase tracking-wider text-[10px]" data-i18n="act1Title">Actividad 3.1: Cálculo de Escalas y Formatos</span>
-                    <span data-i18n="act1Desc">Calcula las dimensiones en papel para representar un objeto de 1.2 m a escala 1:20 en una lámina A4.</span>
+                    <span class="font-black block text-amber-900 mb-1 uppercase tracking-wider text-[10px]" data-i18n="act1Title">Lámina 1: Trazado de Paralelas y Perpendiculares</span>
+                    <span data-i18n="act1Desc">Construcción de una trama geométrica precisa en formato A4 con escuadra y cartabón usando lápiz H.</span>
                 </li>
                 <li class="bg-white p-4 rounded-2xl border border-amber-200/80 shadow-xs">
-                    <span class="font-black block text-amber-900 mb-1 uppercase tracking-wider text-[10px]" data-i18n="act2Title">Actividad 3.2: Obtención de Vistas Diédricas</span>
-                    <span data-i18n="act2Desc">Dibuja a escala 1:1 las tres vistas principales (Alzado, Planta y Perfil Izquierdo) de la pieza en forma de "L" con túnel interior.</span>
+                    <span class="font-black block text-amber-900 mb-1 uppercase tracking-wider text-[10px]" data-i18n="act2Title">Lámina 2: Vistas Normalizadas y Acotación</span>
+                    <span data-i18n="act2Desc">Proyección de Alzado, Planta y Perfil de una pieza con hueco en Sistema Europeo y acotación completa.</span>
                 </li>
                 <li class="bg-white p-4 rounded-2xl border border-amber-200/80 shadow-xs">
-                    <span class="font-black block text-amber-900 mb-1 uppercase tracking-wider text-[10px]" data-i18n="act3Title">Actividad 3.3: Dibujo en Red Isométrica</span>
-                    <span data-i18n="act3Desc">Representa en perspectiva isométrica sobre papel pautado la figura dada por sus tres vistas principales acotadas.</span>
+                    <span class="font-black block text-amber-900 mb-1 uppercase tracking-wider text-[10px]" data-i18n="act3Title">Proyecto STEAM: El Reto LEGO</span>
+                    <span data-i18n="act3Desc">Diseño completo de una pieza LEGO personalizada (Boceto ➔ Croquis ➔ Plano ➔ Prototipo CAD 3D).</span>
                 </li>
             </ul>
             <div class="mt-6 pt-3 border-t border-amber-200 text-center">
-                <span class="text-[10px] font-black text-amber-800 uppercase tracking-widest" data-i18n="modalDeliverable">Entregable: Lámina de Dibujo Técnico A4</span>
+                <span class="text-[10px] font-black text-amber-800 uppercase tracking-widest" data-i18n="modalDeliverable">Entregables: Carpetilla A4 + Google Slides Dossier</span>
             </div>
         </div>
     </div>
@@ -614,291 +695,295 @@
 
     <!-- Scripts JS -->
     <script>
-        // Dictionary for Bilingual Support (ES / EN)
+        // Diccionario de Traducción Bilingüe (ES / EN)
         const translations = {
             es: {
-                navBlock1: "1. Útiles y Escalas",
-                navBlock2: "2. Sistema Diédrico",
-                navBlock3: "3. Vistas y Acotación",
-                navBlock4: "4. Perspectivas",
+                navBlock1: "1. Fundamentos y Materiales",
+                navBlock2: "2. Escalas y Diédrico",
+                navBlock3: "3. Perspectivas y CAD",
                 navResources: "Recursos",
                 unitSubhead: "Unidad Didáctica 3 // SdA 3",
-                heroTitlePart1: "UD3. Expresión Gráfica y",
-                heroTitlePart2: "Sistemas de Representación",
-                heroDesc: "En Tecnología y Digitalización es imprescindible saber transmitir nuestras ideas mediante el lenguaje gráfico universal. A través de esta unidad aprenderás el uso de herramientas de trazado, escalas, la proyección diédrica de vistas, acotación normalizada y representación de piezas en perspectiva 3D.",
-                subjectLabel: "TECNOLOGÍA Y DIGITALIZACIÓN 2º ESO",
-                b1Title: "LOS ÚTILES DE DIBUJO Y LA ESCALA BÁSICA",
-                b1Intro: "Para expresarnos gráficamente en Tecnología necesitamos precisión y limpieza. El uso correcto de las herramientas marca la diferencia entre un garabato y un plano técnico.",
-                sec11Title: "1.1. Materiales de dibujo",
-                matPencilTitle: "El lápiz y las minas:",
-                matPencilDesc: "La mina está hecha de una mezcla de grafito (la mina negra) y arcilla. Según su dureza, los lápices se dividen en tres clases:",
-                pencilH: "H (Hard / Duros):", pencilHDesc: "Dejan un trazo muy fino y claro. Los usamos para líneas auxiliares, bocetos iniciales y líneas que luego borraremos.",
-                pencilHB: "HB (Medium / Medio):", pencilHBDesc: "Es el lápiz común para escribir y hacer los primeros trazos de un dibujo.",
-                pencilB: "B (Soft / Blandos):", pencilBDesc: "Dejan un trazo muy oscuro y grueso. Se usan solo al final para repasar y remarcar el dibujo definitivo.",
-                matEraserTitle: "La goma de borrar:",
-                matEraserDesc: "Sirve para eliminar trazos no deseados. Debe estar siempre limpia para no emborronar la lámina.",
-                matPaperTitle: "El papel y sus tamaños (Norma ISO):",
-                matPaperDesc1: "El tamaño estándar básico es el A0 (que mide 1 m²).",
-                matPaperDesc2: "Si doblamos un A0 por la mitad, obtenemos un A1; si doblamos un A1, un A2; si doblamos este, un A3, y si doblamos el A3 por la mitad obtenemos la hoja estándar que usamos en clase: el A4 (210 x 297 mm).",
-                img1Caption: "Formatos y tamaños de papel según la norma ISO 216 (Serie A)",
-                sec12Title: "1.2. Herramientas de trazado y medida",
-                tool1_title: "Regla graduada:", tool1_desc: "Mide en centímetros y milímetros. Sirve para medir distancias, no para trazar líneas largas (para eso se usan la escuadra y el cartabón).",
-                tool2_title: "Transportador de ángulos:", tool2_desc: "Es un semicírculo con grados (0º a 180º) que sirve para medir o construir ángulos.",
-                tool3_title: "Juego de escuadra y cartabón:",
-                tool3_sq: "Escuadra:", tool3_sq_desc: "Tiene forma de triángulo rectángulo isósceles (90º, 45º, 45º). Tiene dos lados iguales.",
-                tool3_cart: "Cartabón:", tool3_cart_desc: "Tiene forma de triángulo rectángulo escaleno (90º, 60º, 30º). Sus tres lados son diferentes y su lado más largo (hipotenusa) mide el doble que su lado corto.",
-                tool4_title: "Compás:", tool4_desc: "Sirve para trazar circunferencias y arcos. Consta de dos patas: una con pincho de metal y otra con la mina de lápiz.",
-                traceGuideTitle: "¿Cómo trazar paralelas y perpendiculares?",
-                traceParTitle: "Paralelas:", traceParDesc: "Se apoya la escuadra sobre la hipotenusa del cartabón (que se queda fijo como una vía de tren). Al deslizar la escuadra arriba o abajo, trazamos líneas totalmente paralelas.",
-                tracePerpTitle: "Perpendiculares:", tracePerpDesc: "Se coloca la posición inicial de paralelas, se fija el cartabón y se gira la escuadra 90º apoyando su otro lado recto sobre el cartabón.",
-                sec13Title: "1.3. Fases para dibujar una idea",
-                sec13Desc: "Cuando diseñamos un objeto en Tecnología, seguimos tres pasos obligatorios:",
-                step1Title: "Apunte o Boceto (Outline):", step1Desc: "Es un dibujo rápido a mano alzada de la idea que tenemos en la cabeza. No lleva medidas exactas ni muchos detalles.",
-                step2Title: "Croquis (Sketch):", step2Desc: "Es un dibujo hecho a mano alzada pero mucho más detallado. Incluye todas las medidas reales, los materiales y cómo se montan las piezas.",
-                step3Title: "Plano (Plan):", step3Desc: "Es el dibujo definitivo hecho con regla, escuadra y compás (o por ordenador). Es superpreciso y a escala. En la parte inferior lleva un cajetín de rotulación con el nombre del dibujo, el autor, la fecha y la escala usada.",
-                sec14Title: "1.4. ¿Qué es la Escala?",
-                sec14Desc: "A veces las cosas que queremos dibujar son muy grandes (un coche, una casa) o muy pequeñas (un tornillo, un chip). La escala es la relación que existe entre el tamaño del dibujo en el papel y el tamaño real del objeto en la vida real:",
-                scaleFormulaLabel: "Fórmula general de la escala:",
-                scaleTypesTitle: "Los 3 tipos de escala:",
-                scaleNatTitle: "1. Escala Natural (1:1):", scaleNatDesc: "El objeto se dibuja exactamente con el mismo tamaño que tiene en la realidad. (Ejemplo: una borradora de clase).",
-                scaleRedTitle: "2. Escala de Reducción (1:2, 1:5, 1:100):", scaleRedDesc: "El dibujo es más pequeño que el objeto real. Escala 1:2 significa que 1 cm en el dibujo equivale a 2 cm en la realidad (hemos reducido la pieza a la mitad).",
-                scaleAmpTitle: "3. Escala de Ampliación (2:1, 5:1):", scaleAmpDesc: "El dibujo es más grande que el objeto real. Escala 2:1 significa que 2 cm en el dibujo equivalen a 1 cm en la realidad (hemos ampliado la pieza al doble).",
-                b2Title: "EL SISTEMA DIÉDRICO: PLANTA, ALZADO Y PERFIL",
-                b2Intro: "El sistema diédrico nos permite dibujar un objeto tridimensional (3D) en una hoja de papel bidimensional (2D), mirándolo desde tres puntos de vista diferentes.",
-                img2Caption: "Proyección de vistas en Sistemas Europeo y Americano",
-                viewAlzadoTitle: "1. Alzado (Front View):", viewAlzadoDesc: "Es la vista del objeto mirando de frente. Es la vista más importante y la que nos da más información sobre su forma.",
-                viewPlantaTitle: "2. Planta (Top View):", viewPlantaDesc: "Es la vista del objeto mirando desde arriba. Se dibuja siempre justo debajo del alzado.",
-                viewPerfilTitle: "3. Perfil Izquierdo (Left Side View):", viewPerfilDesc: "Es la vista del objeto mirando desde su lado izquierdo. Se proyecta y se dibuja siempre a la derecha del alzado.",
-                goldenRuleTitle: "Regla de oro de la colocación de vistas (Sistema Europeo):",
-                goldenRule1: "El Alzado manda arriba a la izquierda.",
-                goldenRule2: "La Planta va DEBAJO del Alzado.",
-                goldenRule3: "El Perfil Izquierdo va a la DERECHA del Alzado.",
-                goldenRuleNote: "Importante: Todas las vistas tienen que estar alineadas entre sí. La anchura del alzado es exactamente la misma anchura de la planta.",
-                b3Title: "DIBUJO DE VISTAS Y NORMAS DE ACOTACIÓN",
-                sec31Title: "3. Dibujo de vistas de piezas sencillas",
-                sec31Desc: "Imaginemos un trozo de madera en forma de 'L' que mide 30 mm de alto, 30 mm de ancho y 20 mm de profundidad:",
-                exStep1Title: "Paso 1 (Alzado):", exStep1Desc: "Si miras la L de frente, ves una forma de 'L'. La dibujas en la esquina superior izquierda.",
-                exStep2Title: "Paso 2 (Planta):", exStep2Desc: "Si miras la L desde arriba, solo ves dos rectángulos planos pegados. Los dibujas justo debajo de la 'L'.",
-                exStep3Title: "Paso 3 (Perfil):", exStep3Desc: "Si miras la L desde su lado izquierdo, ves un rectángulo alto. Lo dibujas justo a la derecha de la 'L'.",
-                sec4Title: "4. Piezas con aristas ocultas y vaciados",
-                sec4Desc: "No todas las piezas son cubos o bloques macizos. Muchas tienen huecos internos, túneles o cortes traseros que no se ven a simple vista cuando las miras de frente.",
-                lineTypesTitle: "Tipos de líneas en Dibujo Técnico:",
-                lineContTitle: "Línea continua gruesa:", lineContDesc: "Representa todas las aristas y contornos visibles.",
-                lineDiscTitle: "Línea discontinua o de trazos:", lineDiscDesc: "Representa las aristas ocultas (líneas, túneles o huecos que están por dentro o por detrás de la pieza y que la vista principal nos tapa).",
-                lineAxisTitle: "Línea fina de trazo y punto:", lineAxisDesc: "Se usa para marcar ejes de simetría o el centro de un agujero redondo.",
-                tunnelExTitle: "Ejemplo práctico: Una pieza con un túnel interior",
-                tunnelExDesc: "Si una pieza tiene un túnel de lado a lado por la base:",
-                tunnelEx1: "En la vista lateral (Perfil) se verá la boca de entrada del túnel con línea continua.",
-                tunnelEx2: "En la vista frontal (Alzado) no se ve el túnel porque lo tapa la pared exterior; por tanto, el techo del túnel se dibuja con una línea de trazos discontinuos a la altura correspondiente.",
-                sec5Title: "5. Normas básicas de acotación",
-                sec5Desc: "Acotar consiste en poner las medidas reales sobre el dibujo mediante líneas, flechas y números para que el fabricante sepa cuánto mide exactamente la pieza sin necesidad de usar la regla sobre el papel.",
-                img3Caption: "Elementos fundamentales de una cota (Línea, auxiliar y cifra de cota)",
-                dimElementsTitle: "Elementos de una cota:",
-                dimEl1Title: "1. Línea de cota:", dimEl1Desc: "Línea fina paralela al borde que queremos medir. Lleva una flecha fina en cada extremo.",
-                dimEl2Title: "2. Líneas auxiliares de cota:", dimEl2Desc: "Líneas perpendiculares que salen del dibujo marcando dónde empieza y dónde termina la medida.",
-                dimEl3Title: "3. Cifra de cota:", dimEl3Desc: "Es el número que indica la medida real (en milímetros). Se escribe centrada y siempre por encima de la línea de cota (o girada a la izquierda si la cota es vertical).",
-                dimRulesTitle: "Las 4 reglas de acotación que no puedes olvidar:",
-                dimRule1: "Las medidas se expresan siempre en milímetros (no se escribe 'mm' al lado del número).",
-                dimRule2: "Las líneas de cota nunca se cruzan entre sí ni con las líneas del dibujo.",
-                dimRule3: "No hay que repetir medidas. Si una medida ya está clara en el alzado, no la vuelvas a poner en la planta.",
-                dimRule4: "Acota siempre por fuera de la figura, evitando poner números dentro de la pieza a menos que sea imprescindible.",
-                b4Title: "PERSPECTIVA CABALLERA E ISOMÉTRICA (RED ISOMÉTRICA)",
-                b4Intro: "Las perspectivas nos sirven para ver el objeto en 3D de un solo vistazo (con alto, ancho y profundidad).",
-                img4Caption: "Comparativa de perspectivas 3D: Isométrica (30º/30º), Caballera (45º) y Militar (30º/60º)",
-                obliqueNote: "En las proyecciones oblicuas se utilizará una reducción del 30%. Coeficiente 0.7.",
-                sec61Title: "6.1. Perspectiva Caballera",
-                cab1: "La cara frontal se dibuja tal cual es (usando ángulos de 90º normales).",
-                cab2: "La profundidad se dibuja inclinada a 45º.",
-                cab3: "Inconveniente: Para que no parezca deformada o demasiado larga, las medidas de profundidad hay que reducirlas a la mitad (x 0.5).",
-                sec62Title: "6.2. Perspectiva Isométrica (Simplificada)",
-                iso1: "Utiliza una red o plantilla isométrica (malla formada por triángulos equiláteros o líneas inclinadas a 30º).",
-                iso2: "Los tres ejes principales (X, Y, Z) forman entre sí ángulos iguales de 120º.",
-                iso3: "Ventaja en 2º E.S.O.: En la red isométrica no reducimos las medidas. Si una arista mide 3 cm, contamos 3 unidades en la rejilla hacia cualquier dirección (alto, ancho o profundidad).",
-                isoStepsTitle: "Pasos para construir un objeto en red isométrica:",
-                isoStep1: "Dibujar el 'cubo envolvente' o caja exterior contando las unidades de ancho, alto y profundidad en la rejilla.",
-                isoStep2: "Dibujar con lápiz duro (H) los cortes y escalones restando bloques a la caja.",
-                isoStep3: "Repasar con lápiz blando (B) o rotulador las líneas visibles definitivas.",
-                btnActivities: "Ver Actividades Prácticas de la Unidad",
+                heroTitlePart1: "UD3. EXPRESIÓN GRÁFICA Y",
+                heroTitlePart2: "SISTEMAS DE REPRESENTACIÓN",
+                heroDesc: "La Expresión Gráfica es el lenguaje universal de la Tecnología. A lo largo de esta unidad aprenderemos a comunicar ideas de forma clara, rigurosa y normalizada: desde los primeros bocetos a mano alzada hasta la representación en 3D (perspectivas e isométrica), pasando por las vistas diédricas normalizadas y el modelado 3D mediante software CAD.",
+                subjectLabel: "TECNOLOGÍA",
+                b1Title: "FUNDAMENTOS, PROCESO DE DISEÑO Y MATERIALES",
+                sec1Title: "1. Introducción: El Dibujo como Lenguaje Universal ✏️",
+                sec1Desc: "Desde los orígenes de la humanidad, el ser humano ha utilizado imágenes para comunicarse. Antes de la invención de la escritura, las pinturas rupestres permitían transmitir historias, cazas e instrucciones. En el ámbito técnico y tecnológico, la expresión gráfica se divide en dos grandes ramas con objetivos claramente diferenciados:",
+                thCrit: "Criterio", thArt: "Dibujo Artístico 🎨", thTechDraw: "Dibujo Técnico 📐",
+                row1_crit: "Objetivo", row1_art: "Expresar emociones, sentimientos o belleza estética.", row1_tech: "Describir un objeto de forma exacta para su posterior fabricación.",
+                row2_crit: "Normas", row2_art: "Libre, basado en la creatividad del autor.", row2_tech: "Sigue normas internacionales strictly (Normas ISO / UNE).",
+                row3_crit: "Resultado", row3_art: "Subjetivo: cada espectador puede interpretarlo de forma distinta.", row3_tech: "Objetivo: solo admite una interpretación exacta sin ambigüedades.",
+                summaryLabel: "En resumen:", summaryText: "Mientras el dibujo artístico habla el idioma de las emociones, el dibujo técnico habla el idioma de la precisión. Si dos ingenieros en distintos países leen el mismo plano técnico, construirán exactamente la misma pieza.",
+                sec2Title: "2. El Proceso de Diseño Técnico: Del Problema a la Solución 🛠️",
+                sec2Desc: "Cuando diseñamos un objeto en Tecnología, no pasamos directamente de la idea a la fabricación final. Seguimos un proceso secuencial de tres fases gráficas fundamentales:",
+                phase1Title: "1. Boceto (Draft):", phase1Desc: "Dibujo rápido a mano alzada, poco detallado. Sirve para plasmar las primeras ideas de forma ágil sin preocuparse por las medidas exactas.",
+                phase2Title: "2. Croquis (Sketch):", phase2Desc: "Dibujo también a mano alzada, pero detallado y proporcionado. Contiene todas las medidas reales (acotación), anotaciones sobre materiales y forma de montaje.",
+                phase3Title: "3. Plano Definitivo (Technical Plan):", phase3Desc: "Dibujo hecho con máxima precisión empleando instrumentos de dibujo (escuadra, cartabón, compás) o software CAD. Se dibuja a escala, con vistas normalizadas e incluye un cajetín de rotulación.",
+                sec3Title: "3. Instrumentos de Dibujo y Materiales 📏",
+                sub31Title: "3.1. Materiales Básicos y Normativa",
+                pencilTitle: "Dureza de Lápices y Minas (Grafito + Arcilla):",
+                pencilH: "H (Hard / Duros): Contienen más arcilla. Trazo fino y claro. Ideales para líneas auxiliares y trazados previos que deban borrarse.",
+                pencilHB: "HB (Medium / Medio): Mezcla equilibrada. Lápiz estándar para escribir y trazar líneas generales del croquis.",
+                pencilB: "B (Soft / Blandos): Contienen más grafito. Trazo oscuro y grueso. Utilizados exclusivamente al final para repasar aristas visibles definitivas.",
+                paperTitle: "Formatos de Papel (Norma ISO 216):",
+                paperDesc: "El formato base es el A0 (superficie exacta de 1 m², con dimensiones de 841 x 1189 mm). Doblando un pliego a la mitad por su lado más largo obtenemos los siguientes formatos:",
+                paperA4: "El A4 (210 x 297 mm) es la hoja estándar utilizada en el aula.",
+                sub32Title: "3.2. Herramientas de Trazado y Medida",
+                toolRuler: "Regla graduada: Permite medir distancias en mm y cm. (No se usa para trazar líneas paralelas largas).",
+                toolSetSquare: "Escuadra: Triángulo rectángulo isósceles (ángulos de 90°, 45°, 45°).",
+                toolDraftSquare: "Cartabón: Triángulo rectángulo escaleno (ángulos de 90°, 60°, 30°). Su hipotenusa mide el doble del cateto menor.",
+                toolCompass: "Compás: Herramienta de dos patas (pinchón de metal y mina) para trazar arcos y circunferencias.",
+                toolProtractor: "Transportador de ángulos: Semicírculo graduado de 0° a 180° para medir y construir ángulos.",
+                sub33Title: "3.3. Guía Visual de Trazado: Paralelas y Perpendiculares",
+                parallelLabel: "PARALELAS:", parallelDesc: "Se apoya la hipotenusa de la escuadra sobre la del cartabón (riel fijo). Se desliza la escuadra sin mover el cartabón.",
+                perpLabel: "PERPENDICULARES:", perpDesc: "Manteniendo el cartabón fijo, se gira la escuadra 90° apoyando su otro cateto recto sobre el cartabón.",
+                fact1Title: "📐 Sabías que... // El Origen del Formato Din A4 (ISO 216):",
+                fact1Text: "El formato normalizado ISO 216 fue diseñado en Alemania en 1922 por el ingeniero Walter Porstmann. La proporción matemática entre los lados de la hoja es exactamente de 1 a √2 (1 : 1,4142). Gracias a esto, si cortas la hoja por la mitad, el rectángulo resultante conserva exactamente las mismas proporciones.",
+                b2Title: "ESCALAS, SISTEMA DIÉDRICO Y NORMALIZACIÓN",
+                sec4Title: "4. Escalas: Representación de Objetos Reales 🔍",
+                sec4Desc: "La Escala (E) es la relación matemática entre el tamaño del dibujo en el papel (D) y el tamaño real del objeto en la realidad (R):",
+                scaleRuleTitle: "⚠️ Regla de Oro de las Unidades:",
+                scaleRuleText: "Antes de calcular una escala o aplicar la fórmula, las medidas del dibujo (D) y de la realidad (R) deben estar expresadas en la misma unidad de medida (por ejemplo, ambas en mm o ambas en cm).",
+                exTitle: "Ejemplo Práctico de Cálculo:",
+                exDesc: "Si una mesa mide 1,2 m de largo en la realidad (1200 mm) y la dibujamos en el papel con un tamaño de 12 cm (120 mm):",
+                scaleTypesTitle: "Tipos de Escalas",
+                scaleNaturalTitle: "1. Escala Natural (1:1):", scaleNaturalDesc: "El tamaño del dibujo coincide exactamente con el objeto real. Ejemplo: Una goma de borrar dibujada con sus dimensiones reales.",
+                scaleRedTitle: "2. Escala de Reducción (1:2, 1:5, 1:50):", scaleRedDesc: "El dibujo es menor que el objeto real. Ejemplo: 1:2 significa que 1 cm en el papel representa 2 cm de la realidad.",
+                scaleAmpTitle: "3. Escala de Ampliación (2:1, 5:1, 10:1):", scaleAmpDesc: "El dibujo es mayor que el objeto real. Ejemplo: 5:1 significa que 5 cm en el papel representan 1 cm de la realidad.",
+                sec5Title: "5. El Sistema Diédrico: Vistas Ortogonales 📦",
+                sec5Desc: "El Sistema Diédrico nos permite representar un objeto tridimensional (3D) sobre un plano bidimensional 2D (papel) mediante proyecciones ortogonales desde tres puntos de vista principales:",
+                viewFrontTitle: "1. Alzado (Front View):", viewFrontDesc: "Vista frontal del objeto. Es la vista principal y la que mejor define su forma característica.",
+                viewTopTitle: "2. Planta (Top View):", viewTopDesc: "Vista del objeto observado perpendicularmente desde arriba.",
+                viewSideTitle: "3. Perfil Izquierdo (Left Side View):", viewSideDesc: "Vista del objeto observado desde su lado izquierdo.",
+                euroSystemTitle: "5.2. Regla de Oro en la Colocación de Vistas (Sistema Europeo)",
+                ruleCorrTitle: "Regla de Correspondencia:",
+                ruleCorr1: "El ancho del Alzado coincide exactamente con el ancho de la Planta.",
+                ruleCorr2: "La altura del Alzado coincide exactamente con la altura del Perfil.",
+                ruleCorr3: "La profundidad de la Planta (alto) coincide con el ancho del Perfil.",
+                sec6Title: "6. Normalización: Tipos de Líneas y Normas de Acotación 📐",
+                linesTitle: "6.1. Convenio de Tipos de Línea",
+                thLineType: "Tipo de Línea", thLineRep: "Representación Gráfica", thLineApp: "Aplicación Técnica",
+                line1Type: "Continua gruesa", line1App: "Aristas y contornos visibles del objeto.",
+                line2Type: "Discontinua (trazos)", line2App: "Aristas ocultas o túneles interiores no visibles.",
+                line3Type: "Fina de trazo y punto", line3App: "Ejes de simetría y centros de circunferencias/agujeros.",
+                dimTitle: "6.2. Normas de Acotación Básicas",
+                dimDesc: "Acotar es indicar sobre el plano las medidas reales de la pieza mediante cifras, líneas y símbolos normalizados.",
+                dimRule1Title: "1. Unidades:", dimRule1Desc: "Las medidas se anotan siempre en milímetros. Nunca se escribe la coletilla 'mm' tras la cifra.",
+                dimRule2Title: "2. Cruce de líneas:", dimRule2Desc: "Las líneas de cota jamás deben cruzarse entre sí ni con líneas del propio dibujo.",
+                dimRule3Title: "3. No duplicidad:", dimRule3Desc: "No se deben repetir cotas innecesarias. Si una medida queda clara en el Alzado, no se repite en la Planta.",
+                dimRule4Title: "4. Ubicación externa:", dimRule4Desc: "Las cotas deben colocarse siempre por fuera de la figura.",
+                b3Title: "PERSPECTIVAS 3D, CAD DIGITAL Y PROYECTO LEGO",
+                sec7Title: "7. Perspectivas: Representación Tridimensional (3D) 🧊",
+                sec7Desc: "Las perspectivas permiten visualizar el objeto completo en un solo dibujo tridimensional (mostrando simultáneamente alto, ancho y profundidad).",
+                pIsoTitle: "7.1. Perspectiva Isométrica", pIsoDesc: "Ejes a 120° entre sí. Se dibuja sobre mallas de triángulos equiláteros (líneas a 30°). Las medidas reales se aplican directamente 1:1 sin coeficientes de reducción.",
+                pCabTitle: "7.2. Perspectiva Caballera", pCabDesc: "Cara frontal en ángulos rectos (90°). El eje de profundidad se traza inclinado a 45°. Corrección obligatoria: Las medidas en la profundidad se reducen a la mitad (x 0.5).",
+                pConTitle: "7.3. Perspectiva Cónica", pConDesc: "Basada en puntos de fuga. Imita la visión humana. Altamente realista pero no permite tomar medidas directas.",
+                sec8Title: "8. Diseño Digital Asistido por Ordenador (Software CAD) 💻",
+                sec8Desc: "En el aula de Tecnología compaginamos el dibujo técnico tradicional con herramientas digitales CAD 3D de libre acceso:",
+                cadSoftwareTitle: "SketchUp Free / Tinkercad:",
+                cadFeat1: "Permite extruir bocetos bidimensionales mediante la herramienta Empujar/Tirar (Push/Pull).",
+                cadFeat2: "Permite validar visualmente las vistas diédricas cambiando entre vistas ortogonales estándar.",
+                sec9Title: "9. Bloque Práctico: Láminas y Proyecto STEAM 🚀",
+                sheetsTitle: "9.1. Láminas de Trabajo en Papel A4",
+                sheet1Item: "Lámina 1: Trazado de paralelas y perpendiculares con escuadra y cartabón (Trama geométrica).",
+                sheet2Item: "Lámina 2: Obtención de vistas diédricas (Alzado, Planta, Perfil) de una pieza en 'L' acotada.",
+                sheet3Item: "Lámina 3: Perspectiva Isométrica sobre red pautada de la pieza diédrica acotada.",
+                legoTitle: "9.2. Proyecto Integrador Final: 'El Reto LEGO' 🧩",
+                legoConsignTitle: "Consigna:", legoConsignDesc: "Diseñar una nueva pieza de construcción compatible con el sistema LEGO®, documentándola desde el boceto inicial hasta el prototipo digital en 3D.",
+                legoPhasesTitle: "Entregables (Dossier Técnico Digital en Google Slides):",
+                legoP1: "Fase 1 (Boceto): Apunte inicial a mano alzada proponiendo su función.",
+                legoP2: "Fase 2 (Croquis Acotado): Dibujo detallado a mano alzada con normas de acotación (mm).",
+                legoP3: "Fase 3 (Vistas Normalizadas): Dibujo con instrumentos técnicos de Alzado, Planta y Perfil (Sistema Europeo).",
+                legoP4: "Fase 4 (Modelo CAD 3D): Modelado tridimensional digital de la pieza en SketchUp Free.",
+                sec10Title: "10. Criterios de Evaluación y Rúbrica 📊",
+                rubCrit: "Criterio / Nivel", rubBad: "Insuficiente (1-4)", rubOk: "Aceptable (5-6)", rubGood: "Notable (7-8)", rubExcel: "Sobresaliente (9-10)",
+                rub1_name: "Uso de Útiles y Limpieza", rub1_bad: "Trazo sucio, líneas poco definidas, error en paralelismo.", rub1_ok: "Trazo correcto pero presenta manchas o imprecisiones leves.", rub1_good: "Buena precisión en paralelas/perpendiculares y lámina limpia.", rub1_excel: "Trazo impecable, diferenciación clara de durezas (H/B) y precisión milimétrica.",
+                rub2_name: "Sistema Diédrico", rub2_bad: "Vistas mal colocadas, desalineadas o confusión de perfiles.", rub2_ok: "Vistas bien colocadas pero con errores de alineación.", rub2_good: "Vistas bien trazadas y alineadas. Representación correcta de aristas.", rub2_excel: "Proyección perfecta, alineada y representación exacta de aristas ocultas.",
+                rub3_name: "Normas de Acotación", rub3_bad: "Inclusión de 'mm', cruces de líneas de cota o cotas repetidas.", rub3_ok: "Respeta la mayoría de normas pero comete 1-2 errores leves.", rub3_good: "Acotación correcta, números bien centrados sobre la línea de cota.", rub3_excel: "Aplicación rigurosa de todas las normas de acotación sin redundancias.",
+                rub4_name: "Perspectiva 3D y CAD", rub4_bad: "Dificultad para trasladar al plano 3D o modelo CAD incompleto.", rub4_ok: "Pieza 3D reconocible pero con desproporción en ejes.", rub4_good: "Perspectiva isométrica bien construida y modelo CAD completado.", rub4_excel: "Perspectiva isométrica perfecta en red y prototipo 3D detallado.",
+                btnActivities: "Ver Actividades Prácticas y Reto LEGO",
                 resBadge: "CENTRO DE RECURSOS Y PRÁCTICA",
                 resTitle: "Material Didáctico y Evaluación",
-                resDesc: "Accede a toda la documentación de trabajo, láminas de dibujo, plantillas isométrica y cuestionarios de la unidad.",
-                cat1Title: "1. Documentación y Plantillas",
-                sheet1Badge: "Apuntes", sheet1Title: "Esquemas y Resumen Gráfico",
-                sheet2Badge: "Plantilla", sheet2Title: "Red o Malla Isométrica A4",
+                resDesc: "Accede a toda la documentación de trabajo, láminas normalizadas y cuestionarios de la unidad.",
+                cat1Title: "1. Documentación y Láminas",
+                sheet1Badge: "Esquemas", sheet1Title: "Resumen esquemático del tema",
                 cat2Title: "2. Práctica y Repaso Interactivo",
-                gameBadge: "Interactive Game", gameTitle: "Reto de Vistas y Perspectiva", gameDesc: "Relaciona piezas 3D con sus vistas diédricas correspondientes.",
-                vocBadge: "Vocabulary", vocTitle: "Unit Terms & Glossary", vocDesc: "Glosario técnico bilingüe sobre dibujo y sistemas de representación.",
+                gameBadge: "Interactive Game", gameTitle: "Reto de Vistas Diédricas", gameDesc: "Relaciona piezas 3D con sus vistas ortogonales correspondientes.",
+                vocBadge: "Vocabulary", vocTitle: "Glosario de Expresión Gráfica", vocDesc: "Términos técnicos bilingües de dibujo industrial.",
                 cat3Title: "3. Evaluación Final",
                 evalBadge: "EVALUACIÓN DE APRENDIZAJE",
-                evalTitle: "¡Ponte a prueba con el Test Final!",
-                evalDesc: "Comprueba tus conocimientos sobre útiles de dibujo, escalas, alzado, planta, perfil, acotación y perspectiva isométrica.",
+                evalTitle: "¡Ponte a prueba con el Test Final de Expresión Gráfica!",
+                evalDesc: "Comprueba lo aprendido sobre escalas, proyecciones diédricas, acotación y perspectivas 3D.",
                 evalBtn: "Realizar Test Final",
                 backHomeBtn: "Volver al Índice Principal",
-                modalActTitle: "Actividades Prácticas UD3",
-                act1Title: "Actividad 3.1: Cálculo de Escalas y Formatos", act1Desc: "Calcula las dimensiones en papel para representar un objeto de 1.2 m a escala 1:20 en una lámina A4.",
-                act2Title: "Actividad 3.2: Obtención de Vistas Diédricas", act2Desc: "Dibuja a escala 1:1 las tres vistas principales (Alzado, Planta y Perfil Izquierdo) de la pieza en forma de 'L' con túnel interior.",
-                act3Title: "Actividad 3.3: Dibujo en Red Isométrica", act3Desc: "Representa en perspectiva isométrica sobre papel pautado la figura dada por sus tres vistas principales acotadas.",
-                modalDeliverable: "Entregable: Lámina de Dibujo Técnico A4"
-            ,
+                modalActTitle: "Láminas y Reto LEGO (UD2)",
+                act1Title: "Lámina 1: Trazado de Paralelas y Perpendiculares", act1Desc: "Construcción de una trama geométrica precisa en formato A4 con escuadra y cartabón usando lápiz H.",
+                act2Title: "Lámina 2: Vistas Normalizadas y Acotación", act2Desc: "Proyección de Alzado, Planta y Perfil de una pieza con hueco en Sistema Europeo y acotación completa.",
+                act3Title: "Proyecto STEAM: El Reto LEGO", act3Desc: "Diseño completo de una pieza LEGO personalizada (Boceto ➔ Croquis ➔ Plano ➔ Prototipo CAD 3D).",
+                modalDeliverable: "Entregables: Carpetilla A4 + Google Slides Dossier"
+            },
             en: {
-                navBlock1: "1. Tools & Scales",
-                navBlock2: "2. Orthographic System",
-                navBlock3: "3. Views & Dimensioning",
-                navBlock4: "4. Perspectives",
+                navBlock1: "1. Fundamentals & Materials",
+                navBlock2: "2. Scales & Orthographic",
+                navBlock3: "3. 3D Views & CAD",
                 navResources: "Resources",
                 unitSubhead: "Unit 3 // Learning Unit 3",
-                heroTitlePart1: "Unit 3. Technical Drawing &",
-                heroTitlePart2: "Representation Systems",
-                heroDesc: "In Technology, transmitting ideas using the universal graphic language is essential. In this unit, you will learn drawing tools, scales, orthographic projections, standard dimensioning, and 3D isometric perspectives.",
-                subjectLabel: "TECHNOLOGY 2nd ESO",
-                b1Title: "DRAWING TOOLS AND BASIC SCALES",
-                b1Intro: "To express ourselves graphically in Technology, we need accuracy and cleanliness. The correct tool usage makes the difference between a rough sketch and a technical plan.",
-                sec11Title: "1.1. Drawing Materials",
-                matPencilTitle: "Pencils and Leads:",
-                matPencilDesc: "The lead is made of a mixture of graphite and clay. According to hardness, pencils are divided into three types:",
-                pencilH: "H (Hard):", pencilHDesc: "Leaves a very thin and light line. Used for auxiliary lines, initial sketches, and lines to be erased.",
-                pencilHB: "HB (Medium):", pencilHBDesc: "The standard pencil for writing and initial drawing outlines.",
-                pencilB: "B (Soft):", pencilBDesc: "Leaves a dark and thick line. Used at the final step to outline visible edges.",
-                matEraserTitle: "The Eraser:",
-                matEraserDesc: "Used to remove unwanted pencil lines. Must always be kept clean to avoid smudging.",
-                matPaperTitle: "Paper Formats (ISO Standard):",
-                matPaperDesc1: "The basic standard size is A0 (1 m² in surface).",
-                matPaperDesc2: "Folding A0 in half yields A1; folding A1 yields A2; folding A2 yields A3; folding A3 in half yields the standard classroom size: A4 (210 x 297 mm).",
-                img1Caption: "Paper sizes and formats according to ISO 216 standard (A Series)",
-                sec12Title: "1.2. Drafting and Measuring Tools",
-                tool1_title: "Graduated Ruler:", tool1_desc: "Measures in centimeters and millimeters. Used for measuring distances, not for long straight lines (use set squares instead).",
-                tool2_title: "Protractor:", tool2_desc: "A semicircular tool (0º to 180º) used for measuring and constructing angles.",
-                tool3_title: "Set Squares (Escuadra & Cartabón):",
-                tool3_sq: "45º Set Square (Escuadra):", tool3_sq_desc: "Right-angled isosceles triangle (90º, 45º, 45º) with two equal sides.",
-                tool3_cart: "30º/60º Set Square (Cartabón):", tool3_cart_desc: "Right-angled scalene triangle (90º, 60º, 30º). Its hypotenuse is twice the length of its shortest leg.",
-                tool4_title: "Compass:", tool4_desc: "Used for drawing circles and arcs. Has two legs: one with a sharp metal pin and one with pencil lead.",
-                traceGuideTitle: "How to draw Parallel and Perpendicular lines?",
-                traceParTitle: "Parallels:", traceParDesc: "Rest the 45º set square on the hypotenuse of the 30º/60º set square. Sliding it up or down draws parallel lines.",
-                tracePerpTitle: "Perpendiculars:", tracePerpDesc: "Set initial parallel alignment, hold the base square firm, and rotate the top square 90º resting its other right side.",
-                sec13Title: "1.3. Stages of Design Drawing",
-                sec13Desc: "When designing an object in Technology, we follow three mandatory steps:",
-                step1Title: "Quick Sketch (Outline):", step1Desc: "A quick freehand drawing of an idea. Contains no exact dimensions or detailed specs.",
-                step2Title: "Detailed Sketch (Croquis):", step2Desc: "Detailed freehand drawing including real dimensions, materials, and assembly details.",
-                step3Title: "Technical Plan (Plan):", step3Desc: "Final drawing made with rulers, compass, or CAD software. Precise, scaled, and includes a title block.",
-                sec14Title: "1.4. What is Scale?",
-                sec14Desc: "Objects can be very large (cars, houses) or tiny (screws, microchips). Scale is the ratio between drawing size and real size:",
-                scaleFormulaLabel: "General Scale Formula:",
-                scaleTypesTitle: "The 3 Types of Scale:",
-                scaleNatTitle: "1. Natural Scale (1:1):", scaleNatDesc: "The object is drawn at the exact same size as in reality.",
-                scaleRedTitle: "2. Reduction Scale (1:2, 1:5, 1:100):", scaleRedDesc: "Drawing is smaller than the real object. 1:2 scale means 1 cm on paper equals 2 cm in reality.",
-                scaleAmpTitle: "3. Enlargement Scale (2:1, 5:1):", scaleAmpDesc: "Drawing is larger than the real object. 2:1 scale means 2 cm on paper equals 1 cm in reality.",
-                b2Title: "ORTHOGRAPHIC PROJECTION: FRONT, TOP & SIDE VIEWS",
-                b2Intro: "Orthographic projection represents a 3D object on a 2D sheet of paper by viewing it from three perpendicular directions.",
-                img2Caption: "View projections in European vs American systems",
-                viewAlzadoTitle: "1. Front View (Alzado):", viewAlzadoDesc: "The front view of the object. Provides the most descriptive shape information.",
-                viewPlantaTitle: "2. Top View (Planta):", viewPlantaDesc: "Viewed directly from above. Always drawn below the front view.",
-                viewPerfilTitle: "3. Left Side View (Perfil Izquierdo):", viewPerfilDesc: "Viewed from the left side. Projected and drawn to the RIGHT of the front view.",
-                goldenRuleTitle: "Golden Placement Rule (First Angle / European System):",
-                goldenRule1: "Front View stays on top-left.",
-                goldenRule2: "Top View goes BELOW Front View.",
-                goldenRule3: "Left Side View goes to the RIGHT of Front View.",
-                goldenRuleNote: "Important: All views must be aligned. The width of Front View equals the width of Top View.",
-                b3Title: "DRAWING VIEWS & DIMENSIONING RULES",
-                sec31Title: "3. Drawing Views of Simple Objects",
-                sec31Desc: "Consider an L-shaped wooden block measuring 30 mm high, 30 mm wide, and 20 mm deep:",
-                exStep1Title: "Step 1 (Front View):", exStep1Desc: "Looking head-on shows an 'L' shape. Draw it in top-left position.",
-                exStep2Title: "Step 2 (Top View):", exStep2Desc: "Looking from above shows two flat rectangles. Draw directly under the Front View.",
-                exStep3Title: "Step 3 (Side View):", exStep3Desc: "Looking from left side shows a tall rectangle. Draw directly to the right of Front View.",
-                sec4Title: "4. Objects with Hidden Edges & Cavities",
-                sec4Desc: "Many mechanical parts have internal holes, tunnels, or rear cutouts obscured from front view.",
-                lineTypesTitle: "Line Types in Technical Drawing:",
-                lineContTitle: "Thick Continuous Line:", lineContDesc: "Represents visible edges and visible outlines.",
-                lineDiscTitle: "Dashed / Hidden Line:", lineDiscDesc: "Represents hidden edges and internal cavity features.",
-                lineAxisTitle: "Chain / Center Line:", lineAxisDesc: "Marks axes of symmetry or centers of cylindrical holes.",
-                tunnelExTitle: "Practical Example: Internal Tunnel Part",
-                tunnelExDesc: "If a part contains a bottom tunnel from end to end:",
-                tunnelEx1: "Side view shows open tunnel mouth with solid continuous lines.",
-                tunnelEx2: "Front view hides internal tunnel roof, so it is drawn using dashed hidden lines at correct height.",
-                sec5Title: "5. Dimensioning Rules",
-                sec5Desc: "Dimensioning adds exact real-world measurements to drawings using lines, arrows, and numbers.",
-                img3Caption: "Key dimension elements (Dimension line, extension line, dimension value)",
-                dimElementsTitle: "Elements of a Dimension:",
-                dimEl1Title: "1. Dimension Line:", dimEl1Desc: "Fine line parallel to the measured edge with narrow arrowheads.",
-                dimEl2Title: "2. Extension Lines:", dimEl2Desc: "Perpendicular lines extending from the object indicating measurement bounds.",
-                dimEl3Title: "3. Dimension Value:", dimEl3Desc: "Number specifying real dimension (in mm), placed above horizontal dimension lines.",
-                dimRulesTitle: "4 Mandatory Dimensioning Rules:",
-                dimRule1: "Measurements are always in millimeters (omit 'mm' units next to numbers).",
-                dimRule2: "Dimension lines must never cross each other or main drawing lines.",
-                dimRule3: "Do not duplicate dimensions across different views.",
-                dimRule4: "Always place dimensions outside part outlines whenever possible.",
-                b4Title: "ISOMETRIC AND CABINET PERSPECTIVE",
-                b4Intro: "3D perspectives allow viewing height, width, and depth simultaneously.",
-                img4Caption: "Comparison of 3D perspectives: Isometric (30º/30º), Cabinet (45º), and Military (30º/60º)",
-                obliqueNote: "Oblique projections apply a 30% reduction factor (0.7 coefficient).",
-                sec61Title: "6.1. Cabinet Perspective",
-                cab1: "Front face drawn true to shape (using 90º right angles).",
-                cab2: "Receding depth axes drawn at a 45º angle.",
-                cab3: "Drawback: Depth dimensions must be scaled down by 50% (x 0.5) to prevent visual distortion.",
-                sec62Title: "6.2. Simplified Isometric Perspective",
-                iso1: "Uses an isometric grid consisting of equilateral triangles / 30º angled grid lines.",
-                iso2: "The three principal axes (X, Y, Z) form equal 120º angles with one another.",
-                iso3: "2nd ESO Advantage: Grid units are unreduced (full scale along all three axes).",
-                isoStepsTitle: "Steps to draw on an isometric grid:",
-                isoStep1: "Draw bounding box calculating total height, width, and depth units.",
-                isoStep2: "Use hard lead pencil (H) to subtract step cutouts from bounding block.",
-                isoStep3: "Inking or dark pencil (B) to finalize visible edges.",
-                btnActivities: "View Unit Practical Activities",
+                heroTitlePart1: "UNIT 3. GRAPHIC EXPRESSION &",
+                heroTitlePart2: "REPRESENTATION SYSTEMS",
+                heroDesc: "Graphic Expression is the universal language of Technology. Throughout this unit, we will learn to communicate ideas clearly, rigorously, and standardized: from freehand drafts to 3D representation, orthographic projections, and CAD modeling.",
+                subjectLabel: "TECHNOLOGY",
+                b1Title: "FUNDAMENTALS, DESIGN PROCESS & MATERIALS",
+                sec1Title: "1. Introduction: Drawing as a Universal Language ✏️",
+                sec1Desc: "Since the dawn of humanity, human beings have used images to communicate. Before writing, cave paintings transmitted stories and instructions. In technical fields, drawing is divided into two main branches:",
+                thCrit: "Criterion", thArt: "Artistic Drawing 🎨", thTechDraw: "Technical Drawing 📐",
+                row1_crit: "Objective", row1_art: "Express emotions, feelings, or aesthetic beauty.", row1_tech: "Describe an object precisely for manufacturing.",
+                row2_crit: "Rules", row2_art: "Free, based on author's creativity.", row2_tech: "Follows strict international standards (ISO / UNE).",
+                row3_crit: "Result", row3_art: "Subjective: each viewer interprets it differently.", row3_tech: "Objective: admits only one exact interpretation without ambiguity.",
+                summaryLabel: "In summary:", summaryText: "While artistic drawing speaks the language of emotions, technical drawing speaks the language of precision. If two engineers in different countries read the same plan, they will build the exact same part.",
+                sec2Title: "2. The Technical Design Process: From Problem to Solution 🛠️",
+                sec2Desc: "When designing an object in Technology, we do not jump directly from an idea to final manufacturing. We follow three sequential graphic phases:",
+                phase1Title: "1. Draft (Boceto):", phase1Desc: "Quick freehand drawing, low detail. Used to capture initial ideas rapidly without worrying about exact dimensions.",
+                phase2Title: "2. Sketch (Croquis):", phase2Desc: "Detailed and proportioned freehand drawing. Contains all real dimensions (dimensioning), material notes, and assembly instructions.",
+                phase3Title: "3. Technical Plan (Plano Definitivo):", phase3Desc: "Final precise drawing made with drawing tools or CAD software. Drawn to scale with standardized views and title block.",
+                sec3Title: "3. Drawing Instruments and Materials 📏",
+                sub31Title: "3.1. Basic Materials & Standards",
+                pencilTitle: "Pencil Lead Hardness (Graphite + Clay):",
+                pencilH: "H (Hard): Higher clay content. Fine, light line. Ideal for construction lines.",
+                pencilHB: "HB (Medium): Balanced mixture. Standard pencil for general sketch outlines.",
+                pencilB: "B (Soft): Higher graphite content. Dark, thick line. Used for final visible outlines.",
+                paperTitle: "Paper Sizes (ISO 216 Standard):",
+                paperDesc: "Base size is A0 (1 m² surface, 841 x 1189 mm). Halving the sheet along its long edge yields:",
+                paperA4: "A4 (210 x 297 mm) is the standard classroom paper size.",
+                sub32Title: "3.2. Layout and Measurement Tools",
+                toolRuler: "Graduated Ruler: Measures distances in mm and cm. (Not used for long parallel lines).",
+                toolSetSquare: "Set Square (Escuadra): Isosceles right triangle (90°, 45°, 45°).",
+                toolDraftSquare: "Drafting Triangle (Cartabón): Scalene right triangle (90°, 60°, 30°).",
+                toolCompass: "Compass: Two-legged tool (metal point and lead) to draw arcs and circles.",
+                toolProtractor: "Protractor: Graduated semicircle (0° to 180°) for measuring and building angles.",
+                sub33Title: "3.3. Visual Layout Guide: Parallels and Perpendiculars",
+                parallelLabel: "PARALLELS:", parallelDesc: "Rest set square hypotenuse on drafting triangle (rail). Slide set square smoothly.",
+                perpLabel: "PERPENDICULAR:", perpDesc: "Holding drafting triangle fixed, rotate set square 90° resting its other leg on the triangle.",
+                fact1Title: "📐 Did you know... // Origin of A4 Size (ISO 216):",
+                fact1Text: "The ISO 216 paper standard was invented in Germany in 1922 by Walter Porstmann. The mathematical side ratio is 1 to √2 (1 : 1.4142). Cutting the page in half preserves the exact aspect ratio.",
+                b2Title: "SCALES, ORTHOGRAPHIC SYSTEM & STANDARDS",
+                sec4Title: "4. Scales: Representing Real Objects 🔍",
+                sec4Desc: "Scale (E) is the mathematical ratio between drawing size on paper (D) and real object size (R):",
+                scaleRuleTitle: "⚠️ Golden Rule of Units:",
+                scaleRuleText: "Before calculating scale, drawing (D) and real (R) measurements MUST be in the same units (e.g., both in mm).",
+                exTitle: "Practical Calculation Example:",
+                exDesc: "If a table is 1.2 m long in reality (1200 mm) and drawn as 12 cm on paper (120 mm):",
+                scaleTypesTitle: "Types of Scales",
+                scaleNaturalTitle: "1. Full Scale (1:1):", scaleNaturalDesc: "Drawing size equals real object size. Example: Drawing an eraser in actual size.",
+                scaleRedTitle: "2. Reduction Scale (1:2, 1:5, 1:50):", scaleRedDesc: "Drawing is smaller than real object. Example: 1:2 means 1 cm on paper represents 2 cm in reality.",
+                scaleAmpTitle: "3. Enlargement Scale (2:1, 5:1):", scaleAmpDesc: "Drawing is larger than real object. Used for microchips or watch components.",
+                sec5Title: "5. Orthographic Projection (System Diédrico) 📦",
+                sec5Desc: "System Diédrico projects a 3D object onto a 2D plane using perpendicular projections from 3 main views:",
+                viewFrontTitle: "1. Front View (Alzado):", viewFrontDesc: "Front view of the object. Main view that best defines its characteristic shape.",
+                viewTopTitle: "2. Top View (Planta):", viewTopDesc: "View of the object observed perpendicularly from directly above.",
+                viewSideTitle: "3. Left Side View (Perfil):", viewSideDesc: "View of the object observed from its left side.",
+                euroSystemTitle: "5.2. View Placement Rule (European First-Angle Projection)",
+                ruleCorrTitle: "Correspondence Rule:",
+                ruleCorr1: "Front View width matches Top View width exactly.",
+                ruleCorr2: "Front View height matches Side View height exactly.",
+                ruleCorr3: "Top View depth matches Side View width exactly.",
+                sec6Title: "6. Standardization: Line Types & Dimensioning 📐",
+                linesTitle: "6.1. Standardized Line Conventions",
+                thLineType: "Line Type", thLineRep: "Graphic Representation", thLineApp: "Technical Application",
+                line1Type: "Thick Continuous", line1App: "Visible edges and outlines of the object.",
+                line2Type: "Dashed Line", line2App: "Hidden edges and interior outlines.",
+                line3Type: "Chain Line (Dash-dot)", line3App: "Center lines, symmetry axes, and hole centers.",
+                dimTitle: "6.2. Basic Dimensioning Rules",
+                dimDesc: "Dimensioning is indicating real workpiece measurements on plans using numbers, lines, and arrows.",
+                dimRule1Title: "1. Units:", dimRule1Desc: "Dimensions are ALWAYS written in millimeters. Never append 'mm' after numbers.",
+                dimRule2Title: "2. No Intersections:", dimRule2Desc: "Dimension lines must never cross each other or drawing lines.",
+                dimRule3Title: "3. No Duplicity:", dimRule3Desc: "Do not repeat unnecessary dimensions across multiple views.",
+                dimRule4Title: "4. Outer Placement:", dimRule4Desc: "Dimensions should always be placed outside the view outlines.",
+                b3Title: "3D VIEWS, DIGITAL CAD & LEGO PROJECT",
+                sec7Title: "7. Pictorial Views: 3D Representation 🧊",
+                sec7Desc: "Pictorial drawings visualize full 3D objects showing height, width, and depth in a single drawing.",
+                pIsoTitle: "7.1. Isometric Projection", pIsoDesc: "Axes at 120°. Drawn on isometric grid (30° lines). Real measurements applied directly 1:1 without reduction.",
+                pCabTitle: "7.2. Oblique Projection (Caballera)", pCabDesc: "Front face drawn at 90°. Depth axis inclined at 45°. Obligatory correction: Depth dimensions are halved (x 0.5).",
+                pConTitle: "7.3. Perspective (Cónica)", pConDesc: "Based on vanishing points. Mimics human sight. Highly realistic but cannot be measured directly.",
+                sec8Title: "8. Computer-Aided Design (CAD Software) 💻",
+                sec8Desc: "We pair traditional drawing with free accessible 3D CAD modeling software:",
+                cadSoftwareTitle: "SketchUp Free / Tinkercad:",
+                cadFeat1: "Extrude 2D sketches into 3D volumes using the Push/Pull tool.",
+                cadFeat2: "Visually validate orthographic views switching between standard camera projections.",
+                sec9Title: "9. Practical Block: Worksheets & STEAM Project 🚀",
+                sheetsTitle: "9.1. A4 Worksheets",
+                sheet1Item: "Sheet 1: Parallels and perpendiculars layout grid with set squares.",
+                sheet2Item: "Sheet 2: Orthographic views (Front, Top, Side) of dimensioned L-bracket.",
+                sheet3Item: "Sheet 3: Isometric 3D view on grid based on Sheet 2 views.",
+                legoTitle: "9.2. STEAM Project: 'The LEGO Challenge' 🧩",
+                legoConsignTitle: "Task:", legoConsignDesc: "Design a new LEGO-compatible brick, documenting it from initial draft to 3D CAD model.",
+                legoPhasesTitle: "Deliverables (Google Slides Technical Dossier):",
+                legoP1: "Phase 1 (Draft): Initial freehand sketch proposing purpose.",
+                legoP2: "Phase 2 (Sketch): Detailed freehand drawing with mm dimensioning rules.",
+                legoP3: "Phase 3 (Views): Standardized Front, Top, and Side views.",
+                legoP4: "Phase 4 (3D CAD): Digital 3D model made in SketchUp Free.",
+                sec10Title: "10. Evaluation Criteria and Rubric 📊",
+                rubCrit: "Criterion / Level", rubBad: "Insufficient (1-4)", rubOk: "Acceptable (5-6)", rubGood: "Good (7-8)", rubExcel: "Outstanding (9-10)",
+                rub1_name: "Tool Use & Neatness", rub1_bad: "Dirty lines, unclear strokes, parallel errors.", rub1_ok: "Correct lines with minor smudges or slight inaccuracy.", rub1_good: "Good precision on parallels/perpendiculars, clean page.", rub1_excel: "Impeccable stroke, clear H/B hardness difference, mm precision.",
+                rub2_name: "Orthographic Views", rub2_bad: "Misplaced, unaligned views or side confusion.", rub2_ok: "Correctly placed views but minor alignment errors.", rub2_good: "Well drawn and aligned views. Correct edge representation.", rub2_excel: "Perfect projection, aligned, exact hidden edge representation.",
+                rub3_name: "Dimensioning Rules", rub3_bad: "Includes 'mm', crossing lines or repeated dimensions.", rub3_ok: "Follows most rules with 1-2 minor placement errors.", rub3_good: "Correct dimensioning, numbers centered over cota lines.", rub3_excel: "Rigorous application of all dimensioning rules without errors.",
+                rub4_name: "3D View & CAD", rub4_bad: "Difficulty translating to 3D or incomplete CAD model.", rub4_ok: "Recognizable 3D part with disproportionate axes.", rub4_good: "Isometric projection well built, CAD model completed.", rub4_excel: "Perfect isometric grid drawing and detailed 3D digital model.",
+                btnActivities: "View Practical Activities & LEGO Challenge",
                 resBadge: "RESOURCE CENTER & PRACTICE",
                 resTitle: "Educational Material & Assessment",
-                resDesc: "Access worksheets, isometric templates, and quizzes.",
-                cat1Title: "1. Documentation & Templates",
-                sheet1Badge: "Notes", sheet1Title: "Summary & Graphic Diagrams",
-                sheet2Badge: "Template", sheet2Title: "A4 Isometric Grid Paper",
+                resDesc: "Access worksheets, standardized drawing sheets, and unit quizzes.",
+                cat1Title: "1. Worksheets & Documents",
+                sheet1Badge: "A4 Worksheets", sheet1Title: "Views & Isometric Grid Practice",
                 cat2Title: "2. Practice & Interactive Review",
-                gameBadge: "Interactive Game", gameTitle: "Views & Perspective Challenge", gameDesc: "Match 3D parts with their orthographic projections.",
-                vocBadge: "Vocabulary", vocTitle: "Unit Terms & Glossary", vocDesc: "Bilingual technical drawing glossary.",
+                gameBadge: "Interactive Game", gameTitle: "Orthographic Views Challenge", gameDesc: "Match 3D parts with their correct orthographic projections.",
+                vocBadge: "Vocabulary", vocTitle: "Graphic Expression Glossary", vocDesc: "Bilingual technical drawing terminology.",
                 cat3Title: "3. Final Evaluation",
                 evalBadge: "LEARNING ASSESSMENT",
                 evalTitle: "Test Your Knowledge with the Final Quiz!",
-                evalDesc: "Review scales, projections, dimensioning, and isometric perspective.",
+                evalDesc: "Review scales, orthographic views, dimensioning, and 3D pictorials.",
                 evalBtn: "Take Final Test",
                 backHomeBtn: "Back to Main Index",
-                modalActTitle: "Unit 3 Practical Activities",
-                act1Title: "Activity 3.1: Scale & Format Calculations", act1Desc: "Calculate drawing dimensions for a 1.2 m component scaled 1:20 onto A4 paper.",
-                act2Title: "Activity 3.2: Orthographic View Projection", act2Desc: "Draw 1:1 front, top, and side views for an L-block containing an internal passage.",
-                act3Title: "Activity 3.3: Isometric Grid Drawing", act3Desc: "Construct an isometric 3D drawing from given dimensioned orthographic views.",
-                modalDeliverable: "Deliverable: Technical Drawing Sheet A4"
-            
-        ;
+                modalActTitle: "Worksheets & LEGO Challenge (Unit 2)",
+                act1Title: "Sheet 1: Parallel & Perpendicular Grid", act1Desc: "Precise geometric grid on A4 paper using set squares and H pencil.",
+                act2Title: "Sheet 2: Views & Dimensioning", act2Desc: "Front, Top, and Side projections of hollow part in First-Angle System.",
+                act3Title: "STEAM Project: LEGO Challenge", act3Desc: "Complete design of custom LEGO brick (Draft ➔ Sketch ➔ Plan ➔ 3D CAD).",
+                modalDeliverable: "Deliverables: A4 Folder + Google Slides Dossier"
+            }
+        };
 
-        // Current Active Language
+        // Idioma activo inicial
         let currentLang = 'es';
 
-        // Toggle Language Function
+        // Función de alternancia de idioma
         function toggleLanguage() {
             currentLang = currentLang === 'es' ? 'en' : 'es';
             
-            // Update Label
+            // Actualizar etiqueta
             const langLabel = document.getElementById('currentLangLabel');
             if (currentLang === 'es') {
                 langLabel.innerHTML = 'ES / <strong class="font-black">EN</strong>';
-             else {
+            } else {
                 langLabel.innerHTML = '<strong class="font-black">ES</strong> / EN';
-            
+            }
 
-            // Update HTML Lang Attribute
+            // Actualizar atributo html lang
             document.documentElement.lang = currentLang;
 
-            // Translate Text Content
+            // Traducir elementos data-i18n
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (translations[currentLang] && translations[currentLang][key]) {
                     el.textContent = translations[currentLang][key];
-                
-            );
+                }
+            });
 
-            // Re-render MathJax formulas if available
-            if (window.MathJax) {
-                MathJax.typesetPromise();
-            
-        
+            // Re-renderizar KaTeX por si hubiese expresiones matemáticas afectadas por el cambio
+            if (window.renderMathInElement) {
+                renderMathInElement(document.body);
+            }
+        }
 
-        // Font Size Adjustment System
+        // Sistema de control de tamaño de letra
         let currentFontSizePx = 16;
         const minFontSizePx = 12;
         const maxFontSizePx = 22;
@@ -906,40 +991,40 @@
         function changeFontSize(delta) {
             currentFontSizePx = Math.max(minFontSizePx, Math.min(maxFontSizePx, currentFontSizePx + delta));
             document.documentElement.style.fontSize = currentFontSizePx + 'px';
-        
+        }
 
         function resetFontSize() {
             currentFontSizePx = 16;
             document.documentElement.style.fontSize = '16px';
-        
+        }
 
-        // Image & Modal Control Functions
+        // Control de modales
         function abrirImagen(src) {
             const modal = document.getElementById('modalImagen');
             document.getElementById('imagenAmpliada').src = src;
             modal.classList.remove('hidden');
             modal.classList.add('flex');
-        
+        }
 
         function cerrarImagen() {
             const modal = document.getElementById('modalImagen');
             modal.classList.remove('flex');
             modal.classList.add('hidden');
-        
+        }
 
         function abrirModalActividades() {
             const modal = document.getElementById('modalActividades');
             modal.classList.remove('hidden');
             modal.classList.add('flex');
-        
+        }
 
         function cerrarModalActividades(e) {
             const modal = document.getElementById('modalActividades');
             modal.classList.remove('flex');
             modal.classList.add('hidden');
-        
+        }
 
-        // Initialize Lucide Icons
+        // Inicializar iconos de Lucide
         lucide.createIcons();
     </script>
 </body>
