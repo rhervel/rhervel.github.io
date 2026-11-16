@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth" style="font-size: 16px;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDA5. Materiales e Impacto Ambiental: Metales y Transición Digital | rhervel</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 fill=%22currentColor%22 class=%22bi bi-recycle%22 viewBox=%220 0 16 16%22><path d=%22M9.302 1.256a1.5 1.5 0 0 0-2.604 0l-1.704 2.98a.5.5 0 0 0 .869.497l1.703-2.981a.5.5 0 0 1 .868 0l2.54 4.444-1.256-.337a.5.5 0 1 0-.26.965l2.427.65a.5.5 0 0 0 .602-.376l.65-2.427a.5.5 0 0 0-.966-.26l-.312 1.164-2.887-5.049zM2.35 6.136a.5.5 0 0 1-.26-.965l2.427-.65a.5.5 0 0 1 .602.376l.65 2.427a.5.5 0 0 1-.966.26l-.337-1.256-2.54 4.444a.5.5 0 0 0 .868.496l1.703-2.98a.5.5 0 0 1 .869.497l-1.704 2.98a1.5 1.5 0 0 1-2.604 0l-2.887-5.049a.5.5 0 0 1 .118-.684zM11.966 11.23a.5.5 0 0 1 .684.118l1.704 2.98a1.5 1.5 0 0 1-1.302 2.242H9.608a1.5 1.5 0 0 1-1.302-.756l-1.704-2.98a.5.5 0 1 1 .869-.497l1.703 2.981a.5.5 0 0 0 .434.252h3.444a.5.5 0 0 0 .434-.252l1.703-2.981a.5.5 0 0 1 .232-.207z%22/></svg>" type="image/svg+xml">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcfcfd;
+            background-image: 
+                linear-gradient(#f1f5f9 1px, transparent 1px),
+                linear-gradient(90deg, #f1f5f9 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .nav-glass {
+            background: rgba(252, 252, 253, 0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        .content-card {
+            border-radius: 2.5rem;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* Aspect ratio 16:9 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 1rem;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased leading-relaxed">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 nav-glass">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-2 sm:gap-4">
+            <a href="index.html" class="flex items-center gap-2 group shrink-0">
+                <div class="w-8 h-8 bg-emerald-600 rounded-lg flex items-center justify-center text-white font-black text-sm shadow-md shadow-emerald-200 group-hover:bg-teal-600 transition-colors">T</div>
+                <span class="font-black text-slate-900 tracking-tighter uppercase text-sm">rhervel</span>
+            </a>
+
+            <div class="hidden lg:flex items-center gap-1.5 bg-slate-100/80 p-1 rounded-full border border-slate-200 text-xs font-bold overflow-x-auto max-w-2xl no-scrollbar">
+                <a href="#bloque1" data-i18n="navBlock1" class="px-3 py-1 rounded-full text-slate-600 hover:text-emerald-600 hover:bg-white transition-all whitespace-nowrap">1. Ciclo de Vida</a>
+                <a href="#bloque2" data-i18n="navBlock2" class="px-3 py-1 rounded-full text-slate-600 hover:text-emerald-600 hover:bg-white transition-all whitespace-nowrap">2. Huellas</a>
+                <a href="#bloque3" data-i18n="navBlock3" class="px-3 py-1 rounded-full text-slate-600 hover:text-emerald-600 hover:bg-white transition-all whitespace-nowrap">3. Las 5R</a>
+                <a href="#bloque4" data-i18n="navBlock4" class="px-3 py-1 rounded-full text-slate-600 hover:text-emerald-600 hover:bg-white transition-all whitespace-nowrap">4. Metales</a>
+                <a href="#bloque5" data-i18n="navBlock41" class="px-3 py-1 rounded-full text-slate-600 hover:text-emerald-600 hover:bg-white transition-all whitespace-nowrap">5. Propiedades</a>
+                <a href="#bloque6" data-i18n="navBlock42" class="px-3 py-1 rounded-full text-slate-600 hover:text-emerald-600 hover:bg-white transition-all whitespace-nowrap">6. Taller</a>
+                <a href="#bloque7" data-i18n="navBlock43" class="px-3 py-1 rounded-full text-slate-600 hover:text-emerald-600 hover:bg-white transition-all whitespace-nowrap">7. Impacto</a>
+                <a href="#bloque8" data-i18n="navBlock44" class="px-3 py-1 rounded-full text-slate-600 hover:text-emerald-600 hover:bg-white transition-all whitespace-nowrap">8. e-Waste</a>
+                <a href="#recursos" data-i18n="navResources" class="px-3 py-1 rounded-full bg-emerald-600 text-white hover:bg-emerald-700 transition-all shadow-xs whitespace-nowrap">Recursos</a>
+            </div>
+            
+            <div class="flex items-center gap-2 shrink-0">
+                <!-- Font Size Controls -->
+                <div class="flex items-center bg-slate-100 border border-slate-200 rounded-full p-0.5 text-xs font-black text-slate-700 shadow-xs">
+                    <button onclick="changeFontSize(-1)" title="Reducir tamaño de letra" class="w-7 h-7 flex items-center justify-center rounded-full hover:bg-white hover:text-emerald-600 transition-all">
+                        A-
+                    </button>
+                    <button onclick="resetFontSize()" title="Tamaño original" class="w-7 h-7 flex items-center justify-center rounded-full hover:bg-white hover:text-emerald-600 transition-all text-[10px]">
+                        100%
+                    </button>
+                    <button onclick="changeFontSize(1)" title="Aumentar tamaño de letra" class="w-7 h-7 flex items-center justify-center rounded-full hover:bg-white hover:text-emerald-600 transition-all">
+                        A+
+                    </button>
+                </div>
+
+                <!-- Language Toggle Button -->
+                <button id="langToggleBtn" onclick="toggleLanguage()" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-bold rounded-full border border-emerald-200 transition-all shadow-xs">
+                    <i data-lucide="globe" class="w-3.5 h-3.5 text-emerald-600"></i>
+                    <span id="currentLangLabel">ES / <strong class="font-black">EN</strong></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header / Hero Section -->
+    <header class="relative pt-28 pb-10 px-6 overflow-hidden">
+        <div class="absolute top-[-10%] right-[-5%] w-96 h-96 bg-emerald-100 rounded-full blur-3xl opacity-40 animate-pulse"></div>
+        
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+                <div class="max-w-3xl">
+                    <div class="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 text-emerald-700 px-3.5 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-4">
+                        <i data-lucide="recycle" class="w-4 h-4"></i> <span data-i18n="unitSubhead">SDA 5 // TECNOLOGÍA Y DIGITALIZACIÓN 2º ESO</span>
+                    </div>
+                    <h1 class="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter mb-4 uppercase">
+                        <span data-i18n="heroTitlePart1">SDA5. Materiales e Impacto Ambiental:</span> <span class="text-emerald-600" data-i18n="heroTitlePart2">Metales ♻️</span>
+                    </h1>
+                    <p class="text-slate-500 text-base md:text-lg leading-relaxed font-medium" data-i18n="heroDesc">
+                        Análisis exhaustivo del ciclo de vida de los productos, los indicadores de sostenibilidad ambiental, las 5R, las propiedades y clasificación de los metales (férricos y no férricos), sus técnicas de mecanizado en el taller y su impacto ambiental en la era digital.
+                    </p>
+                </div>
+                
+                <div class="rounded-[2.5rem] p-6 text-center min-w-[180px] shadow-xl text-white self-start md:self-auto" style="background: linear-gradient(135deg, #059669 0%, #064e3b 100%);">
+                    <div class="text-4xl font-black tracking-tighter">SdA 5</div>
+                    <div class="text-[9px] uppercase tracking-[0.2em] font-black text-emerald-200 mt-1" data-i18n="subjectLabel">TECNOLOGÍA 2º ESO</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-6 py-8 relative z-10">
+        
+        <div class="space-y-16">
+
+            <!-- BLOQUE 1: CICLO DE VIDA -->
+            <div id="bloque1" class="scroll-mt-24">
+                <section class="bg-white content-card p-6 sm:p-10 shadow-xl border border-slate-200/80">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-2xl bg-emerald-50 text-emerald-600 font-black text-lg border border-emerald-100">1</span>
+                        <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight" data-i18n="b1Title">Ciclo de Vida: De la Cuna a la Tumba ♻️</h2>
+                    </div>
+
+                    <div class="mb-6 font-medium text-sm text-slate-600 space-y-3">
+                        <p data-i18n="b1P1">El ciclo de vida de un producto describe las etapas por las que pasa un producto desde su creación hasta su retirada del mercado, similar a la vida de un ser vivo.</p>
+                        <p data-i18n="b1P2">El concepto "De la Cuna a la Tumba" (Cradle-to-Grave) es una metodología de evaluación conocida como Análisis del Ciclo de Vida (ACV).</p>
+                        <p data-i18n="b1P3">Se trata de un análisis exhaustivo y sistemático de todos los impactos ambientales que genera un producto o servicio a lo largo de todas sus etapas, desde la obtención de las materias primas hasta su disposición final.</p>
+                    </div>
+
+                    <!-- Imagen Modal Bloque 1 -->
+                    <div class="mb-6 border-2 border-dashed border-slate-300 rounded-2xl p-4">
+                        <div class="text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden rounded-xl" onclick="abrirImagen('https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=1200&q=80')">
+                            <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=800&q=80" alt="Ciclo de vida del producto y economía circular" class="w-full h-auto max-h-72 object-cover rounded-xl shadow-sm" />
+                            <p class="text-xs font-bold text-slate-500 py-2">Representación esquemática del ciclo de vida de los materiales y la transición a la economía circular.</p>
+                        </div>
+                    </div>
+
+                    <!-- Tabla Ciclo de Vida -->
+                    <div class="overflow-x-auto rounded-2xl border border-slate-200 mb-6">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead>
+                                <tr class="bg-slate-100 border-b border-slate-200 text-slate-800 font-bold">
+                                    <th class="p-3" data-i18n="thStage">Etapa</th>
+                                    <th class="p-3" data-i18n="thDesc">Descripción del Proceso</th>
+                                    <th class="p-3" data-i18n="thImpact">Impacto Ambiental Clave</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 font-medium text-slate-600">
+                                <tr class="hover:bg-slate-50/50">
+                                    <td class="p-3 font-bold text-slate-900" data-i18n="st1">Cuna (Extracción)</td>
+                                    <td class="p-3" data-i18n="st1Desc">Obtención de las materias primas necesarias (minería, tala, agricultura, etc.).</td>
+                                    <td class="p-3" data-i18n="st1Imp">Agotamiento de recursos, alteración de ecosistemas, consumo de energía.</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/50">
+                                    <td class="p-3 font-bold text-slate-900" data-i18n="st2">Fabricación</td>
+                                    <td class="p-3" data-i18n="st2Desc">Transformación de las materias primas en el producto final.</td>
+                                    <td class="p-3" data-i18n="st2Imp">Consumo de energía y agua, generación de residuos y emisiones contaminantes.</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/50">
+                                    <td class="p-3 font-bold text-slate-900" data-i18n="st3">Distribución</td>
+                                    <td class="p-3" data-i18n="st3Desc">Transporte del producto desde el punto de fabricación hasta el consumidor.</td>
+                                    <td class="p-3" data-i18n="st3Imp">Emisiones de gases de efecto invernadero (GEI) por combustibles fósiles (huella de carbono).</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/50">
+                                    <td class="p-3 font-bold text-slate-900" data-i18n="st4">Uso</td>
+                                    <td class="p-3" data-i18n="st4Desc">El periodo en que el producto es utilizado por el consumidor.</td>
+                                    <td class="p-3" data-i18n="st4Imp">Consumo de energía y agua (si aplica), necesidad de mantenimiento o reemplazo de partes.</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/50">
+                                    <td class="p-3 font-bold text-slate-900" data-i18n="st5">Tumba (Disposición Final)</td>
+                                    <td class="p-3" data-i18n="st5Desc">Desecho del producto una vez que ya no es útil.</td>
+                                    <td class="p-3" data-i18n="st5Imp">Relleno sanitario (vertederos), incineración, que generan lixiviados, emisiones y contaminación.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="bg-emerald-50/80 border border-emerald-200 p-4 rounded-2xl text-xs text-emerald-950 flex items-start gap-3">
+                        <div class="p-2 bg-emerald-600 text-white rounded-xl shrink-0">
+                            <i data-lucide="refresh-cw" class="w-4 h-4"></i>
+                        </div>
+                        <div>
+                            <strong class="font-bold text-emerald-900 block mb-0.5" data-i18n="c2cTitle">Nota: Enfoque "De la Cuna a la Cuna" (Cradle-to-Cradle)</strong>
+                            <span data-i18n="c2cText">Este enfoque contrasta con el modelo tradicional, buscando diseñar productos de manera que, al final de su vida útil, sus materiales puedan ser completamente reutilizados o reciclados, cerrando el ciclo y eliminando la fase de "Tumba".</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- BLOQUE 2: HUELLA DE CARBONO Y HÍDRICA -->
+            <div id="bloque2" class="scroll-mt-24">
+                <section class="bg-white content-card p-6 sm:p-10 shadow-xl border border-slate-200/80">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-2xl bg-emerald-50 text-emerald-600 font-black text-lg border border-emerald-100">2</span>
+                        <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight" data-i18n="b2Title">Huella de Carbono y Huella Hídrica</h2>
+                    </div>
+
+                    <p class="text-slate-600 mb-6 text-sm font-medium" data-i18n="b2Intro">Ambos son indicadores clave de sostenibilidad que miden el impacto ambiental de nuestras actividades, empresas o productos.</p>
+
+                    <!-- Imagen Modal Bloque 2 -->
+                    <div class="mb-6 border-2 border-dashed border-slate-300 rounded-2xl p-4">
+                        <div class="text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden rounded-xl" onclick="abrirImagen('https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&w=1200&q=80')">
+                            <img src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&w=800&q=80" alt="Emisiones industriales y uso del agua" class="w-full h-auto max-h-72 object-cover rounded-xl shadow-sm" />
+                            <p class="text-xs font-bold text-slate-500 py-2">Indicadores de sostenibilidad: emisiones industriales de carbono e impacto hídrico.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Carbono -->
+                        <div class="p-5 border-l-4 border-slate-700 bg-slate-50 rounded-r-2xl">
+                            <h3 class="font-bold text-base text-slate-800 mb-3 flex items-center gap-2">
+                                <i data-lucide="cloud-rain" class="w-5 h-5 text-slate-600"></i>
+                                <span data-i18n="b2ATitle">A. Huella de Carbono</span>
+                            </h3>
+                            <ul class="space-y-2 text-xs text-slate-700 font-medium">
+                                <li><strong data-i18n="b2Def">Definición:</strong> <span data-i18n="b2ADef">Es la totalidad de Gases de Efecto Invernadero (GEI) emitidos, directa o indirectamente, por una persona, organización, evento o producto.</span></li>
+                                <li><strong data-i18n="b2Unit">Unidad de Medida:</strong> <span data-i18n="b2AUnit">Se expresa en masa de dióxido de carbono equivalente (CO₂e).</span></li>
+                                <li><strong data-i18n="b2Rel">Relevancia:</strong> <span data-i18n="b2ARel">Es el principal indicador para medir la contribución al calentamiento global y el cambio climático.</span></li>
+                            </ul>
+                            <div class="mt-4 p-3 bg-white border border-slate-200 rounded-xl text-xs text-slate-600">
+                                💡 <span data-i18n="b2AFoot">Reducir la huella de carbono implica usar energías limpias y mejorar la eficiencia energética en todo el ciclo de vida.</span>
+                            </div>
+                        </div>
+
+                        <!-- Hídrica -->
+                        <div class="p-5 border-l-4 border-sky-500 bg-sky-50 rounded-r-2xl">
+                            <h3 class="font-bold text-base text-sky-800 mb-3 flex items-center gap-2">
+                                <i data-lucide="droplet" class="w-5 h-5 text-sky-600"></i>
+                                <span data-i18n="b2BTitle">B. Huella Hídrica</span>
+                            </h3>
+                            <ul class="space-y-2 text-xs text-slate-700 font-medium mb-3">
+                                <li><strong data-i18n="b2Def">Definición:</strong> <span data-i18n="b2BDef">Es el volumen total de agua dulce utilizada, directa e indirectamente, para producir los bienes y servicios consumidos por una persona o producidos por una empresa.</span></li>
+                                <li><strong data-i18n="b2Unit">Unidad de Medida:</strong> <span data-i18n="b2BUnit">Se expresa en volumen de agua (litros o metros cúbicos).</span></li>
+                                <li><strong>Componentes:</strong>
+                                    <ul class="list-disc list-inside ml-2 mt-1 space-y-1 text-slate-600">
+                                        <li><strong class="text-emerald-700" data-i18n="wGreen">Verde:</strong> <span data-i18n="wGreenDesc">Agua de lluvia almacenada en el suelo (clave en agricultura).</span></li>
+                                        <li><strong class="text-sky-700" data-i18n="wBlue">Azul:</strong> <span data-i18n="wBlueDesc">Agua extraída de fuentes superficiales o subterráneas (riego, industria).</span></li>
+                                        <li><strong class="text-slate-600" data-i18n="wGrey">Gris:</strong> <span data-i18n="wGreyDesc">Agua necesaria para diluir los contaminantes vertidos hasta un nivel aceptable.</span></li>
+                                    </ul>
+                                </li>
+                                <li><strong data-i18n="b2Rel">Relevancia:</strong> <span data-i18n="b2BRel">Ayuda a entender la presión sobre los recursos hídricos locales y globales, promoviendo el uso eficiente y equitativo del agua.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- BLOQUE 3: LAS 5R -->
+            <div id="bloque3" class="scroll-mt-24">
+                <section class="bg-white content-card p-6 sm:p-10 shadow-xl border border-slate-200/80">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-2xl bg-emerald-50 text-emerald-600 font-black text-lg border border-emerald-100">3</span>
+                        <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight" data-i18n="b3Title">Las 5R de la Sostenibilidad ♻️</h2>
+                    </div>
+
+                    <p class="text-slate-600 mb-3 text-sm font-medium" data-i18n="b3P1">Las 5R representan una jerarquía de acciones orientadas a la gestión de residuos y el consumo consciente, donde la mejor acción es siempre la que previene la generación de residuos.</p>
+                    <p class="text-slate-600 mb-6 text-sm font-medium" data-i18n="b3P2">La adición de más "R" va más allá de las clásicas "3R" (Reducir, Reutilizar, Reciclar).</p>
+
+                    <!-- Imagen Modal Bloque 3 -->
+                    <div class="mb-6 border-2 border-dashed border-slate-300 rounded-2xl p-4">
+                        <div class="text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden rounded-xl" onclick="abrirImagen('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1200&q=80')">
+                            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80" alt="Gestión responsable de residuos y 5R" class="w-full h-auto max-h-72 object-cover rounded-xl shadow-sm" />
+                            <p class="text-xs font-bold text-slate-500 py-2">Jerarquía y clasificación en la gestión de residuos y desarrollo sostenible.</p>
+                        </div>
+                    </div>
+
+                    <!-- Tabla 5R -->
+                    <div class="overflow-x-auto rounded-2xl border border-slate-200">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead>
+                                <tr class="bg-slate-100 border-b border-slate-200 text-slate-800 font-bold">
+                                    <th class="p-3" data-i18n="thPrio">Orden de Prioridad</th>
+                                    <th class="p-3" data-i18n="thREs">"R" (Español)</th>
+                                    <th class="p-3" data-i18n="thREn">"R" (Inglés)</th>
+                                    <th class="p-3" data-i18n="thRDesc">Descripción y Acción</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 font-medium text-slate-600">
+                                <tr class="hover:bg-slate-50/50">
+                                    <td class="p-3 font-bold text-emerald-700">1.</td>
+                                    <td class="p-3 font-bold text-slate-900" data-i18n="r1Es">Rechazar</td>
+                                    <td class="p-3 italic text-slate-500">Refuse</td>
+                                    <td class="p-3" data-i18n="r1Desc">La acción más importante: Evitar productos innecesarios o con embalajes excesivos (ej. rechazar bolsas plásticas o flyers).</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/50">
+                                    <td class="p-3 font-bold text-emerald-700">2.</td>
+                                    <td class="p-3 font-bold text-slate-900" data-i18n="r2Es">Reducir</td>
+                                    <td class="p-3 italic text-slate-500">Reduce</td>
+                                    <td class="p-3" data-i18n="r2Desc">Disminuir la cantidad de productos que se consumen, lo que impacta directamente en la reducción de las huellas de carbono/hídrica.</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/50">
+                                    <td class="p-3 font-bold text-emerald-700">3.</td>
+                                    <td class="p-3 font-bold text-slate-900" data-i18n="r3Es">Reutilizar</td>
+                                    <td class="p-3 italic text-slate-500">Reuse</td>
+                                    <td class="p-3" data-i18n="r3Desc">Usar un producto más de una vez, ya sea para su propósito original o para uno diferente (ej. usar frascos de vidrio para almacenar).</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/50">
+                                    <td class="p-3 font-bold text-emerald-700">4.</td>
+                                    <td class="p-3 font-bold text-slate-900" data-i18n="r4Es">Reparar / Reaprovechar</td>
+                                    <td class="p-3 italic text-slate-500">Repair / Repurpose</td>
+                                    <td class="p-3" data-i18n="r4Desc">Arreglar un objeto dañado en lugar de tirarlo, o darle un nuevo uso creativo a un artículo (ej. convertir ropa vieja en trapos).</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/50">
+                                    <td class="p-3 font-bold text-emerald-700">5.</td>
+                                    <td class="p-3 font-bold text-slate-900" data-i18n="r5Es">Reciclar</td>
+                                    <td class="p-3 italic text-slate-500">Recycle</td>
+                                    <td class="p-3" data-i18n="r5Desc">Transformar el material desechado en un nuevo producto, evitando el uso de materia prima virgen (esta debe ser la última opción después de agotar las anteriores).</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+
+            <!-- BLOQUE 4: METALES -->
+            <div id="bloque4" class="scroll-mt-24">
+                <section class="bg-white content-card p-6 sm:p-10 shadow-xl border border-slate-200/80">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-2xl bg-emerald-50 text-emerald-600 font-black text-lg border border-emerald-100">4</span>
+                        <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight" data-i18n="b4Title">Metales</h2>
+                    </div>
+
+                    <div class="space-y-3 font-medium text-sm text-slate-600 mb-6">
+                        <p data-i18n="b4P1">Los metales son materiales de gran importancia, debido a sus propiedades y a las cualidades técnicas que presentan, lo cual hace que sean imprescindibles en la fabricación de todo tipo de objetos.</p>
+                        <p data-i18n="b4P2">Los metales se encuentran en la naturaleza formando minerales o en estado puro.</p>
+                        <p data-i18n="b4P3">El proceso de extracción y transformación de los metales se llama <strong>metalurgia</strong>.</p>
+                        <p data-i18n="b4P4">Existe una gran variedad de materiales metálicos. Aunque algunos se emplean en estado casi puro, como la plata o el oro, la mayoría se combinan entre sí o con otros elementos, formando <strong>aleaciones</strong> con las que se consigue mejorar sus propiedades.</p>
+                        <p data-i18n="b4P5">Las aleaciones son materiales metálicos muy utilizados en la industria. Por ejemplo, acero inoxidable, bronce y latón.</p>
+                    </div>
+
+                    <!-- Comercial Forms -->
+                    <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200/60 mb-6">
+                        <h3 class="font-bold text-base text-slate-800 mb-3" data-i18n="b4FormsTitle">Formas comerciales más habituales</h3>
+                        <p class="text-xs text-slate-600 mb-3" data-i18n="b4FormsDesc">Las formas comerciales más habituales en que se presentan los metales son las barras y los tubos, los alambres, las chapas, los lingotes y los perfiles:</p>
+                        <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 text-center text-xs font-bold">
+                            <div class="p-3 bg-white rounded-xl border border-slate-200 shadow-xs" data-i18n="f1">Barras y tubos</div>
+                            <div class="p-3 bg-white rounded-xl border border-slate-200 shadow-xs" data-i18n="f2">Alambre</div>
+                            <div class="p-3 bg-white rounded-xl border border-slate-200 shadow-xs" data-i18n="f3">Perfiles</div>
+                            <div class="p-3 bg-white rounded-xl border border-slate-200 shadow-xs" data-i18n="f4">Chapa</div>
+                            <div class="p-3 bg-white rounded-xl border border-slate-200 shadow-xs" data-i18n="f5">Lingote</div>
+                        </div>
+                    </div>
+
+                    <!-- Process Steps -->
+                    <div class="p-5 bg-emerald-50/50 rounded-2xl border border-emerald-200/80 mb-6">
+                        <h3 class="font-bold text-base text-emerald-900 mb-3" data-i18n="b4StepsTitle">Proceso de obtención de metales</h3>
+                        <p class="text-xs text-slate-600 mb-3" data-i18n="b4StepsDesc">Los procesos y las transformaciones que sufren los minerales hasta obtener los materiales metálicos suelen ser complejos y costosos:</p>
+                        <ol class="list-decimal list-inside space-y-2 text-xs text-slate-700 font-medium">
+                            <li data-i18n="step1">La extracción de los minerales se realiza en minas a cielo abierto o subterráneas. Casi todos los metales se encuentran en estado sólido en la naturaleza, excepto el mercurio y el galio.</li>
+                            <li data-i18n="step2">A continuación, se separa la parte útil, llamada <strong>mena</strong>, del resto de materiales, llamados <strong>ganga</strong>. Para ello se tritura, se lava y se criba el mineral.</li>
+                            <li data-i18n="step3">Por último, se realizan transformaciones como el calcinado en hornos o la reducción química/electrólisis para obtener el metal puro o aleado.</li>
+                        </ol>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 border-2 border-dashed border-slate-300 rounded-2xl p-4 my-6">
+                        <div class="text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden rounded-xl" onclick="abrirImagen('https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&w=800&q=80')">
+                            <img src="https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&w=800&q=80" alt="Extracción minera a cielo abierto" class="w-full h-auto max-h-72 object-cover rounded-xl shadow-sm" />
+                            <p class="text-xs font-bold text-slate-500 py-2" data-i18n="b4CapMineria">Mina a cielo abierto para la extracción de mineral metálico.</p>
+                        </div>
+                        <div>
+                            <div class="video-container shadow-md">
+                                <iframe src="https://www.youtube.com/embed/9l7JqonyoKA" title="Obtención de los metales" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <p class="text-xs font-bold text-slate-500 py-2 text-center" data-i18n="b4CapVidMining">Proceso minero y metalúrgico de obtención de metales.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-2xl text-amber-950 text-xs font-medium space-y-1">
+                        <p data-i18n="b4Ods1">La minería es una industria global que implica importantes recursos humanos, ambientales y económicos.</p>
+                        <p data-i18n="b4Ods2">La extracción de recursos naturales es esencial para asegurar el bienestar y el desarrollo de las comunidades y, por tanto, contribuir a alcanzar los ODS (Objetivos de Desarrollo Sostenible).</p>
+                    </div>
+                </section>
+            </div>
+
+            <!-- BLOQUE 5: PROPIEDADES Y CLASIFICACIÓN -->
+            <div id="bloque5" class="scroll-mt-24">
+                <section class="bg-white content-card p-6 sm:p-10 shadow-xl border border-slate-200/80">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-2xl bg-emerald-50 text-emerald-600 font-black text-lg border border-emerald-100">5</span>
+                        <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight" data-i18n="b41Title">Propiedades y clasificación</h2>
+                    </div>
+
+                    <p class="text-slate-600 mb-3 text-sm font-medium" data-i18n="b41PropTitle">Las propiedades más importantes de los metales son las siguientes:</p>
+                    <ul class="list-disc list-inside space-y-1 text-xs text-slate-700 font-medium mb-6">
+                        <li data-i18n="p1">Son materiales densos y pesados con un brillo característico.</li>
+                        <li data-i18n="p2">Tienen gran resistencia mecánica a los esfuerzos (tracción, compresión, flexión).</li>
+                        <li data-i18n="p3">Son buenos conductores de la electricidad, del calor y del sonido.</li>
+                        <li data-i18n="p4">Son dúctiles (se pueden estirar en hilos) y maleables (se pueden conformar en chapas).</li>
+                    </ul>
+
+                    <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl text-xs text-slate-700 mb-6 font-medium">
+                        <p data-i18n="b41ClassIntro">La clasificación de los metales no depende de su origen o de su fabricación, sino de su <strong>contenido en hierro</strong>. Según esto, distinguimos dos grandes grupos: los <strong>metales férricos</strong> y los <strong>metales no férricos</strong>.</p>
+                    </div>
+
+                    <!-- Imagen Modal Bloque 5 -->
+                    <div class="mb-6 border-2 border-dashed border-slate-300 rounded-2xl p-4">
+                        <div class="text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden rounded-xl" onclick="abrirImagen('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80')">
+                            <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80" alt="Estructuras y materiales metálicos" class="w-full h-auto max-h-72 object-cover rounded-xl shadow-sm" />
+                            <p class="text-xs font-bold text-slate-500 py-2">Diferentes perfiles, acabados y texturas de metales férricos y no férricos.</p>
+                        </div>
+                    </div>
+
+                    <!-- A. METALES FÉRRICOS -->
+                    <div class="mb-8">
+                        <h3 class="font-bold text-lg text-slate-900 mb-3" data-i18n="b41ATitle">A. Metales férricos</h3>
+                        <div class="space-y-2 text-xs text-slate-600 font-medium mb-4">
+                            <p data-i18n="b41AP1">El hierro es un material abundante en la naturaleza (representa el 5% de la corteza terrestre), que se puede encontrar en muchos minerales.</p>
+                            <p data-i18n="b41AP2">El proceso de fabricación de los metales férricos se llama <strong>siderurgia</strong> y se realiza en los <strong>altos hornos</strong>.</p>
+                            <p data-i18n="b41AP3">Se introduce la mena, ya separada del mineral, junto con carbón de coque y piedra caliza.</p>
+                            <ul class="list-disc list-inside ml-2">
+                                <li data-i18n="b41AL1">Del alto horno se obtiene el <strong>arrabio</strong>, producto a partir del cual se fabrican los materiales férricos.</li>
+                                <li data-i18n="b41AL2">El resto de los materiales se denomina <strong>escoria</strong>.</li>
+                            </ul>
+                            <p data-i18n="b41AP4">El arrabio contiene gran cantidad de carbono, que, una vez afinado en el convertidor de oxígeno, reduce su carbono para convertirse en acero o fundición.</p>
+                        </div>
+
+                        <!-- Tabla Férricos -->
+                        <div class="overflow-x-auto rounded-2xl border border-slate-200">
+                            <table class="w-full text-left border-collapse text-xs">
+                                <thead>
+                                    <tr class="bg-slate-100 border-b border-slate-200 text-slate-800 font-bold">
+                                        <th class="p-3" data-i18n="thMetal">Metal</th>
+                                        <th class="p-3" data-i18n="thProps">Propiedades</th>
+                                        <th class="p-3" data-i18n="thApps">Aplicaciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-200 font-medium text-slate-600">
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="p-3 font-bold text-slate-900" data-i18n="mHierro">Hierro (Puro)</td>
+                                        <td class="p-3" data-i18n="mHierroProp">Buenas propiedades magnéticas.<br>- Es frágil y difícil de mecanizar.</td>
+                                        <td class="p-3" data-i18n="mHierroApp">Máquinas eléctricas y transformadores. Componentes electrónicos.</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="p-3 font-bold text-slate-900" data-i18n="mAcero">Acero (entre el 0,1 y el 2 % de carbono)</td>
+                                        <td class="p-3" data-i18n="mAceroProp">Es la más utilizada de las aleaciones por sus buenas propiedades mecánicas.<br>- Es resistente, tenaz, maleable y dúctil.<br>- Aleado con cromo (Cr) y níquel (Ni) forma el acero inoxidable.</td>
+                                        <td class="p-3" data-i18n="mAceroApp">Vigas, tubos, barras. Herramientas, estanterías, vallas, rejas. Utensilios de cocina y chapas.</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="p-3 font-bold text-slate-900" data-i18n="mFund">Fundición (entre el 2 y el 4 % de carbono)</td>
+                                        <td class="p-3" data-i18n="mFundProp">Color negro, muy frágil y dura.<br>- Resistente a las vibraciones y a la corrosión.</td>
+                                        <td class="p-3" data-i18n="mFundApp">Radiadores antiguos, farolas, bolardos, tornillos de banco. Bancadas de motores.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- B. METALES NO FÉRRICOS -->
+                    <div>
+                        <h3 class="font-bold text-lg text-slate-900 mb-3" data-i18n="b41BTitle">B. Metales no férricos</h3>
+                        <p class="text-xs text-slate-600 font-medium mb-4" data-i18n="b41BIntro">Aunque los metales férricos son fáciles de obtener y tienen buena resistencia mecánica, los metales no férricos tienen otras propiedades que los hacen interesantes para otras aplicaciones, como la conductividad térmica y la eléctrica, la resistencia a la oxidación y la facilidad de mecanizado.</p>
+
+                        <!-- Tabla No Férricos -->
+                        <div class="overflow-x-auto rounded-2xl border border-slate-200">
+                            <table class="w-full text-left border-collapse text-xs">
+                                <thead>
+                                    <tr class="bg-slate-100 border-b border-slate-200 text-slate-800 font-bold">
+                                        <th class="p-3" data-i18n="thMetal">Metal</th>
+                                        <th class="p-3" data-i18n="thProps">Propiedades</th>
+                                        <th class="p-3" data-i18n="thApps">Aplicaciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-200 font-medium text-slate-600">
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="p-3 font-bold text-slate-900" data-i18n="mCu">Cobre (Cu)<br><span class="font-normal text-slate-500">Se obtiene de la cuprita y de la calcopirita.</span></td>
+                                        <td class="p-3" data-i18n="mCuProp">- Blando, de color rojizo y brillo intenso.<br>- Alta conductividad térmica y eléctrica.<br>- Maleable y dúctil.<br>- Resistente a la corrosión.<br>- Aleado con cinc forma el latón (resistente a la corrosión).<br>- Aleado con estaño forma el bronce (resistente al desgaste y muy sonoro).</td>
+                                        <td class="p-3" data-i18n="mCuApp">Cables eléctricos e hilos de telefonía. Tuberías y calderas. Decoración (arquitectura y bisutería).<br><strong>Latón:</strong> conexiones eléctricas y grifos.<br><strong>Bronce:</strong> campanas, estatuas y piezas de barcos.</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="p-3 font-bold text-slate-900" data-i18n="mSn">Estaño (Sn)<br><span class="font-normal text-slate-500">Se obtiene de la casiterita.</span></td>
+                                        <td class="p-3" data-i18n="mSnProp">- Muy blando, de color blanco brillante.<br>- Muy maleable y dúctil.<br>- No se oxida a temperatura ambiente.<br>- Resiste a la corrosión.</td>
+                                        <td class="p-3" data-i18n="mSnApp">Hojalata (chapa de acero recubierta de estaño). Soldadura blanda (aleado con plomo o plata).</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="p-3 font-bold text-slate-900" data-i18n="mZn">Cinc (Zn)<br><span class="font-normal text-slate-500">Se obtiene de la blenda.</span></td>
+                                        <td class="p-3" data-i18n="mZnProp">- De color gris azulado y brillante.<br>- Frágil en frío y de baja dureza.<br>- Protege el acero contra la corrosión mediante el galvanizado.</td>
+                                        <td class="p-3" data-i18n="mZnApp">Barreños y cubos. Cubiertas de edificios. Acero galvanizado: vallas, farolas y barcos.</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="p-3 font-bold text-slate-900" data-i18n="mPb">Plomo (Pb)<br><span class="font-normal text-slate-500">Se obtiene de la galena.</span></td>
+                                        <td class="p-3" data-i18n="mPbProp">- Muy blando y pesado, de color gris plateado.<br>- Alta conductividad térmica.<br>- Tiene plasticidad y es maleable.</td>
+                                        <td class="p-3" data-i18n="mPbApp">Baterías y pilas. Protector contra radiaciones. Figuras decorativas. Vidrio (aditivo para dar dureza).</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50">
+                                        <td class="p-3 font-bold text-slate-900" data-i18n="mAl">Aluminio (Al)<br><span class="font-normal text-slate-500">Se obtiene de la bauxita.</span></td>
+                                        <td class="p-3" data-i18n="mAlProp">- Metal de poca densidad y peso que forma aleaciones resistentes y ligeras.<br>- Alta conductividad térmica y eléctrica.<br>- Alta maleabilidad y ductilidad.<br>- Alta resistencia a la corrosión.</td>
+                                        <td class="p-3" data-i18n="mAlApp">Líneas eléctricas de alta tensión. Fabricación de aviones, automóviles y bicicletas. Útiles de cocina, botes de bebida, etcétera.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- BLOQUE 6: TÉCNICAS DE MECANIZADO Y UNIÓN -->
+            <div id="bloque6" class="scroll-mt-24">
+                <section class="bg-white content-card p-6 sm:p-10 shadow-xl border border-slate-200/80">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-2xl bg-emerald-50 text-emerald-600 font-black text-lg border border-emerald-100">6</span>
+                        <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight" data-i18n="b42Title">Técnicas de mecanizado y unión de los metales en el taller</h2>
+                    </div>
+
+                    <p class="text-slate-600 mb-6 text-sm font-medium" data-i18n="b42Intro">La fabricación industrial de los metales se realiza con máquinas, como tornos, fresadoras, extrusoras, laminadoras y equipos de soldadura eléctrica. En el aula taller de Tecnología utilizamos técnicas manuales para medir, cortar, conformar, taladrar y unir piezas metálicas de forma segura.</p>
+
+                    <!-- Imagen Modal Bloque 6 -->
+                    <div class="mb-6 border-2 border-dashed border-slate-300 rounded-2xl p-4">
+                        <div class="text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden rounded-xl" onclick="abrirImagen('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80')">
+                            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" alt="Mecanizado de metales y herramientas de taller" class="w-full h-auto max-h-72 object-cover rounded-xl shadow-sm" />
+                            <p class="text-xs font-bold text-slate-500 py-2">Herramientas manuales y técnicas de mecanizado y perforación en el taller.</p>
+                        </div>
+                    </div>
+
+                    <!-- Tabla Mecanizado completada -->
+                    <div class="overflow-x-auto rounded-2xl border border-slate-200 mb-6">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead>
+                                <tr class="bg-slate-100 border-b border-slate-200 text-slate-800 font-bold">
+                                    <th class="p-3" data-i18n="thOp">Operación</th>
+                                    <th class="p-3" data-i18n="thTools">Herramientas Manuales</th>
+                                    <th class="p-3" data-i18n="thProc">Descripción del Proceso</th>
+                                    <th class="p-3" data-i18n="thSec">Seguridad y Prevención</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 font-medium text-slate-600">
+                                <tr class="hover:bg-slate-50/50">
+                                    <td class="p-3 font-bold text-slate-900" data-i18n="op1">Medición y Trazado</td>
+                                    <td class="p-3" data-i18n="op1Tools">Regla metálica, punta de trazar, escuadra de técnico, granete.</td>
+                                    <td class="p-3" data-i18n="op1Proc">Se marca sobre la superficie del metal las líneas de corte o centros de taladrado usando la punta de trazar rayando suavemente.</td>
+                                    <td class="p-3" data-i18n="op1Sec">Cuidado con las puntas afiladas. Guardar las herramientas protegidas.</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/50">
+                                    <td class="p-3 font-bold text-slate-900" data-i18n="op2">Corte</td>
+                                    <td class="p-3" data-i18n="op2Tools">Sierra de arco para metales, tijeras de chapa, alicates de corte.</td>
+                                    <td class="p-3" data-i18n="op2Proc">Para serrar se utiliza una hoja con dientes finos orientados hacia adelante. La chapa fina se corta con tijeras especiales.</td>
+                                    <td class="p-3" data-i18n="op2Sec">Sujetar firmemente la pieza en el tornillo de banco. Proteger las manos de rebabas afiladas.</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/50">
+                                    <td class="p-3 font-bold text-slate-900" data-i18n="op3">Desbaste y Limado</td>
+                                    <td class="p-3" data-i18n="op3Tools">Limas de metal (plana, redonda, mediacaña), escofinas, papel de lija.</td>
+                                    <td class="p-3" data-i18n="op3Proc">Se elimina la rebaba y el exceso de material para dejar los bordes suaves y con las dimensiones exactas.</td>
+                                    <td class="p-3" data-i18n="op3Sec">Comprobar que el mango de la lima esté bien fijo. No soplar las virutas.</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/50">
+                                    <td class="p-3 font-bold text-slate-900" data-i18n="op4">Perforación</td>
+                                    <td class="p-3" data-i18n="op4Tools">Taladro de columna o portátil, brocas HSS para metal.</td>
+                                    <td class="p-3" data-i18n="op4Proc">Se marca el centro con el granete para evitar que la broca resbale y se realiza el agujero refrigerando con aceite.</td>
+                                    <td class="p-3" data-i18n="op4Sec"><strong>Uso obligatorio de gafas de seguridad.</strong> Recogerse el pelo largo y no llevar prendas sueltas.</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/50">
+                                    <td class="p-3 font-bold text-slate-900" data-i18n="op5">Unión Fija y Desmontable</td>
+                                    <td class="p-3" data-i18n="op5Tools">Remachadora manual, soldador de estaño (soldadura blanda), tornillos y tuercas.</td>
+                                    <td class="p-3" data-i18n="op5Proc">Unión mediante deformación de remaches, aportación de estaño-plomo derretido a temperatura moderada o mediante roscas.</td>
+                                    <td class="p-3" data-i18n="op5Sec">Evitar el contacto directo con las puntas del soldador caliente e inhalación de humos.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+
+            <!-- BLOQUE 7: IMPACTO AMBIENTAL DE LOS METALES -->
+            <div id="bloque7" class="scroll-mt-24">
+                <section class="bg-white content-card p-6 sm:p-10 shadow-xl border border-slate-200/80">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-2xl bg-emerald-50 text-emerald-600 font-black text-lg border border-emerald-100">7</span>
+                        <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight" data-i18n="b43Title">Impacto ambiental de los metales</h2>
+                    </div>
+
+                    <div class="space-y-4 font-medium text-sm text-slate-600 mb-6">
+                        <p data-i18n="b43P1">El mayor impacto ambiental de la minería, tanto de las minas a cielo abierto como de las subterráneas, es la degradación del paisaje, ya que produce importantes modificaciones en él como consecuencia del movimiento de grandes cantidades de materiales, la contaminación del agua y la producción de polvo.</p>
+                        <p data-i18n="b43P2">Por otro lado, la industria metalúrgica se considera una de las más contaminantes, debido a la emisión de gases perjudiciales para el medioambiente, al alto consumo de energía y a la producción de residuos que pueden llegar a ser tóxicos.</p>
+                    </div>
+
+                    <div class="p-5 border-l-4 border-emerald-500 bg-emerald-50 rounded-r-2xl mb-6">
+                        <h3 class="font-bold text-base text-emerald-900 mb-2" data-i18n="b43SusTitle">Uso sostenible de los metales</h3>
+                        <p class="text-xs text-slate-700 leading-relaxed mb-3" data-i18n="b43SusDesc">Además de su gran durabilidad, los metales son reciclables y reutilizables, lo que hace que sean materiales sostenibles.</p>
+                        <ul class="list-disc list-inside space-y-1 text-xs text-slate-700">
+                            <li data-i18n="sus1">El <strong>acero</strong> es el material más reciclado del mundo, más que el papel o el vidrio.</li>
+                            <li data-i18n="sus2">El <strong>aluminio</strong> también es 100% reciclable. En este proceso, el material no pierde ninguna propiedad y se ahorra un 95% de la energía que se empleó en su fabricación primaria.</li>
+                            <li data-i18n="sus3">El <strong>cobre</strong> es el tercer metal más reciclado, y no pierde su integridad ni sus propiedades conductoras en ningún proceso de reciclaje.</li>
+                        </ul>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 border-2 border-dashed border-slate-300 rounded-2xl p-4 my-6">
+                        <div class="text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden rounded-xl" onclick="abrirImagen('https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=800&q=80')">
+                            <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=800&q=80" alt="Reciclaje de metales" class="w-full h-auto max-h-72 object-cover rounded-xl shadow-sm" />
+                            <p class="text-xs font-bold text-slate-500 py-2" data-i18n="b43CapRec">Planta de clasificación y reciclaje de chatarra metálica.</p>
+                        </div>
+                        <div>
+                            <div class="video-container shadow-md">
+                                <iframe src="https://www.youtube.com/embed/g4kKz6m5GqU" title="Reciclaje de metales" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <p class="text-xs font-bold text-slate-500 py-2 text-center" data-i18n="b43CapVidRec">El proceso de reciclaje del aluminio y ahorro energético.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- BLOQUE 8: METALES EN LA TRANSICIÓN DIGITAL Y MINERÍA URBANA -->
+            <div id="bloque8" class="scroll-mt-24">
+                <section class="bg-white content-card p-6 sm:p-10 shadow-xl border border-slate-200/80">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-2xl bg-emerald-50 text-emerald-600 font-black text-lg border border-emerald-100">8</span>
+                        <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight" data-i18n="b44Title">Metales en la Transición Digital y Minería Urbana 📱</h2>
+                    </div>
+
+                    <p class="text-slate-600 mb-6 text-sm font-medium" data-i18n="b44Intro">La digitalización de la sociedad (smartphones, ordenadores, coches eléctricos y renovables) depende estrechamente de una serie de metales críticos y tierras raras cuyo impacto geopolítico y ambiental es clave en el siglo XXI.</p>
+
+                    <!-- Imagen Modal Bloque 8 -->
+                    <div class="mb-6 border-2 border-dashed border-slate-300 rounded-2xl p-4">
+                        <div class="text-center bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer overflow-hidden rounded-xl" onclick="abrirImagen('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80')">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80" alt="Placas de circuitos y metales en la electrónica" class="w-full h-auto max-h-72 object-cover rounded-xl shadow-sm" />
+                            <p class="text-xs font-bold text-slate-500 py-2">Componentes electrónicos y placas de circuitos con presencia de metales preciados para la minería urbana.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl">
+                            <h3 class="font-bold text-sm text-slate-800 mb-2" data-i18n="b44ColtanTitle">Coltán (Columbita-Tantalita)</h3>
+                            <p class="text-xs text-slate-600" data-i18n="b44ColtanDesc">Del coltán se extrae el tántalo, vital para fabricar microcondensadores de tamaño reducido en smartphones y portátiles.</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl">
+                            <h3 class="font-bold text-sm text-slate-800 mb-2" data-i18n="b44LitioTitle">Litio y Cobalto</h3>
+                            <p class="text-xs text-slate-600" data-i18n="b44LitioDesc">Esenciales para el almacenamiento de energía en baterías de iones de litio de teléfonos, vehículos eléctricos y acumuladores solares.</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl">
+                            <h3 class="font-bold text-sm text-slate-800 mb-2" data-i18n="b44OroTitle">Oro y Plata en Microelectrónica</h3>
+                            <p class="text-xs text-slate-600" data-i18n="b44OroDesc">Debido a su inmejorable conductividad e inalterabilidad a la corrosión, se emplean en las conexiones microscópicas de procesadores y circuitos integrados.</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl">
+                            <h3 class="font-bold text-sm text-slate-800 mb-2" data-i18n="b44TierrasTitle">Tierras Raras (Neodimio, Disprosio)</h3>
+                            <p class="text-xs text-slate-600" data-i18n="b44TierrasDesc">Utilizados en los imanes de alta potencia de motores eléctricos, discos duros y generadores eólicos.</p>
+                        </div>
+                    </div>
+
+                    <!-- Minería Urbana -->
+                    <div class="bg-indigo-50 border border-indigo-200 p-5 rounded-2xl">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="p-2 bg-indigo-600 text-white rounded-xl">
+                                <i data-lucide="smartphone" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="font-bold text-base text-indigo-950" data-i18n="b44UrbanTitle">El Concepto de Minería Urbana y RAEE</h3>
+                        </div>
+                        <p class="text-xs text-slate-700 leading-relaxed mb-3" data-i18n="b44UrbanDesc">La <strong>Minería Urbana</strong> es el proceso de recuperación de materias primas valiosas a partir de los Residuos de Aparatos Eléctricos y Electrónicos (RAEE) desechados por la sociedad. Una tonelada de teléfonos móviles usados contiene hasta 50 veces más oro y cobre que una tonelada de mineral extraído directamente de la mina, requiriendo un consumo energético inmensamente menor.</p>
+                    </div>
+                </section>
+            </div>
+
+            <!-- BLOQUE UNIFICADO DE RECURSOS Y EVALUACIÓN -->
+            <section id="recursos" class="bg-white rounded-[2.5rem] p-6 sm:p-10 shadow-xl border border-slate-200/80 mb-8 scroll-mt-24">
+                <div class="mb-8 border-b border-slate-200/80 pb-6 text-center md:text-left">
+                    <div class="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 text-emerald-700 px-3.5 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest mb-3">
+                        <i data-lucide="folder-archive" class="w-4 h-4 text-emerald-600"></i>
+                        <span data-i18n="resBadge">CENTRO DE RECURSOS Y PRÁCTICA</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight" data-i18n="resTitle">Material Didáctico y Evaluación</h2>
+                    <p class="text-slate-500 text-sm font-medium mt-1" data-i18n="resDesc">Accede a la documentación de trabajo, hojas de cálculo interactivas y proyectos prácticos integradores de la unidad.</p>
+                </div>
+
+                <div class="space-y-8">
+                    <!-- Categoría 1: Documentación -->
+                    <div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <div class="p-1.5 bg-emerald-100 text-emerald-700 rounded-lg">
+                                <i data-lucide="file-text" class="w-4 h-4"></i>
+                            </div>
+                            <h3 class="text-sm font-black text-slate-900 uppercase tracking-wider" data-i18n="cat1Title">1. Documentación del Tema</h3>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <a href="pdf/sda5-esquema.pdf" target="_blank" class="flex items-center gap-3 bg-slate-50 hover:bg-emerald-50 border border-slate-200 hover:border-emerald-300 p-4 rounded-2xl transition-all group shadow-xs">
+                                <div class="p-2.5 bg-emerald-100 text-emerald-600 rounded-xl group-hover:bg-emerald-600 group-hover:text-white transition-colors shrink-0">
+                                    <i data-lucide="file-check-2" class="w-4 h-4"></i>
+                                </div>
+                                <div class="text-left">
+                                    <span class="block text-[10px] font-black uppercase text-emerald-600 tracking-wider" data-i18n="doc1Badge">Esquema</span>
+                                    <span class="text-xs font-bold text-slate-800 leading-snug block" data-i18n="doc1Title">Resumen esquemático de metales y sostenibilidad</span>
+                                </div>
+                            </a>
+
+                            <a href="pdf/sda5-vocabulario.pdf" target="_blank" class="flex items-center gap-3 bg-slate-50 hover:bg-emerald-50 border border-slate-200 hover:border-emerald-300 p-4 rounded-2xl transition-all group shadow-xs">
+                                <div class="p-2.5 bg-emerald-100 text-emerald-600 rounded-xl group-hover:bg-emerald-600 group-hover:text-white transition-colors shrink-0">
+                                    <i data-lucide="file-check-2" class="w-4 h-4"></i>
+                                </div>
+                                <div class="text-left">
+                                    <span class="block text-[10px] font-black uppercase text-emerald-600 tracking-wider" data-i18n="doc2Badge">Vocabulary</span>
+                                    <span class="text-xs font-bold text-slate-800 leading-snug block" data-i18n="doc2Title">Technical terms: Metals & Sustainability (EN)</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Categoría 2: Proyecto Integrador -->
+                    <div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <div class="p-1.5 bg-sky-100 text-sky-700 rounded-lg">
+                                <i data-lucide="calculator" class="w-4 h-4"></i>
+                            </div>
+                            <h3 class="text-sm font-black text-slate-900 uppercase tracking-wider" data-i18n="cat2Title">2. Proyecto de Digitalización y Taller</h3>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-emerald-900 via-teal-900 to-slate-900 rounded-2xl p-6 shadow-lg border border-emerald-700/50 text-white flex flex-col md:flex-row items-center justify-between gap-6">
+                            <div class="space-y-1 text-center md:text-left">
+                                <div class="inline-flex items-center gap-2 bg-emerald-500/20 border border-emerald-400/30 text-emerald-200 px-2.5 py-0.5 rounded-full text-[9px] font-black uppercase tracking-widest">
+                                    <i data-lucide="sparkles" class="w-3 h-3 text-amber-400"></i>
+                                    <span data-i18n="challengeBadge">RETO PRÁCTICO LOMLOE</span>
+                                </div>
+                                <h4 class="text-lg font-black tracking-tight" data-i18n="challengeTitle">Calculadora Digital de Huella de Carbono y Taller de Clasificación</h4>
+                                <p class="text-emerald-100 text-xs font-medium max-w-xl leading-relaxed" data-i18n="challengeDesc">
+                                    Crea una hoja de cálculo con fórmulas para comparar la huella de carbono de piezas de aluminio vs acero, y realiza en taller la separación magnética y mecánica de muestras metálicas.
+                                </p>
+                            </div>
+                            <a href="pdf/sda5-proyecto-guia.pdf" class="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-6 py-3 rounded-xl transition-all shadow-md hover:shadow-amber-400/20 hover:scale-105 uppercase tracking-wider text-xs whitespace-nowrap shrink-0">
+                                <span data-i18n="challengeBtn">Ver Guía del Proyecto</span>
+                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Botón Volver al inicio -->
+        <div class="mt-16 text-center">
+            <a href="index.html" class="inline-flex items-center gap-3 bg-emerald-600 text-white px-8 py-4 rounded-full font-black text-xs hover:bg-slate-900 transition-all shadow-xl uppercase tracking-widest">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i> <span data-i18n="backHomeBtn">Volver al Índice Principal</span>
+            </a>
+        </div>
+    </main>
+
+    <!-- Modal Emergente Global Único para Imágenes -->
+    <div id="modalImagen" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4" onclick="cerrarImagen()">
+        <img id="imagenAmpliada" class="max-w-full max-h-full object-contain rounded-lg" src="" alt="Vista ampliada">
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-24 text-center border-t border-slate-100 mt-20">
+        <div class="w-12 h-1.5 bg-emerald-600 mx-auto mb-10 rounded-full"></div>
+        <p class="text-slate-400 text-[10px] font-black uppercase tracking-[0.4em]">rhervel // 2026 // Technology & Digitalization 2nd ESO</p>
+    </footer>
+
+    <!-- Scripts JS -->
+    <script>
+        // Dictionary for Bilingual Support (ES / EN)
+        const translations = {
+            es: {
+                navBlock1: "1. Ciclo de Vida",
+                navBlock2: "2. Huellas",
+                navBlock3: "3. Las 5R",
+                navBlock4: "4. Metales",
+                navBlock41: "5. Propiedades",
+                navBlock42: "6. Taller",
+                navBlock43: "7. Impacto",
+                navBlock44: "8. e-Waste",
+                navResources: "Recursos",
+                unitSubhead: "SDA 5 // TECNOLOGÍA Y DIGITALIZACIÓN 2º ESO",
+                heroTitlePart1: "SDA5. Materiales e Impacto Ambiental:",
+                heroTitlePart2: "Metales ♻️",
+                heroDesc: "Análisis exhaustivo del ciclo de vida de los productos, los indicadores de sostenibilidad ambiental, las 5R, las propiedades y clasificación de los metales (férricos y no férricos), sus técnicas de mecanizado en el taller y su impacto ambiental en la era digital.",
+                subjectLabel: "TECNOLOGÍA 2º ESO",
+                b1Title: "1. Ciclo de Vida: De la Cuna a la Tumba ♻️",
+                b1P1: "El ciclo de vida de un producto describe las etapas por las que pasa un producto desde su creación hasta su retirada del mercado, similar a la vida de un ser vivo.",
+                b1P2: "El concepto 'De la Cuna a la Tumba' (Cradle-to-Grave) es una metodología de evaluación conocida como Análisis del Ciclo de Vida (ACV).",
+                b1P3: "Se trata de un análisis exhaustivo y sistemático de todos los impactos ambientales que genera un producto o servicio a lo largo de todas sus etapas, desde la obtención de las materias primas hasta su disposición final.",
+                thStage: "Etapa", thDesc: "Descripción del Proceso", thImpact: "Impacto Ambiental Clave",
+                st1: "Cuna (Extracción)", st1Desc: "Obtención de las materias primas necesarias (minería, tala, agricultura, etc.).", st1Imp: "Agotamiento de recursos, alteración de ecosistemas, consumo de energía.",
+                st2: "Fabricación", st2Desc: "Transformación de las materias primas en el producto final.", st2Imp: "Consumo de energía y agua, generación de residuos y emisiones contaminantes.",
+                st3: "Distribución", st3Desc: "Transporte del producto desde el punto de fabricación hasta el consumidor.", st3Imp: "Emisiones de gases de efecto invernadero (GEI) por combustibles fósiles (huella de carbono).",
+                st4: "Uso", st4Desc: "El periodo en que el producto es utilizado por el consumidor.", st4Imp: "Consumo de energía y agua (si aplica), necesidad de mantenimiento o reemplazo de partes.",
+                st5: "Tumba (Disposición Final)", st5Desc: "Desecho del producto una vez que ya no es útil.", st5Imp: "Relleno sanitario (vertederos), incineración, que generan lixiviados, emisiones y contaminación.",
+                c2cTitle: "Nota: Enfoque 'De la Cuna a la Cuna' (Cradle-to-Cradle)",
+                c2cText: "Este enfoque contrasta con el modelo tradicional, buscando diseñar productos de manera que, al final de su vida útil, sus materiales puedan ser completamente reutilizados o reciclados, cerrando el ciclo y eliminando la fase de 'Tumba'.",
+                b2Title: "2. Huella de Carbono y Huella Hídrica",
+                b2Intro: "Ambos son indicadores clave de sostenibilidad que miden el impacto ambiental de nuestras actividades, empresas o productos.",
+                b2ATitle: "A. Huella de Carbono", b2Def: "Definición:", b2ADef: "Es la totalidad de Gases de Efecto Invernadero (GEI) emitidos, directa o indirectamente, por una persona, organización, evento o producto.",
+                b2Unit: "Unidad de Medida:", b2AUnit: "Se expresa en masa de dióxido de carbono equivalente (CO₂e).",
+                b2Rel: "Relevancia:", b2ARel: "Es el principal indicador para medir la contribución al calentamiento global y el cambio climático.",
+                b2AFoot: "Reducir la huella de carbono implica usar energías limpias y mejorar la eficiencia energética en todo el ciclo de vida.",
+                b2BTitle: "B. Huella Hídrica", b2BDef: "Es el volumen total de agua dulce utilizada, directa e indirectamente, para producir los bienes y servicios consumidos por una persona o producidos por una empresa.",
+                b2BUnit: "Se expresa en volumen de agua (litros o metros cúbicos).",
+                wGreen: "Verde:", wGreenDesc: "Agua de lluvia almacenada en el suelo (clave en agricultura).",
+                wBlue: "Azul:", wBlueDesc: "Agua extraída de fuentes superficiales o subterráneas (riego, industria).",
+                wGrey: "Gris:", wGreyDesc: "Agua necesaria para diluir los contaminantes vertidos hasta un nivel aceptable.",
+                b2BRel: "Ayuda a entender la presión sobre los recursos hídricos locales y globales, promoviendo el uso eficiente y equitativo del agua.",
+                b3Title: "3. Las 5R de la Sostenibilidad ♻️",
+                b3P1: "Las 5R representan una jerarquía de acciones orientadas a la gestión de residuos y el consumo consciente, donde la mejor acción es siempre la que previene la generación de residuos.",
+                b3P2: "La adición de más 'R' va más allá de las clásicas '3R' (Reducir, Reutilizar, Reciclar).",
+                thPrio: "Orden de Prioridad", thREs: "'R' (Español)", thREn: "'R' (Inglés)", thRDesc: "Descripción y Acción",
+                r1Es: "Rechazar", r1Desc: "La acción más importante: Evitar productos innecesarios o con embalajes excesivos (ej. rechazar bolsas plásticas o flyers).",
+                r2Es: "Reducir", r2Desc: "Disminuir la cantidad de productos que se consumen, lo que impacta directamente en la reducción de las huellas de carbono/hídrica.",
+                r3Es: "Reutilizar", r3Desc: "Usar un producto más de una vez, ya sea para su propósito original o para uno diferente (ej. usar frascos de vidrio para almacenar).",
+                r4Es: "Reparar / Reaprovechar", r4Desc: "Arreglar un objeto dañado en lugar de tirarlo, o darle un nuevo uso creativo a un artículo (ej. convertir ropa vieja en trapos).",
+                r5Es: "Reciclar", r5Desc: "Transformar el material desechado en un nuevo producto, evitando el uso de materia prima virgen (esta debe ser la última opción después de agotar las anteriores).",
+                b4Title: "4. Metales",
+                b4P1: "Los metales son materiales de gran importancia, debido a sus propiedades y a las cualidades técnicas que presentan, lo cual hace que sean imprescindibles en la fabricación de todo tipo de objetos.",
+                b4P2: "Los metales se encuentran en la naturaleza formando minerales o en estado puro.",
+                b4P3: "El proceso de extracción y transformación de los metales se llama metalurgia.",
+                b4P4: "Existe una gran variedad de materiales metálicos. Aunque algunos se emplean en estado casi puro, como la plata o el oro, la mayoría se combinan entre sí o con otros elementos, formando aleaciones con las que se consigue mejorar sus propiedades.",
+                b4P5: "Las aleaciones son materiales metálicos muy utilizados en la industria. Por ejemplo, acero inoxidable, bronce y latón.",
+                b4FormsTitle: "Formas comerciales más habituales", b4FormsDesc: "Las formas comerciales más habituales en que se presentan los metales son las barras y los tubos, los alambres, las chapas, los lingotes y los perfiles:",
+                f1: "Barras y tubos", f2: "Alambre", f3: "Perfiles", f4: "Chapa", f5: "Lingote",
+                b4StepsTitle: "Proceso de obtención de metales", b4StepsDesc: "Los procesos y las transformaciones que sufren los minerales hasta obtener los materiales metálicos suelen ser complejos y costosos:",
+                step1: "La extracción de los minerales se realiza en minas a cielo abierto o subterráneas. Casi todos los metales se encuentran en estado sólido en la naturaleza, excepto el mercurio y el galio.",
+                step2: "A continuación, se separa la parte útil, llamada mena, del resto de materiales, llamados ganga. Para ello se tritura, se lava y se criba el mineral.",
+                step3: "Por último, se realizan transformaciones como el calcinado en hornos o la reducción química/electrólisis para obtener el metal puro o aleado.",
+                b4CapMineria: "Mina a cielo abierto para la extracción de mineral metálico.", b4CapVidMining: "Proceso minero y metalúrgico de obtención de metales.",
+                b4Ods1: "La minería es una industria global que implica importantes recursos humanos, ambientales y económicos.",
+                b4Ods2: "La extracción de recursos naturales es esencial para asegurar el bienestar y el desarrollo de las comunidades y, por tanto, contribuir a alcanzar los ODS (Objetivos de Desarrollo Sostenible).",
+                b41Title: "5. Propiedades y clasificación", b41PropTitle: "Las propiedades más importantes de los metales son las siguientes:",
+                p1: "Son materiales densos y pesados con un brillo característico.", p2: "Tienen gran resistencia mecánica a los esfuerzos (tracción, compresión, flexión).",
+                p3: "Son buenos conductores de la electricidad, del calor y del sonido.", p4: "Son dúctiles (se pueden estirar en hilos) y maleables (se pueden conformar en chapas).",
+                b41ClassIntro: "La clasificación de los metales no depende de su origen o de su fabricación, sino de su contenido en hierro. Según esto, distinguimos dos grandes grupos: los metales férricos y los metales no férricos.",
+                b41ATitle: "A. Metales férricos",
+                b41AP1: "El hierro es un material abundante en la naturaleza (representa el 5% de la corteza terrestre), que se puede encontrar en muchos minerales.",
+                b41AP2: "El proceso de fabricación de los metales férricos se llama siderurgia y se realiza en los altos hornos.",
+                b41AP3: "Se introduce la mena, ya separada del mineral, junto con carbón de coque y piedra caliza.",
+                b41AL1: "Del alto horno se obtiene el arrabio, producto a partir del cual se fabrican los materiales férricos.",
+                b41AL2: "El resto de los materiales se denomina escoria.",
+                b41AP4: "El arrabio contiene gran cantidad de carbono, que, una vez afinado en el convertidor de oxígeno, reduce su carbono para convertirse en acero o fundición.",
+                thMetal: "Metal", thProps: "Propiedades", thApps: "Aplicaciones",
+                mHierro: "Hierro (Puro)", mHierroProp: "Buenas propiedades magnéticas.\n- Es frágil y difícil de mecanizar.", mHierroApp: "Máquinas eléctricas y transformadores. Componentes electrónicos.",
+                mAcero: "Acero (entre el 0,1 y el 2 % de carbono)", mAceroProp: "Es la más utilizada de las aleaciones por sus buenas propiedades mecánicas.\n- Es resistente, tenaz, maleable y dúctil.\n- Aleado con cromo (Cr) y níquel (Ni) forma el acero inoxidable.", mAceroApp: "Vigas, tubos, barras. Herramientas, estanterías, vallas, rejas. Utensilios de cocina y chapas.",
+                mFund: "Fundición (entre el 2 y el 4 % de carbono)", mFundProp: "Color negro, muy frágil y dura.\n- Resistente a las vibraciones y a la corrosión.", mFundApp: "Radiadores antiguos, farolas, bolardos, tornillos de banco. Bancadas de motores.",
+                b41BTitle: "B. Metales no férricos", b41BIntro: "Aunque los metales férricos son fáciles de obtener y tienen buena resistencia mecánica, los metales no férricos tienen otras propiedades que los hacen interesantes para otras aplicaciones, como la conductividad térmica y la eléctrica, la resistencia a la oxidación y la facilidad de mecanizado.",
+                mCu: "Cobre (Cu)", mCuProp: "- Blando, de color rojizo y brillo intenso.\n- Alta conductividad térmica y eléctrica.\n- Maleable y dúctil.\n- Resistente a la corrosión.\n- Aleado con cinc forma el latón.\n- Aleado con estaño forma el bronce.", mCuApp: "Cables eléctricos e hilos de telefonía. Tuberías y calderas. Decoración.\nLatón: conexiones eléctricas y grifos.\nBronce: campanas y piezas de barcos.",
+                mSn: "Estaño (Sn)", mSnProp: "- Muy blando, de color blanco brillante.\n- Muy maleable y dúctil.\n- No se oxida a temperatura ambiente.", mSnApp: "Hojalata (chapa de acero recubierta de estaño). Soldadura blanda.",
+                mZn: "Cinc (Zn)", mZnProp: "- De color gris azulado y brillante.\n- Frágil en frío y de baja dureza.\n- Protege el acero contra la corrosión mediante el galvanizado.", mZnApp: "Barreños y cubos. Cubiertas de edificios. Acero galvanizado: vallas y farolas.",
+                mPb: "Plomo (Pb)", mPbProp: "- Muy blando y pesado, de color gris plateado.\n- Alta conductividad térmica.\n- Tiene plasticidad y es maleable.", mPbApp: "Baterías y pilas. Protector contra radiaciones. Vidrio.",
+                mAl: "Aluminio (Al)", mAlProp: "- Metal de poca densidad y peso que forma aleaciones resistentes y ligeras.\n- Alta conductividad térmica y eléctrica.\n- Alta maleabilidad y ductilidad.\n- Alta resistencia a la corrosión.", mAlApp: "Líneas eléctricas de alta tensión. Fabricación de aviones, automóviles y bicicletas. Útiles de cocina, botes de bebida.",
+                b42Title: "6. Técnicas de mecanizado y unión de los metales en el taller",
+                b42Intro: "La fabricación industrial de los metales se realiza con máquinas, como tornos, fresadoras, extrusoras, laminadoras y equipos de soldadura eléctrica. En el aula taller de Tecnología utilizamos técnicas manuales para medir, cortar, conformar, taladrar y unir piezas metálicas de forma segura.",
+                thOp: "Operación", thTools: "Herramientas Manuales", thProc: "Descripción del Proceso", thSec: "Seguridad y Prevención",
+                op1: "Medición y Trazado", op1Tools: "Regla metálica, punta de trazar, escuadra de técnico, granete.", op1Proc: "Se marca sobre la superficie del metal las líneas de corte o centros de taladrado usando la punta de trazar rayando suavemente.", op1Sec: "Cuidado con las puntas afiladas. Guardar las herramientas protegidas.",
+                op2: "Corte", op2Tools: "Sierra de arco para metales, tijeras de chapa, alicates de corte.", op2Proc: "Para serrar se utiliza una hoja con dientes finos orientados hacia adelante. La chapa fina se corta con tijeras especiales.", op2Sec: "Sujetar firmemente la pieza en el tornillo de banco. Proteger las manos de rebabas afiladas.",
+                op3: "Desbaste y Limado", op3Tools: "Limas de metal (plana, redonda, mediacaña), escofinas, papel de lija.", op3Proc: "Se elimina la rebaba y el exceso de material para dejar los bordes suaves y con las dimensiones exactas.", op3Sec: "Comprobar que el mango de la lima esté bien fijo. No soplar las virutas.",
+                op4: "Perforación", op4Tools: "Taladro de columna o portátil, brocas HSS para metal.", op4Proc: "Se marca el centro con el granete para evitar que la broca resbale y se realiza el agujero refrigerando con aceite.", op4Sec: "Uso obligatorio de gafas de seguridad. Recogerse el pelo largo.",
+                op5: "Unión Fija y Desmontable", op5Tools: "Remachadora manual, soldador de estaño (soldadura blanda), tornillos y tuercas.", op5Proc: "Unión mediante deformación de remaches, aportación de estaño-plomo derretido a temperatura moderada o mediante roscas.", op5Sec: "Evitar el contacto directo con las puntas del soldador caliente e inhalación de humos.",
+                b43Title: "7. Impacto ambiental de los metales",
+                b43P1: "El mayor impacto ambiental de la minería, tanto de las minas a cielo abierto como de las subterráneas, es la degradación del paisaje, ya que produce importantes modificaciones en él como consecuencia del movimiento de grandes cantidades de materiales, la contaminación del agua y la producción de polvo.",
+                b43P2: "Por otro lado, la industria metalúrgica se considera una de las más contaminantes, debido a la emisión de gases perjudiciales para el medioambiente, al alto consumo de energía y a la producción de residuos que pueden llegar a ser tóxicos.",
+                b43SusTitle: "Uso sostenible de los metales", b43SusDesc: "Además de su gran durabilidad, los metales son reciclables y reutilizables, lo que hace que sean materiales sostenibles.",
+                sus1: "El acero es el material más reciclado del mundo, más que el papel o el vidrio.",
+                sus2: "El aluminio también es 100% reciclable. En este proceso, el material no pierde ninguna propiedad y se ahorra un 95% de la energía que se empleó en su fabricación primaria.",
+                sus3: "El cobre es el tercer metal más reciclado, y no pierde su integridad ni sus propiedades conductoras en ningún proceso de reciclaje.",
+                b43CapRec: "Planta de clasificación y reciclaje de chatarra metálica.", b43CapVidRec: "El proceso de reciclaje del aluminio y ahorro energético.",
+                b44Title: "8. Metales en la Transición Digital y Minería Urbana 📱",
+                b44Intro: "La digitalización de la sociedad (smartphones, ordenadores, coches eléctricos y renovables) depende estrechamente de una serie de metales críticos y tierras raras cuyo impacto geopolítico y ambiental es clave en el siglo XXI.",
+                b44ColtanTitle: "Coltán (Columbita-Tantalita)", b44ColtanDesc: "Del coltán se extrae el tántalo, vital para fabricar microcondensadores de tamaño reducido en smartphones y portátiles.",
+                b44LitioTitle: "Litio y Cobalto", b44LitioDesc: "Esenciales para el almacenamiento de energía en baterías de iones de litio de teléfonos, vehículos eléctricos y acumuladores solares.",
+                b44OroTitle: "Oro y Plata en Microelectrónica", b44OroDesc: "Debido a su inmejorable conductividad e inalterabilidad a la corrosión, se emplean en las conexiones microscópicas de procesadores y circuitos integrados.",
+                b44TierrasTitle: "Tierras Raras (Neodimio, Disprosio)", b44TierrasDesc: "Utilizados en los imanes de alta potencia de motores eléctricos, discos duros y generadores eólicos.",
+                b44UrbanTitle: "El Concepto de Minería Urbana y RAEE",
+                b44UrbanDesc: "La Minería Urbana es el proceso de recuperación de materias primas valiosas a partir de los Residuos de Aparatos Eléctricos y Electrónicos (RAEE) desechados por la sociedad. Una tonelada de teléfonos móviles usados contiene hasta 50 veces más oro y cobre que una tonelada de mineral extraído directamente de la mina, requiriendo un consumo energético inmensamente menor.",
+                resBadge: "CENTRO DE RECURSOS Y PRÁCTICA", resTitle: "Material Didáctico y Evaluación", resDesc: "Accede a la documentación de trabajo, hojas de cálculo interactivas y proyectos prácticos integradores de la unidad.",
+                cat1Title: "1. Documentación del Tema", doc1Badge: "Esquema", doc1Title: "Resumen esquemático de metales y sostenibilidad",
+                doc2Badge: "Vocabulary", doc2Title: "Technical terms: Metals & Sustainability (EN)",
+                cat2Title: "2. Proyecto de Digitalización y Taller", challengeBadge: "RETO PRÁCTICO LOMLOE", challengeTitle: "Calculadora Digital de Huella de Carbono y Taller de Clasificación",
+                challengeDesc: "Crea una hoja de cálculo con fórmulas para comparar la huella de carbono de piezas de aluminio vs acero, y realiza en taller la separación magnética y mecánica de muestras metálicas.",
+                challengeBtn: "Ver Guía del Proyecto", backHomeBtn: "Volver al Índice Principal"
+            },
+            en: {
+                navBlock1: "1. Life Cycle",
+                navBlock2: "2. Footprints",
+                navBlock3: "3. The 5Rs",
+                navBlock4: "4. Metals",
+                navBlock41: "5. Properties",
+                navBlock42: "6. Workshop",
+                navBlock43: "7. Impact",
+                navBlock44: "8. e-Waste",
+                navResources: "Resources",
+                unitSubhead: "UNIT 5 // TECHNOLOGY & DIGITALIZATION 2nd ESO",
+                heroTitlePart1: "Unit 5. Materials & Environmental Impact:",
+                heroTitlePart2: "Metals ♻️",
+                heroDesc: "In-depth analysis of product life cycles, environmental sustainability indicators, the 5Rs, metal properties and classification (ferrous and non-ferrous), workshop processing techniques, and environmental impacts in the digital era.",
+                subjectLabel: "TECHNOLOGY 2nd ESO",
+                b1Title: "1. Life Cycle: Cradle to Grave ♻️",
+                b1P1: "The life cycle of a product describes the stages a product goes through from creation to market withdrawal, similar to a living organism.",
+                b1P2: "The 'Cradle-to-Grave' concept is an assessment methodology known as Life Cycle Assessment (LCA).",
+                b1P3: "It is a comprehensive and systematic analysis of all environmental impacts generated by a product or service throughout all its stages, from raw material extraction to final disposal.",
+                thStage: "Stage", thDesc: "Process Description", thImpact: "Key Environmental Impact",
+                st1: "Cradle (Extraction)", st1Desc: "Obtaining required raw materials (mining, logging, agriculture, etc.).", st1Imp: "Resource depletion, ecosystem disruption, energy consumption.",
+                st2: "Manufacturing", st2Desc: "Transformation of raw materials into the final product.", st2Imp: "Energy and water consumption, waste generation, polluting emissions.",
+                st3: "Distribution", st3Desc: "Product transportation from manufacturing site to consumer.", st3Imp: "Greenhouse gas (GHG) emissions from fossil fuels (carbon footprint).",
+                st4: "Use", st4Desc: "The period during which the product is used by the consumer.", st4Imp: "Energy/water consumption (if applicable), maintenance or part replacement.",
+                st5: "Grave (Final Disposal)", st5Desc: "Disposal of the product once it is no longer useful.", st5Imp: "Landfills, incineration, generating leachate, emissions, and pollution.",
+                c2cTitle: "Note: 'Cradle-to-Cradle' Approach",
+                c2cText: "This approach contrasts with the traditional model by designing products so that, at the end of their useful life, materials can be fully reused or recycled, closing the loop and eliminating the 'Grave' stage.",
+                b2Title: "2. Carbon Footprint and Water Footprint",
+                b2Intro: "Both are key sustainability indicators measuring the environmental impact of activities, companies, or products.",
+                b2ATitle: "A. Carbon Footprint", b2Def: "Definition:", b2ADef: "The total Greenhouse Gases (GHG) emitted directly or indirectly by an individual, organization, event, or product.",
+                b2Unit: "Unit of Measurement:", b2AUnit: "Expressed in mass of carbon dioxide equivalent (CO₂e).",
+                b2Rel: "Relevance:", b2ARel: "Main indicator for assessing contribution to global warming and climate change.",
+                b2AFoot: "Reducing carbon footprint requires clean energy usage and energy efficiency across the life cycle.",
+                b2BTitle: "B. Water Footprint", b2BDef: "Total volume of freshwater used directly and indirectly to produce goods and services.",
+                b2BUnit: "Expressed in volume of water (liters or cubic meters).",
+                wGreen: "Green:", wGreenDesc: "Rainwater stored in soil (key in agriculture).",
+                wBlue: "Blue:", wBlueDesc: "Surface or groundwater extracted for irrigation and industry.",
+                wGrey: "Grey:", wGreyDesc: "Water required to dilute pollutants to acceptable standards.",
+                b2BRel: "Helps understand pressure on local/global water resources, promoting efficient water use.",
+                b3Title: "3. The 5Rs of Sustainability ♻️",
+                b3P1: "The 5Rs represent a action hierarchy aimed at waste management and conscious consumption.",
+                b3P2: "Expanding beyond the classic '3Rs' (Reduce, Reuse, Recycle).",
+                thPrio: "Priority", thREs: "'R' (Spanish)", thREn: "'R' (English)", thRDesc: "Description & Action",
+                r1Es: "Rechazar", r1Desc: "Most important action: Refuse unnecessary products or excessive packaging.",
+                r2Es: "Reducir", r2Desc: "Decrease consumption of products, directly lowering carbon and water footprints.",
+                r3Es: "Reutilizar", r3Desc: "Use products multiple times for original or secondary purposes.",
+                r4Es: "Reparar / Reaprovechar", r4Desc: "Repair broken items or repurpose articles creatively instead of throwing them away.",
+                r5Es: "Reciclar", r5Desc: "Transform discarded materials into new products, avoiding virgin raw material extraction.",
+                b4Title: "4. Metals",
+                b4P1: "Metals are materials of crucial importance due to their technical qualities and mechanical properties.",
+                b4P2: "Metals occur in nature as minerals or in pure elemental form.",
+                b4P3: "The process of metal extraction and processing is called metallurgy.",
+                b4P4: "Most metals are combined into alloys to improve mechanical properties.",
+                b4P5: "Common industrial alloys include stainless steel, bronze, and brass.",
+                b4FormsTitle: "Common Commercial Forms", b4FormsDesc: "Metals are supplied commercially as bars, tubes, wires, sheets, ingots, and structural profiles:",
+                f1: "Bars & Tubes", f2: "Wire", f3: "Profiles", f4: "Sheets", f5: "Ingots",
+                b4StepsTitle: "Metal Extraction Process", b4StepsDesc: "Transforming minerals into industrial metals involves multi-stage processing:",
+                step1: "Mineral extraction occurs in open-pit or underground mines.",
+                step2: "Valuable ore (mena) is separated from waste rock (ganga) through crushing, washing, and screening.",
+                step3: "Smelting, chemical reduction, or electrolysis yields refined metal or alloys.",
+                b4CapMineria: "Open-pit mine for metallic ore extraction.", b4CapVidMining: "Video: Metallurgical metal extraction process.",
+                b4Ods1: "Mining is a global industry with major human, environmental, and economic impacts.",
+                b4Ods2: "Natural resource extraction must align with Sustainable Development Goals (SDGs).",
+                b41Title: "5. Properties and Classification", b41PropTitle: "Main properties of metals:",
+                p1: "Dense and heavy materials with characteristic metallic luster.", p2: "High mechanical strength against tension, compression, and bending forces.",
+                p3: "Excellent conductors of electricity, heat, and sound.", p4: "Ductile (drawn into wires) and malleable (hammered into thin sheets).",
+                b41ClassIntro: "Metals are classified primarily by iron content into Ferrous and Non-Ferrous metals.",
+                b41ATitle: "A. Ferrous Metals",
+                b41AP1: "Iron makes up 5% of the Earth's crust and is extracted from iron ore.",
+                b41AP2: "Ferrous metal production takes place in blast furnaces (siderurgy).",
+                b41AP3: "Iron ore, coke fuel, and limestone flux are fed into the blast furnace.",
+                b41AL1: "Pig iron (arrabio) is produced as intermediate raw iron.",
+                b41AL2: "Waste slag (escoria) is separated.",
+                b41AP4: "Pig iron undergoes oxygen converter refining to produce steel or cast iron.",
+                thMetal: "Metal", thProps: "Properties", thApps: "Applications",
+                mHierro: "Iron (Pure)", mHierroProp: "Magnetic properties.\n- Brittle and difficult to machine.", mHierroApp: "Electrical transformers and electromagnetic components.",
+                mAcero: "Steel (0.1% to 2% Carbon)", mAceroProp: "Most used structural alloy.\n- Tough, malleable, ductile.\n- Stainless steel alloyed with Chromium and Nickel.", mAceroApp: "Beams, pipes, tools, structures, cutlery, sheets.",
+                mFund: "Cast Iron (2% to 4% Carbon)", mFundProp: "Dark, hard, highly brittle.\n- Vibration and corrosion resistant.", mFundApp: "Engine blocks, lamp posts, bench vices.",
+                b41BTitle: "B. Non-Ferrous Metals", b41BIntro: "Non-ferrous metals offer specific advantages like electrical/thermal conductivity, corrosion resistance, and low density.",
+                mCu: "Copper (Cu)", mCuProp: "- Soft, reddish luster.\n- High electrical & thermal conductivity.\n- Malleable and corrosion resistant.", mCuApp: "Electrical wiring, plumbing pipes, heat exchangers.\nBrass: electrical contacts & valves.\nBronze: propellers & statues.",
+                mSn: "Tin (Sn)", mSnProp: "- Very soft, bright silver color.\n- Highly malleable, non-oxidizing at room temp.", mSnApp: "Tinplate coating for steel cans, soft soldering.",
+                mZn: "Zinc (Zn)", mZnProp: "- Bluish-grey, brittle when cold.\n- Used for galvanizing steel protection.", mZnApp: "Galvanized steel fences, roofs, buckets.",
+                mPb: "Lead (Pb)", mPbProp: "- Heavy, soft, dense grey metal.\n- High density, radiation shielding.", mPbApp: "Batteries, radiation shielding, specialized glass.",
+                mAl: "Aluminum (Al)", mAlProp: "- Low density, lightweight, high strength-to-weight ratio.\n- Excellent conductivity and corrosion resistance.", mAlApp: "High-voltage power lines, aircraft, cars, cans, window frames.",
+                b42Title: "6. Workshop Metal Machining & Joining Techniques",
+                b42Intro: "Industrial metalworking uses lathes and CNC equipment. In school technology workshops, hand tools are used for measuring, cutting, filing, drilling, and joining metal pieces safely.",
+                thOp: "Operation", thTools: "Hand Tools", thProc: "Process Description", thSec: "Safety & Prevention",
+                op1: "Measuring & Marking", op1Tools: "Steel ruler, scriber, engineer square, center punch.", op1Proc: "Scriber lines and punch marks outline cut edges and hole centers.", op1Sec: "Mind sharp tips. Store pointed tools safely.",
+                op2: "Cutting", op2Tools: "Hacksaw, sheet metal snips, wire cutters.", op2Proc: "Hacksaw blade teeth face forward. Snips cut thin metal sheet.", op2Sec: "Clamp workpiece tightly in bench vice. Guard against sharp burrs.",
+                op3: "Filing & Deburring", op3Tools: "Metal files (flat, round, half-round), sandpaper.", op3Proc: "Removes sharp burrs and smoothes cut edges.", op3Sec: "Ensure file handles are intact. Never blow metal dust.",
+                op4: "Drilling", op4Tools: "Pillar drill, cordless drill, HSS metal drill bits.", op4Proc: "Center punch mark prevents drill bit slip; use cutting oil lubricant.", op4Sec: "Mandatory safety goggles. Tie back long hair.",
+                op5: "Joining", op5Tools: "Rivet gun, soldering iron (soft solder), nuts & bolts.", op5Proc: "Permanent riveting/soldering or temporary threaded fasteners.", op5Sec: "Avoid touching hot iron tips; prevent fume inhalation.",
+                b43Title: "7. Environmental Impact of Metals",
+                b43P1: "Open-pit and underground mining cause landscape degradation, soil erosion, dust emission, and water contamination.",
+                b43P2: "Smelting and metallurgical refinement emit GHGs, consume high energy, and generate toxic slag tailings.",
+                b43SusTitle: "Sustainable Use of Metals", b43SusDesc: "High durability and 100% recyclability make metals highly sustainable materials.",
+                sus1: "Steel is the most recycled material on Earth.",
+                sus2: "Recycling aluminum saves 95% of the energy needed for primary extraction from bauxite.",
+                sus3: "Copper is 100% recyclable without losing electrical conductivity.",
+                b43CapRec: "Scrap metal sorting and recycling plant.", b43CapVidRec: "Video: Aluminum recycling process and energy savings.",
+                b44Title: "8. Metals in the Digital Transition & Urban Mining 📱",
+                b44Intro: "Modern electronics and green technology rely heavily on critical raw metals and rare earth elements.",
+                b44ColtanTitle: "Coltan (Tantalum)", b44ColtanDesc: "Tantalum capacitors enable miniature circuit boards in smartphones.",
+                b44LitioTitle: "Lithium & Cobalt", b44LitioDesc: "Essential energy storage components in rechargeable Li-ion batteries.",
+                b44OroTitle: "Gold & Silver in Microelectronics", b44OroDesc: "Unrivaled conductivity for micro-wire bonding inside CPUs and chips.",
+                b44TierrasTitle: "Rare Earths (Neodymium, Dysprosium)", b44TierrasDesc: "High-strength permanent magnets for EV motors and wind turbines.",
+                b44UrbanTitle: "Urban Mining & E-Waste (WEEE)",
+                b44UrbanDesc: "Urban mining recovers precious metals from electronic waste. 1 ton of discarded smartphones yields up to 50x more gold than 1 ton of raw mined ore.",
+                resBadge: "RESOURCE CENTER & PRACTICE", resTitle: "Educational Material & Assessment", resDesc: "Access worksheets, interactive tools, and practical unit exercises.",
+                cat1Title: "1. Unit Documentation", doc1Badge: "Summary", doc1Title: "Metals & Sustainability Overview PDF",
+                doc2Badge: "Vocabulary", doc2Title: "Technical terms: Metals & Sustainability (EN)",
+                cat2Title: "2. Digital & Workshop Project", challengeBadge: "LOMLOE PRACTICAL CHALLENGE", challengeTitle: "Digital Carbon Footprint Calculator & Sorting Workshop",
+                challengeDesc: "Build a spreadsheet comparing aluminum vs steel carbon footprints and practice magnetic separation in the workshop.",
+                challengeBtn: "View Project Guide", backHomeBtn: "Back to Main Index"
+            }
+        };
+
+        // Current Active Language
+        let currentLang = 'es';
+
+        // Toggle Language Function
+        function toggleLanguage() {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            
+            // Update Label
+            const langLabel = document.getElementById('currentLangLabel');
+            if (currentLang === 'es') {
+                langLabel.innerHTML = 'ES / <strong class="font-black">EN</strong>';
+            } else {
+                langLabel.innerHTML = '<strong class="font-black">ES</strong> / EN';
+            }
+
+            // Update HTML Lang Attribute
+            document.documentElement.lang = currentLang;
+
+            // Translate Text Content
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    el.textContent = translations[currentLang][key];
+                }
+            });
+        }
+
+        // Font Size Adjustment System
+        let currentFontSizePx = 16;
+        const minFontSizePx = 12;
+        const maxFontSizePx = 22;
+
+        function changeFontSize(delta) {
+            currentFontSizePx = Math.max(minFontSizePx, Math.min(maxFontSizePx, currentFontSizePx + delta));
+            document.documentElement.style.fontSize = currentFontSizePx + 'px';
+        }
+
+        function resetFontSize() {
+            currentFontSizePx = 16;
+            document.documentElement.style.fontSize = '16px';
+        }
+
+        // Image & Modal Control Functions
+        function abrirImagen(src) {
+            const modal = document.getElementById('modalImagen');
+            document.getElementById('imagenAmpliada').src = src;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function cerrarImagen() {
+            const modal = document.getElementById('modalImagen');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }
+
+        // Initialize Lucide Icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>

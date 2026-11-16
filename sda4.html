@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth" style="font-size: 16px;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDA4. Materiales Técnicos: La Madera | rhervel</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 fill=%22currentColor%22 class=%22bi bi-tree-fill%22 viewBox=%220 0 16 16%22><path d=%22M8 16a1 1 0 0 0 1-1v-1.293l.646.647a.5.5 0 0 0 .708-.708L9 12.293V11h1.5a.5.5 0 0 0 .354-.854l-3.5-3.5a.5.5 0 0 0-.708 0l-3.5 3.5A.5.5 0 0 0 3.5 11H5v1.293l-1.354 1.353a.5.5 0 0 0 .708.708L5 13.707V15a1 1 0 0 0 1 1h2z%22/><path d=%22m8 0-6 6h3.5v3h5V6H14L8 0z%22/></svg>" type="image/svg+xml">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcfcfd;
+            background-image: 
+                linear-gradient(#f1f5f9 1px, transparent 1px),
+                linear-gradient(90deg, #f1f5f9 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .nav-glass {
+            background: rgba(252, 252, 253, 0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        .content-card {
+            border-radius: 2.5rem;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* Aspect ratio 16:9 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 1rem;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased leading-relaxed">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 nav-glass">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-2 sm:gap-4">
+            <a href="index.html" class="flex items-center gap-2 group shrink-0">
+                <div class="w-8 h-8 bg-amber-700 rounded-lg flex items-center justify-center text-white font-black text-sm shadow-md shadow-amber-200 group-hover:bg-amber-800 transition-colors">T</div>
+                <span class="font-black text-slate-900 tracking-tighter uppercase text-sm">rhervel</span>
+            </a>
+
+            <div class="hidden lg:flex items-center gap-1.5 bg-slate-100/80 p-1 rounded-full border border-slate-200 text-xs font-bold overflow-x-auto max-w-2xl no-scrollbar">
+                <a href="#bloque1" data-i18n="navBlock1" class="px-3 py-1 rounded-full text-slate-600 hover:text-amber-700 hover:bg-white transition-all whitespace-nowrap">1. Clasificación</a>
+                <a href="#bloque2" data-i18n="navBlock2" class="px-3 py-1 rounded-full text-slate-600 hover:text-amber-700 hover:bg-white transition-all whitespace-nowrap">2. Propiedades</a>
+                <a href="#bloque3" data-i18n="navBlock3" class="px-3 py-1 rounded-full text-slate-600 hover:text-amber-700 hover:bg-white transition-all whitespace-nowrap">3. La Madera</a>
+                <a href="#bloque4" data-i18n="navBlock4" class="px-3 py-1 rounded-full text-slate-600 hover:text-amber-700 hover:bg-white transition-all whitespace-nowrap">4. Tipos y Derivados</a>
+                <a href="#bloque5" data-i18n="navBlock5" class="px-3 py-1 rounded-full text-slate-600 hover:text-amber-700 hover:bg-white transition-all whitespace-nowrap">5. Mecanizado y Taller</a>
+                <a href="#bloque6" data-i18n="navBlock6" class="px-3 py-1 rounded-full text-slate-600 hover:text-amber-700 hover:bg-white transition-all whitespace-nowrap">6. Sostenibilidad</a>
+                <a href="#bloque7" data-i18n="navBlock7" class="px-3 py-1 rounded-full text-slate-600 hover:text-amber-700 hover:bg-white transition-all whitespace-nowrap">7. Digitalización</a>
+                <a href="#recursos" data-i18n="navResources" class="px-3 py-1 rounded-full bg-amber-700 text-white hover:bg-amber-800 transition-all shadow-xs whitespace-nowrap">Recursos</a>
+            </div>
+            
+            <div class="flex items-center gap-2 shrink-0">
+                <!-- Font Size Controls -->
+                <div class="flex items-center bg-slate-100 border border-slate-200 rounded-full p-0.5 text-xs font-black text-slate-700 shadow-xs">
+                    <button onclick="changeFontSize(-1)" title="Reducir tamaño de letra" class="w-7 h-7 flex items-center justify-center rounded-full hover:bg-white hover:text-amber-700 transition-all">
+                        A-
+                    </button>
+                    <button onclick="resetFontSize()" title="Tamaño original" class="w-7 h-7 flex items-center justify-center rounded-full hover:bg-white hover:text-amber-700 transition-all text-[10px]">
+                        100%
+                    </button>
+                    <button onclick="changeFontSize(1)" title="Aumentar tamaño de letra" class="w-7 h-7 flex items-center justify-center rounded-full hover:bg-white hover:text-amber-700 transition-all">
+                        A+
+                    </button>
+                </div>
+
+                <!-- Language Toggle Button -->
+                <button id="langToggleBtn" onclick="toggleLanguage()" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-amber-50 hover:bg-amber-100 text-amber-800 text-xs font-bold rounded-full border border-amber-200 transition-all shadow-xs">
+                    <i data-lucide="globe" class="w-3.5 h-3.5 text-amber-700"></i>
+                    <span id="currentLangLabel">ES / <strong class="font-black">EN</strong></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header / Hero Section -->
+    <header class="relative pt-28 pb-10 px-6 overflow-hidden">
+        <div class="absolute top-[-10%] right-[-5%] w-96 h-96 bg-amber-100 rounded-full blur-3xl opacity-40 animate-pulse"></div>
+        
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+                <div class="max-w-3xl">
+                    <div class="inline-flex items-center gap-2 bg-amber-50 border border-amber-200 text-amber-800 px-3.5 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-4">
+                        <i data-lucide="trees" class="w-4 h-4"></i> <span data-i18n="unitSubhead">Unidad Didáctica 4 // SdA 4</span>
+                    </div>
+                    <h1 class="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter mb-4 uppercase">
+                        <span data-i18n="heroTitlePart1">SDA4. Materiales Técnicos:</span> <span class="text-amber-700" data-i18n="heroTitlePart2">La Madera 🪵</span>
+                    </h1>
+                    <p class="text-slate-500 text-base md:text-lg leading-relaxed font-medium" data-i18n="heroDesc">
+                        Los materiales son la base de la tecnología y la ingeniería. En esta unidad analizaremos cómo se clasifican las materias primas, sus propiedades técnicas y profundizaremos en la madera: su estructura anatómica, tipos, técnicas de trabajo en el taller, herramientas, sostenibilidad y diseño asistido por ordenador (CAD).
+                    </p>
+                </div>
+                
+                <div class="rounded-[2.5rem] p-6 text-center min-w-[180px] shadow-xl text-white self-start md:self-auto" style="background: linear-gradient(135deg, #b45309 0%, #78350f 100%);">
+                    <div class="text-4xl font-black tracking-tighter">SdA 4</div>
+                    <div class="text-[9px] uppercase tracking-[0.2em] font-black text-amber-200 mt-1" data-i18n="subjectLabel">TECNOLOGÍA 2º ESO</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-6 py-8 relative z-10">
+        
+        <div class="space-y-16">
+
+            <!-- BLOQUE 1: CLASIFICACIÓN DE LOS MATERIALES -->
+            <div id="bloque1" class="scroll-mt-24">
+                <section class="bg-white content-card p-6 sm:p-10 shadow-xl border border-slate-200/80">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-2xl bg-amber-50 text-amber-700 font-black text-lg border border-amber-100">1</span>
+                        <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight" data-i18n="b1Title">CLASIFICACIÓN DE LOS MATERIALES 📦</h2>
+                    </div>
+
+                    <div class="space-y-4 mb-8 font-medium text-sm text-slate-600 leading-relaxed">
+                        <p data-i18n="b1P1">Nuestro entorno está repleto de toda clase de materiales que utilizamos constantemente. Para comprender cómo se diseñan los objetos técnicos, es necesario analizar su origen y transformación.</p>
+                        <p data-i18n="b1P2">Los objetos que utilizamos habitualmente se fabrican a partir de distintos materiales. Estos materiales tienen su origen en la naturaleza, de donde obtenemos las materias primas, como la lana, la madera, el corcho, la arcilla, el mineral de hierro, etc. A partir de esas materias se obtienen materiales naturales y materiales transformados.</p>
+                        <p data-i18n="b1P3">Algunos objetos se pueden construir directamente con los materiales tal y como se obtienen de la naturaleza. Decimos entonces que se han utilizado materiales naturales. Sin embargo, en la fabricación de la mayoría de los objetos, los materiales no se utilizan tal y como se obtienen de la naturaleza, sino que sufren modificaciones mediante algún proceso de transformación. A estos materiales los llamamos materiales transformados, que pueden ser artificiales o sintéticos.</p>
+                    </div>
+
+                    <!-- Imagen Modal: Clasificación de Materiales -->
+                    <div class="mb-8 overflow-hidden rounded-2xl border border-slate-200 group relative cursor-pointer" onclick="abrirImagen('https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=1200&auto=format&fit=crop')">
+                        <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=800&auto=format&fit=crop" alt="Clasificación de Materiales" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent flex items-end p-4">
+                            <span class="text-white text-xs font-bold flex items-center gap-2 bg-slate-900/60 px-3 py-1.5 rounded-full backdrop-blur-sm">
+                                <i data-lucide="zoom-in" class="w-4 h-4 text-amber-400"></i> Haz clic para ampliar imagen: Tipos de Materiales Técnicos
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-slate-900 text-amber-400 font-mono text-center text-xs md:text-sm rounded-2xl shadow-inner mb-8">
+                        [ Materia Prima ] ➔ (Proceso de Transformación) ➔ [ Material Técnico ] ➔ (Fabricación) ➔ [ Producto Tecnológico ]
+                    </div>
+
+                    <div class="space-y-4 mb-8">
+                        <h3 class="font-bold text-slate-900 text-base" data-i18n="b1GroupTitle">Desde el punto de vista técnico, los materiales que empleamos para fabricar los objetos se pueden clasificar en cinco grandes grupos:</h3>
+                        
+                        <div class="space-y-3 text-xs md:text-sm font-medium">
+                            <div class="bg-amber-50/60 p-4 rounded-2xl border border-amber-200">
+                                <strong class="text-amber-900 font-bold block mb-1">1. Maderas:</strong>
+                                <span class="text-slate-700">Son materiales naturales que provienen de los árboles. Sus principales derivados son el papel y el cartón.</span>
+                            </div>
+                            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                                <strong class="text-slate-900 font-bold block mb-1">2. Metales:</strong>
+                                <span class="text-slate-700">Se obtienen de los minerales extraídos de las minas, que después se transforman para su posterior aplicación.</span>
+                            </div>
+                            <div class="bg-blue-50/60 p-4 rounded-2xl border border-blue-200">
+                                <strong class="text-blue-900 font-bold block mb-1">3. Plásticos:</strong>
+                                <span class="text-slate-700">Son materiales sintéticos que se obtienen fundamentalmente del petróleo y del carbón.</span>
+                            </div>
+                            <div class="bg-stone-50 p-4 rounded-2xl border border-stone-200">
+                                <strong class="text-stone-900 font-bold block mb-1">4. Materiales pétreos y cerámicos:</strong>
+                                <span class="text-slate-700">Son también de origen natural, los primeros constituidos fundamentalmente por piedra y arena, y los segundos, por arcilla.</span>
+                            </div>
+                            <div class="bg-purple-50/60 p-4 rounded-2xl border border-purple-200">
+                                <strong class="text-purple-900 font-bold block mb-1">5. Materiales textiles:</strong>
+                                <span class="text-slate-700">Algunos se obtienen directamente de materias primas como el algodón, la lana, el lino, la seda, etc., pero una gran mayoría es de origen artificial y sintético como el rayón, el poliéster, la poliamida, etc.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-xs md:text-sm text-slate-600 font-medium mb-6">Con estos materiales se fabrican muebles, ordenadores, automóviles, instrumentos y máquinas diversas; también se utilizan para la construcción de casas, edificios, parques, puentes, etc.</p>
+
+                    <div class="bg-amber-50 border border-amber-200 p-4 rounded-2xl text-xs text-amber-950 flex items-start gap-3">
+                        <div class="p-2 bg-amber-700 text-white rounded-xl shrink-0">
+                            <i data-lucide="sparkles" class="w-4 h-4"></i>
+                        </div>
+                        <div>
+                            <strong class="font-bold text-amber-900 block mb-0.5">Nota sobre reciclaje:</strong>
+                            <span>También hay que tener en cuenta que a partir de objetos ya utilizados se pueden generar nuevos materiales, los materiales reciclados. Es decir que, mediante procesos de transformación, los objetos usados se pueden aprovechar para fabricar nuevos objetos.</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- BLOQUE 2: PROPIEDADES DE LOS MATERIALES -->
+            <div id="bloque2" class="scroll-mt-24">
+                <section class="bg-white content-card p-6 sm:p-10 shadow-xl border border-slate-200/80">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-2xl bg-amber-50 text-amber-700 font-black text-lg border border-amber-100">2</span>
+                        <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight" data-i18n="b2Title">PROPIEDADES DE LOS MATERIALES ⚙️</h2>
+                    </div>
+
+                    <div class="space-y-4 mb-6 text-sm text-slate-600 font-medium leading-relaxed">
+                        <p>Las propiedades de los materiales son el conjunto de características mediante las cuales los podemos definir y distinguir unos de otros. La elección de estos materiales viene determinada, en cada caso, por sus propiedades para cumplir la función asignada.</p>
+                    </div>
+
+                    <!-- Ejemplos prácticos de objetos -->
+                    <div class="p-5 bg-slate-50 border border-slate-200 rounded-2xl mb-8 space-y-3">
+                        <h3 class="font-bold text-slate-900 text-sm">Ejemplos Prácticos de Relación Objeto-Propiedades:</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                            <div class="p-3 bg-white rounded-xl border border-slate-200"><strong>Destornillador de electricista:</strong> Mango y vástago de plástico aislante eléctrico. Cabeza dura y resistente.</div>
+                            <div class="p-3 bg-white rounded-xl border border-slate-200"><strong>Olla:</strong> Cuerpo de acero inoxidable (conductor térmico). Asas de plástico (aislante térmico).</div>
+                            <div class="p-3 bg-white rounded-xl border border-slate-200"><strong>Cable eléctrico:</strong> Hilos de cobre conductores recubiertos de aislante plástico.</div>
+                            <div class="p-3 bg-white rounded-xl border border-slate-200"><strong>Cuadro de bicicleta:</strong> Acero, fibra de carbono o titanio (ligeros y resistentes a esfuerzos).</div>
+                            <div class="p-3 bg-white rounded-xl border border-slate-200"><strong>Martillo:</strong> Cabeza muy dura y tenaz para soportar impactos sin deformarse.</div>
+                        </div>
+                    </div>
+
+                    <!-- Imagen Modal: Propiedades Mecánicas y Esfuerzos -->
+                    <div class="mb-8 overflow-hidden rounded-2xl border border-slate-200 group relative cursor-pointer" onclick="abrirImagen('https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop')">
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800&auto=format&fit=crop" alt="Propiedades Mecánicas y Ensayos" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent flex items-end p-4">
+                            <span class="text-white text-xs font-bold flex items-center gap-2 bg-slate-900/60 px-3 py-1.5 rounded-full backdrop-blur-sm">
+                                <i data-lucide="zoom-in" class="w-4 h-4 text-amber-400"></i> Haz clic para ampliar imagen: Resistencia y Ensayos Mecánicos
+                            </span>
+                        </div>
+                    </div>
+
+                    <h3 class="font-bold text-slate-900 text-base mb-4">Clasificación Detallada de las Propiedades:</h3>
+
+                    <div class="space-y-6">
+                        <!-- 2.1 Tecnológicas -->
+                        <div class="p-5 border-l-4 border-amber-600 bg-amber-50/60 rounded-r-2xl">
+                            <h4 class="font-bold text-base text-amber-900 mb-2">2.1. Propiedades Tecnológicas</h4>
+                            <p class="text-xs text-slate-700 mb-3">Definen el comportamiento de los materiales cuando se trabajan para darles forma.</p>
+                            <ol class="list-decimal list-inside space-y-2 text-xs text-slate-700">
+                                <li><strong>Maleabilidad:</strong> Capacidad de extenderse fácilmente en láminas al aplicar presión (ej. papel de aluminio, metales y plásticos).</li>
+                                <li><strong>Fusibilidad:</strong> Capacidad para pasar de sólido a líquido al someterse a calor para verterse en moldes (ej. bronce, latón y hierro).</li>
+                                <li><strong>Ductilidad:</strong> Cualidad de extenderse formando hilos delgados (ej. oro, plata, cobre, plomo, aluminio y plásticos).</li>
+                                <li><strong>Soldabilidad:</strong> Capacidad de poder ser unidos permanentemente por soldadura (ej. aceros y plásticos).</li>
+                            </ol>
+                        </div>
+
+                        <!-- 2.2 Mecánicas -->
+                        <div class="p-5 border-l-4 border-red-500 bg-red-50/60 rounded-r-2xl">
+                            <h4 class="font-bold text-base text-red-900 mb-2">2.2. Propiedades Mecánicas</h4>
+                            <p class="text-xs text-slate-700 mb-3">Muestran el comportamiento de los materiales sometidos a la acción de diversas fuerzas.</p>
+                            <ol class="list-decimal list-inside space-y-2 text-xs text-slate-700">
+                                <li><strong>Dureza:</strong> Resistencia que ofrecen a ser rayados o penetrados. Los materiales duros rayan a los blandos.</li>
+                                <li><strong>Tenacidad:</strong> Propiedad de sufrir golpes o impactos sin romperse. Los materiales que no resisten golpes se denominan <em>frágiles</em>.</li>
+                                <li><strong>Elasticidad:</strong> Permite recuperar la forma original tras haber sido deformados. Si persiste la deformación, se llaman <em>plásticos</em>.</li>
+                                <li><strong>Resistencia mecánica:</strong> Propiedad para soportar esfuerzos sin deformarse excesivamente ni romperse.</li>
+                            </ol>
+                        </div>
+
+                        <!-- 2.3 Físico-Químicas -->
+                        <div class="p-5 border-l-4 border-blue-500 bg-blue-50/60 rounded-r-2xl">
+                            <h4 class="font-bold text-base text-blue-900 mb-2">2.3. Propiedades Físicas y Químicas</h4>
+                            <p class="text-xs text-slate-700 mb-3">Muestran el comportamiento ante el calor, la electricidad, la humedad o la gravedad.</p>
+                            <ol class="list-decimal list-inside space-y-2 text-xs text-slate-700">
+                                <li><strong>Densidad:</strong> Indica la cantidad de masa por volumen. Expresión: $\text{densidad} = \frac{\text{masa (kg)}}{\text{volumen (m}^3\text{)}}$.</li>
+                                <li><strong>Conductividad térmica:</strong> Capacidad de transmitir el calor (los metales son conductores; madera, plástico y cerámica son aislantes).</li>
+                                <li><strong>Dilatación térmica:</strong> Aumento de volumen al calentarse. Especial incidencia en los metales.</li>
+                                <li><strong>Temperatura de fusión:</strong> Punto donde un material pasa de sólido a líquido (el hielo funde a $0^\circ\text{C}$).</li>
+                                <li><strong>Conductividad eléctrica:</strong> Capacidad para dejar pasar la corriente eléctrica (los metales conducen; la madera es aislante).</li>
+                                <li><strong>Oxidación:</strong> Reacción química al combinarse con el oxígeno creando una capa de óxido superficial.</li>
+                                <li><strong>Corrosión:</strong> Oxidación producida en presencia de agua. Es más peligrosa porque la capa se desprende y destruye el material.</li>
+                            </ol>
+                        </div>
+
+                        <!-- 2.4 Esfuerzos -->
+                        <div class="p-5 border-l-4 border-purple-500 bg-purple-50/60 rounded-r-2xl">
+                            <h4 class="font-bold text-base text-purple-900 mb-2">2.4. Resistencia Mecánica: Esfuerzos Elementales</h4>
+                            <p class="text-xs text-slate-700 mb-3">Los elementos estructurales sufren fuerzas externas que tienden a deformarlos o desplazarlos:</p>
+                            <ol class="list-decimal list-inside space-y-2 text-xs text-slate-700">
+                                <li><strong>Tracción:</strong> Esfuerzo donde las fuerzas actúan tendiendo a <strong>estirar</strong> el elemento.</li>
+                                <li><strong>Corte (o cizalladura):</strong> Esfuerzo donde las fuerzas actúan tendiendo a <strong>cortar</strong> la pieza.</li>
+                                <li><strong>Compresión:</strong> Esfuerzo donde las fuerzas actúan tendiendo a <strong>comprimir</strong> o aplastar.</li>
+                                <li><strong>Flexión:</strong> Esfuerzo donde las fuerzas actúan tendiendo a <strong>curvar</strong> o doblar el elemento.</li>
+                                <li><strong>Torsión:</strong> Esfuerzo donde las fuerzas actúan tendiendo a <strong>retorcer</strong> la pieza.</li>
+                            </ol>
+                        </div>
+
+                        <!-- 2.5 Sensoriales y Ecológicas -->
+                        <div class="p-5 border-l-4 border-emerald-500 bg-emerald-50/60 rounded-r-2xl">
+                            <h4 class="font-bold text-base text-emerald-900 mb-2">2.5. Propiedades Sensoriales y Ecológicas</h4>
+                            <p class="text-xs text-slate-700 mb-3">Las <strong>sensoriales</strong> (color, brillo, textura, acústica, olor) deciden la elección de un producto por su impacto visual o impresión. Las <strong>ecológicas</strong> valoran el daño ambiental en su obtención, transformación y uso:</p>
+                            <ol class="list-decimal list-inside space-y-2 text-xs text-slate-700">
+                                <li><strong>Reutilizabilidad:</strong> Capacidad de volver a usarse para el mismo fin o uno nuevo sin transformar el material (ej. donar ropa).</li>
+                                <li><strong>Reciclabilidad:</strong> Capacidad de ser transformados mediante procesos industriales para ser útiles de nuevo (ej. madera natural a tableros prefabricados).</li>
+                                <li><strong>Biodegradabilidad:</strong> Facilidad para descomponerse de forma natural en sustancias simples (el papel tarda de 1 a 5 meses; el plástico más de 400 años).</li>
+                                <li><strong>Toxicidad:</strong> Grado de nocividad para el medio ambiente y los seres vivos (ej. el amianto de la antigua uralita).</li>
+                            </ol>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- BLOQUE 3: LA MADERA -->
+            <div id="bloque3" class="scroll-mt-24">
+                <section class="bg-white content-card p-6 sm:p-10 shadow-xl border border-slate-200/80">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-2xl bg-amber-50 text-amber-700 font-black text-lg border border-amber-100">3</span>
+                        <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight" data-i18n="b3Title">LA MADERA: ESTRUCTURA Y PROPIEDADES 🪵</h2>
+                    </div>
+
+                    <div class="space-y-4 mb-6 text-sm text-slate-600 font-medium leading-relaxed">
+                        <p>La madera es uno de los materiales de uso técnico más utilizados por el hombre a lo largo de la historia, debido a su fácil obtención y a sus propiedades. Es un material de origen vegetal que se obtiene de las partes leñosas de los troncos de los árboles.</p>
+                        <p>Está formada por fibras de celulosa unidas por lignina, una sustancia que proporciona rigidez y dureza. También contiene agua, aceite, resina y sales, que se aprovechan industrialmente.</p>
+                    </div>
+
+                    <!-- Estructura del Tronco -->
+                    <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200 mb-8">
+                        <h3 class="font-bold text-slate-900 text-base mb-3">Estructura del Tronco</h3>
+                        <p class="text-xs text-slate-600 mb-4">El tronco presenta capas concéntricas formadas anualmente por el cámbium:</p>
+
+                        <!-- Imagen Modal: Anillos de crecimiento y Secciones del Tronco -->
+                        <div class="mb-4 overflow-hidden rounded-xl border border-slate-200 group relative cursor-pointer" onclick="abrirImagen('https://images.unsplash.com/photo-1520116468816-95b69f847357?q=80&w=1200&auto=format&fit=crop')">
+                            <img src="https://images.unsplash.com/photo-1520116468816-95b69f847357?q=80&w=800&auto=format&fit=crop" alt="Sección Transversal de Tronco de Árbol" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent flex items-end p-3">
+                                <span class="text-white text-xs font-bold flex items-center gap-2 bg-slate-900/60 px-3 py-1 rounded-full backdrop-blur-sm">
+                                    <i data-lucide="zoom-in" class="w-3.5 h-3.5 text-amber-400"></i> Ampliar detalle: Corteza, Albura, Duramen y Anillos Concentricos
+                                </span>
+                            </div>
+                        </div>
+
+                        <ul class="space-y-2 text-xs text-slate-700">
+                            <li><strong>Corteza:</strong> Protege la madera de enfermedades y ataques externos.</li>
+                            <li><strong>Cámbium:</strong> Capa de crecimiento del árbol formada por células vivas.</li>
+                            <li><strong>Anillos de crecimiento:</strong> Cada anillo corresponde a un año de vida del vegetal.</li>
+                            <li><strong>Albura:</strong> Parte joven de la madera. De color claro, transporta agua y nutrientes. Usada para trabajos de escasa exigencia.</li>
+                            <li><strong>Duramen (o corazón):</strong> Madera dura y consistente formada por células inactivas en el centro. Más oscura, por ella ya no fluye savia.</li>
+                            <li><strong>Médula vegetal:</strong> Zona central del tronco de escasa resistencia mecánica (no suele utilizarse).</li>
+                        </ul>
+                    </div>
+
+                    <!-- Fabricación -->
+                    <div class="mb-8">
+                        <h3 class="font-bold text-slate-900 text-base mb-3">Fabricación de la Madera (Procesos)</h3>
+                        <div class="overflow-x-auto rounded-2xl border border-slate-200">
+                            <table class="w-full text-left border-collapse text-xs">
+                                <thead>
+                                    <tr class="bg-amber-800 text-white font-bold">
+                                        <th class="p-3">Proceso</th>
+                                        <th class="p-3">Descripción</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-200 font-medium text-slate-600">
+                                    <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-900">Talado</td><td class="p-3">Se realiza con sierras mecánicas. Una vez talado el árbol, se poda para eliminar las ramas y las raíces.</td></tr>
+                                    <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-900">Descortezado</td><td class="p-3">Esta operación se puede realizar en el lugar donde se ha hecho la poda o en las serrerías.</td></tr>
+                                    <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-900">Aserrado</td><td class="p-3">Se utilizan sierras circulares o cintas. Cada tronco se corta según sus características y uso posterior.</td></tr>
+                                    <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-900">Secado</td><td class="p-3">La madera contiene agua y es necesario realizar el proceso de secado antes de trabajar con ella.</td></tr>
+                                    <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-900">Acabado</td><td class="p-3">Se protege para evitar parásitos o pudrición mediante pinturas o barnices.</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Propiedades Singulares -->
+                    <div class="space-y-3">
+                        <h3 class="font-bold text-slate-900 text-base">3.1. Propiedades Específicas de la Madera:</h3>
+                        <ul class="list-disc list-inside space-y-1.5 text-xs text-slate-700 font-medium">
+                            <li>Es buen aislante eléctrico y térmico, aunque arde con mucha facilidad.</li>
+                            <li>Es conductor acústico (usada en instrumentos musicales y como aislante en techos).</li>
+                            <li>Tiene una densidad menor que la del agua, por lo que flota.</li>
+                            <li>Es flexible y resiste bien esfuerzos de compresión y de tracción.</li>
+                            <li>Tiene <strong>hendibilidad</strong>: se parte fácilmente en el sentido de las fibras o vetas.</li>
+                            <li><strong>Anisotropía:</strong> Sus propiedades mecánicas cambian radicalmente según el sentido de corte respecto a las fibras.</li>
+                            <li>Dureza variable: las maderas fibrosas son duras y las porosas son blandas.</li>
+                            <li>Es un material poroso capaz de absorber o desprender humedad. Esta propiedad se llama <strong>higroscopicidad</strong>.</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+            <!-- BLOQUE 4: TIPOS DE MADERA Y DERIVADOS -->
+            <div id="bloque4" class="scroll-mt-24">
+                <section class="bg-white content-card p-6 sm:p-10 shadow-xl border border-slate-200/80">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-2xl bg-amber-50 text-amber-700 font-black text-lg border border-amber-100">4</span>
+                        <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight" data-i18n="b4Title">TIPOS DE MADERA Y DERIVADOS 🌲</h2>
+                    </div>
+
+                    <!-- Maderas Naturales -->
+                    <div class="space-y-4 mb-8">
+                        <h3 class="font-bold text-slate-900 text-base">3.2. Maderas Naturales</h3>
+                        
+                        <!-- Imagen Modal: Tipos de Maderas Naturales -->
+                        <div class="mb-4 overflow-hidden rounded-2xl border border-slate-200 group relative cursor-pointer" onclick="abrirImagen('https://images.unsplash.com/photo-1546484475-7f7bd55792da?q=80&w=1200&auto=format&fit=crop')">
+                            <img src="https://images.unsplash.com/photo-1546484475-7f7bd55792da?q=80&w=800&auto=format&fit=crop" alt="Variedad de Maderas Naturales" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent flex items-end p-4">
+                                <span class="text-white text-xs font-bold flex items-center gap-2 bg-slate-900/60 px-3 py-1.5 rounded-full backdrop-blur-sm">
+                                    <i data-lucide="zoom-in" class="w-4 h-4 text-amber-400"></i> Ampliar imagen: Maderas Blandas vs Maderas Duras y sus Texturas
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="overflow-x-auto rounded-2xl border border-slate-200">
+                            <table class="w-full text-left border-collapse text-xs">
+                                <thead>
+                                    <tr class="bg-slate-100 font-bold text-slate-800">
+                                        <th class="p-3">Tipo</th>
+                                        <th class="p-3">Característica</th>
+                                        <th class="p-3">Descripción</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-200 font-medium text-slate-600">
+                                    <tr class="hover:bg-slate-50">
+                                        <td rowspan="3" class="p-3 font-bold text-amber-900 align-top">Maderas blandas</td>
+                                        <td class="p-3 font-semibold text-slate-800">Propiedades</td>
+                                        <td class="p-3">Resinosas, blandas y ligeras, de fácil trabajado. Las coníferas resisten muy bien la intemperie. Colores pálidos o castaño claro.</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50">
+                                        <td class="p-3 font-semibold text-slate-800">Origen</td>
+                                        <td class="p-3">Crecimiento rápido: coníferas/perennes (pino, abeto, ciprés) y hoja caduca (abedul, chopo, balsa).</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50">
+                                        <td class="p-3 font-semibold text-slate-800">Aplicaciones</td>
+                                        <td class="p-3">Construcción, embalajes, utensilios de cocina, embarcaciones, suelos, puertas y ventanas.</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50">
+                                        <td rowspan="3" class="p-3 font-bold text-amber-950 align-top">Maderas duras</td>
+                                        <td class="p-3 font-semibold text-slate-800">Propiedades</td>
+                                        <td class="p-3">Muy resistentes al desgaste y a la humedad. Colores muy vistosos y veteados apreciados.</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50">
+                                        <td class="p-3 font-semibold text-slate-800">Origen</td>
+                                        <td class="p-3">Angiospermas de hoja caduca y tropicales de crecimiento lento: roble, castaño, cedro, boj, haya, cerezo y caoba.</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50">
+                                        <td class="p-3 font-semibold text-slate-800">Aplicaciones</td>
+                                        <td class="p-3">Mobiliario de alta calidad, objetos decorativos, instrumentos musicales, toneles y parqué.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Maderas Prefabricadas -->
+                    <div class="space-y-4 mb-8">
+                        <h3 class="font-bold text-slate-900 text-base">Maderas Prefabricadas (Tableros)</h3>
+                        <p class="text-xs text-slate-600 font-medium">Se obtienen a partir de restos de tala y poda sometidos a triturado, encolado y prensado. Solucionan problemas de tamaño, humedad y anisotropía.</p>
+                        
+                        <!-- Imagen Modal: Tableros Prefabricados -->
+                        <div class="mb-4 overflow-hidden rounded-2xl border border-slate-200 group relative cursor-pointer" onclick="abrirImagen('https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1200&auto=format&fit=crop')">
+                            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800&auto=format&fit=crop" alt="Tableros Prefabricados" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent flex items-end p-4">
+                                <span class="text-white text-xs font-bold flex items-center gap-2 bg-slate-900/60 px-3 py-1.5 rounded-full backdrop-blur-sm">
+                                    <i data-lucide="zoom-in" class="w-4 h-4 text-amber-400"></i> Ampliar imagen: Tableros Aglomerados, Contrachapados y MDF
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="overflow-x-auto rounded-2xl border border-slate-200">
+                            <table class="w-full text-left border-collapse text-xs">
+                                <thead>
+                                    <tr class="bg-amber-800 text-white font-bold">
+                                        <th class="p-3">Aglomerado</th>
+                                        <th class="p-3">Contrachapado</th>
+                                        <th class="p-3">Fibras Densidad Media (DM/MDF)</th>
+                                        <th class="p-3">Alta Densidad (HDF)</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-200 font-medium text-slate-600">
+                                    <tr>
+                                        <td class="p-3">Fabricado con virutas de madera prensadas y encoladas.</td>
+                                        <td class="p-3">Chapas finas encoladas con las vetas cruzadas a 90°.</td>
+                                        <td class="p-3">A partir de fibra de madera sin lignina, prensada en seco.</td>
+                                        <td class="p-3">Madera y agua prensadas a alta presión y temperatura.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-3">Resistente pero no soporta la humedad. Se recubre de melamina.</td>
+                                        <td class="p-3">Muy resistente pero sensible a cambios de temperatura/humedad.</td>
+                                        <td class="p-3">Resistente, compacta, no se pudre. Fácil de pintar.</td>
+                                        <td class="p-3">Cara lisa y cara rugosa. Muy rígido.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-3">Uso: Muebles económicos, tabiques interiores.</td>
+                                        <td class="p-3">Uso: Puertas, embalajes, embarcaciones.</td>
+                                        <td class="p-3">Uso: Revestimientos interiores y exteriores, muebles.</td>
+                                        <td class="p-3">Uso: Fondos de armarios, cajones y suelos.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- 3.3 Derivados -->
+                    <div class="space-y-4">
+                        <h3 class="font-bold text-slate-900 text-base">3.3. Derivados de la Madera</h3>
+                        
+                        <div class="p-5 bg-amber-50/60 rounded-2xl border border-amber-200 space-y-2">
+                            <h4 class="font-bold text-amber-900 text-sm">Papel y Cartón</h4>
+                            <p class="text-xs text-slate-700">Se obtiene de la celulosa de los árboles mediante varias etapas: 1. Triturado y mezcla con agua para formar pasta de celulosa; 2. Adición de reactivos químicos para blanquear y secado en plano; 3. Prensado por rodillos para alisarlo en bobinas. El cartón y la cartulina son productos celulósicos derivados.</p>
+                        </div>
+
+                        <div class="p-5 bg-amber-50/60 rounded-2xl border border-amber-200 space-y-2">
+                            <h4 class="font-bold text-amber-900 text-sm">Corcho</h4>
+                            <p class="text-xs text-slate-700">Se obtiene de la corteza del alcornoque o encina mediante el "descorche". Es poroso, muy ligero, elástico y un aislante térmico/acústico excepcional. Se usa en tapones, aislamientos, calzado y complementos.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- BLOQUE 5: TÉCNICAS DE MECANIZADO, UNIÓN Y ACABADO -->
+            <div id="bloque5" class="scroll-mt-24">
+                <section class="bg-white content-card p-6 sm:p-10 shadow-xl border border-slate-200/80">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-2xl bg-amber-50 text-amber-700 font-black text-lg border border-amber-100">5</span>
+                        <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight" data-i18n="b5Title">3.4. TÉCNICAS DE MECANIZADO, UNIÓN Y ACABADO 🛠️</h2>
+                    </div>
+
+                    <p class="text-slate-600 mb-6 text-sm font-medium">Para construir cualquier objeto de madera en el taller es necesario seguir una secuencia de operaciones con las herramientas y normas de seguridad adecuadas:</p>
+
+                    <!-- Imagen Modal: Herramientas del Taller de Madera -->
+                    <div class="mb-6 overflow-hidden rounded-2xl border border-slate-200 group relative cursor-pointer" onclick="abrirImagen('https://images.unsplash.com/photo-1572981779307-38b8cabb2407?q=80&w=1200&auto=format&fit=crop')">
+                        <img src="https://images.unsplash.com/photo-1572981779307-38b8cabb2407?q=80&w=800&auto=format&fit=crop" alt="Herramientas del Taller de Madera" class="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent flex items-end p-4">
+                            <span class="text-white text-xs font-bold flex items-center gap-2 bg-slate-900/60 px-3 py-1.5 rounded-full backdrop-blur-sm">
+                                <i data-lucide="zoom-in" class="w-4 h-4 text-amber-400"></i> Haz clic para ampliar imagen: Herramientas de Taller y Mecanizado de la Madera
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="overflow-x-auto rounded-2xl border border-slate-200 mb-6">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead>
+                                <tr class="bg-amber-800 text-white font-bold">
+                                    <th class="p-3">Fase del Proceso</th>
+                                    <th class="p-3">Herramientas / Máquinas</th>
+                                    <th class="p-3">Operación / Técnica</th>
+                                    <th class="p-3">Precauciones de Seguridad</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 font-medium text-slate-600">
+                                <tr class="hover:bg-slate-50">
+                                    <td class="p-3 font-bold text-slate-900">Medir y trazar</td>
+                                    <td class="p-3">Regla metálica, escuadra de carpintero, lápiz, compás de puntas.</td>
+                                    <td class="p-3">Trazado de cotas y comprobación de perpendicularidad ($90^\circ$).</td>
+                                    <td class="p-3">Evitar deslizar el lápiz hacia el cuerpo. Mantener puntas hacia abajo.</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50">
+                                    <td class="p-3 font-bold text-slate-900">Sujetar</td>
+                                    <td class="p-3">Tornillo de banco, sargentos / gatos de apriete.</td>
+                                    <td class="p-3">Inmovilización de la pieza para trabajar con precisión.</td>
+                                    <td class="p-3">No apretar en exceso piezas blandas para no dejarlas marcadas.</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50">
+                                    <td class="p-3 font-bold text-slate-900">Cortar y serrar</td>
+                                    <td class="p-3">Sierra de marquetería (segueta), serrucho ordinario, serrucho de costilla.</td>
+                                    <td class="p-3">Corte rectilíneo o curvo en función de la veta.</td>
+                                    <td class="p-3">Gafas de protección. Mano libre alejada de la línea de corte.</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50">
+                                    <td class="p-3 font-bold text-slate-900">Desbastar y lijar</td>
+                                    <td class="p-3">Escofinas (plana, media caña), limas, papel de lija.</td>
+                                    <td class="p-3">Eliminación de rebabas y afinado de superficies.</td>
+                                    <td class="p-3">Limpiar virutas con cepillo, nunca soplando (riesgo para los ojos).</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50">
+                                    <td class="p-3 font-bold text-slate-900">Perforar</td>
+                                    <td class="p-3">Barrena manual, taladro de columna, brocas para madera.</td>
+                                    <td class="p-3">Ejecución de agujeros pasantes o ciegos.</td>
+                                    <td class="p-3">Recoger pelo largo, no llevar prendas holgadas y usar gafas.</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50">
+                                    <td class="p-3 font-bold text-slate-900">Unir</td>
+                                    <td class="p-3">Cola blanca de carpintero, tirafondos, clavos, espigas.</td>
+                                    <td class="p-3">Uniones fijas (pegadas) o desmontables (atornilladas).</td>
+                                    <td class="p-3">Dejar secar bajo presión de sargentos mínimo 24 horas.</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50">
+                                    <td class="p-3 font-bold text-slate-900">Acabar</td>
+                                    <td class="p-3">Tintes, barnices al agua, pinturas acrílicas, ceras.</td>
+                                    <td class="p-3">Protección contra agentes externos y mejora estética.</td>
+                                    <td class="p-3">Aplicar siempre en zonas bien ventiladas.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+
+            <!-- BLOQUE 6: IMPACTO AMBIENTAL Y SOSTENIBILIDAD -->
+            <div id="bloque6" class="scroll-mt-24">
+                <section class="bg-white content-card p-6 sm:p-10 shadow-xl border border-slate-200/80">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-2xl bg-amber-50 text-amber-700 font-black text-lg border border-amber-100">6</span>
+                        <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight" data-i18n="b6Title">3.5. IMPACTO AMBIENTAL Y USO SOSTENIBLE 🌲🌱</h2>
+                    </div>
+
+                    <div class="space-y-4 mb-6 text-sm text-slate-600 font-medium leading-relaxed">
+                        <p>Aunque la madera es un material renovable, biodegradable y reciclable, su explotación y transformación puede generar algunos problemas medioambientales:</p>
+                        
+                        <!-- Imagen Modal: Gestión Forestal Sostenible -->
+                        <div class="mb-4 overflow-hidden rounded-2xl border border-slate-200 group relative cursor-pointer" onclick="abrirImagen('https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=1200&auto=format&fit=crop')">
+                            <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=800&auto=format&fit=crop" alt="Bosque y Gestión Sostenible" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent flex items-end p-4">
+                                <span class="text-white text-xs font-bold flex items-center gap-2 bg-slate-900/60 px-3 py-1.5 rounded-full backdrop-blur-sm">
+                                    <i data-lucide="zoom-in" class="w-4 h-4 text-amber-400"></i> Haz clic para ampliar imagen: Gestión Forestal Sostenible y ODS
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="space-y-3 text-xs">
+                            <div class="p-4 bg-red-50 rounded-2xl border border-red-200">
+                                <strong class="text-red-900 font-bold block mb-1">Deforestación:</strong>
+                                <span>La tala incontrolada causa desertización y pérdida de biodiversidad. El <strong>ODS 15</strong> pretende gestionar sosteniblemente los bosques e invertir la degradación de las tierras.</span>
+                            </div>
+                            <div class="p-4 bg-blue-50 rounded-2xl border border-blue-200">
+                                <strong class="text-blue-900 font-bold block mb-1">Contaminación:</strong>
+                                <span>La industria papelera usa químicos para eliminar lignina y blanquear papel, consumiendo mucha agua. El <strong>ODS 6</strong> promueve la gestión sostenible del agua (en España se ha reducido más del 30% su consumo hídrico en las últimas décadas).</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certificaciones y 5R -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-medium mb-6">
+                        <div class="p-4 bg-emerald-50 rounded-2xl border border-emerald-200">
+                            <h4 class="font-bold text-emerald-900 text-sm mb-1">Certificación Forestal Internacional</h4>
+                            <p>Sellos como <strong>FSC</strong> (Forest Stewardship Council) y <strong>PEFC</strong> garantizan la tala responsable y la cadena de custodia sostenible.</p>
+                        </div>
+                        <div class="p-4 bg-emerald-50 rounded-2xl border border-emerald-200">
+                            <h4 class="font-bold text-emerald-900 text-sm mb-1">Uso Sostenible y Economía Circular</h4>
+                            <p>La madera absorbe $\text{CO}_2$ en su crecimiento. Aplicamos la regla de las 5 R: <em>Reducir, Reutilizar, Reparar, Reciclar y Recuperar</em>.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- BLOQUE 7: DIGITALIZACIÓN Y CASOS PRÁCTICOS -->
+            <div id="bloque7" class="scroll-mt-24">
+                <section class="bg-white content-card p-6 sm:p-10 shadow-xl border border-slate-200/80">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-2xl bg-amber-50 text-amber-700 font-black text-lg border border-amber-100">7</span>
+                        <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">DIGITALIZACIÓN Y CASOS PRÁCTICOS 💻</h2>
+                    </div>
+
+                    <!-- Imagen Modal: Diseño CAD de Madera -->
+                    <div class="mb-6 overflow-hidden rounded-2xl border border-slate-200 group relative cursor-pointer" onclick="abrirImagen('https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1200&auto=format&fit=crop')">
+                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=800&auto=format&fit=crop" alt="Diseño Asistido por Ordenador CAD" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent flex items-end p-4">
+                            <span class="text-white text-xs font-bold flex items-center gap-2 bg-slate-900/60 px-3 py-1.5 rounded-full backdrop-blur-sm">
+                                <i data-lucide="zoom-in" class="w-4 h-4 text-amber-400"></i> Haz clic para ampliar imagen: Modelado 3D (CAD) y Optimización de Despiece
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="p-5 border-l-4 border-indigo-500 bg-indigo-50 rounded-r-2xl mb-6 text-xs space-y-2">
+                        <h3 class="font-bold text-sm text-indigo-900">Caso Práctico de Selección de Materiales:</h3>
+                        <p><strong>Planteamiento:</strong> Selección de madera para un banco de patio (intemperie) y una bandeja organizadora de aula.</p>
+                        <p><strong>Solución:</strong> Para el exterior se usa <em>madera dura de roble</em> o <em>pino tratado en autoclave</em> con barniz de filtro UV (los tableros aglomerados/DM se hincharían). Para la bandeja interior se selecciona <em>contrachapado de 4 mm</em> o <em>DM</em> por ligereza y economía.</p>
+                    </div>
+
+                    <div class="p-5 bg-slate-50 border border-slate-200 rounded-2xl text-xs space-y-2">
+                        <h3 class="font-bold text-sm text-slate-900">Aplicación Digital en Tecnología (CAD 3D):</h3>
+                        <p>Uso de <strong>Tinkercad</strong> o <strong>FreeCAD</strong> para modelar en 3D estructuras simples, comprobar cotas y optimizar el despiece del tablero reduciendo desperdicios.</p>
+                    </div>
+                </section>
+            </div>
+
+            <!-- RECURSOS Y PROYECTO INTEGRADOR -->
+            <section id="recursos" class="bg-white rounded-[2.5rem] p-6 sm:p-10 shadow-xl border border-slate-200/80 mb-8 scroll-mt-24">
+                <div class="mb-8 border-b border-slate-200/80 pb-6 text-center md:text-left">
+                    <div class="inline-flex items-center gap-2 bg-amber-50 border border-amber-200 text-amber-800 px-3.5 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest mb-3">
+                        <i data-lucide="folder-archive" class="w-4 h-4 text-amber-700"></i>
+                        <span>CENTRO DE RECURSOS Y PRÁCTICA</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">Material Didáctico y Situación de Aprendizaje</h2>
+                </div>
+
+                <div class="bg-gradient-to-r from-amber-900 via-amber-800 to-amber-950 rounded-2xl p-6 shadow-lg border border-amber-700/50 text-white flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="space-y-2 text-center md:text-left">
+                        <span class="bg-amber-500/20 text-amber-200 text-[10px] font-black px-3 py-1 rounded-full uppercase">RETO PRÁCTICO LOMLOE</span>
+                        <h4 class="text-lg font-black">Proyecto: Soporte Ergonómico Multimedia 📱</h4>
+                        <p class="text-amber-100 text-xs leading-relaxed max-w-xl">
+                            Diseño en CAD 3D, presupuestación y construcción en taller de un soporte para tablet/smartphone utilizando contrachapado de 4 mm y acabados ecológicos.
+                        </p>
+                    </div>
+                    <button onclick="alert('Descargando guía de proyecto...')" class="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-6 py-3 rounded-xl transition-all text-xs uppercase shrink-0">
+                        Ver Guía del Proyecto
+                    </button>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Botón Volver al inicio -->
+        <div class="mt-16 text-center">
+            <a href="index.html" class="inline-flex items-center gap-3 bg-amber-700 text-white px-8 py-4 rounded-full font-black text-xs hover:bg-slate-900 transition-all shadow-xl uppercase tracking-widest">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i> <span>Volver al Índice Principal</span>
+            </a>
+        </div>
+    </main>
+
+    <!-- Modal Emergente Global Único para Imágenes -->
+    <div id="modalImagen" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4" onclick="cerrarImagen()">
+        <img id="imagenAmpliada" class="max-w-full max-h-full object-contain rounded-lg" src="" alt="Vista ampliada">
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-24 text-center border-t border-slate-100 mt-20">
+        <div class="w-12 h-1.5 bg-amber-700 mx-auto mb-10 rounded-full"></div>
+        <p class="text-slate-400 text-[10px] font-black uppercase tracking-[0.4em]">rhervel // 2026 // Technology 2nd ESO</p>
+    </footer>
+
+    <!-- Scripts JS -->
+    <script>
+        let currentLang = 'es';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            document.getElementById('currentLangLabel').innerHTML = currentLang === 'es' ? 'ES / <strong class="font-black">EN</strong>' : '<strong class="font-black">ES</strong> / EN';
+            document.documentElement.lang = currentLang;
+        }
+
+        let currentFontSizePx = 16;
+        function changeFontSize(delta) {
+            currentFontSizePx = Math.max(12, Math.min(22, currentFontSizePx + delta));
+            document.documentElement.style.fontSize = currentFontSizePx + 'px';
+        }
+
+        function resetFontSize() {
+            currentFontSizePx = 16;
+            document.documentElement.style.fontSize = '16px';
+        }
+
+        function abrirImagen(src) {
+            const modal = document.getElementById('modalImagen');
+            document.getElementById('imagenAmpliada').src = src;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function cerrarImagen() {
+            const modal = document.getElementById('modalImagen');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }
+
+        lucide.createIcons();
+    </script>
+</body>
+</html>
