@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Sesión de Tutoría — 2.º ESO</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f1f5f9;
+      color: #0f172a;
+    }
+
+    /* Casillas de verificación personalizadas */
+    .custom-checkbox {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 15px;
+      height: 15px;
+      min-width: 15px;
+      border: 1.5px solid #1e3a5f;
+      border-radius: 3px;
+      background-color: #ffffff;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s ease;
+    }
+
+    .custom-checkbox:checked {
+      background-color: #1e3a5f;
+      border-color: #1e3a5f;
+    }
+
+    .custom-checkbox:checked::after {
+      content: "";
+      width: 4px;
+      height: 8px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      margin-bottom: 1px;
+    }
+
+    /* Lienzo de firma */
+    .signature-canvas {
+      touch-action: none;
+      cursor: crosshair;
+      background-color: #f8fafc;
+    }
+
+    /* Estilos específicos durante la captura PDF */
+    .pdf-export-mode {
+      box-shadow: none !important;
+      border: none !important;
+      border-radius: 0 !important;
+      margin: 0 !important;
+      padding: 8mm 10mm !important;
+      width: 210mm !important;
+      max-width: 210mm !important;
+      background: #ffffff !important;
+    }
+
+    .pdf-export-mode .no-pdf {
+      display: none !important;
+    }
+
+    .pdf-export-mode .signature-canvas {
+      background-color: #ffffff !important;
+      border-color: transparent !important;
+    }
+
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 8mm 10mm;
+      }
+      body {
+        background: #ffffff !important;
+      }
+      .no-print, .no-pdf {
+        display: none !important;
+      }
+      #sheet-container {
+        box-shadow: none !important;
+        border: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen pb-10">
+
+  <!-- Barra superior fija (oculta al exportar/imprimir) -->
+  <header class="no-print sticky top-0 z-30 bg-[#1e3a5f] text-white shadow-md border-b border-slate-700">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <span class="font-semibold text-sm sm:text-base tracking-tight">📋 Ficha de Tutoría Rellenable (2.º ESO)</span>
+        <span id="autosave-status" class="text-[11px] bg-white/15 text-slate-100 px-2.5 py-0.5 rounded-full inline-flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          Autoguardado activo
+        </span>
+      </div>
+
+      <div class="flex items-center gap-2.5">
+        <button type="button" id="btn-download-pdf" onclick="downloadPDF()" class="inline-flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-lg shadow-sm transition cursor-pointer">
+          ⬇️ Descargar PDF
+        </button>
+
+        <button type="button" onclick="openClearModal()" class="inline-flex items-center gap-1.5 bg-rose-600 hover:bg-rose-500 active:bg-rose-700 text-white text-xs sm:text-sm font-semibold px-3.5 py-2 rounded-lg shadow-sm transition cursor-pointer">
+          🗑️ Limpiar ficha
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Notificación flotante -->
+  <div id="toast" class="no-print fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-slate-800 text-white text-sm px-4 py-2.5 rounded-xl shadow-lg flex items-center gap-2">
+    <span id="toast-icon" class="text-emerald-400 font-bold">✓</span>
+    <span id="toast-message">Acción completada</span>
+  </div>
+
+  <!-- Modal de confirmación para limpiar ficha -->
+  <div id="clear-modal" class="no-print fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/50 backdrop-blur-xs p-4">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-xl border border-slate-200">
+      <h3 class="text-lg font-bold text-slate-900 mb-2">¿Limpiar toda la ficha?</h3>
+      <p class="text-sm text-slate-600 mb-5 leading-relaxed">
+        Se borrarán todos los datos escritos, casillas marcadas y firmas de esta sesión. Esta acción no se puede deshacer.
+      </p>
+      <div class="flex justify-end gap-2.5">
+        <button type="button" onclick="closeClearModal()" class="px-4 py-2 text-sm font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition cursor-pointer">
+          Cancelar
+        </button>
+        <button type="button" onclick="confirmClearForm()" class="px-4 py-2 text-sm font-semibold text-white bg-rose-600 hover:bg-rose-700 rounded-lg transition cursor-pointer">
+          Sí, limpiar ficha
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Documento Principal A4 -->
+  <main class="px-2 sm:px-6 pt-6">
+    <form id="tutoria-form" onsubmit="return false;">
+      <div id="sheet-container" class="max-w-[210mm] mx-auto bg-white shadow-lg border border-slate-300 rounded-xl sm:rounded-sm p-5 sm:p-8">
+
+        <!-- CABECERA -->
+        <div class="border-b-2 border-[#1e3a5f] pb-2.5 mb-3.5 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+          <div>
+            <h1 class="text-lg sm:text-xl font-bold text-[#1e3a5f] tracking-tight leading-tight">
+              Registro De Sesión De Tutoría — 2º ESO
+            </h1>
+            <p class="text-xs text-slate-600 font-medium mt-0.5">
+              Seguimiento académico, personal y de convivencia con familias
+            </p>
+          </div>
+
+          <div class="flex flex-wrap sm:flex-col items-start sm:items-end gap-1 text-xs font-semibold text-slate-800 shrink-0">
+            <div class="flex items-center gap-1">
+              <span class="text-[#1e3a5f]">Curso:</span>
+              <span>20</span>
+              <input type="text" name="curso_inicio" maxlength="2" placeholder="__"
+                class="w-7 text-center font-semibold text-slate-900 bg-slate-50 border-b border-slate-400 focus:border-[#1e3a5f] focus:bg-blue-50/40 focus:outline-none">
+              <span>/ 20</span>
+              <input type="text" name="curso_fin" maxlength="2" placeholder="__"
+                class="w-7 text-center font-semibold text-slate-900 bg-slate-50 border-b border-slate-400 focus:border-[#1e3a5f] focus:bg-blue-50/40 focus:outline-none">
+            </div>
+            <div class="flex items-center gap-1">
+              <span class="text-[#1e3a5f]">Grupo:</span>
+              <span>2.º ESO</span>
+              <input type="text" name="grupo" maxlength="4" placeholder="____"
+                class="w-10 text-center font-semibold text-slate-900 bg-slate-50 border-b border-slate-400 focus:border-[#1e3a5f] focus:bg-blue-50/40 focus:outline-none uppercase">
+            </div>
+          </div>
+        </div>
+
+        <!-- 1. DATOS DE LA SESIÓN Y PARTICIPANTES -->
+        <section class="mb-3.5">
+          <div class="bg-[#1e3a5f] text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-t-sm">
+            1. DATOS DE LA SESIÓN Y PARTICIPANTES
+          </div>
+          <table class="w-full border-collapse border border-slate-400 text-xs">
+            <tbody>
+              <!-- Fila 1 -->
+              <tr class="border-b border-slate-400">
+                <td class="p-1.5 border-r border-slate-400 w-[55%]">
+                  <div class="flex items-center gap-1.5">
+                    <label for="alumno" class="font-bold text-[#1e3a5f] whitespace-nowrap">Alumno/a:</label>
+                    <input type="text" id="alumno" name="alumno" placeholder="Nombre y apellidos"
+                      class="w-full text-slate-900 bg-slate-50/70 px-1.5 py-0.5 rounded border border-slate-200 focus:border-[#1e3a5f] focus:bg-white focus:outline-none">
+                  </div>
+                </td>
+                <td class="p-1.5 w-[45%]">
+                  <div class="flex flex-wrap items-center gap-2">
+                    <div class="flex items-center gap-1">
+                      <label for="fecha" class="font-bold text-[#1e3a5f] whitespace-nowrap">Fecha:</label>
+                      <input type="date" id="fecha" name="fecha"
+                        class="text-slate-900 bg-slate-50/70 px-1.5 py-0.5 rounded border border-slate-200 focus:border-[#1e3a5f] focus:bg-white focus:outline-none">
+                    </div>
+                    <div class="flex items-center gap-1">
+                      <label for="hora" class="font-bold text-[#1e3a5f] whitespace-nowrap">Hora:</label>
+                      <input type="time" id="hora" name="hora"
+                        class="text-slate-900 bg-slate-50/70 px-1.5 py-0.5 rounded border border-slate-200 focus:border-[#1e3a5f] focus:bg-white focus:outline-none">
+                      <span class="text-slate-600">h</span>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <!-- Fila 2 -->
+              <tr class="border-b border-slate-400">
+                <td class="p-1.5 border-r border-slate-400">
+                  <div class="flex items-center gap-1.5">
+                    <label for="asistentes" class="font-bold text-[#1e3a5f] whitespace-nowrap">Asistentes y parentesco:</label>
+                    <input type="text" id="asistentes" name="asistentes" placeholder="Ej.: Madre, Padre, Alumno/a"
+                      class="w-full text-slate-900 bg-slate-50/70 px-1.5 py-0.5 rounded border border-slate-200 focus:border-[#1e3a5f] focus:bg-white focus:outline-none">
+                  </div>
+                </td>
+                <td class="p-1.5">
+                  <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
+                    <span class="font-bold text-[#1e3a5f]">Trimestre:</span>
+                    <label class="inline-flex items-center gap-1 cursor-pointer select-none">
+                      <input type="checkbox" name="trimestre_1" class="custom-checkbox">
+                      <span>1.º</span>
+                    </label>
+                    <label class="inline-flex items-center gap-1 cursor-pointer select-none">
+                      <input type="checkbox" name="trimestre_2" class="custom-checkbox">
+                      <span>2.º</span>
+                    </label>
+                    <label class="inline-flex items-center gap-1 cursor-pointer select-none">
+                      <input type="checkbox" name="trimestre_3" class="custom-checkbox">
+                      <span>3.º</span>
+                    </label>
+                  </div>
+                </td>
+              </tr>
+              <!-- Fila 3 -->
+              <tr class="bg-slate-50/40">
+                <td class="p-1.5 border-r border-slate-400">
+                  <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
+                    <span class="font-bold text-[#1e3a5f]">Modalidad:</span>
+                    <label class="inline-flex items-center gap-1.5 cursor-pointer select-none">
+                      <input type="checkbox" name="modalidad_presencial" class="custom-checkbox">
+                      <span>Presencial</span>
+                    </label>
+                    <label class="inline-flex items-center gap-1.5 cursor-pointer select-none">
+                      <input type="checkbox" name="modalidad_telematica" class="custom-checkbox">
+                      <span>Telemática (Videollamada / Tel.)</span>
+                    </label>
+                  </div>
+                </td>
+                <td class="p-1.5">
+                  <div class="flex flex-wrap items-center gap-x-2.5 gap-y-1">
+                    <span class="font-bold text-[#1e3a5f]">Solicitada por:</span>
+                    <label class="inline-flex items-center gap-1 cursor-pointer select-none">
+                      <input type="checkbox" name="solicitada_tutor" class="custom-checkbox">
+                      <span>Tutor/a</span>
+                    </label>
+                    <label class="inline-flex items-center gap-1 cursor-pointer select-none">
+                      <input type="checkbox" name="solicitada_familia" class="custom-checkbox">
+                      <span>Familia</span>
+                    </label>
+                    <label class="inline-flex items-center gap-1 cursor-pointer select-none">
+                      <input type="checkbox" name="solicitada_orientacion" class="custom-checkbox">
+                      <span>Orientación</span>
+                    </label>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- 2. TEMAS TRATADOS Y ANOTACIONES DE LA ENTREVISTA -->
+        <section class="mb-3.5">
+          <div class="bg-[#1e3a5f] text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-t-sm">
+            2. TEMAS TRATADOS Y ANOTACIONES DE LA ENTREVISTA
+          </div>
+          <table class="w-full border-collapse border border-slate-400 text-xs">
+            <thead>
+              <tr class="bg-slate-100 text-[#1e3a5f] border-b border-slate-400">
+                <th class="text-left font-bold px-2.5 py-1.5 border-r border-slate-400 w-[26%]">Ámbito / Tema</th>
+                <th class="text-left font-bold px-2.5 py-1.5 w-[74%]">Anotaciones e información aportada</th>
+              </tr>
+            </thead>
+            <tbody id="temas-tbody" class="divide-y divide-slate-400">
+              <!-- Filas generadas por JS -->
+            </tbody>
+          </table>
+        </section>
+
+        <!-- 3. ACUERDOS Y COMPROMISOS -->
+        <section class="mb-3.5">
+          <div class="bg-[#1e3a5f] text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-t-sm">
+            3. ACUERDOS Y COMPROMISOS
+          </div>
+          <table class="w-full border-collapse border border-slate-400 text-xs">
+            <thead>
+              <tr class="bg-slate-100 text-[#1e3a5f] border-b border-slate-400">
+                <th class="text-left font-bold px-2.5 py-1.5 border-r border-slate-400 w-[48%]">Actuación acordada</th>
+                <th class="text-left font-bold px-2.5 py-1.5 border-r border-slate-400 w-[30%]">Responsable (Familia / Alumno / Centro)</th>
+                <th class="text-left font-bold px-2.5 py-1.5 w-[22%]">Plazo / Revisión</th>
+              </tr>
+            </thead>
+            <tbody id="acuerdos-tbody" class="divide-y divide-slate-400">
+              <!-- 3 filas iniciales -->
+            </tbody>
+          </table>
+          <div class="no-print no-pdf flex justify-end mt-1.5">
+            <button type="button" onclick="addAgreementRow()" class="text-xs font-semibold text-[#1e3a5f] bg-slate-100 hover:bg-blue-50 border border-slate-300 px-2.5 py-1 rounded transition cursor-pointer">
+              + Añadir fila de acuerdo
+            </button>
+          </div>
+        </section>
+
+        <!-- 4. SEGUIMIENTO Y VALIDACIÓN -->
+        <section>
+          <div class="bg-[#1e3a5f] text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-t-sm">
+            4. SEGUIMIENTO Y VALIDACIÓN
+          </div>
+          <table class="w-full border-collapse border border-slate-400 text-xs">
+            <tbody>
+              <tr class="divide-x divide-slate-400">
+                <!-- Columna 1 -->
+                <td class="p-2 align-top w-[34%] bg-slate-50/40">
+                  <div class="font-bold text-[#1e3a5f] mb-1.5">Derivación / Comunicación interna:</div>
+                  <div class="space-y-1">
+                    <label class="flex items-center gap-1.5 cursor-pointer select-none">
+                      <input type="checkbox" name="derivacion_no_procede" class="custom-checkbox">
+                      <span>No procede</span>
+                    </label>
+                    <label class="flex items-center gap-1.5 cursor-pointer select-none">
+                      <input type="checkbox" name="derivacion_orientacion" class="custom-checkbox">
+                      <span>Departamento de Orientación</span>
+                    </label>
+                    <label class="flex items-center gap-1.5 cursor-pointer select-none">
+                      <input type="checkbox" name="derivacion_jefatura" class="custom-checkbox">
+                      <span>Jefatura de Estudios</span>
+                    </label>
+                    <label class="flex items-center gap-1.5 cursor-pointer select-none">
+                      <input type="checkbox" name="derivacion_equipo_docente" class="custom-checkbox">
+                      <span>Equipo docente</span>
+                    </label>
+                  </div>
+                </td>
+
+                <!-- Columna 2 -->
+                <td class="p-2 align-top w-[30%]">
+                  <div class="flex items-center justify-between mb-1">
+                    <span class="font-bold text-[#1e3a5f]">Firma del Tutor/a:</span>
+                    <button type="button" onclick="clearSignature('tutor')" class="no-print no-pdf text-[11px] text-slate-500 hover:text-rose-600 underline cursor-pointer">
+                      Borrar
+                    </button>
+                  </div>
+                  <div class="border border-slate-300 rounded overflow-hidden mb-1.5">
+                    <canvas id="canvas-tutor" class="signature-canvas w-full h-16 block"></canvas>
+                  </div>
+                  <div class="flex items-center gap-1">
+                    <label for="nombre_tutor" class="text-[11px] font-semibold text-slate-600 whitespace-nowrap">Fdo.:</label>
+                    <input type="text" id="nombre_tutor" name="nombre_tutor" placeholder="Nombre del tutor/a"
+                      class="w-full text-[11px] text-slate-900 bg-slate-50/70 px-1.5 py-0.5 border-b border-slate-300 focus:border-[#1e3a5f] focus:bg-white focus:outline-none">
+                  </div>
+                </td>
+
+                <!-- Columna 3 -->
+                <td class="p-2 align-top w-[36%]">
+                  <div class="flex items-center justify-between mb-1 gap-1">
+                    <span class="font-bold text-[#1e3a5f] leading-tight">Firma de la Familia (o validación telemática):</span>
+                    <button type="button" onclick="clearSignature('familia')" class="no-print no-pdf text-[11px] text-slate-500 hover:text-rose-600 underline shrink-0 cursor-pointer">
+                      Borrar
+                    </button>
+                  </div>
+                  <div class="border border-slate-300 rounded overflow-hidden mb-1.5">
+                    <canvas id="canvas-familia" class="signature-canvas w-full h-16 block"></canvas>
+                  </div>
+                  <label class="flex items-start gap-1.5 cursor-pointer select-none text-[11px] leading-tight text-slate-700">
+                    <input type="checkbox" name="validacion_telematica" class="custom-checkbox mt-0.5">
+                    <span>Acuerdo confirmado verbalmente en sesión telemática</span>
+                  </label>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+      </div>
+    </form>
+  </main>
+
+  <script>
+    const STORAGE_KEY = 'registro_tutoria_2eso_pdf_v1';
+
+    const AMBITOS_OFICIALES = [
+      { id: 'rendimiento', label: 'Rendimiento académico' },
+      { id: 'habitos', label: 'Hábitos de estudio' },
+      { id: 'actitud', label: 'Actitud y convivencia' },
+      { id: 'asistencia', label: 'Asistencia y puntualidad' },
+      { id: 'pantallas', label: 'Uso de pantallas y ocio' },
+      { id: 'motivacion', label: 'Motivación y ámbito personal' },
+      { id: 'apoyos', label: 'Apoyos y otros asuntos' }
+    ];
+
+    const signaturePads = {};
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderTemasTable();
+      renderInitialAgreements(3);
+      initSignaturePad('tutor', 'canvas-tutor');
+      initSignaturePad('familia', 'canvas-familia');
+      loadFromLocalStorage();
+      attachAutoSaveListeners();
+    });
+
+    function renderTemasTable() {
+      const tbody = document.getElementById('temas-tbody');
+      tbody.innerHTML = AMBITOS_OFICIALES.map(item => `
+        <tr class="hover:bg-slate-50/60 transition-colors">
+          <td class="px-2.5 py-1.5 border-r border-slate-400 align-top bg-slate-50/40">
+            <label class="flex items-start gap-2 cursor-pointer select-none font-medium text-slate-800">
+              <input type="checkbox" name="tema_check_${item.id}" class="custom-checkbox mt-0.5">
+              <span class="leading-snug">${item.label}</span>
+            </label>
+          </td>
+          <td class="px-2 py-1 align-top">
+            <textarea
+              name="tema_nota_${item.id}"
+              rows="1"
+              placeholder="Escribe aquí las anotaciones..."
+              oninput="autoExpand(this)"
+              class="w-full text-slate-900 bg-transparent px-1 py-0.5 rounded focus:bg-blue-50/30 focus:outline-none leading-snug resize-none overflow-hidden block"
+            ></textarea>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function renderInitialAgreements(count) {
+      const tbody = document.getElementById('acuerdos-tbody');
+      tbody.innerHTML = '';
+      for (let i = 0; i < count; i++) {
+        addAgreementRow(false);
+      }
+    }
+
+    function addAgreementRow(shouldSave = true) {
+      const tbody = document.getElementById('acuerdos-tbody');
+      const rowIndex = tbody.children.length;
+      const tr = document.createElement('tr');
+      tr.className = 'agreement-row hover:bg-slate-50/60 transition-colors';
+      tr.innerHTML = `
+        <td class="px-2 py-1 border-r border-slate-400 align-top">
+          <textarea
+            data-col="actuacion"
+            rows="1"
+            placeholder="Describe el compromiso..."
+            oninput="autoExpand(this); saveToLocalStorage();"
+            class="w-full text-slate-900 bg-transparent px-1 py-0.5 rounded focus:bg-blue-50/30 focus:outline-none leading-snug resize-none overflow-hidden block"
+          ></textarea>
+        </td>
+        <td class="px-2 py-1 border-r border-slate-400 align-top">
+          <textarea
+            data-col="responsable"
+            rows="1"
+            placeholder="Familia / Alumno / Centro"
+            oninput="autoExpand(this); saveToLocalStorage();"
+            class="w-full text-slate-900 bg-transparent px-1 py-0.5 rounded focus:bg-blue-50/30 focus:outline-none leading-snug resize-none overflow-hidden block"
+          ></textarea>
+        </td>
+        <td class="px-2 py-1 align-top">
+          <div class="flex items-start gap-1">
+            <textarea
+              data-col="plazo"
+              rows="1"
+              placeholder="Plazo"
+              oninput="autoExpand(this); saveToLocalStorage();"
+              class="w-full text-slate-900 bg-transparent px-1 py-0.5 rounded focus:bg-blue-50/30 focus:outline-none leading-snug resize-none overflow-hidden block"
+            ></textarea>
+            ${rowIndex >= 3 ? `
+              <button type="button" onclick="removeAgreementRow(this)" title="Eliminar fila" class="no-print no-pdf text-slate-400 hover:text-rose-600 px-1 py-0.5 text-xs font-bold cursor-pointer">
+                ✕
+              </button>
+            ` : ''}
+          </div>
+        </td>
+      `;
+      tbody.appendChild(tr);
+      if (shouldSave) saveToLocalStorage();
+    }
+
+    function removeAgreementRow(button) {
+      const row = button.closest('tr');
+      if (row) {
+        row.remove();
+        saveToLocalStorage();
+      }
+    }
+
+    function autoExpand(field) {
+      field.style.height = 'auto';
+      field.style.height = field.scrollHeight + 'px';
+    }
+
+    function expandAllTextareas() {
+      document.querySelectorAll('textarea').forEach(autoExpand);
+    }
+
+    function initSignaturePad(key, canvasId) {
+      const canvas = document.getElementById(canvasId);
+      const ctx = canvas.getContext('2d');
+      let drawing = false;
+      let hasStrokes = false;
+
+      function resizeCanvas() {
+        const prevData = hasStrokes ? canvas.toDataURL() : null;
+        const rect = canvas.getBoundingClientRect();
+        const ratio = Math.max(window.devicePixelRatio || 1, 1);
+        canvas.width = rect.width * ratio;
+        canvas.height = rect.height * ratio;
+        ctx.scale(ratio, ratio);
+        ctx.lineWidth = 1.8;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        ctx.strokeStyle = '#1e3a5f';
+
+        if (prevData) {
+          const img = new Image();
+          img.onload = () => ctx.drawImage(img, 0, 0, rect.width, rect.height);
+          img.src = prevData;
+        }
+      }
+
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+
+      function getCoords(e) {
+        const rect = canvas.getBoundingClientRect();
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+        return { x: clientX - rect.left, y: clientY - rect.top };
+      }
+
+      function startDraw(e) {
+        drawing = true;
+        hasStrokes = true;
+        const { x, y } = getCoords(e);
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        if (e.cancelable) e.preventDefault();
+      }
+
+      function draw(e) {
+        if (!drawing) return;
+        const { x, y } = getCoords(e);
+        ctx.lineTo(x, y);
+        ctx.stroke();
+        if (e.cancelable) e.preventDefault();
+      }
+
+      function endDraw() {
+        if (drawing) {
+          drawing = false;
+          saveToLocalStorage();
+        }
+      }
+
+      canvas.addEventListener('mousedown', startDraw);
+      canvas.addEventListener('mousemove', draw);
+      window.addEventListener('mouseup', endDraw);
+      canvas.addEventListener('touchstart', startDraw, { passive: false });
+      canvas.addEventListener('touchmove', draw, { passive: false });
+      canvas.addEventListener('touchend', endDraw);
+
+      signaturePads[key] = {
+        canvas,
+        ctx,
+        clear: () => {
+          const rect = canvas.getBoundingClientRect();
+          ctx.clearRect(0, 0, rect.width, rect.height);
+          hasStrokes = false;
+          saveToLocalStorage();
+        },
+        toDataURL: () => (hasStrokes ? canvas.toDataURL('image/png') : ''),
+        fromDataURL: (dataUrl) => {
+          const rect = canvas.getBoundingClientRect();
+          ctx.clearRect(0, 0, rect.width, rect.height);
+          if (!dataUrl) {
+            hasStrokes = false;
+            return;
+          }
+          const img = new Image();
+          img.onload = () => {
+            ctx.drawImage(img, 0, 0, rect.width, rect.height);
+            hasStrokes = true;
+          };
+          img.src = dataUrl;
+        }
+      };
+    }
+
+    function clearSignature(key) {
+      if (signaturePads[key]) signaturePads[key].clear();
+    }
+
+    // Exportación directa a PDF en 1 hoja A4 vertical
+    async function downloadPDF() {
+      const btn = document.getElementById('btn-download-pdf');
+      const originalText = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = '⏳ Generando PDF...';
+
+      const originalContainer = document.getElementById('sheet-container');
+      const clone = originalContainer.cloneNode(true);
+      clone.classList.add('pdf-export-mode');
+
+      // Copiar el dibujo de los canvas originales al clon
+      ['canvas-tutor', 'canvas-familia'].forEach(id => {
+        const origCanvas = document.getElementById(id);
+        const cloneCanvas = clone.querySelector('#' + id);
+        if (origCanvas && cloneCanvas) {
+          const img = document.createElement('img');
+          img.src = origCanvas.toDataURL('image/png');
+          img.style.width = '100%';
+          img.style.height = '54px';
+          img.style.objectFit = 'contain';
+          img.style.display = 'block';
+          cloneCanvas.replaceWith(img);
+        }
+      });
+
+      // Sincronizar estado de checkboxes en el clon
+      const origChecks = originalContainer.querySelectorAll('input[type="checkbox"]');
+      const cloneChecks = clone.querySelectorAll('input[type="checkbox"]');
+      origChecks.forEach((cb, i) => {
+        if (cloneChecks[i]) {
+          const box = document.createElement('span');
+          box.style.display = 'inline-flex';
+          box.style.alignItems = 'center';
+          box.style.justifyContent = 'center';
+          box.style.width = '13px';
+          box.style.height = '13px';
+          box.style.minWidth = '13px';
+          box.style.border = '1.5px solid #1e3a5f';
+          box.style.borderRadius = '2px';
+          box.style.fontSize = '10px';
+          box.style.fontWeight = 'bold';
+          box.style.lineHeight = '1';
+          box.style.marginTop = '1px';
+          if (cb.checked) {
+            box.style.backgroundColor = '#1e3a5f';
+            box.style.color = '#ffffff';
+            box.textContent = '✓';
+          } else {
+            box.style.backgroundColor = '#ffffff';
+          }
+          cloneChecks[i].replaceWith(box);
+        }
+      });
+
+      // Reemplazar inputs de texto/fecha/hora por texto renderizado
+      const origInputs = originalContainer.querySelectorAll('input:not([type="checkbox"])');
+      const cloneInputs = clone.querySelectorAll('input:not([type="checkbox"])');
+      origInputs.forEach((inp, i) => {
+        if (!cloneInputs[i]) return;
+        const span = document.createElement('span');
+        let val = inp.value.trim();
+        if (inp.type === 'date' && val) {
+          const parts = val.split('-');
+          if (parts.length === 3) val = `${parts[2]}/${parts[1]}/${parts[0]}`;
+        }
+        span.textContent = val || (inp.name === 'curso_inicio' || inp.name === 'curso_fin' ? '__' : inp.name === 'grupo' ? '____' : '');
+        span.style.fontWeight = (inp.name === 'curso_inicio' || inp.name === 'curso_fin' || inp.name === 'grupo') ? '600' : '400';
+        span.style.color = '#0f172a';
+        span.style.display = 'inline-block';
+        span.style.minWidth = inp.name === 'grupo' ? '28px' : '16px';
+        span.style.borderBottom = (inp.name === 'curso_inicio' || inp.name === 'curso_fin' || inp.name === 'grupo') ? '1px solid #334155' : 'none';
+        span.style.textAlign = (inp.name === 'curso_inicio' || inp.name === 'curso_fin' || inp.name === 'grupo') ? 'center' : 'left';
+        cloneInputs[i].replaceWith(span);
+      });
+
+      // Reemplazar textareas por divs con saltos de línea preservados
+      const origTextareas = originalContainer.querySelectorAll('textarea');
+      const cloneTextareas = clone.querySelectorAll('textarea');
+      origTextareas.forEach((ta, i) => {
+        if (!cloneTextareas[i]) return;
+        const div = document.createElement('div');
+        div.textContent = ta.value;
+        div.style.whiteSpace = 'pre-wrap';
+        div.style.wordBreak = 'break-word';
+        div.style.minHeight = '18px';
+        div.style.lineHeight = '1.3';
+        div.style.color = '#0f172a';
+        cloneTextareas[i].replaceWith(div);
+      });
+
+      // Contenedor temporal fuera de pantalla para renderizar sin parpadeos
+      const host = document.createElement('div');
+      host.style.position = 'fixed';
+      host.style.left = '-9999px';
+      host.style.top = '0';
+      host.appendChild(clone);
+      document.body.appendChild(host);
+
+      // Escalar ligeramente si supera la altura útil de una hoja A4 (1040px aprox a 96dpi)
+      const maxA4HeightPx = 1045;
+      const currentHeight = clone.scrollHeight;
+      if (currentHeight > maxA4HeightPx) {
+        const scale = Math.max(0.72, maxA4HeightPx / currentHeight);
+        clone.style.zoom = scale;
+      }
+
+      const alumnoVal = document.getElementById('alumno').value.trim();
+      const safeName = alumnoVal
+        ? alumnoVal.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-zA-Z0-9_-]+/g, '_')
+        : 'Alumno';
+      const filename = `Ficha_Tutoria_2ESO_${safeName}.pdf`;
+
+      const opt = {
+        margin: [4, 4, 4, 4],
+        filename: filename,
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true, logging: false },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+        pagebreak: { mode: ['avoid-all'] }
+      };
+
+      try {
+        await html2pdf().set(opt).from(clone).save();
+        showToast('PDF descargado correctamente');
+      } catch (err) {
+        console.error('Error generando PDF:', err);
+        showToast('No se pudo generar el PDF automáticamente', true);
+      } finally {
+        document.body.removeChild(host);
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+      }
+    }
+
+    // Autoguardado en localStorage
+    function collectFormData() {
+      const form = document.getElementById('tutoria-form');
+      const fields = {};
+      form.querySelectorAll('input[name], textarea[name]').forEach(el => {
+        fields[el.name] = el.type === 'checkbox' ? el.checked : el.value;
+      });
+
+      const agreements = [];
+      document.querySelectorAll('#acuerdos-tbody .agreement-row').forEach(row => {
+        agreements.push({
+          actuacion: row.querySelector('[data-col="actuacion"]').value,
+          responsable: row.querySelector('[data-col="responsable"]').value,
+          plazo: row.querySelector('[data-col="plazo"]').value
+        });
+      });
+
+      return {
+        fields,
+        agreements,
+        signatures: {
+          tutor: signaturePads.tutor ? signaturePads.tutor.toDataURL() : '',
+          familia: signaturePads.familia ? signaturePads.familia.toDataURL() : ''
+        }
+      };
+    }
+
+    function applyFormData(data) {
+      if (!data || !data.fields) return;
+      const form = document.getElementById('tutoria-form');
+
+      Object.entries(data.fields).forEach(([name, value]) => {
+        const el = form.elements[name];
+        if (!el) return;
+        if (el.type === 'checkbox') el.checked = Boolean(value);
+        else el.value = value ?? '';
+      });
+
+      if (Array.isArray(data.agreements) && data.agreements.length > 0) {
+        renderInitialAgreements(Math.max(3, data.agreements.length));
+        const rows = document.querySelectorAll('#acuerdos-tbody .agreement-row');
+        data.agreements.forEach((item, idx) => {
+          if (rows[idx]) {
+            rows[idx].querySelector('[data-col="actuacion"]').value = item.actuacion || '';
+            rows[idx].querySelector('[data-col="responsable"]').value = item.responsable || '';
+            rows[idx].querySelector('[data-col="plazo"]').value = item.plazo || '';
+          }
+        });
+      }
+
+      if (data.signatures) {
+        if (signaturePads.tutor) signaturePads.tutor.fromDataURL(data.signatures.tutor || '');
+        if (signaturePads.familia) signaturePads.familia.fromDataURL(data.signatures.familia || '');
+      }
+
+      expandAllTextareas();
+    }
+
+    function saveToLocalStorage() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(collectFormData()));
+        const statusEl = document.getElementById('autosave-status');
+        if (statusEl) {
+          const now = new Date().toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
+          statusEl.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Guardado (${now})`;
+        }
+      } catch (e) {}
+    }
+
+    function loadFromLocalStorage() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) applyFormData(JSON.parse(raw));
+      } catch (e) {}
+    }
+
+    function attachAutoSaveListeners() {
+      const form = document.getElementById('tutoria-form');
+      form.addEventListener('input', saveToLocalStorage);
+      form.addEventListener('change', saveToLocalStorage);
+    }
+
+    function openClearModal() {
+      const modal = document.getElementById('clear-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeClearModal() {
+      const modal = document.getElementById('clear-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function confirmClearForm() {
+      document.getElementById('tutoria-form').reset();
+      renderInitialAgreements(3);
+      clearSignature('tutor');
+      clearSignature('familia');
+      expandAllTextareas();
+      localStorage.removeItem(STORAGE_KEY);
+      closeClearModal();
+      showToast('Ficha limpiada por completo');
+    }
+
+    let toastTimeout;
+    function showToast(message, isError = false) {
+      const toast = document.getElementById('toast');
+      const msgEl = document.getElementById('toast-message');
+      const iconEl = document.getElementById('toast-icon');
+
+      msgEl.textContent = message;
+      iconEl.textContent = isError ? '⚠' : '✓';
+      iconEl.className = isError ? 'text-rose-400 font-bold' : 'text-emerald-400 font-bold';
+
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
