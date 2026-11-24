@@ -715,11 +715,17 @@
         clone.style.zoom = scale;
       }
 
-      const alumnoVal = document.getElementById('alumno').value.trim();
-      const safeName = alumnoVal
-        ? alumnoVal.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-zA-Z0-9_-]+/g, '_')
-        : 'Alumno';
-      const filename = `Ficha_Tutoria_2ESO_${safeName}.pdf`;
+const alumnoVal = document.getElementById('alumno').value.trim();
+const safeName = alumnoVal
+  ? alumnoVal.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-zA-Z0-9_-]+/g, '_')
+  : 'Alumno';
+
+const fechaVal = document.getElementById('fecha').value.trim();
+const safeFecha = fechaVal
+  ? fechaVal.replace(/[^a-zA-Z0-9_-]+/g, '-') // Reemplaza barras '/' por guiones '-' para evitar errores en el nombre de archivo
+  : new Date().toISOString().split('T')[0]; // Fecha de hoy (YYYY-MM-DD) si está vacío
+
+const filename = `Ficha_Tutoria_2ESO_${safeName}_${safeFecha}.pdf`;
 
       const opt = {
         margin: [4, 4, 4, 4],
